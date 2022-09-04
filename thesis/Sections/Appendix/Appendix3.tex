@@ -1,0 +1,43 @@
+\section{Plus Distributions}\label{sec:Appendix Plus Distributions}
+The plus distribution is a vital mathematical construct that is widely used in both fixed order and resummation calculations. On the most general form, a plus distribution is defined as
+\begin{align}
+    f_{+}(x)\equiv\lim_{\alpha\rightarrow 0}\Big(f(x)\theta(1-\alpha-x)-\delta(1-\alpha-x)\int_{0}^{1-\alpha}dy\,f(y)\Big)\,,
+\end{align}
+where $f(x)$ is singular for $x=1$. It is a distribution, so it is meant to act inside integrals. Hence, integrated with an analytic function on the domain $x\in[0,1]$, it works as
+\begin{align}\label{eq:plus distribution convolution}
+    \int_{0}^{1}dx\,f_{+}(x)g(x)=\int_{0}^{1}dx\,f(x)(g(x)-g(1))\,,
+\end{align}
+and has the useful property
+\begin{align}\label{eq:plus distribution integrated over unity}
+    \int_{0}^{1}dx\,f_{+}(x)=0\,.
+\end{align}
+
+In the case where the lower limit is not zero, this is evaluated as
+\begin{align}
+    \int_{z}^{1}dx\,f_{+}g(x)=\int_{0}^{1}dx\,f(x)(g(x)-g(1))+g(1)\ln(1-x)\,.
+\end{align}
+
+These are general considerations, but let us look at a specific case we use in this thesis. In dimensional regularization, we often encounter terms like
+\begin{align}
+    (1-x)^{-1-\epsilon}\,,
+\end{align}
+which diverges in the limit where $z\rightarrow 1$ and $\epsilon\rightarrow 0$. But the perturbative calculable functions are not the observables we are studying directly. We are integrating perturbative functions with analytic parton distribution functions, which allows us to do several manipulations. The integrals we encounter are
+\begin{align}
+    \mathcal{I}(x,\epsilon)=\int_{0}^{1}dx\,g(x)(1-x)^{-1-\epsilon}\,,
+\end{align}
+and as long as $g(x)$ does not converge towards $\mathcal{O}(1-z)$ near $z=1$ this diverges. To treat this we simply add zero to the integral in the following way
+\begin{align}
+    \mathcal{I}(x,\epsilon)=\int_{0}^{1}dx\,g(1)(1-x)^{-1-\epsilon}+\int_{0}^{1}dx\,\big(g(x)-g(1)\big)(1-x)^{-1-\epsilon}\,.
+\end{align}
+and use the beta integral to write
+\begin{align}
+    \int_{0}^{1}dx\,(1-x)^{-1-\epsilon}=-\frac{1}{\epsilon}\,,
+\end{align}
+giving the expansion in $\epsilon$
+\begin{align}
+    \mathcal{I}(x,\epsilon)=-\frac{1}{\epsilon}g(1)+\int_{0}^{1}dx\,\big(g(x)-g(1)\big)\Big[\frac{1}{1-z}-\frac{\ln(1-z)}{1-z}\epsilon+\mathcal{O}(\epsilon^{2})\Big]\,.
+\end{align}
+If we use \cref{eq:plus distribution convolution}, we have that
+\begin{align}
+    \mathcal{I}(x,\epsilon)=\int_{0}^{1}dx\,g(x)\Big[-\frac{1}{\epsilon}\delta(1-x)+\frac{1}{1-z}_{+}-\epsilon\Big(\frac{\ln(1-z)}{1-z}\Big)_{+}+\mathcal{O}(\epsilon^{2})\Big]\,.
+\end{align}

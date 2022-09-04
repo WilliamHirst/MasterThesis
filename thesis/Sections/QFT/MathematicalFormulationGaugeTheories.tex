@@ -1,0 +1,657 @@
+\chapter{Geometry of Gauge Theories and Wilson Lines}\label{chap:Geometry of gauge theories}
+
+The notion of gauge invariance was first presented by Hermann Weyl in 1918 when he tried to unify electromagnetism with gravity from his own purely infinitesimal geometry. This unification was met with scepticism by other physicists as it lead to unphysical results, and Weyl first abandoned the idea. The problem in Weyl's gauge theory was that he looked at transformations of the metric, but as Weyl himself and others pointed out a decade later, the transformation had to be performed on the fields. Based on this formalism Wolfgang Pauli presented the first widely recognized gauge theory in 1941  \cite{RevModPhys.13.203}. Pauli also tried to generalize this to higher dimensional internal spaces, but could not find a way of giving mass to the gauge fields, so he figured this was a dead end and did not publish any of his results. An almost complete generalization of these concepts came about in 1954 by C.N.Yang and R.L.Mills, called Yang-Mills theories  \cite{PhysRev.96.191}. Yang and Mills encountered the same problems as Pauli related to the mass of the gauge fields, but they figured their idea was so important they published it either way\footnote{According to Yang, Pauli was furious when Yang presented his and Mills ideas and could not explain why the gauge bosons were massless.}. The problem of gauge boson masses were solved after the introduction of the \emph{Higgs mechanism}. Hence, Yang-Mills theories is the basis of one of the most successfull theories in all of physics, namely the \emph{Standard Model} of particle physics.
+
+
+\medskip
+In this chapter we will not take the same approach as Yang and Mills, where they generalized $U(1)$ invariance to $SU(N)$. We will instead derive Yang-Mills theories from completely geometrical concepts. To this end, we will introduce the mathematical language known as \emph{fibre bundle theory}. The theory of fibre bundles is purely mathematical and is intriguing in its own sense, but it also plays a prominent role in modern theoretical physics. Fundamental theories, like General Relativity and the Standard Model, are gauge field theories and the theory of fibre bundles provides a natural mathematical framework for these theories. The framework provides a clear separation between the kinematics and the dynamics of the theory. The kinematics is provided by the structure of the base manifold---in physics this represents spacetime---and the dynamics by the identification of a Lagrangian. In the case of the Standard Model, the internal symmetries of the Lagrangian, is made by a local construction of a fibre bundle with the fibre being the symmetry group $G$. From this construction the notion of sections, connection and curvature can be defined on the bundle, which represents physical fields in spacetime. After we have introduced the basic concepts and the structure that follows from fibre bundle theory, we will make use of them by constructing Wilson lines and Wilson loops. By using Wilson lines and Wilson loops we can construct the Yang-Mills Lagrangian.
+
+There is of course much more to be said than we cover here, so we refer the reader to \cite{Carroll:2004st,Zee:2016fuk,Hamilton:2017gbn,Nakahara:2003nw} for a more elaborate treatment on differential geometry, fibre bundle theory and Wilson lines.
+
+\section{Mathematical Concepts in Gauge Theories}
+Before introducing fibre bundle theory and its relation with gauge theories, it is instructive to review some basic concepts from differential geometry and group theory as manifolds, tangent spaces, connections, curvature, Lie groups and Lie algebras. The objective here is not to dive into all the fundamental details, but a brief introduction to the most important concepts. We should mention that in order to follow the definition of the Wilson line and Wilson loop in \cref{sec:Wilson lines and Wilson loops}, the mathematical details of fibre bundle theory and differential geometry is strictly not needed. So the reader can jump straight to \cref{sec:Wilson lines and Wilson loops} and start from there. We will refer to the equations that we explicitly use, which can be sought out if necessary. 
+
+
+\subsection{Basics in Differential
+Geometry}\label{sec:Basics in differential geometry}
+In this section we will briefly cover the basic concepts of a manifold, tangent space, contangent space, differential forms, Lie groups and Lie algebras, curvature, covariant derivative and parallel transport. As previously mentioned, the details are not at the level of mathematical rigour. We aim to introduce the simplest explanations and nomenclature that we will use throughout the chapter.
+
+\subsection*{Manifold}
+The concept of Manifolds is central in almost all theories of modern physics, from general relativity to quantum field theories, so we will have to define what a manifold is:
+
+\begin{mydef}{Manifold}{}
+Suppose $M$ is a topological space, then $M$ is a topological manifold if it has the following properties:
+\begin{itemize}
+    \item $M$ is a Hausdorff space: For every pair of points $x,y$ $\in$ $M$, there are disjoint open subsets U,V $\in$ $M$ such that $x$ $\in$ $U$ and $y$ $\in$ $V$
+    \item $M$ is second countable: There exists a countable basis for the topology of $M$
+    \item $M$ is locally Euclidean of dimension $n$: Every point has a neighborhood that is homeomorphic to an open subset of $\mathbb{R}^{n}$
+\end{itemize}
+\end{mydef}\noindent
+In general the manifold might have a complicated global structure, but the defining property is to be homeomorphic to $\mathbb{R}^{n}$. The homeomorphism $\phi_{i}$ from $M$ to an open subset $U_{i}$ of $\mathbb{R}^{n}$ is called a chart
+\begin{align}
+    \phi_{i}:M\rightarrow U_{i}\in \mathbb{R}^{n}\,,
+\end{align}
+which permits us to assign co-ordinates to the manifold using those from $U_{i}$. Because a manifold in general globally differs from $\mathbb{R}^{n}$, we need to provide sets of charts $(U_i,\phi)$, called an open covering, such that all of $M$ is covered. Transitions between charts is described by smooth transition functions defined by
+\begin{align}
+    \phi_{i}\circ\phi^{-1}_{j}:U_{i}\rightarrow U_{j}\,,
+\end{align}
+which may be denoted as $\phi_{ij}$. Finally one needs to define some properties of the transition functions in case there is a overlap of the charts, so
+\begin{align}
+    \phi_{ii}&=\text{id}_{U_{i}}
+    \\
+    \phi_{ij}&=\phi^{-1}_{ji}
+    \\
+    \phi_{ik}&=\phi_{ij}\circ\phi_{jk}\,.
+\end{align}
+The above description may seem a little abstract, so what we basically mean and what is most relevant for our purposes is: a manifold $M$ is a set that can be continously parametrized. The number of independent parameters needed to specify uniquely any point of $M$ is its dimension $n$, and these parameters $x=\{x^{1},\hdots,x^{n}\}$ are called co-ordinates. Manifolds are then a generalization of the familiar space $\mathbb{R}^{n}$, in the sense that they can be viewed as smooth surfaces which locally look like $\mathbb{R}^{n}$, but in general has a completely different global structure. We demand the manifold to be smooth, i.e the transition from one set of co-ordinates to another $x^{i}=f(\tilde{x}^{i},\hdots,\tilde{x}^{n})$, is $C^{\infty}$\footnote{This means infinitely differentiable.}. A simple example of a manifold is the surface $S^{2}$ of a sphere in $\mathbb{R}^{3}$. Even if the sphere is in $\mathbb{R}^{3}$, the surface is a two dimensional manifold, because it locally looks like $\mathbb{R}^{2}$.
+
+\subsection*{Tangent Spaces and Differential Forms}
+A common type of field is what is called the tangent vector field, which assigns to each point $x\in M$ a vector $v(x)$ tangent to $M$. These vectors can be used to describe what is meant by vectors \textquote{moving} on the manifold. The space of all vectors tangent to $x\in M$ is a vector space, which is denoted as $T_{x}M$. An easy and visualizable example is again the surface of a sphere, $S^{2}$, where at every point on the surface there is a plane $T_{x}S^{2}$ that is tangent to $S^{2}$ at every point $x$.
+
+For a coordinate $x^{\mu}$ defined on some neighborhood on the manifold, there is a tangent vector $e_{\mu}\in T_{x}M$ pointing in the direction of $x^{\mu}$ on the manifold and denotes \textquote{travel} at unit speed. These vectors can be denoted by $e_{\mu}\equiv \partial_{\mu}$, from the correspondence with the differential operator. Thus any vector in the neighborhood can be expanded in this basis, so $v=v^{\mu}\partial_{\mu}$, and these vector fields are called co-ordinate basis fields for the neighborhood.
+
+Furthermore, to every tangent space $T_{x}M$ there is the notion of a dual space, called cotangent space $T^{*}_{x}M$. As it is dual to $T_{x}M$ it consists of linear maps $dx:T_{x}M\rightarrow \mathbb{R}$, such that
+\begin{align}
+    dx^{\mu}(\partial_{\nu})\equiv \delta^{\mu}_{\nu}\,,
+\end{align}
+and elements of the cotangent space $T^{*}_{x}M$ are called covectors or one-forms.
+
+In the same sense that a vector field is a function that at each point in the manifold assigns a vector $v(x)$ in the tangent space $T_{x}M$, a one-form is a map $w$ which takes a point $x$ on the manifold to an element $w(x)$ of the corresponding cotangent space $T^{*}_{x}M$. In order to define $n$-forms we must first define a wedge product. For two elements of a vector space $v,u\in V$, their wedge product is defined as
+\begin{align}
+    v\wedge u\equiv\frac{1}{2}(vu-uv)\,,
+\end{align}
+which can be generalized to a wedge product for $n$-vectors, called the $n$th exterior product of $V$ and is a vector space denoted $\Lambda(V)$. A $n$-form is a map $w:M\rightarrow \Lambda^{n}(T^{*}M)$, which takes a point $x$ on the manifold $M$ to an element of $\Lambda^{n}(T^{*}M)$. We also have that a one-form can be expanded in the dual basis $dx^{\mu}$ of the cotangent space $T^{*}_{x}M$ in the following way
+\begin{align}
+    w=w_{\mu}dx^{\mu}\,,
+\end{align}
+where $w_{\mu}$ is the local co-ordinate representation of a one-form. Similarly a two-form may be expanded as
+\begin{align}
+    \Omega=\Omega_{\mu\nu}dx^{\mu}\wedge dx^{\nu}\,,
+\end{align}
+and so on for higher forms. The set of all $n$-forms on a manifold $M$ is often denoted by $\Omega^{n}(M)$.
+
+\subsection*{Lie Groups and Lie Algebras}
+In this section a brief introduction of Lie groups an Lie algebras will be given. As all gauge theories involve invariance under some symmetry operation, it has a natural formulation in terms of groups. The groups of gauge theories have the structure of a manifold, and so the concept of Lie groups and Lie algebras are fundamental in gauge theories.
+
+%\medskip
+%Recall that a group $G$ is a set of elements $g$ satisfying:
+%\begin{itemize}
+%    \item $\exists\, e\in G\,\,\, \text{s.t} \,\,\,eg=g,\, \forall\, g\in G$
+%    \item $\forall\,\,g\in G, \,\exists\,g'\in G\,\,\,\text{s.t}\,\,\,g'g=e$
+%    \item $\forall\,g,g'\in G, \,\,gg'\in G$
+%\end{itemize}
+Let us begin by defining a Lie group:
+\medskip
+\begin{mydef}{Lie Group}{example}
+A Lie group $G$ is a group that is a finite-dimensional differentiable manifold, with the properties that the group operations are smooth. For group elements $g,g'\in G$ we specifically have that the product
+\begin{align}
+    \pi:\,G\times G&\rightarrow G\,,
+    \\
+    (g,g')&\mapsto g\cdot g'\,,
+\end{align}
+\textrm{and the inverse}
+\begin{align}
+    \rho:\,G&\rightarrow G\,,
+    \\
+    g&\mapsto g^{-1}\,,
+\end{align}
+\textrm{are smooth maps.}
+\end{mydef}\noindent
+Particularly important Lie groups in theoretical physics are the general linear groups $GL(n,V)$ of invertible $n\times n$ matrices. Some examples are the subgroups of $GL(n,V)$: the orthogonal group $O(n)$, the special orthogonal group $SO(n)$, the unitary group $U(n)$ and the special unitary group $SU(n)$. The special stands for the condition that the determinant of the matrices are one.
+
+The concept of homomorphism is important in study of Lie groups, and in group theory in general. A homomorphism of Lie groups is given by a map $\rho:G\rightarrow H$ between elements of the groups, such that $\forall$ $g$, $g'$ $\in$ $G$
+\begin{align}
+    \rho(g\cdot g')=\rho(g)\cdot\rho(g')\,.
+\end{align}
+As physicists we are interested in groups where the elements of the groups act on physical states, say a quantum field or a wavefunction. Hence, we want to \textquote{represent} Lie group elements by linear transformations on some vector space $V$. Such a mapping is called a Lie group representation, and is a group representation where we have a homomorphism of Lie groups $\rho:G\rightarrow GL(V)$. To be more specific we are interested in the map
+\begin{align}
+    \rho:G\times V&\rightarrow V\,,
+    \\
+    (g,v)&\mapsto \rho(g)v\,,\hspace{1cm}g\in G,v\in V\,.
+\end{align}
+The physical states are members of a vector field, and we want our group members to act on them. With the definition of a representation this makes the transformation properties of the group to be written in terms of matrices.
+
+Lie groups are complicated geometric objects and can be difficult to study directly, but the Lie algebra corresponding to a Lie group becomes important as it is closely related to the Lie group but easier to study.
+
+\medskip
+\begin{mydef}{Lie Algebra}{}
+A Lie algebra is a vector space with a skew-symmetric bilinear map $[\,,\,]:\mathfrak{g}\times\mathfrak{g}\rightarrow\mathfrak{g}$ called the Lie bracket, satisfying the Jacobi identity for $X,Y,Z$ $\in$ $\mathfrak{g}$
+\begin{align}
+    [X,[Y,Z]+[Y,[Z,X]]+[Z,[X,Y]]=0\,.
+\end{align}
+\end{mydef}\noindent
+It is because of this underlying vector space structure that the Lie algebra is easier to study than the Lie group itself. The Lie algebra encodes most of the group structure of the entire Lie group and many of the topological properties. If $G$ is a Lie group, then the Lie algebra $\mathfrak{g}$ of $G$ is the tangent space of the identity element of $G$, denoted $T_{e}G$.
+
+Since Lie groups have the structure of a manifold, we can consider vector fields on $G$. The vector fields of interest in connection with Lie algebras are left and right-invariant vector fields\footnote{We only cover left-invariant vector fields here.}. A vector field $V$ is said to be left-invariant if $L^{*}_{g}V=V$, $\forall$ g $\in$ $G$. The set of all left-invariant vector fields on a Lie group $G$ is denoted $L(G)$, and for any two left-invariant vector fields their Lie bracket is also a left-invariant vector field. This means that $L(G)$ is isomorphic to the Lie algebra $\mathfrak{g}$, hence $L(G)$ can be considered to be the Lie algebra of $G$. So, for two left-invariant vector fields $V,W$, and $v,w\in T_{e}G$ we have that $V(e)=v$ and $W(e)=w$, therefore we can define the Lie bracket $[u,w]\in T_{e}G$ as the unique element in $T_{e}G$, such that
+\begin{align}
+    [v,w]\equiv[V,W](e)\,,
+\end{align}
+which turns $T_{e}G$ into an algebra. It is then possible to define a homomorphism of Lie algebras as a linear map $\rho:\mathfrak{g}\rightarrow\mathfrak{h}$, such that
+\begin{align}
+    \rho([u,w])=[\rho(u),\rho(w)]\hspace{1cm}\forall\, u,v \in \mathfrak{g}\,.
+\end{align}
+
+One important property of Lie algebras is that if we have a basis set $\{M_{1},M_{2}\dots M_{n}\}$ for $L(G)\cong T_{e}G$, then the commutator of these fields must be equal to a linear combination of the fields, i.e we may write
+\begin{align}\label{eq:Lie commutator}
+    [M_{\alpha},M_{\beta}]=C_{\alpha\beta}^{\gamma}M_{\gamma}\,,
+\end{align}
+where $C_{\alpha\beta}^{\gamma}$ are real numbers. These numbers are called the structure constants of the Lie group, i.e. they characterize the structure of the group. 
+
+There is one important way of characterizing the Lie algebra $\mathfrak{g}$, via the exponential map. As we saw above the Lie algebra is the tangent space of the Lie group at the identity, thus one say that the Lie algebra gives a linearization of the Lie group near the identity. The exponential map can then be viewed as a delinearization, i.e. it take us back to the group. Thus we define:
+
+\begin{mydef}{Exponential map}{}
+The exponential map from the Lie algebra $\mathfrak{gl(n)}$ to the general Lie group $GL(n)$ is defined by
+\begin{align}
+    \exp:\mathfrak{gl}\rightarrow GL\,,
+\end{align}
+where
+\begin{align}
+    \exp(X)=\sum_{n=0}^{\infty}\frac{X^{n}}{n!}\,.
+\end{align}
+\end{mydef}\noindent
+We observe that this is just the definition of an exponential of a matrix X. For any subgroup of $GL$, the Lie algebra of that group can be mapped into the group from the exponential map, meaning that any group that can be written in term of matrices can be constructed from the algebra in this precise manner. As physicists we often want our group elements to act on complex vector spaces, thus in order to preserve the inner product on a Hilbert space these transformations must be unitary. It can be shown that for compact Lie groups it is always possible to choose the unitary representation. If the transformation is unitary it means that one multiplies the argument of the exponential with a factor $i$, and this forces the matrices $X$ to hermitian.
+
+\subsection*{Connection and Covariant Derivative}
+In physics one typically apply differential geometry by a setup where the underlying manifold represents all of spacetime, where fields on that manifold is used to describe physical quantities. In order to describe evolution of these physical quantities one needs a precise mathematical description of calculus on manifolds. In order to see why this is needed, let us look at the problems that arise when defining the derivative of a vector field. The naive definition is
+\begin{align}\label{eq:directional derivative vector field}
+    \partial_{\mu}v^{\nu}=\lim_{dx^{\mu}\to 0}\frac{v^{\nu}(x+dx)-v^{\nu}(x)}{dx^{\mu}}\,,
+\end{align}
+which is not correct as the term $v^{\nu}(x+dx)$ and $v^{\nu}(x)$ live in different tangent spaces, meaning that the subtraction can not be made in a meaningful way. %The issue can also be seen when investigating the transformation of the partial derivative of a vector field
+%\begin{align}
+%    \partial_{\mu}v^{\nu}&=\left((\partial_{\mu}\tilde{x}^{\sigma})\tilde{\partial}_{\sigma}\right)\left((\tilde{\partial}_{\rho}{x}^{\nu})\tilde{v}^{\rho}\right)\nonumber
+%    \\
+%    &=(\partial_{\mu}\tilde{x}^{\sigma})(\tilde{\partial}_{\rho}x^{\nu})\tilde{\partial}_{\sigma}\tilde{v}^{\rho}+(\partial_{\mu}\tilde{x}^{\sigma})(\tilde{\partial}_{\sigma}\tilde{\partial}_{\rho}x^{\nu})\tilde{v}^{\rho}\,,
+%\end{align}
+%which are not components of a $(1,1)$ tensor, i.e. this object does not transform as a tensor and are thus not covariant. 
+In order to properly define a derivative operator on a manifold, one needs to be able to compare tensors (fields) at different points. For this we need the concept of a linear connection.
+
+\medskip
+\begin{mydef}{Connection}{}
+A linear connection $\nabla$ is defined as a map which sends a pair of smooth vector fields $V,U$ to a new smooth vector field:
+\begin{align}
+    \nabla: V\text{,}U\mapsto \nabla_{V}U\,.
+\end{align}
+Satisfying the following requirements:
+\begin{align}
+    \nabla_{V}(U+W)&=\nabla_{V}U+\nabla_{V}(W)\,,
+    \\
+    \nabla_{fV+U}W&=f\nabla_{V}(W)+\nabla_{U}(W)\,,
+    \\
+    \nabla_{V}(f)&=V(f)\,,
+    \\
+    \nabla_{V}(fU)&=f\nabla_{V}(U)+V(f)U\,,
+\end{align}
+where $f$ is a function.
+\end{mydef}\noindent
+The object $\nabla_{V}U$ is named the covariant derivative of $U$ with respect to $V$. From the last requirement, which is the Leibnitz rule, $\nabla$ is not a tensor as it is not linear in $U$. However, as a map $\nabla U:V\mapsto \nabla_{V}U$, which is a linear map $T_{x}M\rightarrow T_{x}M$, $\nabla U$ is a $(1,1)$ tensor known as the covariant derivative of $U$.
+
+\medskip
+In general we want to decompose vectors into components, so we choose a basis $\{e_{\mu}\}$, which is a basis in the tangent space. The conventional approach is to choose basis vectors that are tangential vectors along the coordinate lines $x^{\mu}$ in $M$, so
+\begin{align}
+    e_{\mu}=\partial_{\mu}\,.
+\end{align}
+As defined above the object $\nabla_{\partial_{\mu}}$ is a map taking $\partial_{\mu}$ to some vector field, so we define
+\begin{align}
+    \nabla_{\partial_{\mu}}\partial_{\nu}\equiv\nabla_{\mu}\partial_{\nu}\,.
+\end{align}
+This is now a new vector field, which can be expanded as a linear combination of the basis vectors
+\begin{align}
+    \nabla_{\mu}\partial_{\nu}=\Gamma^{\sigma}_{\nu\mu}\partial_{\sigma}\,,
+\end{align}
+where $\Gamma^{\sigma}_{\nu\mu}$ are connection coefficients, also known as Christoffel symbols\footnote{Also known as components of the Levi-Civita connection.}. It can be shown that they do not transform as a tensor, so therefore the indices does not describe the components of a tensor. 
+
+We can now use our definition of the covariant derivative to see how it acts on vector fields described in terms of their components. Thus we write two vector fields in component form as $v=v^{\mu}\partial_{\mu}$ and $u=u^{\mu}\partial_{\mu}$, and then define what the covariant derivative on components are
+\begin{align}\label{eq:covariant derivative in terms of components}
+    \nabla_{v}u=(\nabla_{v}u)^{\mu}\partial_{\mu}\equiv(u^{\mu}_{\hspace{0.2cm};\nu}v^{\nu})\partial_{\mu}\,.
+\end{align}
+From the definition of the covariant derivative we can calculate the left hand side of \cref{eq:covariant derivative in terms of components},
+\begin{align}
+    (\nabla_{v}u)^{\mu}\partial_{\mu}&=\nabla_{v}(u^{\mu}\partial_{\mu})\nonumber
+    \\
+    &=v(u^{\mu}\partial_{\mu})+u^{\mu}(\nabla_{v}\partial_{\mu})\nonumber
+    \\
+    &=v^{\nu}\partial_{\nu}u^{\mu}\partial_{\mu}+u^{\mu}(\nabla_{(v^{\nu}\partial_{\nu})}\partial_{\mu})\nonumber
+    \\
+    &=\partial_{\nu}u^{\mu}v^{\nu}\partial_{\mu}+u^{\mu}(v^{\nu}\nabla_{\nu}\partial_{\mu})\nonumber
+    \\
+    &=\partial_{\nu}u^{\mu}v^{\nu}\partial_{\mu}+u^{\mu}(v^{\nu}\Gamma^{\sigma}_{\mu\nu}\partial_{\sigma})\,,
+\end{align}
+which mean we can write
+\begin{align}
+    (u^{\mu}_{\hspace{0.2cm};\nu}v^{\nu})\partial_{\mu}=\partial_{\nu}u^{\mu}v^{\nu}\partial_{\mu}+u^{\sigma}(v^{\nu}\Gamma^{\mu}_{\sigma\nu}\partial_{\mu})\,.
+\end{align}
+This is to hold for all $v^{\nu}$ and all $\partial_{\mu}$. Thus, the covariant derivative on a vector field in a co-ordinate induced basis is given by
+\begin{align}\label{Covariant Derivative levi civita}
+    \nabla_{\nu}u^{\mu}\equiv u^{\mu}_{\hspace{0.2cm};\nu}=\partial_{\nu}u^{\mu}+\Gamma^{\mu}_{\nu\sigma}u^{\sigma}\,,
+\end{align}
+i.e. if $\nabla$ is to obey the Leibnitz rule, it can be written as the partial derivative plus some linear transformation, where this linear transformation describes the correction in order to make the derivative covariant. Hence, for each direction $\mu$, the covariant $\nabla_{\mu}$ will be given by the partial derivative $\partial_{\mu}$ plus a correction specified by a set of $n$ matrices $(\Gamma_{\mu})^{\sigma}_{\hspace{0.2cm}\nu}$, where $n$ is the dimension of the manifold.
+
+\subsection*{Parallel Transport and Curvature}
+Parallel transport is the curved space generalization of keeping a vector (tensor) constant as we move it along a path\footnote{Or, as we shall see for fibre bundles a path in internal space.}. The crucial difference between flat and curved spaces is that, in a curved space, the result of parallel transporting a vector from one point to another will depend on the path taken between the two points. In flat space, the requirement that a vector is constant as we move it along a curve $x^{\mu}(\lambda)$, is that the components are constant, and is expressed as
+\begin{align}
+    \frac{d}{d\lambda}v^{\sigma}=\frac{dx^{\mu}}{d\lambda}\partial_{\mu}v^{\sigma}=0\,.
+\end{align}
+As we have shown, the partial derivative of a vector is not tensorial, and therefore the generalization is to use the covariant derivative and define the directional covariant derivative
+\begin{align}
+    \frac{D}{d\lambda}\equiv \frac{dx^{\mu}}{d\lambda}\nabla_{\mu}=n^{\mu}\nabla_{\mu}\,,
+\end{align}
+where $n^{\mu}$ follows from the parametrization $x^{\mu}=\lambda n^{\mu}$. This is now a map from $(k,l)$ tensors to $(k,l)$ tensors, defined only along the path. For a general tensor $T$, we define the parallel transport of $T$ along $x^{\mu}(\lambda)$ to be the requirement that the directional covariant derivative of $T$ is zero
+\begin{align}
+    n^{\mu}\nabla_{\mu}T^{\mu_{1}\dots\mu_{k}}_{\hspace{1cm}\nu_{1}\dots\nu_{k}}=0\,,
+\end{align}
+which in particular, for a vector field, gives that
+\begin{align}
+    \frac{dv^{\mu}}{d\lambda}+\Gamma^{\mu}_{\alpha\beta}\frac{dx^{\alpha}}{d\lambda}v^{\beta}=0\,.
+\end{align}
+Hence, the requirement that the covariant derivative of a tensor in a direction which it is parallel transported is zero, gives that the covariant derivative of a tensor measures how much the tensor changes as it is parallel transported.
+
+\medskip
+Given what we now know of covariant derivatives and parallel transportation, we can investigate what curvature is. Given the paths $\lambda_{1}$ and $\lambda_{2}$ with the same endpoint $p$, then parallel transporting along these two paths are in general not the same. Thus, a vector being parallel transported around a loop will be transformed, but the resulting transformation will depend on the total curvature around the loop. Therefore it would be more convenient to have a local description of the curvature at each point, and this is what the Riemann curvature tensor provides.
+
+We can then consider parallel transportation around an infinitesimal loop, and as the manifold looks flat in sufficiently small regions, the loop will be specified by two infinitesimal vectors $a^{\mu}$ and $b^{\nu}$. First we parallel transport a vector $v^{\mu}$ in the direction of $a^{\mu}$, then along $b^{\nu}$, before moving backwards along $a^{\mu}$ and $b^{\nu}$, returning to the starting point. Since parallel transportation is independent of co-ordinates, there should be some tensor describing how much the vector changes when it comes back to its starting point. Instead of actually performing the calculation for the change of the vector as it is parallel transported, it is easier to look at the related operation of covariant derivatives. The commutator of two covariant derivatives compares the difference between parallel transporting a tensor along $a^{\mu}$, then along $y^{\nu}$, versus first along $b^{\nu}$ , then along $a^{\mu}$. In other words, the curvature is the measure of the failure of covariant derivatives to commute. The result of this operation on a vector is given by
+\begin{align}\label{eq:commutator of covariant derivative}
+    [\nabla_{\mu},\nabla_{\nu}]v^{\sigma}&=\big(\partial_{\mu}\Gamma^{\sigma}_{\nu\rho}-\partial_{\nu}\Gamma^{\sigma}_{\mu\rho}+\Gamma^{\sigma}_{\mu\alpha}\Gamma^{\alpha}_{\nu\rho}-\Gamma^{\sigma}_{\nu\alpha}\Gamma^{\alpha}_{\mu\rho}\big)v^{\rho}-2\Gamma^{\alpha}_{[\mu\nu]}\nabla_{\alpha}v^{\sigma}\,,
+\end{align}
+where $\Gamma_{[\mu\nu]}^{\alpha}=\Gamma_{\mu\nu}-\Gamma_{\nu\mu}=0$, as the connection coefficients are symmetric in the interchange of lower indices. The term inside the bracket of \cref{eq:commutator of covariant derivative} is known as the Riemann curvature tensor,
+\begin{align}\label{Riemann curvature tensor}
+    R^{\sigma}_{\rho\mu\nu}=\partial_{\mu}\Gamma^{\sigma}_{\nu\rho}-\partial_{\nu}\Gamma^{\sigma}_{\mu\rho}+\Gamma^{\sigma}_{\mu\alpha}\Gamma^{\alpha}_{\nu\rho}-\Gamma^{\sigma}_{\nu\alpha}\Gamma^{\alpha}_{\mu\rho}\,.
+\end{align}
+In general relativity the Riemann curvature tensor is important as the curvature describes how objects move. If we look at the $_{\mu\nu}$ components of the Riemann tensor, it has a striking resemblance with the field strength tensor $F_{\mu\nu}$ in Yang-Mills theories. This is not an accident, but it took physicists a long time to understand that Yang-Mills theories and General Relativity can both be formulated in the same mathematical language of fibre bundles\footnote{Have to emphasize that this is at the classical level. Both of these theories have to be quantized and to this day only Yang-Mills theories have given reliable physical results after quantization.}.
+
+\medskip
+Up to this point we have restricted our discussion to vector and tensor fields, but in general we are interested in other types of fields as well, like for example spinor and scalar fields. Hence, we have to extend the notion of a connection such that we can do calculus with all types of fields, and in order to do this properly we use fibre bundle theory. Naturally this leads us down a path where several mathematical concepts must be introduced, but it will prove useful to see the strength of fibre bundle theory to naturally describe several concepts we use in quantum field theory. It is important to emphasize that the material we will cover on fibre bundles is by no means a full treatment, but we will try to cover what is most important for physics. Several of the definitions and statements made might seem obscure and unmotivated, which they sometimes are, but it would take too much space to write all there is about fibre bundles. 
+
+\subsection{Gauge Fields as Connections on Principal Fibre Bundles}\label{sec:basics in fibre bundle theory}
+The defining property of a manifold $M$ is to be locally homeomorphic to $\mathbb{R}^{n}$, but in general it differs from $\mathbb{R}^{n}$ globally. Hence, we needed sets of homeomorphisms, which we called charts, to locally map $M$ to a open subset of $\mathbb{R}^{n}$. This gave a Euclidean structure to the manifold, which allowed us to use conventional multivariable calculus. A fiber bundle has the property of being locally disseomorphic to a direct product of topological spaces, thus we need disseomorphisms to define a local map. Let us jump straight into the definition of a fibre bundle, and then try to clarify some of the structure.
+
+\begin{mydef}{Fibre Bundle}{}
+A fibre bundle is a structure $(E,\pi,M,F,G)$, often denoted $E\overset{\pi}{\longrightarrow} M$, which consists of the following elements:
+\begin{itemize}
+    \item A smooth manifold $E$ called the \textbf{total space}
+    \item A smooth manifold $M$ called the \textbf{base space}, and in physics this is spacetime.
+    \item A smooth manifold $F$ called the \textbf{fibre}
+    \item A surjective map $\pi:E\rightarrow M$ called the \textbf{projection}. The subset of elements $\{q\}\in E$ which are projected to a point $p\in M$ is called the fibre at $p$, given by the inverse image $\pi^{-1}(p)\equiv F_{p}\cong F$.
+    \item A Lie group $G$, which acts on $F$ from the left called the \textbf{structure group}
+    \item A set of open covering $\{U_{i}\}$ of $M$ with a diffeomorphism $\phi_{i}:U_{i}\times F\rightarrow \pi^{-1}(U_{i})$, such that $\pi\circ\phi_{i}(p,f)=p$. As the inverse $\phi_{i}^{-1}$ maps $\pi^{-1}(U_{i})$ to the direct product $U_{i}\times F$, $\phi_{i}$ is called a \textbf{local trivialization}
+    \item A way to smoothly paste the direct products $\{U_{i}\times F\}$, such that we cover all of the total space $E$. As $\phi_{i}(p,f):F\rightarrow F_{p}$ is a disseomorphism we introduce \textbf{transition functions} $t_{ij}(p)\equiv \phi_{i,p}^{-1}\circ\phi_{j,p}:F\rightarrow F$, which we require to be elements of $G$. Then $\phi_{i}$ and $\phi_{j}$ is related by a smooth map $t_{ij}:U_{i}\cup U_{j}\rightarrow G$ as:
+    \begin{align}
+        \phi_{j}(p,f)=\phi_{i}(p,t_{ij}(p)f)
+    \end{align}
+\end{itemize}
+\end{mydef}\noindent
+The requirement of a local trivialization comes from the fact that fibre bundles are in general extremely complex structures, so in order to use them in practical applications we need to restrict ourselves with simpler ones. The simplest case is what is called a trivial bundle, where $E$ is isomorphic to the product $M\times F$. As it turns out we need to define a local isomorphism where $U\subset M$ such that $E|_{U}$ is locally isomorphic to $U\times F$, and the bundles of interest in gauge theories has this property. 
+
+Another way phrasing the last requiremtnt is: if we have a overlap between charts $U_{i}\cup U_{j}\neq\emptyset$ in the base space $M$, we have two maps $\phi_{i}$ and $\phi_{j}$ on the overlap. Given a point $q$ such that $\pi(q)=p\in U_{i}\cup U_{j}$, we can assign two elements of $F$, one by $\phi^{-1}_{i}(q)=(p,f_i)$ and the other by $\phi^{-1}_{j}(u)=(p,f_j)$. Then there exists a map $t_{ij}:U_{i}\cup U_{j}\rightarrow G$ which relates $f_i$ and $f_j$ as $f_i=t_{ij}f_j$, and in order to glue the local pieces of the fibre bundle together consistently we need the transition functions to obey the following requirements
+\begin{align}
+    t_{ii}&=\text{id}\,,
+    \\
+    t_{ij}&=g^{-1}_{ji}\,,
+    \\
+    t_{ik}&=g_{ij}\circ g_{jk}\,.
+\end{align}
+For a given fibre bundle $E\overset{\pi}{\longrightarrow} M$, an important feature is that the transition functions are not unique. So let $\{U_{i}\}$ be a covering of $M$ and let $\{\phi_i\}$ and $\{\tilde{\phi_i}\}$ be two sets of local trivializations giving rise to the \emph{same} fibre bundle. Then the transition functions are given by
+\begin{align}
+    t_{ij}&=\phi^{-1}_{i,p}\circ\phi_{j,p}\,,
+    \\
+    \tilde{t}_{ij}&=\tilde{\phi}^{-1}_{i,p}\circ\tilde{\phi}_{j,p}\,,
+\end{align}
+and we have a homeomorphism $g_{i}:F\rightarrow F$ at each point $p\in M$ that belongs to $G$, we define it to be
+\begin{align}
+    g_{i}(p)\equiv \phi^{-1}_{i,p}\tilde{\phi}_{i,p}\,,
+\end{align}
+which must be the case if the local trivializations is to describe the same fibre bundle, but then we see that the relation between the two transition functions are
+\begin{align}
+    \tilde{t}_{ij}(p)=g_{i}(p)^{-1}\circ t_{ij}(p)\circ g_{j}(p)\,.
+\end{align}
+
+All of this might seem very abstract and without meaning, but let us clarify some points: $t_{ij}$ can be viewed as gauge transformations for gluing patches together, and $g_i$ can be viewed as gauge transformation within a certain patch. In physics, we will often meet the case when $U_i=U_j$, i.e. is the same set $U$, and we are just comparing two different ways of associating the fibre at $\pi^{-1}(U)$ to $U\times G$. In this case the local trivializations can be viewed as choices of gauges, and the transitions functions as gauge transformations. For example, when the base space is flat spacetime $M\cong \mathbb{R}^{4}$, and the symmetry group is $G\cong U(1)$. Then the transition functions at a spacetime point $x$ is expressed as $e^{i\alpha(x)}\in U(1)$, where $\alpha(x)$ is a spacetime dependent group parameter. Another example is when we have curved spacetime and the group is $GL(n,\mathbb{R})$, which is the case for general relativity. A choice of local trivialization is then a choice of co-ordinate system over an open patch $U$, and the transition function is just general co-ordinate transformations.
+
+\subsection*{Sections and the Pull-back}
+In order to define fields on a fiber bundle we need the concepts of \emph{sections}:
+
+\begin{mydef}{Section}{}
+A section of $E$ is a smooth map
+\begin{align*}
+    s:M\rightarrow E\,,
+\end{align*}
+that satisfies
+\begin{align*}
+    \pi\circ s=\text{id}_{M}\,,
+\end{align*}
+where $\pi$ is the projection in $E$.
+\end{mydef}\noindent
+The set of all sections on $M$ is denoted $\Gamma(M,F)$. As usual we want the local description, so for $U\subset M$ we have a local section defined only on $U$, where the set off all local sections is naturally denoted as $\Gamma(U,F)$. 
+
+To define gauge fields in terms of sections we will need the \emph{pull-back}:
+\begin{mydef}{Pull-back}{}
+Let $\phi:M\rightarrow N$ be a smooth map of manifolds and let $\phi(q)=p$. Then we let
+\begin{align}
+    \phi_{*}:T_{p}M\rightarrow T_{q}N\,,
+\end{align}
+be the differential of $\phi$. The pull-back $\phi^{*}$ is the linear transformation taking covectors at $q$ to covectors at $p$, $\phi^{*}:N^{*}(q)\rightarrow M^{*}(p)$, defined by 
+\begin{align}
+    \phi^{*}(\beta)(v)\equiv\beta(\phi_{*}(v))\,,\label{eq:pullback}
+\end{align}
+for all covectors $\beta$ at $q$ and vectors $v$ at $p$.
+\end{mydef}
+
+
+\subsection*{Vector Bundles}
+The fields in physics are objects in a vector space, so we need the concept of vector bundle to describe these fields in this formalism. A vector bundle $E\overset{\pi}{\longrightarrow} M$ is a fibre bundle whose fibre $F$ is a vector space. More loosely spoken, this means that we attach a vector space at each point $p$ on the base manifold $M$. If $F=\mathbb{R}^{n}$, the transition functions belong to $GL(n,\mathbb{R})$, and if $F=\mathbb{C}^{n}$, they belong to $GL(n,\mathbb{C})$.
+
+
+A prime example of a vector bundle is the tangent bundle $TM$, where the fiber is $\mathbb{R}^{n}$. Let $\{U_i\}$ be an open covering of $M$, and let $q$ be a point in $TM$ such that the projection satisfies $\pi(q)=p\in U_{i}\cup U_{j}$. If we define $x^{\mu}$ to be the local co-ordinate system of $U_i$ and $y^{\mu}$ to be the local co-ordinate system of $U_j$, then the vector $V$ corresponding to $q$ can be expanded in two different ways
+\begin{align}
+    V=V^{\mu}\frac{\partial}{\partial x^{\mu}}=\tilde{V}^{\mu}\frac{\partial}{\partial y^{\mu}}\,,
+\end{align}
+where the local trivializations become
+\begin{align}
+    \phi_{i}^{-1}&=(p,\{V^{\mu}\})\,,
+    \\
+    \phi_{j}^{-1}&=(p,\{\tilde{V}^{\mu}\})\,,
+\end{align}
+and the fibre coordinates are related by a general linear transformation
+\begin{align}
+     V^{\mu}=G^{\mu}_{\,\,\nu}\tilde{V}^{\nu}\,,
+\end{align}
+where $G^{\mu}_{\,\,\nu}$ is the transition function, found by performing a change of frame
+\begin{align}
+    V^{\mu}=\frac{\partial x^{\mu}}{\partial y^{\nu}}\tilde{V}^{\mu}=G^{\mu}_{\nu}(p)\tilde{V}^{\nu}\,,
+\end{align}
+where $G^{\mu}_{\,\,\nu}$ is an element of the structure group $GL(n,\mathbb{R})$. Hence, the tangent bundle can be identified by the structure $(TM,\pi,M,\mathbb{R}^{n},GL(n,\mathbb{R}^{n}))$.
+
+Sections on vector bundles pointwisely obey the usual vector multiplication and addition with scalars,
+\begin{align}
+    (s+s')(p)&=s(p)+s'(p)\,,
+    \\
+    (fs)(p)&=f(p)s(p.)\,,
+\end{align}
+where $p\in M$ and $f\in F$. Any vector bundle admits a global section which is called the null section $s_{0}\in \Gamma(M,E)$, that satisfies the property $\phi_{i}^{-1}(s_{0}(p))=(p,0)$ in any local trivialization. What we want in physical applications is to use that any field or wavefunction can be represented as a section of a vector bundle. For example, a $U(1)$ gauge group, a complex scalar field $\Psi(x)$ defined on $U\subset M$ is represented by a local section of a complex line bundle.
+
+\subsection*{Principal Bundles and Gauge Transformations}
+In order to describe gauge transformations on fields, we need the concept of principal bundles. A principal bundle $P(M,G,\pi)$ is a fibre bundle where the fibre $F$ is identical to the structure group $G$, also called a $G$-bundle over $M$. The action of the group $G$ on $F$ becomes simple left multiplication within $G$. It is also possible to construct a right multiplication of $G$ on $P$ as: let $\phi_{i}:U_{i}\times G\rightarrow \pi^{-1}(U_{i})$ be a local trivialization given by
+\begin{align}
+    \phi_{i}^{-1}(q)=(p,g_i)\,.
+\end{align}
+Then the right multiplication is defined as
+\begin{align}
+    qa=\phi_{i}(p,g_{i}a)\,,
+\end{align}
+for any $a\in G$ and $q\in \pi^{-1}(p)$, with property $\pi(qa)=\pi(q)=p$. Because of the associativity of the group, this is true for any local trivialization. Let $p\in U_{i}\cup U_{j}$, then
+\begin{align}
+    qa=\phi_{j}(p,g_{j}a)=\phi_{j}(p,t_{ji}(p)g_{i}a)=\phi_{i}(p,g_{i}a)\,,
+\end{align}
+which mean one can just write the action as $P\times G\rightarrow P:(q,a)\mapsto qa$, without reference to any local choices. In other words, if $q$ is a point in the fibre over $p$ then acting with a group element $a$ gives another point $qa$ in the fibre over $p$, with the property $\pi(qa)=p$ so
+that both $q$ and $qa$ lie in the same copy of the fibre. This means that the group action enables us to move within each copy of the fibre, or equivalently for principal bundles each copy of $G$, but does not move you around in the base space $M$. Since the fibre is equal to the structure group, also called symmetry group in physics, principal bundles is central to the description of gauge theories, and the right action on $P$ can be identified with gauge transformations. 
+
+Since a section on a principal bundle is a map $s:M\rightarrow P$, then the value of a section at a point $p$ corresponds to an element of the structure group $G$ through a local trivialization
+\begin{align}
+    s(p)=\phi_{i}(p,g_{i})\,.
+\end{align}
+Unless the principal bundle is a direct product $M\times F$ we need local sections. Given a local section $s_i$ on $U_i$ and a $q\in \pi^{-1}(U_i)$, we can always find a $g_{i}\in G$ such that $q=s_{i}(p)g_{i}$. Then the section itself may be represented as a canonical local trivialization
+\begin{align}
+    s_{i}(p)=\phi_{i}(p,e)\,,
+\end{align}
+where $e$ is the identity element of $G$. All other local sections can then be expressed in terms of these by the right action as
+\begin{align}
+    \tilde{s}_{i}(p)=\phi_{i}(p,g_{i}(p))=\phi_{i}(p,e)g_{i}(p)=s_{i}(p)g_{i}(p)\,.
+\end{align}
+The different $\tilde{s}_{i}$ is viewed as different gauges, while $g_{i}(p)$ is the corresponding gauge transformations between them.
+
+\subsection*{Associated bundles and Field Transformations}
+We have seen how sections on vector bundles can be used to describe fields, and how sections on principal bundles describe gauge transformations. We are now ready to see how we may associate these two concepts such that the gauge transformations act on the fields.
+
+Given a principal bundle $P(M,G)$ and a faithful representaiton $\rho:G\rightarrow GL(n,V)$ which acts on a vector space $V$ from the left. The group action on elements $(q,v)$ in the product space $P\times_{\rho} V$ can then be defined as
+\begin{align}
+    (q,v)\rightarrow  (qg,\rho(g)^{-1}v)\,,
+\end{align}
+where $q\in P$, $g\in G$ and $v\in V$. The associated vector bundle $E_{\rho}=E\times_{\rho}V$ is then defined by identifying the points related by such a group action, so
+\begin{align}
+    (q,v)\sim (qg,\rho(g)^{-1}v)\,,
+\end{align}
+which also implies that $(qg,v)=(q,\rho(g)v)$. This is the same as saying that we change the fiber from $G$ to $V$ and use transition functions $\rho(t_{ij})$ instead of $t_{ij}$. As every element of $P$ over a point $p\in M$ can be found from $(p,e)$ by an element of $G$, the equivalence relation replaces the fibre over $p$ with V, and thus replacing a principal bundle with a vector bundle. We can introduce the projection $\pi_{E_{\rho}}:E_{\rho}\rightarrow M$, defined by acting on elements $(q,v)$ as
+\begin{align}
+    \pi_{E_{\rho}}((q,v))=\pi(q)\,.
+\end{align}
+Then $E_{\rho}$ is a fibre bundle with the same structure group $G$ as its associated principal bundle $P(M,G)$. 
+
+Let us consider the $U(1)$ group and a complex scalar matter field $\phi:M\rightarrow \mathbb{C}$.  The relevant fibre bundles are the principal $U(1)$-bundle $P(M,U(1))$ and its associated vector bundle $E_{\rho}=P\times_{\rho}\mathbb{C}$. A local section on a principal bundle may be represented as a canonical local trivialization
+\begin{align}
+    s_{i}(p)=\phi_{i}(p,e)\,,
+\end{align}
+with $e$ the identity element of $U(1)$. Within a trivializing neighborhood on a principal bundle we can define a local identity section $\sigma_{i}(p)\equiv \phi^{-1}(e)$, which mean that if we act with $\phi^{-1}$ on the left on the local trivialization we obtain
+\begin{align}
+    \phi_{i}^{-1}(s_{i}(p))=(p,e)\,.
+\end{align}
+All other local sections may then be constructed by the right action of the group $\tilde{s}_{i}(p)=s_{i}(p)g_{i}(p)$, where $g_{i}\in U(1)$. To make $\tilde{s}_i$ act on $\phi(p)$ we use the representation $\rho:g_{i}(p)\rightarrow e^{i\alpha(p)}$ and define a base section on the associated vector bundle
+\begin{align}
+    \mathbf{e}=[(s_{i}(p),1)]\hspace{0.5cm}\in E_{\rho}\,,
+\end{align}
+where $1$ is a basis vector in the complex line bundle. Naturally any other section may then be expressed in terms of these base sections, so we define our field as a section in the following way
+\begin{align}
+    \phi(p)\sigma_{e}=[(s_{i}(p),\phi(p))]\,,
+\end{align}
+where $\phi\in \mathbb{C}$, and a local gauge transformation corresponds to
+\begin{align}
+    \phi^{'}(p)\sigma_{e}&=[(\tilde{s}_{i}(p),\phi(p))]\nonumber
+    \\
+    &=[(s_{i}(p)g_{i}(p),\phi(p))]\nonumber
+    \\
+    &=[(s_{i}(p),\rho(g_{i})\phi(p))]\nonumber
+    \\
+    &=[(s_{i}(p),e^{i\alpha(p)}\phi(p))]\nonumber
+    \\
+    &=e^{i\alpha(p)}[(s_{i}(p),\phi(p)]\nonumber
+    \\
+    &=e^{i\alpha(p)}\phi(p)\sigma_{e}\,.
+\end{align}
+In physics we always choose local co-ordinates, so for $x^{\mu}$ we simply write this transformation as
+\begin{align}
+    \phi^{'}(x)=e^{i\alpha(x)}\phi(x)\,,
+\end{align}
+which is the well known form of the local $U(1)$ gauge transformation in quantum electrodynamics. 
+
+We have now seen how sections on associated bundles can be formulated as matter fields and we have shown how these are transformed under a local $U(1)$ gauge transformation. The next objective is then to investigate how one can construct gauge fields and their corresponding behaviour under gauge transformations in this language.
+
+\subsection*{Connection and Gauge Fields on Principal Bundles}
+There are several ways of defining a connection on a principal bundle, but the approach we use here is to decompose tangent spaces into vertical and horizontal ones. In \cref{Covariant Derivative levi civita} we defined a linear connection to make the derivative of vector fields covariant, there in terms of the Levi-Civita connection. Here we will take another approach, where we instead define the connection in terms of sections, from which the gauge fields and the field strength tensor follows. This is approach is very abstract, but it is necessary in order to show that the gauge fields has a geometrical basis. In \cref{sec:Wilson lines} we will use the results derived here and take a more physical approach at the level of Lagrangians, by the use of Wilson lines. 
+
+\medskip
+First, we want to investigate how we can decompose the tangent space of a principal bundle, but to do that we must describe how we may construct a tangent vector in $P(M,G)$. A fundamental vector field $\textbf{v}$ may be generated through an element $A$ of a Lie algebra $\mathfrak{g}$ of the $G$-bundle $P(M,G)$, in the following way
+\begin{align}
+    \textbf{v}f(q)=\frac{d}{dt}f(qe^{tA})|_{t=0}\,.
+\end{align}
+Now, since $e^{tA}\in G$ we have that the projection $\pi(qe^{tA})=\pi(q)=p$. This means that $qe^{tA}$ defines a curve that lies within the fibre at $p$, and thus $\textbf{v}$ is tangent to the fibre at $p$ at every point $q\in P$. 
+
+The tangent space $T_{q}P$ at $q\in P$, can be decomposed into a horizontal and vertical subspaces in the following way
+\begin{align}
+    T_{q}P=V_{q}P\otimes H_{q}P\,,
+\end{align}
+such that every vector $\textbf{x}$ in the tangent space may also be decomposed into vertical and horizontal components $\textbf{x}=\textbf{x}^{V}+\textbf{x}^{H}$. With this decomposition we are ready to define what a connection in this language is:
+
+\medskip
+\begin{mydef}{Connection one-form}{}
+A connection on a Principal $G$-bundle $P(M,G)$ is a Lie algebra $\mathfrak{g}$ valued one-form $w\in \mathfrak{g}\otimes \Omega^{1}(P)$ that projects elements in $T_{q}P$ onto $V_{q}P\cong \mathfrak{g}$, satisfying the following requirements
+\begin{itemize}
+    \item $w(\textbf{v})=A\hspace{1.8cm}A\in \mathfrak{g}$
+    \item $R_{g}w=g^{-1}wg\hspace{1cm}g\in G$
+\end{itemize}
+where $R_g$ describes the right action of the group.
+\end{mydef}\noindent
+Given $U\subset M$ and local sections $s_{i}:U_i\rightarrow \pi^{-1}(U_i)$, a local connection $A_{i}\in \mathfrak{g}\otimes \Omega^{1}(U_i)$ is defined by the pull-back of the global connection one-form $w$,
+\begin{align}
+    A_{i}\equiv s_{i}^{*}w\,.
+\end{align}
+Local connections is what we in physics call a gauge potential. Instead of this abstract definition, in practice we use that since $A_{i}$ is a Lie algebra valued one-form it can be expanded in a dual basis $dx^{\mu}$ and in terms of Lie algebra generators $t^{a}:U\rightarrow G$, in the following way
+\begin{align}
+    A_{i}=(A_i)_{\mu}dx^{\mu}=(A_i)^{a}_{\mu}t^{a}dx^{\mu}\,.
+\end{align}
+Given two local sections $s_{i}$ and $s_j$ over patches $U_{i}$ and $U_{j}$\footnote{With the requiremnt that $U_{i}\cap U_{j}\neq\emptyset$.}, $X\in T_{q}M$ and $q\in U_{i}\cap U_{j}$, it can be shown that 
+\begin{align}\label{eq:important for parallel transport}
+    s_{j\,*}X=R_{t_{ij}}(s_{i\,*}X)+\big(t_{ij}^{-1}\textbf{d}t_{ij}\big)\,,
+\end{align}
+where $t_{ij}\in G$ are the transition functions and $\textbf{d}$ is the de-Rham-differential. If we use the connection $w$ on this equation, with the relation $w(s_{j\,*})=s_{j}^{*}w$ from \cref{eq:pullback}, we have that the local connection transform as
+\begin{align}\label{gauge field transformation}
+    {A_{j}}=t_{ij}^{-1}A_{i}t_{ij}+t_{ij}^{-1}\textbf{d}t_{ij}\,,
+\end{align}
+which in the more familiar component form is written as
+\begin{align}\label{eq:gauge field connection transformation}
+    A'_{\mu}=g^{-1}A_{\mu}g+g^{-1}\partial_{\mu}g\,,
+\end{align}
+which is the transformation for the gauge fields in quantum field theory. 
+
+\subsection{Curvature and Field Strength}
+In order to talk about curvature (or field strength) in this language, we have to define an exterior covariant derivative:
+
+\medskip
+\begin{mydef}{Exterior Covariant Derivative}{}
+The exterior covariant derivative of a general vector valued n-form $\Phi(x)\in \Omega^{n}\otimes V$ \,, $x_1,\dots,x_{n+1}\in T_{q}P$, is defined as:
+\begin{align}
+    \textbf{d}_{w}\Phi(x_1,\dots, x_{p+1})\equiv \textbf{d}\Phi(x_{1}^{H},\dots,x_{p+1}^{H})\,,
+\end{align}
+where $\textbf{d}\Phi=\textbf{d}\Phi^{\alpha}\otimes e_{\alpha}$, and $x^{H}\in H_{q}P$.
+\end{mydef}\noindent
+The curvature is a Lie algebra valued two-form $\Omega\in\Omega^{2}\otimes \mathfrak{g}$, and is defined as the exterior covariant derivative of the one-form connection $w\in\Omega^{1}\otimes \mathfrak{g}$
+\begin{align}
+    \Omega\equiv\textbf{d}_{w}w\,,
+\end{align}
+which for $x,y\in T_{q}P$ satisfies Cartan's structure equation
+\begin{align}\label{Cartan structure equation}
+    \Omega(x,y)=\textbf{d}w(x,y)+\mathbf{[}w(x),w(y)\mathbf{]}\,,
+\end{align}
+where the bracket is a tensor product of the Lie bracket and the wedge product, i.e. the curvature can be written as
+\begin{align}
+    \Omega=\textbf{d}w+w\wedge w\,.
+\end{align}
+Just as the local connection the local curvature is given by the pull-back of a local section
+\begin{align}
+    F_{i}\equiv s_{i}^{*}\Omega\,,
+\end{align}
+and by using Cartan's structure equation the local curvature may be written in terms of the local connection as
+\begin{align}
+    F_{i}&=s_{i}^{*}(\textbf{d}w+w\wedge w)\nonumber\,,
+    \\
+    &=\textbf{d}(s_{i}^{*}w)+s_{i}^{*}w\wedge s_{i}^{*}w\nonumber\,,
+    \\
+    &=\textbf{d}A_{i}+A_{i}\wedge A_{i}\,.
+\end{align}
+where it follows from the transformation of $A_i$ that the transformation of $F_i$ is given by
+\begin{align}
+    F_{j}=t_{ij}^{-1}F_{i}\,t_{ij}\,.
+\end{align}
+Let us then choose local co-ordinates $x^{\mu}$ on a patch $U\subset M$, and as we always consider local objects we neglect the subscript $i$. The connection one-form and curvature two-form can then be expanded as
+\begin{align}
+    A&=A_{\mu}dx^{\mu}\,,
+    \\
+    F&=\frac{1}{2}F_{\mu\nu}dx^{\mu}\wedge dx^{\nu}\,,
+\end{align}
+and the de-Rham differential takes the form
+\begin{align}
+    \textbf{d}A=(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu})dx^{\mu}\wedge dx^{\nu}\,,
+\end{align}
+giving the field strength in terms of components
+\begin{align}\label{Field Strength}
+    F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}+[A_{\mu},A_{\nu}]\,,
+\end{align}
+where the bracket is the usual Lie commutator. Since both the gauge field and the field strength are Lie algebra valued, they can be expanded in the the group generators $t^{a}$ as well. Using the commutator relation between the generators $[t^{a},t^{b}]=f^{abc}t^{c}$ the field strength takes the form
+\begin{align}\label{eq:curvature two-form}
+    F_{\mu\nu}^{a}=\partial_{\mu}A_{\nu}^{a}-\partial_{\nu}A_{\mu}^{a}+f^{abc}A_{\mu}^{b}A_{\nu}^{c}\,,
+\end{align}
+which is the well known field strength tensor for a Yang-Mills theory\footnote{In physics we also need the coupling $g$, but we will come to that later.}, and the transformation of the field strength in local co-ordinates is given by
+\begin{align}\label{eq:curvature two form transformation}
+    F'_{\mu\nu}=g^{-1}F_{\mu\nu}g\,,
+\end{align}
+which we also recognize from gauge theories in quantum field theory.
+
+\subsection*{Horizontal Lift and Parallel Transport Equation}
+In the previous section we found that the tangent space $TP$ of the principal G-bundle $P(M,G)$ can be split into a vertical and horizontal part. This splitting allows us to define a \emph{horizontal lift} of a curve in the base manifold $M$:
+
+\medskip
+\begin{mydef}{Horizontal lift}{}
+Let $P(M,G,\pi)$ be a principal G-bundle and
+\begin{align*}
+    \gamma:[0,1]\rightarrow M\,,
+\end{align*}
+a curve in $M$. Then a curve 
+\begin{align*}
+    \tilde{\gamma}:[0,1]\rightarrow P\,,
+\end{align*}
+is said to be a horizontal lift of $\gamma$ from the the base space up in the fibre if the tangent vector $\tilde{\gamma}\in H_{\tilde{\gamma}(t)}P.$ 
+\end{mydef}\noindent
+From this is follows that for a curve $\gamma$ in $M$ and a point $p$ in the fibre, i.e. $p\in\pi^{-1}(\gamma(0))$, there exist a unique horizontal lift $\tilde{\gamma}(t)$ in $P$ such that $\tilde{\gamma}(0)=p$. Further, it follows that another horizontal lift $\tilde{\gamma'}$ of $\gamma$ can be found by applying the right group action, $\tilde{\gamma'}(0)=\tilde{\gamma}(0)g$. Then, we also have that
+\begin{align}
+    \tilde{\gamma'}(t)=\tilde{\gamma}(t)g\,,\hspace{1cm}\forall t\in [0,1]\,,
+\end{align}
+which is saying that the global right action does not change the connection on the principal fibre. 
+
+Then let $X$ be the tangent vector at $\gamma(0)$, and by using the horizontal lift we have that 
+\begin{align}
+    \tilde{X}=\tilde{\gamma}_{*}X\,,
+\end{align}
+is tangent a tangent vector at $\tilde{\gamma}(0)=p$. By construction, this vector is horizontal and if we act with the connection $w$, we get
+\begin{align}
+    w(\tilde{X})=0\,,
+\end{align}
+which is saying that acting with the connection one-form on a horizontal lifted tangent vector yields zero.
+
+Now, since the transition functions are elements of the group, we can use \cref{eq:important for parallel transport} to write
+\begin{align}
+    \tilde{X}=g_{i}^{-1}(t)\big(s_{i*}X\big)g_{i}(t)+\big(g_{i}^{-1}\mathbf{d}g_{i}\big)\,,
+\end{align}
+and if we apply the connection $w$ on this equation, we get
+\begin{align}
+    0=g_{i}^{-1}(t)w(s_{i*}X)g(t)+g_{i}^{-1}(t)\frac{dg_{i}(t)}{dt}\,,
+\end{align}
+and if we use that $w(s_{i*}X)=s_{i}^{*}w(X)=A_{i}(X)$\footnote{This follows from the definition of the pullback in \cref{eq:pullback}.}, we find the local \emph{parallel transport equation} for a gauge theory
+\begin{align}
+    \frac{dg_{i}(t)}{dt}=-A_{i}(X)g_{i}(t)\,.
+\end{align}
+This is a matrix equation and can be solved by the use of \emph{Chen iterated integrals} \cite{chen1977}. Given the initial condition $g_{i}(0)=e$\footnote{Here $e$ is the unit element in the gauge group $G$.}, a local solution takes the form of a functional of an arbitrary path $\gamma(t)$
+\begin{align}\label{eq:parallel transporter}
+    g_{i}[\gamma(t)]=\mathcal{P}\exp\Big(-\int_{\gamma(0)}^{\gamma(t)}dx^{\mu}A_{i\,\mu}(x)\Big)\,,
+\end{align}
+where in general $A_{i\,\mu}=A_{i\,\mu}^{a}t^{a}$\footnote{In physics we use $A_{i\,\mu}=igA_{i\,\mu}^{a}t^{a}$, where $g$ is the coupling, but more on that later.}, and $\mathcal{P}$ is a path-ordering operator which orders the gauge fields along the path in the manifold\footnote{In general the matrices does not commute, so the path ordering is needed.}. It works in a similar fashion as the time-ordering operator we have for the time-evolution operator in QM.
+
+\subsection*{Parallel Transport and Holonomy}
+The last important concept of this section is that of \emph{holonomy}. Given a principal fibre bundle $P(M,G,\pi)$, we let $\gamma_1$ and $\gamma_2$ be two curves in $M$, such that
+\begin{align}
+    \gamma_{1}(0)&=\gamma_{2}(0)=p_{0}\,,
+    \\
+    \gamma_{1}(1)&=\gamma_{2}(1)=p_{1}\,.
+\end{align}
+Let us consider the horizontal lift of these two curves
+\begin{align}
+    \tilde{\gamma}_{1}(0)&=\tilde{\gamma}_{2}(0)=q_{0}\,,
+\end{align}
+then it is not in general true that
+\begin{align}
+    \tilde{\gamma}_{1}(1)&=\tilde{\gamma}_{2}(1)=q_{1}\,.
+\end{align}
+Then if we consider a loop $\gamma$ in $M$
+\begin{align}
+    \gamma(0)=\gamma(1)\,,
+\end{align}
+we have that in general
+\begin{align}
+    \tilde{\gamma}(0)\neq\tilde{\gamma}(1)\,.
+\end{align}
+The loop then induces a map on the fibre at $p$
+\begin{align}
+    \tau_{\gamma}:\pi^{-1}(p)\rightarrow \pi^{-1}(p)\,.
+\end{align}
+We can then consider loops with fixed base-point in the manifold $M$, denoted $L_{p}M$. Now, $\tau_{\gamma}$ can only reach certain elements of the group $G$, but combining them with a gauge transformation we can reach all elements of $G$. Hence, the set of all elements that can be reached starting from the point $(p,q)$ in the principal fibre bundle form a subgroup of $G$, called the \emph{holonomy group} at $q$, where the projection of $q$ is the point $p$, i.e. $\pi(q)=p$. We write this as
+\begin{align}
+    \Phi_{q}=\big\{g\in G|\tau_{\gamma}(q)=qg,\,\gamma\in L_{p}M\big\}\,.
+\end{align}
+
+Holonomy elements are generated by considering parallel transport around a closed loop and it follows from \cref{eq:parallel transporter} that it can be written as
+\begin{align}
+    g_{\gamma}=\mathcal{P}\exp\big(-\oint_{\gamma}dz^{\mu}A_{\mu}(z)\big)\,.
+\end{align}
+Parallel transport around closed loops are special objects with many interesting features, and some of them will be discussed in more detail in \cref{sec:Wilson lines and Wilson loops}. The reason why these are important in physics follows from the following theorem:
+
+\medskip
+\begin{mytheo}{Ambrose-Singer}{}
+Let $P(M,G)$ be a principal fibre bundle with connection $w$, and curvature $\Omega$. Let $\Phi_{q}$ be the holonomy group with reference point $q\in P(M,G)$, and $P(q)$ the holonomy bundle of $w$ through $q$. Then the Lie algebra of $\Phi(q)$ is equal to the Lie sub-algebra $\mathfrak{g}$, generated by all elements of the form $\Omega_{p}(v_1,v_2)$ for $p\in P(q)$ and $v_1,v_2$ horizontal vectors at $p$, where $\mathfrak{g}$ is the Lie algebra of $G$. 
+\end{mytheo}\noindent
+This is quite technical, but instead of tackling all the mathematical language we will instead explain what it means for physics. The theorem states that all the information contained in the curvature $\Omega$ at a point in the principal fibre bundle $P$ with connection $w$, can also be found in the holonomy group $\Phi(q)$ at that point. The implication is that---at least in principal---all physical observables can be expressed as functions of the holonomies, instead as functions of the gauge potentials. The holonomy group is not gauge invariant, so real observables need to be expressed in terms of gauge invariant functions of these holonomies. Such an object is what we in physics call a \emph{Wilson loop}. Hence, we have that the Wilson loop contains all the information about the curvature two-form we need to describe the dynamics of gauge fields.

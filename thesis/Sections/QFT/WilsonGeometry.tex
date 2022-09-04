@@ -1,0 +1,532 @@
+\section{Yang-Mills Theories from Wilson Lines}\label{sec:Wilson lines and Wilson loops}
+In this section we will construct the Yang-Mills Lagrangian from a purely geometric setting by using the concept of connection, covariant derivative and parallel transportation. Our basic starting point is the Dirac Lagrangian, which we require to be invariant under a local gauge transformation. To do this, we will use what we have learned from the previous sections of connections on principal fibre bundles, and in particular use the solution of the parallel transport equation to generate gauge invariant objects. The requirement of local gauge invariance introduces interactions between matter fields and gauge fields, and if these gauge fields are to describe physical fields we need to find a gauge invariant term for them in the Lagrangian. This is where the Ambrose-Singer theorem can be applied by using the gauge invariant elements of the holonomy group, i.e. the Wilson loop.
+
+\subsection{Covariant Derivative and Wilson Lines}\label{sec:Wilson lines}
+We have seen how the matter fields transform under local gauge transformation and how gauge fields naturally appear from connection one-forms. However, the main objective regarding gauge invariance in physics is that the Lagrangian (or action) remain invariant under local gauge transformations, i.e we need to define connections such that derivative terms are gauge invariant. To construct the covariant derivative for gauge theories we will make use of the important object called a \emph{Wilson line}. This object is central in almost all modern theories of physics, as it can be used as a building block for gauge invariance. Before we define the Wilson line we will introduce its use from a physical perspective.
+
+Let us start with the Dirac Lagrangian
+\begin{align}
+    \mathcal{L}_{D}=\Bar{\psi}(i\slashed{\partial}-m)\psi\,,
+\end{align}
+which because of the partial derivative cannot describe a gauge invariant theory. The problem with the partial derivative when working with manifolds was discussed from \cref{eq:directional derivative vector field}, where we looked at the directional derivative of a vector field. The directional partial derivative of the fields $\psi$ can in the naive way be expressed in a similar fashion
+\begin{align}
+    n^{\mu}\partial_{\mu}\psi(x)\equiv\lim_{\epsilon\to 0}\frac{\psi(x+\epsilon n)-\psi(x)}{\epsilon}\,,
+\end{align}
+where the fields $\psi(x+\epsilon n)$ and $\psi(x)$ have completely different transformation properties under local gauge transformations and can therefore not be subtracted in a meaningful way. With a curved background this was solved by parallel transporting the fields using the Levi-Civita connection \cref{eq:covariant derivative in terms of components}. We are now in a position to do the same thing for a gauge theory, where the gauge fields themselves act as connections\footnote{This was the main motivation for introducing connections on principal fibre bundles.}. The parallel transporter for a gauge theory is given by \cref{eq:parallel transporter}, which we use as the definition of a Wilson line:
+
+\medskip
+\begin{mydef}{Wilson line}{}
+Given a path $\gamma$ in the spacetime manifold $M^{4}$, a Wilson line is defined as the solution to the parallel transport equation:
+\begin{align}\label{eq:Wilson line definition}
+    \mathcal{U}_{\gamma}[y,x]=\mathcal{P}\exp\Big(ig\int_{x}^{y}dz^{\mu}A_{\mu}^{a}(z)t^{a}\Big)\,,
+\end{align}
+where $g$ is the coupling, $\gamma$ is the path along which one parallel transports between spacetime points $x$ and $y$ and $\mathcal{P}$ denotes the path-ordering operator.
+\end{mydef}\noindent
+The matter fields transform through the unitary representation of $G$\footnote{We are specifically talking about the gauge (Lie) group $SU(N)$, so we have a local $\mathfrak{su}(n)$ phase rotation.}
+\begin{align}
+    \psi(x)\rightarrow U(x)\psi(x)\,,
+\end{align}
+where
+\begin{align}
+    U(x)=\exp\big(ig\alpha^{a}(x)t^{a}\big)\hspace{1mm}\,.
+\end{align}
+The Wilson line transforms under gauge transformation as\footnote{This is not trivial to show as one has to discretize the integral in the exponent.}
+\begin{align}\label{eq:Wilson line transformation}
+    \mathcal{U}_{\gamma}[y,x]\rightarrow U(y)\mathcal{U}_{\gamma}[y,x]U^{\dagger}(x)\,,
+\end{align}
+such that we can parallel transport $\psi(x)$ in the following way
+\begin{align}
+    \psi(y)=\mathcal{U}_{\gamma}[y,x]\psi(x)\,,
+\end{align}
+which transform as
+\begin{align}
+    \psi(y)&\rightarrow U(y)\mathcal{U}_{\gamma}[y,x]U^{\dagger}(x)U(x)\psi(x)
+    \\
+    &=U(y)\mathcal{U}_{\gamma}[y,x]\psi(x)
+    \\
+    &=U(y)\psi(y)\,.
+\end{align}
+This is the result we need to compare the matter fields at different points. Hence, we define the directional covariant derivative\footnote{We usually drop the subscript $\gamma$ in applications. In this case $\gamma$ is a infinitesimal straight line along $n^{\mu}$.}:
+
+\medskip
+\begin{mydef}{Directional Covariant Derivative}{}
+A directional covariant derivative is defined through the Wilson line in the following way
+\begin{align}
+    n^{\mu}D_{\mu}\psi(x)=\lim_{\epsilon\to 0}\frac{\psi(x+\epsilon n)-\mathcal{U}[x+\epsilon n,x]\psi(x)}{\epsilon}\,.\nonumber
+\end{align}
+\end{mydef}\noindent
+We want to expand the Wilson line, so we can use the \emph{gradient theorem}:
+\medskip
+\begin{mytheo}{Gradient Theorem}{}
+Given an analytic function $f$ on the continous path $\gamma\in[x,y]$, we have
+\begin{align}
+    \int_{x}^{y}dz^{\mu}\partial_{\mu}f(z)=f(y)-f(x)\,.
+\end{align}
+\end{mytheo}\noindent
+Expanding the Wilson line using the gradient theorem and expanding the field $\psi(x+\epsilon n)$, we get 
+\begin{align}
+    \mathcal{U}[x+\epsilon n,x]&=1+ig\epsilon n^{\mu}A_{\mu}(x)+\mathcal{O}(\epsilon^{2})
+    \\
+    \psi(x+\epsilon n)&=\psi(x)+\epsilon n^{\mu}\partial_{\mu}\psi(x)+\mathcal{O}(\epsilon^{2})\,,
+\end{align}
+inserting these expansions into the definition of the covariant derivaticve, we find that 
+\begin{align}
+    D_{\mu}\psi(x)=\partial_{\mu}\psi(x)-igA_{\mu}(x)\psi(x)\,,
+\end{align}
+which is the well known covariant derivative acting on fields in the fundamental representation of the gauge group.
+
+\medskip
+The transformation property of the gauge fields follow directly from the Wilson line transformation. To write this out we use the well known identity of exponentiated matrices
+\begin{align}
+    e^{YXY^{-1}}=YXY^{-1}\,,
+\end{align}
+which applied to \cref{eq:Wilson line transformation}, will give
+\begin{align}
+     U(y)\mathcal{U}_{\gamma}[y,x]U^{\dagger}(x)=\mathcal{P}\exp\Big[U(y)\big(ig\int_{x}^{y}dz^{\mu}A_{\mu}^{a}(z)t^{a}\Big)U^{\dagger}(x)\Big]\,,
+\end{align}
+which after partial integration and application of the gradient theorem takes the form
+\begin{align}
+    \mathcal{P}\exp\Big[ig\int_{x}^{y}dz^{\mu}U(z)\Big(A_{\mu}^{a}(z)t^{a}+\frac{i}{g}\partial_{\mu}\Big)U^{\dagger}(z)\Big]\,,
+\end{align}
+meaning that the gauge fields transform as
+\begin{align}
+    A_{\mu}^{a}(x)t^{a}\rightarrow U(x)A_{\mu}^{a}t^{a}U^{\dagger}(x)+\frac{i}{g}U(x)\partial_{\mu}U^{\dagger}(x)\,,
+\end{align}
+which is the same we found in \cref{eq:gauge field connection transformation}, with the difference  of the factor $i/g$ we use in physics.
+
+With these results we have that the gauge invariant Dirac Lagrangian can be written as
+\begin{align}\label{eq:gauge invariant dirac lagrangian}
+    \mathcal{L}_{D}=\Bar{\psi}(i\slashed{D}-m)\psi\,.
+\end{align}
+The missing piece of the Yang-Mills Lagrangian is the kinetic term\footnote{No mass terms as it would not be gauge invariant.} for the gauge fields. To find the field strength, we can do the same as we did for the Riemann curvature and consider the commutator of the covariant derivatives, see \cref{eq:commutator of covariant derivative}. We find\footnote{The commutator is not a differential operator, but merely a matrix that is understood to act on $\psi$.}
+\begin{align}
+    [D_{\mu},D_{\nu}]=-igF_{\mu\nu}^{a}t^{a}\,,
+\end{align}
+where 
+\begin{align}\label{eq:field strenght in wilson chapter}
+    F_{\mu\nu}^{a}=\partial_{\mu}A_{\nu}^{a}-\partial_{\nu}A_{\mu}^{a}+gf^{abc}A_{\mu}^{b}A_{\nu}^{c}\,,
+\end{align}
+which apart from the coupling $g$ is identical to the curvature two-form we defined in \cref{eq:curvature two-form}. From the transformation property in \cref{eq:curvature two form transformation}, the field strength is not gauge invariant. Meaning we have to use a certain combination of them that are gauge invariant to use it as a term in the Lagrangian. We could follow in a heuristic manner and postulate what this combination is, but we can show that the term appear in a natural way from geometric arguments.
+
+We will encounter the use for Wilson lines on numerous occasions throughout this thesis, for example when we want to ensure gauge invariance of bi-local operators or when we want to describe soft gauge boson radiation in scattering amplitudes. 
+
+\subsection{Field Strength Tensor and Wilson Loops}
+In this section we will take a closer look at the definition of a Wilson line on a closed path and from it construct the kinetic term in the Lagrangian for gauge bosons.
+
+If the solution of the parallel transport equation is defined on a path $\gamma$ that is a closed loop, we have the Wilson line operator
+\begin{align}
+    \Gamma_{\gamma}=\mathcal{P}\exp\Big(ig\oint_{\gamma} dz^{\mu}A_{\mu}^{a}(z)t^{a}\Big)\,.
+\end{align}
+If one expands this exponential, this becomes an infinite series that converges absolutely to an element $g\in G$, see \cite{TAVARES_1994}. It is important to note that this object is not gauge invariant. However, a Wilson line operator acts as an operator on Hilbert space, and because of the convergent behaviour, we can just as well consider its trace\footnote{The trace over an operator converges absolutely and is independent of the basis $\{\psi_n\}$ in Hilbert space.}:
+
+\medskip
+\begin{mydef}{Wilson loop}{}
+Given a Wilson line $\Gamma_{\gamma}$ defined along a closed loop $\gamma$, a Wilson loop is then defined as its trace
+\begin{align}
+    W[\gamma]=\text{tr}\,\mathcal{P}\exp\Big(ig\oint_{\gamma} dz^{\mu}A_{\mu}^{a}(z)t^{a}\Big)\,.\nonumber
+\end{align}
+\end{mydef}\noindent
+Because of the trace this is gauge invariant, which can be shown by calculating
+\begin{align}
+    \text{tr}[\Gamma_{\gamma}]&\rightarrow \text{tr}[U(x)\Gamma_{\gamma}U^{-1}(x)]\nonumber
+    \\
+    &=\text{tr}[\Gamma_{\gamma}U^{-1}(x)U(x)]\nonumber
+    \\
+    &=\text{tr}[\Gamma_{\gamma}]\,,
+\end{align}
+where $U(x)$ is the usual gauge transformation.
+
+To show that the Wilson loop contains all the dynamical information we have to expand the Wilson loop. We can first use Stokes' theorem to write the loop integral into a surface integral
+\begin{align}
+    \oint_{\gamma}dz\cdot A=\int_{\Sigma}d\sigma\cdot\partial\wedge A\,.
+\end{align}
+We can always parametrize a path in spacetime in terms of a parameter $\lambda$ in the following way
+\begin{align}\label{eq:path parametrization}
+    \gamma\,:\,\,&z^{\mu}(\lambda)\,,
+    \\
+    dz&^{\mu}=d\lambda\frac{\partial z^{\mu}}{\partial\lambda}\,.
+\end{align}
+Hence, we can always parametrize a surface in spacetime in terms of two parameteres $\lambda,\lambda'$
+\begin{align}
+    \Sigma\,:\,\,&z^{\mu}(\lambda,\lambda')\,,
+    \\
+    \nonumber
+    \\
+    d\sigma^{\mu\nu}&=dz^{\mu}\wedge dz^{\nu}\nonumber
+    \\
+    &=d\lambda d\lambda'\Big(\frac{\partial z^{\mu}}{\partial\lambda}\frac{\partial z^{\nu}}{\partial\lambda'}-\frac{\partial z^{\nu}}{\partial\lambda}\frac{\partial z^{\mu}}{\partial\lambda'}\Big)\,,
+\end{align}
+and we can write the surface integral as
+\begin{align}
+    \int_{\Sigma}d\sigma\cdot\partial\wedge A=\int_{\Sigma}d\lambda d\lambda'\frac{\partial z^{\mu}}{\partial\lambda}\frac{\partial z^{\nu}}{\partial\lambda'}\big(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}\big)\,,
+\end{align}
+where we used that $\partial \wedge A=(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu})/2$. We want to consider an infinitesimal loop, and to do this we discretize spacetime and define the theory on a lattice with grid spacing $\epsilon$\footnote{A square with corners $x$, $x+\epsilon n$, $x+\epsilon n+\epsilon n'$ and $x+\epsilon n'$.}. However, Minkowski space can not be discretized in a well defined manner so we have to transform to Euclidean space. This is done by performing a Wick rotation. We can then write the Euclidean Wilson loop
+\begin{align}
+    W_{E}=\text{tr}\,\mathcal{P}\exp\Big(ig\int_{\Sigma}d\lambda d\lambda'\frac{\partial z_{E}^{\mu}}{\partial \lambda}\frac{\partial z_{E}^{\nu}}{\partial\lambda'}\big(\partial_{\mu}A_{E\,\nu}^{a}-\partial_{\nu}A_{E\,\mu}^{a}\big)t^{a}\Big)\,.
+\end{align}
+The expansion is tedious and takes quite some work to bring on a nice form, so we will just state the relevant terms. The first order term vanishes identically since $\text{tr}[t^{a}]=0$. Ignoring constants the expansion to $\mathcal{O}(g^{2})$ is given by
+\begin{align}
+    -g^{2}\frac{\epsilon^{4}}{4}\big(\partial_{\mu}A_{E\,\nu}^{a}-\partial_{\nu}A_{E\,\mu}^{a}\big)^{2}\,,
+\end{align}
+and the contributions from the third and fourth order expansion take the form
+\begin{align}
+    -g^{3}\epsilon^{4}f^{abc}A_{E\,\mu}^{a}A_{E\,\mu}^{b}\partial^{\mu}A_{E}^{\nu\,c}-g^{4}\frac{\epsilon^{4}}{4}f^{abe}f^{ecd}(A_{E\,\mu}^{a}A_{E\,\nu}^{b})(A_{E}^{\mu\,c}A_{E}^{\nu\,d})\,.
+\end{align}
+Collecting terms will give
+\begin{align}\label{eq:expanded wilson loop collected}
+    W_{E}\approx&-g^{2}\frac{\epsilon^{4}}{4}\big(\partial_{\mu}A_{E\,\nu}^{a}-\partial_{\nu}A_{E\,\mu}^{a}\big)^{2}-g^{3}\epsilon^{4}f^{abc}A_{E\,\mu}^{a}A_{E\,\mu}^{b}\partial^{\mu}A_{E}^{\nu\,a}\nonumber
+    \\
+    &\hspace{1cm}-g^{4}\frac{\epsilon^{4}}{4}f^{abe}f^{ecd}(A_{E\,\mu}^{a}A_{E\,\nu}^{b})(A_{E}^{\mu\,c}A_{E}^{\nu\,d})+\mathcal{O}(\epsilon^{5})\,,
+\end{align}
+valid up to a constant term that is unimportant for the present discussion. If we compare this expression with \cref{eq:field strenght in wilson chapter}, this looks very much the square of the field strength. The difference lies in the powers of $g$ and of course the small increment $\epsilon$. However, eventually we would like to take the continuum limit by sending $\epsilon\rightarrow 0$. This is a highly non-trivial task, and to reproduce the correct continuum limit one has to take into account for rescaling and renormalization of all quantities in the theory. Also, the continuum limit corresponds to summing over all lattice points, therefore we have to divide by the lattice spacing to the fourth $\epsilon^{4}$ before letting $\epsilon\rightarrow 0$\footnote{For a rigorous treatment of the continuum limit we refer to \cite{CASELLE_2000}.}.
+
+But first we use \cref{eq:field strenght in wilson chapter} to write \cref{eq:expanded wilson loop collected} as   
+\begin{align}
+    W_{E}\approx-g^{2}\epsilon^{4}&\frac{1}{4}F_{E\,\mu\nu}^{a}F_{E}^{\mu\nu\,a}+\mathcal{O}(\epsilon^{5})\,,
+\end{align}
+which after rescaling of the coupling and a Wick rotation back to Minkowski space will in the continuum limit take the form \footnote{An example for $SU(2)$ can be found in \cite{Peskin:257493}.}
+\begin{align}\label{eq:gauge field kinetic term}
+    W[A]=-\frac{1}{4}F_{\mu\nu}^{a}F^{\mu\nu\,a}\,,
+\end{align}
+which is the well known gauge invariant kinetic term for the gauge fields. The gauge invariance naturally follows as the original Wilson loop is gauge invariant.  
+
+To construct a Yang-Mills theory of gauge fields interacting with fermions, we simply add \cref{eq:gauge field kinetic term} to the gauge invariant Dirac Lagrangian. The result takes the form
+\begin{align}\label{eq:Yang-Mills Lagrangian}
+    \mathcal{L}_{YM}=-\frac{1}{4}F_{\mu\nu}^{a}F^{\mu\nu\,a}+\Bar{\psi}(i\slashed{D}-m)\psi
+\end{align}
+which is known as the Yang-Mills Lagrangian and is what we call a \emph{non-Abelian} gauge theory. 
+
+From the above expansion of the Wilson loop we observe that there are quartic and cubic terms in $A_{\mu}^{a}$, meaning that this is a nontrivial, interacting field theory\footnote{As opposed to Abelian gauge theories where there are no such interactions between the gauge bosons.}. It is important to note that this discussion is at the classical level, so we have to quantize the Yang-Mills theory. 
+
+\subsection{Quantization of Yang-Mills Theories}
+In this section we will quantize the Yang-Mills theory. We will use several of the concepts we used in the quantization of Abelian gauge theories, so for more detail see \cref{sec:quantization of abelian}.
+
+When we quantized the Abelian gauge field in \cref{sec:quantization of abelian}, we saw that because of gauge invariance we are integrating over an infinite number of identical field configurations leading to a divergent path integral. To fix the problem we introduced a gauge fixing condition that ensured integration over those configurations that were different. Due to the non-commutivity between non-Abelian gauge fields this is more complicated. 
+
+To begin with, we use that an infinitesimal transformation of non-Abelian gauge fields can be written as
+\begin{align}
+    (A^{\alpha})_{\mu}^{a}=A_{\mu}^{a}+\frac{1}{g}D_{\mu}\alpha^{a}\,,
+\end{align}
+where the covariant derivative acting on fields in the adjoint representation is given by
+\begin{align}
+    D_{\mu}^{ab}=\delta^{ab}\partial_{\mu}-gf^{abc}A_{\mu}^{c}\,.
+\end{align}
+We can do as in the Abelian case and insert the identity \cref{eq:functional identity} and write the path integral as\footnote{Due to notational simplicity we will not always write out the group indicies, but for non-Abelian field it is always understood to be there.}
+\begin{align}
+    \int\mathcal{D}A e^{iS[A]}=\Big(\int\mathcal{D}\alpha\Big)\int\mathcal{D}A\,e^{iS[A]}\,\delta(G[A])\,\det(\frac{\partial G[A]}{\partial\alpha})\,.
+\end{align}
+In contrast to the Abelian case we can not move the functional determinant out of the path integral and combine it with the infinite constant. To see this we calculate the argument inside the determinant and find
+\begin{align}
+    \frac{\partial G[A]}{\partial\alpha}=\frac{1}{g}\partial^{\mu}D_{\mu}\,,
+\end{align}
+which is not independent of $A$. To circumvent this problem we use that functional determinants can be written as a path integral, a representation introduced by Fadeev and Popov \cite{Faddeev:1967fc}. The trick of it is that we need to write the determinant as a path integral of anticommuting Grassmann fields that transform in the adjoint representation, i.e. 
+\begin{align}
+    \det(\partial^{\mu}D_{\mu})=\int\mathcal{D}c\mathcal{D}\Bar{c}\exp(-i\int d^{4}x\,\Bar{c}(\partial^{\mu}D_{\mu})c)\,.
+\end{align}
+These fields can be shown to transform under Lorentz transformation as scalars, meaning that due to their Grassmannian nature do not obey the correct spin-statistics relation. Therefore, they can not be dynamical fields that we can observe. However, they can be shown to serve as negative degrees of freedom in the sense that given their Feynman rules they can cancel the unphysical timelike and longitudinal polarization states of the gauge bosons. With this representation of the determinant one can use \cref{eq:gaussian weigh in quantization} and integrate using the delta function, leading to the Fadeev-Popov Lagrangian
+\begin{align}\label{eq:Fadeev-Popov Lagrangian}
+    \mathcal{L}_{FP}=-\frac{1}{4}(F_{\mu\nu}^{a})^{2}+\Bar{\psi}(i\slashed{D}-m)\psi-\frac{1}{2\xi}(\partial^{\mu}A_{\mu}^{a})^{2}-\Bar{c}^{a}(\partial^{\mu}D_{\mu}^{ac})c^{c}\,.
+\end{align}
+
+As mentioned the practical use of ghosts is to cancel unphysical polarizations appearing in gauge boson diagrams. For example, when calculating a gauge boson self energy diagram, one also have to add a ghost diagram.
+
+In some cases it can be cumbersome and difficult to calculate these extra ghost diagrams. There is another quantization procedure that circumvent the introduction of ghosts. That is, one can choose a different class of gauges, namely the axial gauges, i.e.
+\begin{align}
+    G[A]=n^{\mu}A_{\mu}-\omega\,,
+\end{align}
+for some arbitrary directional vector $n_{\mu}$. With this choice the functional determinant can be written as
+\begin{align}
+    \det(\pdv{G[A]}{\alpha})=\det (n^{\mu}D_{\mu})=\det (n^{\mu}\partial_{\mu}-gn^{\mu}A_{\mu})=\det (n^{\mu}\partial_{\mu}-g\omega)\,,
+\end{align}
+which is independent of $A$, and can be pulled out of the path integral. Not being able to pull the functional determinant out of the path integral was the problem that led to the introduction of ghosts. The general result is that any gauge choice involving derivatives, will give rise to ghosts. The downside with axial gauges is that the propagator will become more complicated. 
+
+As for the Abelian gauge fixing we can now make an integration over $\omega$ using a Gaussian weight, see \cref{eq:gaussian weigh in quantization}. The path integral can then be written as
+\begin{align}
+    \int\mathcal{D}A\,e^{iS[A]}&=N(\xi)\det(n^{\mu}\partial_{\mu})\Big(\int\mathcal{D}\alpha\Big)\int\mathcal{D}\omega\int\mathcal{D}A\,e^{iS[A]}\,\delta(n^{\mu}A_{\mu}-\omega)e^{-i\int d^{4}x\frac{\omega^{2}}{2\xi}}\nonumber
+    \\
+    &=N(\xi)N(\alpha)\int\mathcal{D}A\,\exp(iS[A]-i\int d^{4}x\frac{1}{2\xi}(n^{\mu}A_{\mu})^{2})
+\end{align}
+This is completely analogous to \cref{eq:Abelian gauge fixed action}, with the difference of $n^{\mu}$ instead of $\partial^{\mu}$ in the gauge fixing term. The gauge-fixed action is then given by
+\begin{align}
+    S_{GF}[A]=\frac{1}{2}\int d^{4}x\,d^{4}y\,A_{\mu}(x)\delta^{(4)}(x-y)\big(\partial^{2}g^{\mu\nu}-\partial^{\mu}\partial^{\nu}+\frac{1}{\xi}n^{\mu}n^{\nu}\big)A_{\nu}(y)\,,
+\end{align}
+giving the propagator equation
+\begin{align}
+    \big(\partial^{2}g_{\mu\nu}-\partial_{\mu}\partial_{\nu}-\frac{1}{\xi}n_{\mu}n_{\nu}\big)D_{F}^{\nu\rho}(x,y)=i\delta_{\,\mu}^{\rho}\delta^{(4)}(x-y)\,.
+\end{align}
+As in \cref{eq:parametrization of propagator} this can be solved exactly by exploiting that the gauge boson propagator is a second rank symmetric tensor. Using this property we have that the momentum space propagator in axial gauge is given by
+\begin{align}
+    \text{Axial Gauge}:\hspace{1cm}D_{\mu\nu}^{ab}(k)=\frac{-i\delta^{ab}}{k^{2}+i\epsilon}\Big(g_{\mu\nu}-\frac{k_{\mu}n_{\nu}+k_{\nu}n_{\mu}}{k\cdot n}+(n^{2}+\xi k^{2})\frac{k_{\mu}k_{\nu}}{(k\cdot n)^{2}}\Big)\,.
+\end{align}
+
+This expression looks like a huge price to pay for avoiding introducing ghosts, but we can use an even smaller set of axial gauges. The one we will mostly use is the so-called \emph{light-cone gauges}, which amounts to choosing $n^{\mu}$ as a lightlike vector, i.e. $n^{2}=0$. Also, like for Lorentz gauges we have an additional gauge choice for $\xi$. We can choose $\xi=0$, which is called the \emph{homogenous light-cone gauge}, such that the term proportional to $k
+^{2}$ vanishes entirely. We are then left with the light-cone propagator
+\begin{align}\label{eq:lightcone propagator}
+    \text{LC Gauge}:\hspace{1cm}D_{\mu\nu}^{ab}(k)=\frac{-i\delta^{ab}}{k^{2}+i\epsilon}\Big(g_{\mu\nu}-\frac{k_{\mu}n_{\nu}+k_{\nu}n_{\mu}}{k\cdot n}\Big)\,.
+\end{align}
+
+For completeness, the gauge boson propagator in covariant gauge is given by
+\begin{align}\label{eq:covariant propagator}
+    \text{Lorentz Gauge}:\hspace{1cm}D_{\mu\nu}^{ab}(k)=\frac{-i\delta^{ab}}{k^{2}+i\epsilon}\Big(g_{\mu\nu}-(1-\xi)\frac{k_{\mu}k_{\nu}}{k^{2}}\Big)\,.
+\end{align}
+
+Most of the time, calculations are easier in Lorentz gauges, but for some QCD calculations it is easier to use the light-cone gauge.
+
+
+\section{Wilson Line Properties}\label{sec:wilson line properties}
+In \cref{sec:Wilson lines and Wilson loops} we found that Wilson lines emerged naturally in gauge theories from a geometrical viewpoint. Because of its bi-local transformation property, it is used as a parallel transporter to render non-local terms gauge invariant. It could also be used to derive a gauge invariant Lagrangian for a non-Abelian gauge theory.  However, the application of Wilson lines are much broader than this and in this section we will look at some their properties in more detail.
+
+The Wilson line we defined in \cref{sec:Wilson lines and Wilson loops} is valid for any gauge theory, but as our main focus is on QCD we mostly use that the gauge fields are non-Abelian in nature. The physical consequence of involving Wilson lines in a theory becomes apparent if we expand \cref{eq:Wilson line definition},
+\begin{align}\label{eq:Expansion n-order Wilson line}
+\mathcal{U}_{\gamma}&=\mathcal{P}\exp(ig\int_{\gamma}dz^{\mu}A_{\mu}(z))\nonumber
+\\
+&=\sum_{n=0}^{\infty}\frac{1}{n!}(ig)^{n}\mathcal{P}\int_{\gamma}dz_{n}^{\mu_n}\dots dz_{1}^{\mu_1}A_{\mu_n}(z_n)\dots A_{\mu_1}(z_1)\,,
+\end{align}
+i.e. the $n$-th order expansion represents radiation of $n$ gauge bosons. The point $z_i$ at which the gauge field is radiated is integrated over, meaning that all possible configurations are taken into account. The path-ordering makes sure that the radiated field are ordered such that $A_{\mu_i}(z_i)$ is radiated between $A_{\mu_{i-1}}(z_{i-1})$ and $A_{\mu_{i+1}}(z_{i+1})$. Thus, the full exponential is a resummation of gauge boson radiation from the path. One important consequence of this is that we can \textquote{dress} a particle, say a quark, with a Wilson line and this would then correspond to resummation of gluon radiation from a quark line. The same can be done for an electron with an Abelian Wilson line, with the simplification that the gauge fields commute and the path-ordering is redundant. 
+
+Before we discuss how we can dress a fermion with a Wilson line, we summarize some important properties of Wilson lines.
+
+\medskip
+\begin{defbox*}{}{}
+A Wilson line $\mathcal{U}_{\gamma}$ defined on a path $\gamma$ with endpoints $x$ and $y$ have the following properties:
+
+\medskip
+\textbf{Hermiticity:}
+The hermitian conjugate of a Wilson line is given by
+\begin{align}
+    \mathcal{U}_{\gamma}^{\dagger}[y,x]=\mathcal{U}_{-\gamma}[x,y]\,,
+\end{align}
+i.e. it gives the same line in the opposite direction.
+
+\medskip
+\textbf{Causality:}
+Because of path-ordering the Wilson line is path-transitive, i.e. we can continously glue several paths together to form one. For a path $\gamma=\gamma_1+\gamma_2$ going from $x$ to $z$, then from $z$ to $y$, is the same as going directly from $x$ to $y$,
+\begin{align}
+    \mathcal{U}_{\gamma}[y,x]=\mathcal{U}_{\gamma_1}[z,x]\,\mathcal{U}_{\gamma_2}[y,z]\,.
+\end{align}
+
+\medskip
+\textbf{Unitarity:}
+If we have a Wilson line from $x$ to $y$ and back from $y$ to $x$ in the opposite direction, this composition is equal to one, i.e.
+\begin{align}
+    \mathcal{U}_{\gamma}[y,x]\mathcal{U}_{\gamma}^{\dagger}[y,x]=1\,.
+\end{align}
+
+\medskip
+\textbf{Bi-Locality:}
+A Wilson line transform in function of it's endpoints only
+\begin{align}
+    \mathcal{U}_{\gamma}[y,x]\rightarrow e^{ig\alpha^{a}(y)t^{a}}\mathcal{U}_{\gamma}[x,y]e^{-ig\alpha^{a}(x)t^{a}}\,.
+\end{align}
+\end{defbox*}
+The ultimate goal going forward is to use Wilson lines in perturbation theory, so we have to evaluate the line integrals in \cref{eq:Expansion n-order Wilson line}. To that end, it is convenient to parametrize the path $\gamma$ as we did in \cref{eq:path parametrization}, i.e.
+\begin{align}
+    \gamma:\,z^{\mu}(\lambda)\,,\hspace{1cm} \lambda=a\dots b\,,
+\end{align}
+where $z(a)$ and $z(b)$ are the endpoints of the path. Then we can make the change of variable
+\begin{align}
+    dz^{\mu}\rightarrow d\lambda\frac{dz^{\mu}}{d\lambda}\,,
+\end{align}
+Such that the expansion in \cref{eq:Expansion n-order Wilson line} can be written as
+\begin{align}\label{eq:path ordering of expanded line}
+    \mathcal{P}&\int_{\gamma}d\lambda_{n}\dots d\lambda_1\dv{z^{\mu_n}(\lambda_n)}{\lambda_n}\dots\dv{z^{\mu_1}(\lambda_1)}{\lambda_1}A_{\mu_n}(z_n)\dots A_{\mu_1}(z_1)\nonumber
+    \\
+    &=n!\int_{a}^{b}d\lambda_n\int_{a}^{\lambda_n}d\lambda_{n-1}\dots\int_{a}^{\lambda_2}d\lambda_1\dv{z^{\mu_n}(\lambda_n)}{\lambda_n}\dots\dv{z^{\mu_1}(\lambda_1)}{\lambda_1}A_{\mu_n}(z_n)\dots A_{\mu_1}(z_1)\,,
+\end{align}
+which tells us that the $i$-th gauge boson with parameter $\lambda_i$ is radiated between the $i-1$-th and $i+1$-th. Thus, the field with highest value of $\lambda$ is written leftmost in the integral, meaning that this is the field that will be written rightmost in a Feynman diagram. This implies that we read a Wilson line from right to left, like we do for Dirac lines. 
+
+We want to use these Wilson lines in scattering amplitudes, so there is a specific Wilson line that is relevant for us, and that is Wilson lines on linear paths. In Feynman diagrams we draw particle lines as linear paths, so these are the most relevant for our purposes. We want to integrate over the path dependence, so it is convenient to disentagle the gauge field content from the path content of the line integral. This is most easily done by using the Fourier transform
+\begin{align}
+    A_{\mu}(z)=\int\frac{d^{d}k}{(2\pi)^{d}}\,A_{\mu}(k)\,e^{-ik\cdot z}\,,
+\end{align}
+such that the $n$-th order term in the expanded Wilson line \cref{eq:nth order Wilson integral} can be written as
+\begin{align}
+    \mathcal{U}_{\gamma}^{(n)}=\int\frac{d^{d}k_n}{(2\pi)^{d}}\dots\frac{d^{d}k_1}{(2\pi)^{d}}\,A_{\mu_n}(k_n)\dots A_{\mu_1}(k_1)\,\mathcal{I}^{(n)}\,,
+\end{align}
+where we have collected all the path content in the following integral
+\begin{align}\label{eq:nth order Wilson integral}
+    \mathcal{I}_{A}^{(n)}=(ig)^{n}\int_{a}^{b}d\lambda_{n}\dots\int_{a}^{\lambda_2}d\lambda_1 \dv{z^{\mu_n}(\lambda_n)}{\lambda_n}\dots\dv{z^{\mu_1}(\lambda_1)}{\lambda_1}\,\exp(-i\sum_{i=1}^{n}k_{i}\cdot z_{i})\,.
+\end{align}
+ 
+We want to consider paths that are bounded from below and bounded from above. The result in \cref{eq:nth order Wilson integral} is convenient to use when we have a line that is bounded from above\footnote{Hence, the subscript.}. For a path that is bounded from below, we change the integration chaining in \cref{eq:path ordering of expanded line} and flip the order of integration\footnote{This is done to make sure that the radiation happens in the correct order.}.
+We summarize the two different cases in the following integrals
+\begin{align}
+    \mathcal{I}_{A}^{(n)}=(ig)^{n}\int_{a}^{b}d\lambda_{n}\dots\int_{a}^{\lambda_2}d\lambda_1 \dv{z^{\mu_n}(\lambda_n)}{\lambda_n}\dots\dv{z^{\mu_1}(\lambda_1)}{\lambda_1}\,\exp(-i\sum_{i=1}^{n}k_{i}\cdot z_{i})\,,\label{eq:path bounded from above}
+    \\
+    \mathcal{I}_{B}^{(n)}=(ig)^{n}\int_{a}^{b}d\lambda_{1}\dots\int_{\lambda_{n-1}}^{b}d\lambda_n \dv{z^{\mu_n}(\lambda_n)}{\lambda_n}\dots\dv{z^{\mu_1}(\lambda_1)}{\lambda_1}\,\exp(-i\sum_{i=1}^{n}k_{i}\cdot z_{i})\,.\label{eq:path bounded from below}
+\end{align}
+
+\subsubsection*{Semi-Infinite Wilson Lines}
+The most interesting and physical relevant paths are those that contain so-called \emph{cusps}, i.e. there are points in the path that are not smooth. They are continous, but the derivative is not. Fortunately, since Wilson lines are path-transitive we can split the path at the cusp and continue with a product of two Wilson lines. 
+
+To explain why we are interested in paths with cusps, we take the example of annihilation of two fermions. Highly energetic particles that radiates gauge bosons can be described by a Wilson line\footnote{We will show this later.}. The point of interaction is then what we call a cusp, e.g. when we draw Feynman diagrams we have two particles lines that meet and there is a crack at the interaction. Such cusps will lead to divergences and one has to renormalize the Wilson line. This will lead to the so-called \emph{cusp anamalous dimensions} containing all the interesting dynamics. We will come back these issues in \cref{chap:Resummation in QCD}.
+
+The idea of Wilson lines coming in from infinity and meets at a point or created at a point and goes out to infinity, naturally leads to the notion of what we call semi-infinite Wilson lines. Let us start with a Wilson line that is bounded from above, which we parametrize as
+\begin{align}
+    z_{i}^{\mu}=a^{\mu}+n^{\mu}\lambda_{i}\,,\hspace{1cm}\lambda=-\infty\dots 0\,,
+\end{align}
+which is a linear path going from $-\infty$ up to a point $a^{\mu}$ along a direction $n^{\mu}$. If we insert this parametrization into \cref{eq:path bounded from above}, we get
+\begin{align}
+    \mathcal{I}_{A}^{(m)}=&(ig)^{m}\,n^{\mu_1}\cdots n^{\mu_m}\,\exp(-i\sum_{i=1}^{m}a\cdot k_i)\nonumber
+    \\
+    &\int_{-\infty}^{0}d\lambda_m\int_{-\infty}^{\lambda_{m}}d\lambda_{m-1}\cdots\int_{-\infty}^{\lambda_{2}}d\lambda_1 \,\exp(-i\sum_{i=1}^{m}(n\cdot k_{i}+i\epsilon)\lambda_{i})\,,
+\end{align}
+where we have used that the integrals has the form of a Fourier transformed Heaviside $\theta$-function, which is not convergent unless we use a $i\epsilon$ prescription. The solution of a Fourier transformed Heaviside function is well known, so the innermost integral is given by
+\begin{align}
+    \int_{-\infty}^{\lambda_{2}}d\lambda_{1}e^{-i(n\cdot k_1+i\epsilon)\lambda_1}=\frac{i}{n\cdot k_1+i\epsilon}e^{-i(n\cdot k_1+i\epsilon)\lambda_2}\,,
+\end{align}
+and to reveal the pattern we can also solve the next integral
+\begin{align}
+    \int_{-\infty}^{\lambda_{3}}d\lambda_{2}e^{-i(n\cdot k_1+n\cdot k_2+i\epsilon)\lambda_2}=\frac{i}{n\cdot k_1+n\cdot k_2+i\epsilon}e^{-i(n\cdot k_1+n\cdot k_2+i\epsilon)\lambda_3}\,.
+\end{align}
+By collecting all factors that are brought down by the integration, the $n$-th integral takes the form
+\begin{align}
+    \mathcal{I}^{(m)}=(ig)^{m}\,n^{\mu_1}\cdots n^{\mu_m}\,\exp(-i\sum_{i=1}^{m}a\cdot k_i)\prod_{i=1}^{m}\frac{i}{n\cdot\sum_{j=1}^{i} k_j+i\epsilon}\,,
+\end{align}
+giving
+\begin{align}\label{eq:semi-infinite Wilson line -infty-to-0}
+    \mathcal{U}[0,-\infty]=\sum_{m=0}^{\infty}(ig)^{m}\int\frac{d^{d}k}{(2\pi)^{d}}\,n\cdot A(k_m)\cdots n\cdot A(k_1)\,e^{-ia\cdot\sum_{i=1}^{m} k_i}\prod_{i=1}^{m}\frac{i}{n\cdot\sum_{j=1}^{i} k_j+i\epsilon}\,.
+\end{align}
+Just to clarify the notation used here and later: when we have a Wilson line defined from $x$ to $y$, we use the bracket $\mathcal{U}[y,x]$. But when we have a composition of Wilson lines meeting at a point $x$ coming from $-\infty$, we typically write this as $\mathcal{U}(x)=\mathcal{U}_{\gamma_1}[x,-\infty]\,\mathcal{U}_{\gamma_2}[x,-\infty]$.
+
+The expansion in \cref{eq:semi-infinite Wilson line -infty-to-0} gives rise to the following Feynman rules:
+\begin{fmffile}{tt}
+\begin{align}
+\begin{gathered}
+\begin{fmfgraph*}(45,40)
+\fmfleft{v1}
+\fmfright{v2}
+\fmf{plain,tension=.5,label=$k\rightarrow$,l.side=left}{v1,v2}
+\end{fmfgraph*}
+\end{gathered}\hspace{0.6cm}&=\frac{i}{n\cdot k+i\epsilon}\,,\hspace{2cm}\text{Wilson line propagator}\label{eq:Wilson propagator}
+\\
+\begin{gathered}
+\begin{fmfgraph*}(45,40)
+\fmfleft{v1}
+\fmfright{v2}
+\fmflabel{$a^{\mu}$}{v2}
+\fmf{plain,tension=.5,label=$k\rightarrow$,l.side=left}{v1,v2}
+\fmfdot{v2}
+\end{fmfgraph*}
+\end{gathered}\hspace{0.6cm}&=e^{-ia\cdot k}\,,\hspace{2.6cm}\text{External point}\label{eq:Wilson external point}
+\\
+\begin{gathered}
+\begin{fmfgraph*}(45,40)
+\fmfleft{i}
+\fmfright{o}
+\fmf{plain}{i,v3}
+\fmf{plain}{v3,o}
+\fmffreeze   % freezing the drawn elements
+\fmfright{v3,o3}   % adding two more vertices
+\fmfforce{(0.5w,0.5h)}{v3}   % setting position of the first vertex
+\fmfforce{(0.5w,0h)}{o3}   % setting position of the second vertex
+\fmfdot{v3}   % drawing the first vertex with a dot
+\fmf{gluon, label=$k\uparrow$, l.side=left}{v3,o3}   % drawing a gluon line
+\end{fmfgraph*}
+\end{gathered}\hspace{0.6cm}&=ig\,n^{\mu}\,t^{a}\,.\hspace{2.36cm}\text{Wilson vertex}\label{eq:Wilson vertex}
+\end{align}
+\end{fmffile}
+
+The next option to study is a line starting at a point $a^{\mu}$ and moving out to $+\infty$ along $n^{\mu}$. The parametrization reads
+\begin{align}
+    z_{i}^{\mu}=a^{\mu}+n^{\mu}\lambda_{i}\,,\hspace{1cm}\lambda=0\dots\infty\,.
+\end{align}
+If we insert this parametrization into \cref{eq:path bounded from below}, we get
+\begin{align}
+    \mathcal{I}_{B}^{(m)}=&(ig)^{m}\,n^{\mu_1}\cdots n^{\mu_m}\,\exp(-i\sum_{i=1}^{m}a\cdot k_i)\nonumber
+    \\
+    &\int_{0}^{\infty}d\lambda_1\int_{\lambda_1}^{\infty}d\lambda_{2}\cdots\int_{\lambda_{n-1}}^{\infty}d\lambda_n \,\exp(-i\sum_{i=1}^{m}(n\cdot k_{i}-i\epsilon)\lambda_{i})\,,
+\end{align}
+where the innermost integral is 
+\begin{align}
+    \int_{\lambda_{n-1}}^{\infty}d\lambda_{n}e^{-i(n\cdot k_1-i\epsilon)\lambda_n}=\frac{-i}{n\cdot k_1-i\epsilon}e^{-i(n\cdot k_1-i\epsilon)\lambda_{n-1}}\,,
+\end{align}
+giving the Wilson line
+\begin{align}\label{eq:semi-infinite Wilson line 0-to-infty}
+    \mathcal{U}[\infty,0]=\sum_{m=0}^{\infty}(ig)^{m}\int\frac{d^{d}k}{(2\pi)^{d}}\,n\cdot A(k_m)\cdots n\cdot A(k_1)\,e^{-ia\cdot\sum_{i=1}^{m} k_i}\prod_{i=1}^{m}\frac{-i}{n\cdot\sum_{j=1}^{i} k_j-i\epsilon}\,.
+\end{align}
+We observe that the Feynman rules defined above apply if we just make the change $k\rightarrow -k$ in the propagator.  There is much more to be said of different paths and structures, but we will only use Wilson lines on linear paths so we restrict ourselves to the ones discussed here.
+
+\subsubsection*{Eikonal Particles}
+We will now take a closer look at an amplitude and see the appearance of a Wilson line from it. A highly energetic fermion will always radiate soft gauge bosons. When the momentum carried by the gauge boson is much smaller than the momentum of the fermion this will lead to infrared divergences. As previously mentioned, we will investigate and treat IR divergences in more detail in \cref{Chap:pQCD}. But even after these have been treated we will have logarithmic contributions that can become large in certain regions of phase space. This problem can be solved by using Wilson lines, where we can treat diagrams perturbatively and re-exponentiate to an exact expression.
+
+To see an example, let us investigate the process where a massless fermion radiates a gauge boson, see \cref{fig:blob with gluon radiation amplitude}\footnote{These are gluons, but we restrain from casually mention them before we have introduced the framework of QCD.}. The amplitude for this process is given by\footnote{Remember that we read the diagram against the particle flow. We also use the notation $\slashed{\varepsilon}=\gamma
+^{\mu}\varepsilon_{\mu}^{a}$.}
+
+\begin{fmffile}{ttt}
+\begin{figure}
+\centering
+\begin{fmfgraph*}(180,100)
+\fmfleft{i}
+\fmfblob{.20w}{i}
+\fmfright{o}
+\fmf{fermion,label=$p+k\rightarrow$, l.side=left}{i,v3}
+\fmf{fermion,label=$p\rightarrow$, l.side=left}{v3,o}
+\fmffreeze   % freezing the drawn elements
+\fmfright{v3,o3}   % adding two more vertices
+\fmfforce{(0.5w,0.5h)}{v3}   % setting position of the first vertex
+\fmfforce{(0.5w,0h)}{o3}   % setting position of the second vertex
+\fmfdot{v3}   % drawing the first vertex with a dot
+\fmf{gluon, label=$k\downarrow$, l.side=left}{v3,o3}   % drawing a gluon line
+\end{fmfgraph*}
+\caption{Radiation of a gauge boson from a outgoing fermion in a non-Abelian theory.}
+\label{fig:blob with gluon radiation amplitude}
+\end{figure}
+\end{fmffile}
+
+\begin{align}\label{eq:original gluon amplitude Wilson}
+    \mathcal{M}_{1}=\Bar{u}(p)(-igt^{a}\slashed{\varepsilon}(k))\frac{i(\slashed{p}+\slashed{k})}{(p+k)^{2}}\,\mathcal{B}\,,
+\end{align}
+where $\mathcal{B}$ is the blob containing all the information that is independent of the radiation. As we consider massless fermions, we have that $(p+k)^{2}=2\,p\cdot k$. If the radiated gauge boson is soft, we can make the approximation $\slashed{p}+\slashed{k}\approx \slashed{p}$. This is known as the \emph{eikonal approximation}. We can also use that the fermion is massless and obeys the massless Dirac equation, i.e. we can use that $\Bar{u}(p)\slashed{p}=0$. This allows us to substitute $\slashed{\varepsilon}\slashed{p}$ with $\{\slashed{\varepsilon},\slashed{p}\}=2\varepsilon_{\mu}(k)p_{\nu}g
+^{\mu\nu}$, i.e. we have just added zero to the amplitude. With these adjustments, we can write \cref{eq:original gluon amplitude Wilson} as
+\begin{align}
+    \mathcal{M}^{(1)}&=gt^{a}\Bar{u}(p)\slashed{\varepsilon}(k)\frac{\slashed{p}}{2p\cdot k}\,\mathcal{B}=gt^{a}\Bar{u}(p)\frac{p\cdot\varepsilon(k)}{p\cdot k-i\epsilon}\,\mathcal{B}\,.
+\end{align}
+where we inserted the pole prescription as it is understood that the gauge boson momenta is to be integrated over in observables. We observe that the \textquote{new} fermion propagator looks very much like the Wilson propagator in \cref{eq:Wilson propagator}. To see that this will indeed give a description of radiation from a Wilson line, we can consider the process with two soft gauge bosons. If we use the same approximations as above, we find the amplitude
+\begin{align}\label{eq:original two gluon amplitude Wilson}
+    \mathcal{M}^{(2)}&=\Bar{u}(p)(-igt^{b}\slashed{\varepsilon}(k_2))\frac{i(\slashed{p}+\slashed{k_2})}{(p+k_2)^{2}}(-igt^{a}\slashed{\varepsilon}(k_1))\frac{i(\slashed{p}+\slashed{k_1}+\slashed{k_2})}{(p+k_1+k_2)^{2}}\,\mathcal{B}\nonumber
+    \\
+    &=g^{a}t^{b}t^{a}\Bar{u}(p)\frac{p\cdot\varepsilon(k_2)}{p\cdot k_2-i\epsilon}\frac{p\cdot\varepsilon(k_1)}{p\cdot k_1+p\cdot k_2-i\epsilon}\,\mathcal{B}\,.
+\end{align}
+We can now use that the polarization vector is used when Fourier expanding gauge fields, so we can make the substitution $\varepsilon_{\mu}^{a}(k)\rightarrow A_{\mu}^{a}(k)$. Further, we observe that \cref{eq:original gluon amplitude Wilson} and \cref{eq:original two gluon amplitude Wilson} is invariant under the rescaling $p^{\mu}=p\,n^{\mu}$. Lastly, we integrate over all external momenta, giving the amplitude to $\mathcal{O}(g
+^{2})$
+\begin{align}\label{eq:Dressed fermion amplitude}
+    \mathcal{M}&=\mathcal{M}^{(0)}+\mathcal{M}^{(1)}+\mathcal{M}^{(2)}+\mathcal{O}(g^{3})\nonumber
+    \\
+    &=\Bar{u}(p)\Big(1+ig\int\frac{d^{d}k_1}{(2\pi)^{d}}\,n\cdot A(k_1)\frac{-i}{n\cdot k_1-i\epsilon}\nonumber
+    \\
+    &\hspace{1cm}+(ig)^{2}\int\frac{d^{d}k_2}{(2\pi)^{d}}\frac{d^{d}k_1}{(2\pi)^{d}}n\cdot A(k_2)\,n\cdot A(k_1)\frac{-i}{n\cdot k_1-i\epsilon}\frac{-i}{n\cdot k_1+n\cdot k_2-i\epsilon}\nonumber
+    \\
+    &\hspace{1cm}+\mathcal{O}(g^{3})\Big)\,\mathcal{B}\,,
+\end{align}
+where we observe that the term inside the bracket is the $\mathcal{O}(g^{2})$ expansion of the Wilson line given in \cref{eq:semi-infinite Wilson line 0-to-infty}. Hence, the definition of a dressed fermion, also called an \emph{eikonal fermion}, is given by\footnote{These definitions are not operator valued, but ment to hold inside matrix elements.}
+\begin{align}\label{eq:eq:wilso dress fermion}
+    \overline{\Psi}(x)=\bar{\psi}(x)\,\mathcal{U}[\infty,0]\,,\hspace{0.3cm}\text{and}\hspace{0.3cm}\Psi(x)=\mathcal{U}^{\dagger}[\infty,0]\psi(x)\,.
+\end{align}
+These are now resummed fermion lines, as all the radiation has been exponentiated. The crucial step for this to happen was to add zero, by using that $\bar{u}(p)\slashed{p}=0$. Hence, Wilson lines as a resummation of gauge boson radiation can only appear next to on-shell fermions. 
+
+What this implies is that by taking the soft limit of a scattering process, the structure of that amplitude is fully described by a Wilson line. This feature is one reason that Wilson lines are such useful and important objects to use in scattering calculations. As a teaser to why this is important: in \cref{chap:Resummation in QCD} we will use factorization theorems to separate a cross section into hard and soft parts. This soft part is what we will use Wilson lines to construct. This is an important concept to keep in mind when we delve into factorization of cross sections. 
+
+%There is one last observation that we will have use for later. If we have processes with emission, we have to Wick contract them. For example, if we square \cref{eq:Dressed fermion amplitude} the $\mathcal{O}(g^{2})$ is on the form\footnote{Neglecting the fermion and blob contribution.}
+%\begin{align}
+%    I(g^{2})\sim g^{2}t^{a}t^{b}n^{\mu}n^{\nu}\int\frac{d^{d}k}{(2\pi)}\,A_{\mu}^{a}(k)A_{\nu}^{b}(k)\frac{1}{(n\cdot k)^{2}-i\epsilon}\,.
+%\end{align}
+%A Wick contraction of the emitted gauge bosons will give
+%\begin{align}
+%    A_{\mu}^{a}(k)A^{b}_{\nu}(k)\rightarrow D_{\mu\nu}^{ab}(k)=\frac{-ig_{\mu\nu}\delta^{ab}}{k^{2}-i\epsilon}\,,
+%\end{align}
+%where we represented the propagator in Lorentz gauge with the Feynman choice $\xi=1$, see \cref{eq:covariant propagator}. Hence, the integral is brought on the form
+%\begin{align}
+%    I(g^{2})\sim g^{2}t^{a}t^{a}n^{2}\int\frac{d^{d}k}{(2\pi)^{d}}\frac{1}{k^{2}-i\epsilon}\frac{1}{(n\cdot k)^{2}-i\epsilon}
+%\end{align}
+%which is a scaleless integral. We studied these integrals in \cref{sec:dimensional regularization}, and argued that they are zero in dimensional regularization. These scaleless integrals can be used to extract the UV and IR poles, see \cref{eq:scaleless integral}. Hence, we can use Wilson line expansions to extract the IR divergence and cancel the UV by counterterms.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%There is one last observation we can make that we will have use for in \cref{sec:DIS}. Let us square the amplitude in \cref{eq:Dressed fermion amplitude}, and remember that in general we have to sum over polarization of all final states and average over initial. We are not interested in the full structure of this expression, so we will neglect the contribution from the blob and the polarization sum over fermions. The part we want to consider is where we have one gauge boson radiation. This is given by the square of the first order term in \cref{eq:Dressed fermion amplitude}, i.e.
+%\begin{align}
+%    I_{g}&\sim g^{2}\sum_{\text{pol}}n^{\mu}n^{\nu}\int\frac{d^{d}k_1}{(2\pi)^{d}}\,A_{\mu}^{a}(k_1)A_{\nu}^{b}(k_1)\frac{1}{(n\cdot k_1)^{2}}
+%    \\
+%    &=g^{2}C_{F}n^{\mu}n^{\nu}\int\frac{d^{d}k_1}{(2\pi)^{d}}\,D_{\mu\nu}(k_1)\frac{1}{(n\cdot k_1)^{2}}
+%\end{align}
+%where we have used that the polarization sum yields the gauge boson Feynman propagator. Here we used the propagator in Lorentz gauge with the Feynman gauge choice $\xi=1$.
+
+%We will now turn our attention to the theory of strong interaction and it's perturbative behaviour. We will find several uses for Wilson lines here, but the main objective will be to recognize the nature of IR-singularities and how to treat them. We will find that even after the IR singularities have been treated, there are still contributions that can become large in certain domains. To treat these contributions, we will turn our attention to Wilson lines again and their renormalization properties.

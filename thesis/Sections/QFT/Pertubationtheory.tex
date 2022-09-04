@@ -1,0 +1,833 @@
+\section{Perturbation Theory in Quantum Field Theory}\label{sec:Perturbation Theory in Quantum Field Theory}
+In this section we would like to develop a method for calculating the physical consequences of a small interaction in a nearly free quantum field theory. The fundamental assumption as that we express quantities as a power series in the coupling strength. These powers series will have many unpleasant mathematical properties to be discussed later. In this chapter, we shall ignore such problems and show how the power series can be calculated in principle.
+
+\subsection{Perturbation Theory from Path Integrals}\label{sec:Perturbation theory form path integrals}
+In order to develop perturbation theory form the path integral formalism, we split the action into a free part and an interacting part. In general, the exactly solvable parts of a theory, i.e. the parts that are quadratic in the fields are placed in the free part. Those terms that are higher order than quadratic are interaction terms and are placed in the interaction part. We will talk more about the structure of this splitting when we want to relate Green's function to the $S$-matrix, but for now we just use that this as the procedure.
+
+We write the full action as the sum over a free part and a interacting part, i.e.
+\begin{align}\label{eq:split action}
+    S=S_{0}+S_{\text{int}}\,.
+\end{align}
+The interaction term causes problems if we want to complete the square by shifting the fields, as we did for the free theory. However, there is a trick that makes it possible to formulate the interacting theory in terms of the free theory.
+
+Let us start by looking at the generating functional for a scalar theory
+\begin{align}
+    \mathcal{Z}[J]&\equiv\braket{\Omega}_{J}=\mathcal{N}\int\mathcal{D}\phi\exp(iS_{0}+iS_{\text{int}}+i\int d^{4}x\,J(x)\phi(x))\,.
+\end{align}
+where $\ket{\Omega}$ is the interacting vacuum, with normalization $\braket{\Omega}=1$. To rewrite this we can use that the functional derivative acts as\footnote{This follows from \cref{eq:functional derivative of source and field}.}
+\begin{align}
+    \Big(-i\frac{\partial}{\partial J(y)}\Big)e^{i\int d^{4}x\,J(x)\phi(x)}=\phi(y)e^{i\int d^{4}x\,J(x)\phi(x)}\,,
+\end{align}
+so we can make the replacement
+\begin{align}
+    \mathcal{S}_{\text{int}}[\phi]\rightarrow \mathcal{S}_{\text{int}}\Big[-i\frac{\partial}{\partial J(x)}\Big]\,,
+\end{align}
+which is independent of $\phi$ and can be moved outside the path integral. This enable us to write the generating functional as
+\begin{align}
+    \mathcal{Z}[J]&=\mathcal{N}\exp(i\mathcal{S}_{\text{int}}\Big[-i\frac{\partial}{\partial J(x)}\Big])\int\mathcal{D}\phi\exp(iS_{0}+i\int d^{4}x\,J(x)\phi(x))\nonumber
+    \\
+    &=\mathcal{N}\exp(i\mathcal{S}_{\text{int}}\Big[-i\frac{\partial}{\partial J(x)}\Big])\mathcal{N}_{0}^{-1}\mathcal{Z}_{0}[J]\,,
+\end{align}
+where $\mathcal{Z}_{0}$ and $\mathcal{N}_{0}$ are the generating functional and normalization factor for the free theory, see \cref{eq:generating functional scalar theory}. Now if we set $J=0$ we have $\mathcal{Z}[0]=1$, giving the normalization factor
+\begin{align}
+    \mathcal{N}^{-1}=\mathcal{N}_{0}^{-1}\exp(i\mathcal{S}_{\text{int}}\Big[-i\frac{\partial}{\partial J(x)}\Big])\mathcal{Z}_{0}[J]\Big|_{J=0}\,,
+\end{align}
+and the generating functional in the interacting theory can be written as
+\begin{align}
+    \mathcal{Z}[J]=\frac{\exp(i\mathcal{S}_{\text{int}}\Big[-i\frac{\partial}{\partial J(x)}\Big])\mathcal{Z}_{0}[J]}{\exp(i\mathcal{S}_{\text{int}}\Big[-i\frac{\partial}{\partial J(x)}\Big])\mathcal{Z}_{0}[J]\Big|_{J=0}}\,.
+\end{align}
+The general approach from here is then to use the small coupling assumption and expand the exponential, giving that the numerator can be calculated as
+\begin{align}\label{eq:interacting functional expanded}
+    \mathcal{Z}_{\text{num}}[J]=\Big[1+\sum_{n=1}^{\infty}\frac{i^{n}}{n!}\int d^{4}x_{1}\dots d^{4}x_{n}\,\mathcal{L}_{\text{int}}\Big(-i\frac{\partial}{\partial J(x_1)}\Big)\dots \mathcal{L}_{\text{int}}\Big(-i\frac{\partial}{\partial J(x_n)}\Big)\Big]\mathcal{Z}_{0}[J]\,.
+\end{align}
+
+We observe that in order to obtain Green's functions we have to perform an awful lot of functional derivatives. First we have to calculate the functional derivatives in \cref{eq:interacting functional expanded}, then we have to perform even more functional derivatives by using \cref{eq:GF and GF}. This looks kind of horrible, but it can be worked out order by order in perturbation theory. This procedure will result in a sum over products of propagators $D_{F}$ and each term can be associated to a Feynman diagram. In the end one finds that all the Feynman rules necessary for practical calculations can be read off from the exponential of the generating functional of the theory. For example, for a Dirac theory coupled to an electromagnetic field $A_{\mu}$ we have the Lagrangian\footnote{We will see how this term comes about when we discuss gauge theories, but for now we take it as a given. The dynamics of the gauge fields are also neglected.}
+\begin{align}
+    \mathcal{L}=\Bar{\psi}(i\slashed{\partial}-m)\psi-e\Bar{\psi}\slashed{A}\psi\,,
+\end{align}
+where the last term describes the following vertex rule
+\begin{fmffile}{test1}
+\begin{equation}
+\begin{gathered}
+\begin{fmfgraph*}(65,50)
+
+\fmfleft{i1,i2}
+\fmfright{o1}
+\fmf{fermion,tension=1/3}{i1,v1}
+\fmf{plain}{v1,v2}
+\fmf{fermion}{v2,v3}
+\fmf{plain}{v3,i2}
+\fmf{photon}{v1,o1}
+
+\end{fmfgraph*}
+\end{gathered}=-ie\gamma^{\mu}\,,\label{eq:QED feynman rule}
+\end{equation}
+\end{fmffile}
+which follows from the fact that the Lagrangian appear in the action, which subsequently appear in the exponent of the generating functional times $i$. Interaction terms involving derivatives are a bit more complicated, but since each fields can be Fourier expanded the derivative will pull down a momentum.
+
+In order to show that vertex rules are as simple as this we can take a look at the example of $\phi^{4}$-theory, with the interaction term
+\begin{align}
+    \mathcal{L}_{\text{int}}=-\frac{\lambda}{4!}\phi^{4}\,,
+\end{align}
+where we as always assume small coupling $\lambda$ in order to do perturbation theory. In general, we have to calculate
+\begin{align}
+    \mathcal{Z}[J]=\frac{\exp(-i\frac{\lambda}{4!}\int d^{4}z\Big(-i\frac{\partial}{\partial J(z)}\Big)^{4})\mathcal{Z}_{0}[J]}{\exp(-i\frac{\lambda}{4!}\int d^{4}z\Big(-i\frac{\partial}{\partial J(z)}\Big)^{4})\mathcal{Z}_{0}[J]\Big|_{J=0}}\,,
+\end{align}
+up to which order we are interested in. Say we wanted to calculate the four-point Greens function, i.e. find the Feynman rule for the four point vertex. Following the discussion above we expect it to be $-i\lambda$\footnote{We have to symmetrize bosons, so for four bosons we get a factor of 4! canceling the denominator. We will see that this falls out of this procedure.}, and we will show that this is indeed the case. 
+
+In order to do the calculation we only need to calculate the numerator as the denonminator follows by just setting $J=0$. We expand to $\mathcal{O}(\lambda)$, giving
+\begin{align}
+    \mathcal{Z}_{\text{num}}[J]=\Big(1-i\frac{\lambda}{4!}\int d^{4}z\Big(-i\frac{\partial}{\partial J(z)}\Big)^{4}\Big)\mathcal{Z}_{0}[J]+\mathcal{O}(\lambda^{2})\,,
+\end{align}
+and if we use the abbreviation
+\begin{align}
+    \mathcal{Z}_{0}[J]=\exp(-\frac{1}{2}\int\,d^{4}x\,d^{4}y\,J(x)D_{F}(x,y)J(y))=e^{-\frac{1}{2}J_{x}D_{xy}J_{y}}\,,
+\end{align}
+we find after a page or two of calculation that
+\begin{align}
+    \mathcal{Z}_{\text{num}}[J]=\Big(1-i\frac{\lambda}{4!}\int d^{4}z\big[3D_{zz}^{2}-6D_{zz}J_{x}D_{xz}J_{y}D_{yz}+J_{x}D_{xz}J_{y}D_{yz}J_{x}D_{xz}J_{y}D_{yz}\big]\Big)\mathcal{Z}_{0}[J]
+\end{align}
+where it immediately follows that the denominator is
+\begin{align}
+    \mathcal{Z}_{\text{den}}[J=0]=1-i\frac{\lambda}{4!}\int d^{4}z\,3D_{zz}^{2}\,.
+\end{align}
+
+If we were to perform further functional derivatives on $\mathcal{Z}[J]$ at this point, it would lead to a lot of work because of the denominator. Instead, we can use that the connected Green's functions is found by taking the logarithm of the generating functional, i.e.
+\begin{align}
+    i\mathcal{W}[J]=\ln \mathcal{Z}[J]=\ln \mathcal{Z}_{\text{num}}[J]-\ln \mathcal{Z}_{\text{den}}[J]\,,
+\end{align}
+and since we always assume small coupling, we can use the approximation $\ln(1+\lambda)=\lambda$. Then it follows that the generating functional for connected Green's functions to $\mathcal{O}(\lambda)$ is given by
+\begin{align}\label{eq:connected generating functional phi four}
+    i\mathcal{W}[J]=-\frac{1}{2}J_{x}D_{xy}J_{y}-i\frac{\lambda}{4!}\int d^{4}z\big(J_{x}D_{xz}J_{y}D_{yz}J_{x}D_{xz}J_{y}D_{yz}-6D_{zz}J_{x}D_{xz}J_{y}D_{yz}\big)\,,
+\end{align}
+and to find the four point function we have to calculate
+\begin{align}
+    \mathcal{G}_{c}^{(4)}(x_1,x_2,x_3,x_4)=\frac{\partial^{4}i\mathcal{W}[J]}{\partial J(x_1)\partial J(x_2)\partial J(x_3)\partial J(x_4)}\Big|_{J=0}\,.
+\end{align}
+However, instead of actually performing the differentiation we can see from \cref{eq:connected generating functional phi four} that the only term surviving all the functional derivatives are the one with four sources. This results in $4!$ terms as the first defivative has \emph{four} $J$'s to act on, the second has \emph{three} and so on. The final result is
+\begin{align}
+    \mathcal{G}_{c}^{(4)}(x_1,x_2,x_3,x_4)=-i\lambda\int d^{4}z\,D_{F}(x_1-z)D_{F}(x_2-z)D_{F}(x_3-z)D_{F}(x_4-z)\,,
+\end{align}
+showing that the four point vertex rule is
+
+\begin{fmffile}{test}
+\begin{equation}
+\begin{gathered}
+\begin{fmfgraph*}(65,50)
+\fmfleft{i1,i2}
+\fmfright{o1,o2}
+\fmf{plain}{i1,v,o1}
+\fmf{plain}{i2,v,o2}
+\end{fmfgraph*}
+\end{gathered}=-i\lambda\,.
+\end{equation}
+\end{fmffile}
+
+This confirms that the Feynman rules for vertices can in general be read of the generating functional of the theory, or the Lagrangian if one remembers to multiply with an $i$ coming from the exponential of the action. 
+
+
+
+%In general, the $n$-point Greens function in the interacting theory is formulated in terms of path integrals as
+%\begin{align}
+%    \mathcal{G}^{(n)}(x_1,\dots, x_n)=\bra{\Omega}T\big(\phi(x_1)\dots\phi(x_n)\big)\ket{\Omega}=\frac{\int\mathcal{D}\phi\,\phi(x_1)\dots\phi(x_n)e^{iS[\phi]}}{\int\mathcal{D}\phi\,e^{iS[\phi]}}\,,
+%\end{align}
+%where $S[\phi]$ is the full action. 
+
+Greens functions are fundamental and important objects in any quantum field theory, but they are difficult to work with in practical calculations. Therefore, in the next section we will derive an expression that relates Green's functions with simpler quantities that are easier to work with when we want to calculate physical processes.  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{LSZ-Reduction Formula and Cross Section}\label{sec:LSZ and Cross section}
+The derivations so far have only concerned $n$-point field correlators or Green's functions as we have called them. However, by themselves, they are not observable quantities and in some instances not even gauge invariant. Therefore, we need to relate them to observable quantities, and the most common approach is to connect them to the $S$-matrix via the LSZ-reduction formula.
+
+
+To find the formal definition of the $S$-matrix, let us consider the \emph{interaction picture} formalism. To define it we will go to the Hamiltonian formulation and split the Hamiltonian up in a free part and an interacting part $H=H_{0}+H_{\text{int}}$. We did the same for the action in \cref{eq:split action}, but we did not specify what we meant by the splitting. The interaction picture is defined by requiring that the operators carry the time dependence defined by the free Hamiltonian, and the states carry the time dependence defined by the interacting Hamiltonian. This is a hybrid of the relation between the Heisenberg and Schödinger picture, and one can deduce that a state $\ket{\psi,t}_{I}$ in this picture obeys the following equation
+\begin{align}
+    i\frac{d}{dt}\ket{\psi,t}_{I}=(H_{\text{int}})_{I}\ket{\psi,t}_{I}\,,
+\end{align}
+and the operators $\mathcal{O}$ obey
+\begin{align}
+    \mathcal{O}_{I}(t)=\exp(i(H_{0})_{S}t)\mathcal{O}_{S}\exp(-i(H_{0})_{S}t)\,,
+\end{align}
+where the subscripts $S$ and $I$ denotes the Schrödinger and interaction picture respectively.
+We can write the time-evolution in the interaction picture in terms of a new time-evolution operator\footnote{We will drop the interaction subscript $I$ from now.} $U$, where
+\begin{align}
+    \ket{\psi,t}=U(t,t_0)\ket{\psi,t_0}\,.
+\end{align}
+where the time evolution operator satisfies the following equation
+\begin{align}
+    i\frac{d}{dt}U(t,t_0)=H_{\text{int}}(t)U(t,t_0)\,,
+\end{align}
+which is a matrix equation, and can be solved by the use of \emph{Chen iterated integrals}, see \cite{chen1977}. The solution is known as the \emph{Dyson formula}
+\begin{align}
+    U(t,t_0)=\mathcal{T}\exp(-i\int_{t_0}^{t}dt'\,H_{\text{int}}(t'))\,,
+\end{align}
+where $\mathcal{T}$ is the time-ordering operator.
+
+To calculate amplitudes, we assume that at asymptotic times, i.e. $t_{i}\rightarrow -\infty$ and $t_{f}\rightarrow +\infty$, the initial and final state are eigenstates of the free theory. Further, we assume that all the interactions happen in some finite time, which is true in real scattering experiments. There we have control of the initial state and place detectors far away from the interaction point such that the final state contains no interaction\footnote{Well, in field theory a particle is never \textquote{alone} without interaction. For example, an electron is surrounded by a cloud of virtual photons, but this will be taken into account with renormalization.}. Without interactions at asymptotic times, we can define these states as on-shell one-particle states of given momenta, known as \emph{asymptotic states}. 
+
+Let us then assume we prepare a state $\ket{i}$ at $t_i\rightarrow -\infty$, let it evolve and particles interact briefly, before they depart and go into a final state $\ket{f}$ at $t_f\rightarrow +\infty$. The transition amplitude for this process is defined as
+\begin{align}
+    \lim_{t_{i,f}\rightarrow\mp\infty}\bra{f}U(t_f,t_i)\ket{i}\equiv \bra{f}S\ket{i}\,,
+\end{align}
+where the $S$-matrix is simply the time-evolution operator in the interaction picture between these two extreme times, i.e.
+\begin{align}
+    S=U(\infty,-\infty)=\mathcal{T}\exp(-i\int_{-\infty}^{\infty}dt H_{\text{int}}(t))\,,
+\end{align}
+or in terms of the Hamiltonian density\footnote{We generally use the Lagrangian in field theory, but the Lagrangian is just a Legendre transformation of the Hamiltonian and since the interaction contains no derivative we simply have $\mathcal{H}_{\text{int}}=-\mathcal{L}_{\text{int}}$. }
+\begin{align}
+    S=\mathcal{T}\exp(-i\int d^{4}x \,\mathcal{H}_{\text{int}}(x))\,.
+\end{align}
+
+The $S$-matrix has the following structure: if the particles in question do not interact at all, $S$ is simply the identity. There is also a probability that even for interactions, the particles just fly by one another. Thus, to isolate the interesting part of the $S$-matrix, we define the transition matrix as the shift from the identity
+\begin{align}
+    S=1+iT\,.
+\end{align}
+%Further, the matrix element of $S$ should reflect momentum conservation through a delta function, which can be extracted in the following way
+%\begin{align}\label{eq:amplitude equation from S-matrix}
+%    \bra{f}(S-1)\ket{i}=(2\pi)^{4}\delta^{(4)}\big(\sum p_i-\sum p_f\big)\,i\mathcal{M}\,,
+%\end{align}
+%where $\mathcal{M}$ is a shorthand for $\bra{f}\mathcal{M}\ket{i}$, called the transition amplitude and is the sum of all Feynman diagrams. For all practical purposes, $\mathcal{M}$ is the object we want to calculate when drawing Feynman diagrams. Still, it is important to see how the fundamental $n$-point Green's functions are related to these diagrams.
+
+Let us consider an $m\rightarrow n$ process, where the states are created at $t=\pm\infty$ by using creation operators defined at asymptotic times. We can write this construction as
+\begin{align}
+    \ket{i}&=\prod_{i=1}^{m}\sqrt{2E_{p_i}}\,a_{p_i}^{\dagger}(-\infty)\ket{\Omega}\,,
+    \\
+    \ket{f}&=\prod_{j=1}^{n}\sqrt{2E_{k_i}}\,a_{k_{j}}^{\dagger}(\infty)\ket{\Omega}\,,
+\end{align}
+where $\sqrt{2E_{p_i}}$ is a conventional normalization factor and the creation and annihilation operators are time-independent at $t=\pm\infty$. We are only interested in the case where scattering actually happens, so we assume $\ket{i}\neq\ket{f}$, in which case we have that
+\begin{align}
+    \bra{f}iT\ket{i}=\bra{\Omega}\prod_{j=1}^{n}\sqrt{2E_{k_j}}\,a_{k_{j}}(\infty)\prod_{i=1}^{m}\sqrt{2E_{p_i}}\,a_{p_i}^{\dagger}(-\infty)\ket{\Omega}\,,
+\end{align}
+where the $1$ cancel since the in and out states are different. This expression is already time-ordered, so we can instead write 
+\begin{align}\label{eq:time ordered creation product}
+    \bra{f}iT\ket{i}=N\,\bra{\Omega}\mathcal{T}\big(a_{k_{1}}(\infty)\dots a_{k_{n}}(\infty)a_{p_1}^{\dagger}(-\infty)\dots a_{p_m}^{\dagger}(-\infty)\big)\ket{\Omega}\,,
+\end{align}
+where $N$ is the collection of all normalization factors.  
+
+We want to relate this $S$-matrix element to Green's functions, so we need to find a way of rewriting the time-ordered product of creation and annihilation operators. To do this, we remember that a free real scalar field can be expanded as
+\begin{align}
+    \phi_{0}(x)=\int \frac{d^{3}p}{(2\pi)^{3}}\frac{1}{\sqrt{2E_{p}}}\,\big(a_{p}(t)\,e^{-ip\cdot x}+a_{p}^{\dagger}(t)\,e^{ip\cdot x}\big)\,,
+\end{align}
+where we have used Heisenberg picture creation and annihilation operators, which are equal to the time-independent Schrödinger operators for a fixed time $t$. We can invert this expression to yield the following relations\footnote{The double arrow notation just means that it works on functions to the left and right.}
+\begin{align}
+    i\int d^{3}x\,e^{ip\cdot x}\,\overset{\leftrightarrow}{\partial_{t}}\,\phi_{0}(x)&=\sqrt{2E_{p}}\,a_{p}(t)\label{eq:creation relation 1}
+    \\
+    -i\int d^{3}x\,e^{-ip\cdot x}\,\overset{\leftrightarrow}{\partial_{t}}\,\phi_{0}(x)&=\sqrt{2E_{p}}\,a_{p}^{\dagger}(t)\,.\label{eq:creation relation 2}
+\end{align}
+which can be shown to hold by inserting for $\phi_{0}$.
+
+We have used the notation where $\phi_{0}$ are free fields, however, these relations does not hold for interacting fields as they can not be simply expanded in terms of creation and annihilation operators. Nevertheless, we expect that at $t\rightarrow\pm \infty$ the theory reduces to a free theory, that is, since all incoming particles are infinitely far apart and, if the interaction decreases sufficiently fast with distance, there will be no difference between a free and an interacting theory\footnote{It is important to note that this is only possible for particles that are not bound.}. We formalise this with the following hypothesis for the incoming part
+\begin{align}
+    \lim_{t\to-\infty}\phi(x)\rightarrow \sqrt{Z}\phi_{\text{in}}(x)\,,
+\end{align}
+where $\phi_{\text{in}}(x)$ is a free field and $Z$ is known as the field renormalization. We will discuss the meaning of $Z$ when we discuss renormalization in \cref{sec:Renormalization}, but for now we ignore its wider interpretation. Similarly, for the outgoing part we have
+\begin{align}
+    \lim_{t\to\infty}\phi(x)\rightarrow \sqrt{Z}\phi_{\text{out}}(x)\,,
+\end{align}
+with $\phi_{\text{out}}(x)$ again a free field, and the same constant $Z$. These are not operator relations, but understood to hold inside matrix elements. We can then use \cref{eq:creation relation 2} to define 
+\begin{align}
+    \lim_{t\to -\infty}-iZ^{-1/2}\int d^{3}x\,e^{-ip\cdot x}\,\overset{\leftrightarrow}{\partial_{t}}\,\phi(x)&=\sqrt{2E_{p}}\,a_{p}^{\dagger}(-\infty)\,,
+    \\
+    \lim_{t\to \infty}-iZ^{-1/2}\int d^{3}x\,e^{-ip\cdot x}\,\overset{\leftrightarrow}{\partial_{t}}\,\phi(x)&=\sqrt{2E_{p}}\,a_{p}^{\dagger}(+\infty)\,.
+\end{align}
+
+We want this on covariant form, so we can use that for any integrable function $f(x)=f(t,\mathbf{x})$, we have the identity
+\begin{align}
+    \big(\lim_{t\to\infty}-\lim_{t\to-\infty}\big)\int d^{3}x\,f(t,\mathbf{x})=\int_{-\infty}^{\infty}dt\,\partial_{t}\int d^{3}x\,f(t,\mathbf{x})\,,
+\end{align}
+giving that 
+\begin{align}
+    \sqrt{2E_{p}}\big(a_{p}^{\dagger}(+\infty)-a_{p}^{\dagger}(-\infty)\big)&=-iZ^{-1/2}\int d^{4}x\,\partial_{t}(e^{-ip\cdot x}\,\overset{\leftrightarrow}{\partial_{t}}\,\phi(x))\nonumber
+    \\
+    &=-iZ^{-1/2}\int d^{4}x\big(e^{-ip\cdot x}\partial_{t}^{2}\phi(x)-\phi(x)(\nabla^{2}-m^{2})e^{-ip\cdot x}\big)\,,
+\end{align}
+where we have used that $p^{2}=m^{2}$, since we are considering on-shell particles. It is understood here that the asymptotic states are states with definite momenta, i.e. they are plane waves that form wave packets, so at each given time they are localized in space. We can then use partial integration on $\nabla^{2}$, resulting in the algebraic relation
+\begin{align}
+    -iZ^{-1/2}\int d^{4}x\,e^{-ip\cdot x}(\partial^{2}+m^{2})\phi(x)=\sqrt{2E_{p}}\big(a_{p}^{\dagger}(\infty)-a_{p}^{\dagger}(-\infty)\big)\,,\label{eq:RELATION one}
+\end{align}
+and its hermitian conjugate
+\begin{align}
+    iZ^{-1/2}\int d^{4}x\,e^{ip\cdot x}(\partial^{2}+m^{2})\phi(x)=\sqrt{2E_{p}}\big(a_{p}(\infty)-a_{p}(-\infty)\big)\,.\label{eq:RELATION two}
+\end{align}
+
+To use these relations we exploit that the time ordering operator in \cref{eq:time ordered creation product} shuffles the operators inside the product regardless if they commute or not. Hence, we might as well just write
+\begin{align}
+    \bra{f}S\ket{i}=N\,\bra{\Omega}&\mathcal{T}\big([a_{k_1}(\infty)-a_{k_1}(-\infty)]\dots[a_{k_n}(\infty)-a_{k_n}(-\infty)]\nonumber
+    \\&\times[a_{p_1}^{\dagger}(\infty)-a_{p_1}^{\dagger}(-\infty)]\dots[a_{p_m}^{\dagger}(\infty)-a_{p_m}^{\dagger}(-\infty)]\big)\ket{\Omega}\,,
+\end{align}
+where all the unwanted operators $a_{p,k}^{\dagger}(\infty)$ and $a_{p,k}(-\infty)$ migrates inside the time ordering and annihilates, so in effect we have just added zeros to \cref{eq:time ordered creation product}. 
+
+Then, we can use \cref{eq:RELATION one} and \cref{eq:RELATION two} to write
+\begin{align}\label{eq:LSZ first try}
+    \bra{k_1\dots k_n}iT\ket{p_1\dots p_m}=&(iZ^{-1/2})^{n+m}\Big[\int\prod_{i=1}^{m} d^{4}x_{i}\,\prod_{j=1}^{n} d^{4}y_{j}\,\exp\big(i\sum_{j=1}^{n}k_{j}\cdot y_j-i\sum_{i=1}^{m}p_{i}\cdot x_i\big)\Big]\nonumber
+    \\
+    &\times(\partial_{x_1}^{2}+m^{2})\dots(\partial_{y_n}^{2}+m^{2})\bra{\Omega}T\big(\phi(x_1)\dots\phi(y_n)\big)\ket{\Omega}\,.
+\end{align}
+where we have pulled the factors $\partial^{2}$ outside the time-ordering product. By pulling this factor out, there are additional additional terms appearing that in general has to be taken into account, but these can be shown not to contribute to the $S$-matrix \cite{Maggiore:2005qv}. 
+
+We can rewrite this expression further by using that the $n$-point Green's $\mathcal{G}$ function can be written in terms of its Fourier transform $\tilde{\mathcal{g}}$ as
+\begin{align}
+    \bra{\Omega}\mathcal{T}\big(\phi(x_1)\dots\phi(x_n)\big)\ket{\Omega}=\mathcal{G}^{(n)}(x_1,\dots,x_n)=\int\prod_{i}^{n}\frac{d^{4}p_{i}}{(2\pi)^{4}}\,\exp(-i\sum_ip_{i}\cdot x_i)\tilde{\mathcal{G}}(p_1\dots,p_n)\,,
+\end{align}
+and if we act with the differential, we get
+\begin{align}
+    (\partial_{x_j}^{2}+m^{2})\mathcal{G}^{(n)}(x_1,\dots,x_n)=-\int\prod_{i}^{n}\frac{d^{4}p_{i}}{(2\pi)^{4}}(p_{j}^{2}-m^{2})\,\exp(-i\sum_ip_{i}\cdot x_i)\tilde{\mathcal{G}}(p_1\dots,p_n)\,.
+\end{align}
+
+Then, we can write \cref{eq:LSZ first try} as
+\begin{align}\label{eq:LSZ reduction formula}
+    \Big(\prod_{i=1}^{m}&\frac{i\sqrt{Z}}{p_{i}^{2}-m^{2}+i\epsilon}\Big)\Big(\prod_{j=1}^{n}\frac{i\sqrt{Z}}{k_{j}^{2}-m^{2}+i\epsilon}\Big)\bra{k_1\dots k_n}iT\ket{p_1\dots p_m}\nonumber
+    \\
+    &=\int\prod_{i=1}^{m} d^{4}x_{i}\,e^{-i\sum_{i=1}^{m}p_{i}\cdot x_i}\,\prod_{j=1}^{n}\int d^{4}y_{j}\,e^{i\sum_{i=1}^{n}k_{j}\cdot y_j}\,\mathcal{G}^{(m+n)}(x_1,\dots,x_m;y_1\dots,y_n)\,,
+\end{align}
+which is known as the LSZ reduction formula, named after Lehmann, Symanzik and Zimmermann \cite{Lehmann:1954rq}. The equality in this equation is understood in the sense that the right hand side and the left hand side has an equal pole structure, that will eventually cancel each other.
+
+In words, the LSZ formula says that an $S$-matrix element can be calculated by computing the appropriate Fourier transformed Green's function. We know that such a calculation will give propagators that are of the form $i/(p^{2}-m^{2}+i\epsilon)$\footnote{For scalar propagators.}, which develop poles as the particles go on-shell. These poles will then effectively cancel with the factors on the left-hand side of \cref{eq:LSZ reduction formula}, and we remain with a finite result. 
+
+\subsection*{Four-point function and Feynman rules in $\phi^{4}$}
+Let us work through an example to get a feeling for how this works. We have already calculated the connected four-point Green's function for $\phi^{4}$-theory in \cref{sec:Perturbation theory form path integrals}. We found that the $\mathcal{O}(\lambda)$ expansion was given by
+\begin{align}
+    \mathcal{G}_{c}^{(4)}(x_1,x_2;y_1,y_2)=-i\lambda\int d^{4}x\,D_{F}(x_1-x)D_{F}(x_2-x)D_{F}(y_1-x)D_{F}(y_2-x)\,.
+\end{align}
+
+By inserting this into the right-hand side of the LSZ formula, we find
+\begin{align}
+    \int &d^{4}x\,d^{4}x_1\,d^{4}x_2\,d^{4}y_1\,d^{4}y_2\,e^{i(p_1\cdot x_1+p_2\cdot x_2-k_1\cdot y_1-k_2\cdot y_2)}\nonumber
+    \\
+    &\times (-i\lambda)\,D_{F}(x_1-x)D_{F}(x_2-x)D_{F}(y_1-x)D_{F}(y_2-x)\,.
+\end{align}
+If we change variable $z_i=x_i-x$ and $z'_i=y_i-x$, we get
+\begin{align}
+    &\int d^{4}x\,e^{i(p_1+p_2-k_1-k_2)\cdot x}\Big[\int d^{4}z_1\,d^{4}z_2\,d^{4}z'_1\,d^{4}z'_2\,e^{i(p_1\cdot z_1+p_2\cdot z_2-k_1\cdot z'_1-k_2\cdot z'_2)}\nonumber \\&\times(-i\lambda)\,D_{F}(z_1)D_{F}(z_2)D_{F}(z'_1)D_{F}(z'_2)\Big]\,.\nonumber
+    \\\vspace{0.2cm}
+    &=(-i\lambda)(2\pi)^{4}\delta^{(4)}(p_1+p_2-k_1-k_2)\,D_{F}(p_1)D_{F}(p_2)D_{F}(k_1)D_{F}(k_2)\nonumber
+    \\
+    &=(-i\lambda)(2\pi)^{4}\delta^{(4)}(p_1+p_2-k_1-k_2)\Big(\prod_{i=1}^{2}\frac{i}{p_{i}^{2}-m^{2}+i\epsilon}\Big)\Big(\prod_{j=1}^{2}\frac{i}{k_{j}^{2}-m^{2}+i\epsilon}\Big)\,.
+\end{align}
+
+To leading order in $\lambda$ we do not need any information from renormalization, i.e. we can set $Z=1$. Hence, we get from the LSZ formula that the propagators cancel, and we are left with the finite $S$-matrix element
+\begin{align}\label{eq:amplitude from LSZ}
+    \bra{k_1 k_2}iT\ket{p_1 p_2}=(-i\lambda)(2\pi)^{4}\delta^{(4)}(p_1+p_2-k_1-k_2)\,.
+\end{align}
+The delta function reflects momentum conservation and the factor $(-i\lambda)$ is the transition amplitude. 
+
+This is a general structure in scattering amplitudes, which can be written as
+\begin{align}\label{eq:iT scattering amplitude}
+    \bra{f}iT\ket{i}=(2\pi)^{4}\delta^{(4)}\big(\sum p_i-\sum p_f\big)\,i\mathcal{M}\,,
+\end{align}
+where the amplitude $\mathcal{M}$ is a shorthand for $\bra{f}\mathcal{M}\ket{i}$. From this definition of the matrix element one can construct an observable known as the \emph{cross section}. The cross section is a measure of the statistical importance of a certain interaction, which we often just refer to as the probability of that interaction. Probabilities in quantum field theory are found by taking the matrix elements squared, so one has to evaluate $|\bra{f}iT\ket{i}|^{2}$. A detailed derivation of the cross section formula can be found in, e.g. \cite{Peskin:257493,Schwartz:2013pla,Maggiore:2005qv}, so we will just state the final result. 
+
+For a $2\rightarrow n$ process it takes the form
+\begin{align}
+    d\sigma=\frac{1}{4\sqrt{(p_1\cdot p_2)^{2}-m_{1}^{2}m_{2}^{2}}}\,d\mathcal{P}^{(n)}\,|\mathcal{M}|^{2}\,,
+\end{align}
+where the first factor is known as the Lorentz invariant \emph{flux factor} and is dependent on the incoming particles four momenta. The measure $d\mathcal{P}^{(n)}$ is the Lorentz invariant $n$-body phase space, and represents the on-shell condition for the final state particles
+\begin{align}\label{eq:n-body phase space}
+    d\mathcal{P}^{(n)}=\Big(\prod_{i}^{n}\frac{d^{3}k_{i}}{(2\pi)^{3}}\frac{1}{2E_{k_i}}\Big)(2\pi)^{4}\delta^{(4)}(p_1+p_2-\sum_{i}^{n}k_i)\,,
+\end{align}
+where the on-shell condition is reflected through the identity
+\begin{align}
+    \int\frac{d^{3}k}{(2\pi)^{3}}\frac{1}{2E_{k}}=\int\frac{d^{4}k}{(2\pi)^{4}}(2\pi)\delta^{+}(k^{2}-m^{2})\,,
+\end{align}
+where
+\begin{align}
+    \delta^{+}(k^{2}-m^{2})\equiv \delta(k^{2}-m^{2})\,\theta(k^{0})\,,
+\end{align}
+and $\theta(k^{0})$ is the Heaviside function.
+
+For practical calculations of scattering amplitudes it is easiest to calculate the amplitude $\mathcal{M}$ via Feynman diagrams. In fact, $\mathcal{M}$ is the sum of all Feynman diagrams, so in practice we will often draw the diagram and apply the relevant Feynman rules instead of going through the machinery of calculating $S$-matrix elements via Green's functions. For example, the Feynman diagram for the amplitude in \cref{eq:amplitude from LSZ} is given in \cref{fig:fourpointfunction}. We can view this diagram as the leading order scattering $\phi(p_1)\phi(p_2)\rightarrow\phi(p_3)\phi(p_4)$, where $p_1$ and $p_2$ are the incoming momenta and $p_3$ and $p_4$ are the outgoing momenta.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{Figures/fourpointphi4.pdf}
+    \caption{Four point function in $\phi^{4}$-theory.}
+    \label{fig:fourpointfunction}
+\end{figure}
+
+Let us summarize the procedure how to go about calculating amplitudes by using Feynman rules. For $\phi^{4}$-theory we have the following momentum space Feynman rules:
+
+\begin{fmffile}{testtest}
+\begin{align}
+&\text{For each propagator:}\hspace{1cm}
+\begin{gathered}
+\begin{fmfgraph*}(40,40)
+\fmfleft{i1}
+\fmfright{o1}
+\fmf{plain,label=$k\rightarrow$,l.side=left}{i1,o1}
+\end{fmfgraph*}
+\end{gathered}\hspace{0.5cm}=\frac{i}{k^{2}-m^{2}+i\epsilon}\,,
+\\\nonumber\\
+&\text{For each vertex:}\hspace{1.8cm}
+\begin{gathered}
+\begin{fmfgraph*}(40,40)
+\fmfleft{i1,i2}
+\fmfright{o1,o2}
+\fmf{plain}{i1,v,o1}
+\fmf{plain}{i2,v,o2}
+\end{fmfgraph*}
+\end{gathered}\hspace{0.5cm}=-i\lambda\,,
+\\\nonumber\\
+&\text{For each external line:}\hspace{0.8cm}
+\begin{gathered}
+\begin{fmfgraph*}(40,40)
+\fmfleft{i1}
+\fmfright{o1}
+\fmfdot{o1}
+\fmf{plain,label=$k\rightarrow$,l.side=left}{i1,o1}
+\end{fmfgraph*}
+\end{gathered}\hspace{0.5cm}=1\,,
+\\\nonumber\\
+&\text{Integrate over each undetermined loop momenta:}\hspace{0.5cm}
+\int\frac{d^{4}k}{(2\pi)^{4}}\,,
+\\\nonumber\\
+&\text{Impose momentum conservation at each vertex and divide by symmetry factor}\,.
+\\\nonumber
+\end{align}
+\end{fmffile}
+The Feynman rules for more complex theories are of course different, but the procedure is still the same. For example, in a theory like QED the vertex rule is given in \cref{eq:QED feynman rule}, the fermion propagator in \cref{eq:canocical fermion propagator}, the photon propagator in \cref{eq:photon propagator without gauge choice} and the fermion external states are given by the spinor relations in \cref{eq:spinor relation 1} and \cref{eq:spinor relation 2}\footnote{Without the exponentials that combine into a momentum conserving delta function.}.
+
+In this section we have managed to relate Green's functions with scattering amplitudes, but we have only considered the simplest case of a leading order expansion. However, the idea of perturbation theory is to look at higher and higher-order in the expansion series, which causes several problems we have to tackle. 
+
+%The Feynman diagram for the amplitude in \cref{eq:amplitude from LSZ} is given in \ar{ref to 2 to 2 scattering diagram}. 
+
+%For completeness let us list the Feynman rules for $\phi
+%^{4}$-theory:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Regularization and Renormalization}\label{sec:Renormalization}
+In this section we will go through the basic ideas of regularization and renormalization. The point is not to go through all the technical details of calculations, but to recognize where the divergences appear and possible ways of managing them. The main focus is based on the region of phase space where the momentum of particles appearing in so-called loops go to infinity. This is known as the \emph{ultraviolett} (UV) region. We also have regions where massless particles have a momentum that goes to zero, which creates additional divergences, known as the \emph{infrared} (IR) region. We will spend a large amount of time tackling these IR-divergences in \cref{Chap:pQCD} and \cref{chap:Resummation in QCD}, so we will briefly discuss them here, and focus on UV-divergences.
+
+In \cref{sec:Path Integral Formalism}, we formulated our quantum theory as a path integral. This path integral is an integral in configuration space weighted by the classical action. Hence, it might not be clear at first what separates a quantum field from a classical field, but because of quantum fluctuations, a particle in quantum field theory is never \textquote{alone}. For example, an electron is constantly surrounded by a cloud of virtual photons and virtual electron-positron pairs. When considering higher-order perturbative expansion in the coupling, these fluctuations are visualized as closed loops that have to be integrated over. Loop integration requires appropriate regularization, because it generates unphysical divergences. These regularized divergences have to be treated, and this procedure is what is called renormalization. This has a deep impact on what we actually perceive as physical parameters. There are two ways of dealing with renormalization. The first one is known as Wilsonian renormalization, while the second is known as perturbative renormalization. We will not cover the Wilsonian renormalization procedure, but instead focus on perturbative renormalization and the continous renormalization group equation. To keep the discussion as simple as possible, we will stick to scalar $\phi
+^{4}$-theory.
+
+
+\subsubsection*{Loops and Divergences}
+Before we can talk about the general ideas and systematics of renormalization, we have to encounter an example of a divergence. We continue with the simple model of $\phi^{4}$-theory and look at the second-order perturbative expansion of the four-point function, i.e. to $\mathcal{O}(\lambda^{2})$. Using the Feynman rules for $\phi^{4}$-theory, we have that the one-loop amplitude for the process $\phi(p_1)\phi(p_2)\rightarrow\phi(p_3)\phi(p_4)$, can be written as\footnote{This is only the s-channel contribution, but we are only interested in encountering a divergence so we will not bother with the other channels for now. Also note that we have for later convenience chosen a subscript on the parameters, which we will comment on later.}
+\begin{align}\label{eq:general one-loop amplitude in phi-4}
+    i\mathcal{M}=\frac{(-i\lambda_{0})^{2}}{2}\int\frac{d^{4}k}{(2\pi)^{4}}\frac{i}{k^{2}-m_{0}^{2}+i\epsilon}\frac{i}{(p_1+p_2-k)^{2}-m_{0}^{2}+i\epsilon}\,,
+\end{align}
+where the factor of $1/2$ is the symmetry factor due to bosonic nature of $\phi$, and the integration over $k$ is from the undetermined loop momenta. We observe that this integral will diverge for large values of $k$, and illustrates the UV-divergence. In order to tackle such divergences, we need to regularize the integral. There are several different options, and the most popular is called \emph{dimensional regularization}\footnote{We will discuss this method in more detail below.}, but for now we will only use a momentum cut-off to show the basic idea. To proceed with the analysis, we will set $p_1+p_2=0$ for the incoming momenta, which is just a statement of $k$ dominating in the UV-region. A more detailed treatment of this integral would be to use what are called \emph{Feynman parameters}, enabling one to rewrite the denominator in a more convenient form. We will cover Feynman parameters when we talk about dimensional regularization in \cref{sec:dimensional regularization}, so we proceed with our simplification. 
+
+The amplitude can then be written as
+\begin{align}\label{eq:loop amplitude phi-4}
+    i\mathcal{M}=\frac{\lambda_{0}^{2}}{2}\int\frac{d^{4}k}{(2\pi)^{4}}\frac{1}{(k^{2}-m_{0}^{2}+i\epsilon)^{2}}\,.
+\end{align}
+
+Because of the Minkowski signature we use the $i\epsilon$ prescription to shift the poles in propagators. The integral above can be evaluated using Cauchy's contour integral formula, but an easier way is to use what is called \emph{Wick rotation}. The $i\epsilon$ prescription tells us that in the $k^{0}$-plane, the pole at $k^{0}>0$ is shifted below the real axis and the pole at $k^{0}<0$ is shifted above the real axis. Therefore we can change the integration path in the complex $k
+^{0}$-plane, by rotating counterclockwise from the real axis to the imaginary axis\footnote{We have to rotate counterclockwise to avoid crossing the poles.}. The effect of this rotation is that we change from an Minkowskian signature to an Euclidean signature, i.e. we can define the Euclidean four momentum variable $k_{E}=(ik_{E}
+^{0},\mathbf{k}_{E})$, giving $k_{E}^{2}=-k^{2}$. 
+
+With these manipulations we obtain the amplitude
+\begin{align}
+    i\mathcal{M}=i\frac{\lambda_{0}^{2}}{2}\int\frac{d^{4}k_E}{(2\pi)^{4}}\frac{1}{(k_{E}^{2}+m_{0}^{2})^{2}}\,.
+\end{align}
+
+For our purposes the exact computation of this integral is not necessary. The point is that the integral diverges in the UV region. We impose a momentum cut-off $\Lambda$ and write
+\begin{align}\label{eq:intermediate}
+    \int\frac{d^{4}k_E}{(2\pi)^{4}}\frac{1}{(k_{E}^{2}+m_{0}^{2})^{2}}&=\frac{1}{(2\pi)^{4}}\int^{\Lambda}\frac{d^{4}k_{E}}{k_{E}^{4}}+\text{finite}
+    \\
+    &=\frac{1}{8\pi^{2}}\ln\Lambda+\text{finite}\,.
+\end{align}
+
+At the end of each regulated calculation we would like to remove the regulator. In this case we used a momentum cut-off, so to make it independent of the cut-off we would like to send $\Lambda$ to infinity. In this large limit we neglect the constant term in \cref{eq:intermediate} and write the amplitude up to one-loop order as
+\begin{align}\label{eq:up to one loop amplitude phi-4}
+    i\mathcal{M}_{2\rightarrow 2}=-i\lambda_{0}+i\frac{\lambda_{0}^{2}}{16\pi^{2}}\ln\Lambda+\text{finite}\,,
+\end{align}
+where it is clear that this amplitude is logarithmically divergent for $\Lambda\rightarrow\infty$. This is in contrast to what we should expect for higher-order perturbative expansions. We should expect corrections to become smaller and smaller at higher-order, so there is something fundamentally wrong with our starting point. 
+
+But before we proceed with a more systematic treatment, we will introduce dimensional regularization as a more useful way of regularizing the integral.
+
+
+\subsection{Dimensional Regularization and Feynman Paramerization}\label{sec:dimensional regularization}
+While the idea of integrating out momenta up to a cut-off $\Lambda$ is very intuitive, in more complicated scenarios it becomes very cumbersome to perform. More seriously, in a gauge theory, simply imposing a cut-off does not preserve gauge invariance. That is not to say that momentum cut-off is entirely useless, as it gives a clear indication to the origin of the divergence\footnote{Meaning if the divergence is in the UV or IR region of momentum space.}.
+We should, however, use a method that preserves all the symmetries of the theory. Probably the most used and arguably most useful is that of dimensional regularization. There are other choices that are valid for certain theories; for example, Pauli-Villars regularization works for Abelian gauge theories, but not for non-Abelian gauge theories. Dimensional regularization preserves all the symmetries, so we will mostly stick with this method. However, the disadvantage is that it is not as transparent in which momentum region the divergence originate.
+
+Whether an integral diverges or not is largely determined by power counting, e.g. we have that the integral
+\begin{align}
+    \int^{\Lambda}\frac{d^{4}k}{k^{4}}\sim\ln\Lambda\,,
+\end{align}
+is logarithmically divergent. We observe that if the physical dimension were less than four, this integral would no longer diverge in the UV-region. That suggests we can regulate an integral by computing in some generic number of dimensions $d$\footnote{This argument is kind of heuristic, but using the Wilsonian renormalization procedure one can deduce that this is indeed true.}. Since the dimension is generic, the integral is not divergent until we specify the physical dimension. In order to \textquote{approach} the physical dimension, we have to analytically continue the result of our $d$-dimensional theory through a non-integer value of $d$. Hence, we introduce a regulator $\epsilon$ and define that $d=4-2\epsilon$\footnote{We should not confuse this $\epsilon$ with the Feynman prescription $i\epsilon$ of shifting the poles in propagators.}, where $\epsilon$ is in general complex. In momentum cut-off, we send the regulator to infinity at the end of a calculation, while in dimensional regularization the divergence will manifest itself for $\epsilon\rightarrow 0$.
+
+A we have \textquote{changed} the space-time dimensions, we have to re-evaluate the mass dimension of fields and couplings in the Lagrangian. In order to keep the action dimensionless, we must have that the Lagrangian has the mass dimension
+\begin{align}
+    \Big[\int d^{d}x\mathcal{L}\Big]=m^{0}\implies [\mathcal{L}]=m^{d}\,,
+\end{align}
+i.e. the mass dimension of fields changes as well. E.g. for a scalar field we must have
+\begin{align}
+    [(\partial_{\mu}\phi)^{2}]=m^{d}\implies [\phi]=m^{1-\epsilon/2}\,,
+\end{align}
+leading to a dimensionful coupling
+\begin{align}
+    [\lambda]=m^{(4-d)/2}\,.
+\end{align}
+
+In order to keep the coupling dimensionless, we can replace
+\begin{align}
+    \lambda\rightarrow\mu^{(4-d)/2}\lambda(\mu)\,,
+\end{align}
+where $\lambda(\mu)$ is dimensionless, and $\mu$ is some arbitrary energy scale. It is important to stress that $\mu$ is not a cut-off; it is merely a scale we introduce, allowing us to use dimensionless couplings. This scale is most often set at the typical scale of the experiment we are interested in explaining and is referred to as the \emph{renormalization scale}. In practice, this means that instead of calculating with the coupling that appears in the Lagrangian, we will replace it with $\lambda\mu
+^{\epsilon}$. Just to be clear, observables should not depend on this scale, which is a useful property we will exploit later on.
+
+To explain the method of dimensional regularization, let us consider the simplest Feynman integral (after Wick rotation)
+\begin{align}
+    \int\frac{d^{d}k_E}{(2\pi)^{d}}\frac{1}{k_{E}^{2}+m^{2}}=\frac{1}{(2\pi)^{d}}\int d\Omega_{d}\int_{0}^{\infty}dk_{E}\frac{k_{E}^{d-1}}{k_{E}^{2}+m^{2}}\,.
+\end{align}
+
+This integral is UV-divergent for $d\geq 2$ and IR-divergent for $d\leq 2$. In this way we can treat them both by considering the different cases separately. For example, one would first treat the UV-divergence by considering $\epsilon>0$ and then the IR-divergence by setting $\epsilon<0$. We will encounter this scenario later, but for now we will only consider UV-divergences.
+
+To compute the area integral of the unit sphere in $d$-dimensions we can use the following trick
+\begin{align}
+    (\sqrt{\pi})^{d}&=\int d^{d}x\,\exp(-\sum_{i=1}^{d}x_{i}^{2})\nonumber
+    \\
+    &=\int d\Omega_{d}\int_{0}^{\infty}dx\,x^{d-1}e^{-x^{2}}\nonumber
+    \\
+    &=\frac{\Gamma(d/2)}{2}\int d\Omega_{d}\,,
+\end{align}
+where we used the integral representation of the gamma function
+\begin{align}
+    \Gamma(z)=\int_{0}^{\infty}dx\,x^{z-1}e^{-x}\,,
+\end{align}
+giving
+\begin{align}\label{eq:d-dimensional sphere area}
+    \Omega_{d}=\int d\Omega_{d}=\frac{2\pi^{d/2}}{\Gamma(d/2)}\,.
+\end{align}
+
+The remaining momentum integral can be evaluated as
+\begin{align}
+    \int_{0}^{\infty}dk_{E}\frac{k_{E}^{d-1}}{k_{E}^{2}+m^{2}}&=\frac{1}{2}(m^{2})^{d/2-1}\int_{0}^{\infty}dx\,x^{d/2-1}(1-x)^{-d/2}\nonumber
+    \\
+    &=\frac{1}{2}(m^{2})^{d/2-1}\,\Gamma(d/2)\Gamma(1-d/2)\,,
+\end{align}
+where we made the substitution $x=k_{E}^{2}/m^{2}$ and used the integral representation of the Euler-Beta function
+\begin{align}
+    B(\alpha,\beta)=\int_{0}^{\infty}dx\,x^{\alpha-1}(1-x)^{\beta-1}=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}\,.
+\end{align}
+
+The final result for the $d$-dimensional integral is
+\begin{align}
+    \int\frac{d^{d}k_{E}}{(2\pi)^{d}}\frac{1}{k_{E}^{2}+m^{2}}=\frac{(m^{2})^{d/2-1}}{(4\pi)^{d/2}}\Gamma(1-d/2)\,,
+\end{align}
+where the divergence is manifest in $d=4$ inside the gamma function. The generalized result takes the form
+\begin{align}\label{eq:Wick rotated integral}
+    \int\frac{d^{d}k_{E}}{(2\pi)^{d}}\frac{1}{(k_{E}^{2}+m^{2})^{n}}=\frac{(m^{2})^{d/2-n}}{(4\pi)^{d/2}}\frac{\Gamma(n-d/2)}{\Gamma(n)}\,,
+\end{align}
+
+Another useful integral is
+\begin{align}\label{eq:Wick rotated k2 integral}
+    \int\frac{d^{d}k_{E}}{(2\pi)^{d}}\frac{k_{E}^{2}}{(k_{E}^{2}+m^{2})^{n}}=\frac{(m^{2})^{d/2-n+1}}{(4\pi)^{d/2}}\frac{d}{2}\frac{\Gamma(n-d/2-1)}{\Gamma(n)}\,.
+\end{align}
+
+When dealing with massless external particles, we will often meet integrals that are scaleless. An example is the integral $\int\frac{d^{4}k}{k^{4}}$, which is both IR and UV-divergent. However, since there are no available non-zero mass dimension, the integral $\int\frac{d^{4}k}{k^{4}}$ must vanish in $d$-dimensions. We can exploit this to extract the UV and IR divergences, i.e.
+\begin{align}\label{eq:scaleless integral}
+    0=\int\frac{d^{d}k}{(2\pi)^{d}}\frac{1}{k^{4}}=i\frac{\Omega_{d}}{(2\pi)^{d}}\Big(\frac{1}{\epsilon_{\text{UV}}}-\frac{1}{\epsilon_{\text{IR}}}\Big)=\frac{i}{8\pi^{2}}\Big(\frac{1}{\epsilon_{\text{UV}}}-\frac{1}{\epsilon_{\text{IR}}}\Big)\,,
+\end{align}
+which we can write as
+\begin{align}
+    \Big[\int\frac{d^{d}k}{(2\pi)^{d}}\frac{1}{k^{4}}\Big]_{\text{UV}}=\frac{i}{8\pi^{2}}\frac{1}{\epsilon_{\text{UV}}}\,,
+    \\
+    \Big[\int\frac{d^{d}k}{(2\pi)^{d}}\frac{1}{k^{4}}\Big]_{\text{IR}}=-\frac{i}{8\pi^{2}}\frac{1}{\epsilon_{\text{IR}}}\,.
+\end{align}
+
+It is important to point out that $\epsilon_{\text{UV}}$ and $\epsilon_{\text{IR}}$ are not different, we just give them different names to be able to extract different parts.
+This is a very important feature which can be used to extract IR-divergences from UV-divergences. This can be useful in very complicated processes where the IR parts of a process is cumbersome to evaluate. 
+
+\subsection*{Feynaman parameters}
+In subsequent chapters we will mostly make calculations involving fermions and vector bosons, which leads to a more complex structure in the integrand. The relevant part for us here is that the denominator will consist of products of different propagators. By using \emph{Feynman's parametric integral formula}, these can also be brought onto the form of Gamma functions. For two different propagators $A^{a}$ and $B^{b}$ we have the identity
+\begin{align}
+    \frac{1}{A^{a}B^{b}}&=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\int_{0}^{1}dx\frac{x^{a-1}(1-x)^{b-1}}{(Ax+(1-x)B)^{a+b}}\nonumber
+    \\
+    &=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\int_{0}^{1}dxdy\,\delta(x+y-1)\frac{x^{a-1}y^{b-1}}{(Ax+yB)^{a+b}}\,,
+\end{align}
+where $x$ and $y$ are known as the Feynman parameters. The generalization to arbitrary many propagators is straightforward, and the proof can be made by induction. We will not do that proof here, so we just state the result
+\begin{align}
+    \frac{1}{A_{1}^{a_1}\dots A_{n}^{a_n}}=\frac{\Gamma(a_1+\dots +a_n)}{\Gamma(a_1)\cdots \Gamma(a_1)}\int_{0}^{1}dx_1\dots dx_n\,\frac{\delta(1-x_1+\dots +x_n)\,x_{1}^{a_1-1}\cdots x_{n}^{a_n-1}}{(x_{1}A_1+\dots+x_{n}A_{n})^{a_1+\dots +a_n}}\,,
+\end{align}
+which is valid for integer vaules of $a_i$, but with analytic continuation also holds for complex values of $a_i$. 
+
+To see how this parametrization works in practice we will consider an example we will have use for when we consider gauge boson radiation in \cref{Chap:pQCD}. The diagram producing these propagators is given in the bottom diagram of \cref{fig:NLO drell-yan}. We have that $k$ is the loop momentum, $p$ and $p'$ is the momentum of the incoming particles. We assume massless particles, so the propagator factors can be written as
+\begin{align}
+    \frac{1}{[k^{2}+i\epsilon][(p'+k)^{2}+i\epsilon][(k-p)^{2}+i\epsilon]}=\int_{0}^{1}dx\,dy\,dz\,\delta(x+y+z-1)\frac{2}{\mathcal{D}^{3}}\,,
+\end{align}
+where the factor of $2$ follows from $\Gamma(3)=2$. The denominator is given by
+\begin{align}
+    \mathcal{D}&=zk^{2}+x(p'+k)^{2}+y(k-p)^{2}+(x+y+z)i\epsilon\nonumber
+    \\
+    &=k^{2}+2k\cdot(xp'-yp)+i\epsilon\,,
+\end{align}
+where we have used that $x+y+z=1$ and that the particles are massless, i.e. $p^{2}=p'^{2}=0$. Let us complete the square by shifting $k$ in the following way
+\begin{align}
+    l=k+xp'-yp\,,
+\end{align}
+such that we get 
+\begin{align}
+    \mathcal{D}=l^{2}+xyQ^{2}+i\epsilon\,,
+\end{align}
+where $Q^{2}=2p\cdot p'$, and let us define $\Delta=-xyQ^{2}$. We observe that the integrand is independent of $z$ so we can use the delta function, giving
+\begin{align}\label{eq:virtual gluon feynman parametrization}
+    \frac{1}{[k^{2}+i\epsilon][(p'+k)^{2}+i\epsilon][(k-p)^{2}+i\epsilon]}=\int_{0}^{1}dx\int_{0}^{1-x}dy\frac{2}{(l^{2}-\Delta+i\epsilon)^{3}}\,.
+\end{align}
+
+This is now on a form where we can perform Wick rotation and evaluate the momentum integrals, with the downside of later having to perform integrals over Feynman parameters.
+
+Note that we only considered factors of propagators, but when we calculate with fermions and gauge bosons, we will have a complex tensor structure in the numerator. The shift to complete the square must also be performed in the numerator.
+
+
+\subsection{Renormalized Perturbation Theory}\label{sec:renormalized perturbation theory}
+At this point we have seen the apperance of UV-divergences and how to regularize them using both momentum cutoff and dimensional regularization. In this section we will make the procedure of removing the divergence in a more systematic way.
+
+The first important point to make is that the amplitude in \cref{eq:up to one loop amplitude phi-4} depends on the parameters $m_0$ and $\lambda_0$ appearing in the parametrization of the Lagrangian. We have interpreted these as the mass and coupling of the theory. These certainly describe \textquote{mass} and \textquote{coupling} terms, but there is no reason to believe that the physical mass and coupling is equal to the ones we write down in a theoretical construction. In real life experiments, observables are all order processes, meaning that there is no perturbative expansion. However, we have parametrized our theory at the lowest order and want it to cover an all order process, which does not sound like the right thing to do. We call these parameters without corrections \textquote{bare} parameters.
+
+The best way to see our failing intuition is to look at the concept of electric charge. We interpret the electric charge $e$ as the strength of a charged particles interaction with the electromagnetic field. In quantum field theory, we know that charged particles interact electromagnetically by exchanging a photon. Hence, we can interpret the electric charge as a measure of how \textquote{easily} a photon propagates. Because of quantum fluctuations, a propagating photon can spontaneously transform into an electron-positron pair, which subsequently annihilates and form a photon again. This process repeats itself all the time, which certainly affect the ease with which the photon propagates. The consequence is that the charge of a particle depends on how \textquote{closely} we probe the strength of electromagnetism, i.e. the more energy we use more and more virtual particles appear and the \textquote{harder} it is for the photon to propagate. Thus the quantity $e$ we write down in a Lagrangian to describe the strength of the electromagnetic interaction, can not describe the physical charge we observe in experiments.
+
+So, instead of using finite bare parameters, we allow these bare parameters to be infinite, such that they become finite after including all order corrections. This is the key concept of renormalization. A natural question that arises is the validity of defining an infinite bare charge. From a physical standpoint, this is perfectly fine as the bare charge describes the charge of an electron without the quantum fluctuations, which is not physically possible for a real-life electron constantly dressed with virtual particles.  
+
+\medskip
+The next question that arises is how many infinite constants we need in order to render a theory as renormalizable. In other words, is it sufficient to use lower order loops to define these divergences or do we get \textquote{new} divergences at each new order. For a renormalizable theory, there is a finite number of these infinite constants, while a theory that is non-renormalizable has an infinite number of them. That does not mean a non-renormalizable theory is meaningless to study, just that it can be challenging to make precise predictions with them.
+
+The general rule for a theory to be renormalizable follows from dimensional analysis. We know that because the action is dimensionless, the Lagrangian in a four-dimensional theory must have a mass dimension $[\mathcal{L}]=m^{4}$. One can show that for a theory to be renormalizable the coupling must either be dimensionless or have positive mass dimension, and theories with negative mass dimension are non-renormalizable.
+
+\subsubsection*{Field Renormalization and Counterterms}
+Let us write down the bare Lagrangian in $\phi^{4}$-theory, where the subscript on the parameters refer to the bare quantities
+\begin{align}
+    \mathcal{L}=\frac{1}{2}(\partial_{\mu}\phi_{0})^{2}-\frac{1}{2}m_{0}^{2}-\frac{\lambda_{0}}{4!}\phi_{0}^{4}\,.
+\end{align}
+
+This theory has a dimensionless coupling, so the theory is renormalizable, and we need to specify three infinite constants that will be absorbed by three unobservable parameters: the bare mass $m_{0}$, the bare coupling $\lambda_{0}$ and the field renormalization constant $Z$. First, we should explain where $Z$ comes from and why we included it in the LSZ formula.
+
+We know that if we act with a field $\phi_{0}(x)$ on a free vacuum state $\ket{0}$, we create a superposition of one-particle eigenstates of the free Hamiltonian. Let us then look at the following expectation value $\bra{0}\phi(x)\ket{p}$,
+\begin{align}
+    \bra{0}\phi_{0}(x)\ket{p}&=\bra{0}e^{iP\cdot x}\phi(0)e^{-iP\cdot x}\ket{p}\nonumber
+    \\
+    &=\bra{0}\phi_{0}(0)\ket{p}e^{-ip\cdot x}|_{p^{0}=E_{p}}\nonumber
+    \\
+    &=e^{-ip\cdot x}|_{p^{0}=E_{p}}\,,
+\end{align}
+where we have used the translation operator \cref{eq:translation operator} and we have that $\bra{0}\phi(0)\ket{p}=1$. This means that the probability of creating or annihilating a one-particle state from the free vacuum is one, i.e. $|\bra{p}\phi(0)\ket{0}|^{2}=|\bra{0}\phi(0)\ket{p}|^{2}=1$. 
+
+We want to see how this property transfer to the interacting theory. Because of interactions, we have that multiple particles can be created. Hence, we have to take into account for the possibility of multiparticle states. Let us denote $\ket{n_{p}}$ as a multiparticle state, where $p$ is the momentum, and let us do the same calculation as we did for the free theory using the interacting vacuum. We have that the expecation value is
+\begin{align}
+    \bra{\Omega}\phi_{0}(x)\ket{n_{p}}=\bra{\Omega}\phi(0)\ket{n_p}e^{-ip\cdot x}|_{p^{0}=E_{p}}\,,
+\end{align}
+where it is not necessarily true that $\bra{\Omega}\phi(0)\ket{n_p}$ is equal to one. To rewrite this a bit, we can use that under a scalar field transform under a Lorentz transformation as $U(\Lambda)\phi(0)U^{-1}(\Lambda)=\phi(0)$ and a momentum state as $U(\Lambda)\ket{n_{p}}=\ket{n_0}$\footnote{$n_{0}$ means that we have boosted from a state with momentum $p$ to a frame where $p$ is zero.}. Then we can write
+\begin{align}
+    \bra{\Omega}\phi_{0}(x)\ket{n_{p}}=\bra{\Omega}\phi_{0}(0)\ket{n_0}e^{-ip\cdot x}|_{p^{0}=E_{p}}\,.
+\end{align}
+The field renormalization constant is then defined as
+\begin{align}
+    Z=|\bra{n_0}\phi_{0}(0)\ket{\Omega}|^{2}\,,
+\end{align}
+i.e. the probability for $\phi_{0}(0)$ to create a given state from the interacting vacuum. This explains the appearance of $Z$ when we derived the LSZ-reduction formula, see \cref{eq:LSZ reduction formula}. However, we have said that this constant is infinite, but again it is not an observable quantity so we will not bother with ambiguities in the interpretation.
+
+As we want to describe scattering observables, we can eliminate $Z$ from the LSZ formula \cref{eq:LSZ reduction formula} by rescaling the field
+\begin{align}
+    \phi_{0}(x)=Z^{1/2}\phi(x)\,,
+\end{align}
+which alters the form of the Lagrangian, giving
+\begin{align}
+    \mathcal{L}=\frac{1}{2}Z(\partial_{\mu}\phi)^{2}-\frac{1}{2}m_{0}^{2}Z\phi^{2}-\frac{\lambda_{0}}{4!}Z^{2}\phi^{4}\,.
+\end{align}
+The bare mass and coupling still appear in the Lagrangian, but they can be eliminated by making the following definitions
+\begin{align}
+    Z=1+\delta_Z\,,\hspace{1cm}m_{0}^{2}Z=m^{2}+\delta_{m}\,,\hspace{1cm}\lambda_{0}Z^{2}=\lambda+\delta_{\lambda}
+\end{align}
+where $m$ and $\lambda$ are the physical mass and coupling measured in experiments, also called renormalized mass and coupling. Then the Lagrangian becomes
+\begin{align}
+    \mathcal{L}=\frac{1}{2}&(\partial_{\mu}\phi)^{2}-\frac{1}{2}m^{2}\phi^{2}-\frac{\lambda}{4!}\phi^{4}\nonumber
+    \\
+    &+\frac{1}{2}\delta_{Z}(\partial_{\mu}\phi)^{2}-\frac{1}{2}\delta_{m}\phi^{2}-\frac{\delta_{\lambda}}{4!}\phi^{4}\,,
+\end{align}
+where we observe that the first line is identical to the original bare Lagrangian, with the difference that the parameters are the physical ones. The second line consists of what we call \emph{counterterms}, i.e. they can be chosen in such a way that they cancel the divergences coming from loop calculations. These counterterms have their own Feynman rules, where $i(p^{2}\delta_{Z}-\delta_{m})$ is the counterterm for propagators and $(-i\delta_\lambda)$ is the counterterm for the vertex (or four point function)\footnote{These are directly read of the Lagrangian, as we have seen is identical to computing Green's functions by functional derivatives.}. We can find $\delta_{m}$ and $\delta_{z}$ by calculating corrections to the propagator and we can find $\delta_{\lambda}$ by calculating the one-loop vertex correction\footnote{This is the same calculation as we made for $\phi(p_1)\phi(p_2)\rightarrow \phi(p_3)\phi(p_4)$ by setting the external momenta to zero.}. 
+
+We have already argued that we exclude disconnected and bubble\footnote{These are diagrams that close in on themselves without any external legs.} diagrams as they can not describe propagation, i.e. we are looking at corrections to the connected Green's function
+\begin{align}
+    \mathcal{G}_{c}^{(2)}=\bra{\Omega}T(\phi(x)\phi(y))\ket{\Omega}\,.
+\end{align}
+It turns out that we only need to compute the \emph{1-particle irreducible} or $1$PI diagrams. These are defined as diagrams that are still connected after any one internal line is cut, and we denote them as $i\Pi(p)$.
+
+The reason we only need to consider $1$PI diagrams is because we can write the full propagator as a geometric series
+\begin{align}
+    D(p)&=\frac{i}{p^{2}-m^{2}+i\epsilon}+\frac{i}{p^{2}-m^{2}+i\epsilon}\big(i\Pi(p)\big)\frac{i}{p^{2}-m^{2}+i\epsilon}\nonumber
+    \\
+    &\hspace{0.5cm}+\frac{i}{p^{2}-m^{2}+i\epsilon}\big(i\Pi(p)\big)\frac{i}{p^{2}-m^{2}+i\epsilon}\big(i\Pi(p)\big)\frac{i}{p^{2}-m^{2}+i\epsilon}+\cdots\nonumber
+    \\
+    &=\frac{i}{p^{2}-m^{2}+i\epsilon}\sum_{n=0}^{\infty}\Big[\frac{-\Pi(p)}{p^{2}-m^{2}+i\epsilon}\Big]^{n}\nonumber
+    \\
+    &=\frac{i}{p^{2}-m^{2}+\Pi(p)+i\epsilon}\,,
+\end{align}
+meaning that all non-$1$PI contributions are part of the geometric series and need not be computed independently.
+
+In order to find the counterterms we also have to specify renormalization conditions. From the above definition of the full propagator we define the physical mass as the pole of the propagator and it's residue to be one, i.e.
+\begin{align}\label{eq:ren.cond dm and dz}
+    \Pi(p)|_{m^{2}=p^{2}}=0\hspace{0.5cm}\text{and}\hspace{0.5cm}\dv{}{p^{2}}\Pi(p)|_{p^{2}=m^{2}}=0\,.
+\end{align}
+The first condition specifies $m^{2}$ as the location of the pole and the second that the residue is equal to one. This last statement is equivalent to expanding the full propagator around $p^{2}=m^{2}$ and read of the coefficient in front of the $(p^{2}-m^{2})^{-1}$ term, just like in a regular Laurent series. 
+
+
+\begin{fmffile}{ttttt}
+\begin{figure}
+\centering
+\begin{fmfgraph*}(120,100)
+\fmfleft{i}
+\fmfright{o}
+\fmf{plain}{i,v,v,o}
+\end{fmfgraph*}
+\caption{Tadpole diagram in scalar $\phi^{4}$-theory.}
+\label{fig:tadpole}
+\end{figure}
+\end{fmffile}
+   
+The one-loop correction to the propagator (or two-point function) is given by the tadpole diagram \cref{fig:tadpole}, which has a single propagator in a loop that closes in on itself. Explicitly, by including the counterterm for propagators we have to one-loop order
+\begin{align}
+    i\Pi(p)&=\frac{i}{2}\lambda\mu^{(4-d)/2}\int\frac{d^{d}k}{(2\pi)^{d}}\frac{i}{k^{2}-m^{2}+i\epsilon}+i(p^{2}\delta_z-\delta_{m})\nonumber
+    \\
+    &=\frac{i\lambda\,m^{2}}{2(4\pi)^{d/2}}\Big(\frac{\mu}{m}\Big)^{(4-d)/2}\Gamma(1-d/2)+i(p^{2}\delta_z-\delta_{m})
+\end{align}
+where we Wick rotated and used \cref{eq:Wick rotated integral} to write the integral in terms of a gamma function. We can expand around $\epsilon=0$, giving
+\begin{align}
+    i\Pi(p)=-i\frac{\lambda\,m^{2}}{2(4\pi)^{2}}\Big(\frac{1}{\epsilon}-\gamma_{E}+\ln4\pi+\ln\Big(\frac{\mu^{2}}{m^{2}}\Big)\Big)+i(p^{2}\delta_z-\delta_{m})+\mathcal{O}(\epsilon)
+\end{align}
+where $\gamma_{E}$ is the Euler-Mascheroni constant. We observe that the first term does not depend on any momenta $p^{2}$, so we have that $\delta_{z}=0$. There are different choices for choosing $\delta_m$, but the most common and the one we will stick to in this thesis is the $\overline{MS}$-scheme
+\begin{align}
+    \delta_{m}&=-\frac{\lambda\,m^{2}}{2(4\pi)^{2}}\Big(\frac{1}{\epsilon}-\gamma_E+\ln 4\pi\Big)\,,
+\end{align}
+meaning that together with the divergence $1/\epsilon$, we always subtract the finite numerical factor $-\gamma_{E}+\ln 4\pi$. It is easy to check that the results obtained for these counterterms obey the renormalization conditions in \cref{eq:ren.cond dm and dz}. This does not mean that $\delta_{z}=0$ to all order, but we would have to calculate the $\mathcal{O}(\lambda^{2})$ correction to the propagator to find the first non-zero contribution. 
+
+The $\delta_{\lambda}$ counterterm is found by considering the one-loop amplitude in \cref{eq:loop amplitude phi-4}, but using dimensional regularization. We write the full amplitude as
+\begin{align}
+    i\mathcal{M}=-i\lambda-i\lambda^{2}\,\Gamma(p)-i\delta_{\lambda}\,,
+\end{align}
+where $p$ denotes the external particle momentum, i.e. in the general expression \cref{eq:general one-loop amplitude in phi-4} we have the initial particle momentum $p=p_1+p_2$, which we set to zero. This is a simplification and not the exact result, but it is sufficient for our purposes. By setting the external momenta to zero, we find the correction
+\begin{align}
+    \Gamma(0)&=\frac{3}{2}\mu^{4-d}\int\frac{d^{d}k}{(2\pi)^{d}}\frac{1}{(k^{2}-m^{2}+i\epsilon)^{2}}\nonumber
+    \\
+    &=\frac{3}{2(4\pi)^{2}}\Big(\frac{\mu^{2}}{m^{2}}\Big)^{(4-d)/2}\Gamma(2-d/2)\,.
+\end{align}
+The factor of $3$ originates from that to this order we have three channels, so summing over all will give this factor. 
+Again we can expand around $\epsilon=0$, giving
+\begin{align}
+    \Gamma(0)=\frac{3}{32\pi^{2}}\Big(\frac{1}{\epsilon}-\gamma_{E}+\ln4\pi+\ln\Big(\frac{\mu^{2}}{m^{2}}\Big)\Big)+\mathcal{O}(\epsilon)\,.
+\end{align}
+The counterterm in the $\overline{MS}$-scheme is then given by
+\begin{align}
+    \delta_{\lambda}=-\frac{3\lambda^{2}}{32\pi^{2}}\big(\frac{1}{\epsilon}-\gamma_{E}+\ln4\pi\big)\,,
+\end{align}
+giving that to one-loop order we have the amplitude
+\begin{align}\label{eq:one-loop amplitude phi-4}
+    i\mathcal{M}=-i\lambda-i\frac{3\lambda^{2}}{32\pi^{2}}\ln\Big(\frac{\mu^{2}}{m^{2}}\Big)+\mathcal{O}(\lambda^{3})\,.
+\end{align}
+%With the condition that at zero external momentum, the amplitude is given by the physical coupling, we have that
+%\begin{align}\label{eq:one-loop amplitude phi-4}
+%    \lambda_{\overline{MS}}=\lambda+\frac{3\lambda^{2}}{2(4\pi)^{2}}\ln\Big(\frac{\mu^{2}}{m^{2}}\Big)+\mathcal{O}(\lambda^{3})
+%\end{align}
+
+
+In general, after divergences have been subtracted using counterterms, the correction term will almost always have a logarithmic dependency. However, since $\mu$ is not a cut-off, this is not a problem as we can always choose it such that the logarithm has a nice behaviour. 
+%Note that we can just use the regular Feynman rules to calculate an amplitude, but we have additional rules for counterterms. So, if we used this Lagrangian and wanted to calculate the scattering amplitude we calculated in \cref{eq:loop amplitude phi-4}, we would find in the $\Lambda\rightarrow\infty$ domain
+%\begin{align}
+%    i\mathcal{M}_{2\rightarrow 2}=-i\lambda-i\frac{\lambda^{2}}{4(4\pi)^{2}}\Big(\ln\big(\frac{\Lambda^{2}}{m^{2}}\big)+1\Big)-i\delta_{\lambda}
+%\end{align}
+%where $\lambda$ and $m$ are the physical parameters and not the bare ones we previously used. To remove the divergence, we can define the counterterm
+%\begin{align}
+%    \delta_{\lambda}=-\frac{\lambda^{2}}{4(4\pi)^{2}}\Big(\ln\big(\frac{\Lambda^{2}}{q^{2}}\big)-1\Big)
+%\end{align}
+%where $q^{2}$ is some other scale for the external momenta. This assumes that we have used a renormalization condition and defined the four point amlitude at zero external momenta at $4m^{2}$\are{Should probably elaborate what I mean with renormalization condition. Should I talk about how to find $\delta_m$ and $\delta_Z$?}. Then we have that the amplitude to $\mathcal{O}(\lambda^{2})$ take the form
+%\begin{align}\label{eq:renormalized four point amplitude}
+%    i\mathcal{M}_{2\rightarrow 2}(q^{2})=-i\lambda-i\frac{\lambda^{2}}{4(4\pi)^{2}}\ln\big(\frac{q^{2}}{m^{2}}\big)\,,
+%\end{align}
+%which is still has a logarithmic dependence, but it is not divergent anymore as the dependence on the large cut-off $\Lambda$ has been removed. It is important to point out that this is not the exact expression for the scattering amplitude as we made some simplifications in the original divergent integral, but the objective was just to show that we can use the counterterms to get rid of the troubling UV-divergent divergent parts. 
+
+%In later chapters we will turn our attention to more interesting theories describing particles we can observe in experiments. However, $\phi^{4}$ serves as an easy example to define the renormalization procedure when we have a dimensionless coupling. The exact same logic regarding renormalizability for theories with dimensionless coupling can be made for theories like QED and QCD as well. However, those cases are much more complicated so we will not cover the derivation here. We will however cover the structure of the full QCD Lagrangian in \ar{chapter QCD}, and what kind of counterterms that are needed to render the theory UV-finite. So, the most important consequence of the counterterm prescription is that when we calculate amplitudes and encounter UV-divergences we know that there is always a counterterm that will cancel it. 
+
+%Note that we specifically pointed out divergences in the UV-region, but we will later see there are \emph{infrared} (IR) divergences for higher order amplitudes as well. These IR divergences are more obscure and the most troublesome as they can not be treated using counterterms. They are so important that we will spend most of this thesis explaining the program of treating them in general. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{The Callan-Symanzik Equation}
+We have looked at how to handle divergences by introducing a regulator, e.g. $\epsilon$ in dimensional regularization. These regulators are then removed by renormalizing the theory using counterterms, but in this procedure, an energy scale $\mu$ is introduced to compensate for the shift in dimension. After renormalizing the fields, all parameters can potentially depend on this scale. The renormalized $n$-point Green's function will then also depend on this scale through the parameters, but possibly also directly
+\begin{align}
+    \mathcal{G}^{(n)}(p_{i},\lambda(\mu),m(\mu),\mu)=Z^{-n/2}(\mu)\mathcal{G}_{0}^{(n)}(p_i,\lambda_{0},m_{0})\,.
+\end{align}
+The choice of $\mu$ is arbitrary, so we might as well choose another scale $\mu'$ with renormalized parameters $\lambda'(\mu')$ and $m'(\mu')$. How the renormalized Green's function change under a continuous change of scale is then governed by a differential equation. To find this differential equation we can exploit that the bare Green's function is independent of this continous change of scale, i.e. we have that
+\begin{align}
+    \mu\frac{d}{d\mu}\mathcal{G}_{0}^{(n)}=0\,,
+\end{align}
+which leads to
+\begin{align}
+    0&=\mu\dv{}{\mu}\big(Z^{n/2}\mathcal{G}^{(n)}\big)\nonumber
+    \\
+    &=Z^{n/2}\Big(\mu\pdv{}{\mu}+\mu\pdv{\lambda}{\mu}\pdv{}{\lambda}+\mu\pdv{m}{\mu}\pdv{}{m}+\frac{n}{2}\frac{\mu}{Z}\pdv{Z}{\mu}\Big)\mathcal{G}^{(n)}\,.
+\end{align}
+Then let us define the following functions
+\begin{align}
+    \gamma_{\phi}&=\frac{\mu}{2Z}\pdv{Z}{\mu}
+    \\
+    \gamma_{m}&=\frac{\mu}{m}\pdv{m}{\mu}
+    \\
+    \beta(\lambda)&=\mu\pdv{\lambda}{\mu}\,,
+\end{align}
+where $\gamma_{\phi}$ and $\gamma_m$ are known as anomalous dimensions and $\beta(\lambda)$ is known as the beta function. Using these definitions we find what is called a \emph{Callan-Symanzik} equation
+\begin{align}
+    \Big(\mu\pdv{}{\mu}+\beta(\lambda)\pdv{}{\lambda}+m\gamma_{m}\pdv{}{m}+n\gamma_{\phi}\Big)\mathcal{G}^{(n)}=0\,.
+\end{align}
+This equation states that there exists universal functions $\beta(\lambda)$, $\gamma_m$ and $\gamma_{\phi}$, related to the change in coupling, mass and field, that compensates for the change of scale $\mu$. The generalization to theories with several fields, e.g. QED with fermions and photons or QCD with quarks and gluons is straightforward. The difference---apart from different masses and couplings---is that we have several fields, giving several different anomalous dimensions. 
+
+To find the beta function for $\phi^{4}$-theory we can use that the amplitude in \cref{eq:one-loop amplitude phi-4} should not depend on the choice of scale $\mu$, giving to $\mathcal{O}(\lambda^{2})$
+\begin{align}\label{eq:pdv phi-4 beta}
+    \mu\dv{\lambda}{\mu}=\frac{3\lambda^{2}}{16\pi^{2}}\,,
+\end{align}
+which is the definition of the beta function, i.e. we find
+\begin{align}
+    \beta(\lambda)=\frac{3\lambda^{2}}{16\pi^{2}}+\mathcal{O}(\lambda^{3})\,.
+\end{align}
+We observe that the sign of the beta function is positive, which mean that the coupling increases as the scale increases. This is most easily seen by solving \cref{eq:pdv phi-4 beta},
+\begin{align}
+    \int_{\lambda(\mu_{0})}^{\lambda(\mu)}\frac{d\lambda}{\lambda^{2}}=\frac{3}{16\pi^{2}}\int_{\mu_{0}}^{\mu}\frac{d\mu}{\mu}\,,
+\end{align}
+giving
+\begin{align}\label{eq:solution of beta function}
+    \lambda(\mu)=\frac{\lambda(\mu_{0})}{1-\frac{3\lambda(\mu_0)}{16\pi^{2}}\ln\big(\frac{\mu}{\mu_{0}}\big)}\,,
+\end{align}
+where $\mu_{0}$ is a reference scale. This gives us a new scale in the theory which is physical and is defined through the coupling. 
+
+One important observation of the solution in \cref{eq:solution of beta function} is that if we expand the solution, we find that
+\begin{align}\label{eq:coupling solution expanded}
+    \lambda(\mu)=\lambda(\mu_{0})+\frac{3\lambda^{2}(\mu_0)}{16\pi^{2}}\ln(\frac{\mu}{\mu_{0}})+\mathcal{O}(\lambda^{3})\,,
+\end{align}
+meaning that by using the renormalization group equation, the logarithmic dependence is effectively resummed. Resummation by the use of renormalization group equations is a feature we will use when we want to handle corrections that have large logarithms. Resummation of these is a way of organizing them such that they don't ruin the perturbative expansion. We will come back to resummation after we have considered corrections and divergences for cross sections in \cref{Chap:pQCD}.
+
+If the coupling varies with energy, it should raise a question about at which point is the coupling too large to be used in a power series expansion. For example, we can define the value of $\mu=\Lambda_{L}$ where the coupling is $1$, i.e. the scale where perturbation theory breaks down. This scale is known as the Landau pole, hence the subscript $L$. For theories like QED, this Landau pole occurs at such a high energy that it is really not a problem. However, in a theory like QCD this pole occur at low enegies and invalidates the perturbative expansion. We will talk more about the coupling constant for QCD in \cref{Chap:pQCD}.%We will investigate this further when we talk about QCD, where this pole occurs at a point that causes problems for the low energy description of the strong interaction. 
+
+%
+
+%\are{After this I had a plan to talk about the reason we call $\gamma$ an anomalous dimension, but I thought this chapter is way too long as it is. I should probably shorten it down a bit. Is the LSZ derivation unnecessary?}

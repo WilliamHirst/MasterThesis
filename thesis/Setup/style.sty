@@ -1,0 +1,167 @@
+%-------------------- begin style -------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Setup/style}[Custom LaTeX style]
+
+%----------------- packages ------------------------
+
+%-------- standalone ---------
+%\RequirePackage{standalone} %[subpreambles=true]
+
+%--------- encoding ----------
+\usepackage[utf8]{inputenc}        % Source file encoding
+\usepackage[UKenglish]{babel} % typographic rules
+\usepackage{duomasterforside}
+
+
+%--------- color ------------
+%\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+%----- document formatting ---- 
+% Begin paragraphs with an empty line rather than an indent:
+%\usepackage[parfill]{parskip} 
+%Set document margin (1 inch = 2.54cm):
+\usepackage[margin=0.9in]{geometry}
+% prevent orphan and widow lines
+\clubpenalty = 10000
+\widowpenalty = 10000
+
+%---- fonts and typography ------
+\usepackage{csquotes}
+\usepackage{lmodern}           % Latin Modern
+\usepackage[final]{microtype}  % Improved typography
+\usepackage{enumitem}          % Format lists
+\setlist[itemize]{font = \upshape, before = \leavevmode}
+\setlist[enumerate]{font = \upshape, before = \leavevmode}
+\setlist[description]{font = \bfseries\sffamily, before = \leavevmode}
+\usepackage{siunitx}
+\usepackage{calrsfs}
+\usepackage{fontawesome} % Github icon, etc. \faGithub
+\usepackage{hologo}      % Logos, such as BibTeX
+\usepackage{romannum}
+%------ header and foot --------
+\usepackage{fancyhdr}
+
+%------ sections layout --------
+\usepackage{sectsty}
+%\addtokomafont{section}{\huge}
+%\addtokomafont{subsection}{\Large}
+%\addtokomafont{subsubsection}{\large}
+%\sectionfont{\fontsize{20}{20}\selectfont}
+%\subsectionfont{\fontsize{10}{15}\selectfont}
+\sectionfont{\centering \color{black}} %centering and color
+\subsectionfont{\color{black}}  % sets color of subsections
+\subsubsectionfont{\color{black}}
+\usepackage{lipsum}
+\usepackage{ntheorem}
+
+
+%---------- figure & tables ---------------
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage[format=hang,font=small,labelfont=bf]{caption} % figure & table caption
+%\captionsetup{labelfont={normal, bf}, font={sl}}  
+\usepackage{chngcntr}
+
+%---------- math environment --------------
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}  % also loads amsmath
+\usepackage{braket}
+\usepackage{xfrac}      % provides \sfrac
+\usepackage{bm} 
+\usepackage{bbm}
+\usepackage{slashed}
+\usepackage{physics}
+\let\ket\relax % undefine \ket
+\let\bra\relax % undefine bra
+\DeclarePairedDelimiter{\ket}{\lvert}{\rangle}
+\DeclarePairedDelimiter{\bra}{\langle}{\rvert}
+\newtheorem{definition}{Definition}[section]
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\newtcbtheorem[number within=section]{mytheo}{Theorem}%
+{colback=yellow!5,colframe=blue!35!black,fonttitle=\bfseries}{th}
+\newtcbtheorem[number within=section]{mydef}{Definition}%
+{colback=red!5,colframe=blue!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem{defbox}{Wilson Line Properties}%
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{th}
+%\newtcbexternalizetcolorbox{extcolorbox}{tcolorbox}{}{}
+%---------- tikz environment --------------
+%\usepackage{tikz}
+%\usetikzlibrary{shapes.geometric, arrows}
+%\usepackage{tikz-feynman}
+%\usepackage[com pat=1.1.0]{tikz-feynman} 
+%------------- physics++ -----------------
+\usepackage{xparse}
+\usepackage{physics}
+\usepackage{chemformula} % Formula subscripts using \ch{}
+\usepackage{chemfig}
+\usepackage{feynmp-auto}
+%------------ frames -------------------
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=4pt,skipbelow=1pt}
+\mdfdefinestyle{MyFrame}{%
+    linecolor=black,
+    outerlinewidth=1pt,
+    roundcorner=10pt,
+    innertopmargin=\baselineskip,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=10pt,
+    innerleftmargin=10pt,
+    backgroundcolor=gray!10!white}
+
+\usepackage{tikz}
+%\usepackage[listings,theorems,skins,breakable]{tcolorbox}
+%\tcbset{highlight math style={enhanced,
+%  colframe=red,colback=white,arc=0pt,boxrule=2pt}}
+  
+%--------- referencing ----------------
+%\usepackage[obeyspaces, spaces, hyphens]{url} % typesetting URLs
+%\urlstyle{sf}
+
+\usepackage{hyperref} % create hyperlinks within the document
+\hypersetup{          % set color of referenced items
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=red,
+    filecolor=blue,      
+    urlcolor=blue,}
+    
+\usepackage[capitalize]{cleveref}
+\crefdefaultlabelformat{\textbf{#2}}
+\crefname{equation}{Eq.}{Eq.}
+\crefname{section}{Sec.}{Sec.}
+\crefname{figure}{Fig.}{Fig.}
+\crefdefaultlabelformat{#2#1#3}
+%\addto\extrasenglish{
+%  \renewcommand{\sectionautorefname}{\textbf{Sec.}}%
+%  \renewcommand{\subsectionautorefname}{\text{Sec.}}%
+%  \renewcommand{\subsubsectionautorefname}{\textbf{Sec.}}%
+%   \renewcommand{\figureautorefname}{Fig.}
+%}
+
+%--------- New Commands ----------------
+\newcommand{\ar}[1]{\textbf{\color{red}RMR: #1}}
+\newcommand{\are}[1]{\textbf{\color{pink}Are: #1}}
+\newcommand{\Me}{\tilde}
+%---------------- algorithm -------------------
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algpascal}
+\usepackage[toc,page]{appendix}
+
+%--------- bibliography -----------
+
+%\usepackage[
+%    backend=biber,
+%    style=numeric,
+%    sorting=none,
+%    backref,
+%    natbib,
+%    hyperref
+%]{biblatex}
+
+%-------------------- end style ---------------------------

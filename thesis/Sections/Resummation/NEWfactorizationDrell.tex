@@ -1,0 +1,67 @@
+\section{Threshold Factorization}
+In \cref{sec:Drell-Yan Hadronic Cross Section} we used the QCD factorization theorem and wrote the hadronic Drell-Yan cross section on the form\footnote{The difference here is that we have not factored out the Born cross section at this point.}
+\begin{align}\label{eq:resummation factorized drell-yan Cross Section}
+   \frac{ d\sigma_{h_1h_2}}{dQ^{2}}=\sum_{i,j}\int dx_{1}dx_{2}\,f_{i/h_1}(x_1,\mu)f_{j/h_2}(x_2,\mu)\,\hat{\sigma}_{ij}\Big(z,Q,\mu,\alpha_s(\mu^{2})\Big)\,.
+\end{align}
+As we have said many times before, these parton distribution functions $f_{i/h_{1}}$ are not perturbative and have to be extracted from experiment. We made an $\mathcal{O}(\alpha_s)$ calculation of the hard partonic cross section in \cref{sec:Drell-Yan Hadronic Cross Section}, where we found both collinear and soft divergences. By summing over all diagrams we found that some of these canceled, and the last divergence were treated by considering a refactorization using parton-in-parton distributions. However, the final result contained terms that give large logarithmic corrections near threshold. The way to treat these large logarithms is by using the non-Abelian eikonal exponentiation theorem, see (\ar{ref to nonA exponentiation}). 
+
+Let us first consider the partonic equivalent to \cref{eq:resummation factorized drell-yan Cross Section} using parton-in-parton distributions
+\begin{align}
+    \frac{d\hat{\sigma}_{ij}}{dQ^{2}}=\sum_{kl}\int dy_{1}dy_{2}f_{k/j}(x_1,\mu)f_{l/j}(x_2,\mu)\,\hat{\sigma}_{kl}(z,Q,\mu,\alpha_s(\mu^{2}))\,
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Hadronic Cross Section and Inverse Mellin}
+In this section we will recover the hadronic cross section in Drell-Yan $x$-space, and discuss how we can evaluate the inverse Mellin transform. 
+
+From \cref{eq:hadronic cross section in Mellin} and \cref{eq:LL result} the Mellin transformed hadronic cross section is given by \footnote{We have set $\mu=Q$, and for generality inserted the hard function $H_{ij}$.}
+\begin{align}
+    \tilde{\sigma}_{h_1h_2}(N)&=\int_{0}^{1}d\tau \tau^{N-1}\,\frac{1}{\sigma_{0}}\frac{d\sigma_{h_1h_2}}{dQ^{2}}\nonumber
+    \\
+    &=\sum_{i,j=q,\bar{q}}H_{ij}\big((Q,\alpha_{s}(Q)\big)\tilde{f}_{i/h_1}(N,Q)\tilde{f}_{j/h_2}(N,Q)\,\exp\big(\Me{E}_{ij}(N,Q,\alpha_s)\big)
+\end{align}
+where the hard function has been exponentiated. We can now use the inverse Mellin transform \cref{eq:Appendix Inverse Mellin} to write\footnote{We recover the fractional charge of the quarks.}
+\begin{align}
+    \frac{d\sigma_{h_1h_2}}{dQ^{2}}=&\,\sigma_{0}\sum_{i,j=q,\bar{q}}Q_{q}^{2}H_{ij}\big((Q,\alpha_{s}(Q)\big)\nonumber
+    \\
+    &\frac{1}{2\pi i}\int_{c-i\infty}^{c+i\infty}dN\,\tau^{-N}\tilde{f}_{i/h_1}(N,Q)\tilde{f}_{j/h_2}(N,Q)\exp\big(\Me{E}_{ij}(N,Q,\alpha_s)\big)
+\end{align}
+
+There exists numerical packages to evaluate parton distributions in Mellin space, see \cite{Vogt_2005}. However, to use the $x$-space formalism we can do several manipulations by using the convolution properties of the Mellin transform.
+
+
+\subsection{The Inverse Mellin Transform}
+The inverse Mellin transform as defined in \cref{sec:Appendix Mellin Transform}, is for a general function given by
+\begin{align}\label{eq:h}
+    h(x)=\frac{1}{2\pi i}\int_{c-i\infty}^{c+i\infty}dN\,x^{-N}\,\Me{h}(N)
+\end{align}
+where 
+\begin{align*}
+    \Me{h}(N)=\int_{0}^{\infty}dx\,x^{N-1}\,h(x)
+\end{align*}
+since $h(x)$ is a real valued function
+\begin{align}\label{eq:h_real}
+    \Me{h}^{*}(N)=\int_{0}^{\infty}dx\,x^{N^{*}-1}\,h(x)=\Me{h}(N^{*})
+\end{align}
+The Mellin inversion integral \cref{eq:h} can be splitted into two, one part for the lower bound and one part for the upper bound. In the lower bound term a change of variable will be made $N\rightarrow N^{*}$, which makes the integration bounds change accordingly $c-i\infty\rightarrow c+i\infty$.
+\begin{align}
+    h(x)&=\frac{1}{2\pi i}\Bigl(\int_{c-i\infty}^{c}dN\,x^{-N}\,\Me{h}(N)+\int_{c}^{c+i\infty}dN\,x^{-N}\,\Me{h}(N)\Bigr)\nonumber
+    \\
+    &=\frac{1}{2\pi i}\Bigl(\int_{c+i\infty}^{c}dN^{*}\,x^{-N^{*}}\,\Me{h}(N^{*})+\int_{c}^{c+i\infty}dN\,x^{-N}\,\Me{h}(N)\Bigr)\nonumber
+    \\
+    &=\frac{1}{2\pi i}\Bigl(-\int_{c}^{c+i\infty}dN^{*}\,x^{-N^{*}}\,\Me{h}^{*}(N)+\int_{c}^{c+i\infty}dN\,x^{-N}\,\Me{h}(N)\Bigr)\,,
+    \intertext{and by choosing the parametrization of the Mellin variable to be $N=c+ze^{i\phi}$, with $z$ real, the integral will take the form}
+    &=\frac{1}{2\pi i}\int_{0}^{\infty}dz\,\left(e^{i\phi}\,x^{-N}\Me{h}(N)-e^{-i\phi}\,x^{-N^{*}}\Me{h}^{*}(N)\right)\nonumber
+    \\
+    &=\frac{1}{2\pi i}\int_{0}^{\infty}dz\,2i\,\text{Im}\left(e^{i\phi}\,x^{-N}\Me{h}(N)\right)\nonumber
+    \\
+    &=\frac{1}{\pi}\int_{0}^{\infty}dz\,\text{Im}\left(e^{i\phi}\,x^{-N}\Me{h}(N)\right)\,,
+\end{align}
+where the relation used in the third last step is
+\begin{align*}
+    \Me{h}(N)-\Me{h}^{*}(N)&=2i\,\text{Im}(\Me{h}(N))\,.
+\end{align*}
+Writing out the parametrization, the integral is equal to
+\begin{align}\label{eq:Inversed Mellin Integral}
+    h(x)=\frac{1}{\pi}\int_{0}^{\infty}dz\,\text{Im}\left(e^{i\phi}\,x^{-c-z\,\exp(i\phi)}\Me{h}(c+z\,\exp(i\phi))\right)\,.
+\end{align}

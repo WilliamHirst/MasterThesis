@@ -1,0 +1,251 @@
+\section{Hello}
+
+One can also show that the effect of Mellin transformation on the singular distributions, is to transform them into logarithms of $N$ (\ar{reference to Mellin})
+\begin{align}
+    \int_{0}^{1}dz z^{N-1}\Big[\frac{\ln^{2n-1}(1-z)}{(1-z)}\Big]_{+}=\frac{(-1)^{2n}}{2n}\ln^{2n}(N)+\mathcal{O}(\ln^{2n-2}(N))\,,
+\end{align}
+which in the limit of large $N$ are referred to as the leading logarithms. Thus, we observe that the threshold limit $z\rightarrow 1$, corresponds to $N\rightarrow\infty$. In the next section we investigate how one can refactorize the cross section, such that these enhanced terms are resummed. 
+
+
+A crucial step towards the resummation formalism was the observation that the leading logarithms could be resummed to all order \cite{Parisi:1979xd}. In the $\mathcal{O}(\alpha_s)$ correction to Drell-Yan, we used the partonic equivalent of \cref{eq:Factorized Dre-Yan Cross Section} to treat the collinear singularity and render the hard function finite. We will use the same concept here to extract the infrared safe hard scattering function. To this end, we define the Mellin transform of \cref{eq:refactorized partonic drell-yan},
+\begin{align}\label{eq:refactorized Mellin space}
+    \tilde{h}_{ij}\Big(N,\frac{Q^{2}}{\mu^2},\alpha_s(\mu^{2}),\epsilon\Big)=\sum_{k,l}\tilde{f}_{k/i}(N,\mu^{2},\epsilon)\tilde{f}_{l/j}(N,\mu^{2},\epsilon)\,\tilde{\omega}_{ij}\Big(N,\alpha_{s}(\mu^{2}),\frac{Q^{2}}{\mu^{2}}\Big)\,,
+\end{align}
+where $f_{k/i}$ are the light-cone parton-in-parton distributions defined at fixed momentum fraction we derived in \cref{sec:lightcone parton in parton distributions}. 
+
+The factorization property in \cref{eq:Factorized Dre-Yan Cross Section} and \cref{eq:refactorized partonic drell-yan} is valid for any kinematical region, but the main objective of resummation is to isolate the logarithmically enchanced terms. Therefore, we want to define a near threshold analogue to \cref{eq:refactorized Mellin space} that separates the enhanced terms from the hard scattering function, making them eligible for all order resummation. 
+
+The parton-in-parton distributions $f_{k/i}$ were used to absorb the universal collinear singularity in the fixed order Drell-Yan calculation. To also absorb the collinear enhanced terms, we define the alternate parton-in-parton densities \cite{Kidonakis:1997gm},
+\begin{align}\label{eq:near threshold densities}
+    \psi_{q/q}(x, 2p^{0}/\mu,\epsilon)&=\frac{1}{2^{3/2}}\int_{-\infty}^{\infty}\frac{dy^{0}}{4\pi}\,e^{-ixp^{0}y^{0}}\ev{\bar{q}(y^{0},\mathbf{0})\,n\cdot\gamma\,q(0)}{q}\,,
+    \\
+    \psi_{\bar{q}/\bar{q}}(x, 2p^{0}/\mu,\epsilon)&=\frac{1}{2^{3/2}}\int_{-\infty}^{\infty}\frac{dy^{0}}{4\pi}\,e^{-ixp^{0}y^{0}}\ev{\text{tr}\big(\,n\cdot\gamma\,\bar{q}(y^{0},\mathbf{0})\,q(0)\big)}{\bar{q}}\,,
+\end{align}
+where the quark(antiquark) fields are denoted by $q(\bar{q})$ with momentum $p^{\mu}$. To leading order they are normalized to $\delta(1-x)$, such that without radiation the parton stays itself. The vector $n^{\mu}$ is light-like and aligned in the opposite direction of $p^{\mu}$. Due to invariance under charge conjugation they satisfy $\psi_{q/q}=\psi_{\bar{q}/\bar{q}}$, and are referred to as the partonic centre of mass quark distributions. The gluon distributions can be constructed in a similar fashion. They differ from the standard light-cone parton distributions by being defined at fixed energy fraction, rather than fixed momentum fraction. This choice make them more suitable for calculations near threshold\footnote{In for example DIS the gluon radiated with momentum fraction $(1-x)p^{+}$, but near threshold we investigate emission in terms of energy fractions $(1-x)Q^{a}$.}. The matrix element is evaluated in the axial gauge $A^{0}=0$, i.e. they depend on a gauge fixing vector $\xi$ and are as a result not gauge invariant. The strength of using axial gauges is that the factorization of double Sudakov logarithms is incorporated into $\psi_{q/q}$ automatically. We also note that only flavour diagonal densities are considered, as the off-diagonal ones show no singular behaviour in the threshold limit. \are{Maybe I should talk about double Sudakov logarithms before I mention them?}
+
+\medskip
+The remaining parts of the hard scattering function can be decomposed into a hard function $H$ that is finite in the threshold limit, and a soft funtion $U$ that contains the wide-angle soft emission. The threshold behaviour may be isolated quantitatively by introducing an appropriate weight $\omega_{n}(\{q_i\})$, referred to as a set of functions of the momenta of each particle in the final state \cite{Contopanagos:1996nh}. These weights are dimensionless and assumed to vanish in the threshold limit. For example, near partonic threshold in Drell-Yan we have $\omega=1-z$ and in DIS this would correspond to $\omega=1-x$. In terms of these weights, the logarithmic enhanced terms appear in $n$th order perturbation as
+\begin{align}\label{eq:enhanced weights}
+    \alpha_{s}^{n}\Big(\frac{\ln^{2n-1}(w)}{w}\Big)\,,
+\end{align}
+where the logarithms appear in dimensional regularized perturbation theory from the expansion of terms such as,
+\begin{align}
+    \frac{1}{\epsilon}\omega^{-1-\epsilon}\,,
+\end{align}
+which for the $\mathcal{O}(\alpha_s)$ correction in Drell-Yan is given in \cref{eq:DRell Yan plus distribution example}.
+
+To separate the collinear and wide-angle soft emission we need the contribution to the weights for the particles inside $\psi_{q/q}$ and $U$ to be independent and additive,
+\begin{align}
+    \omega=\omega_1+\omega_2+\omega_s\,,
+\end{align}
+where higher order corrections $\omega^{2}$ are neglected in the threshold limit. For the Drell-Yan process the factorized form near partonic threshold is given by \cite{Contopanagos:1996nh},
+\begin{align}\label{eq:Near threshold hard scattering}
+    h_{q\bar{q}}\Big(\omega,\alpha_{s}(\mu^{2}),\frac{Q^{2}}{\mu^{2}},\epsilon\Big)&=H\Big(\frac{p_1}{\mu},\frac{p_2}{\mu},\xi_1,\xi_2\,,\alpha_{s}(\mu^{2})\Big)\int\frac{d\omega_1}{\omega_1}\frac{d\omega_2}{\omega_2}\frac{d\omega_s}{\omega_s}\nonumber
+    \\
+    &\times\psi_{q/q}\Big(\frac{\omega_1Q}{\mu},\frac{p_1\cdot\xi_1}{\mu},\alpha_{s}(\mu^{2}),\epsilon\Big)\psi_{\bar{q}/\bar{q}}\Big(\frac{\omega_2\,Q}{\mu},\frac{p_2\cdot\xi_2}{\mu},\alpha_{s}(\mu^{2}),\epsilon\Big)\nonumber
+    \\
+    &\times\,U_{q\bar{q}}\Big(\frac{\omega_{s}Q}{\mu},n_1,n_2,\xi_1,\xi_2\Big)\,\delta(\omega-\omega_1-\omega_2-\omega_s)\,,
+\end{align}
+where the weights are defined in terms of energy fractions
+\begin{align}
+    \omega&=1-z
+    \\
+    \omega_s&=2\sum_{i=1}^{n}k_{i}^{0}/Q
+    \\
+    \omega_1&=1-x_1
+    \\
+    \omega_2&=1-x_2\,.
+\end{align}
+
+The delta function in \cref{eq:Near threshold hard scattering} is found by taking the threshold limit $z\rightarrow 1$ of the phase space delta function $\delta(Q^{2}-(p_1+p_2-\sum_{i}k_{i})^{2})$, using the approximations discussed in \cite{Sterman:1986aj}. The result is that the energy fraction above threshold $\omega$ is decomposed into energy fractions related to collinear $\omega_i$ and wide-angle soft $\omega_s$ emission. These weights are naturally small in the threshold limit, leading to enhanced terms as given in \cref{eq:enhanced weights}. With the factorized form in \cref{eq:Near threshold hard scattering}, these regions have effectively been attributed to the functions $\psi_{q/q}$ and $U_{q\bar{q}}$. To disentagle the convolution in \cref{eq:Near threshold hard scattering} we can take the Laplace transform in $\omega$. As Laplace and Mellin transform are equivalent in the large $N$ limit, we use that $e^{-N\omega}=e^{-N(1-z)}\approx z^{-N}$, giving
+\begin{align}\label{eq:refactorized hard function mellin}
+    \tilde{h}_{q\bar{q}}\Big(N,\alpha_{s}(\mu^{2}),\frac{Q^{2}}{\mu^{2}},\epsilon\Big)&=\int_{0}^{1}dz\, z^{N-1}\, h_{q\bar{q}}\Big(z,\alpha_{s}(\mu^{2}),\frac{Q^{2}}{\mu^{2}},\epsilon\Big)\nonumber
+    \\
+    &=\tilde{\psi}_{q/q}\Big(\frac{Q}{N\mu},\frac{p_1\cdot\xi_1}{\mu},\alpha_{s}(\mu^{2}),\epsilon\Big)\tilde{\psi}_{\bar{q}/\bar{q}}\Big(\frac{Q}{N\mu},\frac{p_2\cdot\xi_2}{\mu},\alpha_{s}(\mu^{2}),\epsilon\Big)\nonumber
+    \\
+    &\times \tilde{H}\Big(\frac{p_1}{\mu},\frac{p_2}{\mu},\xi_1,\xi_2\,,\alpha_{s}(\mu^{2})\Big)\,\tilde{U}_{q\bar{q}}\Big(\frac{Q}{N\mu},n_1,n_2,\xi_1,\xi_2\Big)+\mathcal{O}(\frac{1}{N})\,.
+\end{align}
+where we used
+\begin{align}
+    \int_{0}^{1}dz\,z^{N-1}\delta(1-z-\omega_1-\omega_2-\omega_s)=e^{-N(\omega_1+\omega_2+\omega_s)}
+\end{align}
+and defined the moments
+\begin{align}
+    \tilde{U}_{q\bar{q}}(N)&=\int_{0}^{1}\frac{d\omega_s}{\omega_s}e^{-N\omega_s}\,U_{q\bar{q}}(\omega_s)
+    \\
+    \tilde{\psi}_{q/q}(N)&=\int_{0}^{1}\frac{d\omega_i}{\omega_i}e^{-N\omega_i}\,\psi_{q/q}(\omega_i)\,.
+\end{align}
+
+The hard function $H$ does not depend on $N$, as it contains no singular terms. If we now compare \cref{eq:refactorized hard function mellin} and \cref{eq:refactorized Mellin space}, we find
+\begin{align}\label{eq:infrared safe hard scattering}
+    \tilde{\omega}_{q\bar{q}}\Big(N,\alpha_{s}(\mu^{2},\frac{Q^{2}}{\mu^{2}})\Big)=\Big[\frac{\tilde{\psi}_{q/q}(N,\mu^{2},\epsilon)}{\tilde{f}_{q/q}(N,\mu^{2},\epsilon)}\Big]^{2}\,\tilde{H}_{q\bar{q}}\Big(\frac{Q}{\mu},\alpha_{s}(\mu^{2})\Big)\,\tilde{U}_{q\bar{q}}\Big(\frac{Q}{N\mu},\alpha_{s}(\mu^{2})\Big)
+\end{align}
+where we for the sake of simplicity supressed some of the arguments in the functions. We also used that $\psi_{q/q}=\psi_{\bar{q}/\bar{q}}$ and $f_{q/q}=f_{\bar{q}/\bar{q}}$. As we saw in \cref{sec:Operator definition for PDFs}, the parton-in-parton densities can be calculated in perturbation theory. The ratio of these cancels the universal collinear singularity $\epsilon$, rendering $\tilde{\omega}_{q\bar{q}}$ infrared finite. Due to wide-angle soft emission, the soft function $U_{q\bar{q}}$ contains single logarithms in $N$, while $\psi_{q/q}$ contains double logarithms due to emission that are simultaneously soft and collinear. These double logarithms is what we call Sudakov logarithms which we eluded to earlier, and was first derived by Sudakov when he studied radiation from the quark form factor.
+
+In the \cref{sec:Resummation Quark Form Factor} we will illustrate how to treat double logarithms using the Sudakov resummation technique\footnote{This technique was derived by \ar{ref Collins et.al} and is also referred to as the Collins-Soper technique, but since Sudakov was the first to derive the appearance double logarithms in the electromagnetic form factor the name is referred to him.}, before we in \cref{sec:Sudakov Resummation Drell-Yan} will return to the factorized Drell-Yan process.
+
+\section{Sudakov Resummation}
+\subsection{Resummation of the Quark Form Factor}\label{sec:Resummation Quark Form Factor}
+The easiest way to illustrate the Sudakov resummation procedure is to take the example of the massless quark form factor. It is well known that the form factor for both Abelian and non-Abelian gauge theories contains double logarithmic behaviour (\ar{ref to Sudakov, Mueller, Sen, Collins}). We calculated a one-loop contribution to the quark form factor in (\ar{ref to equation of F(Q)}), which we found to be both ultraviolet and infrared divergent. The ultraviolet divergence were eliminated by using a counterterm in dimensional regularization. Therefore, we assume that this procedure has been made and write the dimensional regularized massless QCD form factor as
+\begin{align}
+    \Gamma_{\mu}=\bar{v}(p')\gamma_{\mu}u(p)\,F\Big(\frac{Q^{2}}{\mu^{2}},\alpha_{s}(\mu^{2}),\epsilon\Big)
+\end{align}
+where the UV-finite one-loop correction to $F$ was found to be
+\begin{align}
+    F=C_{F}\frac{\alpha_s}{4\pi}A(\epsilon)\Big(-\frac{2}{\epsilon^{2}}-\frac{3}{\epsilon}-8+\frac{2\pi^{2}}{3}+\mathcal{O}(\epsilon)\Big)\,,
+\end{align}
+
+
+As the UV-divergences has been dealt with we can safely take $\epsilon=2-d/2<0$ to regulate the soft and collinear poles. The general approach is to proceed through the use of QCD factorization theorems to write down a factorized form factor. The factorized form is typically constructed by the use of Wilson lines, and each factor will in general depend on the gauge choice and on the renormalization scale. Imposing gauge and renormalization group invariance on the full form factor leads to the Sudakov evolution equation. In dimensional regularization it is written as \cite{Collins:1989bt,PhysRevD.24.3281}
+\begin{align}
+    \dv{}{\ln Q^{2}}\ln F\Big(\frac{Q^{2}}{\mu^{2}},\alpha_{s}(\mu^{2},\epsilon\Big)=\frac{1}{2}\Big[K(\alpha_{s}(\mu^{2}),\epsilon)+G\Big(\frac{Q^{2}}{\mu^{2}},\alpha_{s}(\mu^{2}),\epsilon\Big)\Big]
+\end{align}
+where $K$ is a pure counterterm, i.e a series of poles in the $\overline{\text{MS}}$ scheme. $G$ contains all the scale dependence, and is finite as $\epsilon\rightarrow 0$. If the form factor is renormalization group invariant, we have that the sum $K+G$ also must be renormalization group ivariant. Then it follows that the following equations must be satisfied
+\begin{align}\label{eq:anomalous dimension equation}
+    \Big(\mu^{2}\pdv{}{\mu^{2}}+\beta(\alpha_s,\epsilon)\pdv{}{\alpha_s}\Big)G\Big(\frac{Q^{2}}{\mu^{2}},\alpha_{s}(\mu^{2}),\epsilon\Big)&=\gamma_{K}(\alpha_{s}(\mu^{2}))
+    \\
+    \Big(\mu^{2}\pdv{}{\mu^{2}}+\beta(\alpha_s,\epsilon)\pdv{}{\alpha_s}\Big)K(\alpha_{s}(\mu^{2}),\epsilon)&=-\gamma_{K}(\alpha_{s}(\mu^{2}))
+\end{align}
+where the anomolous dimension $\gamma_{K}$ only depends on the coupling, and are well known in perturbative QCD. These appear in many different circumstances, for instance as the coefficient of the $1/(1-x)_{+}$ contribution to the Altarelli-Parisi quark-qaurk splitting function and as the anomalous dimension of a Wilson line with a cusp \cite{Korchemsky:1987wg}. The cusp terminology means that we have a double pole in $\epsilon$ leading to logarithms in the anomalous dimension, which allow one to re-sum the Sudakov double logs. 
+
+The anomalous dimension has the perturbative expansion
+\begin{align}
+    \gamma_{K}(\alpha_s)=\sum_{n=1}^{\infty}\Big(\frac{\alpha_s}{\pi}\Big)^{n}\gamma_{K}^{(n)}=\sum_{n=1}^{\infty}\alpha_{s}^{n}\gamma_{K}^{(n)}
+\end{align}
+The solution to \cref{eq:anomalous dimension equation} requires the $d$-dimensional running coupling. Following \cite{Contopanagos:1996nh}, we define $\bar{\alpha}(\lambda,\alpha_s,\epsilon)$ in terms of the dimensionless ratio $\lambda=Q^{2}/\mu^{2}$, where the beta function takes the form
+\begin{align}
+    \beta(\bar{\alpha},\epsilon)=\lambda\pdv{\bar{\alpha}}{\lambda}=-\epsilon\bar{\alpha}-\sum_{n=0}^{\infty}\beta_{n}\bar{\alpha}^{(n+2)}
+\end{align}
+to first non-trivial order the solution to this equation is
+\begin{align}
+    \bar{\alpha}(\lambda,\alpha_s(\mu^{2}),\epsilon)=\alpha_{s}(\mu^{2})\Big[\lambda^{\epsilon}-\frac{\beta_{0}}{\epsilon}(1-\lambda^{\epsilon})\,\alpha_{s}(\mu^{2})\Big]
+\end{align}
+where the boundary condition $\bar{\alpha}(1,\alpha_s,\epsilon)=\alpha_s$ has been used, and $\beta_{0}=(11C_{A}-2n_{f})/12$. We can use this coupling to solve \cref{eq:anomalous dimension equation} for $G$,
+\begin{align}
+    G
+\end{align}
+
+
+\subsection{From Factorization to Sudakov Resummation in Drell-Yan}\label{sec:Sudakov Resummation Drell-Yan}
+The relation between factorization and Sudakov exponentiation was first observed by (ref to Collins, Mueller, Sen). 
+
+
+
+
+
+\section{The resummed Drell-Yan cross section at NLL}
+
+
+\section{Factorization of Soft Gluons}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Path Integral Approach}\label{sec:Path Integral Exponentiation}
+We saw in \cref{sec:Eikonal} that by using the eikonal approximation the amplitude could be factorized into a hard function and a soft function, where the soft function is an exponential of the subdiagrams describing soft radiation. These subdiagrams naturally has their own effective Feynman rules, meaning that there must exist an effective theory for the soft gauge fields themselves. We know from quantum field theory that to derive all Feynman rules we calculate the $n-$point Green's function by taking appropriate functional derivatives of the generating functional. The generating functional describing soft photon emission is given by \cite{Laenen:2008gt},
+\begin{align}\label{eq:generating functional soft photons}
+    \mathcal{Z}[A_{\mu}]=\int \mathcal{D}A_{\mu}e^{iS[A_{\mu}]}\prod_{k=1}^{L}\Phi_k\,,
+\end{align}
+where
+\begin{align}
+    \Phi_k=e^{ig\int_{\mathcal{C}} dx^{\mu}_{k}A_{\mu}(x_k)}\,.
+\end{align}
+where $A_\mu$ is the gauge field, $L$ the number of external lines and $\mathcal{C}$ is a space-time contour. As usual, the generating functional is defined as; a path integral over all possible configurations of the soft gauge field, each weighted by the exponential of the classical action. In addition, there is an exponential term that is linear in the gauge field, which we recognizes as a product of Wilson lines. We know from \cref{sec:Wilson lines and Wilson loops} that a Wilson line describes radiation of gauge fields. To further analyse this definition, let us take a step back and use what we know from a scalar field theory; the generating functional for a scalar field, under the influence of a source $J$, is given by (see \cref{sec:Path Integral Formalism}),
+\begin{align}
+    \mathcal{Z}[J]=\bra{0}e^{i\int d^{d}x J(x)\phi(x)}\ket{0}=\int\mathcal{D}\phi\,e^{iS[\phi]}\,e^{i\int d^{d}x J(x)\phi(x)}\,,
+\end{align}
+where we have the usual path integral over all possible configurations, weighted by the classical action together with an exponential term linear in the source $J$. Hence, we can interpret the soft gauge fields as source terms which generates vertices, enabling soft gauge bosons to pop out of the vacuum. Therefore, we can write \cref{eq:generating functional soft photons} as a vacuum expectation value of the product of Wilson line operators
+\begin{align}\label{eq:vev Wilson operators}
+    \mathcal{Z}[A_{\mu}]=\bra[\Big]{0}\prod_{k=1}^{L}\Phi_k\ket[\Big]{0}\,.
+\end{align}
+
+The emitted gauge bosons are soft, so the external hard particles will not recoil, therefore the Wilson lines are evaluated along their classical trajectories. They can however change by a phase, and if the scattering amplitude is to be gauge invariant this phase must be a Wilson line operator. This is exactly what we did when we dressed the parton distribution functions with a Wilson line operator to make them gauge invariant. Effectively, the eikonal approximation is formulated by replacing dynamical hard partons, with Wilson line operators in this way. Further, if \cref{eq:generating functional soft photons} is to generate the soft part of the scattering function, it follows that the soft function can be expressed in terms of the vacuum expectation value of Wilson lines
+\begin{align}
+    \mathcal{S}\sim \bra[\Big]{0}\prod_{i=1}^{L}\Phi_i\ket[\Big]{0}\,,
+\end{align}
+which is the definition of the soft function \cite{Korchemsky:1992xv}. To end this section, it is instructive to see that this generating functional reproduces the eikonal feynman rules we found in \cref{sec:Eikonal}. In general this is done by functional derivatives, but we know that this procedure corresponds to reading of the rules from the exponent inside the path integral. First, we parametrize the path $\mathcal{C}$ as a function of a one-dimensional parameter $\lambda$:
+\begin{align}
+    \mathcal{C}: x^{\mu}(\lambda)=\beta^{\mu}\lambda\,,\hspace{1cm}\lambda\in[0,\infty]\,,
+\end{align}
+This choice of parametrization corresponds to defining a semi-infinite Wilson line starting at the origin, with the effect that the hard interaction is concealed to an infinitely small region of space. Therefore, we have that the soft radiation can not affect the hard interaction, because of the infinite Compton wavelength we eluded to in \cref{sec:Eikonal}. We write the semi-infinite Wilson line as
+\begin{align}
+    \Phi(0,\infty)&=\exp\big(ig\int_{\mathcal{C}}\,dx^{\mu}A_{\mu}\big)\nonumber
+    \\
+    &=\exp\big(ig\int_{0}^{\infty}d\lambda\frac{dx^{\mu}}{d\lambda}A_{\mu}\big)\nonumber
+    \\
+    &=\exp\big(ig\int_{0}^{\infty}d\lambda\,\beta^{\mu}A_{\mu}\big)\,.
+\end{align}
+where $\beta^{\mu}$ is the four velocity along the path. As usual we want the Feynman rules in momentum space, so we take the Fourier transform of the gauge field
+\begin{align}
+    A_{\mu}(x)=\int\frac{d^{d}k}{(2\pi)^{d}}\tilde{A}_{\mu}(k)e^{ik\cdot x}\,.
+\end{align}
+and in order to make the integral convergent we use the Feynman prescription,
+\begin{align}
+    ig\int_{0}^{\infty}d\lambda\,\beta^{\mu}A_{\mu}(\beta\lambda)&=ig\int_{0}^{\infty}d\lambda \beta^{\mu}\int\frac{d^{d}k}{(2\pi)^{d}}\tilde{A}_{\mu}(k)e^{i(k\cdot \beta-i\epsilon)\lambda}\nonumber
+    \\
+    &=ig\int\frac{d^{d}k}{(2\pi)^{d}}\tilde{A}_{\mu}(k)\beta^{\mu}\frac{1}{\beta\cdot k - i\epsilon}\nonumber
+    \\
+    &=g\int\frac{d^{d}k}{(2\pi)^{d}}\tilde{A}_{\mu}(k)\Big(\frac{\beta^{\mu}}{\beta\cdot k-i\epsilon}\Big)
+\end{align}
+
+The four velocity is proportional to the four momentum $p^{\mu}$, and the factor inside the bracket is invariant under this rescaling. Neglecting the coupling and the $i\epsilon$ term, we can directly read of the Feynman rule
+\begin{align}
+    \frac{p^{\mu}}{p\cdot k}\,,
+\end{align}
+which is the same rule we found in \cref{sec:Eikonal}, where we used an explicit implementation of the eikonal approximation. Having defined the generating functional describing soft gauge boson radiation, we will now use this fundamental quantity to prove exponentiation.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Replica method in quantum field theory}\label{sec:Replica method in QFT}
+In this section we will use the \emph{replica method} from statistical physics to prove exponentiation of the soft scattering amplitude. In statistical physics one often encounters disordered systems, such as spin glass models \cite{Mezard:1991tt}. Physical quantities are then calculated from the disordered mean free energy
+\begin{align}
+    \langle F\rangle=-kT\langle\ln Z \rangle\,.
+\end{align}
+where $Z$ is the statistical partition functional. The basic idea of the replica method is to use the identity
+\begin{align}
+    \ln Z=\lim_{N\to 0}\pdv{Z^{N}}{N}\,,
+\end{align}
+to reduce the problem of calculating the average of a logarithm to calculating the average over N replicas of the system, which usually boils down to calculating Gaussian integrals. To introduce the method in quantum field theory, we will use the example of a scalar field theory, with a generating functional
+\begin{align}
+    \mathcal{Z}[J]=\int\mathcal{D}\phi\,e^{iS[\phi]}e^{i\int d^{d}x J(x)\phi(x)}\,,
+\end{align}
+If we now replicate this theory into $N$ copies, involving fields $\phi_{i}(i\in(1,\dots ,n))$, we have the generating functional
+\begin{align}
+    \mathcal{Z}_{N}[J]=\int\mathcal{D}\phi_{1}\dots\mathcal{D}\phi_{N}\exp{i\sum_{i=1}^{N}S[\phi_i]}\exp{i\sum_{i=1}^{N}\int d^{d}x J(x)\phi_{i}(x)}\,.
+\end{align}
+where the fields from different replica number is independent, so
+\begin{align}
+    \mathcal{Z}_{N}[J]=\mathcal{Z}^{N}[J]=e^{N\ln \mathcal{Z}[J]}\,,
+\end{align}
+If we Taylor expand this functional to first order in N, we get
+\begin{align}
+    \mathcal{Z}_{N}[J]=1+N\ln\mathcal{Z}[J]+\order{N^{2}}\,.
+\end{align}
+from which it follows that
+\begin{align}
+    \lim_{N\to 0}\pdv{\mathcal{Z}_{N}}{N}=\ln\mathcal{Z}[J]\,,
+\end{align}
+and if we define the logarithm as
+\begin{align}
+    \ln\mathcal{Z}[J]\equiv \mathcal{W}\,,
+\end{align}
+we get
+\begin{align}
+    \mathcal{Z}[J]=\exp{\mathcal{W}}\,.
+\end{align}
+such that $\mathcal{Z}$ has a manifestly exponential form. The natural question then is of course what the interpretation of $\mathcal{W}$ is. To answer this question, we go back to the discussion on correlation functions (\ar{see section on correlation functions}). The $n$-point correlation function is found by taking appropriate functional derivatives of the generating functional
+\begin{align}
+    \langle \phi(x_1)\dots \phi(x_n)\rangle=\frac{\delta^{n}\mathcal{Z}[J]}{\delta J(x_1)\dots\delta J(x_n)}\Big|_{J=0}\,,
+\end{align}
+and the replica method for correlation functions bases on the following identity
+\begin{align}
+    \lim_{N\to 0}\pdv{}{N}\frac{\delta^{n}\mathcal{Z}^{N}[J]}{\delta J(x_1)\dots\delta J(x_n)}=\frac{\delta^{n}\ln\mathcal{Z}[J]}{\delta J(x_1)\dots\delta J(x_n)}\,.
+\end{align}
+With an explicit calculation in terms of Feynman diagrams, this quantity corresponds to the connected $n$-point correlation function,
+\begin{align}
+    \frac{\delta^{n}\ln\mathcal{Z}[J]}{\delta J(x_1)\dots\delta J(x_n)}\Big|_{J=0}=\langle \phi(x_1)\dots \phi(x_n)\rangle_{connected}\,.
+\end{align}
+with the conclusion  that $\mathcal{W}$ is the generating functional for all connected Feynman diagrams. In \cref{sec:Path Integral Exponentiation}, we showed via an explicit calculation that the 1-loop photon diagram \cref{fig:photon diagrams}, led to exponentiation. Further, we argued that by also considering fermion loops, the exponential would correspond to the sum over connected diagrams, and the result above is a proof of that for a scalar field theory. The proof of exponentiation for an abelian gauge theory is completely analogous to the one given here. For a non-abelian gauge theory there are several subtleties arising, but the main set up is the same, see \cite{White:2015wha} for more details on the path integral approach to exponentiation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,77 @@
+\section{Light-Cone Coordinates}\label{sec:Appendix Light-cone coordinates}
+Light-cone coordinates is specifically useful in high energy scattering processes where one want to decompose the momentum of the involving particles. For a general four vector $p^{\mu}$, one defines
+\begin{align}
+    p^{\mu}=(p^{+},p^{-},p_{\perp})\,,
+\end{align}
+where 
+\begin{align}
+    p^{+}&=\frac{1}{\sqrt{2}}(p^{0}+p^{3})
+    \\
+    p^{-}&=\frac{1}{\sqrt{2}}(p^{0}-p^{3})
+    \\
+    p_{\perp}&=(p^1,p^2)\,.
+\end{align}
+Scalar products are given by
+\begin{align}
+    p\cdot k&=p^{+}k^{-}+p^{-}k^{+}-p_{\perp}\cdot k_{\perp}
+    \\
+    p^{2}&=2p^{+}p^{-}-p_{\perp}^{2}\label{App.eq:light-cone momenta squared}\,,
+\end{align}
+where the transverse contraction $p_{\perp}\cdot k_{\perp}$ is understood from the definition of the transverse vector and must not be mistaken as the same as the four momentum contraction $p\cdot k$.
+We will usually parametrize our momenta in terms of plus-components and from \cref{App.eq:light-cone momenta squared} it follows that the minus component can be written as
+\begin{align}\label{eq:minus ligh-cone momenta}
+    p^{-}=\frac{p^{2}+p_{\perp}^{2}}{2p^{+}}\,.
+\end{align}
+The $d$-dimensional Jacobian takes the form
+\begin{align}
+    d^{d}p=dp^{+}dp^{-}d^{d-2}p_{\perp}\,.
+\end{align}
+
+From the above relations the light-cone metric takes the form
+\begin{align}
+    g_{\text{LC}}^{\mu\nu}=\begin{pmatrix}
+    0 & 1 & 0 & 0\\ 
+    1 & 0 & 0 & 0\\
+    0 & 0 & -1 & 0\\
+    0 & 0 & 0 & -1\\
+\end{pmatrix}\,,
+\end{align}
+where the index runs over $\mu=+,-,1,2$. We will elsewhere drop the subscript $\text{LC}$ as it will always be clear from the context when we are using light-cone coordinates. One can also define light-like basis vectors
+\begin{align}
+    n_{+}^{\mu}&=(1^{+},0^{-},0_{\perp})\,,\hspace{1cm}n_{+\,\mu}=(0^{+},1^{-},0_{\perp})\,,
+    \\
+    n_{-}^{\mu}&=(0^{+},1^{-},0_{\perp})\,,\hspace{1cm}n_{-\,\mu}=(1^{+},0^{-},0_{\perp})\,,
+\end{align}
+giving
+\begin{align}
+    n_{+}^{2}=0\,,\hspace{1cm}n_{-}^{2}=0\,,\hspace{1cm}n_{+}\cdot n_{-}=1\,.
+\end{align}
+These basis vectors project out the following components of a vector
+\begin{align}
+    p\cdot n_{+}=p^{-}\,,\hspace{1cm}p\cdot n_{-}=p^{+}\,.
+\end{align}
+We can also construct a transversal metric
+\begin{align}\label{eq:trasnversal tensor}
+    g_{\perp}^{\mu\nu}=g^{\mu\nu}-\big(n_{+}^{\mu}n_{-}^{\nu}+n_{+}^{\nu}n_{-}^{\mu}\big)=\begin{pmatrix}
+    0 & 0 & 0 & 0\\ 
+    0 & 0 & 0 & 0\\
+    0 & 0 & -1 & 0\\
+    0 & 0 & 0 & -1\\
+\end{pmatrix}\,,
+\end{align}
+from which it follows that
+\begin{align}
+    g_{\perp}^{\mu\nu}g_{\perp\,\mu\nu}=2\,.
+\end{align}
+We can also define the gluon polarization sum in light-cone gauge, i.e $A^{+}=0$, as
+\begin{align}\label{eq:gluon polarization sum light-cone gauge}
+    \sum_{\text{pol}}\varepsilon_{\alpha}(k')\varepsilon_{\beta}^{*}(k')&=-g_{\alpha\beta}+\frac{k'_{\alpha}\,n_{-\,\beta}}{k'\cdot n_{-}}+\frac{k'_{\beta}\,n_{-\,\alpha}}{k'\cdot n_{-}}\,.
+\end{align}
+
+
+
+
+
+
+
+

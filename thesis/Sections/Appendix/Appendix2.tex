@@ -1,0 +1,57 @@
+\section{Dirac Gamma Matrices}\label{sec:Appendix Dirac gamma matrices}
+In scattering processes Dirac gamma matrices are extremely useful for calculations. Using only the Dirac algebra and trace identities they can be eliminated completely without referring to any specific representation. The convention used in this thesis is based on \cite{pal2007representationindependent}, which we refer to for a more complete treatment of gamma matrices and spinors.
+
+The gamma matrices are defined by satisfying the Dirac algebra\footnote{It is implicit that there is a four by four identity matrix in this equation.}
+\begin{align}\label{eq:Dirac algebra}
+    \{\gamma^{\mu},\gamma^{\nu}\}\equiv 2g^{\mu\nu}\,,
+\end{align}
+where $g^{\mu\nu}$ is the usual Minkowski metric tensor.
+
+The hermitian conjugate of a gamma matrix is given by
+\begin{align}
+    \big(\gamma^{\mu}\big)^{\dagger}=\gamma^{0}\gamma^{\mu}\gamma^{0}\,.
+\end{align}
+From the Dirac algebra we can list some useful identities in $d$-dimensions
+\begin{align}
+    \gamma^{\mu}\gamma_{\mu}&=d
+    \\
+    \gamma^{\mu}\gamma^{\nu}\gamma_{\mu}&=(2-d)\gamma^{\nu}
+    \\
+    \gamma^{\mu}\gamma^{\nu}\gamma^{\lambda}\gamma_{\mu}&=4g^{\nu\lambda}+(d-4)\gamma^{\nu}\gamma^{\lambda}
+    \\
+    \gamma^{\mu}\gamma^{\nu}\gamma^{\lambda}\gamma^{\rho}\gamma_{\mu}&=(d-4)\gamma^{\nu}\gamma^{\lambda}\gamma^{\rho}-2\gamma^{\rho}\gamma^{\lambda}\gamma^{\nu}\,.
+\end{align}
+The trace over an odd number of gamma matrices always vanish, and for two and four gamma matrices we have the following identities
+\begin{align}
+    \text{tr}(\gamma^{\mu})&=0
+    \\
+    \text{tr}(\gamma^{\mu}\gamma^{\nu})&=4g^{\mu\nu}
+    \\
+    \text{tr}(\gamma^{\mu}\gamma^{\nu}\gamma^{\lambda}\gamma^{\rho})&=4\big(g^{\mu\nu}g^{\lambda\rho}-g^{\mu\lambda}g^{\nu\rho}+g^{\mu\rho}g^{\nu\lambda}\big)\,.
+\end{align}
+Often we will have contraction involving the Dirac slash notation $\slashed{p}=p_{\mu}\gamma^{\mu}$. In $d=4$ we have the following identities
+\begin{align}
+    \gamma^{\mu}\slashed{p}&=2p^{\mu}-\slashed{p}\gamma^{\mu}
+    \\
+    \gamma^{\mu}\slashed{p}\gamma_{\mu}&=-2\slashed{p}
+    \\
+    \gamma^{\mu}\slashed{p}\slashed{k}\gamma_{\mu}&=4p\cdot k
+    \\
+    \gamma^{\mu}\slashed{p}\slashed{k}\slashed{q}\gamma_{\mu}&=-2\slashed{p}\slashed{k}\slashed{q}\,.
+\end{align}
+Products of slashed vectors are given by
+\begin{align}
+    \slashed{p}\slashed{p}&=p^{2}
+    \\
+    \slashed{p}\slashed{k}\slashed{p}&=2p\cdot k\slashed{p}-p^{2}\slashed{k}
+    \\
+    \slashed{p}\slashed{k}\slashed{q}\slashed{p}&=2p\cdot q\slashed{p}\slashed{k}-2p\cdot k\slashed{p}\slashed{q}+p^{2}\slashed{k}\slashed{q}
+    \\
+    \slashed{p}\slashed{k}+\slashed{k}\slashed{p}&=2p\cdot k
+    \\
+    \slashed{p}\slashed{k}\slashed{q}+\slashed{q}\slashed{k}\slashed{p}&=2k\cdot q\slashed{p}-2p\cdot q\slashed{k}+2p\cdot k\slashed{q}\,.
+\end{align}
+One combination that occurs often in scattering amplitudes is the following trace
+\begin{align}\label{eq:common trace in scattering}
+    \text{tr}[\slashed{p}\gamma^{\mu}\slashed{k}\gamma^{\nu}]=4(p^{\mu}k^{\nu}+p^{\nu}k^{\mu}-g^{\mu\nu}p\cdot k)\,.
+\end{align}
