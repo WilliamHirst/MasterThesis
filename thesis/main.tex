@@ -1,0 +1,113 @@
+\documentclass[UKenglish]{book}  
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+
+\counterwithout{footnote}{chapter}
+\usepackage{Setup/style}
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\raggedbottom %%reduces the gaps between the paragraphs
+\usepackage{jheppub}
+
+\title{Search for heavy neutrinos in a 3-lepton final-state}       
+\subtitle{Applications using supervised machine learning}
+\subsubtitle{by}
+\author{William Hirst}              
+\thesistext{THESIS}
+\thesistextt{for the degree of}
+\thesistexttt{MASTER OF SCIENCE}
+
+
+\bibliographystyle{JHEP}
+%\addbibresource{bibliography.bib}         
+%\DeclareUnicodeCharacter{2212}{-}
+%\DeclareUnicodeCharacter{03B1}{-}
+
+\begin{document}
+\duoforside[dept={Department of Physics},
+  program={Master's Program Name},
+  long]                                         
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frontmatter{}
+\input{Sections/Abstract/Abstract}
+\input{Sections/Acknow}
+\tableofcontents{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter{}
+\input{Sections/Introduction/Introduction}
+%%%%%%%%%%%% ML %%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/ML/Axiomatic}
+\input{Sections/ML/StatisticalAnalysis}
+\input{Sections/ML/NeuralNetworks}
+\input{Sections/ML/GBDT}
+
+%\input{Sections/QFT/StandardModel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/QFT/MathematicalFormulationGaugeTheories}
+\input{Sections/QFT/WilsonGeometry}
+
+%%%%%%%%%%%%% Wilson Line Properties %%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{Wilson Line Properties}
+%\input{Sections/WilsonLineProperties/CuspAnomalous}
+
+%\chapter{Supersymmetry}
+%\input{Sections/SUSY/Supersymmetry}                
+
+%%%%%%%%%%%%% QCD %%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Perturbative Quantum Chromodynamics}\label{Chap:pQCD}
+\input{Sections/QCD/LagrangianQCD}
+\input{Sections/QCD/DIS}
+\input{Sections/QCD/DrellYan}
+
+
+%%%%%%%%%%%%% Resummation %%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/Resummation/Exponentiation}
+%\input{Sections/Resummation/NEWfactorizationDrell} 
+\input{Sections/Resummation/FacResDY}  
+\input{Sections/Resummation/EikonalApprox}
+\input{Sections/Resummation/SoftWilsonLines}
+\input{Sections/Resummation/HadronicMellin}
+
+%%%%%%%%%%%%% Conclusion %%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/Conclusion/Conclusion}
+\backmatter{}
+%%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{appendices}
+\numberwithin{equation}{section}
+
+\appendix
+\chapter{Appendix A}
+\renewcommand{\thechapter}{A}
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+\input{Sections/Appendix/Appendix1}
+
+
+\appendix
+\renewcommand{\thechapter}{B}
+\chapter{Appendix B}
+%\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+\input{Sections/Appendix/Appendix2}
+
+\appendix
+\renewcommand{\thechapter}{C}
+\chapter{Appendix C}
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+\input{Sections/Appendix/Appendix3}
+
+\appendix
+\renewcommand{\thechapter}{D}
+\chapter{Appendix D}
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+\input{Sections/Appendix/Appendix4}
+
+
+\end{appendices}
+
+
+
+
+\bibliography{bibliography.bib}
+
+\end{document}

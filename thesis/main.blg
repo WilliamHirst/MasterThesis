@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: JHEP.bst
+Database file #1: bibliography.bib
+Warning--I didn't find a database entry for "XGB"
+You've used 62 entries,
+            2188 wiz_defined-function locations,
+            1026 strings with 18271 characters,
+and the built_in function-call counts, 20016 in all, are:
+= -- 2159
+> -- 640
+< -- 0
++ -- 198
+- -- 136
+* -- 1528
+:= -- 2714
+add.period$ -- 74
+call.type$ -- 62
+change.case$ -- 53
+chr.to.int$ -- 0
+cite$ -- 62
+duplicate$ -- 1019
+empty$ -- 1811
+format.name$ -- 136
+if$ -- 5234
+int.to.chr$ -- 0
+int.to.str$ -- 62
+missing$ -- 223
+newline$ -- 200
+num.names$ -- 62
+pop$ -- 161
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 810
+stack$ -- 0
+substring$ -- 1295
+swap$ -- 518
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 163
+width$ -- 64
+write$ -- 631
+(There was 1 warning)

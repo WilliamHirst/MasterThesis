@@ -1,0 +1,56 @@
+\babel@toc {UKenglish}{}\relax 
+\contentsline {chapter}{Introduction}{1}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}Introduction to supervised and unsuperised machine learning}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Statistical and multi variable analysis}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Neural Networks in physics}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Gradient Boosting and decision trees}{3}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Geometry of Gauge Theories and Wilson Lines}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Mathematical Concepts in Gauge Theories}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Basics in Differential Geometry}{6}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Gauge Fields as Connections on Principal Fibre Bundles}{12}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Curvature and Field Strength}{18}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Yang-Mills Theories from Wilson Lines}{21}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Covariant Derivative and Wilson Lines}{21}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Field Strength Tensor and Wilson Loops}{23}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Quantization of Yang-Mills Theories}{25}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Wilson Line Properties}{27}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Perturbative Quantum Chromodynamics}{33}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Field Theoretical Description}{33}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Deep Inelastic Scattering}{38}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}DIS and the Parton Model}{38}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Collinear Factorization in QCD}{43}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Operator Definition for PDFs}{50}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Gauge Invariant Parton Distributions}{53}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Parton-in-Parton Distributions}{55}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Drell-Yan Cross Section in QCD}{57}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}LO Drell-Yan Cross Section}{57}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}NLO Drell-Yan Cross Section}{59}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Renormalization of NLO cross section}{63}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Numerical Evaluation of the Hadronic Drell-Yan Cross Section}{65}{subsection.3.3.4}%
+\contentsline {chapter}{\numberline {4}Resummation using Wilson Lines}{67}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Exponentiation}{67}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Mellin Space Factorization}{71}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Phase Space Factorization}{71}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Hadronic Cross Section in Mellin Space}{72}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Threshold Factorization}{74}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Factorization of Soft Gluons}{75}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Renormalization of Wilson Lines}{77}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}One-Loop Cusp Anomalous Dimension}{79}{subsection.4.5.1}%
+\contentsline {section}{\numberline {4.6}Exponentiation of Parton-In-Parton Distributions}{82}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Hard Virtual Gluons}{83}{subsection.4.6.1}%
+\contentsline {section}{\numberline {4.7}The Eikonal Cross Section}{84}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Logarithmic Corrections in Drell-Yan}{88}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Hadronic Cross Section and Inverse Mellin}{89}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}The Inverse Mellin Transform}{89}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Hadronic Cross Section in $x$-space}{90}{subsection.4.9.2}%
+\contentsline {chapter}{Conclusion}{93}{chapter*.43}%
+\contentsline {chapter}{Appendices}{95}{section*.44}%
+\contentsline {chapter}{Appendix A}{97}{appendix*.45}%
+\contentsline {section}{\numberline {A.1}Light-Cone Coordinates}{97}{section.Alph0.1}%
+\contentsline {chapter}{Appendix B}{99}{appendix*.46}%
+\contentsline {section}{\numberline {B.1}Dirac Gamma Matrices}{99}{section.Alph0.1}%
+\contentsline {chapter}{Appendix C}{101}{appendix*.47}%
+\contentsline {section}{\numberline {C.1}Plus Distributions}{101}{section.Alph0.1}%
+\contentsline {chapter}{Appendix D}{103}{appendix*.48}%
+\contentsline {section}{\numberline {D.1}The Mellin Transform}{103}{section.Alph0.1}%
+\contentsline {subsection}{\numberline {D.1.1}Mellin Transforms of Functions}{104}{subsection.Alph0.1.1}%

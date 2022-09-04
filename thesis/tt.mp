@@ -1,0 +1,54 @@
+% tt.mp -- do not edit, generated automatically by main.tex
+input feynmp
+require_RCS_revision "1.30";
+beginchar(1, 45*1.0pt#, 40*1.0pt#, 0);
+"feynmf: 1";
+LaTeX_unitlength:=1.0pt;
+subgraph (0, 0, w, h);
+vinit;
+pickup pencircle scaled thin;
+vleft (__v1);
+vright (__v2);
+vconnect ("plain,tension=.5,label=$k\rightarrow $,l.side=left", __v1, __v2);
+vfreeze;
+vdraw;
+endsubgraph;
+endchar;
+beginchar(2, 45*1.0pt#, 40*1.0pt#, 0);
+"feynmf: 2";
+LaTeX_unitlength:=1.0pt;
+subgraph (0, 0, w, h);
+vinit;
+pickup pencircle scaled thin;
+vleft (__v1);
+vright (__v2);
+vlabel ("$a^{\mu }$", __v2);
+vconnect ("plain,tension=.5,label=$k\rightarrow $,l.side=left", __v1, __v2);
+vdot (__v2);
+vfreeze;
+vdraw;
+endsubgraph;
+endchar;
+beginchar(3, 45*1.0pt#, 40*1.0pt#, 0);
+"feynmf: 3";
+LaTeX_unitlength:=1.0pt;
+subgraph (0, 0, w, h);
+vinit;
+pickup pencircle scaled thin;
+vleft (__i);
+vright (__o);
+vconnect ("plain", __i, __v3);
+vconnect ("plain", __v3, __o);
+vfreeze;
+vright (__v3, __o3);
+vforce (((0.5w,0.5h)), __v3);
+vforce (((0.5w,0h)), __o3);
+vdot (__v3);
+vconnect ("gluon, label=$k\uparrow $, l.side=left", __v3, __o3);
+vfreeze;
+vdraw;
+endsubgraph;
+endchar;
+% the end.
+end.
+endinput;
