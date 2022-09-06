@@ -56,13 +56,15 @@
 
 %---------- figure & tables ---------------
 \usepackage{graphicx}
-\usepackage{subfig}
+%\usepackage{subfig}
 \usepackage{float}
 \usepackage{multirow}
 \usepackage{array}
 \usepackage[format=hang,font=small,labelfont=bf]{caption} % figure & table caption
 %\captionsetup{labelfont={normal, bf}, font={sl}}  
 \usepackage{chngcntr}
+\usepackage{subcaption}
+
 
 %---------- math environment --------------
 \usepackage{amssymb}
@@ -114,6 +116,9 @@
     backgroundcolor=gray!10!white}
 
 \usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,automata,backgrounds,calc,er,patterns}
+\usepackage{tikz-feynman,contour}
+\tikzfeynmanset{compat=1.0.0}
 %\usepackage[listings,theorems,skins,breakable]{tcolorbox}
 %\tcbset{highlight math style={enhanced,
 %  colframe=red,colback=white,arc=0pt,boxrule=2pt}}
@@ -163,5 +168,10 @@
 %    natbib,
 %    hyperref
 %]{biblatex}
+
+%--------- bibliography -----------
+
+
+
 
 %-------------------- end style ---------------------------

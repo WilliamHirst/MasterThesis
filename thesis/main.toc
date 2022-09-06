@@ -7,16 +7,16 @@
 \contentsline {section}{\numberline {2.1}Why look beyond?}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Neutrinos}{5}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Dirac and Majorana}{5}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}How to distinguish the two?}{5}{subsection.2.3.1}%
 \contentsline {chapter}{\numberline {3}Statistical and multi-variabel analysis}{7}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Discovery and significance}{7}{section.3.1}%
-\contentsline {section}{\numberline {3.2}General search strategy}{7}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Exclusion}{7}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Likelihood}{7}{subsection.3.3.1}%
-\contentsline {section}{\numberline {3.4}High- and Low-level features}{7}{section.3.4}%
+\contentsline {section}{\numberline {3.2}Exclusion}{7}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Likelihood}{7}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}High- and Low-level features}{7}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Introduction to supervised and unsuperised machine learning}{9}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Neural Networks in physics}{9}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Deep vs Shallow networks}{9}{subsection.4.1.1}%
 \contentsline {section}{\numberline {4.2}Gradient Boosting and decision trees}{9}{section.4.2}%
-\contentsline {chapter}{Appendices}{11}{section*.6}%
-\contentsline {chapter}{Appendix A}{13}{appendix*.7}%
+\contentsline {chapter}{Appendices}{11}{section*.7}%
+\contentsline {chapter}{Appendix A}{13}{appendix*.8}%
 \contentsline {section}{\numberline {A.1}Light-Cone Coordinates}{13}{section.Alph0.1}%
