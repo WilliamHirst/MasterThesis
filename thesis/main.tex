@@ -36,41 +36,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mainmatter{}
 \input{Sections/Introduction/Introduction}
+%%%%%%%%%%%%% SM %%%%%%%%%%%%%%%%%%%%%%%%
+\input{Sections/SM/Axiomatic}
+\input{Sections/SM/Phenomenology}
+\input{Sections/SM/Background}
+
+%%%%%%% Majorana and Dirac neutrinos %%%%%%%%%
+\input{Sections/Neutrinos/Axiomatic}
+
+\input{Sections/StatAnal/Axiomatic}
+\input{Sections/StatAnal/StatisticalAnalysis}
+
 %%%%%%%%%%%% ML %%%%%%%%%%%%%%%%%%%%%%%%%
 \input{Sections/ML/Axiomatic}
-\input{Sections/ML/StatisticalAnalysis}
 \input{Sections/ML/NeuralNetworks}
 \input{Sections/ML/GBDT}
 
-%\input{Sections/QFT/StandardModel}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{Sections/QFT/MathematicalFormulationGaugeTheories}
-\input{Sections/QFT/WilsonGeometry}
-
-%%%%%%%%%%%%% Wilson Line Properties %%%%%%%%%%%%%%%%%%%%%%%%
-%\chapter{Wilson Line Properties}
-%\input{Sections/WilsonLineProperties/CuspAnomalous}
-
-%\chapter{Supersymmetry}
-%\input{Sections/SUSY/Supersymmetry}                
-
-%%%%%%%%%%%%% QCD %%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Perturbative Quantum Chromodynamics}\label{Chap:pQCD}
-\input{Sections/QCD/LagrangianQCD}
-\input{Sections/QCD/DIS}
-\input{Sections/QCD/DrellYan}
-
-
-%%%%%%%%%%%%% Resummation %%%%%%%%%%%%%%%%%%%%%%%%
-\input{Sections/Resummation/Exponentiation}
-%\input{Sections/Resummation/NEWfactorizationDrell} 
-\input{Sections/Resummation/FacResDY}  
-\input{Sections/Resummation/EikonalApprox}
-\input{Sections/Resummation/SoftWilsonLines}
-\input{Sections/Resummation/HadronicMellin}
+%%%%%%%%%%%% The Data %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%% Conclusion %%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{Sections/Conclusion/Conclusion}
+
+
 \backmatter{}
 %%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -82,25 +68,6 @@
 \renewcommand{\thechapter}{A}
 \renewcommand{\theequation}{\thechapter.\arabic{equation}}
 \input{Sections/Appendix/Appendix1}
-
-
-\appendix
-\renewcommand{\thechapter}{B}
-\chapter{Appendix B}
-%\renewcommand{\theequation}{\thechapter.\arabic{equation}}
-\input{Sections/Appendix/Appendix2}
-
-\appendix
-\renewcommand{\thechapter}{C}
-\chapter{Appendix C}
-\renewcommand{\theequation}{\thechapter.\arabic{equation}}
-\input{Sections/Appendix/Appendix3}
-
-\appendix
-\renewcommand{\thechapter}{D}
-\chapter{Appendix D}
-\renewcommand{\theequation}{\thechapter.\arabic{equation}}
-\input{Sections/Appendix/Appendix4}
 
 
 \end{appendices}
