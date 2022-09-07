@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1662456861 "main.aux" "main.bbl" "main" 1662459725
+["bibtex main"] 1662563490 "main.aux" "main.bbl" "main" 1662563614
   "./JHEP.bst" 1635225418 19415 119cff932b2ee8773ea988cf488e8896 ""
   "bibliography.bib" 1635225418 44587 4c48073c61c784730d39ac8a98442b7a ""
-  "main.aux" 1662459725 5902 69509bcee655ed3ef37f8a5560e6d428 "pdflatex"
+  "main.aux" 1662563613 5996 23fdedec871ddc8d3a73cf9fbe6f7215 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1662459723 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1662459725
+["pdflatex"] 1662563612 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1662563614
   "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" 1662450574 2008 806860be6ed80994a54996c92f629f15 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -61,6 +61,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb" 1255129361 113634 f99c44d58bae0863375faf0e1d74d612 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr17.pfb" 1255129361 119752 1bd8d06e4079df624bf59ce3ad7c9aa6 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb" 1255129361 121145 68312a933e2c689ed40ec0aba373e279 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr9.pfb" 1255129361 121065 50bbfa703ce7e11638752ef5a6d120c7 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmro10.pfb" 1255129361 131205 e6b9f0f008cce138627a5f401db34a3b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb" 1254269338 27863 09ce3735688ffde955e72da27c95b61a ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb" 1254269338 27941 d1f5d03f61a46c3fcc3a2ba904ddda52 ""
@@ -320,8 +321,8 @@
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1661506083 2826436 9ea569ae27c321d09c61732e5c85f6b6 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "DUO_UiO_segl.png" 1635225418 63498 5bb390ff9c8f2d333ddd98a7e400fb62 ""
-  "Figures/Z_pjets.png" 1662456059 30027 f214aa03c14973ea9e2d5affee51c185 ""
-  "Figures/w_pjets.png" 1662456059 30923 64508793e3dcb26d92bfc4c6de44089b ""
+  "Figures/FDiagrams/Z_pjets.png" 1662456059 30027 f214aa03c14973ea9e2d5affee51c185 ""
+  "Figures/FDiagrams/w_pjets.png" 1662456059 30923 64508793e3dcb26d92bfc4c6de44089b ""
   "Sections/Abstract/Abstract.tex" 1662282333 48 2ca8bc190f7936502a60fc63e5576a66 ""
   "Sections/Acknow.tex" 1635225418 1056 6f97c30ffa1eca9e2c277ba493bf2b0c ""
   "Sections/Appendix/Appendix1.tex" 1635225418 2998 013847ae0e3352b75234c90aed64e376 ""
@@ -333,7 +334,7 @@
   "Sections/Neutrinos/BSM.tex" 1662450513 27 ba04cceb4a12bf2d3ba0b3ada7f6a51e ""
   "Sections/Neutrinos/DMneutrinos.tex" 1662450649 89 7ba50a54a4f879eab996de8467108dbe ""
   "Sections/SM/Axiomatic.tex" 1662448792 54 fd607912c22c944db0a649eefd1c7ec0 ""
-  "Sections/SM/Background.tex" 1662459723 1206 2ecf4039157bd1af56a9a2591daedd2a ""
+  "Sections/SM/Background.tex" 1662563611 1316 d004ac04487d0fcf0afd3e93e34ca052 ""
   "Sections/SM/Phenomenology.tex" 1662448747 37 2f64b03682809e364db767e3a46c3936 ""
   "Sections/StatAnal/Axiomatic.tex" 1662451121 648 2949d6c7232209d4a02990d66554a8d6 ""
   "Sections/StatAnal/StatisticalAnalysis.tex" 1662451101 124 92aa51b2f722036c9bcfb1c5cb5e3adc ""
@@ -341,11 +342,11 @@
   "duoforside.tex" 1635225418 6729 d63ed9810f2605c0dd4142969031c2be ""
   "duomasterforside.sty" 1635225418 1245 0f0fdb32e432549cbffa5ff0a0493ca0 ""
   "jheppub.sty" 1635225418 11993 cd840ce60e85e99a4eccf7d2c59baa18 ""
-  "main.aux" 1662459725 5902 69509bcee655ed3ef37f8a5560e6d428 "pdflatex"
-  "main.bbl" 1662456861 110 45a49a2c91184cd9298df1dd4f9fe39a "bibtex main"
-  "main.out" 1662459725 3833 53b2a65fe2ab7c5229a47eb7f7c7eace "pdflatex"
+  "main.aux" 1662563613 5996 23fdedec871ddc8d3a73cf9fbe6f7215 "pdflatex"
+  "main.bbl" 1662563490 110 45a49a2c91184cd9298df1dd4f9fe39a "bibtex main"
+  "main.out" 1662563613 3833 53b2a65fe2ab7c5229a47eb7f7c7eace "pdflatex"
   "main.tex" 1662450574 2008 806860be6ed80994a54996c92f629f15 ""
-  "main.toc" 1662459725 1776 6f6ff9745b833d1c046443c9cdb7f020 "pdflatex"
+  "main.toc" 1662563613 1776 6f6ff9745b833d1c046443c9cdb7f020 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
