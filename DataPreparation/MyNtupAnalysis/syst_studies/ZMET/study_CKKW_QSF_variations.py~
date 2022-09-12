@@ -1,0 +1,16 @@
+import sys
+import ROOT as R
+
+inputfile = sys.argv[1]
+
+c = TChain("ntuple")
+c.Add(inputfile)
+
+regions = ["SR1","SR2","SR3"]
+
+
+hist = {}
+
+for r in regions:
+    hist[r] = TH1F("h_metrel_%s"%r,"h_metrel_%s"%r,500,0,1000)
+    c.Draw("metrel>>h_metrel_%s"%r,"%s"%r)

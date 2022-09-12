@@ -1,0 +1,5 @@
+package CalcGenericMT2
+
+use xAODBase                  xAODBase-*                        Event/xAOD
+use xAODMissingET             xAODMissingET-*                   Event/xAOD
+
