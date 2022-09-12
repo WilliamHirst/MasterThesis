@@ -91,6 +91,7 @@ double getSF(VecF_t& sf);
 int flavourComp3L(VecI_t& fllep);
 bool deltaRlepjet(float lpt, float leta, float lphi, float le, VecF_t& jpt, VecF_t& jeta, VecF_t& jphi, VecF_t& je);
 float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m);
+float OSSFInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, VecF_t& ch, VecF_t& tp);
 float calcMT2(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& e, Float_t met_et, Float_t met_phi, int idx1 = 0, int idx2 = 1);
 float ptllboost(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& e, Float_t met_et, Float_t met_phi);
 float costhetastar(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& e);
@@ -108,6 +109,7 @@ float getVar(Vec2_t& var, int idx);
 int getTypeTimesCharge(Vec_t& chlep, Vec_t& fllep, int idx);
 float getE(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, int idx);
 float getM(VecF_t& m, int idx);
+float getMt(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, int idx);
 float deltaR(VecF_t& eta, VecF_t& phi, int idx1, int idx2);
 
 
