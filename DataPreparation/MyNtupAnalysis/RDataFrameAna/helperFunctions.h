@@ -107,7 +107,10 @@ Float_t getLumiSF(Int_t randrnum);
 float getVar(Vec2_t& var, int idx);
 int getTypeTimesCharge(Vec_t& chlep, Vec_t& fllep, int idx);
 float getE(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, int idx);
+float getM(VecF_t& m, int idx);
 float deltaR(VecF_t& eta, VecF_t& phi, int idx1, int idx2);
+
+
 
 
 

@@ -230,9 +230,9 @@ float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
   TLorentzVector p1;
   TLorentzVector p2;
   TLorentzVector p3;
-  p1.SetPtEtaPhiM(pt[0], eta[0], phi[0], 1000*m[0]);
-  p2.SetPtEtaPhiM(pt[1], eta[1], phi[1], 1000*m[1]);
-  p3.SetPtEtaPhiM(pt[2], eta[2], phi[2], 1000*m[2]);
+  p1.SetPtEtaPhiM(pt[0], eta[0], phi[0], m[0]);
+  p2.SetPtEtaPhiM(pt[1], eta[1], phi[1], m[1]);
+  p3.SetPtEtaPhiM(pt[2], eta[2], phi[2], m[2]);
   return (p1 + p2 + p3).M();
 }
 
@@ -356,9 +356,31 @@ float getE(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, int idx){
         printf("Can not ask for idx %i when there are only %i object(s)", idx, size);
         return -1;
     }
-    lep.SetPtEtaPhiM(pt[idx], eta[idx], phi[idx], 1000*m[idx]);
+    lep.SetPtEtaPhiM(pt[idx], eta[idx], phi[idx], m[idx]);
     return lep.E();
 }
+
+float getM(VecF_t& m, int idx){
+    const auto size = m.size();
+    if(idx > size){
+        printf("Can not ask for idx %i when there are only %i object(s)", idx, size);
+        return -1;
+    }
+    float m_scaled = m[idx];
+    return m_scaled;
+}
+
+float getMt(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, int idx){
+    TLorentzVector lep;
+    const auto size = pt.size();
+    if(idx > size){
+        printf("Can not ask for idx %i when there are only %i object(s)", idx, size);
+        return -1;
+    }
+    lep.SetPtEtaPhiM(pt[idx], eta[idx], phi[idx], m[idx]);
+    return lep.Mt();
+}
+
 
 float deltaR(VecF_t& eta, VecF_t& phi, int idx1, int idx2){
     float dEta = eta[idx1] - eta[idx2];
