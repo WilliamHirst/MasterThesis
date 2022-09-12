@@ -227,13 +227,41 @@ bool isMM(VecI_t& fllep) {
 }
 
 float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
-  TLorentzVector p1;
-  TLorentzVector p2;
-  TLorentzVector p3;
-  p1.SetPtEtaPhiM(pt[0], eta[0], phi[0], m[0]);
-  p2.SetPtEtaPhiM(pt[1], eta[1], phi[1], m[1]);
-  p3.SetPtEtaPhiM(pt[2], eta[2], phi[2], m[2]);
-  return (p1 + p2 + p3).M();
+  TLorentzVector pf;
+  const auto size = int(pt.size());
+  for(int i = 0; i++; i<size){
+      TLorentzVector pi;
+      pi.SetPtEtaPhiM(pt[i], eta[i], phi[i], m[i]);
+     pf += pi;
+  }
+  return pf.M();
+}
+
+float OSSFInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, VecF_t& ch, VecF_t& tp){
+    int idx1;
+    int idx2;
+    if (tp[0] == tp[1] &&  ch[0] != ch[1]){
+        idx1 = 0;
+        idx2 = 1;
+    }
+    else if (tp[0] == tp[2] &&  ch[0] != ch[2]){
+        idx1 = 0;
+        idx2 = 2;
+    }
+    else if (tp[1] == tp[2] &&  ch[1] != ch[2]){
+        idx1 = 1;
+        idx2 = 2;
+    }
+    else{
+        return 0;
+    }
+    TLorentzVector p1;
+    TLorentzVector p2;
+    p1.SetPtEtaPhiM(pt[idx1], eta[idx1], phi[idx1], m[idx1]);
+    p2.SetPtEtaPhiM(pt[idx2], eta[idx2], phi[idx2], m[idx2]);
+    return (p1 + p2 ).M();
+    
+    
 }
 
 
