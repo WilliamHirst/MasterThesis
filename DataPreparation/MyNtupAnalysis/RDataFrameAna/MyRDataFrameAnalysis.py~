@@ -1,0 +1,200 @@
+import ROOT as R
+from os import listdir
+from os.path import isfile, join
+import array
+import time
+import sys
+R.EnableImplicitMT(150)
+
+R.gROOT.ProcessLine(".L helperFunctions.cxx+");
+R.gSystem.AddDynamicPath("-I/home/eirikgr/myNtupAnalysis/RDataFrameAna")
+R.gInterpreter.Declare('#include "helperFunctions.h"') # Header with the definition of the myFilter function
+R.gSystem.Load("helperFunctions_cxx.so") # Library with the myFilter function
+
+nh = int(sys.argv[1])
+
+bkgdic = {"PHWW":{"color":R.kGreen},
+          "PHWZ":{"color":R.kGreen+4},
+          "PHZZ":{"color":R.kGreen-5},
+          "Vgamma":{"color":R.kMagenta},
+          "Wjets_extension":{"color":R.kBlue+1},
+          "Wjets":{"color":R.kBlue-4},
+          "Zjets_extension":{"color":R.kRed},
+          "Zjets":{"color":R.kRed-4},
+          "diboson":{"color":R.kOrange+10},
+          "higgs":{"color":R.kPink-9},
+          "lowMassDY":{"color":R.kCyan-4},
+          "singleTop":{"color":R.kRed+4},
+          "topOther":{"color":R.kSpring-9},
+          "triboson":{"color":R.kViolet-7},
+          "ttbar":{"color":R.kYellow+2}
+}
+
+def getTreeName(fname):
+    f1 = R.TFile(fname)
+    dirlist = f1.GetListOfKeys()
+    it = dirlist.MakeIterator()
+    key = it.Next()
+    while key:
+        cl = R.gROOT.GetClass(key.GetClassName());
+        if cl.InheritsFrom("TTree"):
+            obj = key.ReadObj()
+            if obj.GetName() in ["CutBookkeepers","MetaTree"]: 
+                key = it.Next()
+                continue
+            return obj.GetName()
+        else:
+            key = it.Next()
+            continue
+    f1.Close()
+    return "noname"
+
+
+def getDataFrames(mypath): 
+    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+    df = {}
+    for of in onlyfiles:
+        if not of.endswith("_merged_processed.root"): continue
+        typ = of.replace("_merged_processed.root","")
+
+        treename = getTreeName(mypath+"/"+of)
+        if treename == "noname":
+            print("ERROR \t Could not find any TTree in %s"%(mypath+"/"+of))
+            continue
+        #print(typ)
+        #if not typ == "singleTop": continue
+        #df[typ] = R.Experimental.MakeNTupleDataFrame("mini",mypath+"/"+of)#("%s_NoSys"%typ,mypath+"/"+of)
+        df[typ] = R.RDataFrame(treename,mypath+"/"+of)
+    return df
+
+def getRatio1D(hT,hL,vb=0):
+    asym = R.TGraphAsymmErrors();
+    hR = hT.Clone(hT.GetName().replace("hT","hE"))
+    hR.Divide(hT,hL,1.,1.,'b')
+    if vb: print(":::->Dividing T = %.2f on L = %.2f" %(hT.Integral(),hL.Integral()))
+    asym.Divide(hT,hL,"cl=0.683 b(1,1) mode")
+    for i in range(0,hR.GetNbinsX()+1):
+        hR.SetBinError(i+1,asym.GetErrorY(i))
+    return hR
+
+def simplePlot(histo,hkey,procs):
+    hstack = R.THStack()
+    for k in procs:
+        try:
+            hstack.Add(histo[hkey+"_%s"%k])
+        except:
+            hstack.Add(histo[hkey+"_%s"%k].GetValue())
+    return hstack
+        
+mypath = "/storage/eirikgr/ANAntuples/PHYS_Bkgs_mc16e/"
+df_mc = getDataFrames(mypath)
+
+mypath = "/storage/eirikgr/ANAntuples/PHYS_Data/"
+df_data = getDataFrames(mypath)
+
+df = {**df_mc,**df_data}
+
+histo = {}
+allhisto = []
+for k in df.keys():
+
+    isData = "data" in k
+
+    if not isData:
+        df[k] = df[k].Define("scaletolumi","(RandomRunNumber) < 320000 ? 36207.65 : (((RandomRunNumber) > 320000 && (RandomRunNumber) < 348000) ? 44307.4 : 58450.1)")
+
+    # Baseline leptons
+    df[k] = df[k].Define("ele_BL","lepFlavor==1 && lepPassOR && ((lepZ0SinTheta)<=0.5 && (lepZ0SinTheta)>=-0.5) && (lepEta <= 2.47 && lepEta >= -2.47)")
+    df[k] = df[k].Define("muo_BL","lepFlavor==2 && lepPassOR && ((lepZ0SinTheta)<=0.5 && (lepZ0SinTheta)>=-0.5) && (lepEta <= 2.7  && lepEta >= -2.7)")
+
+    # Signal leptons
+    df[k] = df[k].Define("ele_SG","ele_BL && (lepD0Sig <= 5 && lepD0Sig >= -5) && lepTight && lepIsoFCLoose")
+    df[k] = df[k].Define("muo_SG","muo_BL && (lepD0Sig <= 3 && lepD0Sig >= -3)&& lepMedium && lepIsoFCLoose")
+
+    if not isData:
+        df[k] = df[k].Define("lepwgt_BL","getSF(lepBLRecoSF[ele_BL || muo_BL])")
+        df[k] = df[k].Define("lepwgt_SG","getSF(lepRecoSF[ele_SG || muo_SG])")
+        
+        df[k] = df[k].Define("trgwgt_BL","getSF(lepBLTrigSF[ele_BL || muo_BL])")
+        df[k] = df[k].Define("trgwgt_SG","getSF(lepTrigSF[ele_SG || muo_SG])")
+        
+        df[k] = df[k].Define("wgt_BL","genWeight*eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_BL*trgwgt_BL")
+        df[k] = df[k].Define("wgt_SG","genWeight*eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG")
+    else:
+        df[k] = df[k].Define("wgt_BL","1.0")
+        df[k] = df[k].Define("wgt_SG","1.0")
+
+    # Jets
+    df[k] = df[k].Define("jet_BL","jetPt <= 20 && (jetEta <= 2.8 && jetEta >= -2.8)")
+    df[k] = df[k].Define("jet_SG","jet_BL && (jetPt > 60 || (jetPt <=60 && jetJVT <= 0.91 && jetJVT >= -0.91))")
+    
+    df[k] = df[k].Define("bjet85","jet_BL && jetdl1r>=0.665")
+    df[k] = df[k].Define("bjet77","jet_BL && jetdl1r>=2.195")
+
+
+    etabins = array.array('f',[0.0,0.4,0.6,0.8,1.0,1.2,1.37,1.52,1.8,2.0,2.7])
+    
+    xbins = array.array('f',[0,10,20,25,30,40,50,60,80,100,200])
+    ybins = array.array('f',[0,10,20,25,30,40,50,60,80,100,200])
+
+    
+    histo["lepPt_ele_hL_"+k] = df[k].Define("ele_BL_pT","lepPt[ele_BL > 0]").Histo1D(("h_%s_%s"%("lepPt_ele_BL",k),"h_%s_%s"%("lepPt_ele_BL",k),len(xbins)-1,xbins),"ele_BL_pT","wgt_BL")
+    histo["lepPt_ele_hT_"+k] = df[k].Define("ele_SG_pT","lepPt[ele_SG > 0]").Histo1D(("h_%s_%s"%("lepPt_ele_SG",k),"h_%s_%s"%("lepPt_ele_SG",k),len(xbins)-1,xbins),"ele_SG_pT","wgt_SG")
+
+    if nh == 1: continue
+
+    print("here!")
+    
+    histo["lepEta_ele_hL_"+k] = df[k].Define("ele_BL_pT","lepEta[ele_BL > 0]").Histo1D(("h_%s_%s"%("lepEta_ele_BL",k),"h_%s_%s"%("lepEta_ele_BL",k),len(etabins)-1,etabins),"ele_BL_pT","wgt_BL")
+    histo["lepEta_ele_hT_"+k] = df[k].Define("ele_SG_pT","lepEta[ele_SG > 0]").Histo1D(("h_%s_%s"%("lepEta_ele_SG",k),"h_%s_%s"%("lepEta_ele_SG",k),len(etabins)-1,etabins),"ele_SG_pT","wgt_SG")
+
+    if nh == 2: continue
+    
+    histo["lepPt_muo_hL_"+k] = df[k].Define("muo_BL_pT","lepPt[muo_BL > 0]").Histo1D(("h_%s_%s"%("lepPt_muo_BL",k),"h_%s_%s"%("lepPt_muo_BL",k),len(xbins)-1,xbins),"muo_BL_pT","wgt_BL")
+    histo["lepPt_muo_hT_"+k] = df[k].Define("muo_SG_pT","lepPt[muo_SG > 0]").Histo1D(("h_%s_%s"%("lepPt_muo_SG",k),"h_%s_%s"%("lepPt_muo_SG",k),len(xbins)-1,xbins),"muo_SG_pT","wgt_SG")
+
+    if nh == 3: continue
+
+    histo["nbjet85_"+k] = df[k].Define("nbjet85","Sum(bjet85)").Histo1D(("h_%s_%s"%("nbjet85",k),"h_%s_%s"%("nbjet85",k),20,0,20),"nbjet85","wgt_SG")
+    histo["nbjet77_"+k] = df[k].Define("nbjet77","Sum(bjet77)").Histo1D(("h_%s_%s"%("nbjet77",k),"h_%s_%s"%("nbjet77",k),20,0,20),"nbjet77","wgt_SG")
+
+    if nh == 4: continue
+
+    histo["jetPt_hL_"+k] = df[k].Define("jet_BL_pT","jetPt[jet_BL > 0]").Histo1D(("h_%s_%s"%("jetPt_BL",k),"h_%s_%s"%("jetPt_BL",k),len(xbins)-1,xbins),"jet_BL_pT","wgt_BL")
+    histo["jetPt_hT_"+k] = df[k].Define("jet_SG_pT","jetPt[jet_SG > 0]").Histo1D(("h_%s_%s"%("jetPt_SG",k),"h_%s_%s"%("jetPt_SG",k),len(xbins)-1,xbins),"jet_SG_pT","wgt_SG")
+
+    if nh == 5: continue
+    
+    histo["jetEta_hL_"+k] = df[k].Define("jet_BL_pT","jetEta[jet_BL > 0]").Histo1D(("h_%s_%s"%("jetEta_BL",k),"h_%s_%s"%("jetEta_BL",k),len(etabins)-1,etabins),"jet_BL_pT","wgt_BL")
+    histo["jetEta_hT_"+k] = df[k].Define("jet_SG_pT","jetEta[jet_SG > 0]").Histo1D(("h_%s_%s"%("jetEta_SG",k),"h_%s_%s"%("jetEta_SG",k),len(etabins)-1,etabins),"jet_SG_pT","wgt_SG")
+   
+    
+for k in histo.keys():
+    allhisto.append(histo[k])
+    
+print("Calculating %i histograms"%len(allhisto))
+start = time.time()
+R.RDF.RunGraphs(allhisto)
+end = time.time()
+print("%10i | %.2f"%(len(allhisto),(end - start)))
+
+
+for k in histo.keys():
+    col = -1
+    for plk in bkgdic.keys():
+        if plk in k:
+            col = bkgdic[plk]["color"]
+    if col < 0:
+        print("Could not find color for %s"%k)
+        continue
+    histo[k].SetFillColor(col)
+    histo[k].SetLineColor(col)
+    histo[k].SetMarkerColor(col)
+
+for k in df.keys():
+    histo["lepPt_ele_hE_"+k] = getRatio1D(histo["lepPt_ele_hT_"+k].GetValue(),histo["lepPt_ele_hL_"+k].GetValue(),1)
+    
+stack = simplePlot(histo,"lepPt_ele_hT",df.keys())
+
+
+

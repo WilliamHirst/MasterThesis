@@ -1,0 +1,124 @@
+import ROOT, sys
+
+# Function for customising the gPad (gPad points to the current pad, and one can use gPad to set attributes of the current pad)
+def customise_gPad(top=0.03, bot=0.15, left=0.17, right=0.08):
+
+    gPad.Update()
+
+    gStyle.SetTitleFontSize(0.0)
+
+    # gPad margins
+    gPad.SetTopMargin(top)
+    gPad.SetBottomMargin(bot)
+    gPad.SetLeftMargin(left)
+    gPad.SetRightMargin(right)
+    
+    gStyle.SetOptStat(0) # Hide usual stats box
+    
+    gPad.Update()
+
+# Funcion for customising axes
+def customise_axes(hist, xtitle, ytitle, scaleFactor=1.1, IsLogY=False, enlargeYaxis=False, scaling=False):
+
+    # Set a universal text size
+    text_size = 45
+
+    TGaxis.SetMaxDigits(4)
+
+    ##################################
+    # X axis
+    xax = hist.GetXaxis()
+
+    # Precision 3 Helvetica (specify label size in pixels)
+    xax.SetLabelFont(43)
+    xax.SetTitleFont(43)
+    # xax.SetTitleFont(13) # times
+    
+    xax.SetTitle(xtitle)
+    xax.SetTitleSize(text_size)
+
+    # Top panel
+    if 'Events' in ytitle:
+        xax.SetLabelSize(0)
+        xax.SetLabelOffset(0.02)
+        xax.SetTitleOffset(2.0)
+        xax.SetTickSize(0.04)
+    # Bottom panel
+    else:
+        xax.SetLabelSize(text_size - 7)
+        xax.SetLabelOffset(0.03)
+        xax.SetTitleOffset(3.5)
+        xax.SetTickSize(0.08)
+
+    # xax.SetRangeUser(0,2000)
+    # xax.SetNdivisions(-505)
+
+    gPad.SetTickx()
+
+    ##################################
+    # Y axis
+    yax = hist.GetYaxis()
+
+    # Precision 3 Helvetica (specify label size in pixels)
+    yax.SetLabelFont(43)
+    yax.SetTitleFont(43)
+
+    yax.SetTitle(ytitle)
+    yax.SetTitleSize(text_size)
+    yax.SetTitleOffset(1.8)
+    
+    yax.SetLabelOffset(0.015)
+    yax.SetLabelSize(text_size - 7)
+    
+    ymax = hist.GetMaximum()
+    ymin = hist.GetMinimum()
+
+    print yax.GetTitle()
+    print 'ymax       = ', ymax
+    print 'SF         = ', scaleFactor 
+    print 'ymax x SF  = ', ymax*scaleFactor
+    print 'ymin       = ', ymin
+    print 'ymin x 0.9 = ', ymin*scaleFactor
+    # if ymin == 0.0:
+    #     print 'ymin = 0.0'
+
+    # Top events panel
+    if 'Events' in ytitle:
+        yax.SetNdivisions(505)
+        if IsLogY:
+            if enlargeYaxis:
+                ymax = 2 * 10 ** 10
+                ymin = 0.00001
+            else:
+                # ymax = 3 * 10 ** 4
+                # ymin = 0.5
+                ymax = 3 * 10 ** 3
+                ymin = 0.00001
+            #if scaling:
+            #    hist.SetMaximum(1.0)
+            #else:
+            hist.SetMaximum(ymax)
+            hist.SetMinimum(ymin)
+        else:
+            #if scaling:
+            #    hist.SetMaximum(1.0)
+            #else:
+            hist.SetMaximum(ymax*scaleFactor)
+            hist.SetMinimum(0.0)
+    # Bottom panel
+    elif 'Ratio' in ytitle:
+        yax.SetNdivisions(505)
+        # Dynamic 
+        if ymax*scaleFactor > 5:
+            hist.SetMaximum(5)
+        else: hist.SetMaximum(ymax*scaleFactor)
+        if ymin*0.9 < -1:
+            hist.SetMinimum(-2)#ymin*0.9)
+        else: hist.SetMinimum(ymin*0.9)
+        # Fixed
+        #hist.SetMinimum(-0.5) 
+        #hist.SetMaximum(2.5)  
+
+    gPad.SetTicky()
+
+    gPad.Update()
