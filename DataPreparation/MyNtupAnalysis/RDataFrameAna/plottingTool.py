@@ -467,7 +467,7 @@ class Plot:
                 hist.SetMaximum(5)
             else: hist.SetMaximum(ymax*scaleFactor)
             if ymin*0.9 < -1:
-                hist.SetMinimum(-2)#ymin*0.9)
+                hist.SetMinimum(-1)#ymin*0.9)
             else: hist.SetMinimum(ymin*0.9)
             # Fixed
             #hist.SetMinimum(-0.5) 

@@ -196,7 +196,6 @@ bool deltaRlepjet(float lpt, float leta, float lphi, float le, VecF_t& jpt, VecF
   TLorentzVector p1;
   double deltaR;
   double mindr = 9999;
-  //for (size_t i=0; i < nlep; ++i) {
   p1.SetPtEtaPhiM(lpt, leta, lphi, le);
   for (int j=0; j < njet; ++j) {
     p2.SetPtEtaPhiM(jpt[j], jeta[j], jphi[j], je[j]);
@@ -204,12 +203,26 @@ bool deltaRlepjet(float lpt, float leta, float lphi, float le, VecF_t& jpt, VecF
     if(deltaR < mindr){
       mindr = deltaR;
     }
-    //}
   }
-  //  std::cout<<"mindr = "<<mindr<<std::endl;
   return mindr;  
 }
 
+
+bool isNGoodLeptons(VecI_t& isGood, int nrLeps) {
+    const auto size = int(isGood.size());
+    int sumGood = 0; 
+    for(int i = 0; i++; i<size) sumGood += isGood[i];
+    if (size == nrLeps == sumGood) return kTRUE;
+    return kFALSE;
+}
+
+bool isNGoodJets(VecI_t& isGood) {
+    const auto size = int(isGood.size());
+    int sumGood = 0; 
+    for(int i = 0; i++; i<size) sumGood += isGood[i];
+    if (size == sumGood) return kTRUE;
+    return kFALSE;
+}
 
 bool isSF(VecI_t& fllep) {
     if(fllep[0] == fllep[1])return kTRUE;
@@ -227,14 +240,13 @@ bool isMM(VecI_t& fllep) {
 }
 
 float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
-  TLorentzVector pf;
-  const auto size = int(pt.size());
-  for(int i = 0; i++; i<size){
-      TLorentzVector pi;
-      pi.SetPtEtaPhiM(pt[i], eta[i], phi[i], m[i]);
-     pf += pi;
-  }
-  return pf.M();
+  TLorentzVector p1;
+  TLorentzVector p2;
+  TLorentzVector p3;
+  p1.SetPtEtaPhiM(pt[0], eta[0], phi[0], m[0]);
+  p2.SetPtEtaPhiM(pt[1], eta[1], phi[1], m[1]);
+  p3.SetPtEtaPhiM(pt[2], eta[2], phi[2], m[2]);
+  return (p1 + p2 + p3).M();
 }
 
 float OSSFInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, VecF_t& ch, VecF_t& tp){
