@@ -418,5 +418,41 @@ float deltaR(VecF_t& eta, VecF_t& phi, int idx1, int idx2){
              
 }
 
+float SSHt(VecF_t& pt, VecF_t& ch){
+    int idx1;
+    int idx2;
+    if (ch[0] == ch[1]){
+        idx1 = 0;
+        idx2 = 1;
+    }
+    else if (ch[0] == ch[2]){
+        idx1 = 0;
+        idx2 = 2;
+    }
+    else if (ch[1] == ch[2]){
+        idx1 = 1;
+        idx2 = 2;
+    }
+    else{
+         return 0;
+    }
+            
+    float H = pt[idx1] + pt[idx2];
+    return H;
+}
+
+float S_Et_miss(Float_t et_miss, VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m){
+    TLorentzVector et1;
+    TLorentzVector et2;
+    TLorentzVector et3;
+    et1.SetPtEtaPhiM(pt[0], eta[0], phi[0], m[0]);
+    et2.SetPtEtaPhiM(pt[1], eta[1], phi[1], m[1]);
+    et3.SetPtEtaPhiM(pt[1], eta[1], phi[1], m[1]);
+    float sumEt = et1.Et() + et2.Et() + et3.Et();
+
+    float sig = et_miss/sumEt;
+    return sig;
+}
+
 
 
