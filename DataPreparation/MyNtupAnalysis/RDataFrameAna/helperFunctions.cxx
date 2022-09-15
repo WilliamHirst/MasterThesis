@@ -358,8 +358,8 @@ float deltaPhi_metll(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& e, Float_t me
 
 }
 
-bool checkPt(VecF_t& pt, float cut1, float cut2){
-    if((pt[0] > cut1 && pt[1] > cut2) || (pt[1] > cut1 && pt[0] > cut2))return kTRUE;
+bool checkPt(VecF_t& pt, float cut1, float cut2, float cut3){
+    if(pt[0] > cut1 && pt[1] > cut2 && pt[2] > cut3)return kTRUE;
     return kFALSE;
 }
 

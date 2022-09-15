@@ -7,6 +7,7 @@ import time
 import sys
 from samples import configure_samples
 import plottingTool as pt
+from pyHelperFunctions import *
 
 
 
@@ -19,8 +20,6 @@ R.gSystem.AddDynamicPath("-I/home/wohirst/MasterThesis/myNtupAnalysis/RDataFrame
 R.gInterpreter.Declare('#include "helperFunctions.h"') # Header with the definition of the myFilter function
 R.gSystem.Load("helperFunctions_cxx.so") # Library with the myFilter function
 
-from IPython.display import display, HTML
-display(HTML("<style>.container { width:85% !important; }</style>"))
 
 
 
@@ -97,8 +96,8 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
                         "nr_bins": 100, "min" : 0, "max" : 300},
            "lep3_Z0" : {"xlabel": "Z_{0}(l_{3})",
                         "nr_bins": 100, "min" : 0, "max" : 300},
-           "met_et"   : {"xlabel":"E_{T}^{miss}[GeV]"},
-           "met_phi"  : {"xlabel":"\phi (miss)"},
+           "met_Et"   : {"xlabel":"E_{T}^{miss}[GeV]"},
+           "met_Phi"  : {"xlabel":"\phi (miss)"},
            "deltaR"  : {"xlabel":"\Delta R"},
            "mlll"  : {"xlabel":"M_{lll} [GeV]"},
            "mll_OSSF"  : {"xlabel":"M_{ll} (OSSF) [GeV]"},
@@ -232,138 +231,6 @@ for yr in trgdic.keys():
         evtrigstr[x][yr] = evtrigstr[x][yr][:-4]+")"
 
 
-def convertRDFCutflowToTex(cutflow1,cutflow2):
-    i = 0
-    tabstr = ""
-    for c in cutflow1:
-        cname = c.GetName()
-        c2 = cutflow2.At(cname)
-        if i == 0:
-            nevc1 = c.GetAll()
-            nevc2 = c2.GetAll()
-        cname = cname.replace(">","$>$")
-        cname = cname.replace("<","$<$")
-        tabstr += "%-30s & $%.0f$ & $%.0f$ & $%.2f$ & $%.2f$ & $%.0f$ & $%.0f$ & $%.2f$ & $%.2f$ \\\ \n"%(cname,c.GetPass(),c.GetAll(),c.GetEff(),(c.GetPass()/nevc1)*100.,c2.GetPass(),c2.GetAll(),c2.GetEff(),(c2.GetPass()/nevc2)*100.)
-        i += 1
-    print(tabstr)
-
-
-def writeHistsToFile(histo, writetofile = True):
-    for k in histo.keys():
-        col = -1
-        sp = k.split("_")
-        typ = ""
-        for i in range(len(sp)):
-            s = "_".join(sp[i:])
-            if s in d_samp.keys():
-                typ = s
-        if not typ:
-            print("Did to find match for key %s"%k)
-            continue
-        #for plk in d_samp.keys():
-        #    if plk == typ:
-        #print(typ)
-        evtyp = list(fldic.keys())
-        if "flcomp" in k:
-            for i in range(1,histo[k].GetNbinsX()+1):
-                histo[k].GetXaxis().SetBinLabel(i,evtyp[i-1])
-        if d_samp[typ]["type"] == "bkg":
-            histo[k].SetFillColor(d_samp[typ]["f_color"])
-            histo[k].SetLineColor(d_samp[typ]["f_color"])
-            histo[k].SetMarkerStyle(0)
-            histo[k].SetMarkerSize(0)
-        elif d_samp[typ]["type"] == "data":
-            histo[k].SetFillColor(d_samp[typ]["f_color"])
-            histo[k].SetLineColor(d_samp[typ]["l_color"])
-            histo[k].SetMarkerStyle(20)
-        elif d_samp[typ]["type"] == "sig":
-            histo[k].SetFillColor(0)
-            histo[k].SetLineColor(d_samp[typ]["l_color"])
-            histo[k].SetMarkerStyle(0)
-            histo[k].SetMarkerSize(0)
-            histo[k].SetLineStyle(9)
-            histo[k].SetLineWidth(2)
-        if writetofile:
-            histo[k].Write()
-
-def getHistograms(fname):
-    histo = {}
-    f1 = R.TFile(fname)
-    dirlist = f1.GetListOfKeys()
-    it = dirlist.MakeIterator()
-    key = it.Next()
-    while key:
-        cl = R.gROOT.GetClass(key.GetClassName());
-        if cl.InheritsFrom("TH1D") or cl.InheritsFrom("TH2D"):
-            obj = key.ReadObj()
-            histo[obj.GetName().replace("h_","")] = obj.Clone()
-            histo[obj.GetName().replace("h_","")].SetDirectory(0)
-            key = it.Next()
-        else:
-            key = it.Next()
-            continue
-    f1.Close()
-    return histo
-
-def getTreeName(fname):
-    f1 = R.TFile(fname)
-    dirlist = f1.GetListOfKeys()
-    it = dirlist.MakeIterator()
-    key = it.Next()
-    while key:
-        cl = R.gROOT.GetClass(key.GetClassName());
-        if cl.InheritsFrom("TTree"):
-            obj = key.ReadObj()
-            if obj.GetName() in ["CutBookkeepers","MetaTree"]: 
-                key = it.Next()
-                continue
-            return obj.GetName()
-        else:
-            key = it.Next()
-            continue
-    f1.Close()
-    return "noname"
-
-
-def getDataFrames(mypath, nev = 0): 
-    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-    df = {}
-    files = {}
-    for of in onlyfiles:
-        if not "merged" in of or not of.endswith(".root"): continue
-        sp = of.split("_")
-        typ = ""
-        for s in sp:
-            if "merged" in s or s.isnumeric(): break
-            typ += s
-        if not typ in files.keys():
-            files[typ] = {"files":[], "treename":""}
-        treename = getTreeName(mypath+"/"+of)
-        if treename == "noname":
-            print("ERROR \t Could not find any TTree in %s"%(mypath+"/"+of))
-            continue
-        files[typ]["treename"] = treename
-        files[typ]["files"].append(mypath+"/"+of)
-        
-        #print(typ)
-        #if not typ == "singleTop": continue
-        #df[typ] = R.Experimental.MakeNTupleDataFrame("mini",mypath+"/"+of)#("%s_NoSys"%typ,mypath+"/"+of)
-    for typ in files.keys():
-        print("Adding %i files for %s"%(len(files[typ]["files"]),typ))
-        df[typ] = R.RDataFrame(files[typ]["treename"],files[typ]["files"])
-        if nev:
-            df[typ] = df[typ].Range(nev)
-    return df
-
-def getRatio1D(hT,hL,vb=0):
-    asym = R.TGraphAsymmErrors();
-    hR = hT.Clone(hT.GetName().replace("hT","hE"))
-    hR.Divide(hT,hL,1.,1.,'b')
-    if vb: print(":::->Dividing T = %.2f on L = %.2f" %(hT.Integral(),hL.Integral()))
-    asym.Divide(hT,hL,"cl=0.683 b(1,1) mode")
-    for i in range(0,hR.GetNbinsX()+1):
-        hR.SetBinError(i+1,asym.GetErrorY(i))
-    return hR
 
 
 good_runs = []
@@ -453,32 +320,14 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 print("Loading %s with %.0f events. Now %.0f events"%(k,this_nEvents,nEvents))
             else:
                 print("Loading %s"%(k))
-                
-            
-            for i in range(Nlep):
-                df[k] = df[k].Define("lep%i_flav"%(i+1),"getTypeTimesCharge(lepCharge[isGoodLepton],lepType[isGoodLepton],%i)"%(i))
-                for v in lepv:
-                    if "lep" in v:
-                        var = v.replace("lep","")
-                    else:
-                        var = v
-                    bins_dic = featdic["lep%i_%s"%(i+1,var)]
-                    df[k] = df[k].Define("lep%i_%s"%(i+1,var),"getVar(lep%s[isGoodLepton],%i)"%(var,i))
-                    histo["lep%i_%s_%s"%(i+1,var,k)] = df[k].Histo1D(("lep%i_%s_%s"%(i+1,var,k),
-                          "lep%i_%s_%s;Feature;Entries"%(i+1,var,k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),
-                          "lep%i_%s"%(i+1,var),"wgt_SG")
                     
             # Momentum cuts 
-            df[k] = df[k].Filter("lep1_Pt > 40")
-            df[k] = df[k].Filter("lep2_Pt > 40")
-            df[k] = df[k].Filter("lep3_Pt > 15")
+            df[k] = df[k].Filter("lepPt[isGoodLepton], 40, 40, 15")
             
             # Significance of missing transverse energy cut
             df[k] = df[k].Filter("met_Sign>= 5")
-            
-            # Triggers
-            Years = ["2015", "2016", "2017", "2018"]
-            
+
+            # Triggers            
             trigmatch_2015_2L = "(lepHLT_2e12_lhloose_L12EM10VH[isGoodLepton] && lepPt[isGoodLepton] > 12) || (lepHLT_e17_lhloose_mu14[isGoodLepton] && lepPt[isGoodLepton] > 17) || (lepHLT_mu18_mu8noL1[isGoodLepton] && lepPt[isGoodLepton] > 18)"
             triggered_2015_2L = "(trigMatch_HLT_2e12_lhloose_L12EM10VH || trigMatch_HLT_e17_lhloose_mu14 || trigMatch_HLT_mu18_mu8noL1)"
             trigmatch_2016_2L = "(lepHLT_2e17_lhvloose_nod0[isGoodLepton] && lepPt[isGoodLepton] > 17) || (lepHLT_e17_lhloose_nod0_mu14[isGoodLepton] && lepPt[isGoodLepton] > 17) || (lepHLT_mu22_mu8noL1[isGoodLepton] && lepPt[isGoodLepton] > 22)"
@@ -500,15 +349,27 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             
             years = list(Trig_year.keys())
             for year in years:
-                print(year)
                 y_t = Trig_year[year]
                 other_years = [years[i] for i in range(4) if years[i] != year ]
-              
                 isTriggered = y_t["triggered"]
                 isMatch = y_t["match"]
-                df[k] = df[k].Filter(f"{isTriggered} || is{other_years[0]} || is{other_years[1]} || is{other_years[2]}")
-                df[k] = df[k].Define(f"lep_trig_{year}", f"{isMatch} +  || is{other_years[0]} || is{other_years[1]} || is{other_years[2]}")
-                df[k] = df.Filter(f"ROOT::VecOps::Sum(lep_trig_{year}) == 2")
+                notThisYear = f"is{other_years[0]} || is{other_years[1]} || is{other_years[2]}"
+                df[k] = df[k].Filter(f"{isTriggered} || {notThisYear}")
+                df[k] = df[k].Define(f"lep_trig_{year}", f"{isMatch} ")
+                df[k] = df[k].Filter(f"ROOT::VecOps::Sum(lep_trig_{year}) == 2 || {notThisYear}")
+
+            for i in range(Nlep):
+                df[k] = df[k].Define("lep%i_flav"%(i+1),"getTypeTimesCharge(lepCharge[isGoodLepton],lepType[isGoodLepton],%i)"%(i))
+                for v in lepv:
+                    if "lep" in v:
+                        var = v.replace("lep","")
+                    else:
+                        var = v
+                    bins_dic = featdic["lep%i_%s"%(i+1,var)]
+                    df[k] = df[k].Define("lep%i_%s"%(i+1,var),"getVar(lep%s[isGoodLepton],%i)"%(var,i))
+                    histo["lep%i_%s_%s"%(i+1,var,k)] = df[k].Histo1D(("lep%i_%s_%s"%(i+1,var,k),
+                          "lep%i_%s_%s;Feature;Entries"%(i+1,var,k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),
+                          "lep%i_%s"%(i+1,var),"wgt_SG")
                     
             # Stransverse mass       
             df[k] = df[k].Define("MT2_12","calcMT2(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], met_Et, met_Phi, 0, 1)")
@@ -538,12 +399,6 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             df[k] = df[k].Define("jet_SG_eta","jetEta[isGoodJet]")
             df[k] = df[k].Define("njet_SG","ROOT::VecOps::Sum(jet_SG)")
             
-            # Energy of missing transverse momentum
-            df[k] = df[k].Define("met_et","met_Et")
-            
-            # Phi of missing transverse momentum
-            df[k] = df[k].Define("met_phi","met_Phi")
-            
             # Delta R
             df[k] = df[k].Define("deltaR","deltaR(lepEta[isGoodLepton], lepPhi[isGoodLepton], 0, 1)")
             
@@ -564,9 +419,6 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             
             # Invariant mass of leading jet-pair.
             df[k] = df[k].Define("M_jj","mjj")
-            
-
-                        
 
             # nBjets
             df[k] = df[k].Define("nbjet85","ROOT::VecOps::Sum(bjet85)")
@@ -596,9 +448,9 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             histo["nbjet85_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("nbjet85",k),"h_%s_%s"%("nbjet85",k),9,0,8),"nbjet85","wgt_SG")        
             histo["nbjet77_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("nbjet77",k),"h_%s_%s"%("nbjet77",k),7,0,6),"nbjet77","wgt_SG")
             
-            histo["met_phi_%s"%k] = df[k].Filter("nlep_SG == 3").Histo1D(("h_%s_%s"%("met_phi",k),"h_%s_%s; Phi of missing transvere momentum;Entries"%("met_phi",k),100,-3.5,3.5),"met_phi","wgt_SG")
+            histo["met_Phi_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Phi",k),"h_%s_%s; Phi of missing transvere momentum;Entries"%("met_Phi",k),100,-3.5,3.5),"met_Phi","wgt_SG")
 
-            histo["met_et_%s"%k] = df[k].Filter("nlep_SG == 3").Histo1D(("h_%s_%s"%("met_et",k),"h_%s_%s; Energy of missing transverse momentum [GeV];Entries"%("met_et",k),50,0,500),"met_et","wgt_SG")
+            histo["met_Et_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Et",k),"h_%s_%s; Energy of missing transverse momentum [GeV];Entries"%("met_Et",k),50,0,500),"met_Et","wgt_SG")
             
             histo["nlep_SG_%s"%k] = df[k].Histo1D(("nlep_SG_%s"%k,"nlep_SG_%s"%k,6,0,5),"nlep_SG","wgt_SG")
             
@@ -644,7 +496,9 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
         return histo
 
-histo = runANA("/storage/shared/data/master_students/William_Sakarias/data/PHYS_3LBkgs_mc16e","/storage/shared/data/master_students/William_Sakarias/data/data18",everyN,fldic,histo,allhisto)
+histo = runANA("/storage/shared/data/master_students/William_Sakarias/data/PHYS_3LBkgs_mc16e",
+               "/storage/shared/data/master_students/William_Sakarias/data/data18",
+               everyN,fldic,histo,allhisto)
 
 
 if 0:
@@ -667,7 +521,6 @@ if 0:
 writeHistsToFile(histo, False)
 
 toplot = []
-%jsroot on
 for bkg in bkgdic.keys():
     toplot.append(bkg)
 
@@ -685,7 +538,7 @@ for feature in featuresPlot:
         else:
             xlabel = feature
         p = pt.Plot(histo,feature,toplot,xtext = xlabel)
-        p.can.SaveAs(f"../../Figures/FeaturesHistograms/{feature}.pdf");
+        p.can.SaveAs(f"../../Figures/FeaturesHistograms/{feature}.pdf")
         p.can.Draw()
     except:
         print(f"Was not able to plot histogram for {feature}.")
