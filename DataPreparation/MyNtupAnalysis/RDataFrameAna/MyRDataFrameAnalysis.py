@@ -49,11 +49,11 @@ bkgdic = {"Wjets":{"color":R.kMagenta},
           "data18":{"color":R.kBlack}
 }
 featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
-                        "nr_bins": 60, "min" : 0, "max" : 300},
+                        "nr_bins": 40, "min" : 25, "max" : 300},
            "lep2_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
-                        "nr_bins": 60, "min" : 0, "max" : 300},
+                        "nr_bins": 40, "min" : 20, "max" : 300},
            "lep3_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
-                        "nr_bins": 60, "min" : 0, "max" : 300},
+                        "nr_bins": 40, "min" : 7, "max" : 300},
            "lep1_E"  : {"xlabel":"E(l_{1}) [GeV]",
                         "nr_bins": 100, "min" : 0, "max" : 500},
            "lep2_E"  : {"xlabel":"E(l_{2}) [GeV]",
@@ -262,10 +262,9 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
         df = {**df_mc,**df_data}
         for k in df.keys():
-            print(k)
             isData = "data" in k
-            if isData:
-                print(df[k].GetColumnNames())
+            #if isData:
+            #    print(df[k].GetColumnNames())
 
             if not isData:
                 df[k] = df[k].Define("scaletolumi","(RandomRunNumber) < 320000 ? 36207.65 : (((RandomRunNumber) > 320000 && (RandomRunNumber) < 348000) ? 44307.4 : 58450.1)")
@@ -322,10 +321,12 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 print("Loading %s"%(k))
                     
             # Momentum cuts 
-            df[k] = df[k].Filter("lepPt[isGoodLepton], 40, 40, 15")
-            
+            pt1_cut = 25
+            pt2_cut = 20
+            pt3_cut = 7
+            df[k] = df[k].Filter(f"checkPt(lepPt[isGoodLepton], {pt1_cut}, {pt2_cut}, {pt3_cut})")
             # Significance of missing transverse energy cut
-            df[k] = df[k].Filter("met_Sign>= 5")
+            #df[k] = df[k].Filter("met_Sign>= 5")
 
             # Triggers            
             trigmatch_2015_2L = "(lepHLT_2e12_lhloose_L12EM10VH[isGoodLepton] && lepPt[isGoodLepton] > 12) || (lepHLT_e17_lhloose_mu14[isGoodLepton] && lepPt[isGoodLepton] > 17) || (lepHLT_mu18_mu8noL1[isGoodLepton] && lepPt[isGoodLepton] > 18)"
@@ -356,7 +357,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 notThisYear = f"is{other_years[0]} || is{other_years[1]} || is{other_years[2]}"
                 df[k] = df[k].Filter(f"{isTriggered} || {notThisYear}")
                 df[k] = df[k].Define(f"lep_trig_{year}", f"{isMatch} ")
-                df[k] = df[k].Filter(f"ROOT::VecOps::Sum(lep_trig_{year}) == 2 || {notThisYear}")
+                df[k] = df[k].Filter(f"ROOT::VecOps::Sum(lep_trig_{year}) >= 2 || {notThisYear}")
 
             for i in range(Nlep):
                 df[k] = df[k].Define("lep%i_flav"%(i+1),"getTypeTimesCharge(lepCharge[isGoodLepton],lepType[isGoodLepton],%i)"%(i))
@@ -432,8 +433,8 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             histo["flcomp_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("flcomp",k),"h_%s_%s"%("flcomp",k),len(fldic.keys()),0,len(fldic.keys())),"flcomp","wgt_SG")
             
             histo["MT2_12_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("MT2_12",k),"h_%s_%s;m_{T}^{2}(12) [GeV];Entries"%("MT2_12",k),40,0,400),"MT2_12","wgt_SG")
-            histo["MT2_13_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("MT2_13",k),"h_%s_%s;m_{T}^{2}(13) [GeV];Entries"%("MT2_13",k),40,0,400),"MT2_13","wgt_SG")
-            histo["MT2_23_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("MT2_23",k),"h_%s_%s;m_{T}^{2}(23) [GeV];Entries"%("MT2_23",k),40,0,400),"MT2_23","wgt_SG")
+            histo["MT2_13_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("MT2_13",k),"h_%s_%s;m_{T}^{2}(13) [GeV];Entries"%("MT2_13",k),40,0,300),"MT2_13","wgt_SG")
+            histo["MT2_23_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("MT2_23",k),"h_%s_%s;m_{T}^{2}(23) [GeV];Entries"%("MT2_23",k),40,0,250),"MT2_23","wgt_SG")
             
             bins_dic = featdic["lep1_E"]
             histo["lep1_E_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep1_E",k),"h_%s_%s;E(l1) [GeV];Entries"%("lep1_E",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep1_E","wgt_SG")
@@ -450,7 +451,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             
             histo["met_Phi_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Phi",k),"h_%s_%s; Phi of missing transvere momentum;Entries"%("met_Phi",k),100,-3.5,3.5),"met_Phi","wgt_SG")
 
-            histo["met_Et_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Et",k),"h_%s_%s; Energy of missing transverse momentum [GeV];Entries"%("met_Et",k),50,0,500),"met_Et","wgt_SG")
+            histo["met_Et_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Et",k),"h_%s_%s; Energy of missing transverse momentum [GeV];Entries"%("met_Et",k),40,40,500),"met_Et","wgt_SG")
             
             histo["nlep_SG_%s"%k] = df[k].Histo1D(("nlep_SG_%s"%k,"nlep_SG_%s"%k,6,0,5),"nlep_SG","wgt_SG")
             
@@ -458,17 +459,17 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             
             histo["deltaR_%s"%k] = df[k].Histo1D(("deltaR_%s"%k,"deltaR_%s"%k,20,0,8),"deltaR","wgt_SG")
             
-            histo["mlll_%s"%k] = df[k].Histo1D(("mlll_%s"%k,"mlll_%s"%k,40,0,400),"mlll","wgt_SG")
+            histo["mlll_%s"%k] = df[k].Histo1D(("mlll_%s"%k,"mlll_%s"%k,40,50,500),"mlll","wgt_SG")
             
             histo["mll_OSSF_%s"%k] = df[k].Histo1D(("mll_OSSF_%s"%k,"mll_OSSF_%s"%k,40,0,400),"mll_OSSF","wgt_SG")
             
-            histo["Ht_lll_%s"%k] = df[k].Histo1D(("Ht_lll_%s"%k,"Ht_lll_%s"%k,50,0,500),"Ht_lll","wgt_SG")
+            histo["Ht_lll_%s"%k] = df[k].Histo1D(("Ht_lll_%s"%k,"Ht_lll_%s"%k,25,40,500),"Ht_lll","wgt_SG")
 
             histo["Ht_SS_%s"%k] = df[k].Histo1D(("Ht_SS_%s"%k,"Ht_SS_%s"%k,40,0,400),"Ht_SS","wgt_SG")
 
             histo["Ht_met_Et_%s"%k] = df[k].Histo1D(("Ht_met_Et_%s"%k,"Ht_met_Et_%s"%k,80,0,800),"Ht_met_Et","wgt_SG")
             
-            histo["M_jj_%s"%k] = df[k].Histo1D(("M_jj_%s"%k,"M_jj_%s"%k,80,0,800),"M_jj","wgt_SG")
+            histo["M_jj_%s"%k] = df[k].Histo1D(("M_jj_%s"%k,"M_jj_%s"%k,40,0,800),"M_jj","wgt_SG")
             
             histo["met_Sign_%s"%k] = df[k].Histo1D(("met_Sign_%s"%k,"met_Sign_%s"%k,20,0,20),"met_Sign","wgt_SG")
 
