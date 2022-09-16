@@ -42,8 +42,6 @@ class Plot:
 
     def __init__(p,hdic,hname = "lepPt_ele_hT", bkgs = [], is1D = True, xtext = "Feature 1", doscale = False):
 
-      print(hname)
-
       p.doscale = doscale
       p.is1D = is1D
       p.is2D = not is1D
