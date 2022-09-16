@@ -228,7 +228,7 @@ class Plot:
           p.ratio.Draw("e0p")
 
           xtitle = hname
-          ytitle = 'Ratio'
+          ytitle = 'Data / SM'
           IsLogY = True
           enlargeYaxis = False
           scaling = "False"
@@ -458,7 +458,7 @@ class Plot:
           hist.SetMaximum(1.2)
           hist.SetMinimum(0.0)
         # Bottom panel
-        elif 'Ratio' in ytitle:
+        elif 'Ratio' or 'Data / SM'  in ytitle:
             yax.SetNdivisions(505)
             # Dynamic 
             if ymax*scaleFactor > 5:

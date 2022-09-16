@@ -50,10 +50,10 @@ bkgdic = {"Wjets":{"color":R.kMagenta},
 }
 featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
                         "nr_bins": 40, "min" : 25, "max" : 300},
-           "lep2_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
+           "lep2_Pt"  : {"xlabel":"P_{t}(l_{2}) [GeV]",
                         "nr_bins": 40, "min" : 20, "max" : 300},
-           "lep3_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
-                        "nr_bins": 40, "min" : 7, "max" : 300},
+           "lep3_Pt"  : {"xlabel":"P_{t}(l_{3}) [GeV]",
+                        "nr_bins": 40, "min" : 7, "max" : 200},
            "lep1_E"  : {"xlabel":"E(l_{1}) [GeV]",
                         "nr_bins": 100, "min" : 0, "max" : 500},
            "lep2_E"  : {"xlabel":"E(l_{2}) [GeV]",
@@ -96,6 +96,18 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
                         "nr_bins": 100, "min" : 0, "max" : 300},
            "lep3_Z0" : {"xlabel": "Z_{0}(l_{3})",
                         "nr_bins": 100, "min" : 0, "max" : 300},
+           "lep1_Charge" : {"xlabel": "Charge(l_{1})",
+                        "nr_bins": 2, "min" : -1, "max" : 1},
+           "lep2_Charge" : {"xlabel": "Charge(l_{2})",
+                        "nr_bins": 2, "min" : -1, "max" : 1},
+           "lep3_Charge" : {"xlabel": "Charge(l_{3})",
+                        "nr_bins": 2, "min" : -1, "max" : 1},
+           "lep1_Type" : {"xlabel": "Flavour(l_{1})",
+                        "nr_bins": 2, "min" : 0, "max" : 3},
+           "lep2_Type" : {"xlabel": "Flavour(l_{2})",
+                        "nr_bins": 2, "min" : 0, "max" : 3},
+           "lep3_Type" : {"xlabel": "Flavour(l_{3})",
+                        "nr_bins": 2, "min" : 0, "max" : 3},
            "met_Et"   : {"xlabel":"E_{T}^{miss}[GeV]"},
            "met_Phi"  : {"xlabel":"\phi (miss)"},
            "deltaR"  : {"xlabel":"\Delta R"},
@@ -109,7 +121,7 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
 
 }
 Nlep = 3
-lepv = ["lepPt","lepEta","lepPhi", "lepM", "lepPtcone30", "lepZ0"]
+lepv = ["lepPt","lepEta","lepPhi", "lepM", "lepPtcone30", "lepZ0","lepCharge", "lepType"]
 
 
 
@@ -325,8 +337,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             pt2_cut = 20
             pt3_cut = 7
             df[k] = df[k].Filter(f"checkPt(lepPt[isGoodLepton], {pt1_cut}, {pt2_cut}, {pt3_cut})")
-            # Significance of missing transverse energy cut
-            #df[k] = df[k].Filter("met_Sign>= 5")
+
 
             # Triggers            
             trigmatch_2015_2L = "(lepHLT_2e12_lhloose_L12EM10VH[isGoodLepton] && lepPt[isGoodLepton] > 12) || (lepHLT_e17_lhloose_mu14[isGoodLepton] && lepPt[isGoodLepton] > 17) || (lepHLT_mu18_mu8noL1[isGoodLepton] && lepPt[isGoodLepton] > 18)"
@@ -456,25 +467,22 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             histo["nlep_SG_%s"%k] = df[k].Histo1D(("nlep_SG_%s"%k,"nlep_SG_%s"%k,6,0,5),"nlep_SG","wgt_SG")
             
             histo["njet_SG_%s"%k] = df[k].Histo1D(("njet_SG_%s"%k,"njet_SG_%s"%k,10,0,10),"njet_SG","wgt_SG")
-            
+
             histo["deltaR_%s"%k] = df[k].Histo1D(("deltaR_%s"%k,"deltaR_%s"%k,20,0,8),"deltaR","wgt_SG")
-            
+
             histo["mlll_%s"%k] = df[k].Histo1D(("mlll_%s"%k,"mlll_%s"%k,40,50,500),"mlll","wgt_SG")
-            
+
             histo["mll_OSSF_%s"%k] = df[k].Histo1D(("mll_OSSF_%s"%k,"mll_OSSF_%s"%k,40,0,400),"mll_OSSF","wgt_SG")
-            
+
             histo["Ht_lll_%s"%k] = df[k].Histo1D(("Ht_lll_%s"%k,"Ht_lll_%s"%k,25,40,500),"Ht_lll","wgt_SG")
 
             histo["Ht_SS_%s"%k] = df[k].Histo1D(("Ht_SS_%s"%k,"Ht_SS_%s"%k,40,0,400),"Ht_SS","wgt_SG")
 
             histo["Ht_met_Et_%s"%k] = df[k].Histo1D(("Ht_met_Et_%s"%k,"Ht_met_Et_%s"%k,80,0,800),"Ht_met_Et","wgt_SG")
             
-            histo["M_jj_%s"%k] = df[k].Histo1D(("M_jj_%s"%k,"M_jj_%s"%k,40,0,800),"M_jj","wgt_SG")
+            histo["M_jj_%s"%k] = df[k].Histo1D(("M_jj_%s"%k,"M_jj_%s"%k,25,0,800),"M_jj","wgt_SG")
             
             histo["met_Sign_%s"%k] = df[k].Histo1D(("met_Sign_%s"%k,"met_Sign_%s"%k,20,0,20),"met_Sign","wgt_SG")
-
-
-            
 
 
         for k in histo.keys():
@@ -491,9 +499,6 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
         hfile.cd()
 
         writeHistsToFile(histo, True)
-
-
-        
 
         return histo
 
