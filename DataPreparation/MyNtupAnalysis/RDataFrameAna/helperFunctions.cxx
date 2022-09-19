@@ -20,20 +20,6 @@ auto sum = [](int a, int b) {
     };
 
 
-// int num_baseline_lep(VecF_t& pt, VecF_t& eta, VecI_t& fllep, VecB_t passOR, VecB_t passLOOSE, VecB_t passMEDIUM, VecB_t passBL, VecF_t z0sinth){
-//   int nbl = 0;
-//   for(unsigned int i=0; i<fllep.size(); i++)
-//     {
-//       if(pt[i] < 9)continue;
-//       if((fllep[i] == 1 && fabs(eta[i])>2.47) || ((fllep[i] == 2 && fabs(eta[i])>2.6)))continue;
-//       if(!passOR[i])continue
-//       if((fllep[i] == 1 && (!passLOOSE[i] || !passBL[i])) || (fllep[i] == 22 && !passMEDIUM[i]))continue;
-//       if(fabs(z0sinth)<0.5)continue;
-//       nbl += 1;
-//     }
-//   return nbl;
-// }
-
 Double_t getMetRel(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& e, Float_t met_et, Float_t met_phi){
   TLorentzVector l;
   Double_t min_dphi_lep_met = 9999;
@@ -161,17 +147,6 @@ bool isOS(const ROOT::VecOps::RVec<int>& chlep) {
   return kFALSE;
 }
 
-// bool isTriggerMatched(const ROOT::VecOps::RVec<int>& isTM) {
-//   std::vector<int> tm_vec; 
-//   const auto size = isTM.size();
-//    for (size_t i=0; i < size; ++i) {
-//      if(isTM[i])tm_vec.push_back(0);
-//      else tm_vec.push_back(1);
-//    }
-   
-//   return kFALSE;
-// }
-
 int flavourComp3L(VecI_t& fllep) {
   const auto size = fllep.size();
   if(size>=3){
@@ -250,28 +225,54 @@ float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
 }
 
 float OSSFInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, VecF_t& ch, VecF_t& tp){
-    int idx1;
-    int idx2;
+    int idx1 = 999;
+    int idx2 = 999;
+    int idx3 = 999;
+    int idx4 = 999;
     if (tp[0] == tp[1] &&  ch[0] != ch[1]){
         idx1 = 0;
         idx2 = 1;
     }
     else if (tp[0] == tp[2] &&  ch[0] != ch[2]){
+      if idx1 == 999{
         idx1 = 0;
         idx2 = 2;
+      }
+      else {
+        idx3 = 0;
+        idx4 = 2;
+      }
     }
     else if (tp[1] == tp[2] &&  ch[1] != ch[2]){
+      if idx1 == 999{
         idx1 = 1;
         idx2 = 2;
+      }
+      else {
+        idx3 = 1;
+        idx4 = 2;
+      }
     }
-    else{
-        return 0;
-    }
+    else{return 0;}
+    
     TLorentzVector p1;
     TLorentzVector p2;
     p1.SetPtEtaPhiM(pt[idx1], eta[idx1], phi[idx1], m[idx1]);
     p2.SetPtEtaPhiM(pt[idx2], eta[idx2], phi[idx2], m[idx2]);
-    return (p1 + p2 ).M();
+    if idx3 == 999{return (p1 + p2 ).M();}
+
+    else{
+      TLorentzVector p3;
+      TLorentzVector p4;
+      p3.SetPtEtaPhiM(pt[idx3], eta[idx3], phi[idx3], m[idx3]);
+      p4.SetPtEtaPhiM(pt[idx4], eta[idx4], phi[idx4], m[idx4]);
+      if abs((p1 + p2).M() - 91.187) < abs((p3 + p4).M() - 91.187){
+        return (p1 + p2).M();
+      }
+      else {
+        return (p3 + p4).M();
+      }
+    }
     
     
 }

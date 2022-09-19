@@ -286,9 +286,6 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             # Baseline leptons
             ele_filter = "lepFlavor==1 && lepPassOR > 0 && (lepEta <= 2.47 && lepEta >= -2.47) && ((lepZ0SinTheta)<=0.5 && (lepZ0SinTheta)>=-0.5)"
             muo_filter = "lepFlavor==2 && lepPassOR > 0 && (lepEta <= 2.7  && lepEta >= -2.7) && lepLoose > 0 && ((lepZ0SinTheta)<=0.5 && (lepZ0SinTheta)>=-0.5)"
-            
-            isGoodLepton = f"{ele_filter} || {muo_filter}"
-            df[k] = df[k].Define("isGoodLepton", isGoodLepton)
 
             df[k] = df[k].Define("ele_BL", ele_filter) 
             df[k] = df[k].Define("muo_BL", muo_filter) 
@@ -300,6 +297,9 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             df[k] = df[k].Define("nlep_SG","ROOT::VecOps::Sum(ele_SG)+ROOT::VecOps::Sum(muo_SG)")
             df[k] = df[k].Filter("nlep_BL == 3")
             df[k] = df[k].Filter("nlep_SG == 3")
+
+            isGoodLepton = f"ele_SG || muo_SG"
+            df[k] = df[k].Define("isGoodLepton", isGoodLepton)
             
             if not isData:
 
@@ -478,7 +478,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
             histo["Ht_SS_%s"%k] = df[k].Histo1D(("Ht_SS_%s"%k,"Ht_SS_%s"%k,40,0,400),"Ht_SS","wgt_SG")
 
-            histo["Ht_met_Et_%s"%k] = df[k].Histo1D(("Ht_met_Et_%s"%k,"Ht_met_Et_%s"%k,80,0,800),"Ht_met_Et","wgt_SG")
+            histo["Ht_met_Et_%s"%k] = df[k].Histo1D(("Ht_met_Et_%s"%k,"Ht_met_Et_%s"%k,50,40,600),"Ht_met_Et","wgt_SG")
             
             histo["M_jj_%s"%k] = df[k].Histo1D(("M_jj_%s"%k,"M_jj_%s"%k,25,0,800),"M_jj","wgt_SG")
             
