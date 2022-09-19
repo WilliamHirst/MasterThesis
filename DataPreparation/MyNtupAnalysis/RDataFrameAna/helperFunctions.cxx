@@ -253,12 +253,14 @@ float OSSFInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, VecF_t&
         idx4 = 2;
       }
     }
+    
     else{return 0;}
     
     TLorentzVector p1;
     TLorentzVector p2;
     p1.SetPtEtaPhiM(pt[idx1], eta[idx1], phi[idx1], m[idx1]);
     p2.SetPtEtaPhiM(pt[idx2], eta[idx2], phi[idx2], m[idx2]);
+
     if idx3 == 999{return (p1 + p2 ).M();}
 
     else{
@@ -266,15 +268,9 @@ float OSSFInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, VecF_t&
       TLorentzVector p4;
       p3.SetPtEtaPhiM(pt[idx3], eta[idx3], phi[idx3], m[idx3]);
       p4.SetPtEtaPhiM(pt[idx4], eta[idx4], phi[idx4], m[idx4]);
-      if abs((p1 + p2).M() - 91.187) < abs((p3 + p4).M() - 91.187){
-        return (p1 + p2).M();
-      }
-      else {
-        return (p3 + p4).M();
-      }
+      if (p1 + p2).M() > (p3 + p4).M(){return (p1 + p2).M();}
+      else {return (p3 + p4).M();}
     }
-    
-    
 }
 
 

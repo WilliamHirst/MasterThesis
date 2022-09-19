@@ -11,7 +11,7 @@ from pyHelperFunctions import *
 
 
 
-d_samp,d_type,d_reg = configure_samples()#False,False,True,False,False)
+d_samp,d_type,d_reg = configure_samples()
 
 R.EnableImplicitMT(200)
 
@@ -97,17 +97,17 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
            "lep3_Z0" : {"xlabel": "Z_{0}(l_{3})",
                         "nr_bins": 100, "min" : 0, "max" : 300},
            "lep1_Charge" : {"xlabel": "Charge(l_{1})",
-                        "nr_bins": 2, "min" : -1, "max" : 1},
+                        "nr_bins": 2, "min" : -2, "max" : 2},
            "lep2_Charge" : {"xlabel": "Charge(l_{2})",
-                        "nr_bins": 2, "min" : -1, "max" : 1},
+                        "nr_bins": 2, "min" : -2, "max" : 2},
            "lep3_Charge" : {"xlabel": "Charge(l_{3})",
-                        "nr_bins": 2, "min" : -1, "max" : 1},
-           "lep1_Type" : {"xlabel": "Flavour(l_{1})",
-                        "nr_bins": 2, "min" : 0, "max" : 3},
-           "lep2_Type" : {"xlabel": "Flavour(l_{2})",
-                        "nr_bins": 2, "min" : 0, "max" : 3},
-           "lep3_Type" : {"xlabel": "Flavour(l_{3})",
-                        "nr_bins": 2, "min" : 0, "max" : 3},
+                        "nr_bins": 2, "min" : -2, "max" : 2},
+           "lep1_Flavor" : {"xlabel": "Flavor(l_{1})",
+                        "nr_bins": 2, "min" : 0.5, "max" : 2.5},
+           "lep2_Flavor" : {"xlabel": "Flavor(l_{2})",
+                        "nr_bins": 2, "min" : 0.5, "max" : 2.5},
+           "lep3_Flavor" : {"xlabel": "Flavor(l_{3})",
+                        "nr_bins": 2, "min" : 0.5, "max" : 2.5},
            "met_Et"   : {"xlabel":"E_{T}^{miss}[GeV]"},
            "met_Phi"  : {"xlabel":"\phi (miss)"},
            "deltaR"  : {"xlabel":"\Delta R"},
@@ -121,7 +121,7 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
 
 }
 Nlep = 3
-lepv = ["lepPt","lepEta","lepPhi", "lepM", "lepPtcone30", "lepZ0","lepCharge", "lepType"]
+lepv = ["lepPt","lepEta","lepPhi", "lepM", "lepPtcone30", "lepZ0","lepCharge", "lepFlavor"]
 
 
 
@@ -300,6 +300,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
             isGoodLepton = f"ele_SG || muo_SG"
             df[k] = df[k].Define("isGoodLepton", isGoodLepton)
+            #df[k] = df[k].Define("isGoodLepton", "1")
             
             if not isData:
 
@@ -418,7 +419,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             df[k] = df[k].Define("mlll","ComputeInvariantMass(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton])")
             
             # Invariant Mass (ll-OSSF)
-            df[k] = df[k].Define("mll_OSSF","OSSFInvariantMass(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], lepCharge[isGoodLepton], lepType[isGoodLepton])")
+            df[k] = df[k].Define("mll_OSSF","OSSFInvariantMass(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], lepCharge[isGoodLepton], lepFlavor[isGoodLepton])")
             
             # Ht(lll)
             df[k] = df[k].Define("Ht_lll","ROOT::VecOps::Sum(lepPt[isGoodLepton])")
