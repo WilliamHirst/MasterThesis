@@ -61,11 +61,11 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
            "lep3_E"  : {"xlabel":"E(l_{3}) [GeV]",
                         "nr_bins": 100, "min" : 0, "max" : 500},
            "lep1_Mt"  : {"xlabel":"M_{T}(l_{1}) [GeV]",
-                        "nr_bins": 60, "min" : 0, "max" : 300},
+                        "nr_bins": 60, "min" : 20, "max" : 300},
            "lep2_Mt"  : {"xlabel":"M_{T}(l_{2}) [GeV]",
-                        "nr_bins": 60, "min" : 0, "max" : 300},
+                        "nr_bins": 60, "min" : 15, "max" : 300},
            "lep3_Mt"  : {"xlabel":"M_{T}(l_{3}) [GeV]",
-                        "nr_bins": 60, "min" : 0, "max" : 200},
+                        "nr_bins": 60, "min" : 10, "max" : 200},
            "lep1_Eta" : {"xlabel":"\eta(l_{1})",
                         "nr_bins": 20, "min" : -3, "max" : 3},
            "lep2_Eta" : {"xlabel":"\eta(l_{2})",
@@ -78,12 +78,6 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
                         "nr_bins": 20, "min" : -3.5, "max" : 3.5},
            "lep3_Phi" : {"xlabel":"\phi(l_{3})",
                         "nr_bins": 20, "min" : -3.5, "max" : 3.5},
-           "lep1_M"   : {"xlabel": "M(l_{1})[MeV]",
-                        "nr_bins": 24, "min" : 0, "max" : 120},
-           "lep2_M"   : {"xlabel": "M(l_{2})[MeV]",
-                        "nr_bins": 24, "min" : 0, "max" : 120},
-           "lep3_M"   : {"xlabel": "M(l_{3})[MeV]",
-                        "nr_bins": 24, "min" : 0, "max" : 120},
            "lep1_Ptcone30" : {"xlabel": "P_{t}cone30(l_{1})",
                         "nr_bins": 5, "min" : 0, "max" : 50},
            "lep2_Ptcone30" : {"xlabel": "P_{t}cone30(l_{1})",
@@ -121,16 +115,14 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
 
 }
 Nlep = 3
-lepv = ["lepPt","lepEta","lepPhi", "lepM", "lepPtcone30", "lepZ0","lepCharge", "lepFlavor"]
+lepv = ["lepPt","lepEta","lepPhi", "lepPtcone30", "lepZ0","lepCharge", "lepFlavor"]
 
 
 
 def getTriggerThreshold(tname):
     thr = []
-    #print(tname)
     reg = re.findall(r'_\d*([e]*[mu]*\d{1,})_{0,}',tname)
     for r in reg:
-        #print(int(re.sub('\D', '', r)))
         thr.append(int(re.sub('\D', '', r)))
     return max(thr)
 
@@ -275,8 +267,6 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
         df = {**df_mc,**df_data}
         for k in df.keys():
             isData = "data" in k
-            #if isData:
-            #    print(df[k].GetColumnNames())
 
             if not isData:
                 df[k] = df[k].Define("scaletolumi","(RandomRunNumber) < 320000 ? 36207.65 : (((RandomRunNumber) > 320000 && (RandomRunNumber) < 348000) ? 44307.4 : 58450.1)")
@@ -300,7 +290,6 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
             isGoodLepton = f"ele_SG || muo_SG"
             df[k] = df[k].Define("isGoodLepton", isGoodLepton)
-            #df[k] = df[k].Define("isGoodLepton", "1")
             
             if not isData:
 
@@ -463,7 +452,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             
             histo["met_Phi_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Phi",k),"h_%s_%s; Phi of missing transvere momentum;Entries"%("met_Phi",k),40,-3.5,3.5),"met_Phi","wgt_SG")
 
-            histo["met_Et_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Et",k),"h_%s_%s; Energy of missing transverse momentum [GeV];Entries"%("met_Et",k),40,40,500),"met_Et","wgt_SG")
+            histo["met_Et_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Et",k),"h_%s_%s; Energy of missing transverse momentum [GeV];Entries"%("met_Et",k),40,25,500),"met_Et","wgt_SG")
             
             histo["nlep_SG_%s"%k] = df[k].Histo1D(("nlep_SG_%s"%k,"nlep_SG_%s"%k,6,0,5),"nlep_SG","wgt_SG")
             
