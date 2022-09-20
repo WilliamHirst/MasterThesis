@@ -55,11 +55,11 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
            "lep3_Pt"  : {"xlabel":"P_{t}(l_{3}) [GeV]",
                         "nr_bins": 40, "min" : 7, "max" : 200},
            "lep1_E"  : {"xlabel":"E(l_{1}) [GeV]",
-                        "nr_bins": 100, "min" : 0, "max" : 500},
+                        "nr_bins": 40, "min" : 20, "max" : 500},
            "lep2_E"  : {"xlabel":"E(l_{2}) [GeV]",
-                        "nr_bins": 100, "min" : 0, "max" : 500},
+                        "nr_bins": 40, "min" : 20, "max" : 500},
            "lep3_E"  : {"xlabel":"E(l_{3}) [GeV]",
-                        "nr_bins": 100, "min" : 0, "max" : 500},
+                        "nr_bins": 40, "min" : 20, "max" : 500},
            "lep1_Mt"  : {"xlabel":"M_{T}(l_{1}) [GeV]",
                         "nr_bins": 60, "min" : 20, "max" : 300},
            "lep2_Mt"  : {"xlabel":"M_{T}(l_{2}) [GeV]",
@@ -78,18 +78,6 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
                         "nr_bins": 20, "min" : -3.5, "max" : 3.5},
            "lep3_Phi" : {"xlabel":"\phi(l_{3})",
                         "nr_bins": 20, "min" : -3.5, "max" : 3.5},
-           "lep1_Ptcone30" : {"xlabel": "P_{t}cone30(l_{1})",
-                        "nr_bins": 5, "min" : 0, "max" : 50},
-           "lep2_Ptcone30" : {"xlabel": "P_{t}cone30(l_{1})",
-                        "nr_bins": 5, "min" : 0, "max" : 50},
-           "lep3_Ptcone30" : {"xlabel": "P_{t}cone30(l_{1})",
-                        "nr_bins": 5, "min" : 0, "max" : 50},
-           "lep1_Z0" : {"xlabel": "Z_{0}(l_{1})",
-                        "nr_bins": 100, "min" : 0, "max" : 300},
-           "lep2_Z0" : {"xlabel": "Z_{0}(l_{2})",
-                        "nr_bins": 100, "min" : 0, "max" : 300},
-           "lep3_Z0" : {"xlabel": "Z_{0}(l_{3})",
-                        "nr_bins": 100, "min" : 0, "max" : 300},
            "lep1_Charge" : {"xlabel": "Charge(l_{1})",
                         "nr_bins": 2, "min" : -2, "max" : 2},
            "lep2_Charge" : {"xlabel": "Charge(l_{2})",
@@ -115,7 +103,7 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
 
 }
 Nlep = 3
-lepv = ["lepPt","lepEta","lepPhi", "lepPtcone30", "lepZ0","lepCharge", "lepFlavor"]
+lepv = ["lepPt","lepEta","lepPhi", "lepCharge", "lepFlavor"]
 
 
 
@@ -323,10 +311,10 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 print("Loading %s"%(k))
                     
             # Momentum cuts 
-            pt1_cut = 25
-            pt2_cut = 20
-            pt3_cut = 7
-            df[k] = df[k].Filter(f"checkPt(lepPt[isGoodLepton], {pt1_cut}, {pt2_cut}, {pt3_cut})")
+            #pt1_cut = 25
+            #pt2_cut = 20
+            #pt3_cut = 7
+            #df[k] = df[k].Filter(f"checkPt(lepPt[isGoodLepton], {pt1_cut}, {pt2_cut}, {pt3_cut})")
 
 
             # Triggers            
@@ -490,9 +478,9 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
         writeHistsToFile(histo, True)
 
-        return histo
+        return histo, df
 
-histo = runANA("/storage/shared/data/master_students/William_Sakarias/data/PHYS_3LBkgs_mc16e",
+histo, df = runANA("/storage/shared/data/master_students/William_Sakarias/data/PHYS_3LBkgs_mc16e",
                "/storage/shared/data/master_students/William_Sakarias/data/data18",
                everyN,fldic,histo,allhisto)
 
@@ -525,7 +513,7 @@ featuresPlot = []
 for feat in allFeats:
     if feat[-5:] == "Wjets":
         featuresPlot.append(feat[:-6])
-
+"""
 for feature in featuresPlot:
     try:
         print(feature)
@@ -538,6 +526,22 @@ for feature in featuresPlot:
         p.can.Draw()
     except:
         print(f"Was not able to plot histogram for {feature}.")
+"""
 
-#df.to_hdf("/storage/shared/data/master_students/William_Sakarias/" + k +"mc.hdf5","mini")
-#df.to_hdf("/storage/shared/data/master_students/William_Sakarias/3L_data.hdf5","mini")
+df_s = {}
+for k in df.keys():
+    print("Transforming " + k + "-ROOT to Numpy.")
+    numpy = df[k].AsNumpy(featuresPlot)
+    print("Transforming " + k + "-ROOT to Pandas.")
+    pandas = pd.DataFrame(data=numpy)
+    del numpy
+    pandas.info()
+    print("Done")
+    
+    print("Saving to hdf5...")
+    if "data" in k:
+        pandas.to_hdf("../../Data/3L_data.hdf5","mini")
+    else:
+        pandas.to_hdf("../../Data/" + k +"mc.hdf5","mini")
+    print("Done")
+    del pandas
