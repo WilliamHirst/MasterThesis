@@ -67,17 +67,17 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
            "lep3_Mt"  : {"xlabel":"M_{T}(l_{3}) [GeV]",
                         "nr_bins": 60, "min" : 0, "max" : 200},
            "lep1_Eta" : {"xlabel":"\eta(l_{1})",
-                        "nr_bins": 50, "min" : -3, "max" : 3},
+                        "nr_bins": 20, "min" : -3, "max" : 3},
            "lep2_Eta" : {"xlabel":"\eta(l_{2})",
-                        "nr_bins": 50, "min" : -3, "max" : 3},
+                        "nr_bins": 20, "min" : -3, "max" : 3},
            "lep3_Eta" : {"xlabel":"\eta(l_{3})",
-                        "nr_bins": 50, "min" : -3, "max" : 3},
+                        "nr_bins": 20, "min" : -3, "max" : 3},
            "lep1_Phi" : {"xlabel":"\phi(l_{1})",
-                        "nr_bins": 50, "min" : -3.5, "max" : 3.5},
+                        "nr_bins": 20, "min" : -3.5, "max" : 3.5},
            "lep2_Phi" : {"xlabel":"\phi(l_{2})",
-                        "nr_bins": 50, "min" : -3.5, "max" : 3.5},
+                        "nr_bins": 20, "min" : -3.5, "max" : 3.5},
            "lep3_Phi" : {"xlabel":"\phi(l_{3})",
-                        "nr_bins": 50, "min" : -3.5, "max" : 3.5},
+                        "nr_bins": 20, "min" : -3.5, "max" : 3.5},
            "lep1_M"   : {"xlabel": "M(l_{1})[MeV]",
                         "nr_bins": 24, "min" : 0, "max" : 120},
            "lep2_M"   : {"xlabel": "M(l_{2})[MeV]",
@@ -461,7 +461,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             histo["nbjet85_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("nbjet85",k),"h_%s_%s"%("nbjet85",k),9,0,8),"nbjet85","wgt_SG")        
             histo["nbjet77_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("nbjet77",k),"h_%s_%s"%("nbjet77",k),7,0,6),"nbjet77","wgt_SG")
             
-            histo["met_Phi_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Phi",k),"h_%s_%s; Phi of missing transvere momentum;Entries"%("met_Phi",k),100,-3.5,3.5),"met_Phi","wgt_SG")
+            histo["met_Phi_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Phi",k),"h_%s_%s; Phi of missing transvere momentum;Entries"%("met_Phi",k),40,-3.5,3.5),"met_Phi","wgt_SG")
 
             histo["met_Et_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Et",k),"h_%s_%s; Energy of missing transverse momentum [GeV];Entries"%("met_Et",k),40,40,500),"met_Et","wgt_SG")
             
