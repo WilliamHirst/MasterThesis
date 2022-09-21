@@ -73,6 +73,8 @@ class ROOT_Histo_Maker:
         self.saveAs = saveAs
         self.show = show
 
+        self.sortData()
+
         self.fig, (self.ax1, self.ax2) = plt.subplots(
             2,
             1,
@@ -114,7 +116,7 @@ class ROOT_Histo_Maker:
         )
         if self.Data is not None:
             self.ax1.scatter(x, N, c="black", label="Data", zorder=100)
-        self.ax1.legend(fontsize=14)
+        self.ax1.legend(fontsize=10, loc = "upper right")
         if self.y_max != None:
             self.ax1.set_ylim(top=self.y_max)
         if self.y_min != None:
@@ -123,11 +125,11 @@ class ROOT_Histo_Maker:
         n = self.calcN(bins, self.MC_Weights, self.MC_Data)
         if self.Data is not None:
             self.ax2.scatter(x, N / n, c="k", alpha=1, s=20)
-            self.ax2.axhline(1, linestyle="--", c="k", alpha=0.7, linewidth=1)
-            self.ax2.set_xlabel(self.variable_name, fontsize=16, loc="right")
-            self.ax2.set_xlim([bins[0], bins[-1]])
-            self.ax2.set_ylabel("Data/MC", fontsize=16)
-            self.ax2.set_ylim([0.0, 2])
+        self.ax2.axhline(1, linestyle="--", c="k", alpha=0.7, linewidth=1)
+        self.ax2.set_xlabel(self.variable_name, fontsize=16)#, loc="right")
+        self.ax2.set_xlim([bins[0], bins[-1]])
+        self.ax2.set_ylabel("Data/MC", fontsize=16)
+        self.ax2.set_ylim([0.0, 2])
         plt.tight_layout(pad=1.1, w_pad=0.7, h_pad=0.2)
 
     def calcN(self, bins, weight, values):
@@ -141,3 +143,12 @@ class ROOT_Histo_Maker:
                 )
             n.append(s)
         return n
+
+    def sortData(self):
+        nrEvents = [np.sum(w) for w in self.MC_Weights]
+        sort_indx = sorted(range(len(nrEvents)), key=lambda k: nrEvents[k])
+        self.MC_Data = [self.MC_Data[i] for i in sort_indx]
+        self.MC_Weights = [self.MC_Weights[i] for i in sort_indx]
+        self.channel_labels = [self.channel_labels[i] for i in sort_indx]
+        
+

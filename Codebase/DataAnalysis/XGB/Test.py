@@ -11,7 +11,8 @@ from Plot_stuff.plot_set import *
 from os import listdir
 from os.path import isfile, join
 
-mypath = "/scratch/William"
+mypath = "/storage/William_Sakarias/William_Data"
+
 signal = "ttbar"
 onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 df = pd.DataFrame()
@@ -44,10 +45,13 @@ df_train, df_test = train_test_split(df, test_size=0.2)
 y_train = df_train.isSignal
 df_train_channel = df_train.channel
 df_train_weights = df_train.wgt_SG
+
 df_train = df_train.drop(columns=["isSignal", "channel", "wgt_SG"])
 
+P = np.sum(df_train_weights)/np.sum(np.abs(df_train_weights))
+df_train_weights = P*np.abs(df_train_weights)
 
-xgb = xgb.fit(df_train, y_train, sample_weight = df_train_weights)
+xgb = xgb.fit(df_train, y_train, sample_weight = df_train_weights.array)
 mc_predict = []
 mc_weights = []
 for channel in channels:
@@ -63,7 +67,7 @@ ROOT_Histo_Maker(mc_predict,
                  bin_max = 1, 
                  bin_min = 0,
                  nr_bins = 20, 
-                 y_max= 1e8, 
+                 y_max= 1e6, 
                  y_min = 0.5, 
                  variable_name = r"$XGB-Output$", 
                  saveAs = "ttbarSearch.pdf")
