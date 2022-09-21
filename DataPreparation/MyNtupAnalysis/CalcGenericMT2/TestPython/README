@@ -1,0 +1,9 @@
+To run test.py, simply do
+
+python test.py
+
+and it should print to the screen:
+
+The MT2 value for this event is: 156.952
+
+(N.B. This will only work if you first compile the code in ../src) 

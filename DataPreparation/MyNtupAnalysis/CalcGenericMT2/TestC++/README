@@ -1,0 +1,9 @@
+To run test.C, simply do
+
+root -b
+.L test.C++
+test()
+
+and it should print to the screen:
+
+The MT2 value for this event is: 156.952
