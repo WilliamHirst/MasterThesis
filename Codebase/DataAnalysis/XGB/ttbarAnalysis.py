@@ -27,7 +27,7 @@ for i in range(len(onlyfiles)):
         channels.append(channel)
 
 xgb = XGB.XGBClassifier(
-            max_depth=3, 
+            max_depth=4, 
             n_estimators=120,
             learning_rate=0.1,
             n_jobs=4,
@@ -70,5 +70,5 @@ ROOT_Histo_Maker(mc_predict,
                  y_max= 1e6, 
                  y_min = 0.5, 
                  variable_name = r"$XGB-Output$", 
-                 saveAs = "ttbarSearch.pdf")
+                 saveAs = "../../Figures/MLDist/XGB/ttbarSearch.pdf")
 
