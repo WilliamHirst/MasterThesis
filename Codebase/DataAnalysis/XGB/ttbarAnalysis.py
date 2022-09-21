@@ -1,30 +1,19 @@
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
+from time import time
 from sklearn.model_selection import train_test_split
 import xgboost as XGB
 from Plot_stuff.RHM import ROOT_Histo_Maker
 from Plot_stuff.plot_set import *
+from Plot_stuff.ROCM import *
+import sys
+sys.path.insert(1, "../../")
+from Utilities import *
 
 
+myPath = "/storage/William_Sakarias/William_Data"
 
-from os import listdir
-from os.path import isfile, join
+signal = "topOther"
 
-mypath = "/storage/William_Sakarias/William_Data"
-
-signal = "ttbar"
-onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-df = pd.DataFrame()
-channels = []
-for i in range(len(onlyfiles)):
-    if "data" not in onlyfiles[i]:
-        channel = onlyfiles[i][:-7]
-        df_i = pd.read_hdf(f"{mypath}/{onlyfiles[i]}")
-        df_i["isSignal"] = signal == channel
-        df_i["channel"] = channel
-        df = df.append(df_i, ignore_index=True)
-        channels.append(channel)
+df, channels = loadDf(myPath, signal)
 
 xgb = XGB.XGBClassifier(
             max_depth=4, 
@@ -48,27 +37,34 @@ df_train_weights = df_train.wgt_SG
 
 df_train = df_train.drop(columns=["isSignal", "channel", "wgt_SG"])
 
-P = np.sum(df_train_weights)/np.sum(np.abs(df_train_weights))
-df_train_weights = P*np.abs(df_train_weights)
+df_train_weights = removeNegWeights(df_train_weights)
+df_train_weights = scaleWeights(df_train_weights, y_train)
 
+time = timer()
+print("Training....")
 xgb = xgb.fit(df_train, y_train, sample_weight = df_train_weights.array)
-mc_predict = []
-mc_weights = []
-for channel in channels:
-    isChannel = df_train_channel == channel
-    channel_pred = xgb.predict_proba(df_train[isChannel])[:,1]
-    mc_predict.append(channel_pred)
-    mc_weights.append(df_train_weights[isChannel])
+print("Done")
+timer(time)
+prediction = xgb.predict_proba(df_train)[:,1]
+
+predict_sorted, weights_sorted =  separateByChannel(prediction, df_train_weights, df_train_channel, channels)
 
 
-
-ROOT_Histo_Maker(mc_predict, 
-                 mc_weights,channels, 
+ROOT_Histo_Maker(predict_sorted, 
+                 weights_sorted,
+                 channels, 
                  bin_max = 1, 
                  bin_min = 0,
                  nr_bins = 20, 
-                 y_max= 1e6, 
-                 y_min = 0.5, 
+                 y_max= 1e5, 
+                 y_min = 1e-2, 
                  variable_name = r"$XGB-Output$", 
-                 saveAs = "../../Figures/MLDist/XGB/ttbarSearch.pdf")
+                 saveAs = f"../../Figures/MLResults/XGB/{signal}SearchDist.pdf")
 
+
+plotRoc(y_train, 
+        prediction, 
+        df_train_weights, 
+        "Training-data", 
+        return_score = True, 
+        name = f"../../Figures/MLResults/XGB/{signal}ttbarSearchROC.pdf")
