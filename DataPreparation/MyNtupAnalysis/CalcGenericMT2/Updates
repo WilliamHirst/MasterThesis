@@ -1,0 +1,5 @@
+October 17, 2014: Created
+
+January 19, 2015: Added the header src/MT2_ATLAS.h which allows you to call MT2 directly with xAOD objects instead of TLorentzVectors.
+
+March, 20, 2015: First commit to ATLAS SVN.
