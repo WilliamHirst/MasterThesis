@@ -119,6 +119,8 @@ class ROOT_Histo_Maker:
         self.ax1.legend(fontsize=10, loc = "upper right")
         if self.y_max != None:
             self.ax1.set_ylim(top=self.y_max)
+        else:
+            self.ax1.set_ylim(top = np.max(n)*1e2)
         if self.y_min != None:
             self.ax1.set_ylim(bottom=self.y_min)
         self.ax1.set_xlim([bins[0], bins[-1]])

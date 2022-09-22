@@ -56,7 +56,6 @@ ROOT_Histo_Maker(predict_sorted,
                  bin_max = 1, 
                  bin_min = 0,
                  nr_bins = 20, 
-                 y_max= 1e5, 
                  y_min = 1e-2, 
                  variable_name = r"$XGB-Output$", 
                  saveAs = f"../../Figures/MLResults/XGB/{signal}SearchDist.pdf")
