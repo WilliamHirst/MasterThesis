@@ -13,7 +13,7 @@ myPath = "/storage/William_Sakarias/William_Data"
 
 signal = "ttbar"
 
-df, channels = loadDf(myPath, signal)
+df, y, df_data, channels = loadDf(myPath, signal)
 
 xgb = XGB.XGBClassifier(
             max_depth=4, 
@@ -26,44 +26,51 @@ xgb = XGB.XGBClassifier(
             use_label_encoder=False,
             eval_metric="error") 
 
+train, val, test = splitData(df, y)
 
-
-
-df_train, df_test = train_test_split(df, test_size=0.2)
-
-
-df_train, y_train, df_train_weights, df_train_channels = getXYW(df_train)
-df_train_weights = removeNegWeights(df_train_weights)
-df_train_weights = scaleWeights(df_train_weights, y_train)
-
-df_test, y_test, df_test_weights, df_test_channels = getXYW(df_test)
-df_test_weights = removeNegWeights(df_test_weights)
-df_test_weights = scaleWeights(df_test_weights, y_test)
+X_train, Y_train, W_train, C_train = train
+X_val, Y_val, W_val, C_val = val
+X_test, Y_test, W_test, C_test = test
 
 time = timer()
 print("Training....")
-xgb = xgb.fit(df_train, y_train, sample_weight = df_train_weights.array)
+xgb = xgb.fit(X_train, Y_train, eval_set= [(X_val, Y_val)], sample_weight = W_train)
 print("Done")
 timer(time)
-prediction = xgb.predict_proba(df_test)[:,1]
 
-predict_sorted, weights_sorted =  separateByChannel(prediction, df_test_weights, df_test_channels, channels)
+plotRoc(Y_train, 
+        xgb.predict_proba(X_train)[:,1], 
+        W_train,
+        "Training-data", 
+        return_score = True, 
+        name = f"../../Figures/MLResults/XGB/{signal}SearchROCTrain.pdf")
+
+plotRoc(Y_val, 
+        xgb.predict_proba(X_val)[:,1], 
+        W_val,
+        "Validation-data", 
+        return_score = True, 
+        name = f"../../Figures/MLResults/XGB/{signal}SearchROCVal.pdf")
+
+
+channel = df.channel
+wgt = df.wgt_SG
+df = df.drop(columns=["wgt_SG","channel"])
+
+predict_sorted, weights_sorted =  separateByChannel(xgb.predict_proba(df)[:,1], wgt, channel, channels)
+predict_data = xgb.predict_proba(df_data)[:,1]
 
 
 ROOT_Histo_Maker(predict_sorted, 
                  weights_sorted,
                  channels, 
+                 Data = predict_data,
                  bin_max = 1, 
                  bin_min = 0,
-                 nr_bins = 20, 
-                 y_min = 1e-2, 
+                 nr_bins = 30, 
                  variable_name = r"$XGB-Output$", 
                  saveAs = f"../../Figures/MLResults/XGB/{signal}SearchDist.pdf")
 
 
-plotRoc(y_test, 
-        prediction, 
-        df_test_weights, 
-        "Training-data", 
-        return_score = True, 
-        name = f"../../Figures/MLResults/XGB/{signal}SearchROC.pdf")
+
+

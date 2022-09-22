@@ -2,7 +2,7 @@
 # This is a python file used to create histograms in the style #
 # of ATLAS ROOT.                                               #
 # --------------------------------------------------------------#
-#from plot_set import *
+
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib
@@ -83,13 +83,13 @@ class ROOT_Histo_Maker:
             dpi=80,
             facecolor="w",
             edgecolor="k",
-            figsize=(7.4, 5.8),
+            figsize=(7.5, 5.8),
         )
 
         self.createHisto()
 
         if self.saveAs != None:
-            plt.savefig(self.saveAs)
+            plt.savefig(self.saveAs, bbox_inches='tight')
         if self.show:
             plt.show()
 
@@ -116,13 +116,21 @@ class ROOT_Histo_Maker:
         )
         if self.Data is not None:
             self.ax1.scatter(x, N, c="black", label="Data", zorder=100)
-        self.ax1.legend(fontsize=10, loc = "upper right")
+
+        box1 = self.ax1.get_position()
+        self.ax1.set_position([box1.x0, box1.y0, box1.width * 0.7, box1.height])
+        self.ax1.legend(fontsize=12, loc='center left', bbox_to_anchor=(1, 0.62), fancybox=True, shadow=True)
+
         if self.y_max != None:
             self.ax1.set_ylim(top=self.y_max)
         else:
             self.ax1.set_ylim(top = np.max(n)*1e2)
+
         if self.y_min != None:
             self.ax1.set_ylim(bottom=self.y_min)
+        """else:
+            self.ax1.set_ylim(top = np.min(n[n>0])*1e-1)"""
+
         self.ax1.set_xlim([bins[0], bins[-1]])
         n = self.calcN(bins, self.MC_Weights, self.MC_Data)
         if self.Data is not None:
