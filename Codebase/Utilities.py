@@ -24,6 +24,19 @@ def scaleWeights(weights, y):
     weights[y == 0.0] *= np.sum(weights[y == 1 ]) / np.sum(weights[y == 0])
     return weights
 
+def getXYW(df, signal = "isSignal", channel = "channel", wgt = "wgt_SG") :
+    y = df[signal]
+    channels = df[channel]
+    weights = df[wgt]
+
+    df = df.drop(columns=[signal, channel, wgt])
+
+    return df, y, weights, channels
+
+
+
+
+
 
 
 def timer(start_time=None):
