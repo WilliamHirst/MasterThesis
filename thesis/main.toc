@@ -17,6 +17,11 @@
 \contentsline {section}{\numberline {4.1}Neural Networks in physics}{9}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Deep vs Shallow networks}{9}{subsection.4.1.1}%
 \contentsline {section}{\numberline {4.2}Gradient Boosting and decision trees}{9}{section.4.2}%
-\contentsline {chapter}{Appendices}{11}{section*.9}%
-\contentsline {chapter}{Appendix A}{13}{appendix*.10}%
-\contentsline {section}{\numberline {A.1}Light-Cone Coordinates}{13}{section.Alph0.1}%
+\contentsline {chapter}{\numberline {5}Implementation}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Features}{11}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Cuts and triggers}{11}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Lepton variables selection}{11}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Jet variables selection}{11}{subsection.5.1.3}%
+\contentsline {chapter}{Appendices}{13}{section*.9}%
+\contentsline {chapter}{Appendix A}{15}{appendix*.10}%
+\contentsline {section}{\numberline {A.1}Light-Cone Coordinates}{15}{section.Alph0.1}%

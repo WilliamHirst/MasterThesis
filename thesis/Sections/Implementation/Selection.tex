@@ -1,0 +1,20 @@
+\subsection{Lepton variables selection}
+Now we will have a look at what variables from the leptons that were included in the analysis. All low level information on the
+momentum of the leptons were added into the dataset: i.e the transverse momentum $P_t$, the pseudo rapidity $\eta$ and the azimuthal
+angle $phi$. All momentum features were represented individually for each lepton. For example $P_t$ was added as three columns, $P_t(l_1)$,
+$P_t(l_2)$ and $P_t(l_3)$, where the ordering of the leptons were based on the momentum from highest ($l_1$) to lowest ($l_3$).
+Similarly I added information regarding the charge ($\pm$) and flavor (electron, muon) of each lepton. Based on the momentum variables
+the transverse mass $m_t$ of each lepoton was calculated and included along with the missing transverse energy $E_t^{miss}$ of the 
+final state.
+\\
+The variables described in the section above are often considered as low-level features. These are very useful in many (if not all)
+searches and contribute little to no bias to your analysis. But, in the case of final-state spesific searches such as mine,
+one can allow one self of adding physics motivated higher-level physics. The higher level features calculated in this thesis
+were inspired by \cite{franchini_search_2019} (ATLAS 2022). 
+\\
+Firstly I added different mass variables, namely $m_{lll}$ and $m_{ll}(OSSF)$. The first being the trilepton invariant mass 
+and the latter being the dilepton invariant mass of the pair with OSSF. In the case of more than one possible OSSF-pair,
+the pair with the highest invariant mass was chosen. Secondly I added variables composed of the sum of different set of momentum.
+These variables are the sum of all three leptons $H_t(lll)$, of the pair with opposite sign $H_t(SS)$ and the sum of the momentum
+for all three leptons added with the missing transverse energy $H_t(lll) + E_t^{miss}$.
+\subsection{Jet variables selection}

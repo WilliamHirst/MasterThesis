@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  8 SEP 2022 16:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  23 SEP 2022 15:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1294,7 +1294,7 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 LaTeX Font Warning: Font shape `T1/lmr/m/lmr' undefined
 (Font)              using `T1/lmr/m/n' instead on input line 28.
 
-<DUO_UiO_segl.png, id=91, 142.3719pt x 142.3719pt>
+<DUO_UiO_segl.png, id=111, 142.3719pt x 142.3719pt>
 File: DUO_UiO_segl.png Graphic file (type png)
 <use DUO_UiO_segl.png>
 Package pdftex.def Info: DUO_UiO_segl.png  used on input line 28.
@@ -1373,7 +1373,7 @@ Package hyperref Info: Option `pageanchor' set `true' on input line 28.
 ]
 Chapter 1.
 ) (./Sections/SM/Phenomenology.tex) (./Sections/SM/Background.tex
-<Figures/FDiagrams/w_pjets.png, id=184, 423.5825pt x 915.42pt>
+<Figures/FDiagrams/w_pjets.png, id=209, 423.5825pt x 915.42pt>
 File: Figures/FDiagrams/w_pjets.png Graphic file (type png)
 <use Figures/FDiagrams/w_pjets.png>
 Package pdftex.def Info: Figures/FDiagrams/w_pjets.png  used on input line 19.
@@ -1383,7 +1383,7 @@ Overfull \hbox (112.44455pt too wide) in paragraph at lines 19--19
 [][] 
  []
 
-<Figures/FDiagrams/Z_pjets.png, id=185, 424.58624pt x 939.51pt>
+<Figures/FDiagrams/Z_pjets.png, id=210, 424.58624pt x 939.51pt>
 File: Figures/FDiagrams/Z_pjets.png Graphic file (type png)
 <use Figures/FDiagrams/Z_pjets.png>
 Package pdftex.def Info: Figures/FDiagrams/Z_pjets.png  used on input line 19.
@@ -1393,12 +1393,12 @@ Overfull \hbox (117.43596pt too wide) in paragraph at lines 19--19
 [][] 
  []
 
-<Figures/FDiagrams/wz.png, id=190, 435.6275pt x 930.47626pt>
+<Figures/FDiagrams/wz.png, id=215, 435.6275pt x 930.47626pt>
 File: Figures/FDiagrams/wz.png Graphic file (type png)
 <use Figures/FDiagrams/wz.png>
 Package pdftex.def Info: Figures/FDiagrams/wz.png  used on input line 27.
 (pdftex.def)             Requested size: 108.95016pt x 232.70367pt.
-<Figures/FDiagrams/ttbar.png, id=191, 429.605pt x 936.49875pt>
+<Figures/FDiagrams/ttbar.png, id=216, 429.605pt x 936.49875pt>
 File: Figures/FDiagrams/ttbar.png Graphic file (type png)
 <use Figures/FDiagrams/ttbar.png>
 Package pdftex.def Info: Figures/FDiagrams/ttbar.png  used on input line 35.
@@ -1423,17 +1423,24 @@ Chapter 4.
 
 Package natbib Warning: Citation `XGB' on page 9 undefined on input line 14.
 
-) [9] [10
+) (./Sections/Implementation/Axiomatic.tex [9] [10
 
-] [11
+]
+Chapter 5.
+) (./Sections/Implementation/Cuts.tex) (./Sections/Implementation/Selection.tex) (./Sections/Implementation/Validation.tex) [11] [12
+
+] [13
 
 
-] [12] (./Sections/Appendix/Appendix1.tex [13
+] [14] (./Sections/Appendix/Appendix1.tex [15
 
-]) (./main.bbl [14]
-
-Package natbib Warning: Empty `thebibliography' environment on input line 3.
-
+]) (./main.bbl [16]
+LaTeX Font Info:    Trying to load font information for OMS+lmr on input line 7.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/it' in size <9> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 7.
 )
 \tf@thm=\write7
 \openout7 = `main.thm'.
@@ -1442,28 +1449,28 @@ Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
 Package natbib Warning: There were undefined citations.
 
-[15
+[17
 
 ] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 73333627F2FF16A1EE51407E0CE304AF;3835.
+(rerunfilecheck)             Checksum: F82E1FAB9B58B84660BF04AFC4B05DAE;4578.
  ) 
 Here is how much of TeX's memory you used:
- 47129 strings out of 478268
- 1000643 string characters out of 5846347
+ 47226 strings out of 478268
+ 1002600 string characters out of 5846347
  1435472 words of memory out of 5000000
- 64241 multiletter control sequences out of 15000+600000
- 565942 words of font info for 158 fonts, out of 8000000 for 9000
+ 64287 multiletter control sequences out of 15000+600000
+ 571863 words of font info for 173 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,13n,103p,1058b,959s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (27 pages, 441967 bytes).
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on main.pdf (29 pages, 476194 bytes).
 PDF statistics:
- 391 PDF objects out of 1000 (max. 8388607)
- 307 compressed objects within 4 object streams
- 69 named destinations out of 1000 (max. 500000)
- 60110 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 441 PDF objects out of 1000 (max. 8388607)
+ 350 compressed objects within 4 object streams
+ 77 named destinations out of 1000 (max. 500000)
+ 64246 words of extra memory for PDF output out of 74296 (max. 10000000)
 

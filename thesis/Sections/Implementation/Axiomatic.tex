@@ -1,4 +1,12 @@
 \chapter{Implementation}\label{chap:Implementation}
-\section{Feature selection and validation}
+\section{Features}
 The choice of which features to study and which to neglect are crucial in a search for new physics. This is particilarly true 
-in the case of 
+in the case of applying machine learning. The general motivation for including a given feature can be based on several factors. 
+The first being its ability to privide a trend which we as researches can exploit when creating our regions. By this I mean
+that it is a variable were there is divirsity in distribution between the different channels. The second motivation is grounded in 
+physics. Often we as physicsts tend to lean towards variables we know have some effect one the physics we are studying. For 
+example the variable $E_T^{miss}$, can be directly used to either include or discard events were we do or do not expect final states
+with sufficent missing energy. The final motivation is grounded in the MC-simmulations ability to represent the variable.
+If there seems to be a clear deviation between the real and MC-data which does not stem from any new physics, we tend to discard
+them from the analysis.
+
