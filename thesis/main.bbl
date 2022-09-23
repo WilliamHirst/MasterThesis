@@ -1,3 +1,9 @@
-\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{}
+\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{1}
+
+\bibitem{franchini_search_2019}
+M.~Franchini, K.~H. Mankinen, G.~Carratta, F.~Scutti, A.~Gorisek, E.~Lytken
+  et~al., \emph{Search for type-{III} seesaw heavy leptons in dilepton final
+  states in \$pp\$ collisions at \${\textbackslash}sqrt\{s\}\$ = 13 {TeV} with
+  the {ATLAS} detector}, .
 
 \end{thebibliography}\endgroup

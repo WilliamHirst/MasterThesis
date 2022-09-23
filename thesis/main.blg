@@ -4,32 +4,32 @@ The top-level auxiliary file: main.aux
 The style file: JHEP.bst
 Database file #1: bibliography.bib
 Warning--I didn't find a database entry for "XGB"
-You've used 0 entries,
+You've used 1 entry,
             2188 wiz_defined-function locations,
-            520 strings with 3477 characters,
-and the built_in function-call counts, 21 in all, are:
-= -- 0
-> -- 0
+            526 strings with 3969 characters,
+and the built_in function-call counts, 215 in all, are:
+= -- 9
+> -- 30
 < -- 0
-+ -- 0
-- -- 0
-* -- 3
-:= -- 9
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
++ -- 8
+- -- 7
+* -- 18
+:= -- 48
+add.period$ -- 1
+call.type$ -- 1
+change.case$ -- 1
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 1
+duplicate$ -- 4
+empty$ -- 10
+format.name$ -- 7
+if$ -- 44
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 1
+missing$ -- 3
+newline$ -- 6
+num.names$ -- 1
+pop$ -- 2
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
@@ -42,7 +42,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
+while$ -- 1
+width$ -- 2
+write$ -- 8
 (There was 1 warning)
