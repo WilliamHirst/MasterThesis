@@ -512,7 +512,7 @@ featuresPlot = []
 for feat in allFeats:
     if feat[-5:] == "Wjets":
         featuresPlot.append(feat[:-6])
-"""
+
 for feature in featuresPlot:
     try:
         print(feature)
@@ -521,7 +521,7 @@ for feature in featuresPlot:
         else:
             xlabel = feature
         p = pt.Plot(histo,feature,toplot,xtext = xlabel)
-        p.can.SaveAs(f"../../Figures/FeaturesHistograms/{feature}.pdf")
+        p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}.pdf")
         p.can.Draw()
     except:
         print(f"Was not able to plot histogram for {feature}.")
@@ -544,3 +544,4 @@ for k in df.keys():
         pandas.to_hdf(f"{storage}/" + k +"mc.hdf5","mini")
     print("Done")
     del pandas
+"""
