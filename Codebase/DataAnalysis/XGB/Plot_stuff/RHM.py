@@ -128,8 +128,10 @@ class ROOT_Histo_Maker:
 
         if self.y_min != None:
             self.ax1.set_ylim(bottom=self.y_min)
-        """else:
-            self.ax1.set_ylim(top = np.min(n[n>0])*1e-1)"""
+        else:
+            n = np.asarray(n)
+            self.ax1.set_ylim(bottom = np.min(n[n>0])*1e-1)
+        
 
         self.ax1.set_xlim([bins[0], bins[-1]])
         n = self.calcN(bins, self.MC_Weights, self.MC_Data)
