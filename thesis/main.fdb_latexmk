@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1662643282 "main.aux" "main.bbl" "main" 1662646712
+["bibtex main"] 1663161787 "main.aux" "main.bbl" "main" 1663161788
   "./JHEP.bst" 1635225418 19415 119cff932b2ee8773ea988cf488e8896 ""
-  "bibliography.bib" 1635225418 44587 4c48073c61c784730d39ac8a98442b7a ""
+  "bibliography.bib" 1663161787 785 2fbf1df44f1200e6f95ae6569fd79e18 ""
   "main.aux" 1662646712 6347 7a56bcf7e778e2df9e5e30d350eddf1d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1662646711 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1662646712
+["pdflatex"] 1662646711 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1663161788
   "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" 1662450574 2008 806860be6ed80994a54996c92f629f15 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -342,7 +342,7 @@
   "Sections/Neutrinos/BSM.tex" 1662450513 27 ba04cceb4a12bf2d3ba0b3ada7f6a51e ""
   "Sections/Neutrinos/DMneutrinos.tex" 1662450649 89 7ba50a54a4f879eab996de8467108dbe ""
   "Sections/SM/Axiomatic.tex" 1662639772 377 73237ea8a4547d5ca546c8e3dfc8b9bc ""
-  "Sections/SM/Background.tex" 1662646710 1776 e5be8da8b17b310d6c5a5edb171fc0ed ""
+  "Sections/SM/Background.tex" 1662841012 1776 e5be8da8b17b310d6c5a5edb171fc0ed ""
   "Sections/SM/Phenomenology.tex" 1662448747 37 2f64b03682809e364db767e3a46c3936 ""
   "Sections/StatAnal/Axiomatic.tex" 1662451121 648 2949d6c7232209d4a02990d66554a8d6 ""
   "Sections/StatAnal/StatisticalAnalysis.tex" 1662451101 124 92aa51b2f722036c9bcfb1c5cb5e3adc ""
@@ -351,7 +351,7 @@
   "duomasterforside.sty" 1635225418 1245 0f0fdb32e432549cbffa5ff0a0493ca0 ""
   "jheppub.sty" 1635225418 11993 cd840ce60e85e99a4eccf7d2c59baa18 ""
   "main.aux" 1662646712 6347 7a56bcf7e778e2df9e5e30d350eddf1d "pdflatex"
-  "main.bbl" 1662643282 110 45a49a2c91184cd9298df1dd4f9fe39a "bibtex main"
+  "main.bbl" 1663161788 110 45a49a2c91184cd9298df1dd4f9fe39a "bibtex main"
   "main.out" 1662646712 3835 73333627f2ff16a1ee51407e0ce304af "pdflatex"
   "main.tex" 1662450574 2008 806860be6ed80994a54996c92f629f15 ""
   "main.toc" 1662646712 1777 2a4bbf16b5b1141b54140a7029e83514 "pdflatex"
