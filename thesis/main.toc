@@ -12,7 +12,6 @@
 \contentsline {section}{\numberline {3.1}Discovery and significance}{7}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Exclusion}{7}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Likelihood}{7}{subsection.3.2.1}%
-\contentsline {section}{\numberline {3.3}High- and Low-level features}{7}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Introduction to supervised and unsuperised machine learning}{9}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Neural Networks in physics}{9}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Deep vs Shallow networks}{9}{subsection.4.1.1}%
