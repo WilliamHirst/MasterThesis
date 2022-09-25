@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  24 SEP 2022 15:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  25 SEP 2022 16:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1158,7 +1158,14 @@ Package csquotes Info: Redefining alias 'default' -> 'UKenglish'.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 25.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./main.aux)
+) (./main.aux
+
+LaTeX Warning: Label `table:SG' multiply defined.
+
+
+LaTeX Warning: Label `table:SG@cref' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
@@ -1427,33 +1434,33 @@ Package natbib Warning: Citation `XGB' on page 9 undefined on input line 14.
 
 ]
 Chapter 5.
-) (./Sections/Implementation/Cuts.tex) (./Sections/Implementation/Selection.tex) (./Sections/Implementation/Validation.tex [11]
-<Figures/FeaturesHistograms/lep1_Pt.pdf, id=280, 569.12625pt x 555.07375pt>
+) (./Sections/Implementation/Cuts.tex) (./Sections/Implementation/Selection.tex [11]) (./Sections/Implementation/Validation.tex
+<Figures/FeaturesHistograms/lep1_Pt.pdf, id=285, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep1_Pt.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep1_Pt.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep1_Pt.pdf  used on input line 19.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep2_Pt.pdf, id=281, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep2_Pt.pdf, id=286, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep2_Pt.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep2_Pt.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep2_Pt.pdf  used on input line 19.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep3_Pt.pdf, id=282, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep3_Pt.pdf, id=287, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep3_Pt.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep3_Pt.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep3_Pt.pdf  used on input line 32.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep1_Eta.pdf, id=283, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep1_Eta.pdf, id=288, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep1_Eta.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep1_Eta.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep1_Eta.pdf  used on input line 32.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep2_Eta.pdf, id=284, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep2_Eta.pdf, id=289, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep2_Eta.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep2_Eta.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep2_Eta.pdf  used on input line 46.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep3_Eta.pdf, id=285, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep3_Eta.pdf, id=290, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep3_Eta.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep3_Eta.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep3_Eta.pdf  used on input line 46.
@@ -1472,32 +1479,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--49
 LaTeX Warning: Float too large for page by 17.73682pt on input line 50.
 
 [12] [13 <./Figures/FeaturesHistograms/lep1_Pt.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/lep2_Pt.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/lep3_Pt.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/lep1_Eta.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/lep2_Eta.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/lep3_Eta.pdf, page is rotated 90 degrees>]
-<Figures/FeaturesHistograms/lep1_Phi.pdf, id=569, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep1_Phi.pdf, id=576, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep1_Phi.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep1_Phi.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep1_Phi.pdf  used on input line 66.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep2_Phi.pdf, id=570, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep2_Phi.pdf, id=577, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep2_Phi.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep2_Phi.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep2_Phi.pdf  used on input line 66.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep3_Phi.pdf, id=571, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep3_Phi.pdf, id=578, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep3_Phi.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep3_Phi.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep3_Phi.pdf  used on input line 79.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep1_Mt.pdf, id=572, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep1_Mt.pdf, id=579, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep1_Mt.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep1_Mt.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep1_Mt.pdf  used on input line 79.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep2_Mt.pdf, id=573, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep2_Mt.pdf, id=580, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep2_Mt.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep2_Mt.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep2_Mt.pdf  used on input line 92.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep3_Mt.pdf, id=574, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep3_Mt.pdf, id=581, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep3_Mt.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep3_Mt.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep3_Mt.pdf  used on input line 92.
@@ -1515,32 +1522,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--95
 
 LaTeX Warning: Float too large for page by 17.73682pt on input line 96.
 
-<Figures/FeaturesHistograms/lep1_Charge.pdf, id=587, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep1_Charge.pdf, id=594, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep1_Charge.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep1_Charge.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep1_Charge.pdf  used on input line 112.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep2_Charge.pdf, id=588, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep2_Charge.pdf, id=595, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep2_Charge.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep2_Charge.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep2_Charge.pdf  used on input line 112.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep3_Charge.pdf, id=589, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep3_Charge.pdf, id=596, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep3_Charge.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep3_Charge.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep3_Charge.pdf  used on input line 125.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep1_Flavor.pdf, id=590, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep1_Flavor.pdf, id=597, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep1_Flavor.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep1_Flavor.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep1_Flavor.pdf  used on input line 125.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep2_Flavor.pdf, id=591, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep2_Flavor.pdf, id=598, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep2_Flavor.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep2_Flavor.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep2_Flavor.pdf  used on input line 138.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/lep3_Flavor.pdf, id=592, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep3_Flavor.pdf, id=599, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep3_Flavor.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep3_Flavor.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep3_Flavor.pdf  used on input line 138.
@@ -1558,32 +1565,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 99--141
 
 LaTeX Warning: Float too large for page by 17.73682pt on input line 142.
 
-<Figures/FeaturesHistograms/met_Et.pdf, id=605, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/met_Et.pdf, id=612, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/met_Et.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/met_Et.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/met_Et.pdf  used on input line 158.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/met_Phi.pdf, id=606, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/met_Phi.pdf, id=613, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/met_Phi.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/met_Phi.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/met_Phi.pdf  used on input line 158.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/mlll.pdf, id=607, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/mlll.pdf, id=614, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/mlll.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/mlll.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/mlll.pdf  used on input line 171.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/mll_OSSF.pdf, id=608, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/mll_OSSF.pdf, id=615, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/mll_OSSF.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/mll_OSSF.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/mll_OSSF.pdf  used on input line 171.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/met_Sign.pdf, id=609, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/met_Sign.pdf, id=616, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/met_Sign.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/met_Sign.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/met_Sign.pdf  used on input line 184.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/Ht_lll.pdf, id=610, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/Ht_lll.pdf, id=617, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/Ht_lll.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/Ht_lll.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/Ht_lll.pdf  used on input line 184.
@@ -1601,32 +1608,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 145--188
 
 LaTeX Warning: Float too large for page by 28.73682pt on input line 189.
 
-<Figures/FeaturesHistograms/Ht_SS.pdf, id=623, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/Ht_SS.pdf, id=630, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/Ht_SS.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/Ht_SS.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/Ht_SS.pdf  used on input line 205.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/Ht_met_Et.pdf, id=624, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/Ht_met_Et.pdf, id=631, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/Ht_met_Et.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/Ht_met_Et.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/Ht_met_Et.pdf  used on input line 205.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/deltaR.pdf, id=625, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/deltaR.pdf, id=632, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/deltaR.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/deltaR.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/deltaR.pdf  used on input line 218.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/flcomp.pdf, id=626, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/flcomp.pdf, id=633, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/flcomp.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/flcomp.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/flcomp.pdf  used on input line 218.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/njet_SG.pdf, id=627, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/njet_SG.pdf, id=634, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/njet_SG.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/njet_SG.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/njet_SG.pdf  used on input line 231.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/M_jj.pdf, id=628, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/M_jj.pdf, id=635, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/M_jj.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/M_jj.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/M_jj.pdf  used on input line 231.
@@ -1644,12 +1651,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 192--236
 
 LaTeX Warning: Float too large for page by 28.73682pt on input line 237.
 
-<Figures/FeaturesHistograms/nbjet77.pdf, id=641, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/nbjet77.pdf, id=648, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/nbjet77.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/nbjet77.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/nbjet77.pdf  used on input line 253.
 (pdftex.def)             Requested size: 205.79066pt x 200.70724pt.
-<Figures/FeaturesHistograms/nbjet85.pdf, id=642, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/nbjet85.pdf, id=649, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/nbjet85.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/nbjet85.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/nbjet85.pdf  used on input line 253.
@@ -1681,22 +1688,25 @@ Package natbib Warning: There were undefined citations.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8A4F200F73E91D3F2AC7C90D1955BB1F;4691.
+(rerunfilecheck)             Checksum: 28E20DB48F5FAFA2388CAC48A5203207;4691.
  ) 
 Here is how much of TeX's memory you used:
- 47607 strings out of 478268
- 1014862 string characters out of 5846347
- 1435511 words of memory out of 5000000
- 64612 multiletter control sequences out of 15000+600000
- 572711 words of font info for 179 fonts, out of 8000000 for 9000
+ 47621 strings out of 478268
+ 1015055 string characters out of 5846347
+ 1435806 words of memory out of 5000000
+ 64619 multiletter control sequences out of 15000+600000
+ 572877 words of font info for 181 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,13n,103p,1058b,959s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (35 pages, 1147735 bytes).
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on main.pdf (35 pages, 1168263 bytes).
 PDF statistics:
- 1962 PDF objects out of 2073 (max. 8388607)
- 993 compressed objects within 10 object streams
- 90 named destinations out of 1000 (max. 500000)
+ 1975 PDF objects out of 2073 (max. 8388607)
+ 1003 compressed objects within 11 object streams
+ 93 named destinations out of 1000 (max. 500000)
  64414 words of extra memory for PDF output out of 74296 (max. 10000000)
 
