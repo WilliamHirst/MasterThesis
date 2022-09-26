@@ -1818,6 +1818,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmr.fd
@@ -1950,6 +1951,8 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmr9.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx9.tfm
 INPUT ./Sections/SM/Background.tex
 INPUT ./Sections/SM/Background.tex
 INPUT ./Sections/SM/Background.tex
@@ -1962,14 +1965,12 @@ INPUT ./Figures/FDiagrams/w_pjets.png
 INPUT Figures/FDiagrams/w_pjets.png
 INPUT ./Figures/FDiagrams/w_pjets.png
 INPUT ./Figures/FDiagrams/w_pjets.png
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmr9.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx8.tfm
 INPUT ./Figures/FDiagrams/Z_pjets.png
 INPUT ./Figures/FDiagrams/Z_pjets.png
 INPUT Figures/FDiagrams/Z_pjets.png
 INPUT ./Figures/FDiagrams/Z_pjets.png
 INPUT ./Figures/FDiagrams/Z_pjets.png
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx9.tfm
 INPUT ./Figures/FDiagrams/wz.png
 INPUT ./Figures/FDiagrams/wz.png
 INPUT Figures/FDiagrams/wz.png
