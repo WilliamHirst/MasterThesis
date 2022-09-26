@@ -8,6 +8,7 @@
 \raggedbottom %%reduces the gaps between the paragraphs
 \usepackage{jheppub}
 
+
 \title{Search for heavy neutrinos in a 3-lepton final-state}       
 \subtitle{Applications using supervised machine learning}
 \subsubtitle{by}
@@ -22,9 +23,10 @@
 %\DeclareUnicodeCharacter{2212}{-}
 %\DeclareUnicodeCharacter{03B1}{-}
 
+\input{Acronyms}
 \begin{document}
 \duoforside[dept={Department of Physics},
-  program={Master's Program Name},
+program={Master's Program Name},
   long]                                         
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -68,17 +70,15 @@
 %%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{appendices}
-\numberwithin{equation}{section}
-
-\appendix
-\chapter{Appendix A}
-\renewcommand{\thechapter}{A}
-\renewcommand{\theequation}{\thechapter.\arabic{equation}}
-\input{Sections/Appendix/Appendix1}
-
-
+  \numberwithin{equation}{section}
+  
+  \appendix
+  \chapter{Appendix A}
+  \renewcommand{\thechapter}{A}
+  \renewcommand{\theequation}{\thechapter.\arabic{equation}}
 \end{appendices}
 
+\printacronyms
 
 
 
