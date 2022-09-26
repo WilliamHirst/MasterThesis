@@ -11,10 +11,11 @@ d_samp,d_type,d_reg = configure_samples()#False,False,True,False,False)
 fldic = {"eee":0,
          "eem":1,
          "emm":2,
-         "mmm":3,
-         "mme":4,
-         "mee":5,
-         "all":9
+         "mem":3,
+         "mmm":4,
+         "mme":5,
+         "mee":6,
+         "eme":7,
 }
 
 

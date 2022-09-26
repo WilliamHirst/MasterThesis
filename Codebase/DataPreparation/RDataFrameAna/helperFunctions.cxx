@@ -154,9 +154,11 @@ int flavourComp3L(VecI_t& fllep) {
     if(fllep[0] == 1 && fllep[1] == 1 && fllep[2] == 1)return 0;
     if(fllep[0] == 1 && fllep[1] == 1 && fllep[2] == 2)return 1;
     if(fllep[0] == 1 && fllep[1] == 2 && fllep[2] == 2)return 2;
-    if(fllep[0] == 2 && fllep[1] == 2 && fllep[2] == 2)return 3;
-    if(fllep[0] == 2 && fllep[1] == 2 && fllep[2] == 1)return 4;
-    if(fllep[0] == 2 && fllep[1] == 1 && fllep[2] == 1)return 5;
+    if(fllep[0] == 2 && fllep[1] == 1 && fllep[2] == 2)return 3;
+    if(fllep[0] == 2 && fllep[1] == 2 && fllep[2] == 2)return 4;
+    if(fllep[0] == 2 && fllep[1] == 2 && fllep[2] == 1)return 5;
+    if(fllep[0] == 2 && fllep[1] == 1 && fllep[2] == 1)return 6;
+    if(fllep[0] == 1 && fllep[1] == 2 && fllep[2] == 1)return 7;
   }else if(size==2){
     if(fllep[0] == 1 && fllep[1] == 1)return 6;                                                                                                                                                                                                                    
     if(fllep[0] == 2 && fllep[1] == 2)return 7;                                                                                                                                                                                                                    
@@ -234,7 +236,7 @@ float OSSFInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, VecF_t&
         idx2 = 1;
     }
     else if (tp[0] == tp[2] &&  ch[0] != ch[2]){
-      if idx1 == 999{
+      if (idx1 == 999){
         idx1 = 0;
         idx2 = 2;
       }
@@ -244,7 +246,7 @@ float OSSFInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, VecF_t&
       }
     }
     else if (tp[1] == tp[2] &&  ch[1] != ch[2]){
-      if idx1 == 999{
+      if (idx1 == 999){
         idx1 = 1;
         idx2 = 2;
       }
@@ -261,14 +263,14 @@ float OSSFInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, VecF_t&
     p1.SetPtEtaPhiM(pt[idx1], eta[idx1], phi[idx1], m[idx1]);
     p2.SetPtEtaPhiM(pt[idx2], eta[idx2], phi[idx2], m[idx2]);
 
-    if idx3 == 999{return (p1 + p2 ).M();}
+    if (idx3 == 999){return (p1 + p2 ).M();}
 
     else{
       TLorentzVector p3;
       TLorentzVector p4;
       p3.SetPtEtaPhiM(pt[idx3], eta[idx3], phi[idx3], m[idx3]);
       p4.SetPtEtaPhiM(pt[idx4], eta[idx4], phi[idx4], m[idx4]);
-      if (p1 + p2).M() > (p3 + p4).M(){return (p1 + p2).M();}
+      if ((p1 + p2).M() > (p3 + p4).M()){return (p1 + p2).M();}
       else {return (p3 + p4).M();}
     }
 }

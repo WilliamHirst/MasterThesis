@@ -28,10 +28,11 @@ hname = "MET_2L_mm"
 fldic = {"eee":0,
          "eem":1,
          "emm":2,
-         "mmm":3,
-         "mme":4,
-         "mee":5,
-         "all":9
+         "mem":3,
+         "mmm":4,
+         "mme":5,
+         "mee":6,
+         "eme":7,
 }
 
 
@@ -50,9 +51,9 @@ bkgdic = {"Wjets":{"color":R.kMagenta},
 featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
                         "nr_bins": 40, "min" : 25, "max" : 300},
            "lep2_Pt"  : {"xlabel":"P_{t}(l_{2}) [GeV]",
-                        "nr_bins": 40, "min" : 20, "max" : 300},
+                        "nr_bins": 30, "min" : 20, "max" : 250},
            "lep3_Pt"  : {"xlabel":"P_{t}(l_{3}) [GeV]",
-                        "nr_bins": 40, "min" : 7, "max" : 200},
+                        "nr_bins": 30, "min" : 7, "max" : 120},
            "lep1_E"  : {"xlabel":"E(l_{1}) [GeV]",
                         "nr_bins": 40, "min" : 20, "max" : 500},
            "lep2_E"  : {"xlabel":"E(l_{2}) [GeV]",
@@ -60,11 +61,11 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
            "lep3_E"  : {"xlabel":"E(l_{3}) [GeV]",
                         "nr_bins": 40, "min" : 20, "max" : 500},
            "lep1_Mt"  : {"xlabel":"M_{T}(l_{1}) [GeV]",
-                        "nr_bins": 60, "min" : 20, "max" : 300},
+                        "nr_bins": 40, "min" : 20, "max" : 250},
            "lep2_Mt"  : {"xlabel":"M_{T}(l_{2}) [GeV]",
-                        "nr_bins": 60, "min" : 15, "max" : 300},
+                        "nr_bins": 30, "min" : 15, "max" : 200},
            "lep3_Mt"  : {"xlabel":"M_{T}(l_{3}) [GeV]",
-                        "nr_bins": 60, "min" : 10, "max" : 200},
+                        "nr_bins": 30, "min" : 10, "max" : 120},
            "lep1_Eta" : {"xlabel":"\eta(l_{1})",
                         "nr_bins": 20, "min" : -3, "max" : 3},
            "lep2_Eta" : {"xlabel":"\eta(l_{2})",
@@ -434,18 +435,18 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             histo["lep2_Mt_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep2_Mt",k),"h_%s_%s;Mt(l2) [GeV];Entries"%("lep2_Mt",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep2_Mt","wgt_SG")
             histo["lep3_Mt_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep3_Mt",k),"h_%s_%s;Mt(l3) [GeV];Entries"%("lep3_Mt",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep3_Mt","wgt_SG")
             
-            histo["nbjet85_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("nbjet85",k),"h_%s_%s"%("nbjet85",k),9,0,8),"nbjet85","wgt_SG")        
-            histo["nbjet77_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("nbjet77",k),"h_%s_%s"%("nbjet77",k),7,0,6),"nbjet77","wgt_SG")
+            histo["nbjet85_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("nbjet85",k),"h_%s_%s"%("nbjet85",k),5,0,4),"nbjet85","wgt_SG")        
+            histo["nbjet77_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("nbjet77",k),"h_%s_%s"%("nbjet77",k),4,0,3),"nbjet77","wgt_SG")
             
-            histo["met_Phi_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Phi",k),"h_%s_%s; Phi of missing transvere momentum;Entries"%("met_Phi",k),40,-3.5,3.5),"met_Phi","wgt_SG")
+            histo["met_Phi_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Phi",k),"h_%s_%s; Phi of missing transvere momentum;Entries"%("met_Phi",k),20,-3.5,3.5),"met_Phi","wgt_SG")
 
-            histo["met_Et_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Et",k),"h_%s_%s; Energy of missing transverse momentum [GeV];Entries"%("met_Et",k),40,25,500),"met_Et","wgt_SG")
+            histo["met_Et_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Et",k),"h_%s_%s; Energy of missing transverse momentum [GeV];Entries"%("met_Et",k),40,25,350),"met_Et","wgt_SG")
             
             histo["nlep_SG_%s"%k] = df[k].Histo1D(("nlep_SG_%s"%k,"nlep_SG_%s"%k,6,0,5),"nlep_SG","wgt_SG")
             
             histo["njet_SG_%s"%k] = df[k].Histo1D(("njet_SG_%s"%k,"njet_SG_%s"%k,10,0,10),"njet_SG","wgt_SG")
 
-            histo["deltaR_%s"%k] = df[k].Histo1D(("deltaR_%s"%k,"deltaR_%s"%k,20,0,8),"deltaR","wgt_SG")
+            histo["deltaR_%s"%k] = df[k].Histo1D(("deltaR_%s"%k,"deltaR_%s"%k,20,0,6),"deltaR","wgt_SG")
 
             histo["mlll_%s"%k] = df[k].Histo1D(("mlll_%s"%k,"mlll_%s"%k,40,50,500),"mlll","wgt_SG")
 
@@ -453,9 +454,9 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
             histo["Ht_lll_%s"%k] = df[k].Histo1D(("Ht_lll_%s"%k,"Ht_lll_%s"%k,25,40,500),"Ht_lll","wgt_SG")
 
-            histo["Ht_SS_%s"%k] = df[k].Histo1D(("Ht_SS_%s"%k,"Ht_SS_%s"%k,40,0,400),"Ht_SS","wgt_SG")
+            histo["Ht_SS_%s"%k] = df[k].Histo1D(("Ht_SS_%s"%k,"Ht_SS_%s"%k,40,20,400),"Ht_SS","wgt_SG")
 
-            histo["Ht_met_Et_%s"%k] = df[k].Histo1D(("Ht_met_Et_%s"%k,"Ht_met_Et_%s"%k,50,40,600),"Ht_met_Et","wgt_SG")
+            histo["Ht_met_Et_%s"%k] = df[k].Histo1D(("Ht_met_Et_%s"%k,"Ht_met_Et_%s"%k,40,40,600),"Ht_met_Et","wgt_SG")
             
             histo["M_jj_%s"%k] = df[k].Histo1D(("M_jj_%s"%k,"M_jj_%s"%k,25,0,800),"M_jj","wgt_SG")
             

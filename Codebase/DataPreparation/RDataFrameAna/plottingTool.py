@@ -441,7 +441,7 @@ class Plot:
                     # ymax = 3 * 10 ** 4
                     # ymin = 0.5
                     ymax *= 10*10
-                    ymin = 0.01
+                    ymin = 0.5
                 #if scaling:
                 #    hist.SetMaximum(1.0)
                 #else:
