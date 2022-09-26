@@ -430,23 +430,49 @@ float deltaR(VecF_t& eta, VecF_t& phi, int idx1, int idx2){
 }
 
 float SSHt(VecF_t& pt, VecF_t& ch){
-    int idx1;
-    int idx2;
+    int idx1 = 999;
+    int idx2 = 999;
+    int idx3 = 999;
+    int idx4 = 999;
     if (ch[0] == ch[1]){
         idx1 = 0;
         idx2 = 1;
     }
     else if (ch[0] == ch[2]){
+      if (idx1 == 999){
         idx1 = 0;
         idx2 = 2;
+      }
+      else {
+        idx3 = 0;
+        idx4 = 2;
+      }
     }
     else if (ch[1] == ch[2]){
+      if (idx1 == 999){
         idx1 = 1;
         idx2 = 2;
+      }
+      else {
+        idx3 = 1;
+        idx4 = 2;
+      }
+    }
+    else{return 0;}
+
+    if (idx3 == 999){          
+      float H = pt[idx1] + pt[idx2];
+      return H;
     }
     else{
-         return 0;
+      float H1 = pt[idx1] + pt[idx2];
+      float H2 = pt[idx3] + pt[idx4];
+
+      if (H1 > H2){return H1;}
+      else {return H2;}
     }
+    
+    
             
     float H = pt[idx1] + pt[idx2];
     return H;
