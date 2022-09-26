@@ -2,9 +2,9 @@
 \babel@toc {UKenglish}{}\relax 
 \contentsline {chapter}{Introduction}{1}{chapter*.4}%
 \contentsline {chapter}{\numberline {1}The Standard model of elementary particles}{3}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Phenomenology - What is it?}{3}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}The bulding blocks}{3}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Quantum numbers}{4}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.1}The bulding blocks}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Leptons}{4}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Quarks}{4}{subsection.1.1.2}%
 \contentsline {section}{\numberline {1.2}The background channels}{4}{section.1.2}%
 \contentsline {chapter}{\numberline {2}Beyond the standard model - Heavy neutrinos}{7}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Why look beyond?}{7}{section.2.1}%
