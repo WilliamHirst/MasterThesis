@@ -1,5 +1,9 @@
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{1}
 
+\bibitem{joyce1999finnegans}
+J.~Joyce, \emph{Finnegans Wake}.
+\newblock Penguin Books, New York, 1999.
+
 \bibitem{franchini_search_2019}
 M.~Franchini, K.~H. Mankinen, G.~Carratta, F.~Scutti, A.~Gorisek, E.~Lytken
   et~al., \emph{Search for type-{III} seesaw heavy leptons in dilepton final
