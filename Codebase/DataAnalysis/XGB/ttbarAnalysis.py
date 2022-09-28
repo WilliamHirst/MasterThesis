@@ -43,14 +43,14 @@ plotRoc(Y_train,
         W_train,
         "Training-data", 
         return_score = True, 
-        name = f"../../Figures/MLResults/XGB/{signal}SearchROCTrain.pdf")
+        name = f"../../../thesis/Figures/MLResults/XGB/{signal}SearchROCTrain.pdf")
 
 plotRoc(Y_val, 
         xgb.predict_proba(X_val)[:,1], 
         W_val,
         "Validation-data", 
         return_score = True, 
-        name = f"../../Figures/MLResults/XGB/{signal}SearchROCVal.pdf")
+        name = f"../../../thesis/Figures/MLResults/XGB/{signal}SearchROCVal.pdf")
 
 
 channel = df.channel
@@ -69,7 +69,7 @@ ROOT_Histo_Maker(predict_sorted,
                  bin_min = 0,
                  nr_bins = 30, 
                  variable_name = r"$XGB-Output$", 
-                 saveAs = f"../../Figures/MLResults/XGB/{signal}SearchDist.pdf")
+                 saveAs = f"../../../thesis/Figures/MLResults/XGB/{signal}SearchDist.pdf")
 
 
 
