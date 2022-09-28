@@ -1,0 +1,28 @@
+\glsdefs@newdocentry{MC}%
+{%
+name={MC},%
+sort={MC},%
+type={acronym},%
+first={Monte Carlo\glsspace (MC)},%
+firstplural={Monte Carlo\acrpluralsuffix \glsspace (MC\acrpluralsuffix )},%
+text={MC},%
+plural={MC\acrpluralsuffix },%
+description={Monte Carlo},%
+descriptionplural={Monte Carlo\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Monte Carlo},%
+longplural={Monte Carlos},%
+short={MC},%
+shortplural={MCs},%
+counter={page},%
+parent={},%
+%
+}%
+
