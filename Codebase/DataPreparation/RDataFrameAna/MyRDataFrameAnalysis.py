@@ -99,7 +99,10 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
            "Ht_SS"  : {"xlabel":"H_{t}(SS)[GeV]"},
            "Ht_met_Et"  : {"xlabel":"H_{t}(lll) + E_{T}^{miss}[GeV]"},
            "M_jj"  : {"xlabel":"M_{jj}[GeV]"},
-           "met_Sign" : {"xlabel": "S(E_{t}^{miss}) [GeV])"}
+           "lep1_Pt_Neg" : {"xlabel": "Negative Weights abs(P_{t}(l_{1})) [GeV]"},
+           "lep2_Pt_Neg" : {"xlabel": "Negative Weights abs(P_{t}(l_{2})) [GeV]"},
+           "lep1_Phi_Neg" : {"xlabel": " Negative Weights abs(\phi(l_{1}))"},
+           "lep2_Phi_Neg" : {"xlabel": " Negative Weights abs(\phi(l_{2}))"}
 
 }
 Nlep = 3
