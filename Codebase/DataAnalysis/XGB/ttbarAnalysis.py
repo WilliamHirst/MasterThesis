@@ -4,6 +4,8 @@ import xgboost as XGB
 from Plot_stuff.RHM import ROOT_Histo_Maker
 from Plot_stuff.plot_set import *
 from Plot_stuff.ROCM import *
+from Plot_stuff.FI import *
+
 import sys
 sys.path.insert(1, "../../")
 from Utilities import *
@@ -71,6 +73,6 @@ ROOT_Histo_Maker(predict_sorted,
                  variable_name = r"$XGB-Output$", 
                  saveAs = f"../../../thesis/Figures/MLResults/XGB/{signal}SearchDist.pdf")
 
-
+plotFI(xgb, df.keys(), signal)
 
 
