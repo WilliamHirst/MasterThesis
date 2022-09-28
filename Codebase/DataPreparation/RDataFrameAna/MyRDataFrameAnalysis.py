@@ -408,7 +408,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             df[k] = df[k].Define("Ht_met_Et","Ht_lll + met_Et")
             
             # Invariant mass of leading jet-pair.
-            df[k] = df[k].Define("M_jj","mjj")
+            df[k] = df[k].Define("M_jj","getMjj(jetPt[isGoodJet], jetEta[isGoodJet], jetPhi[isGoodJet], jetM[isGoodJet], njet_SG)")
 
             # nBjets
             df[k] = df[k].Define("nbjet85","ROOT::VecOps::Sum(bjet85)")

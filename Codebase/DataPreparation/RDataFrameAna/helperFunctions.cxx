@@ -478,17 +478,14 @@ float SSHt(VecF_t& pt, VecF_t& ch){
     return H;
 }
 
-float S_Et_miss(Float_t et_miss, VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m){
-    TLorentzVector et1;
-    TLorentzVector et2;
-    TLorentzVector et3;
-    et1.SetPtEtaPhiM(pt[0], eta[0], phi[0], m[0]);
-    et2.SetPtEtaPhiM(pt[1], eta[1], phi[1], m[1]);
-    et3.SetPtEtaPhiM(pt[1], eta[1], phi[1], m[1]);
-    float sumEt = et1.Et() + et2.Et() + et3.Et();
-
-    float sig = et_miss/sumEt;
-    return sig;
+float getMjj(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, int nLep){
+    if (nLep < 2) {return 0;}
+    TLorentzVector p1;
+    TLorentzVector p2;
+    p1.SetPtEtaPhiM(pt[0], eta[0], phi[0], m[0]);
+    p2.SetPtEtaPhiM(pt[1], eta[1], phi[1], m[1]);
+    float mjj = (p1 + p2).M();
+    return mjj;
 }
 
 

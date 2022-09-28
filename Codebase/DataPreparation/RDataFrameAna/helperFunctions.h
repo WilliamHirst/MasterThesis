@@ -114,6 +114,7 @@ float deltaR(VecF_t& eta, VecF_t& phi, int idx1, int idx2);
 float SSHt(VecF_t& pt, VecF_t& ch);
 float S_Et_miss(Float_t et_miss, VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m);
 bool isNGoodLeptons(VecI_t& isGood, int nrLeps);
+float getMjj(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m, int nLep);
 
 
 
