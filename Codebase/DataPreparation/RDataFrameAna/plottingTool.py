@@ -46,6 +46,8 @@ class Plot:
       p.is1D = is1D
       p.is2D = not is1D
       p.xlabel = xtext
+      p.Other = ["Wjets", "higgs", "triboson"]
+
 
       if p.is1D: p.plot1D(hdic,hname,bkgs)
       else: p.plot2D(hdic,hname,bkgs)
@@ -306,12 +308,21 @@ class Plot:
               print(k, pc_yield)
               if pc_yield < 10: continue
               leg_txt = '{0}'.format( d_samp[k]["leg"] )
+            if k not in p.Other:
+              histo_i = histo[hkey+"_%s"%k]
+            elif k == p.Other[0]:
+              leg_txt = '{0} ({1:.0f} Events)'.format("Others", p.dyield[k])
+              histo_i = histo[hkey+"_%s"%p.Other[0]]
+              histo_i.Add(histo[hkey+"_%s"%p.Other[1]].GetPtr())
+              histo_i.Add(histo[hkey+"_%s"%p.Other[2]].GetPtr())
+            else:
+              continue  
             try:
-                p.hstack.Add(histo[hkey+"_%s"%k])
-                p.leg.AddEntry(histo[hkey+"_%s"%k],leg_txt,"lpf")
+              p.hstack.Add(histo_i)
+              p.leg.AddEntry(histo_i,leg_txt,"lpf")
             except:
-                p.hstack.Add(histo[hkey+"_%s"%k].GetValue())
-                p.leg.AddEntry(histo[hkey+"_%s"%k].GetValue(),leg_txt,"lpf")
+              p.hstack.Add(histo_i.GetValue())
+              p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lpf")
 
                 
     def getData(p,histo,hkey,procs):
@@ -323,12 +334,21 @@ class Plot:
               leg_txt = '{0} ({1:.0f} Events)'.format(d_samp[k]["leg"], p.dyield[k])
             else:
               leg_txt = '{0})'.format(d_samp[k]["leg"])
+            if k not in p.Other:
+              histo_i = histo[hkey+"_%s"%k]
+            elif k == p.Other[0]:
+              leg_txt = '{0} ({1:.0f} Events)'.format("Others", p.dyield[k])
+              histo_i = histo[hkey+"_%s"%p.Other[0]]
+              histo_i.Add(histo[hkey+"_%s"%p.Other[1]].GetPtr())
+              histo_i.Add(histo[hkey+"_%s"%p.Other[2]].GetPtr())
+            else:
+              continue 
             try:
-                p.datastack.Add(histo[hkey+"_%s"%k])
-                p.leg.AddEntry(histo[hkey+"_%s"%k],leg_txt,"lp")
+                p.datastack.Add(histo_i)
+                p.leg.AddEntry(histo_i,leg_txt,"lp")
             except:
-                p.datastack.Add(histo[hkey+"_%s"%k].GetValue())
-                p.leg.AddEntry(histo[hkey+"_%s"%k].GetValue(),leg_txt,"lp")
+                p.datastack.Add(histo_i.GetValue())
+                p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
 
     def getSignal(p,histo,hkey,procs):
         for k in procs:
@@ -339,12 +359,22 @@ class Plot:
               leg_txt = '{0} ({1:.0f} Events)'.format(d_samp[k]["leg"], p.dyield[k])
             else:
               leg_txt = '{0}'.format(d_samp[k]["leg"])
+            if k not in p.Other:
+              histo_i = histo[hkey+"_%s"%k]
+            elif k == p.Other[0]:
+              leg_txt = '{0} ({1:.0f} Events)'.format("Others", p.dyield[k])
+              histo_i = histo[hkey+"_%s"%p.Other[0]]
+              histo_i.Add(histo[hkey+"_%s"%p.Other[1]].GetPtr())
+              histo_i.Add(histo[hkey+"_%s"%p.Other[2]].GetPtr())
+            else:
+              continue 
             try:
-                p.signalstack.Add(histo[hkey+"_%s"%k])
-                p.leg.AddEntry(histo[hkey+"_%s"%k],leg_txt,"lp")
+                p.signalstack.Add(histo_i)
+                p.leg.AddEntry(histo_i,leg_txt,"lp")
+                
             except:
-                p.signalstack.Add(histo[hkey+"_%s"%k].GetValue())
-                p.leg.AddEntry(histo[hkey+"_%s"%k].GetValue(),leg_txt,"lp")
+                p.signalstack.Add(histo_i.GetValue())
+                p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
     # Function for customising the gPad (gPad points to the current pad, and one can use gPad to set attributes of the current pad)
 
     def customise_gPad(p,top=0.03, bot=0.15, left=0.17, right=0.08):

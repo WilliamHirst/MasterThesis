@@ -36,7 +36,7 @@ fldic = {"eee":0,
 }
 
 
-bkgdic = {"Wjets":{"color":R.kMagenta},
+bkgdic = {"Wjets":{"color":R.kYellow+2},
           "Zjets2":{"color":R.kBlue-7},
           "diboson2L":{"color":R.kRed-7},
           "diboson3L":{"color":R.kBlue-7},
@@ -44,7 +44,7 @@ bkgdic = {"Wjets":{"color":R.kMagenta},
           "higgs":{"color":R.kYellow+2},
           "singletop":{"color":R.kOrange-2},
           "topOther":{"color":R.kSpring-9},
-          "triboson":{"color":R.kViolet-7},
+          "triboson":{"color":R.kYellow+2},
           "ttbar":{"color":R.kRed+7},
           "data18":{"color":R.kBlack}
 }
@@ -311,13 +311,6 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 df[k] = df[k].Define("wgt_SG","1.0")
                 df[k] = df[k].Define("wgt_EV","1.0")
             
-            if not nEvents:
-                this_nEvents = int(df[k].Count().GetValue())
-                nEvents += this_nEvents
-                print("Loading %s with %.0f events. Now %.0f events"%(k,this_nEvents,nEvents))
-            else:
-                print("Loading %s"%(k))
-
 
             # Triggers            
             trigmatch_2015_2L = "(lepHLT_2e12_lhloose_L12EM10VH[isGoodLepton] && lepPt[isGoodLepton] > 12) || (lepHLT_e17_lhloose_mu14[isGoodLepton] && lepPt[isGoodLepton] > 17) || (lepHLT_mu18_mu8noL1[isGoodLepton] && lepPt[isGoodLepton] > 18)"
@@ -534,17 +527,17 @@ for feat in allFeats:
         featuresPlot.append(feat[:-6])
 
 for feature in featuresPlot:
-    try:
-        print(feature)
-        if feature in featdic:
-            xlabel = featdic[feature]["xlabel"]
-        else:
-            xlabel = feature
-        p = pt.Plot(histo,feature,toplot,xtext = xlabel)
-        p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}.pdf")
-        p.can.Draw()
-    except:
-        print(f"Was not able to plot histogram for {feature}.")
+    #try:
+    print(feature)
+    if feature in featdic:
+        xlabel = featdic[feature]["xlabel"]
+    else:
+        xlabel = feature
+    p = pt.Plot(histo,feature,toplot,xtext = xlabel)
+    p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}.pdf")
+    p.can.Draw()
+    #except:
+    #    print(f"Was not able to plot histogram for {feature}.")
 
 
 featuresPlot.append("wgt_SG")
