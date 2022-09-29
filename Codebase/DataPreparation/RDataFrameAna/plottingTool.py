@@ -252,16 +252,24 @@ class Plot:
 
     def getYields(p,histo,hkey,procs):
         for k in procs:
-            print(k)
             newkey = hkey+"_%s"%k
             if p.isEff:
               newkey = hkey.replace("_EF_","_SG_")+"_%s"%k
             if not newkey in histo.keys():
                 continue
-            if p.is1D:
-              p.dyield[k] = histo[newkey].Integral(0,histo[newkey].GetNbinsX()+1)
+            if k not in p.Other:
+              histo_i = histo[hkey+"_%s"%k]
+            elif k == p.Other[0]:
+              histo_i = histo[hkey+"_%s"%p.Other[0]]
+              for i in range(1,len(p.Other)):
+                histo_i.Add(histo[hkey+"_%s"%p.Other[i]].GetPtr())
             else:
-              p.dyield[k] = histo[newkey].Integral(0,histo[newkey].GetNbinsX()+1,0,histo[newkey].GetNbinsY()+1)
+              continue 
+
+            if p.is1D:
+              p.dyield[k] = histo_i.Integral(0,histo_i.GetNbinsX()+1)
+            else:
+              p.dyield[k] = histo_i.Integral(0,histo_i.GetNbinsX()+1,0,histo_i.GetNbinsY()+1)
             if d_samp[k]["type"] == "bkg":
                 p.nTotBkg += p.dyield[k]
         newdict = p.dyield.copy()
@@ -311,10 +319,10 @@ class Plot:
             if k not in p.Other:
               histo_i = histo[hkey+"_%s"%k]
             elif k == p.Other[0]:
-              leg_txt = '{0} ({1:.0f} Events)'.format("Others", p.dyield[k])
+              leg_txt = '{0} ({1:.1f}%)'.format("Others", pc_yield)
               histo_i = histo[hkey+"_%s"%p.Other[0]]
-              histo_i.Add(histo[hkey+"_%s"%p.Other[1]].GetPtr())
-              histo_i.Add(histo[hkey+"_%s"%p.Other[2]].GetPtr())
+              for i in range(1,len(p.Other)):
+                histo_i.Add(histo[hkey+"_%s"%p.Other[i]].GetPtr())
             else:
               continue  
             try:
@@ -339,8 +347,8 @@ class Plot:
             elif k == p.Other[0]:
               leg_txt = '{0} ({1:.0f} Events)'.format("Others", p.dyield[k])
               histo_i = histo[hkey+"_%s"%p.Other[0]]
-              histo_i.Add(histo[hkey+"_%s"%p.Other[1]].GetPtr())
-              histo_i.Add(histo[hkey+"_%s"%p.Other[2]].GetPtr())
+              for i in range(1,len(p.Other)):
+                histo_i.Add(histo[hkey+"_%s"%p.Other[i]].GetPtr())
             else:
               continue 
             try:
@@ -364,8 +372,8 @@ class Plot:
             elif k == p.Other[0]:
               leg_txt = '{0} ({1:.0f} Events)'.format("Others", p.dyield[k])
               histo_i = histo[hkey+"_%s"%p.Other[0]]
-              histo_i.Add(histo[hkey+"_%s"%p.Other[1]].GetPtr())
-              histo_i.Add(histo[hkey+"_%s"%p.Other[2]].GetPtr())
+              for i in range(1,len(p.Other)):
+                histo_i.Add(histo[hkey+"_%s"%p.Other[i]].GetPtr())
             else:
               continue 
             try:
@@ -504,5 +512,6 @@ class Plot:
         R.gPad.SetTicky()
 
         R.gPad.Update()
+    
 
         
