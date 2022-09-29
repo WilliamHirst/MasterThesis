@@ -135,13 +135,15 @@ class ROOT_Histo_Maker:
 
         self.ax1.set_xlim([bins[0], bins[-1]])
         n = self.calcN(bins, self.MC_Weights, self.MC_Data)
+        self.ax2.errorbar(x, N/n, yerr=np.sqrt(n)/n, linestyle = "none",linewidth=2, capsize=2, c="k", alpha=0.7)
         if self.Data is not None:
             self.ax2.scatter(x, N / n, c="k", alpha=1, s=20)
         self.ax2.axhline(1, linestyle="--", c="k", alpha=0.7, linewidth=1)
         self.ax2.set_xlabel(self.variable_name, fontsize=16)#, loc="right")
         self.ax2.set_xlim([bins[0], bins[-1]])
         self.ax2.set_ylabel("Data/MC", fontsize=16)
-        self.ax2.set_ylim([0.0, 2])
+        self.ax2.set_ylim([np.min(N / n)*0.8, np.max(N / n)*1.2])
+
         plt.tight_layout(pad=1.1, w_pad=0.7, h_pad=0.2)
 
     def calcN(self, bins, weight, values):
@@ -155,6 +157,8 @@ class ROOT_Histo_Maker:
                 )
             n.append(s)
         return n
+
+
 
     def sortData(self):
         nrEvents = [np.sum(w) for w in self.MC_Weights]
