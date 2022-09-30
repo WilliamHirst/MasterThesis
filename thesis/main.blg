@@ -16,36 +16,36 @@ Reallocated out_buf (elt_size=1) to 60000 items from 40000.
 Reallocated name_tok (elt_size=4) to 60000 items from 40000.
 Reallocated name_sep_char (elt_size=1) to 60000 items from 40000.
 Warning--I didn't find a database entry for "XGB"
-You've used 5 entries,
+You've used 6 entries,
             2188 wiz_defined-function locations,
-            563 strings with 52443 characters,
-and the built_in function-call counts, 1284 in all, are:
-= -- 107
-> -- 96
+            568 strings with 52550 characters,
+and the built_in function-call counts, 1413 in all, are:
+= -- 117
+> -- 101
 < -- 0
-+ -- 27
-- -- 22
-* -- 113
-:= -- 215
-add.period$ -- 6
-call.type$ -- 5
-change.case$ -- 4
++ -- 29
+- -- 23
+* -- 117
+:= -- 232
+add.period$ -- 7
+call.type$ -- 6
+change.case$ -- 5
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 51
-empty$ -- 104
-format.name$ -- 22
-if$ -- 308
+cite$ -- 6
+duplicate$ -- 56
+empty$ -- 124
+format.name$ -- 23
+if$ -- 342
 int.to.chr$ -- 0
-int.to.str$ -- 5
+int.to.str$ -- 6
 missing$ -- 17
-newline$ -- 19
-num.names$ -- 5
-pop$ -- 14
+newline$ -- 22
+num.names$ -- 6
+pop$ -- 22
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 22
+skip$ -- 26
 stack$ -- 0
 substring$ -- 40
 swap$ -- 14
@@ -54,7 +54,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 8
-width$ -- 6
-write$ -- 48
+while$ -- 9
+width$ -- 7
+write$ -- 55
 (There was 1 warning)
