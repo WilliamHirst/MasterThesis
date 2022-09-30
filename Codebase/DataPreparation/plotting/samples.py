@@ -96,7 +96,7 @@ def configure_samples():
     'XGamma'   :{'type':'bkg', 'leg':'V+gamma',                   'f_color':kCyan-7,'path':'Vgamma'+bkg_suffix},
     'higgs'    :{'type':'bkg', 'leg':'Higgs',                     'f_color':kAzure+6,'path':'higgs'+bkg_suffix},
     'lowMassDY':{'type':'bkg', 'leg':'Low mass DY',               'f_color':kMagenta-7,'path':'lowMassDY'+bkg_suffix},
-    'topOther' :{'type':'bkg', 'leg':'Top other',                 'f_color':kOrange+4,'path':'topOther'+bkg_suffix},
+    'topOther' :{'type':'bkg', 'leg':'Top other',                 'f_color':kOrange+5,'path':'topOther'+bkg_suffix},
     #'PythiaB' :{'type':'bkg', 'leg':'Top other',                 'f_color':kGray,'path':'topOther'+bkg_suffix},
     'FNP':{'type':'bkg', 'leg':'MM',                             'f_color':kWhite,'path':'fake'+bkg_suffix},
     'LF' : {'type':'light flav.','leg':'light flav.',             'f_color':kAzure+7,'l_color':kAzure+7,'m_color':kAzure+7,'m_type':20},
