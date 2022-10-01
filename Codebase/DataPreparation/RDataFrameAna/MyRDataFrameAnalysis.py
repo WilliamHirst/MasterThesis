@@ -104,10 +104,10 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
            "flcomp"  : {"xlabel":"Flavour Combunation"},
            "nbjet85" : {"xlabel":"Nr of B-jets (85)"},
            "nbjet77" : {"xlabel":"Nr of B-jets (77)"},
-           "lep1_Pt_Neg" : {"xlabel": "Negative Weights abs(P_{t}(l_{1})) [GeV]"},
-           "lep2_Pt_Neg" : {"xlabel": "Negative Weights abs(P_{t}(l_{2})) [GeV]"},
-           "lep1_Phi_Neg" : {"xlabel": " Negative Weights abs(\phi(l_{1}))"},
-           "lep2_Phi_Neg" : {"xlabel": " Negative Weights abs(\phi(l_{2}))"}
+           "lep1_Pt_Neg" : {"xlabel": "|P_{t}(l_{1})| [GeV] (-w_{i}) "},
+           "lep2_Pt_Neg" : {"xlabel": "|P_{t}(l_{2})| [GeV] (-w_{i})"},
+           "lep1_Phi_Neg" : {"xlabel": "|\phi(l_{1})|(-w_{i})"},
+           "lep2_Phi_Neg" : {"xlabel": "|\phi(l_{2})|(-w_{i})"}
 
 }
 Nlep = 3
