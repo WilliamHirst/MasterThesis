@@ -425,16 +425,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             
             # HISTOGRAMS
             histo["flcomp_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("flcomp",k),"h_%s_%s"%("flcomp",k),len(fldic.keys()),0,len(fldic.keys())),"flcomp","wgt_SG")
-            
-            #histo["MT2_12_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("MT2_12",k),"h_%s_%s;m_{T}^{2}(12) [GeV];Entries"%("MT2_12",k),40,0,400),"MT2_12","wgt_SG")
-            #histo["MT2_13_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("MT2_13",k),"h_%s_%s;m_{T}^{2}(13) [GeV];Entries"%("MT2_13",k),40,0,300),"MT2_13","wgt_SG")
-            #histo["MT2_23_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("MT2_23",k),"h_%s_%s;m_{T}^{2}(23) [GeV];Entries"%("MT2_23",k),40,0,250),"MT2_23","wgt_SG")
-            
-            #bins_dic = featdic["lep1_E"]
-            #histo["lep1_E_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep1_E",k),"h_%s_%s;E(l1) [GeV];Entries"%("lep1_E",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep1_E","wgt_SG")
-            #histo["lep2_E_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep2_E",k),"h_%s_%s;E(l2) [GeV];Entries"%("lep2_E",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep2_E","wgt_SG")
-            #histo["lep3_E_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep3_E",k),"h_%s_%s;E(l3) [GeV];Entries"%("lep3_E",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep3_E","wgt_SG")
-            
+
             bins_dic = featdic["lep1_Mt"]
             histo["lep1_Mt_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep1_Mt",k),"h_%s_%s;Mt(l1) [GeV];Entries"%("lep1_Mt",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep1_Mt","wgt_SG")
             histo["lep2_Mt_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep2_Mt",k),"h_%s_%s;Mt(l2) [GeV];Entries"%("lep2_Mt",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep2_Mt","wgt_SG")
@@ -467,13 +458,17 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
 
             bins_dic = featdic["lep1_Pt"]
-            histo["lep1_Pt_Neg_%s"%k] = df_Neg.Histo1D(("lep1_Pt_Neg_%s"%k,"lep1_Pt_Neg_%s"%k,bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep1_Pt_Neg","wgt_SG_Abs")
+            histo["lep1_Pt_nNeg_%s"%k] = df[k].Histo1D(("lep1_Pt_nNeg_%s"%k,"lep1_Pt_nNeg_%s"%k,bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep1_Pt","wgt_SG")
+            histo["lep1_Pt_nNeg_%s"%k] = df[k].Histo1D(("lep1_Pt_nNeg_%s"%k,"lep1_Pt_nNeg_%s"%k,bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep1_Pt","wgt_SG")
             bins_dic = featdic["lep2_Pt"]
-            histo["lep2_Pt_Neg_%s"%k] = df_Neg.Histo1D(("lep2_Pt_Neg_%s"%k,"lep2_Pt_Neg_%s"%k,bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep2_Pt_Neg","wgt_SG_Abs")
+            histo["lep2_Pt_nNeg_%s"%k] = df[k].Histo1D(("lep2_Pt_nNeg_%s"%k,"lep2_Pt_nNeg_%s"%k,bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep2_Pt","wgt_SG")
+            histo["lep2_Pt_nNeg_%s"%k] = df[k].Histo1D(("lep2_Pt_nNeg_%s"%k,"lep2_Pt_nNeg_%s"%k,bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep2_Pt","wgt_SG")
             bins_dic = featdic["lep1_Phi"]
-            histo["lep1_Phi_Neg_%s"%k] = df_Neg.Histo1D(("lep1_Phi_Neg_%s"%k,"lep1_Phi_Neg_%s"%k,bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep1_Phi_Neg","wgt_SG_Abs")
+            histo["lep1_Phi_nNeg_%s"%k] = df[k].Histo1D(("lep1_Phi_nNeg_%s"%k,"lep1_Phi_nNeg_%s"%k,bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep1_Phi","wgt_SG")
+            histo["lep1_Phi_nNeg_%s"%k] = df[k].Histo1D(("lep1_Phi_nNeg_%s"%k,"lep1_Phi_nNeg_%s"%k,bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep1_Phi","wgt_SG")
             bins_dic = featdic["lep2_Phi"]
-            histo["lep2_Phi_Neg_%s"%k] = df_Neg.Histo1D(("lep2_Phi_Neg_%s"%k,"lep2_Phi_Neg_%s"%k,bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep2_Phi_Neg","wgt_SG_Abs")
+            histo["lep2_Phi_nNeg_%s"%k] = df[k].Histo1D(("lep2_Phi_nNeg_%s"%k,"lep2_Phi_nNeg_%s"%k,bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep2_Phi","wgt_SG")
+            histo["lep2_Phi_nNeg_%s"%k] = df[k].Histo1D(("lep2_Phi_nNeg_%s"%k,"lep2_Phi_nNeg_%s"%k,bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep2_Phi","wgt_SG")
 
         for k in histo.keys():
             allhisto.append(histo[k])
@@ -527,8 +522,6 @@ for feat in allFeats:
         featuresPlot.append(feat[:-6])
 
 for feature in featuresPlot:
-    #try:
-    print(feature)
     if feature in featdic:
         xlabel = featdic[feature]["xlabel"]
     else:
@@ -536,8 +529,7 @@ for feature in featuresPlot:
     p = pt.Plot(histo,feature,toplot,xtext = xlabel)
     p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}.pdf")
     p.can.Draw()
-    #except:
-    #    print(f"Was not able to plot histogram for {feature}.")
+ 
 
 
 featuresPlot.append("wgt_SG")

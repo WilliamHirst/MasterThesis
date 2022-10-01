@@ -135,8 +135,6 @@ class Plot:
             p.pad1 = R.TPad('pad1', '', 0.0, 0.40, 1.0, 1.0)
             p.pad2 = R.TPad('pad2', '', 0.0, 0.00, 1.0, 0.4)
 
-        print("bkgs = ",bkgs)
-
         # Margins used for the pads
         gpLeft = 0.17
         gpRight = 0.05
@@ -153,18 +151,24 @@ class Plot:
 
         # Legend
         if not p.isEff:
-          p.leg = R.TLegend(0.60,0.56,0.91,0.90)
+          if p.Neg:
+            p.leg = R.TLegend(0.60,0.71,0.91,0.90)
+          else:
+            p.leg = R.TLegend(0.60,0.56,0.91,0.90)
         else:
           p.leg = R.TLegend(0.55,0.77,0.91,0.94)
         p.leg.SetBorderSize(0)
-        p.leg.SetTextSize(0.02)
         p.leg.SetNColumns(2)
+        if p.Neg:
+          p.leg.SetTextSize(0.015)
+        else:
+          p.leg.SetTextSize(0.02)
+
 
         p.nTotBkg = 0.0
         p.stackorder = []
         p.dyield = {}
         
-        #p.doScale(hdic,hname,["WmuHNL50_30G"],1.0/80000.)
 
         p.getYields(hdic,hname,bkgs)
 
@@ -498,6 +502,7 @@ class Plot:
                     ymax *= 10*10
                     if p.Neg:
                       ymin = 0.05
+                      ymax = 1e6
                     else:
                       ymin = 5
                 #if scaling:
