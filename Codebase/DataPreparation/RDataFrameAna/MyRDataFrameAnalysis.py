@@ -107,7 +107,11 @@ featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
            "lep1_Pt_Neg" : {"xlabel": "|P_{t}(l_{1})| [GeV] (-w_{i}) "},
            "lep2_Pt_Neg" : {"xlabel": "|P_{t}(l_{2})| [GeV] (-w_{i})"},
            "lep1_Phi_Neg" : {"xlabel": "|\phi(l_{1})|(-w_{i})"},
-           "lep2_Phi_Neg" : {"xlabel": "|\phi(l_{2})|(-w_{i})"}
+           "lep2_Phi_Neg" : {"xlabel": "|\phi(l_{2})|(-w_{i})"},
+           "lep1_Pt_nNeg" : {"xlabel": "P_{t}(l_{1}) [GeV]"},
+           "lep2_Pt_nNeg" : {"xlabel": "P_{t}(l_{2}) [GeV]"},
+           "lep1_Phi_nNeg" : {"xlabel": "\phi(l_{1})"},
+           "lep2_Phi_nNeg" : {"xlabel": "\phi(l_{2})"}
 
 }
 Nlep = 3
