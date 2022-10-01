@@ -48,6 +48,11 @@ class Plot:
       p.xlabel = xtext
       p.Other = ["Wjets", "higgs", "triboson"]
 
+      p.Neg = False
+      if "Neg" in hname:
+        p.Neg = True
+        print()
+
 
       if p.is1D: p.plot1D(hdic,hname,bkgs)
       else: p.plot2D(hdic,hname,bkgs)
@@ -124,8 +129,11 @@ class Plot:
         p.can  = R.TCanvas('','',1000,1000)
         p.customise_gPad()
         if not p.isEff:
-          p.pad1 = R.TPad('pad1', '', 0.0, 0.40, 1.0, 1.0)
-          p.pad2 = R.TPad('pad2', '', 0.0, 0.00, 1.0, 0.4)
+          if p.Neg:
+            p.pad1 = R.TPad('pad1', '', 0.0, 0., 1.0, 1.0)
+          else:
+            p.pad1 = R.TPad('pad1', '', 0.0, 0.40, 1.0, 1.0)
+            p.pad2 = R.TPad('pad2', '', 0.0, 0.00, 1.0, 0.4)
 
         print("bkgs = ",bkgs)
 
@@ -138,7 +146,10 @@ class Plot:
         if not p.isEff:
           p.pad1.Draw()
           p.pad1.cd()
-          p.customise_gPad(top=0.08, bot=0.04, left=gpLeft, right=gpRight)
+          if p.Neg:
+            p.customise_gPad(top=0.08, bot=0.25, left=gpLeft, right=gpRight)
+          else:
+            p.customise_gPad(top=0.08, bot=0.04, left=gpLeft, right=gpRight)
 
         # Legend
         if not p.isEff:
@@ -187,7 +198,7 @@ class Plot:
 
        
 
-        xtitle = "--"
+        xtitle = hname
         ytitle = 'Events' if not p.isEff else 'Efficieny'
         IsLogY = True
         enlargeYaxis = False
@@ -195,6 +206,7 @@ class Plot:
 
         if not p.isEff:
           p.pad1.SetLogy(IsLogY)
+        
 
         try:
           maxbin = p.hstack.GetStack().Last().GetBinContent(p.hstack.GetStack().Last().GetMaximumBin())
@@ -203,6 +215,8 @@ class Plot:
           maxbin = 0
           p.customise_axes(p.datastack, xtitle, ytitle, 1.1, IsLogY, enlargeYaxis, maxbin, scaling == 'True')
         
+        if p.Neg:
+          p.can.Update()
         
 
         if not p.isEff:
@@ -221,7 +235,7 @@ class Plot:
         # PAD2
         #-------
         p.can.cd()
-        if not p.isEff:
+        if not p.isEff and not p.Neg:
           p.pad2.Draw()
           p.pad2.cd()
           p.customise_gPad(top=0.05, bot=0.39, left=gpLeft, right=gpRight)
@@ -424,7 +438,7 @@ class Plot:
         print("ytitle  = ",  ytitle)
 
         # Top panel
-        if 'Events' in ytitle:
+        if 'Events' in ytitle and not p.Neg:
             xax.SetLabelSize(0)
             xax.SetLabelOffset(0.02)
             xax.SetTitleOffset(2.0)
@@ -433,7 +447,10 @@ class Plot:
         else:
             xax.SetLabelSize(text_size - 7)
             xax.SetLabelOffset(0.03)
-            xax.SetTitleOffset(3.5)
+            if p.Neg:
+              xax.SetTitleOffset(1.5)
+            else:
+              xax.SetTitleOffset(3.5)
             xax.SetTickSize(0.08)
 
         # xax.SetRangeUser(0,2000)
@@ -479,7 +496,10 @@ class Plot:
                     # ymax = 3 * 10 ** 4
                     # ymin = 0.5
                     ymax *= 10*10
-                    ymin = 0.5
+                    if p.Neg:
+                      ymin = 0.05
+                    else:
+                      ymin = 5
                 #if scaling:
                 #    hist.SetMaximum(1.0)
                 #else:
