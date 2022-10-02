@@ -26,24 +26,24 @@ def loadDf(location, signal):
     df = df.drop(columns = ["isSignal"])
     return df, y, df_data, channels
 
-def mergeToRoot(MC, MC_wgt, Data, Channels):
+def mergeToRoot(MC, MC_wgt, Data, Channels, CutOff = None):
+    import ROOT
     df = {}
+    if CutOff is None:
+        CutOff = 0
     for i in range(len(Channels)):
         df_i = pd.DataFrame()
-        df_i["ML_Val"] = np.asarray(MC[i])
-        df_i["wgt"] = np.asarray(MC_wgt[i])
-        df[Channels[i]] = df_i
+        ML_Val = np.array(MC[i],dtype=np.float64)
+        wgt = np.array(MC_wgt[i], dtype=np.float64)
+        df_i = {"ML_Val": ML_Val[ML_Val >= CutOff], "wgt": wgt[ML_Val >= CutOff] }
+        df[Channels[i]] = ROOT.RDF.MakeNumpyDataFrame(df_i)
 
     df_i = pd.DataFrame()
-    df_i["ML_Val"] = np.asarray(Data)
-    df_i["wgt"] = np.ones(len(Data))
-    df["Data"] = df_i
-    print(df)
-
-    import ROOT
-    rdf = ROOT.RDF.MakeNumpyDataFrame(df)
-
-    return rdf
+    ML_Val = np.array(Data,dtype=np.float64)
+    wgt = np.ones(len(Data),dtype=np.float64)
+    df_i = {"ML_Val": ML_Val[ML_Val >= CutOff], "wgt": wgt[ML_Val >= CutOff] }
+    df["data18"] = ROOT.RDF.MakeNumpyDataFrame(df_i)
+    return df
 
 
 def separateByChannel(prediction, weights, df_channel, channels):

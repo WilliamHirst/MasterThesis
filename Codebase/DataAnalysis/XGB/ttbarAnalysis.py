@@ -68,12 +68,19 @@ PlotRootHisto(predict_sorted,
               predict_data, 
               channels, 
               title = f"{signal}SearchDist", 
-              xlabel = r"$XGB-Output$", 
-              xmin = 0, 
-              xmax = 1, 
+              xlabel = "XGB-Output", 
               bins = 30)
+PlotRootHisto(predict_sorted, 
+              weights_sorted, 
+              predict_data, 
+              channels, 
+              title = f"{signal}SearchDist_C7", 
+              xlabel = "XGB-Output", 
+              bins = 30,
+              CutOff = 0.7)
 
 exit()
+plotFI(xgb, df.keys(), signal)
 ROOT_Histo_Maker(predict_sorted, 
                  weights_sorted,
                  channels, 
@@ -84,6 +91,5 @@ ROOT_Histo_Maker(predict_sorted,
                  variable_name = r"$XGB-Output$", 
                  saveAs = f"../../../thesis/Figures/MLResults/XGB/{signal}SearchDist.pdf")
 
-plotFI(xgb, df.keys(), signal)
 
 

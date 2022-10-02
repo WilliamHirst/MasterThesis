@@ -9,7 +9,7 @@ import plottingTool as pt
 from pyHelperFunctions import *
 
 
-def PlotRootHisto(MC, MC_wgt, Data, Channels, title, xlabel, xmin, xmax, bins):
+def PlotRootHisto(MC, MC_wgt, Data, Channels, title, xlabel, bins, CutOff = None):
 
     R.EnableImplicitMT(200)
 
@@ -18,7 +18,9 @@ def PlotRootHisto(MC, MC_wgt, Data, Channels, title, xlabel, xmin, xmax, bins):
     #R.gInterpreter.Declare('#include "helperFunctions.h"') # Header with the definition of the myFilter function
     #R.gSystem.Load("helperFunctions_cxx.so") # Library with the myFilter function
 
-    df = mergeToRoot(MC, MC_wgt, Data, Channels)
+    df = mergeToRoot(MC, MC_wgt, Data, Channels, CutOff)
+    if CutOff is None:
+        CutOff = 0
 
     bkgdic = {"Wjets":{"color":R.kYellow+2},
             "Zjets2":{"color":R.kBlue-7},
@@ -43,11 +45,10 @@ def PlotRootHisto(MC, MC_wgt, Data, Channels, title, xlabel, xmin, xmax, bins):
         
         for k in df.keys():
             # HISTOGRAMS
-            histo["ML_Val_%s"%k] = df[k].Histo1D(("ML_Val_%s"%k,"ML_Val_%s"%k,bins,xmin,xmax),"ML_Val","wgt")
+            histo["ML_Val_%s"%k] = df[k].Histo1D(("ML_Val_%s"%k,"ML_Val_%s"%k,bins,CutOff,1),"ML_Val","wgt")
         
         for k in histo.keys():
             allhisto.append(histo[k])
-
         R.RDF.RunGraphs(allhisto)
         hfile = R.TFile("histograms.root","RECREATE")
         hfile.cd()
@@ -76,7 +77,7 @@ def PlotRootHisto(MC, MC_wgt, Data, Channels, title, xlabel, xmin, xmax, bins):
         else:
             xlabel = feature
         p = pt.Plot(histo,feature,toplot,xtext = xlabel)
-        p.can.SaveAs(f"../../../thesis/Figures/ML_Results/{title}.pdf")
+        p.can.SaveAs(f"../../../thesis/Figures/MLResults/XGB/{title}.pdf")
         p.can.Draw()
     
 
