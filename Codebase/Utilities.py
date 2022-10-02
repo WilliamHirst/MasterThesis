@@ -1,3 +1,4 @@
+from locale import D_T_FMT
 import numpy as np
 import pandas as pd
 
@@ -24,6 +25,26 @@ def loadDf(location, signal):
     y = df.isSignal
     df = df.drop(columns = ["isSignal"])
     return df, y, df_data, channels
+
+def mergeToRoot(MC, MC_wgt, Data, Channels):
+    df = {}
+    for i in range(len(Channels)):
+        df_i = pd.DataFrame()
+        df_i["ML_Val"] = np.asarray(MC[i])
+        df_i["wgt"] = np.asarray(MC_wgt[i])
+        df[Channels[i]] = df_i
+
+    df_i = pd.DataFrame()
+    df_i["ML_Val"] = np.asarray(Data)
+    df_i["wgt"] = np.ones(len(Data))
+    df["Data"] = df_i
+    print(df)
+
+    import ROOT
+    rdf = ROOT.RDF.MakeNumpyDataFrame(df)
+
+    return rdf
+
 
 def separateByChannel(prediction, weights, df_channel, channels):
     mc_predict = []

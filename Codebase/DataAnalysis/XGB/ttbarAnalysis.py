@@ -5,6 +5,7 @@ from Plot_stuff.RHM import ROOT_Histo_Maker
 from Plot_stuff.plot_set import *
 from Plot_stuff.ROCM import *
 from Plot_stuff.FI import *
+from Plot_stuff.ROOTPlot import *
 
 import sys
 sys.path.insert(1, "../../")
@@ -62,7 +63,17 @@ df = df.drop(columns=["wgt_SG","channel"])
 predict_sorted, weights_sorted =  separateByChannel(xgb.predict_proba(df)[:,1], wgt, channel, channels)
 predict_data = xgb.predict_proba(df_data)[:,1]
 
+PlotRootHisto(predict_sorted, 
+              weights_sorted, 
+              predict_data, 
+              channels, 
+              title = f"{signal}SearchDist", 
+              xlabel = r"$XGB-Output$", 
+              xmin = 0, 
+              xmax = 1, 
+              bins = 30)
 
+exit()
 ROOT_Histo_Maker(predict_sorted, 
                  weights_sorted,
                  channels, 
