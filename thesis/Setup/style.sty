@@ -180,28 +180,65 @@
 
 
 %--------- CODE -----------
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Some definitions to use color
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{9} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{9}
+
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
 \definecolor{bluekeywords}{rgb}{0,0,1}
 \definecolor{greencomments}{rgb}{0,0.5,0}
 \definecolor{redstrings}{rgb}{0.64,0.08,0.08}
-\definecolor{xmlcomments}{rgb}{0.5,0.5,0.5}
-\definecolor{types}{rgb}{0.17,0.57,0.68}
 
-\usepackage{listings}
-\lstset{language=C++,
-captionpos=b,
-%numbers=left, %Nummerierung
-%numberstyle=\tiny, % kleine Zeilennummern
-frame=lines, % Oberhalb und unterhalb des Listings ist eine Linie
-showspaces=false,
-showtabs=false,
-breaklines=true,
-showstringspaces=false,
-breakatwhitespace=true,
-escapeinside={(*@}{@*)},
-commentstyle=\color{greencomments},
-morekeywords={partial, var, value, get, set, VecF_t, TLorentzVector},
-keywordstyle=\color{bluekeywords},
-stringstyle=\color{redstrings},
-basicstyle=\ttfamily\small,
-}
+
+
+\lstdefinestyle{Python}{
+  language=Python,
+  basicstyle=\footnotesize,
+  otherkeywords={self},
+  tabsize=1,
+  keywordstyle=\ttb\color{deepblue},
+  emph={__init__, update_port},
+  emphstyle=\ttb\color{deepred},
+  stringstyle=\ttb\color{deepgreen},
+  frame=single,
+  showstringspaces=false,
+  float=htpb,
+  numbers=left,
+  captionpos=b,
+  numbersep=5pt,
+  linewidth=0.95\linewidth,
+  xleftmargin=0.05\linewidth,
+  breaklines=true
+  breakwhitespace=false,
+  }
+% ------------ cpp --------------------
+
+\lstdefinestyle{Cpp}{
+        language=C++,
+        basicstyle=\footnotesize,
+        otherkeywords={self},
+        tabsize=1,
+        keywordstyle=\ttb\color{deepblue},
+        emph={__init__, update_port},
+        emphstyle=\ttb\color{deepred},
+        stringstyle=\ttb\color{deepgreen},
+        frame=single,
+        showstringspaces=false,
+        float=htpb,
+        numbers=left,
+        captionpos=b,
+        numbersep=5pt,
+        linewidth=0.95\linewidth,
+        xleftmargin=0.05\linewidth,
+        breaklines=true
+        breakwhitespace=false,
+        }
+\makeatother
 %-------------------- end style ---------------------------

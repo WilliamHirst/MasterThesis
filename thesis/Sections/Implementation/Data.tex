@@ -31,6 +31,7 @@ as uncertainty calculations and ordering of histograms.
 As for the data structure, the raw data was loaded as a ROOT-file. To easier handle the data and add
 new features, I used the RDataframe structure \cite{RDataFrame}.
 \subsection{Computing features in ROOT: Example}
+\lstset{style=Cpp}
 \begin{lstlisting}
 float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
   TLorentzVector p1;
@@ -43,4 +44,18 @@ float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
 }
 \end{lstlisting}
 
+\lstset{style=Python}
+\begin{lstlisting}
+# Define good leptons
+df[k] = df[k].Define("isGoodJet",isGoodJet)
+# Define Invariant Mass (lll)
+df[k] = df[k].Define("mlll","ComputeInvariantMass(lepPt[isGoodLepton], 
+                                                    lepEta[isGoodLepton], 
+                                                    lepPhi[isGoodLepton], 
+                                                    lepM[isGoodLepton])")
+# Add to histogram
+histo["mlll_%s"%k] = df[k].Histo1D(("mlll_%s"%k,"mlll_%s"%k,40,50,500),
+                                    "mlll",
+                                    "wgt_SG")     
+\end{lstlisting}
 
