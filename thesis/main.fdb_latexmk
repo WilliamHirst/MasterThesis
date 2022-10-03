@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1664704576 "main.aux" "main.bbl" "main" 1664704578
+["bibtex main"] 1664789478 "main.aux" "main.bbl" "main" 1664789848
   "./JHEP.bst" 1635225418 19415 119cff932b2ee8773ea988cf488e8896 ""
   "bibliography.bib" 1664618780 54750 a1434a4ee98649265619c26542d83c6d ""
-  "main.aux" 1664704578 26100 988dfed4daaf34ddbf3070edf202a719 "pdflatex"
+  "main.aux" 1664789848 25857 e2b2da5890545dbd8f2938e31ec3a153 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1664704576 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1664704578
+["pdflatex"] 1664789846 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1664789848
   "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" 1664704549 2253 b0ddbd99738b05f49a38cce2306b5004 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -421,8 +421,8 @@
   "Sections/ML_Stat/Phenomenology.tex" 1664620407 814 9bd0a8d9cd1b295df87d1a1e5fe288a0 ""
   "Sections/ML_Stat/StatAnal.tex" 1664537785 669 832f8252b91f839ba51de1565c900c83 ""
   "Sections/SM/Axiomatic.tex" 1664537552 507 bbc044a638547859df68994bb14f81c2 ""
-  "Sections/SM/BSM.tex" 1664619401 2077 3de0c2e1b242704a4e4c35cfb4993472 ""
-  "Sections/SM/Background.tex" 1664704573 1776 3de5e353219a5cf4173f22d5e5905ea4 ""
+  "Sections/SM/BSM.tex" 1664789845 3897 65d48459f067028e9998e9bfb82379c5 ""
+  "Sections/SM/Background.tex" 1664783760 1776 bc41b4ae111e4d087560705528e715a2 ""
   "Sections/SM/BuildingBlocks.tex" 1664704221 7686 ca1b0e73a37c3e03afabe180785ce911 ""
   "Sections/SM/Signal.tex" 1664704562 20 d285788e23e1e5a9c7d230555b76321e ""
   "Sections/SM/TheForces.tex" 1664704445 116 506ee26a3c747bb08deee24dcae7e44b ""
@@ -430,11 +430,11 @@
   "duoforside.tex" 1635225418 6729 d63ed9810f2605c0dd4142969031c2be ""
   "duomasterforside.sty" 1635225418 1245 0f0fdb32e432549cbffa5ff0a0493ca0 ""
   "jheppub.sty" 1635225418 11993 cd840ce60e85e99a4eccf7d2c59baa18 ""
-  "main.aux" 1664704578 26100 988dfed4daaf34ddbf3070edf202a719 "pdflatex"
-  "main.bbl" 1664704576 1728 036c48ac515dffd8343528e3ff9c00d4 "bibtex main"
-  "main.out" 1664704578 5422 b3bc6cc385b0246bfd3c476af89f7005 "pdflatex"
+  "main.aux" 1664789848 25857 e2b2da5890545dbd8f2938e31ec3a153 "pdflatex"
+  "main.bbl" 1664789478 1728 036c48ac515dffd8343528e3ff9c00d4 "bibtex main"
+  "main.out" 1664789848 5190 57eddb05f0bb358ab45fee08998a1b2f "pdflatex"
   "main.tex" 1664704549 2253 b0ddbd99738b05f49a38cce2306b5004 ""
-  "main.toc" 1664704578 3078 888829738594cefa23b66af1429ce717 "pdflatex"
+  "main.toc" 1664789848 2917 5d6e0490a9bc0428dc11cf2faf487b1a "pdflatex"
   (generated)
   "main.aux"
   "main.log"
