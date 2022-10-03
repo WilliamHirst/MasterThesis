@@ -3,16 +3,44 @@ Every year technology for generating and measuring particle collisions is improv
 As a consequence, the amount of data increases drastically. The ATLAS experiment
 is one of the largest particle detector experiments currently operating at the 
 CERN laboratory near Geneva. ATLAS alone generates approximately 1 petabyte of raw
-data every second from proton proton collisions at the \ac{LHC}. 
-With amounts of data this large, datahandling and storing is a big challenge. 
-Therefore, taking advantage of sofisticated numerical tools and data frameworks is
+data every second from proton-proton collisions at the \ac{LHC}. 
+With amounts of data this large, data handling and storing is a big challenge. 
+Therefore, taking advantage of sophisticated numerical tools and data frameworks is
 pivotal if scientific development is to keep up with technological development.
 \\
-In this section I will cover some of the tools and framewroks I have used to 
+In this section I will cover some tools and frameworks I have used to 
 complete my analysis. Large amounts of details and explanations will not be covered. 
-Instead this section will highlight which tools were used and some of the motivation
-for choosing them. Additionally I will cover some of the details regarding the data
+Instead, this section will highlight which tools were used and some motivation
+for choosing them. Additionally, I will cover some details regarding the data
 being used, both \ac{MC} and real.
 \subsection{Monte Carlo Data}
-\subsection{NTuples and RDataframe}
-\subsection{Root}
+\subsection{ROOT and RDataframe}
+ROOT \cite{ROOT} is at its core a large c++ library and data structure made specifically for big data
+analysis and computing, as well as data visualization. Today, all ATLAS data is stored as a ROOT-file along
+with more than 1 exabyte of data worldwide. ROOT has many \ac{HPC} qualities which makes it ideal for particle
+physics analysis which demands heavy computations. Additionally, many particle physics-specific packages
+have been developed to make it an even better tool. Any function not already in library,
+can easily be added in a \ac{HPC}-effective manner through c++.
+\\
+All distribution plots made for this thesis were created using ROOT. ROOT has implemented a highly intuitive and
+effective \ac{API} for data comparison and visualization. ROOT allows for quick and direct 
+comparison between data through an advanced graphical user interface. Additionally, a lot of
+functionality for creating complex stacked histogram are implemented in the ROOT \ac{API}, such
+as uncertainty calculations and ordering of histograms.
+\\
+As for the data structure, the raw data was loaded as a ROOT-file. To easier handle the data and add
+new features, I used the RDataframe structure \cite{RDataFrame}.
+\subsection{Computing features in ROOT: Example}
+\begin{lstlisting}
+float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
+  TLorentzVector p1;
+  TLorentzVector p2;
+  TLorentzVector p3;
+  p1.SetPtEtaPhiM(pt[0], eta[0], phi[0], m[0]);
+  p2.SetPtEtaPhiM(pt[1], eta[1], phi[1], m[1]);
+  p3.SetPtEtaPhiM(pt[2], eta[2], phi[2], m[2]);
+  return (p1 + p2 + p3).M();
+}
+\end{lstlisting}
+
+

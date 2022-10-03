@@ -1,0 +1,1 @@
+{"rule":"THE_PUNCT","sentence":"^\\QThe \"final-piece\" of the puzzle came in 1956 when we discovered the, at that time thought of as massless neutrino.\\E$"}

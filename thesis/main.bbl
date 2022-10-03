@@ -22,6 +22,12 @@ J.~Pumplin, \emph{How to tell quark jets from gluon jets},
 \bibitem{XGB}
 {The XGBoost Contributors}, ``Xgboost.''
 
+\bibitem{ROOT}
+{The Root team}, ``Root.''
+
+\bibitem{RDataFrame}
+{The Root team}, ``Rdataframe.''
+
 \bibitem{franchini_search_2019}
 M.~Franchini, K.~H. Mankinen, G.~Carratta, F.~Scutti, A.~Gorisek, E.~Lytken
   et~al., \emph{Search for type-{III} seesaw heavy leptons in dilepton final
