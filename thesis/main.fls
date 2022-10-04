@@ -2128,6 +2128,8 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -2194,8 +2196,6 @@ INPUT ./Figures/FeaturesHistograms/lep3_Eta.pdf
 INPUT Figures/FeaturesHistograms/lep3_Eta.pdf
 INPUT ./Figures/FeaturesHistograms/lep3_Eta.pdf
 INPUT ./Figures/FeaturesHistograms/lep3_Eta.pdf
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT ./Figures/FeaturesHistograms/lep1_Phi.pdf
 INPUT ./Figures/FeaturesHistograms/lep1_Phi.pdf
 INPUT Figures/FeaturesHistograms/lep1_Phi.pdf

@@ -29,10 +29,30 @@ functionality for creating complex stacked histogram are implemented in the ROOT
 as uncertainty calculations and ordering of histograms. 
 \\
 As for the data structure, the raw data was loaded as a ROOT-file. To easier handle the data and add
-new features, I used the RDataFrame structure \cite{RDataFrame}.
+new features, I used the RDataFrame structure \cite{RDataFrame}. RDataFrame allows for easy 
+addition of new columns as well as filtering of events through native functionality. As a consequence
+I used RDataFrame to calculate all higher-level features such as $M_{T2}$ and $M_{lll}$. An example is 
+shown in the following section. 
 \subsection{Computing features in ROOT: Example}
+In this section I will cover a simple example to highlight the steps taken in generating the dataset 
+I used during analysis. As mentioned earlier, the two main frameworks used were RDataFrame and Pandas. 
+In this example I will cover the case of a feature not already in the ROOT file, namely the trilepton
+invariant mass. All loading of data is done using the ROOT framework and is quickly made into a 
+RDataFrame. To effectively generate new features, we want to stay in ROOT and RDataFrame. Therefore,
+we create our $C{++}$-file, \emph{helperfunction}. The helperfunction contains all additional 
+ROOT function that are used in the analysis and is not already native to ROOT. In the case 
+of computing the trilepton invariant mass, the $C{++}$-function is created like shown in 
+\ref{lst:mlll}.
+\\
+In \ref{lst:mlll}, we see a couple of measures taken to uphold to the ROOT environment. The first is 
+the typecasting to $VecF\_t$. $VecF\_t$ is created to wrap floats in the native ROOT vector object, $RVec$. 
+The same is done in other cases such as float and integers, $VecI\_t$ and $VecB\_t$. The second measure
+was using $TLorentzVector$ \cite{TLorentzVector} to calculate the invariant mass. $TLorentzVector$ is a class
+native to ROOT with many built-in functions. In this case we use the class to create three vectors through the 
+variables, $P_t$, $\eta$, $\phi$ and M. Then, through the $TLorentzVector$ class we can simply
+add all three vector together, and extract the invariant mass. 
 \lstset{style=Cpp}
-\begin{lstlisting}
+\begin{lstlisting}[caption={$C{++}$-function for $M_{lll}$.},captionpos=b, label={lst:mlll}]
 // Compute the trilepton invariant mass 
 float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
   TLorentzVector p1;
@@ -44,9 +64,15 @@ float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
   return (p1 + p2 + p3).M();
 }
 \end{lstlisting}
+With a helper function created in $C{++}$ we can move over to a Python and RDataFrame environment
+for calculation and plotting. In the code written in \ref{lst:df_mlll}.
 
 \lstset{style=Python}
-\begin{lstlisting}
+\begin{lstlisting}[caption={Python-file for calling dataframe and calculating $M_{lll}$.},captionpos=b, label={lst:df_mlll}]
+R.gROOT.ProcessLine(".L helperFunctions.cxx+");
+R.gInterpreter.Declare('#include "helperFunctions.h"') 
+R.gSystem.Load("helperFunctions_cxx.so")
+
 for k in df.keys():
     # Define good leptons
     isGoodLepton = "feature1 < cut1 && feature2 >= cut2"
