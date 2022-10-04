@@ -33,6 +33,13 @@ new features, I used the RDataFrame structure \cite{RDataFrame}. RDataFrame allo
 addition of new columns as well as filtering of events through native functionality. As a consequence
 I used RDataFrame to calculate all higher-level features such as $M_{T2}$ and $M_{lll}$. An example is 
 shown in the following section. 
+\\
+After all data handling was complete, I used ROOT's $AsNumpy$ function to translate the data frame as 
+a numpy object, which then allowed me to transform it to a Pandas-data frame \cite{Pandas}. This is done
+because Pandas, like most \ac{ML}-tools work in a strict Python environment. Pandas, similarly to RDataFrame
+includes many deep computational libraries, and is optimal for analysis of big data. When all \ac{ML} is completed,
+the data is transformed back to RDataFrame, to take advantage of plotting functionality in ROOT.
+
 \subsection{Computing features in ROOT: Example}
 In this section I will cover a simple example to highlight the steps taken in generating the dataset 
 I used during analysis. As mentioned earlier, the two main frameworks used were RDataFrame and Pandas. 
@@ -65,8 +72,14 @@ float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
 }
 \end{lstlisting}
 With a helper function created in $C{++}$ we can move over to a Python and RDataFrame environment
-for calculation and plotting. In the code written in \ref{lst:df_mlll}.
-
+for calculation and plotting. In the code written in \ref{lst:df_mlll}, I have shown a simple example 
+of loading new $C{++}$-functions, filtering out bad events, calculating new features and adding said 
+features to a histogram. The first three lines of code both process and include the helperfunction 
+functions into the ROOT framework. Then I loop over all keys in the data frame, which in my case
+are the different channels (i.e Diboson, $t\bar{t}$ etc.). For each channel I filter out 'good' events,
+based on the criteria from section \ref{subsec:Cuts}. Then, I use RDataFrame's $Define$ function to calculate
+and add a new feature using our $ComputeInvariantMass$-function. Finally, I save the feature as 
+an $Histo1D$ object, which I plot later using ROOT plotting \ac{API}'s.
 \lstset{style=Python}
 \begin{lstlisting}[caption={Python-file for calling dataframe and calculating $M_{lll}$.},captionpos=b, label={lst:df_mlll}]
 R.gROOT.ProcessLine(".L helperFunctions.cxx+");
@@ -88,12 +101,24 @@ for k in df.keys():
 
     # Define Invariant Mass (lll)
     df[k] = df[k].Define("mlll","ComputeInvariantMass(lepPt[isGoodLepton], 
-                                                        lepEta[isGoodLepton], 
-                                                        lepPhi[isGoodLepton], 
-                                                        lepM[isGoodLepton])")
+                                                      lepEta[isGoodLepton], 
+                                                      lepPhi[isGoodLepton], 
+                                                      lepM[isGoodLepton])")
     # Add to histogram
-    histo["mlll_%s"%k] = df[k].Histo1D(("mlll_%s"%k,"mlll_%s"%k,40,50,500),
+    histo["mlll_%s"%k] = df[k].Histo1D(("mlll_%s"%k,
+                                        "mlll_%s"%k,40,50,500),
                                         "mlll",
                                         "wgt_SG")     
 \end{lstlisting}
+In this example I chose the trilepton invariant mass, but in the analysis all high-level features were
+calculated using a similar method. The workflow of the method is visualized in figure \ref{fig:WF}. We
+load data in ROOT format, data handling and plot feature distrobution  in RDataFrame, perform \ac{ML}-
+analysis in Pandas and plot results in RDataFrame.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figures/Illustrations/TaskFlow.png}
+    \caption{A visual summary of the workflow and framework use for the 
+    computational analysis. }
+    \label{fig:WF}
+\end{figure}
 

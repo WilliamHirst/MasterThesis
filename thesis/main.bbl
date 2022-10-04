@@ -28,6 +28,9 @@ J.~Pumplin, \emph{How to tell quark jets from gluon jets},
 \bibitem{RDataFrame}
 {The Root team}, ``Rdataframe.''
 
+\bibitem{Pandas}
+{The Pandas team and voluntary contributers}, ``Pandas.''
+
 \bibitem{TLorentzVector}
 {The Root team}, ``Tlorentzvector.''
 
