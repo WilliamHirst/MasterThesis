@@ -1663,7 +1663,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/appendix/appendix.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/appendix/appendix.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/appendix/appendix.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/appendix/appendix.sty
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/url/url.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/acro/acro.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/acro/acro.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/acro/acro.sty
@@ -1839,6 +1838,9 @@ OUTPUT main.pdf
 INPUT ./main.out
 INPUT ./main.out
 OUTPUT main.out
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
@@ -2070,6 +2072,8 @@ INPUT Sections/ML_Stat/Phenomenology.tex
 INPUT ./Sections/ML_Stat/Phenomenology.tex
 INPUT ./Sections/ML_Stat/Phenomenology.tex
 INPUT Sections/ML_Stat/Phenomenology.tex
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT ./Sections/ML_Stat/NeuralNetworks.tex
 INPUT ./Sections/ML_Stat/NeuralNetworks.tex
 INPUT ./Sections/ML_Stat/NeuralNetworks.tex
@@ -2130,7 +2134,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -2432,5 +2435,4 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy9.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb
