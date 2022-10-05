@@ -48,6 +48,14 @@ in a process we call \emph{forward-propogation}. Other variants can include the 
 complex route. It is often the route from input- to output-layer that categorizes the type of \ac{NN}. In 
 this report I used a simple \ac{FFNN}. 
 
-\subsubsection{Feeding Forward} \label{subsubsec:FP}
+\subsubsection{Feeding Forward}\label{subsubsec:FP}
+With the structure described in the previous section, a trained model, $\mathcal{F}$ produces a prediction,
+$\bf{y}$ for a data set $\bf{x}$ by passing information from input-layer, through all hidden-layers then
+to output-layer through forward-propagation. In this section I aim to explain the underlying math.
+\\
+We imagine the passing from hidden-layer l-1 to l, where $l \in \{0,1,...,N_L \}$ and $N_L$ is equal to the
+number of hidden layers. The value of a node in layer l, is defined as $a^l_j$, where $j\in \{0,1,...,N^l\}$ and 
+$N^l$ is equal to the number of nodes in l.
 
-\subsubsection{Back Propagation} \label{subsubsec:FP}
+
+\subsubsection{Back Propagation}\label{subsubsec:FP}
