@@ -19,9 +19,9 @@
 \contentsline {subsection}{\numberline {2.1.1}Phenomenology}{9}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Neural Networks}{10}{subsection.2.1.2}%
 \contentsline {subsubsection}{Feeding Forward}{11}{section*.14}%
-\contentsline {subsubsection}{Back Propagation}{11}{section*.15}%
-\contentsline {subsection}{\numberline {2.1.3}Gradient Boosting and decision trees}{11}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Statistical and multi-variabel analysis}{11}{section.2.2}%
+\contentsline {subsubsection}{Back Propagation}{12}{section*.16}%
+\contentsline {subsection}{\numberline {2.1.3}Gradient Boosting and decision trees}{12}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Statistical and multi-variabel analysis}{12}{section.2.2}%
 \contentsline {chapter}{\numberline {3}Implementation}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Tools and Data}{13}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Monte Carlo Data}{13}{subsection.3.1.1}%
@@ -33,5 +33,5 @@
 \contentsline {subsection}{\numberline {3.2.3}Jet variables selection}{17}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Validation}{17}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}Negative Weights}{19}{subsection.3.2.5}%
-\contentsline {chapter}{Appendices}{27}{section*.28}%
-\contentsline {chapter}{Appendix A}{29}{appendix*.29}%
+\contentsline {chapter}{Appendices}{27}{section*.29}%
+\contentsline {chapter}{Appendix A}{29}{appendix*.30}%

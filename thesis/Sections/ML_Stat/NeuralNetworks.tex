@@ -32,6 +32,7 @@ until we reach the final layer, the output layer. The structure is illustrated i
 how a \ac{NN} aims to map from data, $x_i$ to a prediction $y_i$.
 \begin{figure}
     \centering
+    \vspace*{-12.5mm} 
     \includegraphics[width=0.9\textwidth]{Figures/Illustrations/Input_labels.png}
     \vspace*{-12.5mm} 
     \caption{An illustration of a \ac{NN} with two hidden layers.}
@@ -50,12 +51,45 @@ this report I used a simple \ac{FFNN}.
 
 \subsubsection{Feeding Forward}\label{subsubsec:FP}
 With the structure described in the previous section, a trained model, $\mathcal{F}$ produces a prediction,
-$\bf{y}$ for a data set $\bf{x}$ by passing information from input-layer, through all hidden-layers then
-to output-layer through forward-propagation. In this section I aim to explain the underlying math.
+$\bf{y}$ for a data set, $\bf{x}$ by passing information from input-layer, through all hidden-layers then
+to output-layer, which we call forward-propagation. In this section I aim to explain the underlying algorithm and math
+used by the \ac{NN} to map input to output. 
 \\
-We imagine the passing from hidden-layer l-1 to l, where $l \in \{0,1,...,N_L \}$ and $N_L$ is equal to the
-number of hidden layers. The value of a node in layer l, is defined as $a^l_j$, where $j\in \{0,1,...,N^l\}$ and 
-$N^l$ is equal to the number of nodes in l.
-
-
-\subsubsection{Back Propagation}\label{subsubsec:FP}
+We imagine the passing from hidden-layer $l-1$ to $l$, where $l \in \{2,...,N_L \}$\footnote{There is a special
+case for when $l=1$ which will be addressed in the next paragraphs.} and $N_L$ is equal to the
+number of hidden layers. The value of a node in layer $l$, is defined as $a^l_j$ (as indicated by figure \ref{fig:NN}), 
+where $j\in \{0,1,...,N^l\}$ and $N^l$ is equal to the number of nodes in $l$. The value of $a_j^l$ is defined as 
+the \emph{activated} sum of all nodes in the previous layer, $a_j^{l-1}$ where the sum is weighted by a parameter $\bf{w} \sf _j^l$ 
+and scaled by the bias, $b^l_j$ for $j\in \{0,1,..., N_{l-1} \}$. The inactivated value of for a node j in layer l is defined as 
+\begin{align}
+    z_j^l = \sum_{k=1} ^ {N_{l-1}} w_{kj}^la_k^{l-1} + b^l_k,
+\end{align}
+where $w_{kj}^l$ corresponds to the weight in $\bf{w} \sf _k^l$ specific for the connection between node k and j.
+\\
+To attain the full activated value, $a_j^l$ we pass $z_j^l$ through the activation function. The activation function, $\sigma^l$ 
+is a generally non-linear function used to control the limit or expand the value range for the node values. The activation 
+function is general for all nodes in a given layer, but can vary in between layers. Therefore,
+we find $a_j^l$ by the equation
+\begin{align}\label{eq:ajl}
+    a_j^l = \sigma \left (\sum_{k=1} ^ {N_{l}} w_{kj}^la_k^{l-1} + b^l_k\right ) = \sigma^l(z_j^l).
+\end{align}
+A more detailed illustration of the information pass from one layer to a node in the next is displayed 
+in figure \ref{fig:WB}. In figure \ref{fig:WB}, we see all steps described in the process; \emph{(1)} all nodes in 
+l-1 are summed with a corresponding weight, \emph{(2)} the sum is scaled by a constant term (bias), \emph{(3)} the 
+scaled and weighted sum defines the inactivated value $z_j^l$, \emph{(4)} we define $a^l_j$ by passing the 
+sum through $\sigma^l$.  
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/Illustrations/WeightBias.png}
+    \caption{An illustration information pass for one layer to another.}
+    \label{fig:WB}
+\end{figure}
+This method is used for information pass between all layers, except the between the first and the second. 
+In this case we simply replace the activated term, $a_k^{l-1}$ in equation \ref{eq:ajl}, by the input data,
+$x_i$ for $i\in\{0,1,...,N\}$, where N is equal to the number features for the data. In the case $l=1$, \ref{eq:ajl} 
+becomes
+\begin{align}
+    a_j^1 = \sigma \left (\sum_{k=1} ^ {N} w_{kj}^1x_k + b^1_k\right ) = \sigma(z_j^1).
+\end{align}
+In the case where $l=L$, $a_j^L$ is equal to the final output. 
+\subsubsection{Back Propagation}\label{subsubsec:BP}
