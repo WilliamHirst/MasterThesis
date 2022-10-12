@@ -1,13 +1,37 @@
 \subsection{Phenomenology}
 \ac{ML} differs from other analysis tools in its ability to
 learn. Where a purely analytical model is static in both method 
-and performance a \ac{ML} model aims to be dynamic and self 
-improving. \ac{ML} utilizes data to leverage towards an ideal
-model. The extent of utilization defines a \ac{ML} model as being
-either supervised, semi-supervised or unsupervised. In the case 
-of supervised \ac{ML} a set of targets are provided along with the
-data which allows a \ac{ML} model to map directly from data to target.
-In the case of unsupervised \ac{ML}, no target is provided. Semi-unsupervised
-is a loose term which finds it self in the middel of the previous two. 
-It often refers to methods where no concrete target is provided, 
-but instead uses the data provided to create a target 
+and performance a \ac{ML} model, $\mathcal{F}$ aims to be dynamic and self 
+improving. \ac{ML} utilizes data, $x_i$ to leverage towards an optimal
+model. The extent of utilization of data defines a \ac{ML} model as being
+either \emph{supervised}, \emph{semi-supervised} or \emph{unsupervised}. In the case 
+of supervised \ac{ML}, a set of \emph{targets}, $t_i$ are provided along with the
+data which allows a \ac{ML} model to learn to map directly from data to target. Targets
+are simply the measured values corresponding to the input of the \ac{ML}-model. The target
+values can be both continues values, in which case the \ac{ML} method aims to perform a \emph{regression},
+or discrete values, in which case the \ac{ML} method aims to perform a \emph{classification}. 
+\\
+The goal of supervised learning is that $\mathcal{F}$ can apply any attained knowledge from 
+the study of ($x_i$, $t_i$) to predict the target, $\tilde{t}_i$ of a new dataset
+$\tilde{x}_i$. The success of any prediction is dependent on the quality of the 
+data used during training, or \emph{training-data}. The training-data is required to 
+be both representative of any trends you hope to detect in the new data set, or test-data
+and be of sufficient amount. The latter point stems from a phenomenon known as \emph{over-fitting},
+which is a problem where the training data becomes overly specialized to only predict 
+the target of the training-data, and nothing else\footnote{More on this in later sections.}.
+In this thesis the main focus will be on the application of supervised learning.
+\\
+In the case of unsupervised \ac{ML}, no target is provided. The motivation for unsupervised
+learning is to create a model which is independent of any target. Such models are often 
+useful in the case where one is not certain what one is looking for. An independence of target
+means that the model is not overly sensitive to any specific trends or patterns, we call
+this being \emph{unbiased}. Instead of learning to detect or predict specific phenomenon,
+unsupervised learning is often used to detect anomalies in the data, which means it relies
+heavily on statistics. Because of this, some use the term \emph{anomaly detection} and 
+unsupervised learning interchangeably.
+\\
+ Semi-unsupervised learning is a loose term
+which finds itself in the middle of the previous two. It often refers to methods where 
+no concrete target is provided, but instead uses the data provided to create a target. The goal 
+is to alleviate as much bias as possible, but at the same time converge towards the usually 
+superior performance of supervised learning.  

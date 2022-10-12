@@ -179,4 +179,73 @@
 %--------- Quotes -----------
 
 
+%--------- CODE -----------
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Some definitions to use color
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{9} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{9}
+
+\usepackage{color}
+\definecolor{babyblueeyes}{rgb}{0.63, 0.79, 0.95}
+\definecolor{celestialblue}{rgb}{0.29, 0.59, 0.82}
+\definecolor{deepgreen}{rgb}{0.1,0.6,.3}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\definecolor{camouflagegreen}{rgb}{0.47, 0.53, 0.42}
+\definecolor{bluekeywords}{rgb}{0,0,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.64,0.08,0.08}
+\definecolor{orangered}{RGB}{239,134,64}
+\definecolor{buff}{rgb}{0.94, 0.86, 0.51}
+\definecolor{apricot}{rgb}{0.98, 0.81, 0.69}
+\definecolor{atomictangerine}{rgb}{1.0, 0.6, 0.4}
+
+
+\lstdefinestyle{Python}{
+  language=Python,
+  basicstyle=\footnotesize,
+  otherkeywords={self, VecF_t},
+  tabsize=1,
+  keywordstyle=\ttb\color{celestialblue},
+  emph={__init__, update_port},
+  emphstyle=\ttb\color{deepred},
+  stringstyle=\ttb\color{atomictangerine},
+  commentstyle=\ttb\color{deepgreen},
+  frame=single,
+  showstringspaces=false,
+  float=htpb,
+  numbers=left,
+  captionpos=b,
+  numbersep=5pt,
+  linewidth=0.95\linewidth,
+  xleftmargin=0.05\linewidth,
+  breaklines=true
+  breakwhitespace=false,
+  }
+% ------------ cpp --------------------
+
+\lstdefinestyle{Cpp}{
+        language=C++,
+        basicstyle=\footnotesize,
+        otherkeywords={self, VecF_t},
+        tabsize=1,
+        keywordstyle=\ttb\color{celestialblue},
+        emph={__init__, update_port},
+        emphstyle=\ttb\color{deepred},
+        stringstyle=\ttb\color{atomictangerine},
+        commentstyle=\ttb\color{deepgreen},
+        frame=single,
+        showstringspaces=false,
+        float=htpb,
+        numbers=left,
+        captionpos=b,
+        numbersep=5pt,
+        linewidth=0.95\linewidth,
+        xleftmargin=0.05\linewidth,
+        breaklines=true
+        breakwhitespace=false,
+        }
+\makeatother
 %-------------------- end style ---------------------------

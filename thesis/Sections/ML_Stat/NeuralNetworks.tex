@@ -1,218 +1,95 @@
-\subsection{Neural Networks}\label{sec:Neural Networks in physics}
-I will now introduce the basic concepts of the \ac{NN}. Specifically
-I am going to address a dense feed forward \ac{NN}, meaning the 
-information is only moving forward trough the network and each node in a 
-given layer is connected to each and every node in the following layer. 
-In the beginning we have an input layer containing one node for each feature of 
-the data. The following layers are the so-called hidden layers which can have 
-a custom chosen number of nodes for each layer. The number of hidden layers and nodes 
-in each respective hidden layers defines the complexity and depth of the 
-\ac{NN}. A rule of thumb in computer science is that more than 3 hidden 
-layers is defined as a deep-\ac{NN}. Finally we have the output 
-layers with one node per target category. For a simple True and False type of 
-problem a single output node which takes values between 0 and 1 is sufficient 
-for the prediction. For classification between multiple classes we would require 
-an output node for each class. 
+\subsection{Neural Networks}\label{sec:NN}
+\ac{NN} have been an idea for more than 80 years and are today one of the 
+most popular and successful \ac{ML} methods. The key to its popularity stems from
+its versatility, achieving high performance in a large range of both regression 
+and classification problems. One of the defining qualities in a \ac{NN} is the 
+possibility of diverse architecture, meaning that a there are many
+categorize of \ac{NN}, where each category has an even deeper selection of
+networks. Categories ranging from \ac{CNN}, \ac{RNN} to simple \ac{FFNN}, where each
+category is specified for their own set of problems. In this section I will introduce 
+some fundamental definitions in regard to \ac{NN}, as well go through the underlying 
+algorithm of the back- and forward propagation.
+
+\subsubsection*{General structure}
+There are often drawn comparisons between the structure of the neural network, 
+and the way the human mind operate, hence neural. Similarly to the human mind, a \ac{NN} is 
+composed of different neurons communicating information backwards and forwards in different 
+regions In the case of a neural network we call these regions layers. All layers
+are composed of a specified number of neurons. A \ac{NN} has three types of layers;
+\emph{input-layer}, \emph{hidden-layer} and \emph{output-layer}. There is only one input layer, and it has
+the same number of nodes equal to the number of features for each data point. 
+There can be an arbitrary number of hidden layers, with each hidden-layer containing
+an arbitrary number of nodes. Finally, the \ac{NN} has an output layer. The output-layer
+contains a number of nodes equal to the number of features for the target.
 \\
-The connection between the nodes is controlled by the introduction of the weights 
-$w$ and biases $b$. The weights and biases serve as the unknown parameter. For an 
-already trained network we can collect the predictions by performing the so-called 
-feed forward mechanism which is explained in details in the following section. 
+The neural network functions by passing information in between the different layers though 
+nodes. The nodes are simply pockets of information, each containing a value. 
+All the nodes in the input layer are connected to all the nodes in the nearest hidden layer,
+and likewise said hidden layer is connected to the next hidden layer. This structure continues
+until we reach the final layer, the output layer. The structure is illustrated in figure
+\ref{fig:NN}. The figure shows a simple \ac{NN} with a 2 dimensional data set (2 nodes in input-layer),
+2 hidden layers with three nodes each and a 1 dimensional target value. It also illustrates 
+how a \ac{NN} aims to map from data, $x_i$ to a prediction $y_i$.
+\begin{figure}
+    \centering
+    \vspace*{-12.5mm} 
+    \includegraphics[width=0.9\textwidth]{Figures/Illustrations/Input_labels.png}
+    \vspace*{-12.5mm} 
+    \caption{An illustration of a \ac{NN} with two hidden layers.}
+    \label{fig:NN}
+\end{figure}
+In figure \ref{fig:NN} we can see how all the different nodes are connected, illustrated by 
+the arrows. The passing of values between different nodes are controlled by a set of weights and
+bias parameters. These parameters are defined for each connection and are what will be tuned 
+during training. The weights and biases for a given connection of two nodes, defines the effect on node 
+has on the other.
 \\
-However, before diving into the details behind the neural network and the key 
-algorithms for performing training and prediction, we want to put down some notation. 
-We aim to use some of the most common notation, but it is nonetheless easy to get lost. 
-Thus we provide a table (\ref{tab:notation}) for which you can always go back to clarify 
-the meaning of variables and indexes.
+In a traditional \ac{FFNN} the information is passed linearly (in figure \ref{fig:NN}, from left to right) 
+in a process we call \emph{forward-propogation}. Other variants can include the information taking a more 
+complex route. It is often the route from input- to output-layer that categorizes the type of \ac{NN}. In 
+this report I used a simple \ac{FFNN}. 
 
-% Define new columns types 
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % left fixed width
-\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % center fixed width
-\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % flush right fixed width
-\begin{table}[H]
-    % \setlength{\tabcolsep}{15pt}
-    \renewcommand{\arraystretch}{1.3}
-    \begin{center}
-    \caption{Notation}
-    \begin{tabular}{|C{1.5cm}|L{4cm}|C{2cm}|} \hline
-    \multicolumn{3}{|c|}{Matrices and vectors}  \\ \hline
-    Notation & \multicolumn{1}{c|}{Description} & Type \\ \hline
-    $X$ & Design Matrix (input data). & $\mathbb{R}^{N\times \text{\#features}}$ \\ \hline
-    $t$ & Target values. & $\mathbb{R}^{N\times \text{\#categories}}$ \\ \hline
-    $y$ & Model output, the prediction from our network. &  $\mathbb{R}^{N\times \text{\#categories}}$\\ \hline
-    $W^l$ & The weight matrix associated with layer $l$ which handles the connections between layer $l-1$ and $l$ . & $\mathbb{R}^{n_{l-1} \times n_l}$ \\ \hline
-     $B^l$ & The bias vector associated with layer $l$ which handles the biases for all nodes in layer $l$.  & $\mathbb{R}^{n_{l} \times 1}$ \\ \hline
-   
-    \multicolumn{3}{|c|}{Elements}  \\ \hline
-    $w^l_{ij}$ & The weight connecting node $i$ in layer $l-1$ to node $k$ in layer $l$. & $\mathbb{R}$ \\ \hline
-    $b^l_j$ & Bias acting on node $j$ in layer $l$.  & $\mathbb{R}$ \\ \hline
-    $z^l_j$ & Node output before activation on node $j$ on layer $l$. & \\ \hline
-    $a^l_j$ & Activated node output on node $j$ on layer $l$. & $\mathbb{R}$ \\ \hline
-    \multicolumn{3}{|c|}{Functions}  \\ \hline
-    $C$ & \multicolumn{2}{l|}{Cost function} \\ \hline
-    $\sigma^l$ & \multicolumn{2}{l|}{Activation function associated with layer $l$.} \\ \hline
-    \multicolumn{3}{|c|}{Quantities }  \\ \hline
-    $n_l$ & \multicolumn{2}{l|}{The number of nodes in layer $l$.} \\ \hline
-    $L$ & \multicolumn{2}{l|}{Number of layers in total with $L-2$ hidden layers.} \\ \hline
-    $N$ & \multicolumn{2}{l|}{Total number of data points.} \\ \hline
-    \multicolumn{3}{|l|}{All indexing starts from 1: $i,j,k,l = 1, 2, \hdots$}  \\ \hline
-    \end{tabular}
-    \label{tab:notation}
-  \end{center}
-\end{table}
-    
-
-\subsubsection{Feeding Forward} 
-The forward mechanism is the main mechanism behind the usage of the \ac{NN}.
- For a single data point the data flow becomes as outlined in the following.
-\begin{enumerate}
-    \item The input nodes receive the input data for each feature. 
-    \item Each input node sends the data value into each node of the following hidden layer with a scaling according to the associated weight of every single connection. 
-    \item Each node in the hidden layer sums up the weighted contributions from the input layer and adds a bias value associated to that given node. We denote this raw node output by $z$.
-    \item The unactivated value $z$ is immediately sent through an activation function $\sigma$ associated with the layer to produce the activated value $a = \sigma(z)$.
-    \item Each node in the hidden layer then forwards the activated value into the next layer using the same procedure. Notice that the number of nodes in the hidden layers no longer corresponds to any given features and one can only speculate on how the complex network creates its own sub-features and interprets the underlying correlations in the data. 
-    \item Finally the stream of forwarded data enters the output layer where the activation values on each node corresponds to the network predictions for each category. 
-\end{enumerate}
-The feed forward step to obtain the activation value on a given layer $l\ne 1$ (not the input layer) is given as
+\subsubsection{Feeding Forward}\label{subsubsec:FP}
+With the structure described in the previous section, a trained model, $\mathcal{F}$ produces a prediction,
+$\bf{y}$ for a data set, $\bf{x}$ by passing information from input-layer, through all hidden-layers then
+to output-layer, which we call forward-propagation. In this section I aim to explain the underlying algorithm and math
+used by the \ac{NN} to map input to output. 
+\\
+We imagine the passing from hidden-layer $l-1$ to $l$, where $l \in \{2,...,N_L \}$\footnote{There is a special
+case for when $l=1$ which will be addressed in the next paragraphs.} and $N_L$ is equal to the
+number of hidden layers. The value of a node in layer $l$, is defined as $a^l_j$ (as indicated by figure \ref{fig:NN}), 
+where $j\in \{0,1,...,N^l\}$ and $N^l$ is equal to the number of nodes in $l$. The value of $a_j^l$ is defined as 
+the \emph{activated} sum of all nodes in the previous layer, $a_j^{l-1}$ where the sum is weighted by a parameter $\bf{w} \sf _j^l$ 
+and scaled by the bias, $b^l_j$ for $j\in \{0,1,..., N_{l-1} \}$. The inactivated value of for a node j in layer l is defined as 
 \begin{align}
-    z_j^l = \sum_{i = 1}^{n_{l-1}} w_{ij}^l a_i^{l-1} + b_j^l, \quad a_j^l = \sigma^l(z_j^l)
-    \label{eq:feed_forward_sum}
+    z_j^l = \sum_{k=1} ^ {N_{l-1}} w_{kj}^la_k^{l-1} + b^l_k,
 \end{align}
-where $z_j^l$ is the input value to node $j$ in layer $l$, $w_{ij}^l$ is the weight connecting node $i$ in layer $l-1$ to node $j$ in layer $l$, $a_i^{l-1}$ is the activation value from node $i$ in layer $l-1$ and $b_j^l$ is the bias associated with node $j$ in layer $l$. We can obtain a matrix-variant of equation \ref{eq:feed_forward_sum} by defining
-\begin{align*}
-     W^l &= 
-        \renewcommand\arraystretch{1.3}
-        \begin{bmatrix}
-          w_{11}^l & w_{21}^l & \hdots & w_{n_{l-1}1}^l \\
-          w_{12}^l & w_{22}^l & \hdots & w_{n_{l-1}2}^l \\
-          \vdots & \vdots & & \vdots \\
-          w_{1 n_{l}}^l & w_{2 n_{l}}^l & \hdots & w_{n_l n_{l-1}}^l \\
-        \end{bmatrix}, \\ \\
-    (W^l)^T &= 
-    \renewcommand\arraystretch{1.3}
-    \begin{bmatrix}
-      w_{11}^l & w_{12}^l  & \hdots & w_{1n_l}^l \\ 
-      w_{21}^l & w_{22}^l  & \hdots & w_{2n_l}^l \\
-      \vdots & \vdots & & \vdots \\
-      w_{n_{l-1}1}^l & w_{n_{l-1}2}^l  & \hdots  & w_{n_{l-1}n_l}^l 
-    \end{bmatrix}, \\ \\
-    A^l &= 
-    \renewcommand\arraystretch{1.4}
-    \begin{bmatrix}
-      a_1^l \\
-      a_2^l \\
-      \vdots \\
-      a_{n_l}^l \\
-    \end{bmatrix} , \qquad 
-    B^l = 
-    \begin{bmatrix}
-      b_1^l \\
-      b_2^l \\
-      \vdots \\
-      b_{n_l}^l \\
-    \end{bmatrix}, \qquad
-      Z^l = 
-    \begin{bmatrix}
-      z_1^l \\
-      z_2^l \\
-      \vdots \\
-      z_{n_l}^l \\
-    \end{bmatrix}, 
-\end{align*}
-such that we get 
+where $w_{kj}^l$ corresponds to the weight in $\bf{w} \sf _k^l$ specific for the connection between node k and j.
+\\
+To attain the full activated value, $a_j^l$ we pass $z_j^l$ through the activation function. The activation function, $\sigma^l$ 
+is a generally non-linear function used to control the limit or expand the value range for the node values. The activation 
+function is general for all nodes in a given layer, but can vary in between layers. Therefore,
+we find $a_j^l$ by the equation
+\begin{align}\label{eq:ajl}
+    a_j^l = \sigma \left (\sum_{k=1} ^ {N_{l}} w_{kj}^la_k^{l-1} + b^l_k\right ) = \sigma^l(z_j^l).
+\end{align}
+A more detailed illustration of the information pass from one layer to a node in the next is displayed 
+in figure \ref{fig:WB}. In figure \ref{fig:WB}, we see all steps described in the process; \emph{(1)} all nodes in 
+l-1 are summed with a corresponding weight, \emph{(2)} the sum is scaled by a constant term (bias), \emph{(3)} the 
+scaled and weighted sum defines the inactivated value $z_j^l$, \emph{(4)} we define $a^l_j$ by passing the 
+sum through $\sigma^l$.  
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/Illustrations/WeightBias.png}
+    \caption{An illustration information pass for one layer to another.}
+    \label{fig:WB}
+\end{figure}
+This method is used for information pass between all layers, except the between the first and the second. 
+In this case we simply replace the activated term, $a_k^{l-1}$ in equation \ref{eq:ajl}, by the input data,
+$x_i$ for $i\in\{0,1,...,N\}$, where N is equal to the number features for the data. In the case $l=1$, \ref{eq:ajl} 
+becomes
 \begin{align}
-    Z^l = (W^l)^T A^{l-1} + B^l, \qquad A^l = \sigma(Z^l).
-    \label{eq:feed_forard_matrix}
+    a_j^1 = \sigma \left (\sum_{k=1} ^ {N} w_{kj}^1x_k + b^1_k\right ) = \sigma(z_j^1).
 \end{align}
-The complete feed forward algorithm is simply done by using equation \ref{eq:feed_forard_matrix}
-for layer $l = 2, \hdots, L$, for which we produce the \ac{NN} prediction $\vec{y}$.
-
-\subsubsection{Back Propagation} \label{subsubsec: Bp}
-%We assume now that we have a network with initialized weights and biases 
-The back propagation algorithm is the essential algorithm behind the training of the neural network. This serves the purpose of tuning the weights and biases according to a given cost function. A common choice for regression type problems is the mean squared error
-\begin{align}\label{eq:cost_mse}
-    C(\vec{y}) = ||\vec{y}-\vec{t}||_2^2 = \frac{1}{N}\sum_{i=1}^N (y_i - t_i)^2,
-\end{align}
-where $N$ is the number of data points. However, one can choose from a wide selection of cost functions in general. For classification cases it is normal to use Cross entropy as the cost function. In that case it is defined as 
-
-\begin{align}\label{eq:cross_entropy}
-   C(\vec{y}) =  -\sum_{i=1}^n \ \Big[ &y_i\log(t_i) + (1-y_i)\log ( 1 - t_i) \Big].
-\end{align}
-By calculating the gradient gradient $\nabla_{w,b}C$ with respect to the weights and biases, we can use gradient descent (see section \ref{sec:GD}) to minimize the cost function. Thus we need to evaluate $\partial C/\partial w_{ij}^l$ and $\partial C/\partial b_j^l$. We begin by looking at the last layer $l = L$. By using the chain rule we get
-\begin{align*}
-     \frac{\partial C}{\partial w_{ij}^L} = \frac{\partial C}{\partial a_j^L}\frac{\partial a_j^L}{\partial z_j^L} \frac{\partial z_j^L}{\partial w_{ij}^L}.
-\end{align*}
-We remember that 
-\begin{align*}
-    &a_j^L = \sigma(z_j^L),& &z_j^L = \sum_{i = 1}^{n_{L-1}} w_{ij}^L a_i^{L-1} + b_j^L,&
-\end{align*}
-such that we get 
-\begin{align*}
-     \frac{\partial C}{\partial w_{ij}^L} = \frac{\partial C}{\partial a_j^L} \sigma'( z_j^L) a_i^{L-1}.
-\end{align*}
-Notice that the remaining derivatives can easily be calculated when deciding on a specific  cost and activation function. For the bias we simply get 
-\begin{align*}
-     \frac{\partial C}{\partial b_j^L} = \frac{\partial C}{\partial a_j^L}\frac{\partial a_j^L}{\partial z_j^L} \frac{\partial z_j^L}{\partial b_j^L} = \frac{\partial C}{\partial a_j^L} \sigma'(z_j^L) \cdot 1.  
-\end{align*}
-We use this to motivate the definition of the local gradient
-\begin{align*}
-    \delta_j^l \equiv \frac{\partial C}{\partial z_j^l},
-\end{align*}
-such that 
-\begin{align*}
-    \delta_j^L = \frac{\partial C}{\partial z_j^L} =  \frac{\partial C}{\partial a_j^L}\frac{\partial a_j^L}{\partial z_j^L}  =  \frac{\partial C}{\partial a_j^L}\sigma'( z_j^L).
-\end{align*}
-This yields the more compact expressions
-\begin{align*}
-    &\frac{\partial C}{\partial w_{ij}^L} = \delta_j^L a_i^{L-1},& & \frac{\partial C}{\partial b_j^L} = \delta_j^L.&
-\end{align*}
-The local gradient $\delta_j^l$ is also commonly called the "error" since it reflects how big of an influence the j\textsuperscript{th} node in layer $l$ have on the change of the cost function. We let $\boldsymbol{\delta}^l$ denote the vector containing all the local gradients associated with layer $l$ and we can write it out as a matrix equation for the last layer
-\begin{align*}
-    \boldsymbol{\delta}^L = \nabla_a C \odot \frac{\partial \sigma}{\partial z^L}, \quad  \nabla_a C = \left[\frac{\partial C}{\partial a_1^L}, \frac{\partial C}{\partial a_2^L}, \hdots, \frac{\partial C}{\partial a_{n_L}^L}\right]^T,
-\end{align*}
-where $\odot$ is the Hadamard product (element-wise product). We can then define the gradient $\delta_j^l$ for the j\textsuperscript{th} node on a general layer $l$ in terms of $\delta_k^{l+1}$ for the k\textsuperscript{th} node on the following layer $l+1$ by using the chain rule
-\begin{align}
-    \delta_j^l &\equiv \frac{\partial C}{\partial z_j^l} \nonumber \\
-    &= \sum_k \frac{\partial C}{\partial z_k^{l+1}}\frac{\partial z_k^{l+1}}{\partial z_j^l} \nonumber\\
-    &= \sum_k \frac{\partial z_k^{l+1}}{\partial z_j^l} \delta_k^{l+1}.
-    \label{eq:error_j^l}
-\end{align}
-We remember 
-\begin{align*}
-    z_k^{l+1} = \sum_{j = 1}^{n_l} w_{jk}^{l+1} a_j^l + b_k^{l+1} = \sum_{j = 1}^{n_l} w_{jk}^{l+1} \sigma(z_j^l) + b_k^{l+1},
-\end{align*}
-and by taking the derivative we obtain
-\begin{align}
-    \frac{\partial z_k^{l+1}}{\partial z_j^l} =  w_{jk}^{l+1} \sigma'(z_j^l).
-    \label{eq:der_z_k^l+1}
-\end{align}
-We substitute back \ref{eq:der_z_k^l+1} into \ref{eq:error_j^l} to find
-\begin{align*}
-    \delta_j^l = \sum_k  \delta_k^{l+1}  w_{ij}^{l+1}\sigma'(z_j^l).
-\end{align*}
-
-The complete back propagation algorithm then becomes 
-\begin{itemize}
-    \item Compute
-    \begin{align*}
-    \delta_j^L =  \frac{\partial C}{\partial a_j^L}\sigma'( z_j^L). 
-    \end{align*}
-    \item For $l = L-1, L-2, \hdots, 1$   compute:
-    \begin{align*}
-        \delta_j^l = \sum_k  \delta_k^{l+1}  w_{jk}^{l+1}\sigma'(z_j^l).
-    \end{align*}
-    \item For all layers $l$ update weights and biases: 
-    \begin{align*}
-        w_{ij}^l &\leftarrow w_{ij}^l - \eta \delta_j^l a_i^{l-1}, \\
-        b_j^l &\leftarrow b_j^l - \eta \delta_j^l,
-    \end{align*}
-    where $\eta$ is the learning rate.
-\end{itemize}
-In order to minimize the risk of overfitting it is common to include a L2 regularization by adding the L2 norm to the cost function as $\lambda||w||_2^2$ and $\lambda||b||_2^2$.
-This result in the modified expressions for the update 
-\begin{equation*}
-    \begin{aligned}
-        w_{ij}^l &\leftarrow w_{ij}^l - \eta ( \delta_j^l a_i^{l-1} + \lambda w_{ij}^l ), \\
-            b_j^l &\leftarrow b_j^l - \eta (\delta_j^l + \lambda b_{j}^l).
-     \end{aligned}
-\end{equation*}
+In the case where $l=L$, $a_j^L$ is equal to the final output. 
+\subsubsection{Back Propagation}\label{subsubsec:BP}

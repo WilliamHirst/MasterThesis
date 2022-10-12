@@ -1,14 +1,69 @@
-\subsection{Gradient Boosting and decision trees}
-In this rapport I will use the XGBoost-classifier which uses gradient-boosted trees. Gradient-boosting is a machine learning algorithm which uses a collective of "weak" classifiers in order to create one strong classifier. In the case of gradient-boosted trees the weak classifiers are a collective of shallow trees, which combine to form a classifiers that allows for deeper learning. As is the case for most gradient-boosting techniques, the collecting of weak classifiers is an iterative process.
+\subsection{Decision Trees and Gradient Boosting}
+\subsubsection*{Decision Trees}
+\ac{DT} are, similarly to \ac{NN} one of the most popular \ac{ML} methods used today.
+Contrary to \ac{NN}, \ac{DT} are famously easy in theory. Despite the simplicity of \ac{DT}, 
+they are capable of a large range of complex problems. In this section I will cover the use 
+of \ac{DT} as applied to a supervised classification.
 \\
-We define an imperfect model $\mathcal{F}_m$, which is a collective of m number of weak classifiers, estimators. A prediction for the model on a given data-points, $x_i$ is defined as $\mathcal{F}_m(x_i)$, and the observed value for the aforementioned data is defined as $y_i$. The goal of the iterative process is to minimize some cost-function $\mathcal{C}$ by introducing a new estimator $h_m$ to compensate for any error, $\mathcal{C}(\mathcal{F}_m(x_i), y_i)$. In other words we define the new estimator as:
+Similarly to the traditional cut-and-count method used in particle physics, a \ac{DT} aims to 
+place \emph{rectangular-cuts} on a data set, $\mathcal{X}=\left(\textbf{x}_i,t_i\right)\mid_i^N$
+to effectively map $\textbf{x}_i\rightarrow t_i$. In other words, the goal of a \ac{DT} is to 
+use $\mathcal{X}$ to from a collection of thresholds $\bf{\mathcal{C}} \sf =\{\mathcal{C}_1, 
+\mathcal{C}_2,...,\mathcal{C}_{N_\mathcal{c}}\}$, which when applied to a new data set, 
+$\tilde{\mathcal{X}}=\left(\tilde{\textbf{x}}_i,\tilde{t}_i\right)\mid_i^{\tilde{N}}$ will 
+sort $\tilde{\textbf{x}}_i$ to a $\tilde {y}_i$. In figure \ref{fig:DT}, I have illustrated a simple 
+\ac{DT} classifying a 4-dimensional input data to one of three classifications. As is visualized 
+in figure \ref{fig:DT}, the \ac{DT} applies a set of thresholds on the data to find the route 
+applicable to a target. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figures/Illustrations/DT.png}
+    \caption{An illustration of a simple \ac{DT}, mapping a 4 dimensional input 
+    to one of three values in the target space.}
+    \label{fig:DT}
+\end{figure}
+\\
+Just like most \ac{ML}-methods, there are many kinds of \ac{DT} each with their own 
+architecture and benefits. In the case of \ac{DT} the defining qualities can be summarized in
+its choice of \emph{Deepness} and \emph{Optimization}. When provided with a data set, $\mathcal{D}$
+a \ac{DT} can in theory create as many cuts needed to map each individual data point, $\textbf{x}_i$ to the 
+corresponding target, $t_i$. Doing so would not only be very computationally heavy, but would almost 
+certainly lead to overfitting if applied to any new data. Instead, when building a \ac{DT} one defines 
+a maximum deepness. This means that we must define a limit to the length of $\bf \mathcal{C}$, which 
+subsequently leads to the need for a prioritization of cuts. 
+\\
+Building a \ac{DT} and choosing which cuts to apply at what point, is the equivalent of training a 
+network. How to decide by what standard one chooses to building the hierarchy of cuts is again the 
+equivalent of choosing an optimizer. 
+
+
+\subsubsection*{An Introduction to Gradient Boosting}
+In this rapport I will use the XGBoost-classifier which uses gradient-boosted trees. 
+Gradient-boosting is a machine learning algorithm which uses a collective of "weak" 
+classifiers in order to create one strong classifier. In the case of gradient-boosted 
+trees the weak classifiers are a collective of shallow trees, which combine to form a classifier 
+that allows for deeper learning. As is the case for most gradient-boosting 
+techniques, the collecting of weak classifiers is an iterative process.
+\\
+We define an imperfect model $\mathcal{F}_m$, which is a collective of m number of weak 
+classifiers, estimators. A prediction for the model on a given data-points, $x_i$ is 
+defined as $\mathcal{F}_m(x_i)$, and the observed value for the aforementioned data is 
+defined as $y_i$. The goal of the iterative process is to minimize some cost-function 
+$\mathcal{C}$ by introducing a new estimator $h_m$ to compensate for any error, 
+$\mathcal{C}(\mathcal{F}_m(x_i), y_i)$. In other words we define the new estimator as:
 \begin{align}
     \tilde{\mathcal{C}}(\mathcal{F}_m(x_i), y_i) = h_m(x_i),
 \end{align}
-where we define $\tilde{\mathcal{C}}$ as some relation defined between the observed and predicted values such that when added to the initial prediction we minimize $\mathcal{C}$.
+where we define $\tilde{\mathcal{C}}$ as some relation defined between the observed and 
+predicted values such that when added to the initial prediction we minimize $\mathcal{C}$.
 \\
 Using our new estimator $h_m$, we can now define a new model as
 \begin{align}
     \mathcal{F}_{m+1}(x_i) = \mathcal{F}_m + h_m (x_i).
 \end{align}
-The XGBoost \cite{XGB} framework used in this analysis enables a gradient-boosted algorithm, and was initially created for the Higgs ML challenge. Since the challenge, XGBoost has become a favorite for many in the ML community and has later won many other ML challenges. XGBoost often outperforms ordinary decision trees, but what is gains in results it looses in interpretability. A single tree can easily be analysed and dissected, but when the number of trees increases this becomes harder. 
+The XGBoost \cite{XGB} framework used in this analysis enables a gradient-boosted algorithm, 
+and was initially created for the Higgs ML challenge. Since the challenge, XGBoost has become 
+a favorite for many in the ML community and has later won many other ML challenges. XGBoost 
+often outperforms ordinary decision trees, but what is gains in results it looses in 
+interpretability. A single tree can easily be analyzed and dissected, but when the number 
+of trees increases this becomes harder. 

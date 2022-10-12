@@ -1,10 +1,10 @@
-\subsection{Cuts and triggers}
+\subsection{Cuts and triggers}\label{subsec:Cuts}
 To allow for deep learning and a thorough analysis one must try and keep
 as much of the data as possible. At the same time, including large amounts
-of irrelevant data can be both redundant and destruvtive. Therefore simple 
+of irrelevant data can be both redundant and destructive. Therefore, simple 
 cuts are necessary. The cuts applied in the analysis were grouped in two 
-definitions, baseline and signal. The baseline requriemtns are written in 
-table \ref{table:BL} and the signal requirments are written in table \ref{table:SG}.
+definitions, baseline and signal. The baseline requirements are written in 
+table \ref{table:BL} and the signal requirements are written in table \ref{table:SG}.
 Both sets of requirments were taken from tha ATLAS article from 2022 \cite{franchini_search_2019}.
 Given the definitions we demand that each event contains exactly three signal and three baseline leptons, 
 thereby removing any event with more or less. 
@@ -15,13 +15,13 @@ information from different parts of the detector. The criteria of Loose or Tight
 identification are simply different thresholds in the discriminant, where Loose is 
 defined as a lower threshold than Tight \cite{Aaboud_2019}. The overlap removal is used to solve any cases
 where the same lepton has been reconstructed as both a muon and an electron. The boolean
-of $lepPassOr$ simpply applies a set of requirments to avoid any double counting. The cut for
-the longitudal track parameters, $z_0$ is applied to insure that the leptons originate for the 
+of $lepPassOr$ simply applies a set of requirements to avoid any double counting. The cut for
+the longitudinal track parameters, $z_0$ is applied to ensure that the leptons originate for the 
 primary vertex.
 \\
-As for the requirements for the signal leptons, we require all baseline requirments are passed 
+As for the requirements for the signal leptons, we require all baseline requirements are passed 
 with the addition of a few more. We require Loose isolation for both electrons and muons. This means
-requiring criteria for a cone around the lepton and is used to supress \ac{QCD}-background events.
+requiring criteria for a cone around the lepton and is used to suppress \ac{QCD}-background events.
 Similarly to the $z_0$-cut, the transverse track parameter is also used to ensure origin from 
 primary vertex.
 \begin{table}
@@ -29,7 +29,7 @@ primary vertex.
     $
     \begin{array}{ccc}
         \hline \text { Requirement } & \text { Baseline electrons } & \text { Baseline muons } \\
-        \hline\text{Identification} &  & \text{Loose} \\
+        \hline\text{Identification} & - & \text{Loose} \\
         \text { Overlap Removal } & \text{lepPassOR} & \text{lepPassOR} \\
         \eta-\text { cut } & |\eta|<2.47 & |\eta|<2.7  \\
         \left|z_0 \sin (\theta)\right| \text { cut } & \left|z_0 \sin (\theta)\right|<0.5 \mathrm{~mm} & \left|z_0 \sin (\theta)\right|<0.5 \mathrm{~mm} \\
@@ -45,7 +45,7 @@ primary vertex.
     \begin{array}{ccc}
         \hline \text { Requirement } & \text { Signal electrons } & \text { Signal muons } \\
         \hline\text{Baseline} & \text{yes} & \text{yes} \\
-        \text{Identification} & \text{Tight} &  \\
+        \text{Identification} & \text{Tight} & - \\
         \text{Isolation} & \text{LooseVarRad} & \text{LooseVarRad}  \\
         \left|d_0\right| / \sigma_{d_0} \text { cut } & \left|d_0\right| / \sigma_{d_0}<5.0 & \left|d_0\right| / \sigma_{d_0}<3.0 \\
         \hline
@@ -56,9 +56,9 @@ primary vertex.
 \end{table}
 
 In addition to the simple cuts, we must insure a good comparison between
-\ac{MC}- and real data. Often one finds large deviation betweem the two in the case
+\ac{MC}- and real data. Often one finds large deviation between the two in the case
 of either very large or very small $P_t$. The latter case can often be caused by 
-poor reconstruction or missidentification. These are issues we aim to solve by checking
+poor reconstruction or miss identification. These are issues we aim to solve by checking
 different triggers. Given our data set is composed of different data sets spread over
 many years, different triggers are used. 
 

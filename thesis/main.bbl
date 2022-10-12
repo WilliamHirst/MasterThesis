@@ -1,4 +1,4 @@
-\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{1}
+\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
 \bibitem{joyce1999finnegans}
 J.~Joyce, \emph{Finnegans Wake}.
@@ -21,6 +21,18 @@ J.~Pumplin, \emph{How to tell quark jets from gluon jets},
 
 \bibitem{XGB}
 {The XGBoost Contributors}, ``Xgboost.''
+
+\bibitem{ROOT}
+{The Root team}, ``Root.''
+
+\bibitem{RDataFrame}
+{The Root team}, ``Rdataframe.''
+
+\bibitem{Pandas}
+{The Pandas team and voluntary contributers}, ``Pandas.''
+
+\bibitem{TLorentzVector}
+{The Root team}, ``Tlorentzvector.''
 
 \bibitem{franchini_search_2019}
 M.~Franchini, K.~H. Mankinen, G.~Carratta, F.~Scutti, A.~Gorisek, E.~Lytken
