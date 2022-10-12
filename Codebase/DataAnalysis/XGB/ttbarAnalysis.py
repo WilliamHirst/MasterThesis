@@ -1,7 +1,6 @@
 from time import time
 from sklearn.model_selection import train_test_split
 import xgboost as XGB
-from Plot_stuff.RHM import ROOT_Histo_Maker
 from Plot_stuff.plot_set import *
 from Plot_stuff.ROCM import *
 from Plot_stuff.FI import *
@@ -79,17 +78,8 @@ PlotRootHisto(predict_sorted,
               bins = 30,
               CutOff = 0.7)
 
-exit()
 plotFI(xgb, df.keys(), signal)
-ROOT_Histo_Maker(predict_sorted, 
-                 weights_sorted,
-                 channels, 
-                 Data = predict_data,
-                 bin_max = 1, 
-                 bin_min = 0,
-                 nr_bins = 30, 
-                 variable_name = r"$XGB-Output$", 
-                 saveAs = f"../../../thesis/Figures/MLResults/XGB/{signal}SearchDist.pdf")
+
 
 
 

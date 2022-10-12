@@ -1,10 +1,8 @@
 import ROOT as R
-from os.path import isfile, isdir
 import sys
 sys.path.insert(1, "../../")
 from Utilities import *
 sys.path.insert(1, "../../DataPreparation/RDataFrameAna")
-from samples import configure_samples
 import plottingTool as pt
 from pyHelperFunctions import *
 
@@ -13,10 +11,7 @@ def PlotRootHisto(MC, MC_wgt, Data, Channels, title, xlabel, bins, CutOff = None
 
     R.EnableImplicitMT(200)
 
-    #R.gROOT.ProcessLine(".L helperFunctions.cxx+");
     R.gSystem.AddDynamicPath("-I/home/wohirst/MasterThesis/Codebase/DataPreparation/RDataFrameAna")
-    #R.gInterpreter.Declare('#include "helperFunctions.h"') # Header with the definition of the myFilter function
-    #R.gSystem.Load("helperFunctions_cxx.so") # Library with the myFilter function
 
     df = mergeToRoot(MC, MC_wgt, Data, Channels, CutOff)
     if CutOff is None:

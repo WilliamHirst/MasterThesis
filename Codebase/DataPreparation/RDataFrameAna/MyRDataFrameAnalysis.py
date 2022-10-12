@@ -19,7 +19,9 @@ R.gSystem.AddDynamicPath("-I/home/wohirst/MasterThesis/Codebase/DataPreparation/
 R.gInterpreter.Declare('#include "helperFunctions.h"') # Header with the definition of the myFilter function
 R.gSystem.Load("helperFunctions_cxx.so") # Library with the myFilter function
 
+data_loc = "/storage/shared/data/master_students/William_Sakarias/data_vOCT2022"
 storage = "/storage/William_Sakarias/William_Data"
+
 
 
 hname = "MET_2L_mm"
@@ -46,7 +48,9 @@ bkgdic = {"Wjets":{"color":R.kYellow+2},
           "topOther":{"color":R.kSpring-9},
           "triboson":{"color":R.kYellow+2},
           "ttbar":{"color":R.kRed+7},
-          "data18":{"color":R.kBlack}
+          "data18":{"color":R.kBlack},
+          "data17":{"color":R.kBlack},
+          "data16":{"color":R.kBlack}
 }
 featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
                         "nr_bins": 40, "min" : 25, "max" : 300},
@@ -343,9 +347,9 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 isTriggered = y_t["triggered"]
                 isMatch = y_t["match"]
                 notThisYear = f"is{other_years[0]} || is{other_years[1]} || is{other_years[2]}"
-                df[k] = df[k].Filter(f"{isTriggered} || {notThisYear}")
+                #df[k] = df[k].Filter(f"{isTriggered} || {notThisYear}")
                 df[k] = df[k].Define(f"lep_trig_{year}", f"{isMatch} ")
-                df[k] = df[k].Filter(f"ROOT::VecOps::Sum(lep_trig_{year}) >= 2 || {notThisYear}")
+                #df[k] = df[k].Filter(f"ROOT::VecOps::Sum(lep_trig_{year}) >= 2 || {notThisYear}")
 
             for i in range(Nlep):
                 df[k] = df[k].Define("lep%i_flav"%(i+1),"getTypeTimesCharge(lepCharge[isGoodLepton],lepType[isGoodLepton],%i)"%(i))
@@ -491,9 +495,9 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
         return histo, df
 
-histo, df = runANA("/storage/shared/data/master_students/William_Sakarias/data/PHYS_3LBkgs_mc16e",
-               "/storage/shared/data/master_students/William_Sakarias/data/data18",
-               everyN,fldic,histo,allhisto)
+histo, df = runANA(f"{data_loc}/PHYS_3LBkgs_mc16d",
+                   f"{data_loc}/data17",
+                   everyN,fldic,histo,allhisto)
 
 
 if 0:
