@@ -47,6 +47,8 @@ class Plot:
       p.is2D = not is1D
       p.xlabel = xtext
       p.Other = ["Wjets", "higgs", "triboson"]
+      p.Zjets = ["Zeejets","Zttjets", "Zmmjets" ]
+      p.Data = ["data18","data15", "data16", "data17"]
 
       p.Neg = False
       if "Neg" in hname:
@@ -275,12 +277,14 @@ class Plot:
               newkey = hkey.replace("_EF_","_SG_")+"_%s"%k
             if not newkey in histo.keys():
                 continue
-            if k not in p.Other:
+            if not (k in p.Other and k in p.Data and k in p.Zjets):
               histo_i = histo[hkey+"_%s"%k]
             elif k == p.Other[0]:
-              histo_i = histo[hkey+"_%s"%p.Other[0]]
-              for i in range(1,len(p.Other)):
-                histo_i.Add(histo[hkey+"_%s"%p.Other[i]].GetPtr())
+              histo_i, _ = p.mergeChannels(p,histo,p.Other,0,hkey)
+            elif k == p.Data[0]:
+              histo_i, _ = p.mergeChannels(p,histo,p.Data,0,hkey)
+            elif k == p.Zjets[0]:
+              histo_i, _ = p.mergeChannels(p,histo,p.Zjets,0,hkey)
             else:
               continue 
 
@@ -319,6 +323,14 @@ class Plot:
         #p.ratio.SetLineColor(R.kGray+2)
         p.ratio.SetLineWidth(2)
         p.ratio.SetMarkerStyle(21)
+      
+    def mergeChannels(p,histo,group,pc_yield,hkey,name):
+      leg_txt = '{0} ({1:.1f}%)'.format(name, pc_yield)
+      histo_i = histo[hkey+"_%s"%group[0]]
+      for i in range(1,len(group)):
+        histo_i.Add(histo[hkey+"_%s"%group[i]].GetPtr())
+      return histo_i,leg_txt
+
         
     def fillStack(p,histo,hkey,procs):
         for k in procs:
@@ -334,13 +346,14 @@ class Plot:
               print(k, pc_yield)
               if pc_yield < 10: continue
               leg_txt = '{0}'.format( d_samp[k]["leg"] )
-            if k not in p.Other:
+            if not (k in p.Other or k in p.Data or k in p.Zjets):
               histo_i = histo[hkey+"_%s"%k]
             elif k == p.Other[0]:
-              leg_txt = '{0} ({1:.1f}%)'.format("Others", pc_yield)
-              histo_i = histo[hkey+"_%s"%p.Other[0]]
-              for i in range(1,len(p.Other)):
-                histo_i.Add(histo[hkey+"_%s"%p.Other[i]].GetPtr())
+              histo_i, leg_txt = p.mergeChannels(histo,p.Other,pc_yield,hkey,"Other")
+            elif k == p.Data[0]:
+              histo_i, leg_txt = p.mergeChannels(histo,p.Data,pc_yield,hkey,"Data")
+            elif k == p.Zjets[0]:
+              histo_i, leg_txt = p.mergeChannels(histo,p.Zjets,pc_yield,hkey,"Zjets")
             else:
               continue  
             try:
@@ -356,19 +369,14 @@ class Plot:
             if not d_samp[k]["type"] == "data": continue
             if not hkey+"_%s"%k in histo.keys():
                 continue
-            if not p.isEff:
-              leg_txt = '{0} ({1:.0f} Events)'.format(d_samp[k]["leg"], p.dyield[k])
-            else:
-              leg_txt = '{0})'.format(d_samp[k]["leg"])
-            if k not in p.Other:
-              histo_i = histo[hkey+"_%s"%k]
-            elif k == p.Other[0]:
-              leg_txt = '{0} ({1:.0f} Events)'.format("Others", p.dyield[k])
-              histo_i = histo[hkey+"_%s"%p.Other[0]]
-              for i in range(1,len(p.Other)):
-                histo_i.Add(histo[hkey+"_%s"%p.Other[i]].GetPtr())
+            if k == p.Data[0]:
+              histo_i, leg_txt = p.mergeChannels(histo,p.Data,0,hkey,"Data")
             else:
               continue 
+            if not p.isEff:
+              leg_txt = '{0} ({1:.0f} Events)'.format(k, p.dyield[k])
+            else:
+              leg_txt = '{0})'.format(d_samp[k]["leg"])
             try:
                 p.datastack.Add(histo_i)
                 p.leg.AddEntry(histo_i,leg_txt,"lp")
@@ -385,19 +393,19 @@ class Plot:
               leg_txt = '{0} ({1:.0f} Events)'.format(d_samp[k]["leg"], p.dyield[k])
             else:
               leg_txt = '{0}'.format(d_samp[k]["leg"])
-            if k not in p.Other:
+            if not (k in p.Other or k in p.Data or k in p.Zjets) :
               histo_i = histo[hkey+"_%s"%k]
             elif k == p.Other[0]:
-              leg_txt = '{0} ({1:.0f} Events)'.format("Others", p.dyield[k])
-              histo_i = histo[hkey+"_%s"%p.Other[0]]
-              for i in range(1,len(p.Other)):
-                histo_i.Add(histo[hkey+"_%s"%p.Other[i]].GetPtr())
+              histo_i, leg_txt = p.mergeChannels(p,histo,p.Other,0,hkey,"Other")
+            elif k == p.Data[0]:
+              histo_i, leg_txt = p.mergeChannels(p,histo,p.Data,0,hkey,"Data")
+            elif k == p.Zjets[0]:
+              histo_i, leg_txt = p.mergeChannels(p,histo,p.Zjets,0,hkey,"Zjets")
             else:
               continue 
             try:
                 p.signalstack.Add(histo_i)
                 p.leg.AddEntry(histo_i,leg_txt,"lp")
-                
             except:
                 p.signalstack.Add(histo_i.GetValue())
                 p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")

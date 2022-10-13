@@ -1,4 +1,5 @@
-from os import listdir
+from genericpath import exists
+from os import listdir,walk
 import ROOT as R
 from os.path import isfile, join, isdir
 import array
@@ -112,35 +113,42 @@ def getTreeName(fname):
     return "noname"
 
 
-def getDataFrames(mypath, nev = 0): 
-    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+def getDataFrames(mypath, nev = 0):
+    onlyfiles = []
+    for path,dirs,files in walk(mypath):
+        #print(path,dirs,files)
+        for f in files:
+            if isfile(join(path, f)) and f.endswith("_merged_processed.root"):
+                #print(join(path,f))
+                onlyfiles.append(join(path, f))
+
+                
     df = {}
     files = {}
     for of in onlyfiles:
         if not "merged" in of or not of.endswith(".root"): continue
-        sp = of.split("_")
+        sp = of.split("/")[-1].split("_")
         typ = ""
         for s in sp:
             if "merged" in s or s.isnumeric(): break
             typ += s
         if not typ in files.keys():
             files[typ] = {"files":[], "treename":""}
-        treename = getTreeName(mypath+"/"+of)
+        treename = getTreeName(of)
         if treename == "noname":
-            print("ERROR \t Could not find any TTree in %s"%(mypath+"/"+of))
+            print("ERROR \t Could not find any TTree in %s"%(of))
             continue
         files[typ]["treename"] = treename
-        files[typ]["files"].append(mypath+"/"+of)
+        files[typ]["files"].append(of)
+
         
-        #print(typ)
-        #if not typ == "singleTop": continue
-        #df[typ] = R.Experimental.MakeNTupleDataFrame("mini",mypath+"/"+of)#("%s_NoSys"%typ,mypath+"/"+of)
     for typ in files.keys():
         print("Adding %i files for %s"%(len(files[typ]["files"]),typ))
         df[typ] = R.RDataFrame(files[typ]["treename"],files[typ]["files"])
         if nev:
             df[typ] = df[typ].Range(nev)
     return df
+
 
 def getRatio1D(hT,hL,vb=0):
     asym = R.TGraphAsymmErrors();
@@ -151,3 +159,118 @@ def getRatio1D(hT,hL,vb=0):
     for i in range(0,hR.GetNbinsX()+1):
         hR.SetBinError(i+1,asym.GetErrorY(i))
     return hR
+
+def getTriggerThreshold(tname):
+    thr = []
+    reg = re.findall(r'_\d*([e]*[mu]*\d{1,})_{0,}',tname)
+    for r in reg:
+        thr.append(int(re.sub('\D', '', r)))
+    return max(thr)
+
+
+
+trgdic = {"2015":{"1L":["HLT_e24_lhmedium_L1EM20VH",
+                        "HLT_e60_lhmedium",
+                        "HLT_e120_lhloose",
+                        "HLT_mu20_iloose_L1MU15",
+                        "HLT_mu50"],
+                  "2L":["HLT_2e12_lhloose_L12EM10VH",
+                        "HLT_2mu10",
+                        "HLT_mu18_mu8noL1",
+                        "HLT_e17_lhloose_mu14",
+                        "HLT_e7_lhmedium_mu24"
+                  ],
+                  "3L":["HLT_e17_lhloose_2e9_lhloose",
+                        "HLT_mu18_2mu4noL1",
+                        "HLT_2e12_lhloose_mu10",
+                        "HLT_e12_lhloose_2mu10"
+                  ]},   
+          "2016":{"1L":["HLT_e24_lhmedium_nod0_L1EM20VH",
+                        "HLT_e24_lhtight_nod0_ivarloose",
+                        "HLT_e26_lhtight_nod0_ivarloose",
+                        "HLT_e60_lhmedium_nod0",
+                        "HLT_e140_lhloose_nod0",
+                        "HLT_mu26_ivarmedium",
+                        "HLT_mu50"],
+                  "2L":["HLT_2e15_lhvloose_nod0_L12EM13VH",
+                        "HLT_2e17_lhvloose_nod0",
+                        "HLT_2mu10",
+                        "HLT_2mu14",
+                        "HLT_mu20_mu8noL1",
+                        "HLT_mu22_mu8noL1",
+                        "HLT_e17_lhloose_nod0_mu14",
+                        "HLT_e24_lhmedium_nod0_L1EM20VHI_mu8noL1",
+                        "HLT_e7_lhmedium_nod0_mu24"
+                  ],
+                  "3L":["HLT_e24_lhvloose_nod0_2e12_lhvloose_nod0_L1EM20VH_3EM10VH",
+                        "HLT_e12_lhloose_nod0_2mu10",
+                        "HLT_2e12_lhloose_nod0_mu10",
+                        "HLT_mu20_2mu4noL1",
+                        "HLT_3mu6",
+                        "HLT_3mu6_msonly",
+                        "HLT_e17_lhloose_nod0_2e10_lhloose_nod0_L1EM15VH_3EM8VH"
+                  ]},
+          "2017":{"1L":["HLT_e26_lhtight_nod0_ivarloose",
+                        "HLT_e60_lhmedium_nod0",  
+                        "HLT_e140_lhloose_nod0",    
+                        "HLT_e300_etcut",                                
+                        "HLT_mu26_ivarmedium",	     
+                        "HLT_mu50"]
+                  ,"2L":["HLT_2e17_lhvloose_nod0_L12EM15VHI",
+                         "HLT_2e24_lhvloose_nod0",
+                         "HLT_2mu14",
+                         "HLT_mu22_mu8noL1",
+                         "HLT_e17_lhloose_nod0_mu14",
+                         "HLT_e26_lhmedium_nod0_mu8noL1",
+                         "HLT_e7_lhmedium_nod0_mu24"
+                  ],
+                  "3L":["HLT_e24_lhvloose_nod0_2e12_lhvloose_nod0_L1EM20VH_3EM10VH",
+                        "HLT_e12_lhloose_nod0_2mu10",
+                        "HLT_2e12_lhloose_nod0_mu10",
+                        "HLT_mu20_2mu4noL1",
+                        "HLT_3mu6",
+                        "HLT_3mu6_msonly"
+                  ]},
+          "2018":{"1L":["HLT_e26_lhtight_nod0_ivarloose",
+                        "HLT_e60_lhmedium_nod0",  
+                        "HLT_e140_lhloose_nod0",    
+                        "HLT_e300_etcut",                                
+                        "HLT_mu26_ivarmedium",	     
+                        "HLT_mu50"],
+                  "2L":["HLT_2e17_lhvloose_nod0_L12EM15VHI",
+                        "HLT_2e24_lhvloose_nod0",
+                        "HLT_2mu14",
+                        "HLT_mu22_mu8noL1",
+                        "HLT_e17_lhloose_nod0_mu14",
+                        "HLT_e26_lhmedium_nod0_mu8noL1",
+                        "HLT_e7_lhmedium_nod0_mu24"],
+                  "3L":["HLT_e24_lhvloose_nod0_2e12_lhvloose_nod0_L1EM20VH_3EM10VH",
+                        "HLT_e12_lhloose_nod0_2mu10",
+                        "HLT_2e12_lhloose_nod0_mu10",
+                        "HLT_mu20_2mu4noL1",
+                        "HLT_3mu6"
+                  ]},
+}
+
+
+import re
+trigstr = {}
+evtrigstr = {}
+for yr in trgdic.keys():
+    for x in trgdic[yr].keys():
+        if not len(trgdic[yr][x]): continue
+        if not x in trigstr.keys():
+            trigstr[x] = {}
+            evtrigstr[x] = {}
+        if not yr in trigstr[x].keys():
+            trigstr[x][yr] = "("
+            evtrigstr[x][yr] = "("
+        for trigger in trgdic[yr][x]:
+            if trigger == "1":
+                trigstr[x][yr] += "(1) || "
+                evtrigstr[x][yr] += "1 || "
+            else:
+                trigstr[x][yr] += "(lep%s && lepPt > %i) || "%(trigger,getTriggerThreshold(trigger))
+                evtrigstr[x][yr] += "trigMatch_%s || "%(trigger)
+        trigstr[x][yr] = trigstr[x][yr][:-4]+")"
+        evtrigstr[x][yr] = evtrigstr[x][yr][:-4]+")"

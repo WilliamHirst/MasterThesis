@@ -40,6 +40,9 @@ fldic = {"eee":0,
 
 bkgdic = {"Wjets":{"color":R.kYellow+2},
           "Zjets2":{"color":R.kBlue-7},
+          "Zeejets":{"color":R.kBlue-7},
+          "Zmmjets":{"color":R.kBlue-7},
+          "Zttjets":{"color":R.kBlue-7},
           "diboson2L":{"color":R.kRed-7},
           "diboson3L":{"color":R.kBlue-7},
           "diboson4L":{"color":R.kGreen-2},
@@ -123,120 +126,6 @@ lepv = ["lepPt","lepEta","lepPhi", "lepCharge", "lepFlavor"]
 
 
 
-def getTriggerThreshold(tname):
-    thr = []
-    reg = re.findall(r'_\d*([e]*[mu]*\d{1,})_{0,}',tname)
-    for r in reg:
-        thr.append(int(re.sub('\D', '', r)))
-    return max(thr)
-
-
-
-trgdic = {"2015":{"1L":["HLT_e24_lhmedium_L1EM20VH",
-                        "HLT_e60_lhmedium",
-                        "HLT_e120_lhloose",
-                        "HLT_mu20_iloose_L1MU15",
-                        "HLT_mu50"],
-                  "2L":["HLT_2e12_lhloose_L12EM10VH",
-                        "HLT_2mu10",
-                        "HLT_mu18_mu8noL1",
-                        "HLT_e17_lhloose_mu14",
-                        "HLT_e7_lhmedium_mu24"
-                  ],
-                  "3L":["HLT_e17_lhloose_2e9_lhloose",
-                        "HLT_mu18_2mu4noL1",
-                        "HLT_2e12_lhloose_mu10",
-                        "HLT_e12_lhloose_2mu10"
-                  ]},   
-          "2016":{"1L":["HLT_e24_lhmedium_nod0_L1EM20VH",
-                        "HLT_e24_lhtight_nod0_ivarloose",
-                        "HLT_e26_lhtight_nod0_ivarloose",
-                        "HLT_e60_lhmedium_nod0",
-                        "HLT_e140_lhloose_nod0",
-                        "HLT_mu26_ivarmedium",
-                        "HLT_mu50"],
-                  "2L":["HLT_2e15_lhvloose_nod0_L12EM13VH",
-                        "HLT_2e17_lhvloose_nod0",
-                        "HLT_2mu10",
-                        "HLT_2mu14",
-                        "HLT_mu20_mu8noL1",
-                        "HLT_mu22_mu8noL1",
-                        "HLT_e17_lhloose_nod0_mu14",
-                        "HLT_e24_lhmedium_nod0_L1EM20VHI_mu8noL1",
-                        "HLT_e7_lhmedium_nod0_mu24"
-                  ],
-                  "3L":["HLT_e24_lhvloose_nod0_2e12_lhvloose_nod0_L1EM20VH_3EM10VH",
-                        "HLT_e12_lhloose_nod0_2mu10",
-                        "HLT_2e12_lhloose_nod0_mu10",
-                        "HLT_mu20_2mu4noL1",
-                        "HLT_3mu6",
-                        "HLT_3mu6_msonly",
-                        "HLT_e17_lhloose_nod0_2e10_lhloose_nod0_L1EM15VH_3EM8VH"
-                  ]},
-          "2017":{"1L":["HLT_e26_lhtight_nod0_ivarloose",
-                        "HLT_e60_lhmedium_nod0",  
-                        "HLT_e140_lhloose_nod0",    
-                        "HLT_e300_etcut",                                
-                        "HLT_mu26_ivarmedium",	     
-                        "HLT_mu50"]
-                  ,"2L":["HLT_2e17_lhvloose_nod0_L12EM15VHI",
-                         "HLT_2e24_lhvloose_nod0",
-                         "HLT_2mu14",
-                         "HLT_mu22_mu8noL1",
-                         "HLT_e17_lhloose_nod0_mu14",
-                         "HLT_e26_lhmedium_nod0_mu8noL1",
-                         "HLT_e7_lhmedium_nod0_mu24"
-                  ],
-                  "3L":["HLT_e24_lhvloose_nod0_2e12_lhvloose_nod0_L1EM20VH_3EM10VH",
-                        "HLT_e12_lhloose_nod0_2mu10",
-                        "HLT_2e12_lhloose_nod0_mu10",
-                        "HLT_mu20_2mu4noL1",
-                        "HLT_3mu6",
-                        "HLT_3mu6_msonly"
-                  ]},
-          "2018":{"1L":["HLT_e26_lhtight_nod0_ivarloose",
-                        "HLT_e60_lhmedium_nod0",  
-                        "HLT_e140_lhloose_nod0",    
-                        "HLT_e300_etcut",                                
-                        "HLT_mu26_ivarmedium",	     
-                        "HLT_mu50"],
-                  "2L":["HLT_2e17_lhvloose_nod0_L12EM15VHI",
-                        "HLT_2e24_lhvloose_nod0",
-                        "HLT_2mu14",
-                        "HLT_mu22_mu8noL1",
-                        "HLT_e17_lhloose_nod0_mu14",
-                        "HLT_e26_lhmedium_nod0_mu8noL1",
-                        "HLT_e7_lhmedium_nod0_mu24"],
-                  "3L":["HLT_e24_lhvloose_nod0_2e12_lhvloose_nod0_L1EM20VH_3EM10VH",
-                        "HLT_e12_lhloose_nod0_2mu10",
-                        "HLT_2e12_lhloose_nod0_mu10",
-                        "HLT_mu20_2mu4noL1",
-                        "HLT_3mu6"
-                  ]},
-}
-
-
-import re
-trigstr = {}
-evtrigstr = {}
-for yr in trgdic.keys():
-    for x in trgdic[yr].keys():
-        if not len(trgdic[yr][x]): continue
-        if not x in trigstr.keys():
-            trigstr[x] = {}
-            evtrigstr[x] = {}
-        if not yr in trigstr[x].keys():
-            trigstr[x][yr] = "("
-            evtrigstr[x][yr] = "("
-        for trigger in trgdic[yr][x]:
-            if trigger == "1":
-                trigstr[x][yr] += "(1) || "
-                evtrigstr[x][yr] += "1 || "
-            else:
-                trigstr[x][yr] += "(lep%s && lepPt > %i) || "%(trigger,getTriggerThreshold(trigger))
-                evtrigstr[x][yr] += "trigMatch_%s || "%(trigger)
-        trigstr[x][yr] = trigstr[x][yr][:-4]+")"
-        evtrigstr[x][yr] = evtrigstr[x][yr][:-4]+")"
 
 
 
@@ -267,8 +156,8 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             print("Loading %s into dataframe with keys %s" %(mypath_data,",".join(df_data.keys())))
         else:
             df_data = {}
-
         df = {**df_mc,**df_data}
+        
         for k in df.keys():
             isData = "data" in k
 
@@ -305,8 +194,10 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 df[k] = df[k].Define("lepwgt_SG","getSF(lepRecoSF[ele_SG || muo_SG])")
 
                 df[k] = df[k].Define("trgwgt_SG","getSF(lepTrigSF[ele_SG || muo_SG])")
-
-                df[k] = df[k].Define("wgt_SG","(new_xsec ? (new_xsec) : (genWeight))*eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG")
+                if "Z" in k and "jets" in k:
+                    df[k] = df[k].Define("wgt_SG","(new_xsec ? (new_xsec) : (genWeight))*eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG*1000")
+                else:    
+                    df[k] = df[k].Define("wgt_SG","(new_xsec ? (new_xsec) : (genWeight))*eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG")
 
                 df[k] = df[k].Define("wgt_EV_SG","(eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG)")
 
@@ -495,7 +386,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
         return histo, df
 
-histo, df = runANA(f"{data_loc}/PHYS_3LBkgs_mc16d",
+histo, df = runANA(f"{data_loc}/",
                    f"{data_loc}/data17",
                    everyN,fldic,histo,allhisto)
 
