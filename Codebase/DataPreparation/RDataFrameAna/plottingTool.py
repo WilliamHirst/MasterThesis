@@ -277,14 +277,14 @@ class Plot:
               newkey = hkey.replace("_EF_","_SG_")+"_%s"%k
             if not newkey in histo.keys():
                 continue
-            if not (k in p.Other and k in p.Data and k in p.Zjets):
+            if not (k in p.Other or k in p.Data or k in p.Zjets):
               histo_i = histo[hkey+"_%s"%k]
             elif k == p.Other[0]:
-              histo_i, _ = p.mergeChannels(p,histo,p.Other,0,hkey)
+              histo_i, _ = p.mergeChannels(p,histo,p.Other,hkey)
             elif k == p.Data[0]:
-              histo_i, _ = p.mergeChannels(p,histo,p.Data,0,hkey)
+              histo_i, _ = p.mergeChannels(p,histo,p.Data,hkey)
             elif k == p.Zjets[0]:
-              histo_i, _ = p.mergeChannels(p,histo,p.Zjets,0,hkey)
+              histo_i, _ = p.mergeChannels(p,histo,p.Zjets,hkey)
             else:
               continue 
 
@@ -324,12 +324,16 @@ class Plot:
         p.ratio.SetLineWidth(2)
         p.ratio.SetMarkerStyle(21)
       
-    def mergeChannels(p,histo,group,pc_yield,hkey,name):
-      leg_txt = '{0} ({1:.1f}%)'.format(name, pc_yield)
+    def mergeChannels(p,histo,group,hkey,name,pc_yield = None):
       histo_i = histo[hkey+"_%s"%group[0]]
       for i in range(1,len(group)):
         histo_i.Add(histo[hkey+"_%s"%group[i]].GetPtr())
-      return histo_i,leg_txt
+      if pc_yield is None:
+        return histo_i, None
+      else:
+        leg_txt = '{0} ({1:.1f}%)'.format(name, pc_yield)
+        return histo_i, leg_txt
+
 
         
     def fillStack(p,histo,hkey,procs):
@@ -349,11 +353,11 @@ class Plot:
             if not (k in p.Other or k in p.Data or k in p.Zjets):
               histo_i = histo[hkey+"_%s"%k]
             elif k == p.Other[0]:
-              histo_i, leg_txt = p.mergeChannels(histo,p.Other,pc_yield,hkey,"Other")
+              histo_i, leg_txt = p.mergeChannels(histo,p.Other,hkey,"Other",pc_yield)
             elif k == p.Data[0]:
-              histo_i, leg_txt = p.mergeChannels(histo,p.Data,pc_yield,hkey,"Data")
+              histo_i, leg_txt = p.mergeChannels(histo,p.Data,hkey,"Data",pc_yield)
             elif k == p.Zjets[0]:
-              histo_i, leg_txt = p.mergeChannels(histo,p.Zjets,pc_yield,hkey,"Zjets")
+              histo_i, leg_txt = p.mergeChannels(histo,p.Zjets,hkey,"Zjets",pc_yield)
             else:
               continue  
             try:
@@ -370,7 +374,7 @@ class Plot:
             if not hkey+"_%s"%k in histo.keys():
                 continue
             if k == p.Data[0]:
-              histo_i, leg_txt = p.mergeChannels(histo,p.Data,0,hkey,"Data")
+              histo_i, _ = p.mergeChannels(histo,p.Data,hkey,"Data")
             else:
               continue 
             if not p.isEff:
@@ -396,11 +400,11 @@ class Plot:
             if not (k in p.Other or k in p.Data or k in p.Zjets) :
               histo_i = histo[hkey+"_%s"%k]
             elif k == p.Other[0]:
-              histo_i, leg_txt = p.mergeChannels(p,histo,p.Other,0,hkey,"Other")
+              histo_i, leg_txt = p.mergeChannels(p,histo,p.Other,hkey,"Other")
             elif k == p.Data[0]:
-              histo_i, leg_txt = p.mergeChannels(p,histo,p.Data,0,hkey,"Data")
+              histo_i, leg_txt = p.mergeChannels(p,histo,p.Data,hkey,"Data")
             elif k == p.Zjets[0]:
-              histo_i, leg_txt = p.mergeChannels(p,histo,p.Zjets,0,hkey,"Zjets")
+              histo_i, leg_txt = p.mergeChannels(p,histo,p.Zjets,hkey,"Zjets")
             else:
               continue 
             try:
