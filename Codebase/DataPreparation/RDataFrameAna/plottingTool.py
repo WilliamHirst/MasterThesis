@@ -46,7 +46,7 @@ class Plot:
       p.is1D = is1D
       p.is2D = not is1D
       p.xlabel = xtext
-      p.Other = ["Wjets", "higgs", "triboson"]
+      p.Other = ["higgs", "triboson"]
       p.Zjets = ["Zeejets","Zttjets", "Zmmjets" ]
       p.Data = ["data18","data15", "data16", "data17"]
 
@@ -280,11 +280,11 @@ class Plot:
             if not (k in p.Other or k in p.Data or k in p.Zjets):
               histo_i = histo[hkey+"_%s"%k]
             elif k == p.Other[0]:
-              histo_i, _ = p.mergeChannels(p,histo,p.Other,hkey)
+              histo_i, _ = p.mergeChannels(histo,p.Other,hkey)
             elif k == p.Data[0]:
-              histo_i, _ = p.mergeChannels(p,histo,p.Data,hkey)
+              histo_i, _ = p.mergeChannels(histo,p.Data,hkey)
             elif k == p.Zjets[0]:
-              histo_i, _ = p.mergeChannels(p,histo,p.Zjets,hkey)
+              histo_i, _ = p.mergeChannels(histo,p.Zjets,hkey)
             else:
               continue 
 
@@ -324,7 +324,7 @@ class Plot:
         p.ratio.SetLineWidth(2)
         p.ratio.SetMarkerStyle(21)
       
-    def mergeChannels(p,histo,group,hkey,name,pc_yield = None):
+    def mergeChannels(p,histo,group,hkey,name = None,pc_yield = None):
       histo_i = histo[hkey+"_%s"%group[0]]
       for i in range(1,len(group)):
         histo_i.Add(histo[hkey+"_%s"%group[i]].GetPtr())
@@ -389,30 +389,25 @@ class Plot:
                 p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
 
     def getSignal(p,histo,hkey,procs):
-        for k in procs:
-            if not d_samp[k]["type"] == "sig": continue
-            if not hkey+"_%s"%k in histo.keys():
-                continue
-            if not p.isEff:
-              leg_txt = '{0} ({1:.0f} Events)'.format(d_samp[k]["leg"], p.dyield[k])
-            else:
-              leg_txt = '{0}'.format(d_samp[k]["leg"])
-            if not (k in p.Other or k in p.Data or k in p.Zjets) :
-              histo_i = histo[hkey+"_%s"%k]
-            elif k == p.Other[0]:
-              histo_i, leg_txt = p.mergeChannels(p,histo,p.Other,hkey,"Other")
-            elif k == p.Data[0]:
-              histo_i, leg_txt = p.mergeChannels(p,histo,p.Data,hkey,"Data")
-            elif k == p.Zjets[0]:
-              histo_i, leg_txt = p.mergeChannels(p,histo,p.Zjets,hkey,"Zjets")
-            else:
-              continue 
-            try:
-                p.signalstack.Add(histo_i)
-                p.leg.AddEntry(histo_i,leg_txt,"lp")
-            except:
-                p.signalstack.Add(histo_i.GetValue())
-                p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
+      i = 1
+      for k in procs:
+        if not d_samp[k]["type"] == "sig": continue
+        if not hkey+"_%s"%k in histo.keys():
+            continue
+        if i:
+          histo_i = histo[hkey+"_%s"%k]
+          i = 0
+          continue
+        histo_i.Add(histo[hkey+"_%s"%k].GetPtr())
+      pc_yield = histo_i.Integral(0,histo_i.GetNbinsX()+1)
+      leg_txt = '{0} ({1:.1f}%)'.format("Signal", pc_yield)
+
+      try:
+        p.signalstack.Add(histo_i)
+        p.leg.AddEntry(histo_i,leg_txt,"lp")
+      except:
+        p.signalstack.Add(histo_i.GetValue())
+        p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
     # Function for customising the gPad (gPad points to the current pad, and one can use gPad to set attributes of the current pad)
 
     def customise_gPad(p,top=0.03, bot=0.15, left=0.17, right=0.08):

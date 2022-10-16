@@ -55,6 +55,15 @@ bkgdic = {"Wjets":{"color":R.kYellow+2},
           "data17":{"color":R.kBlack},
           "data16":{"color":R.kBlack}
 }
+sigdic = {"LRSMWR2400NR50":{"color":R.kBlack},
+          "WeHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
+          "WeHNL5060Glt01ddlepfiltch1":{"color":R.kBlack},
+          "WeHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
+          "WmuHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
+          "LRSMWR4500NR400":{"color":R.kBlack},
+          "WmuHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
+
+}
 featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
                         "nr_bins": 40, "min" : 25, "max" : 300},
            "lep2_Pt"  : {"xlabel":"P_{t}(l_{2}) [GeV]",
@@ -189,7 +198,8 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 df[k] = df[k].Define("is2015","RandomRunNumber <= 284500")
                 df[k] = df[k].Define("is2016","(RandomRunNumber > 284500 && RandomRunNumber < 320000)")
                 df[k] = df[k].Define("is2017","(RandomRunNumber > 320000 && RandomRunNumber < 348000)")
-                df[k] = df[k].Define("is2018","RandomRunNumber > 348000")
+                df[k] = df[k].Define("is2018","(RandomRunNumber > 348000 && RandomRunNumber < 400000)")
+
 
                 df[k] = df[k].Define("lepwgt_SG","getSF(lepRecoSF[ele_SG || muo_SG])")
 
@@ -205,7 +215,9 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 df[k] = df[k].Define("is2015","(RunNumber >= 276262 && RunNumber <= 284484)")
                 df[k] = df[k].Define("is2016","(RunNumber >= 297730 && RunNumber <= 311481)")
                 df[k] = df[k].Define("is2017","(RunNumber >= 325713 && RunNumber <= 340453)")
-                df[k] = df[k].Define("is2018","RunNumber >= 348885")
+                df[k] = df[k].Define("is2018","(RunNumber >= 348885 && RunNumber <  370000)")
+                df[k] = df[k].Define("is2022","(RunNumber >= 427882)")
+
 
                 df[k] = df[k].Define("wgt_SG","1.0")
                 df[k] = df[k].Define("wgt_EV","1.0")
@@ -241,7 +253,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 #df[k] = df[k].Filter(f"{isTriggered} || {notThisYear}")
                 df[k] = df[k].Define(f"lep_trig_{year}", f"{isMatch} ")
                 #df[k] = df[k].Filter(f"ROOT::VecOps::Sum(lep_trig_{year}) >= 2 || {notThisYear}")
-
+            df[k] = df[k].Filter("((DatasetNumber >= 700320 && DatasetNumber <= 700328) && bornMass <= 120000) || !((DatasetNumber >= 700320 && DatasetNumber <= 700328))","Z overlap")
             for i in range(Nlep):
                 df[k] = df[k].Define("lep%i_flav"%(i+1),"getTypeTimesCharge(lepCharge[isGoodLepton],lepType[isGoodLepton],%i)"%(i))
                 for v in lepv:
