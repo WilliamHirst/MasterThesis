@@ -399,15 +399,16 @@ class Plot:
           i = 0
           continue
         histo_i.Add(histo[hkey+"_%s"%k].GetPtr())
-      pc_yield = histo_i.Integral(0,histo_i.GetNbinsX()+1)
-      leg_txt = '{0} ({1:.1f}%)'.format("Signal", pc_yield)
+      if not i:
+        pc_yield = histo_i.Integral(0,histo_i.GetNbinsX()+1)
+        leg_txt = '{0} ({1:.1f}%)'.format("Signal", pc_yield)
 
-      try:
-        p.signalstack.Add(histo_i)
-        p.leg.AddEntry(histo_i,leg_txt,"lp")
-      except:
-        p.signalstack.Add(histo_i.GetValue())
-        p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
+        try:
+          p.signalstack.Add(histo_i)
+          p.leg.AddEntry(histo_i,leg_txt,"lp")
+        except:
+          p.signalstack.Add(histo_i.GetValue())
+          p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
     # Function for customising the gPad (gPad points to the current pad, and one can use gPad to set attributes of the current pad)
 
     def customise_gPad(p,top=0.03, bot=0.15, left=0.17, right=0.08):

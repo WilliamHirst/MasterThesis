@@ -62,7 +62,6 @@ sigdic = {"LRSMWR2400NR50":{"color":R.kBlack},
           "WmuHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
           "LRSMWR4500NR400":{"color":R.kBlack},
           "WmuHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
-
 }
 featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
                         "nr_bins": 40, "min" : 25, "max" : 300},
@@ -159,13 +158,14 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             print("Loading %s into dataframe with keys %s" %(mypath_mc,",".join(df_mc.keys())))
         else:
             df_mc = {}
-
+        """
         if isdir(mypath_data):
             df_data = getDataFrames(mypath_data)
             print("Loading %s into dataframe with keys %s" %(mypath_data,",".join(df_data.keys())))
         else:
             df_data = {}
-        df = {**df_mc,**df_data}
+        """
+        df = {**df_mc}#,**df_data}
         
         for k in df.keys():
             isData = "data" in k
@@ -439,6 +439,12 @@ for feature in featuresPlot:
     p = pt.Plot(histo,feature,toplot,xtext = xlabel)
     p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}.pdf")
     p.can.Draw()
+for sig in sigdic.keys():
+    toplot.append(sig)
+
+p = pt.Plot(histo,"met_Sign",toplot,xtext = featdic["met_Sign"]["xlabel"])
+p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}wSig.pdf")
+p.can.Draw()
  
 
 
