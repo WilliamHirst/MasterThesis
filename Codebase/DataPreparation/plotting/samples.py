@@ -123,7 +123,7 @@ def configure_samples():
     'LRSMWR4500NR400'               :{'type':'sig', 'leg':'Signal', 'f_color':kPink + 2, 'l_color':kPink + 2,  'path':'LRSMWR4500NR400'+bkg_suffix},
     'WmuHNL5060Glt01ddlepfiltch1'   :{'type':'sig', 'leg':'Signal', 'f_color':kPink + 2, 'l_color':kPink + 2,  'path':'WmuHNL5060Glt01ddlepfiltch1'+bkg_suffix},
     'WmuHNL5070Glt01ddlepfiltch1'   :{'type':'sig', 'leg':'Signal', 'f_color':kPink + 2, 'l_color':kPink + 2,  'path':'WmuHNL5070Glt01ddlepfiltch1'+bkg_suffix},
-    'LRSMWR2400NR50'   :{'type':'sig', 'leg':'Signal', 'f_color':kPink + 2, 'l_color':kPink + 2,  'path':'LRSMWR2400NR50'+bkg_suffix}
+    'LRSMWR2400NR50'                :{'type':'sig', 'leg':'Signal', 'f_color':kPink + 2, 'l_color':kPink + 2,  'path':'LRSMWR2400NR50'+bkg_suffix}
     }
 
   d_reg = {

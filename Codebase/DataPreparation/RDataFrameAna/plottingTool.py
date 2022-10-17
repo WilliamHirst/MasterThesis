@@ -46,7 +46,7 @@ class Plot:
       p.is1D = is1D
       p.is2D = not is1D
       p.xlabel = xtext
-      p.Other = ["higgs", "triboson"]
+      p.Other = [ "higgs", "Wjets", "triboson"]
       p.Zjets = ["Zeejets","Zttjets", "Zmmjets" ]
       p.Data = ["data18","data15", "data16", "data17"]
 
@@ -202,6 +202,12 @@ class Plot:
         
         p.leg.Draw()
 
+        ATL_status = "Internal"
+        text_size = 0.045
+
+
+        myText(0.22, 0.87, '#bf{#it{ATLAS}} ' + ATL_status, text_size*1.2, R.kBlack)
+
        
 
         xtitle = hname
@@ -226,7 +232,7 @@ class Plot:
         
 
         if not p.isEff:
-          myText(0.77, 0.47, 'N(Bkg) = %.1f'%(p.nTotBkg), 0.025, R.kBlack)
+          myText(0.77, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.025, R.kBlack)
 
         
         p.ratio = R.TH1D()
@@ -253,7 +259,6 @@ class Plot:
           ytitle = 'Data / SM'
           IsLogY = True
           enlargeYaxis = False
-          scaling = "False"
 
           maxbin = p.ratio.GetBinContent(p.ratio.GetMaximumBin())
 
@@ -272,6 +277,7 @@ class Plot:
 
     def getYields(p,histo,hkey,procs):
         for k in procs:
+            if d_samp[k]["type"] == "sig": continue
             newkey = hkey+"_%s"%k
             if p.isEff:
               newkey = hkey.replace("_EF_","_SG_")+"_%s"%k
@@ -280,14 +286,13 @@ class Plot:
             if not (k in p.Other or k in p.Data or k in p.Zjets):
               histo_i = histo[hkey+"_%s"%k]
             elif k == p.Other[0]:
-              histo_i, _ = p.mergeChannels(histo,p.Other,hkey)
+              histo_i, _ = p.mergeChannels(histo,p.Other,hkey,k=k)
             elif k == p.Data[0]:
-              histo_i, _ = p.mergeChannels(histo,p.Data,hkey)
+              histo_i, _ = p.mergeChannels(histo,p.Data,hkey,k=k)
             elif k == p.Zjets[0]:
-              histo_i, _ = p.mergeChannels(histo,p.Zjets,hkey)
+              histo_i, _ = p.mergeChannels(histo,p.Zjets,hkey,k=k)
             else:
               continue 
-
             if p.is1D:
               p.dyield[k] = histo_i.Integral(0,histo_i.GetNbinsX()+1)
             else:
@@ -324,8 +329,8 @@ class Plot:
         p.ratio.SetLineWidth(2)
         p.ratio.SetMarkerStyle(21)
       
-    def mergeChannels(p,histo,group,hkey,name = None,pc_yield = None):
-      histo_i = histo[hkey+"_%s"%group[0]]
+    def mergeChannels(p,histo,group,hkey,name = None,pc_yield = None,k = None):
+      histo_i = histo[hkey+"_%s"%group[0]].Clone(hkey+"_%s_SUM"%k)
       for i in range(1,len(group)):
         histo_i.Add(histo[hkey+"_%s"%group[i]].GetPtr())
       if pc_yield is None:
@@ -353,11 +358,9 @@ class Plot:
             if not (k in p.Other or k in p.Data or k in p.Zjets):
               histo_i = histo[hkey+"_%s"%k]
             elif k == p.Other[0]:
-              histo_i, leg_txt = p.mergeChannels(histo,p.Other,hkey,"Other",pc_yield)
-            elif k == p.Data[0]:
-              histo_i, leg_txt = p.mergeChannels(histo,p.Data,hkey,"Data",pc_yield)
+              histo_i, leg_txt = p.mergeChannels(histo,p.Other,hkey,"Other",pc_yield,k)
             elif k == p.Zjets[0]:
-              histo_i, leg_txt = p.mergeChannels(histo,p.Zjets,hkey,"Zjets",pc_yield)
+              histo_i, leg_txt = p.mergeChannels(histo,p.Zjets,hkey,"Zjets",pc_yield,k)
             else:
               continue  
             try:
@@ -369,24 +372,20 @@ class Plot:
 
                 
     def getData(p,histo,hkey,procs):
-        for k in procs:
-            if not d_samp[k]["type"] == "data": continue
-            if not hkey+"_%s"%k in histo.keys():
-                continue
-            if k == p.Data[0]:
-              histo_i, _ = p.mergeChannels(histo,p.Data,hkey,"Data")
-            else:
-              continue 
-            if not p.isEff:
-              leg_txt = '{0} ({1:.0f} Events)'.format(k, p.dyield[k])
-            else:
-              leg_txt = '{0})'.format(d_samp[k]["leg"])
-            try:
-                p.datastack.Add(histo_i)
-                p.leg.AddEntry(histo_i,leg_txt,"lp")
-            except:
-                p.datastack.Add(histo_i.GetValue())
-                p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
+      k = p.Data[0]
+      histo_i, _ = p.mergeChannels(histo,p.Data,hkey,"Data",k = k)
+      pc_yield = histo_i.Integral(0,histo_i.GetNbinsX()+1)
+
+      if not p.isEff:
+        leg_txt = '{0} ({1:.0f} Events)'.format("Data", pc_yield)
+      else:
+        leg_txt = '{0})'.format(d_samp[k]["leg"])
+      try:
+          p.datastack.Add(histo_i)
+          p.leg.AddEntry(histo_i,leg_txt,"lp")
+      except:
+          p.datastack.Add(histo_i.GetValue())
+          p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
 
     def getSignal(p,histo,hkey,procs):
       i = 1
@@ -395,14 +394,13 @@ class Plot:
         if not hkey+"_%s"%k in histo.keys():
             continue
         if i:
-          histo_i = histo[hkey+"_%s"%k]
+          histo_i = histo[hkey+"_%s"%k].Clone(hkey+"_%s_SUM"%k)
           i = 0
           continue
         histo_i.Add(histo[hkey+"_%s"%k].GetPtr())
       if not i:
         pc_yield = histo_i.Integral(0,histo_i.GetNbinsX()+1)
-        leg_txt = '{0} ({1:.1f}%)'.format("Signal", pc_yield)
-
+        leg_txt =  '{0} ({1:.0f})'.format("Signal", pc_yield)
         try:
           p.signalstack.Add(histo_i)
           p.leg.AddEntry(histo_i,leg_txt,"lp")

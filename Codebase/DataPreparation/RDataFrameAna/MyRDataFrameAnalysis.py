@@ -55,13 +55,13 @@ bkgdic = {"Wjets":{"color":R.kYellow+2},
           "data17":{"color":R.kBlack},
           "data16":{"color":R.kBlack}
 }
-sigdic = {"LRSMWR2400NR50":{"color":R.kBlack},
-          "WeHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
-          "WeHNL5060Glt01ddlepfiltch1":{"color":R.kBlack},
-          "WeHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
-          "WmuHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
-          "LRSMWR4500NR400":{"color":R.kBlack},
-          "WmuHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
+sigdic = {#"LRSMWR2400NR50":{"color":R.kBlack},
+          "WeHNL5040Glt01ddlepfiltch1":{"color":R.kBlack}
+          #"WeHNL5060Glt01ddlepfiltch1":{"color":R.kBlack},
+          #"WeHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
+          #"WmuHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
+          #"LRSMWR4500NR400":{"color":R.kBlack},
+          #"WmuHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
 }
 featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
                         "nr_bins": 40, "min" : 25, "max" : 300},
@@ -158,13 +158,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             print("Loading %s into dataframe with keys %s" %(mypath_mc,",".join(df_mc.keys())))
         else:
             df_mc = {}
-        """
-        if isdir(mypath_data):
-            df_data = getDataFrames(mypath_data)
-            print("Loading %s into dataframe with keys %s" %(mypath_data,",".join(df_data.keys())))
-        else:
-            df_data = {}
-        """
+ 
         df = {**df_mc}#,**df_data}
         
         for k in df.keys():
@@ -192,6 +186,9 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
             isGoodLepton = f"ele_SG || muo_SG"
             df[k] = df[k].Define("isGoodLepton", isGoodLepton)
+
+            # Pt cut 
+            df[k] = df[k].Filter("ROOT::VecOps::Sum(lepPt[isGoodLepton] > 20) >= 2")
             
             if not isData:
 
@@ -200,14 +197,16 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 df[k] = df[k].Define("is2017","(RandomRunNumber > 320000 && RandomRunNumber < 348000)")
                 df[k] = df[k].Define("is2018","(RandomRunNumber > 348000 && RandomRunNumber < 400000)")
 
-
                 df[k] = df[k].Define("lepwgt_SG","getSF(lepRecoSF[ele_SG || muo_SG])")
 
                 df[k] = df[k].Define("trgwgt_SG","getSF(lepTrigSF[ele_SG || muo_SG])")
                 if "Z" in k and "jets" in k:
-                    df[k] = df[k].Define("wgt_SG","(new_xsec ? (new_xsec) : (genWeight))*eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG*1000")
+                    df[k] = df[k].Define("wgt_SG","((genWeight)*eventWeight*jvtWeight*bTagWeight*scaletolumi*leptonWeight*globalDiLepTrigSF*pileupWeight)*1000.")
+                    #df[k] = df[k].Define("wgt_SG","(new_xsec ? (new_xsec) : (genWeight))*eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG*1000")
                 else:    
-                    df[k] = df[k].Define("wgt_SG","(new_xsec ? (new_xsec) : (genWeight))*eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG")
+                    #df[k] = df[k].Define("wgt_SG","(new_xsec ? (new_xsec) : (genWeight))*eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG")
+                    df[k] = df[k].Define("wgt_SG","(genWeight)*eventWeight*jvtWeight*bTagWeight*scaletolumi*leptonWeight*globalDiLepTrigSF*pileupWeight") #*pileupWeight
+
 
                 df[k] = df[k].Define("wgt_EV_SG","(eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG)")
 
@@ -253,7 +252,11 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 #df[k] = df[k].Filter(f"{isTriggered} || {notThisYear}")
                 df[k] = df[k].Define(f"lep_trig_{year}", f"{isMatch} ")
                 #df[k] = df[k].Filter(f"ROOT::VecOps::Sum(lep_trig_{year}) >= 2 || {notThisYear}")
-            df[k] = df[k].Filter("((DatasetNumber >= 700320 && DatasetNumber <= 700328) && bornMass <= 120000) || !((DatasetNumber >= 700320 && DatasetNumber <= 700328))","Z overlap")
+
+
+
+            if "Z" in k and "jets" in k:
+                df[k] = df[k].Filter("((DatasetNumber >= 700320 && DatasetNumber <= 700328) && bornMass <= 120000) || !((DatasetNumber >= 700320 && DatasetNumber <= 700328))","Z overlap")
             for i in range(Nlep):
                 df[k] = df[k].Define("lep%i_flav"%(i+1),"getTypeTimesCharge(lepCharge[isGoodLepton],lepType[isGoodLepton],%i)"%(i))
                 for v in lepv:
@@ -266,7 +269,8 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                     histo["lep%i_%s_%s"%(i+1,var,k)] = df[k].Histo1D(("lep%i_%s_%s"%(i+1,var,k),
                           "lep%i_%s_%s;Feature;Entries"%(i+1,var,k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),
                           "lep%i_%s"%(i+1,var),"wgt_SG")
-                    
+
+
             # Stransverse mass       
             df[k] = df[k].Define("MT2_12","calcMT2(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], met_Et, met_Phi, 0, 1)")
             df[k] = df[k].Define("MT2_13","calcMT2(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], met_Et, met_Phi, 0, 2)")
@@ -441,8 +445,8 @@ for feature in featuresPlot:
     p.can.Draw()
 for sig in sigdic.keys():
     toplot.append(sig)
-
-p = pt.Plot(histo,"met_Sign",toplot,xtext = featdic["met_Sign"]["xlabel"])
+feature = "lep1_Pt"
+p = pt.Plot(histo,feature,toplot,xtext = featdic[feature]["xlabel"])
 p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}wSig.pdf")
 p.can.Draw()
  
