@@ -53,15 +53,16 @@ bkgdic = {"Wjets":{"color":R.kYellow+2},
           "ttbar":{"color":R.kRed+7},
           "data18":{"color":R.kBlack},
           "data17":{"color":R.kBlack},
-          "data16":{"color":R.kBlack}
+          "data16":{"color":R.kBlack},
+          "data15":{"color":R.kBlack}
 }
-sigdic = {#"LRSMWR2400NR50":{"color":R.kBlack},
-          "WeHNL5040Glt01ddlepfiltch1":{"color":R.kBlack}
-          #"WeHNL5060Glt01ddlepfiltch1":{"color":R.kBlack},
-          #"WeHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
-          #"WmuHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
-          #"LRSMWR4500NR400":{"color":R.kBlack},
-          #"WmuHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
+sigdic = {"LRSMWR2400NR50":{"color":R.kBlack},
+          "WeHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
+          "WeHNL5060Glt01ddlepfiltch1":{"color":R.kBlack},
+          "WeHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
+          "WmuHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
+          "LRSMWR4500NR400":{"color":R.kBlack},
+          "WmuHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
 }
 featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
                         "nr_bins": 40, "min" : 25, "max" : 300},
@@ -165,7 +166,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             isData = "data" in k
 
             if not isData:
-                df[k] = df[k].Define("scaletolumi","(RandomRunNumber) < 320000 ? 36207.65 : (((RandomRunNumber) > 320000 && (RandomRunNumber) < 348000) ? 44307.4 : 58450.1)")
+                df[k] = df[k].Define("scaletolumi","(RandomRunNumber) < 320000 ? 36207.65 : (((RandomRunNumber) > 320000 && (RandomRunNumber) < 348000) ? 44307.4 : (((RandomRunNumber) > 348000 && (RandomRunNumber) < 400000) ? 58450.1 : 1258.27))")
 
             df[k] = df[k].Define("new_xsec","(DatasetNumber == 308981) ? (0.30649*69.594)/80000. : 0.0")
 
@@ -203,10 +204,13 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 if "Z" in k and "jets" in k:
                     df[k] = df[k].Define("wgt_SG","((genWeight)*eventWeight*jvtWeight*bTagWeight*scaletolumi*leptonWeight*globalDiLepTrigSF*pileupWeight)*1000.")
                     #df[k] = df[k].Define("wgt_SG","(new_xsec ? (new_xsec) : (genWeight))*eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG*1000")
+                elif "filtch" in k:
+                    df[k] = df[k].Define("wgt_SG","(genWeight)*eventWeight*jvtWeight*bTagWeight*scaletolumi*leptonWeight*globalDiLepTrigSF*pileupWeight/10000") #*pileupWeight
+                elif "LRSM" in k:
+                    df[k] = df[k].Define("wgt_SG","(genWeight)*eventWeight*jvtWeight*bTagWeight*scaletolumi*leptonWeight*globalDiLepTrigSF*pileupWeight*1000") #*pileupWeight
                 else:    
                     #df[k] = df[k].Define("wgt_SG","(new_xsec ? (new_xsec) : (genWeight))*eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG")
                     df[k] = df[k].Define("wgt_SG","(genWeight)*eventWeight*jvtWeight*bTagWeight*scaletolumi*leptonWeight*globalDiLepTrigSF*pileupWeight") #*pileupWeight
-
 
                 df[k] = df[k].Define("wgt_EV_SG","(eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG)")
 
@@ -387,7 +391,6 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
         for k in histo.keys():
             allhisto.append(histo[k])
-
 
         print("Calculating %i histograms"%len(allhisto))
         start = time.time()
