@@ -15,7 +15,6 @@ myPath = "/storage/William_Sakarias/William_Data"
 
 signal = "ttbar"
 
-df, y, df_data, channels = loadDf(myPath, signal)
 
 xgb = XGB.XGBClassifier(
             max_depth=4, 
@@ -28,6 +27,7 @@ xgb = XGB.XGBClassifier(
             use_label_encoder=False,
             eval_metric="error") 
 
+df, y, df_data, channels = loadDf(myPath, signal)
 train, val, test = splitData(df, y)
 
 X_train, Y_train, W_train, C_train = train
