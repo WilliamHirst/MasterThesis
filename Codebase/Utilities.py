@@ -35,7 +35,7 @@ def mergeToRoot(MC, MC_wgt, Data, Channels, CutOff = None):
     for i in range(len(Channels)):
         df_i = pd.DataFrame()
         ML_Val = np.array(MC[i],dtype=np.float64)
-        wgt = np.array(MC_wgt[i], dtype=np.float64)
+        wgt = np.array(MC_wgt[i], dtype=np.float64)        
         df_i = {"ML_Val": ML_Val[ML_Val >= CutOff], "wgt": wgt[ML_Val >= CutOff] }
         df[Channels[i]] = ROOT.RDF.MakeNumpyDataFrame(df_i)
 
@@ -53,9 +53,8 @@ def separateByChannel(prediction, weights, df_channel, channels):
 
     for channel in channels:
         isChannel = df_channel == channel
-        channel_pred = prediction[isChannel]
-        mc_predict.append(channel_pred)
-        mc_weights.append(weights[isChannel])
+        mc_predict.append(prediction[isChannel].ravel())
+        mc_weights.append(weights[isChannel].ravel())
     return mc_predict, mc_weights
 
 
@@ -142,7 +141,7 @@ def splitData(X, Y, split_v = 0.2, isEven = False, split_b = 0.2):
 def saveLoad(name, array = None):
     if array is None:
         with open(f"results/{name}", 'rb') as file:
-            output = np.load(file)
+            output = np.load(file,allow_pickle=True)
         return output
     else:
         with open(f"results/{name}", 'wb') as f:

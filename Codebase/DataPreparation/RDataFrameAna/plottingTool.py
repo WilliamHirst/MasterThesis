@@ -48,8 +48,9 @@ class Plot:
       p.xlabel = xtext
       p.Other = [ "higgs", "Wjets", "triboson"]
       p.Zjets = ["Zeejets","Zttjets", "Zmmjets" ]
-      p.Data = ["data18","data15", "data16", "data17"]
+      p.Data = [d for d in bkgs if "data" in d]
 
+  
       p.Neg = False
       if "Neg" in hname:
         p.Neg = True
@@ -287,8 +288,6 @@ class Plot:
               histo_i = histo[hkey+"_%s"%k]
             elif k == p.Other[0]:
               histo_i, _ = p.mergeChannels(histo,p.Other,hkey,k=k)
-            elif k == p.Data[0]:
-              histo_i, _ = p.mergeChannels(histo,p.Data,hkey,k=k)
             elif k == p.Zjets[0]:
               histo_i, _ = p.mergeChannels(histo,p.Zjets,hkey,k=k)
             else:
@@ -332,7 +331,8 @@ class Plot:
     def mergeChannels(p,histo,group,hkey,name = None,pc_yield = None,k = None):
       histo_i = histo[hkey+"_%s"%group[0]].Clone(hkey+"_%s_SUM"%k)
       for i in range(1,len(group)):
-        histo_i.Add(histo[hkey+"_%s"%group[i]].GetPtr())
+        if hkey+"_%s"%group[i] in histo.keys():
+          histo_i.Add(histo[hkey+"_%s"%group[i]].GetPtr())
       if pc_yield is None:
         return histo_i, None
       else:
@@ -372,20 +372,21 @@ class Plot:
 
                 
     def getData(p,histo,hkey,procs):
-      k = p.Data[0]
-      histo_i, _ = p.mergeChannels(histo,p.Data,hkey,"Data",k = k)
-      pc_yield = histo_i.Integral(0,histo_i.GetNbinsX()+1)
+      if len(p.Data)>0:
+        k = p.Data[0]
+        histo_i, _ = p.mergeChannels(histo,p.Data,hkey,"Data",k = k)
+        pc_yield = histo_i.Integral(0,histo_i.GetNbinsX()+1)
 
-      if not p.isEff:
-        leg_txt = '{0} ({1:.0f} Events)'.format("Data", pc_yield)
-      else:
-        leg_txt = '{0})'.format(d_samp[k]["leg"])
-      try:
-          p.datastack.Add(histo_i)
-          p.leg.AddEntry(histo_i,leg_txt,"lp")
-      except:
-          p.datastack.Add(histo_i.GetValue())
-          p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
+        if not p.isEff:
+          leg_txt = '{0} ({1:.0f} Events)'.format("Data", pc_yield)
+        else:
+          leg_txt = '{0})'.format(d_samp[k]["leg"])
+        try:
+            p.datastack.Add(histo_i)
+            p.leg.AddEntry(histo_i,leg_txt,"lp")
+        except:
+            p.datastack.Add(histo_i.GetValue())
+            p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
 
     def getSignal(p,histo,hkey,procs):
       i = 1

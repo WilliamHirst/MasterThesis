@@ -55,12 +55,13 @@ plotRoc(Y_val,
         name = f"../../../thesis/Figures/MLResults/NN/{signal}SearchROCVal.pdf")
 
 channel = df.channel
-wgt = df.wgt_SG
+wgt = np.asarray(df.wgt_SG)
 df = df.drop(columns=["wgt_SG","channel"])
 
 predict_sorted, weights_sorted =  separateByChannel(hypermodel.predict(df), wgt, channel, channels)
-predict_data = hypermodel.predict(df_data)
-print(weights_sorted)
+predict_data = hypermodel.predict(df_data).ravel()
+weights_sorted = np.asarray(weights_sorted, dtype = object)
+
 
 saveLoad("predict_sorted_test.npy", predict_sorted)
 saveLoad("weights_sorted_test.npy", weights_sorted)
