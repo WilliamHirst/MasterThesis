@@ -1,12 +1,13 @@
 from time import time
-from sklearn.model_selection import train_test_split
 import xgboost as XGB
+
+import sys
+sys.path.insert(1, "../")
 from Plot_stuff.plot_set import *
 from Plot_stuff.ROCM import *
 from Plot_stuff.FI import *
 from Plot_stuff.ROOTPlot import *
 
-import sys
 sys.path.insert(1, "../../")
 from Utilities import *
 
@@ -66,14 +67,14 @@ PlotRootHisto(predict_sorted,
               weights_sorted, 
               predict_data, 
               channels, 
-              title = f"{signal}SearchDist", 
+              title = f"XGB/{signal}SearchDist", 
               xlabel = "XGB-Output", 
               bins = 30)
 PlotRootHisto(predict_sorted, 
               weights_sorted, 
               predict_data, 
               channels, 
-              title = f"{signal}SearchDist_C7", 
+              title = f"XGB/{signal}SearchDist_C7", 
               xlabel = "XGB-Output", 
               bins = 30,
               CutOff = 0.7)

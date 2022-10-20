@@ -1,4 +1,5 @@
 from locale import D_T_FMT
+import pickle as pkl
 import numpy as np
 import pandas as pd
 
@@ -93,7 +94,7 @@ def splitData(X, Y, split_v = 0.2, isEven = False, split_b = 0.2):
 
     x_s = X[Y == 1]
     x_b = X[Y == 0]
-    y_s = Y[Y == 1] 
+    y_s = Y[Y == 1]
     y_b = Y[Y == 0]
 
 
@@ -132,4 +133,19 @@ def splitData(X, Y, split_v = 0.2, isEven = False, split_b = 0.2):
     
     W_train = removeNegWeights(W_train)
 
-    return (X_train, Y_train, W_train, C_train), (X_val, Y_val, W_val, C_val), (X_test, Y_test, W_test, C_test)
+    Tr = (X_train.astype('float32'), Y_train.astype('float32'), W_train.astype('float32'), C_train)
+    Va = (X_val.astype('float32'), Y_val.astype('float32'), W_val.astype('float32'), C_val)
+    Te = (X_test.astype('float32'), Y_test.astype('float32'), W_test.astype('float32'), C_test)
+
+    return Tr, Va, Te
+
+def saveLoad(name, array = None):
+    if array is None:
+        with open(f"results/{name}", 'rb') as file:
+            output = np.load(file)
+        return output
+    else:
+        with open(f"results/{name}", 'wb') as f:
+            np.save(f, array)
+        return 
+
