@@ -22,7 +22,7 @@ name = "test"
 hypermodel = tf.keras.models.load_model(f"models/model_{name}.h5")
 
 
-df, y, df_data, channels = loadDf(myPath, signal)
+df, y, df_data, channels = loadDf(myPath)
 train, val, test = splitData(df, y)
 
 X_train, Y_train, W_train, C_train = train

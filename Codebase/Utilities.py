@@ -5,26 +5,27 @@ import pandas as pd
 
 
 
-def loadDf(location, signal):
+def loadDf(location):
     from os import listdir
     from os.path import isfile, join
     onlyfiles = [f for f in listdir(location) if isfile(join(location, f))]
     df = pd.DataFrame()
     y = np.array([])
     channels = []
+    
     for i in range(len(onlyfiles)):
         if "data" not in onlyfiles[i]:
             channel = onlyfiles[i][:-7]
             df_i = pd.read_hdf(f"{location}/{onlyfiles[i]}")
-            df_i["isSignal"] = channel == signal
             df_i["channel"] = channel
-            df = df.append(df_i, ignore_index=True)
+            df = df.append(df_i, ignore_index=True,sort=False)
             channels.append(channel)
         else:
             df_data = pd.read_hdf(f"{location}/{onlyfiles[i]}")
-            df_data = df_data.drop(columns = ["wgt_SG"])
-    y = df.isSignal
-    df = df.drop(columns = ["isSignal"])
+            df_data = df_data.drop(columns = ["wgt_SG", "type"]) #Remove type from drop next run of MRData.
+
+    y = df.type
+    df = df.drop(columns = ["type"])
     return df, y, df_data, channels
 
 def mergeToRoot(MC, MC_wgt, Data, Channels, CutOff = None):
@@ -131,6 +132,7 @@ def splitData(X, Y, split_v = 0.2, isEven = False, split_b = 0.2):
     Y_test = y_b#[re_indx]
     
     W_train = removeNegWeights(W_train)
+    W_val = removeNegWeights(W_val)
 
     Tr = (X_train.astype('float32'), Y_train.astype('float32'), W_train.astype('float32'), C_train)
     Va = (X_val.astype('float32'), Y_val.astype('float32'), W_val.astype('float32'), C_val)

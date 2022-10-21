@@ -14,7 +14,7 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-signal = "ttbar"
+signal = "HNL"
 
 
 xgb = XGB.XGBClassifier(
@@ -28,8 +28,11 @@ xgb = XGB.XGBClassifier(
             use_label_encoder=False,
             eval_metric="error") 
 
-df, y, df_data, channels = loadDf(myPath, signal)
+df, y, df_data, channels = loadDf(myPath)
+
+print("Preparing data....")
 train, val, test = splitData(df, y)
+print("Done.")
 
 X_train, Y_train, W_train, C_train = train
 X_val, Y_val, W_val, C_val = val
@@ -37,7 +40,7 @@ X_test, Y_test, W_test, C_test = test
 
 time = timer()
 print("Training....")
-xgb = xgb.fit(X_train, Y_train, eval_set= [(X_val, Y_val)], sample_weight = W_train)
+xgb = xgb.fit(X_train, Y_train, eval_set= [(X_val, Y_val)], sample_weight = W_train, sample_weight_eval_set = [W_val])
 print("Done")
 timer(time)
 
