@@ -408,7 +408,7 @@ class Plot:
         except:
           p.signalstack.Add(histo_i.GetValue())
           p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
-    # Function for customising the gPad (gPad points to the current pad, and one can use gPad to set attributes of the current pad)
+      p.signalstack.GetStack().Last().SetLineWidth(3)
 
     def customise_gPad(p,top=0.03, bot=0.15, left=0.17, right=0.08):
 

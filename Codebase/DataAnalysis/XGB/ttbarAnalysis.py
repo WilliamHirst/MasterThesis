@@ -19,7 +19,7 @@ signal = "HNL"
 
 xgb = XGB.XGBClassifier(
             max_depth=4, 
-            n_estimators=120,
+            n_estimators=150,
             learning_rate=0.1,
             n_jobs=4,
             tree_method="hist",
@@ -82,6 +82,7 @@ PlotRootHisto(predict_sorted,
               bins = 30,
               CutOff = 0.7)
 
+exit()
 plotFI(xgb, df.keys(), signal)
 
 
