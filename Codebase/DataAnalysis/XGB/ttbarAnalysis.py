@@ -30,6 +30,7 @@ xgb = XGB.XGBClassifier(
 
 df, y, df_data, channels = loadDf(myPath)
 
+
 print("Preparing data....")
 train, val, test = splitData(df, y)
 print("Done.")
