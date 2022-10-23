@@ -116,14 +116,14 @@ def configure_samples():
     "LightFlavorDecay" : {'type':'LightFlavorDecay','leg':'LightFlavorDecay', 'f_color':kAzure+7,'l_color':kAzure+7,'m_color':kAzure+7,'m_type':20},
     "DATA" : {'type':'DATA','leg':'DATA', 'f_color':kBlack,'l_color':kBlack,'m_color':kBlack,'m_type':20},
      "all" : {'type':'MC','leg':'MC', 'f_color':kBlack,'l_color':kBlack,'m_color':kBlack,'m_type':20},
-    'WeHNL5040Glt01ddlepfiltch1'    :{'type':'sig', 'leg':'Signal', 'f_color':kGreen + 1, 'l_color':kGreen + 1,  'path':'WeHNL5040Glt01ddlepfiltch1'+bkg_suffix},
-    'WeHNL5060Glt01ddlepfiltch1'    :{'type':'sig', 'leg':'Signal', 'f_color':kGreen + 1, 'l_color':kGreen + 1,  'path':'WeHNL5060Glt01ddlepfiltch1'+bkg_suffix},
-    'WeHNL5070Glt01ddlepfiltch1'    :{'type':'sig', 'leg':'Signal', 'f_color':kGreen + 1, 'l_color':kGreen + 1,  'path':'WeHNL5070Glt01ddlepfiltch1'+bkg_suffix},
-    'WmuHNL5040Glt01ddlepfiltch1'   :{'type':'sig', 'leg':'Signal', 'f_color':kGreen + 1, 'l_color':kGreen + 1,  'path':'WmuHNL5040Glt01ddlepfiltch1'+bkg_suffix},
-    'LRSMWR4500NR400'               :{'type':'sig', 'leg':'Signal', 'f_color':kGreen + 1, 'l_color':kGreen + 1,  'path':'LRSMWR4500NR400'+bkg_suffix},
-    'WmuHNL5060Glt01ddlepfiltch1'   :{'type':'sig', 'leg':'Signal', 'f_color':kGreen + 1, 'l_color':kGreen + 1,  'path':'WmuHNL5060Glt01ddlepfiltch1'+bkg_suffix},
-    'WmuHNL5070Glt01ddlepfiltch1'   :{'type':'sig', 'leg':'Signal', 'f_color':kGreen + 1, 'l_color':kGreen + 1,  'path':'WmuHNL5070Glt01ddlepfiltch1'+bkg_suffix},
-    'LRSMWR2400NR50'                :{'type':'sig', 'leg':'Signal', 'f_color':kGreen + 1, 'l_color':kGreen + 1,  'path':'LRSMWR2400NR50'+bkg_suffix}
+    'WeHNL5040Glt01ddlepfiltch1'    :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'WeHNL5040Glt01ddlepfiltch1'+bkg_suffix},
+    'WeHNL5060Glt01ddlepfiltch1'    :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'WeHNL5060Glt01ddlepfiltch1'+bkg_suffix},
+    'WeHNL5070Glt01ddlepfiltch1'    :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'WeHNL5070Glt01ddlepfiltch1'+bkg_suffix},
+    'WmuHNL5040Glt01ddlepfiltch1'   :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'WmuHNL5040Glt01ddlepfiltch1'+bkg_suffix},
+    'LRSMWR4500NR400'               :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'LRSMWR4500NR400'+bkg_suffix},
+    'WmuHNL5060Glt01ddlepfiltch1'   :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'WmuHNL5060Glt01ddlepfiltch1'+bkg_suffix},
+    'WmuHNL5070Glt01ddlepfiltch1'   :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'WmuHNL5070Glt01ddlepfiltch1'+bkg_suffix},
+    'LRSMWR2400NR50'                :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'LRSMWR2400NR50'+bkg_suffix}
     }
 
   d_reg = {

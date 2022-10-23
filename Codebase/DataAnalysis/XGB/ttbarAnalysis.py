@@ -30,6 +30,21 @@ xgb = XGB.XGBClassifier(
 
 df, y, df_data, channels = loadDf(myPath)
 
+plot = 1
+if plot:
+        val = "mll_OSSF"
+        feat = df[val].array[y==0]
+        plt.hist(feat,color = "red",weights = df["wgt_SG"].array[y==0], bins = 50, range = (np.min(feat), np.max(feat)), label = "bkg")
+        feat = df[val].array[y==1]
+        plt.hist(feat,alpha = 0.7,color = "blue",bins = 50, weights = df["wgt_SG"].array[y==1], range = (np.min(feat), np.max(feat)), label = "sig")
+        plt.legend()
+        plt.yscale("log")
+        plt.savefig(f"{val}.pdf")
+        plt.show()
+        exit()
+
+df = df.drop(columns=["mll_OSSF"])
+df_data = df_data.drop(columns=["mll_OSSF"])
 
 print("Preparing data....")
 train, val, test = splitData(df, y)
@@ -41,7 +56,7 @@ X_test, Y_test, W_test, C_test = test
 
 time = timer()
 print("Training....")
-xgb = xgb.fit(X_train, Y_train, eval_set= [(X_val, Y_val)], sample_weight = W_train, sample_weight_eval_set = [W_val])
+xgb = xgb.fit(X_train, Y_train, sample_weight = W_train,eval_set= [(X_val, Y_val)], sample_weight_eval_set = [W_val])
 print("Done")
 timer(time)
 
@@ -67,6 +82,7 @@ df = df.drop(columns=["wgt_SG","channel"])
 predict_sorted, weights_sorted =  separateByChannel(xgb.predict_proba(df)[:,1], wgt, channel, channels)
 predict_data = xgb.predict_proba(df_data)[:,1]
 
+print("Plotting...")
 PlotRootHisto(predict_sorted, 
               weights_sorted, 
               predict_data, 
@@ -83,9 +99,8 @@ PlotRootHisto(predict_sorted,
               bins = 30,
               CutOff = 0.7)
 
-exit()
 plotFI(xgb, df.keys(), signal)
-
+print("Finshed plots.")
 
 
 
