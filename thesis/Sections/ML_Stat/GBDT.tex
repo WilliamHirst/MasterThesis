@@ -3,7 +3,7 @@
 \ac{DT} are, similarly to \ac{NN} one of the most popular \ac{ML} methods used today.
 Contrary to \ac{NN}, \ac{DT} are famously easy in theory. Despite the simplicity of \ac{DT}, 
 they are capable of a large range of complex problems. In this section I will cover the use 
-of \ac{DT} as applied to a supervised classification.
+of \ac{DT} as applied to a supervised classification problem.
 \\
 Similarly to the traditional cut-and-count method used in particle physics, a \ac{DT} aims to 
 place \emph{rectangular-cuts} on a data set, $\mathcal{X}=\left(\textbf{x}_i,t_i\right)\mid_i^N$
@@ -38,8 +38,7 @@ equivalent of choosing an optimizer.
 
 
 \subsubsection*{An Introduction to Gradient Boosting}
-In this rapport I will use the XGBoost-classifier which uses gradient-boosted trees. 
-Gradient-boosting is a machine learning algorithm which uses a collective of "weak" 
+Gradient-boosting is an algorithm which uses a collective of "weak" 
 classifiers in order to create one strong classifier. In the case of gradient-boosted 
 trees the weak classifiers are a collective of shallow trees, which combine to form a classifier 
 that allows for deeper learning. As is the case for most gradient-boosting 
@@ -61,6 +60,12 @@ Using our new estimator $h_m$, we can now define a new model as
 \begin{align}
     \mathcal{F}_{m+1}(x_i) = \mathcal{F}_m + h_m (x_i).
 \end{align}
+Similarly to how we define a deepness of trees, we can define the degree of boosting. We define 
+this as the amount of trees used in the iterative process, or M. This means that the final classifier 
+becomes
+\begin{align}
+    \mathcal{F}_M (x_i) = \sum_{i=0}^M h_i(x_i)
+\end{align} 
 The XGBoost \cite{XGB} framework used in this analysis enables a gradient-boosted algorithm, 
 and was initially created for the Higgs ML challenge. Since the challenge, XGBoost has become 
 a favorite for many in the ML community and has later won many other ML challenges. XGBoost 

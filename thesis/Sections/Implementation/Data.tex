@@ -17,7 +17,7 @@ being used, both \ac{MC} and real.
 \subsection{ROOT, RDataframe and Pandas}
 ROOT \cite{ROOT} is at its core a large $C{++}$ library and data structure made specifically for big data
 analysis and computing, as well as data visualization. Today, all ATLAS data is stored as a ROOT-file along
-with more than 1 exabyte of data worldwide. ROOT has many \ac{HPC} qualities which makes it ideal for particle
+with more than 1 exabyte ($10^{12}$) of data worldwide. ROOT has many \ac{HPC} qualities which makes it ideal for particle
 physics analysis which demands heavy computations. Additionally, many particle physics-specific packages
 have been developed to make it an even better tool. Any function not already in library,
 can easily be added in a \ac{HPC}-effective manner through $C{++}$.
@@ -31,7 +31,7 @@ as uncertainty calculations and ordering of histograms.
 As for the data structure, the raw data was loaded as a ROOT-file. To easier handle the data and add
 new features, I used the RDataFrame structure \cite{RDataFrame}. RDataFrame allows for easy 
 addition of new columns as well as filtering of events through native functionality. As a consequence
-I used RDataFrame to calculate all higher-level features such as $M_{T2}$ and $M_{lll}$. An example is 
+I used RDataFrame to calculate all higher-level features such as $M_{T2}$, $M_{lll}$ etc. An example is 
 shown in the following section. 
 \\
 After all data handling was complete, I used ROOT's $AsNumpy$ function to translate the data frame as 
