@@ -6,11 +6,11 @@ they are capable of a large range of complex problems. In this section I will co
 of \ac{DT} as applied to a supervised classification problem.
 \\
 Similarly to the traditional cut-and-count method used in particle physics, a \ac{DT} aims to 
-place \emph{rectangular-cuts} on a data set, $\mathcal{X}=\left(\textbf{x}_i,t_i\right)\mid_i^N$
+place \emph{rectangular-cuts} on a data set, $\mathcal{X}=\{\textbf{x}_i,\textbf{t}_i\}_{i=0}^{N}$
 to effectively map $\textbf{x}_i\rightarrow t_i$. In other words, the goal of a \ac{DT} is to 
 use $\mathcal{X}$ to from a collection of thresholds $\bf{\mathcal{C}} \sf =\{\mathcal{C}_1, 
 \mathcal{C}_2,...,\mathcal{C}_{N_\mathcal{c}}\}$, which when applied to a new data set, 
-$\tilde{\mathcal{X}}=\left(\tilde{\textbf{x}}_i,\tilde{t}_i\right)\mid_i^{\tilde{N}}$ will 
+$\tilde{\mathcal{X}}=\{\tilde{\textbf{x}}_i,\tilde{\textbf{t}}_i\}_{i=0}^{\tilde{N}}$ will 
 sort $\tilde{\textbf{x}}_i$ to a $\tilde {y}_i$. In figure \ref{fig:DT}, I have illustrated a simple 
 \ac{DT} classifying a 4-dimensional input data to one of three classifications. As is visualized 
 in figure \ref{fig:DT}, the \ac{DT} applies a set of thresholds on the data to find the route 

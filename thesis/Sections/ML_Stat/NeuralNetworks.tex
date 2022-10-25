@@ -55,10 +55,10 @@ $\{\textbf{y}\}_{i=0}^N$ for a data set, $\{\textbf{x}\}_{i=0}^N$, where N is th
 from input-layer, through all hidden-layers then to output-layer, which we call forward-propagation. In this section 
 I aim to explain the underlying algorithm and math used by the \ac{NN} to map input to output. 
 \\
-We imagine the passing from hidden-layer $l-1$ to $l$, where $l \in \{2,...,N_L \}$\footnote{There is a special
-case for when $l=1$ which will be addressed in the next paragraphs.} and $N_L$ is equal to the
+We imagine the passing from hidden-layer $l-1$ to $l$, where $l \in \{2,...,L \}$\footnote{There is a special
+case for when $l=1$ which will be addressed in the next paragraphs.} and $L$ is equal to the
 number of hidden layers. The value of a node in layer $l$, is defined as $a^l_j$ (as indicated by figure \ref{fig:NN}), 
-where $j\in \{0,1,...,N^l\}$ and $N^l$ is equal to the number of nodes in $l$. The value of $a_j^l$ is defined as 
+where $j\in \{0,1,...,N_l\}$ and $N_l$ is equal to the number of nodes in $l$. The value of $a_j^l$ is defined as 
 the \emph{activated} sum of all nodes in the previous layer, $a_j^{l-1}$ where the sum is weighted by a parameter $\bf{w} \sf _j^l$ 
 and scaled by the bias, $b^l_j$ for $j\in \{0,1,..., N_{l-1} \}$. The inactivated value of for a node j in layer l is defined as 
 \begin{align}\label{eq:activated}
@@ -104,12 +104,13 @@ aims to calculate the gradient through a recursive algorithm which traces the er
 this algorithm I will describe in this section.
 \\
 \newline
-In minimizing the error defined by $\mathcal{C}$, we can apply several optimization algorithms described in 
-section \ref{subsec:Opti}. Common for the algorithms is the use of the gradient of the function in regard to 
+When minimizing the error defined by $\mathcal{C}$, we can apply several optimization algorithms described in 
+section \ref{subsec:Opti}. Common for the algorithms is the use of the gradient of the cost function with regard to 
 the tunable parameters. In our case these parameters are the weights and biases, $w_{k,j}^l$ and $b^l_k$. The goal of 
 the backwards propagation is therefore to calculate the gradients $\partial \mathcal{C}/\partial w_{k,j}^l$ and
 $\partial \mathcal{C}/\partial b^l_k$. 
 \\
+\newline
 To begin with we can derive an expression for $\partial \mathcal{C}/\partial w_{k,j}^l$. We define 
 \begin{align*}
     \frac{\partial \mathcal{C}}{\partial w_{k,j}^l} = \frac{\partial \mathcal{C}}{\partial z^l_k} \frac{\partial z^l_k}{\partial w_{k,j}^l},
@@ -130,12 +131,34 @@ To calculate the final partial derivative we write
                                               = w_{jk}^{l+1}(\sigma^l(z_j^l))'.
 \end{align*}
 This gives use the expression for $\delta_j^l$
-\begin{align}
+\begin{align}\label{eq:delta}
     \delta_k^l  = \sum_k \delta_k^{l+1}w_{jk}^{l+1}(\sigma^l(z_j^l))'  
 \end{align}
 Finally this gives us the expression
-\begin{align}
+\begin{align}\label{eq:dw}
     \frac{\partial \mathcal{C}}{\partial w_{k,j}^l} = \delta_k^{l} a_j^{l-1}
 \end{align}
+Next we want to derive $\partial \mathcal{C}/\partial b^l_k$. We can simply multiply the expression 
+with $\partial z^l_k/\partial z_k^l$ and find
+\begin{align*}
+    \frac{\partial \mathcal{C}}{\partial b^l_k} = \frac{\partial \mathcal{C}}{\partial z^l_k}\frac{\partial z_k^l}{\partial b^l_k},
+\end{align*}
+which from equations \ref{eq:delta} and \ref{eq:dw} is simply
+\begin{align}\label{eq:db}
+    \frac{\partial \mathcal{C}}{\partial b^l_k} = \delta_k^{l} \cdot 1 = \delta_k^{l},
+\end{align}
+From all three derived expressions, equations \ref{eq:delta}, \ref{eq:dw} and \ref{eq:db} we see that 
+to calculate for all $l\in\{0,1,..,N_l\}$ we must first calculate $\delta_k^L$ and apply a recursive propagation.
+To calculate $\delta_k^L = \partial \mathcal{C}/\partial z^L_k$ we simply multiply by $\delta_k^L = \partial a_k^L/\partial a_k^L$, and we find
+\begin{align}\label{eq:deltaL}
+    \delta_k^L = \frac{\partial \mathcal{C}}{\partial a^L_k}\left(\sigma^L(z_k^L)\right)'
+\end{align}
+This expression, similarly to equation \ref{eq:delta} is dependent on the choice of $\mathcal{C}$ and 
+the activation functions. Now that equation \ref{eq:deltaL} is defined, we can see that the
+gradient of the parameters in all other layers can be calculated. 
+
+
+
+
 
 
