@@ -5,7 +5,7 @@ import pandas as pd
 
 
 
-def loadDf(location):
+def loadDf(location, signal = None):
     from os import listdir
     from os.path import isfile, join
     onlyfiles = [f for f in listdir(location) if isfile(join(location, f))]
@@ -23,8 +23,12 @@ def loadDf(location):
         else:
             df_data = pd.read_hdf(f"{location}/{onlyfiles[i]}")
             df_data = df_data.drop(columns = ["wgt_SG", "type"]) #Remove type from drop next run of MRData.
+    
+    if signal is None:
+        y = df.type
+    else:
+        y = df["channel"] == signal
 
-    y = df.type
     df = df.drop(columns = ["type"])
     return df, y, df_data, channels
 
