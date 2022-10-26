@@ -2082,6 +2082,14 @@ INPUT Sections/ML_Stat/Optimization.tex
 INPUT ./Sections/ML_Stat/Optimization.tex
 INPUT ./Sections/ML_Stat/Optimization.tex
 INPUT Sections/ML_Stat/Optimization.tex
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx7.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/lmmib7.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/lmmib5.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/lmbsy7.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/lmbsy5.tfm
 INPUT ./Sections/ML_Stat/NeuralNetworks.tex
 INPUT ./Sections/ML_Stat/NeuralNetworks.tex
 INPUT ./Sections/ML_Stat/NeuralNetworks.tex
@@ -2094,9 +2102,6 @@ INPUT ./Figures/Illustrations/Input_labels.png
 INPUT Figures/Illustrations/Input_labels.png
 INPUT ./Figures/Illustrations/Input_labels.png
 INPUT ./Figures/Illustrations/Input_labels.png
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx7.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmss.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmss.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmss.fd
@@ -2158,6 +2163,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmss9.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
@@ -2429,6 +2435,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbsy10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx8.pfb
@@ -2440,6 +2447,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi6.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi9.pfb
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmib10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr17.pfb

@@ -1,3 +1,27 @@
-\subsection{Optimization}
+\subsection{Optimization}\label{subsec:Opti}
+For a general function $g$ dependent one a set of parameters $\boldsymbol \theta = 
+\{\theta_0,\theta_1,...,\theta_{N_\theta}\}$, the goal of optimization is to find 
+optimal parameters as defined by a predicated goal. In our case we are interested in 
+finding the set of parameters corresponding to the minimum value of $g$. Several methods
+can be applied to optimization problems, all with their own advantages and disadvantages.
+In most methods the use of the gradient of the function, $\grad_\theta (g)$ is involved in 
+one way or another. Many of the methods used in this analysis are based on one of the simplest 
+optimization methods, the \emph{gradient descent}-method.
 \subsubsection*{Gradient Descent}
+The gradient descent method aims to obtain the optimal parameters $\tilde{\boldsymbol\theta}$ 
+through the application of the derivative of $g$ with respect to $\boldsymbol \theta$. When 
+evaluated in a given point in the parameter space $g(\boldsymbol \theta_i)$ the negative of 
+the gradient $\grad_\theta (g)$, is used to move $\boldsymbol \theta_i$ closer to $\tilde{\boldsymbol\theta}$.
+The negative is used due that $-\grad_\theta (g)$ corresponds to the direction for which a 
+small change $d\boldsymbol\theta$ in the parameter space will result in the biggest 
+decrease in the cost function. Finding the minimum value is an iterative process, meaning
+the steps in the direction of $-\grad_\theta (g)$ is finite. The size of the step is a
+hyperparameters decided by the user and is called the learning rate, $\eta$. The evolution 
+from a step i to $i+1$ becomes
+\begin{align}
+    \boldsymbol{\theta}_{i+1}=\boldsymbol{\theta}_i-\eta \cdot \nabla_\theta g\left(\boldsymbol{\theta}_i\right).
+\end{align}
+Choosing the learning rate can drastically effect the performance of the gradient descent method. 
+Too large and one risks "jumping" over the true minimum or simply never allowing for parameters
+to reach a high accuracy. Too small and one risks having to spend computation time beyond reason. 
 \subsubsection*{ADAM}
