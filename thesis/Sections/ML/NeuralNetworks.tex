@@ -1,4 +1,4 @@
-\subsection{Neural Networks}\label{sec:NN}
+\section{Neural Networks}\label{sec:NN}
 \ac{NN} have been an idea for more than 80 years and are today one of the 
 most popular and successful \ac{ML} methods. The key to its popularity stems from
 its versatility, achieving high performance in a large range of both regression 
@@ -10,7 +10,7 @@ category is specified for their own set of problems. In this section I will intr
 some fundamental definitions in regard to \ac{NN}, as well go through the underlying 
 algorithm of the back- and forward propagation.
 
-\subsubsection*{General structure}
+\subsection{General structure}
 There are often drawn comparisons between the structure of the neural network, 
 and the way the human mind operate, hence neural. Similarly to the human mind, a \ac{NN} is 
 composed of different neurons communicating information backwards and forwards in different 
@@ -49,7 +49,7 @@ in a process we call \emph{forward-propogation}. Other variants can include the 
 complex route. It is often the route from input- to output-layer that categorizes the type of \ac{NN}. In 
 this report I used a simple \ac{FFNN}. 
 
-\subsubsection{Feeding Forward}\label{subsubsec:FP}
+\subsection{Feeding Forward}\label{subsec:FP}
 With the structure described in the previous section, a trained model, $\mathcal{F}$ produces a prediction,
 $\{\textbf{y}\}_{i=0}^N$ for a data set, $\{\textbf{x}\}_{i=0}^N$, where N is the dimensions of the input, by passing information 
 from input-layer, through all hidden-layers then to output-layer, which we call forward-propagation. In this section 
@@ -92,7 +92,7 @@ becomes
     a_j^1 = \sigma \left (\sum_{k=1} ^ {N} w_{kj}^1x_k + b^1_k\right ) = \sigma(z_j^1).
 \end{align}
 And in the case where $l=L$, $a_j^L$ is equal to the final output. 
-\subsubsection{Back Propagation}\label{subsubsec:BP}
+\subsection{Back Propagation}\label{subsec:BP}
 The backward propagation acts as the engine that drives the training of a neural network. It has the purpose
 of tuning the weights and biases of the network to achieve maximum performance, as defined by some 
 \emph{cost function}, $\mathcal{C}$. The cost function defines to which metric we aim to optimize the network. 
@@ -105,7 +105,7 @@ this algorithm I will describe in this section.
 \\
 \newline
 When minimizing the error defined by $\mathcal{C}$, we can apply several optimization algorithms described in 
-section \ref{subsec:Opti}. Common for the algorithms is the use of the gradient of the cost function with regard to 
+section \ref{sec:Opti}. Common for the algorithms is the use of the gradient of the cost function with regard to 
 the tunable parameters. In our case these parameters are the weights and biases, $w_{k,j}^l$ and $b^l_k$. The goal of 
 the backwards propagation is therefore to calculate the gradients $\partial \mathcal{C}/\partial w_{k,j}^l$ and
 $\partial \mathcal{C}/\partial b^l_k$. 
