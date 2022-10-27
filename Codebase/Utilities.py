@@ -118,8 +118,6 @@ def splitData(X, Y, split_v = 0.2, isEven = False, split_b = 0.2):
     
     indx = rng.choice(len(x_b), size_b, replace=False)
     
-    re_indx = np.delete(np.arange(len(x_b)), indx)
-
     split_indx  = int((size_s+size_b)*split_v)
    
     X_train = np.concatenate((x_s[:,:-2], x_b[indx,:-2]), axis=0)
@@ -148,6 +146,38 @@ def splitData(X, Y, split_v = 0.2, isEven = False, split_b = 0.2):
     Te = (X_test.astype('float32'), Y_test.astype('float32'), W_test.astype('float32'), C_test)
 
     return Tr, Va, Te
+
+def splitAndPrepData(X, Y, split_v = 0.2, scaleWeight = True):
+    from sklearn.model_selection import train_test_split
+   
+    X_train, X_val, Y_train, Y_val = train_test_split(X, Y, test_size = split_v, random_state=42)
+
+    W_train = X_train.wgt_SG.array
+    W_val = X_val.wgt_SG.array
+
+    C_train = X_train.channel
+    C_val = X_val.channel
+   
+    if scaleWeight:
+        W_train[Y_train == 0.0] *= np.sum(W_train[Y_train == 1 ]) / np.sum(W_train[Y_train == 0])
+        W_val[Y_val == 0.0] *= np.sum(W_val[Y_val == 1 ]) / np.sum(W_val[Y_val == 0])
+    
+    W_train = removeNegWeights(W_train)
+    W_val = removeNegWeights(W_val)
+
+    X_train = X_train.drop(columns = ["channel", "wgt_SG"])
+    X_val = X_val.drop(columns = ["channel", "wgt_SG"])
+    X_train.index = np.arange(len(X_train))
+    X_val.index = np.arange(len(X_val))
+    print("Anna er kul")
+
+    Tr = (X_train.astype('float32'), Y_train.astype('float32'), W_train.astype('float32'), C_train)
+    Va = (X_val.astype('float32'), Y_val.astype('float32'), W_val.astype('float32'), C_val)
+
+    return Tr, Va
+
+
+
 
 def saveLoad(name, array = None):
     if array is None:
