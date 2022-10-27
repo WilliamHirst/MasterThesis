@@ -14,9 +14,6 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-signal = "HNL"
-RemoveSig = "None"
-
 siglist = ["LRSMWR2400NR50",
           "WeHNL5040Glt01ddlepfiltch1",
           "WeHNL5060Glt01ddlepfiltch1",
@@ -24,10 +21,13 @@ siglist = ["LRSMWR2400NR50",
           "WmuHNL5040Glt01ddlepfiltch1",
           "LRSMWR4500NR400",
           "WmuHNL5070Glt01ddlepfiltch1"]
-sig = [sig for sig in siglist if RemoveSig in sig]
 
 
+signal = "ttbar"
 
+df, y, df_data, channels = loadDf(myPath, incHigh = True)
+
+y = df["channel"] == signal
 
 xgb = XGB.XGBClassifier(
             max_depth=4, 
@@ -40,41 +40,7 @@ xgb = XGB.XGBClassifier(
             use_label_encoder=False,
             eval_metric="error") 
 
-df, y, df_data, channels = loadDf(myPath)
 
-sum_weight = np.sum(df["wgt_SG"].array[y==0])
-# print(sum_weight)
-# print(len(df["wgt_SG"].array[y==0]))
-for s in sig:
-        index = df.channel != s
-        df = df[index]
-        y = y[index]
-
-for i in channels.unique:
-        signal = i
-        y = df["channel"] == signal
-        df["isSignal"] = df[y]
-        train()
-        plot()
-
-
-plot = 1
-if plot:
-        val = "mll_OSSF"
-        min = 0
-        max = 500
-        feat = df[val].array[y==0]
-        plt.hist(feat,color = "red",weights = df["wgt_SG"].array[y==0], bins = 50, range = (min, max), label = "bkg")
-        feat = df[val].array[y==1]
-        plt.hist(feat,alpha = 0.7,color = "blue",bins = 50, weights = df["wgt_SG"].array[y==1], range = (min, max), label = "sig")
-        plt.legend()
-        plt.yscale("log")
-        plt.savefig(f"{val}.pdf")
-        plt.show()
-        exit()
-
-df = df.drop(columns=["mll_OSSF"])
-df_data = df_data.drop(columns=["mll_OSSF"])
 
 print("Preparing data....")
 train, val, test = splitData(df, y)
@@ -104,13 +70,15 @@ plotRoc(Y_val,
         return_score = True, 
         name = f"../../../thesis/Figures/MLResults/XGB/{signal}SearchROCVal.pdf")
 
-
+exit()
 channel = df.channel
 wgt = df.wgt_SG
 df = df.drop(columns=["wgt_SG","channel"])
 
+
 predict_sorted, weights_sorted =  separateByChannel(xgb.predict_proba(df)[:,1], wgt, channel, channels)
 predict_data = xgb.predict_proba(df_data)[:,1]
+
 
 print("Plotting...")
 PlotRootHisto(predict_sorted, 

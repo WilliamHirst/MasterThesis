@@ -2,10 +2,11 @@ from locale import D_T_FMT
 import pickle as pkl
 import numpy as np
 import pandas as pd
+from DataAnalysis.FeatureSelection import lowFeats 
 
 
 
-def loadDf(location, signal = None):
+def loadDf(location, signal = None, incHigh = True):
     from os import listdir
     from os.path import isfile, join
     onlyfiles = [f for f in listdir(location) if isfile(join(location, f))]
@@ -30,6 +31,10 @@ def loadDf(location, signal = None):
         y = df["channel"] == signal
 
     df = df.drop(columns = ["type"])
+    if not incHigh:
+        df = df.drop(columns = [feat for feat in df.keys() if feat not in lowFeats])
+        df_data = df_data.drop(columns = [feat for feat in df.keys() if feat not in lowFeats]) #Remove type from drop next run of MRData.
+
     return df, y, df_data, channels
 
 def mergeToRoot(MC, MC_wgt, Data, Channels, CutOff = None):
