@@ -36,7 +36,7 @@ print("Done.")
 
 xgb = XGB.XGBClassifier(
             max_depth=4, 
-            n_estimators=100,
+            n_estimators=150,
             learning_rate=0.1,
             n_jobs=4,
             tree_method="hist",
@@ -68,7 +68,7 @@ for i in range(1,6):
             )
     highScores.append(score)
 import matplotlib.pyplot as plt
-plt.plot(score)
+plt.plot(highScores)
 plt.savefig("lowHig.pdf")
 plt.show()
     
