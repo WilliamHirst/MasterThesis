@@ -1,2 +1,19 @@
 \section{Hyperparameters}
+The tuning of parameters is a vital part of building an optimal \ac{ML}
+model, though not all parameters are set during training. Parameters 
+that are chosen prior to training are called \emph{hyperparameters}. We differentiate
+between two types of hyperparameters; model hyperparameters and algorithm 
+hyperparameters. Model hyperparameters refer to parameters used to define the 
+architecture of the model. Examples of this could be the size and deepness of 
+a \ac{NN} or the maximum deepness of a \ac{DT}. These parameters are not tuned
+during training, but will nonetheless have a great impact on the performance 
+of the model. Algorithm hyperparameters on the other hand, do not have an impact 
+on the performance of the model. These are parameters that mainly effect the 
+effectiveness and quality of the training process. Examples of this are the 
+learning rate of a \ac{NN}, or the batch-size used during training. Regardless 
+of if we are discussing model- or algorithm hyperparameters, it is in our interest
+to find the optimal choice of parameters. The choice of parameters is made 
+prior to the final training, and will be discussed in the following section.
+
+
 \subsection{Grid Search}
