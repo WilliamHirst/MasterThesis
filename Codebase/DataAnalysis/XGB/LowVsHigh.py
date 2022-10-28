@@ -23,20 +23,25 @@ siglist = ["LRSMWR2400NR50",
 
 
 signal = "ttbar"
-df, y, df_data, channels = loadDf(myPath, incHigh = True, signal = signal)
+df_h, y_h, df_data_h, channels_h = loadDf(myPath, incHigh = True, signal = signal)
+df_l, y_l, df_data_l, channels_l = loadDf(myPath, incHigh = False, signal = signal)
 
 
 print("Preparing data....")
-train, val = splitAndPrepData(df, y, split_v = 0.2, scaleWeight = True)
-X_train, Y_train, W_train, C_train = train
-X_val, Y_val, W_val, C_val = val
+train_h, val_h = splitAndPrepData(df_h, y_h, split_v = 0.2, scaleWeight = True)
+X_train_h, Y_train_h, W_train_h, C_train_h = train_h
+X_val_h, Y_val_h, W_val_h, C_val_h = val_h
+
+train_l, val_l = splitAndPrepData(df_l, y_l, split_v = 0.2, scaleWeight = True)
+X_train_l, Y_train_l, W_train_l, C_train_l = train_l
+X_val_l, Y_val_l, W_val_l, C_val_l = val_l
 print("Done.")
 
 
 
-xgb = XGB.XGBClassifier(
-            max_depth=4, 
-            n_estimators=150,
+xgbShallow = XGB.XGBClassifier(
+            max_depth=3, 
+            n_estimators=30,
             learning_rate=0.1,
             n_jobs=4,
             tree_method="hist",
@@ -45,30 +50,59 @@ xgb = XGB.XGBClassifier(
             use_label_encoder=False,
             eval_metric="error") 
 
-highScores = []
+xgbDeep = XGB.XGBClassifier(
+            max_depth=3, 
+            n_estimators=75,
+            learning_rate=0.1,
+            n_jobs=4,
+            tree_method="hist",
+            objective='binary:logistic',
+            missing=-999.0,
+            use_label_encoder=False,
+            eval_metric="error") 
 
+highScoresDeep = []
+highScoresShallow = []
+N = 10
 
-for i in range(1,6):
-    index = int(len(X_train)*i/5-1)
+for i in range(1,N):
+    index = int(len(X_train_h)*i/N-1)
     time = timer()
     print("Training....")
-    xgb = xgb.fit(X_train[:index], Y_train[:index], 
-                  sample_weight = W_train[:index],
-                  eval_set = [(X_val, Y_val)], 
-                  sample_weight_eval_set = [W_val])
+    xgbDeepHist = xgbDeep.fit(X_train_l[:index], Y_train_l[:index], 
+                  sample_weight = W_train_l[:index],
+                  eval_set = [(X_val_l, Y_val_l)], 
+                  sample_weight_eval_set = [W_val_l])
+    xgbShallowHist = xgbShallow.fit(X_train_h[:index], Y_train_h[:index], 
+                  sample_weight = W_train_h[:index],
+                  eval_set = [(X_val_h, Y_val_h)], 
+                  sample_weight_eval_set = [W_val_h])
     print("Done")
     timer(time)
-    score = plotRoc(Y_val, 
-            xgb.predict_proba(X_val)[:,1], 
-            W_val,
+    scoreDeep = plotRoc(Y_val_l, 
+            xgbDeepHist.predict_proba(X_val_l)[:,1], 
+            W_val_l,
             "", 
             return_score = True, 
             name = f"",
             plot = False,
             )
-    highScores.append(score)
+    scoreShallow = plotRoc(Y_val_h, 
+            xgbShallowHist.predict_proba(X_val_h)[:,1], 
+            W_val_h,
+            "", 
+            return_score = True, 
+            name = f"",
+            plot = False,
+            )
+    highScoresDeep.append(scoreDeep)
+    highScoresShallow.append(scoreShallow)
+    print(f"Completed: {i/N*100 :.2f} %")
 import matplotlib.pyplot as plt
-plt.plot(highScores)
+plt.plot(highScoresDeep, label = "Deep")
+plt.plot(highScoresShallow, label = "Shallow")
+plt.legend()
+plt.show()
 plt.savefig("lowHig.pdf")
 plt.show()
     
