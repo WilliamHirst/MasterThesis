@@ -147,7 +147,7 @@ def splitData(X, Y, split_v = 0.2, isEven = False, split_b = 0.2):
 
     return Tr, Va, Te
 
-def splitAndPrepData(X, Y, split_v = 0.2, scaleWeight = True):
+def splitAndPrepData(X, Y, split_v = 0.2, scaleWeight = True, scale = False):
     from sklearn.model_selection import train_test_split
    
     X_train, X_val, Y_train, Y_val = train_test_split(X, Y, test_size = split_v, random_state=42)
@@ -165,17 +165,38 @@ def splitAndPrepData(X, Y, split_v = 0.2, scaleWeight = True):
     W_train = removeNegWeights(W_train)
     W_val = removeNegWeights(W_val)
 
+    W_train = pd.DataFrame(W_train)
+    W_val = pd.DataFrame(W_val)
+
     X_train = X_train.drop(columns = ["channel", "wgt_SG"])
     X_val = X_val.drop(columns = ["channel", "wgt_SG"])
+
     X_train.index = np.arange(len(X_train))
     X_val.index = np.arange(len(X_val))
+    Y_train.index = np.arange(len(Y_train))
+    Y_val.index = np.arange(len(Y_val))
+
     print("Anna er kul")
+    
+    if scale:
+        X_train, X_val = scaleData(X_train, X_val, scaler = "Standard")
 
     Tr = (X_train.astype('float32'), Y_train.astype('float32'), W_train.astype('float32'), C_train)
     Va = (X_val.astype('float32'), Y_val.astype('float32'), W_val.astype('float32'), C_val)
 
     return Tr, Va
 
+def scaleData(X_train, X_val, scaler = "Standard"):
+    if scaler == "Standard":
+        from sklearn.preprocessing import StandardScaler
+        scaler = StandardScaler()
+    elif scaler == "MinMax":
+        from sklearn.preprocessing import MinMaxScaler
+        scaler = MinMaxScaler()
+    scaler.fit(X_train)
+    X_train[X_train.keys()] = scaler.transform(X_train[X_train.keys()])
+    X_val[X_val.keys()] = scaler.transform(X_val[X_val.keys()])
+    return X_train, X_val
 
 
 

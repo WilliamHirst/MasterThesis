@@ -18,6 +18,7 @@ def plotRoc(Y, Y_pred, weights, title, return_score = False, name = None, plot =
     tpr = tpr[np.where(fpr<=1)]
     
     roc_auc = auc(fpr,tpr)
+    print("The ROC score: ", roc_auc)
     lw = 2
     if plot:
         plt.figure()
