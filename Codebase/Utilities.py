@@ -28,6 +28,7 @@ def loadDf(location, signal = None, incHigh = True):
     if signal is None:
         y = df.type
     else:
+        df = df[df.type != 1]
         y = df["channel"] == signal
 
     df = df.drop(columns = ["type"])

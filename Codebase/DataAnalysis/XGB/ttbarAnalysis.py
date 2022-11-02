@@ -1,5 +1,7 @@
 from time import time
 import xgboost as XGB
+from sklearn import decomposition
+
 
 import sys
 sys.path.insert(1, "../")
@@ -25,17 +27,30 @@ print("Done.")
 X_train, Y_train, W_train, C_train = train
 X_val, Y_val, W_val, C_val = val
 
+"""pca = decomposition.PCA(n_components=15)
+pca.fit(X_train)
+X_train = pca.transform(X_train)
+X_val = pca.transform(X_val)"""
+
+
+sum_wpos = W_train[Y_train == 1.0].sum()
+sum_wneg = W_train[Y_train == 0.0].sum()
+print(np.float32(sum_wneg/sum_wpos))
+
+
 
 xgb = XGB.XGBClassifier(
-            max_depth=2, 
+            max_depth=3, 
             n_estimators=50,
             learning_rate=0.1,
             n_jobs=4,
             tree_method="hist",
             objective='binary:logistic',
+            eval_metric = 'auc',
+            scale_pos_weight = np.float32(sum_wneg/sum_wpos)[0],
             missing=-999.0,
             use_label_encoder=False,
-            eval_metric="error") 
+            ) 
             
 time = timer()
 print("Training....")
