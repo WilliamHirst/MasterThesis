@@ -40,8 +40,8 @@ print(np.float32(sum_wneg/sum_wpos))
 
 
 xgb = XGB.XGBClassifier(
-            max_depth=3, 
-            n_estimators=50,
+            max_depth=4, 
+            n_estimators=100,
             learning_rate=0.1,
             n_jobs=4,
             tree_method="hist",
