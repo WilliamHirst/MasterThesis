@@ -14,24 +14,21 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-siglist = ["LRSMWR2400NR50",
-          "WeHNL5040Glt01ddlepfiltch1",
-          "WeHNL5060Glt01ddlepfiltch1",
-          "WeHNL5070Glt01ddlepfiltch1",
-          "WmuHNL5040Glt01ddlepfiltch1",
-          "LRSMWR4500NR400",
-          "WmuHNL5070Glt01ddlepfiltch1"]
-
-
 signal = "ttbar"
 
-df, y, df_data, channels = loadDf(myPath, incHigh = True)
+df, y, df_data, channels = loadDf(myPath, signal)
 
-y = df["channel"] == signal
+print("Preparing data....")
+train, val = splitAndPrepData(df, y, scale = True)
+print("Done.")
+
+X_train, Y_train, W_train, C_train = train
+X_val, Y_val, W_val, C_val = val
+
 
 xgb = XGB.XGBClassifier(
-            max_depth=4, 
-            n_estimators=150,
+            max_depth=2, 
+            n_estimators=50,
             learning_rate=0.1,
             n_jobs=4,
             tree_method="hist",
@@ -39,17 +36,7 @@ xgb = XGB.XGBClassifier(
             missing=-999.0,
             use_label_encoder=False,
             eval_metric="error") 
-
-
-
-print("Preparing data....")
-train, val, test = splitData(df, y)
-print("Done.")
-
-X_train, Y_train, W_train, C_train = train
-X_val, Y_val, W_val, C_val = val
-X_test, Y_test, W_test, C_test = test
-
+            
 time = timer()
 print("Training....")
 xgb = xgb.fit(X_train, Y_train, sample_weight = W_train,eval_set= [(X_val, Y_val)], sample_weight_eval_set = [W_val])
@@ -60,6 +47,7 @@ plotRoc(Y_train,
         xgb.predict_proba(X_train)[:,1], 
         W_train,
         "Training-data", 
+        plot = True,
         return_score = True, 
         name = f"../../../thesis/Figures/MLResults/XGB/{signal}SearchROCTrain.pdf")
 
@@ -67,10 +55,11 @@ plotRoc(Y_val,
         xgb.predict_proba(X_val)[:,1], 
         W_val,
         "Validation-data", 
+        plot = True,
         return_score = True, 
         name = f"../../../thesis/Figures/MLResults/XGB/{signal}SearchROCVal.pdf")
 
-exit()
+"""
 channel = df.channel
 wgt = df.wgt_SG
 df = df.drop(columns=["wgt_SG","channel"])
@@ -99,6 +88,7 @@ PlotRootHisto(predict_sorted,
 
 plotFI(xgb, df.keys(), signal)
 print("Finshed plots.")
+"""
 
 
 

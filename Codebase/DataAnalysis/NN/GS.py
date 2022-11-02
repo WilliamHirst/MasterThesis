@@ -54,7 +54,7 @@ class MyHyperModel(kt.HyperModel):
         hp_learning_rate = hp.Choice("learning_rate", values=[1e-2, 5e-3, 1e-3, 5e-4])
         optimizer = optimizers.Adam(learning_rate=hp_learning_rate)
 
-        model.compile(loss="binary_crossentropy", optimizer=optimizer, metrics=["accuracy"])
+        model.compile(loss="binary_crossentropy", optimizer=optimizer, metrics=["AUC"])
         return model
     
 
@@ -63,7 +63,8 @@ start_time = timer(None)
 
 tuner = kt.Hyperband(
     MyHyperModel(),
-    objective="val_accuracy",
+    #objective="val_accuracy",
+    objective=kt.Objective('val_auc', direction='max'),
     max_epochs=50,
     factor=3,
     directory="GridSearches",
