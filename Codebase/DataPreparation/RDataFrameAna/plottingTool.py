@@ -407,7 +407,7 @@ class Plot:
         except:
           p.signalstack.Add(histo_i.GetValue())
           p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
-      p.signalstack.GetStack().Last()
+        p.signalstack.GetStack().Last()
 
     def customise_gPad(p,top=0.03, bot=0.15, left=0.17, right=0.08):
 

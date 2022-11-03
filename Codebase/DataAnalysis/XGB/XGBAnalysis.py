@@ -74,7 +74,7 @@ plotRoc(Y_val,
         return_score = True, 
         name = f"../../../thesis/Figures/MLResults/XGB/{signal}SearchROCVal.pdf")
 
-"""
+
 channel = df.channel
 wgt = df.wgt_SG
 df = df.drop(columns=["wgt_SG","channel"])
@@ -103,7 +103,7 @@ PlotRootHisto(predict_sorted,
 
 plotFI(xgb, df.keys(), signal)
 print("Finshed plots.")
-"""
+
 
 
 

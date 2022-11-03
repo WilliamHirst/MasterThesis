@@ -216,10 +216,6 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
                 df[k] = df[k].Define("wgt_EV_SG","(eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG)")
 
-                if d_samp[k]["type"] == "sig":
-                    df[k] = df[k].Define("type", "1.0")
-                else:
-                    df[k] = df[k].Define("type", "0.0")
             else:
                 df[k] = df[k].Define("is2015","(RunNumber >= 276262 && RunNumber <= 284484)")
                 df[k] = df[k].Define("is2016","(RunNumber >= 297730 && RunNumber <= 311481)")
@@ -231,6 +227,10 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 df[k] = df[k].Define("wgt_SG","1.0")
                 df[k] = df[k].Define("wgt_EV","1.0")
 
+            if d_samp[k]["type"] == "sig":
+                df[k] = df[k].Define("type", "1.0")
+            else:
+                df[k] = df[k].Define("type", "0.0")
 
             
 
@@ -445,20 +445,19 @@ for feat in allFeats:
     if feat[-5:] == "Wjets":
         featuresPlot.append(feat[:-6])
 
-
-
 for feature in featuresPlot:
     if feature in featdic:
         xlabel = featdic[feature]["xlabel"]
     else:
         xlabel = feature
     p = pt.Plot(histo,feature,toplot,xtext = xlabel)
-    p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/Signal/{feature}.pdf")
+    p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}.pdf")
     p.can.Draw()
     
 
 for sig in sigdic.keys():
      toplot.append(sig)
+
 # feature = "lep1_Pt"
 # p = pt.Plot(histo,feature,toplot,xtext = featdic[feature]["xlabel"])
 # p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}wSig.pdf")
