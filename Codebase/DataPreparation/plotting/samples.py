@@ -123,7 +123,13 @@ def configure_samples():
     'LRSMWR4500NR400'               :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'LRSMWR4500NR400'+bkg_suffix},
     'WmuHNL5060Glt01ddlepfiltch1'   :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'WmuHNL5060Glt01ddlepfiltch1'+bkg_suffix},
     'WmuHNL5070Glt01ddlepfiltch1'   :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'WmuHNL5070Glt01ddlepfiltch1'+bkg_suffix},
-    'LRSMWR2400NR50'                :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'LRSMWR2400NR50'+bkg_suffix}
+    'LRSMWR2400NR50'                :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'LRSMWR2400NR50'+bkg_suffix},
+    'ttbarHNLfullLepMLm15'          :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'ttbarHNLfullLepMLm15'+bkg_suffix},
+    'ttbarHNLfullLepMLp15'          :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'ttbarHNLfullLepMLp15'+bkg_suffix},
+    'ttbarHNLfullLepMLm75'          :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'ttbarHNLfullLepMLm75'+bkg_suffix},
+    'ttbarHNLfullLepMLp75'          :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'ttbarHNLfullLepMLp75'+bkg_suffix},
+    #'ttbar_HNLfullLep_ML_p_75'      :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'ttbar_HNLfullLep_ML_p_75'+bkg_suffix},
+    #'ttbar_HNLfullLep_ML_m_75'      :{'type':'sig', 'leg':'Signal', 'f_color':kBlack, 'l_color':kBlack,  'path':'ttbar_HNLfullLep_ML_m_75'+bkg_suffix},
     }
 
   d_reg = {

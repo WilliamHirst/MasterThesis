@@ -67,9 +67,9 @@ def writeHistsToFile(histo, writetofile = True):
         elif d_samp[typ]["type"] == "sig":
             histo[k].SetFillColor(0)
             histo[k].SetLineColor(d_samp[typ]["l_color"])
-            histo[k].SetMarkerStyle(0)
-            histo[k].SetMarkerSize(0)
-            histo[k].SetLineStyle(9)
+            histo[k].SetMarkerStyle(5)
+            histo[k].SetMarkerSize(2)
+            histo[k].SetLineStyle(3)
             histo[k].SetLineWidth(2)
         if writetofile:
             histo[k].Write()
@@ -122,7 +122,7 @@ def getDataFrames(mypath, nev = 0):
                 #print(join(path,f))
                 onlyfiles.append(join(path, f))
 
-                
+ 
     df = {}
     files = {}
     for of in onlyfiles:
@@ -130,8 +130,9 @@ def getDataFrames(mypath, nev = 0):
         sp = of.split("/")[-1].split("_")
         typ = ""
         for s in sp:
-            if "merged" in s or s.isnumeric(): break
+            if "merged" in s: break
             typ += s
+
         if not typ in files.keys():
             files[typ] = {"files":[], "treename":""}
         treename = getTreeName(of)
@@ -140,8 +141,8 @@ def getDataFrames(mypath, nev = 0):
             continue
         files[typ]["treename"] = treename
         files[typ]["files"].append(of)
+    
 
-        
     for typ in files.keys():
         print("Adding %i files for %s"%(len(files[typ]["files"]),typ))
         df[typ] = R.RDataFrame(files[typ]["treename"],files[typ]["files"])

@@ -56,13 +56,19 @@ bkgdic = {"Wjets":{"color":R.kYellow+2},
           "data16":{"color":R.kBlack},
           "data15":{"color":R.kBlack}
 }
-sigdic = {"LRSMWR2400NR50":{"color":R.kBlack},
-          "WeHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
-          "WeHNL5060Glt01ddlepfiltch1":{"color":R.kBlack},
-          "WeHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
-          "WmuHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
-          "LRSMWR4500NR400":{"color":R.kBlack},
-          "WmuHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
+# sigdic = {"LRSMWR2400NR50":{"color":R.kBlack},
+#           "WeHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
+#           "WeHNL5060Glt01ddlepfiltch1":{"color":R.kBlack},
+#           "WeHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
+#           "WmuHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
+#           "LRSMWR4500NR400":{"color":R.kBlack},
+#           "WmuHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
+# }
+
+sigdic = {"ttbarHNLfullLepMLp15":{"color":R.kBlack},
+          "ttbarHNLfullLepMLp75":{"color":R.kBlack},
+          "ttbarHNLfullLepMLm15":{"color":R.kBlack},
+          "ttbarHNLfullLepMLm75":{"color":R.kBlack},
 }
 featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
                         "nr_bins": 40, "min" : 25, "max" : 300},
@@ -136,9 +142,6 @@ lepv = ["lepPt","lepEta","lepPhi", "lepCharge", "lepFlavor"]
 
 
 
-
-
-
 good_runs = []
     
 histo = {}
@@ -159,7 +162,6 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             print("Loading %s into dataframe with keys %s" %(mypath_mc,",".join(df_mc.keys())))
         else:
             df_mc = {}
- 
         df = {**df_mc}#,**df_data}
         
         for k in df.keys():
@@ -204,10 +206,10 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                 if "Z" in k and "jets" in k:
                     df[k] = df[k].Define("wgt_SG","((genWeight)*eventWeight*jvtWeight*bTagWeight*scaletolumi*leptonWeight*globalDiLepTrigSF*pileupWeight)*1000.")
                     #df[k] = df[k].Define("wgt_SG","(new_xsec ? (new_xsec) : (genWeight))*eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG*1000")
-                elif "filtch" in k:
-                    df[k] = df[k].Define("wgt_SG","(genWeight)*eventWeight*jvtWeight*bTagWeight*scaletolumi*leptonWeight*globalDiLepTrigSF*pileupWeight/100000") #*pileupWeight
-                elif "LRSM" in k:
-                    df[k] = df[k].Define("wgt_SG","(genWeight)*eventWeight*jvtWeight*bTagWeight*scaletolumi*leptonWeight*globalDiLepTrigSF*pileupWeight*100") #*pileupWeight
+                # elif "filtch" in k:
+                #     df[k] = df[k].Define("wgt_SG","(genWeight)*eventWeight*jvtWeight*bTagWeight*scaletolumi*leptonWeight*globalDiLepTrigSF*pileupWeight/100000") #*pileupWeight
+                # elif "LRSM" in k:
+                #     df[k] = df[k].Define("wgt_SG","(genWeight)*eventWeight*jvtWeight*bTagWeight*scaletolumi*leptonWeight*globalDiLepTrigSF*pileupWeight*100") #*pileupWeight
                 else:    
                     #df[k] = df[k].Define("wgt_SG","(new_xsec ? (new_xsec) : (genWeight))*eventWeight*jvtWeight*bTagWeight*pileupWeight*scaletolumi*lepwgt_SG*trgwgt_SG")
                     df[k] = df[k].Define("wgt_SG","(genWeight)*eventWeight*jvtWeight*bTagWeight*scaletolumi*leptonWeight*globalDiLepTrigSF*pileupWeight") #*pileupWeight
@@ -397,7 +399,6 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
         for k in histo.keys():
             allhisto.append(histo[k])
-
         print("Calculating %i histograms"%len(allhisto))
         start = time.time()
         R.RDF.RunGraphs(allhisto)
@@ -437,6 +438,8 @@ writeHistsToFile(histo, False)
 toplot = []
 for bkg in bkgdic.keys():
     toplot.append(bkg)
+for sig in sigdic.keys():
+    toplot.append(sig)
 
 allFeats = histo.keys()
 featuresPlot = []
@@ -444,22 +447,25 @@ for feat in allFeats:
     if feat[-5:] == "Wjets":
         featuresPlot.append(feat[:-6])
 
-"""
+
+
 for feature in featuresPlot:
     if feature in featdic:
         xlabel = featdic[feature]["xlabel"]
     else:
         xlabel = feature
     p = pt.Plot(histo,feature,toplot,xtext = xlabel)
-    p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}.pdf")
+    p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/Signal/{feature}.pdf")
     p.can.Draw()
+    
+exit()
 for sig in sigdic.keys():
     toplot.append(sig)
 feature = "lep1_Pt"
 p = pt.Plot(histo,feature,toplot,xtext = featdic[feature]["xlabel"])
 p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}wSig.pdf")
 p.can.Draw()
-"""
+
 
 
 featuresPlot.append("wgt_SG")
