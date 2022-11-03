@@ -220,7 +220,6 @@ class Plot:
         if not p.isEff:
           p.pad1.SetLogy(IsLogY)
         
-
         try:
           maxbin = p.hstack.GetStack().Last().GetBinContent(p.hstack.GetStack().Last().GetMaximumBin())
           p.customise_axes(p.hstack, xtitle, ytitle, 1.1, IsLogY, enlargeYaxis, maxbin, scaling == 'True')
@@ -408,7 +407,7 @@ class Plot:
         except:
           p.signalstack.Add(histo_i.GetValue())
           p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
-      p.signalstack.GetStack().Last().SetLineWidth(4)
+      p.signalstack.GetStack().Last()
 
     def customise_gPad(p,top=0.03, bot=0.15, left=0.17, right=0.08):
 

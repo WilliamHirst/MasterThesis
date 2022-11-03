@@ -438,8 +438,6 @@ writeHistsToFile(histo, False)
 toplot = []
 for bkg in bkgdic.keys():
     toplot.append(bkg)
-for sig in sigdic.keys():
-    toplot.append(sig)
 
 allFeats = histo.keys()
 featuresPlot = []
@@ -458,13 +456,13 @@ for feature in featuresPlot:
     p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/Signal/{feature}.pdf")
     p.can.Draw()
     
-exit()
+
 for sig in sigdic.keys():
-    toplot.append(sig)
-feature = "lep1_Pt"
-p = pt.Plot(histo,feature,toplot,xtext = featdic[feature]["xlabel"])
-p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}wSig.pdf")
-p.can.Draw()
+     toplot.append(sig)
+# feature = "lep1_Pt"
+# p = pt.Plot(histo,feature,toplot,xtext = featdic[feature]["xlabel"])
+# p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}wSig.pdf")
+# p.can.Draw()
 
 
 
@@ -476,8 +474,11 @@ for feat in featuresPlot:
     if "Neg" not in feat:
         features.append(feat)
 
+
 df_s = {}
 for k in df.keys():
+    if k not in toplot:
+        continue
     print("Transforming " + k + "-ROOT to Numpy.")
     numpy = df[k].AsNumpy(features)
     print("Transforming " + k + "-ROOT to Pandas.")
