@@ -6,7 +6,7 @@ from DataAnalysis.FeatureSelection import lowFeats
 
 
 
-def loadDf(location, signal = None, incHigh = True):
+def loadDf(location, signal = None, incHigh = True, notInc = []):
     from os import listdir
     from os.path import isfile, join
     onlyfiles = [f for f in listdir(location) if isfile(join(location, f))]
@@ -15,6 +15,13 @@ def loadDf(location, signal = None, incHigh = True):
     channels = []
     
     for i in range(len(onlyfiles)):
+
+        cont = 0
+        for chan in notInc:
+            if chan in onlyfiles[i]:
+                cont = 1
+        if cont: continue
+
         if "data" not in onlyfiles[i]:
             channel = onlyfiles[i][:-7]
             df_i = pd.read_hdf(f"{location}/{onlyfiles[i]}")
@@ -23,7 +30,7 @@ def loadDf(location, signal = None, incHigh = True):
             channels.append(channel)
         else:
             df_data = pd.read_hdf(f"{location}/{onlyfiles[i]}")
-            df_data = df_data.drop(columns = ["wgt_SG", "type"]) #Remove type from drop next run of MRData.
+            df_data = df_data.drop(columns = ["wgt_SG", "type"]) 
     
     if signal is None:
         y = df.type
@@ -208,6 +215,6 @@ def saveLoad(name, array = None):
         return output
     else:
         with open(f"results/{name}", 'wb') as f:
-            np.save(f, array)
+            np.save(f, np.asarray(array,dtype=object).ravel())
         return 
 

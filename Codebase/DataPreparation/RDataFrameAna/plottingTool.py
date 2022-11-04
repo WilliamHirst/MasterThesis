@@ -348,6 +348,8 @@ class Plot:
                 continue
             
             if float(p.nTotBkg) != 0: pc_yield = 100 * ( p.dyield[k] / float(p.nTotBkg) )
+            else: 
+              pc_yield = 0
             if not p.isEff:
               leg_txt = '{0} ({1:.1f}%)'.format( d_samp[k]["leg"], pc_yield )
             else:

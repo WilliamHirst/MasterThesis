@@ -16,9 +16,10 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-signal = "ttbar"
+signal = "ttbarHNL"
 
-df, y, df_data, channels = loadDf(myPath, signal)
+df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch"])
+
 
 print("Preparing data....")
 train, val = splitAndPrepData(df, y, scale = True)
@@ -27,17 +28,15 @@ print("Done.")
 X_train, Y_train, W_train, C_train = train
 X_val, Y_val, W_val, C_val = val
 
-"""pca = decomposition.PCA(n_components=15)
-pca.fit(X_train)
-X_train = pca.transform(X_train)
-X_val = pca.transform(X_val)"""
+
+# pca = decomposition.PCA(n_components=15)
+# pca.fit(X_train)
+# X_train = pca.transform(X_train)
+# X_val = pca.transform(X_val)
 
 
 sum_wpos = W_train[Y_train == 1.0].sum()
 sum_wneg = W_train[Y_train == 0.0].sum()
-print(np.float32(sum_wneg/sum_wpos))
-
-
 
 xgb = XGB.XGBClassifier(
             max_depth=4, 

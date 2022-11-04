@@ -17,11 +17,12 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-signal = "ttbar"
 
 procUsed = int(100/10)
 
-df, y, df_data, channels = loadDf(myPath, signal)
+signal = "ttbarHNL"
+
+df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch"])
 
 print("Preparing data....")
 train, val = splitAndPrepData(df, y, scale = True)
@@ -63,7 +64,6 @@ start_time = timer(None)
 
 tuner = kt.Hyperband(
     MyHyperModel(),
-    #objective="val_accuracy",
     objective=kt.Objective('val_auc', direction='max'),
     max_epochs=50,
     factor=3,
