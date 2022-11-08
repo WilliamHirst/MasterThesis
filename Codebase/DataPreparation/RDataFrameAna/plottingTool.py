@@ -40,7 +40,7 @@ def findKey(histname):
 
 class Plot:
 
-    def __init__(p,hdic,hname = "lepPt_ele_hT", bkgs = [], is1D = True, xtext = "Feature 1", doscale = False):
+    def __init__(p,hdic,hname = "lepPt_ele_hT", bkgs = [], is1D = True, xtext = "Feature 1", doscale = False, mergeSig = True):
 
       p.doscale = doscale
       p.is1D = is1D
@@ -49,6 +49,8 @@ class Plot:
       p.Other = [ "higgs", "Wjets", "triboson"]
       p.Zjets = ["Zeejets","Zttjets", "Zmmjets" ]
       p.Data = [d for d in bkgs if "data" in d]
+
+      p.MergeSig = mergeSig
 
   
       p.Neg = False
@@ -395,12 +397,24 @@ class Plot:
         if not d_samp[k]["type"] == "sig": continue
         if not hkey+"_%s"%k in histo.keys():
             continue
-        if i:
-          histo_i = histo[hkey+"_%s"%k].Clone(hkey+"_%s_SUM"%k)
-          i = 0
-          continue
-        histo_i.Add(histo[hkey+"_%s"%k].GetPtr())
-      if not i:
+        if p.MergeSig:
+          if i:
+            histo_i = histo[hkey+"_%s"%k].Clone(hkey+"_%s_SUM"%k)
+            i = 0
+            continue
+          histo_i.Add(histo[hkey+"_%s"%k].GetPtr())
+        else:
+          histo_i = histo[hkey+"_%s"%k]
+          pc_yield = histo_i.Integral(0,histo_i.GetNbinsX()+1)
+          leg_txt =  '{0} ({1:.0f})'.format(d_samp[k]["leg"], pc_yield)
+          try:
+            p.signalstack.Add(histo_i)
+            p.leg.AddEntry(histo_i,leg_txt,"lp")
+          except:
+            p.signalstack.Add(histo_i.GetValue())
+            p.leg.AddEntry(histo_i.GetValue(),leg_txt,"lp")
+
+      if not i and p.MergeSig:
         pc_yield = histo_i.Integral(0,histo_i.GetNbinsX()+1)
         leg_txt =  '{0} ({1:.0f})'.format("Signal", pc_yield)
         try:

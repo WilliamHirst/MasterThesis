@@ -56,7 +56,7 @@ def writeHistsToFile(histo, writetofile = True):
             for i in range(1,histo[k].GetNbinsX()+1):
                 histo[k].GetXaxis().SetBinLabel(i,evtyp[i-1])
         if d_samp[typ]["type"] == "bkg":
-            histo[k].SetFillColor(d_samp[typ]["f_color"])
+            histo[k].SetFillColorAlpha(d_samp[typ]["f_color"],0.95)
             histo[k].SetLineColor(d_samp[typ]["f_color"])
             histo[k].SetMarkerStyle(0)
             histo[k].SetMarkerSize(0)
@@ -71,7 +71,7 @@ def writeHistsToFile(histo, writetofile = True):
             histo[k].SetMarkerStyle(0)
             histo[k].SetMarkerSize(2)
             histo[k].SetLineStyle(9)
-            histo[k].SetLineWidth(4)
+            histo[k].SetLineWidth(5)
         if writetofile:
             histo[k].Write()
 
