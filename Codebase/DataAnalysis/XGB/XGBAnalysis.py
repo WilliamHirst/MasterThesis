@@ -22,7 +22,7 @@ df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch"])
 
 
 print("Preparing data....")
-train, val = splitAndPrepData(df, y, scale = True)
+train, val = splitAndPrepData(df, y, scale = False)
 print("Done.")
 
 X_train, Y_train, W_train, C_train = train

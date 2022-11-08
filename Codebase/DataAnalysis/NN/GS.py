@@ -32,7 +32,6 @@ X_train, Y_train, W_train, C_train = train
 X_val, Y_val, W_val, C_val = val
 
 
-
 nrFeature = len(X_train.keys())
 class MyHyperModel(kt.HyperModel):
     def build(self, hp):

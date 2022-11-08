@@ -5,6 +5,7 @@ sys.path.insert(1, "../")
 
 from Plot_stuff.plot_set import *
 from Plot_stuff.ROCM import *
+from Plot_stuff.DETCM import *
 from Plot_stuff.FI import *
 import tensorflow as tf
 
@@ -33,6 +34,7 @@ print(hypermodel.summary())
 
 df, y, df_data, channels = loadDf(myPath,notInc=["LRS", "filtch"])
 
+
 print("Preparing data....")
 train, val = splitAndPrepData(df, y, scale = True)
 print("Done.")
@@ -44,7 +46,19 @@ channel = df.channel
 wgt = np.asarray(df.wgt_SG)
 df = df.drop(columns=["wgt_SG","channel"])
 
-print(X_train)
+
+"""
+Scale all data
+"""
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+scaler.fit(df)
+df[df.keys()] = scaler.transform(df[df.keys()])
+scaler = StandardScaler()
+scaler.fit(df_data)
+df_data[df_data.keys()] = scaler.transform(df_data[df_data.keys()])
+
+
 time = timer()
 print("Training....")
 with tf.device("/GPU:0"):
@@ -57,8 +71,8 @@ with tf.device("/GPU:0"):
                                  verbose = 1)
         pred_Train = hypermodel.predict(X_train)
         pred_Val = hypermodel.predict(X_val)
-        pred_MC = hypermodel.predict(df)
-        pred_Data = hypermodel.predict(df_data).ravel()
+        # pred_MC = hypermodel.predict(df)
+        # pred_Data = hypermodel.predict(df_data).ravel()
 
 print("Done")
 timer(time)
@@ -80,15 +94,27 @@ plotRoc(Y_val,
         name = f"../../../thesis/Figures/MLResults/NN/{signal}SearchROCVal.pdf")
 print("Plotted ROC-curves.")
 
+plotDET(Y_train, 
+        pred_Train, 
+        W_train,
+        "Training-data", 
+        plot = True,
+        return_score = True, 
+        name = f"../../../thesis/Figures/MLResults/NN/{signal}SearchDETTrain.pdf")
 
+plotDET(Y_val, 
+        pred_Val, 
+        W_val,
+        "Validation-data", 
+        plot = True,
+        return_score = True, 
+        name = f"../../../thesis/Figures/MLResults/NN/{signal}SearchDETVal.pdf")
+print("Plotted DET-curves.")
+
+exit()
 
 predict_sorted, weights_sorted =  separateByChannel(pred_MC , wgt, channel, channels)
 weights_sorted = np.asarray(weights_sorted, dtype = object)
-
-print(predict_sorted,"\n")
-print(weights_sorted,"\n")
-print(pred_Data,"\n")
-print(channels,"\n")
 
 saveLoad("predict_sorted_test.npy", predict_sorted)
 saveLoad("weights_sorted_test.npy", weights_sorted)
