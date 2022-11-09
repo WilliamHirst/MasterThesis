@@ -1,5 +1,12 @@
 import tensorflow as tf
 from tensorflow.keras import optimizers
+#Added section to remove error. Test later if can remove.
+from tensorflow.compat.v1 import ConfigProto
+from tensorflow.compat.v1 import InteractiveSession
+
+config = ConfigProto()
+config.gpu_options.allow_growth = True
+session = InteractiveSession(config=config)
 
 import keras_tuner as kt
 import sys
@@ -10,31 +17,36 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-signal = "ttbar"
 
-procUsed = int(100/20)
+procUsed = int(100/10)
 
-df, y, df_data, channels = loadDf(myPath, signal)
-train, val, test = splitData(df, y)
+signal = "ttbarHNL"
+
+df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch"])
+
+print("Preparing data....")
+train, val = splitAndPrepData(df, y, scale = True)
+print("Done.")
 
 X_train, Y_train, W_train, C_train = train
 X_val, Y_val, W_val, C_val = val
-X_test, Y_test, W_test, C_test = test
 
-nrFeature = len(X_train[0])
-nData = len(X_train[0,:])
+
+nrFeature = len(X_train.keys())
 class MyHyperModel(kt.HyperModel):
     def build(self, hp):
         model = tf.keras.Sequential(
             [
                 tf.keras.layers.Dense(
-                    units=hp.Int("num_of_neurons0", min_value=10, max_value=30, step=10),
-                    activation=tf.keras.layers.LeakyReLU(alpha=0.01),
+                    units=hp.Int("num_of_neurons0", min_value=10, max_value=30, step=5),
+                    activation= "tanh",
+                    #activation=tf.keras.layers.LeakyReLU(alpha=0.01),
                     input_shape=(nrFeature,),
                 ),
                 tf.keras.layers.Dense(
-                    units=hp.Int("num_of_neurons1", min_value=10, max_value=30, step=10),
-                    activation=tf.keras.layers.LeakyReLU(alpha=0.01),
+                    units=hp.Int("num_of_neurons1", min_value=10, max_value=30, step=5),
+                    activation= "tanh",
+                    #activation=tf.keras.layers.LeakyReLU(alpha=0.01),
                 ),
                 tf.keras.layers.Dense(1, activation="sigmoid"),
             ]
@@ -42,7 +54,7 @@ class MyHyperModel(kt.HyperModel):
         hp_learning_rate = hp.Choice("learning_rate", values=[1e-2, 5e-3, 1e-3, 5e-4])
         optimizer = optimizers.Adam(learning_rate=hp_learning_rate)
 
-        model.compile(loss="binary_crossentropy", optimizer=optimizer, metrics=["accuracy"])
+        model.compile(loss="binary_crossentropy", optimizer=optimizer, metrics=["AUC"])
         return model
     
 
@@ -51,24 +63,24 @@ start_time = timer(None)
 
 tuner = kt.Hyperband(
     MyHyperModel(),
-    objective="val_accuracy",
+    objective=kt.Objective('val_auc', direction='max'),
     max_epochs=50,
     factor=3,
     directory="GridSearches",
     project_name="NN",
     overwrite=True,
 )
-callback = tf.keras.callbacks.EarlyStopping(monitor='val_accuracy', patience=3)
+callback = tf.keras.callbacks.EarlyStopping(monitor='AUC', patience=3)
 with tf.device("/GPU:0"):
     tuner.search(X_train[::procUsed], 
                     Y_train[::procUsed], 
                     sample_weight = W_train[::procUsed], 
-                    batch_size =int(nData/40), 
+                    batch_size =8096, 
                     epochs=50, 
                     validation_data=(X_val[::procUsed],
                                     Y_val[::procUsed],
                                     W_val[::procUsed]),
-                    callbacks = [callback]
+                    #callbacks = [callback]
                 )
 timer(start_time)
 best_hps = tuner.get_best_hyperparameters(num_trials=1)[0]

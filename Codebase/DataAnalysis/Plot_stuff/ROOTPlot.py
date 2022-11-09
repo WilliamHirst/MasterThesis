@@ -35,13 +35,10 @@ def PlotRootHisto(MC, MC_wgt, Data, Channels, title, xlabel, bins, CutOff = None
           #"data16":{"color":R.kBlack},
           #"data15":{"color":R.kBlack}
     }   
-    sigdic = {"LRSMWR2400NR50":{"color":R.kBlack},
-              "WeHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
-              "WeHNL5060Glt01ddlepfiltch1":{"color":R.kBlack},
-              "WeHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
-              "WmuHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
-              "LRSMWR4500NR400":{"color":R.kBlack},
-              "WmuHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
+    sigdic = {"ttbarHNLfullLepMLp15":{"color":R.kBlack},
+          "ttbarHNLfullLepMLp75":{"color":R.kBlack},
+          "ttbarHNLfullLepMLm15":{"color":R.kBlack},
+          "ttbarHNLfullLepMLm75":{"color":R.kBlack},
     }
     featdic = {"ML_Val" : {"xlabel": xlabel}}
 
@@ -88,7 +85,7 @@ def PlotRootHisto(MC, MC_wgt, Data, Channels, title, xlabel, bins, CutOff = None
             xlabel = featdic[feature]["xlabel"]
         else:
             xlabel = feature
-        p = pt.Plot(histo,feature,toplot,xtext = xlabel)
+        p = pt.Plot(histo,feature,toplot,xtext = xlabel, mergeSig = False)
         p.can.SaveAs(f"../../../thesis/Figures/MLResults/{title}.pdf")
         p.can.Draw()
     

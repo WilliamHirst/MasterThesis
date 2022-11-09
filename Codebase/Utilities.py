@@ -2,10 +2,11 @@ from locale import D_T_FMT
 import pickle as pkl
 import numpy as np
 import pandas as pd
+from DataAnalysis.FeatureSelection import lowFeats 
 
 
 
-def loadDf(location, signal = None):
+def loadDf(location, signal = None, incHigh = True, notInc = []):
     from os import listdir
     from os.path import isfile, join
     onlyfiles = [f for f in listdir(location) if isfile(join(location, f))]
@@ -14,6 +15,13 @@ def loadDf(location, signal = None):
     channels = []
     
     for i in range(len(onlyfiles)):
+
+        cont = 0
+        for chan in notInc:
+            if chan in onlyfiles[i]:
+                cont = 1
+        if cont: continue
+
         if "data" not in onlyfiles[i]:
             channel = onlyfiles[i][:-7]
             df_i = pd.read_hdf(f"{location}/{onlyfiles[i]}")
@@ -22,14 +30,19 @@ def loadDf(location, signal = None):
             channels.append(channel)
         else:
             df_data = pd.read_hdf(f"{location}/{onlyfiles[i]}")
-            df_data = df_data.drop(columns = ["wgt_SG", "type"]) #Remove type from drop next run of MRData.
+            df_data = df_data.drop(columns = ["wgt_SG", "type"]) 
     
     if signal is None:
         y = df.type
     else:
+        df = df[df.type != 1]
         y = df["channel"] == signal
 
     df = df.drop(columns = ["type"])
+    if not incHigh:
+        df = df.drop(columns = [feat for feat in df.keys() if feat not in lowFeats])
+        df_data = df_data.drop(columns = [feat for feat in df.keys() if feat not in lowFeats]) #Remove type from drop next run of MRData.
+
     return df, y, df_data, channels
 
 def mergeToRoot(MC, MC_wgt, Data, Channels, CutOff = None):
@@ -113,8 +126,6 @@ def splitData(X, Y, split_v = 0.2, isEven = False, split_b = 0.2):
     
     indx = rng.choice(len(x_b), size_b, replace=False)
     
-    re_indx = np.delete(np.arange(len(x_b)), indx)
-
     split_indx  = int((size_s+size_b)*split_v)
    
     X_train = np.concatenate((x_s[:,:-2], x_b[indx,:-2]), axis=0)
@@ -144,6 +155,59 @@ def splitData(X, Y, split_v = 0.2, isEven = False, split_b = 0.2):
 
     return Tr, Va, Te
 
+def splitAndPrepData(X, Y, split_v = 0.2, scaleWeight = True, scale = False):
+    from sklearn.model_selection import train_test_split
+   
+    X_train, X_val, Y_train, Y_val = train_test_split(X, Y, test_size = split_v, random_state=42)
+
+    W_train = X_train.wgt_SG.array
+    W_val = X_val.wgt_SG.array
+
+    C_train = X_train.channel
+    C_val = X_val.channel
+   
+    if scaleWeight:
+        W_train[Y_train == 0.0] *= np.sum(W_train[Y_train == 1 ]) / np.sum(W_train[Y_train == 0])
+        W_val[Y_val == 0.0] *= np.sum(W_val[Y_val == 1 ]) / np.sum(W_val[Y_val == 0])
+    
+    W_train = removeNegWeights(W_train)
+    W_val = removeNegWeights(W_val)
+
+    W_train = pd.DataFrame(W_train)
+    W_val = pd.DataFrame(W_val)
+
+    X_train = X_train.drop(columns = ["channel", "wgt_SG"])
+    X_val = X_val.drop(columns = ["channel", "wgt_SG"])
+
+    X_train.index = np.arange(len(X_train))
+    X_val.index = np.arange(len(X_val))
+    Y_train.index = np.arange(len(Y_train))
+    Y_val.index = np.arange(len(Y_val))
+
+    print("Anna er kul")
+    
+    if scale:
+        X_train, X_val = scaleData(X_train, X_val, scaler = "Standard")
+
+    Tr = (X_train.astype('float32'), Y_train.astype('float32'), W_train.astype('float32'), C_train)
+    Va = (X_val.astype('float32'), Y_val.astype('float32'), W_val.astype('float32'), C_val)
+
+    return Tr, Va
+
+def scaleData(X_train, X_val, scaler = "Standard"):
+    if scaler == "Standard":
+        from sklearn.preprocessing import StandardScaler
+        scaler = StandardScaler()
+    elif scaler == "MinMax":
+        from sklearn.preprocessing import MinMaxScaler
+        scaler = MinMaxScaler()
+    scaler.fit(X_train)
+    X_train[X_train.keys()] = scaler.transform(X_train[X_train.keys()])
+    X_val[X_val.keys()] = scaler.transform(X_val[X_val.keys()])
+    return X_train, X_val
+
+
+
 def saveLoad(name, array = None):
     if array is None:
         with open(f"results/{name}", 'rb') as file:
@@ -151,6 +215,6 @@ def saveLoad(name, array = None):
         return output
     else:
         with open(f"results/{name}", 'wb') as f:
-            np.save(f, array)
+            np.save(f, np.asarray(array,dtype=object).ravel())
         return 
 
