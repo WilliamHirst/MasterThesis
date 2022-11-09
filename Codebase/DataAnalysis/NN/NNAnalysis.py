@@ -11,7 +11,7 @@ import tensorflow as tf
 
 
 sys.path.insert(1, "../../")
-from Utilities import loadDf, splitAndPrepData, timer, separateByChannel, saveLoad
+from Utilities import loadDf, splitAndPrepData, timer, separateByChannel, saveLoad, scaleData, PCAData
 
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
@@ -23,7 +23,7 @@ session = InteractiveSession(config=config)
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-signal = "ttbar"
+signal = "ttbarPCA20"
 
 name = "test"
 
@@ -35,8 +35,10 @@ print(hypermodel.summary())
 df, y, df_data, channels = loadDf(myPath,notInc=["LRS", "filtch"])
 
 
+
+
 print("Preparing data....")
-train, val = splitAndPrepData(df, y, scale = True)
+train, val = splitAndPrepData(df, y, scale = True, PCA = True)
 print("Done.")
 
 X_train, Y_train, W_train, C_train = train
@@ -44,19 +46,16 @@ X_val, Y_val, W_val, C_val = val
 
 channel = df.channel
 wgt = np.asarray(df.wgt_SG)
-df = df.drop(columns=["wgt_SG","channel"])
+df = df.drop(columns=["wgt_SG", "channel"])
 
 
 """
-Scale all data
+Scale all prep all Data
 """
-from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
-scaler.fit(df)
-df[df.keys()] = scaler.transform(df[df.keys()])
-scaler = StandardScaler()
-scaler.fit(df_data)
-df_data[df_data.keys()] = scaler.transform(df_data[df_data.keys()])
+df = scaleData(df)
+df_data = scaleData(df_data)
+df = PCAData(df)
+df_data = PCAData(df_data)
 
 
 time = timer()
@@ -65,13 +64,13 @@ with tf.device("/GPU:0"):
         history = hypermodel.fit(X_train, 
                                  Y_train,
                                  sample_weight = W_train, 
-                                 epochs=20, 
+                                 epochs=50, 
                                  batch_size=8096, 
                                  validation_data=(X_val, Y_val, W_val),
                                  verbose = 1)
         pred_Train = hypermodel.predict(X_train)
         pred_Val = hypermodel.predict(X_val)
-        # pred_MC = hypermodel.predict(df)
+        pred_MC = hypermodel.predict(df)
         # pred_Data = hypermodel.predict(df_data).ravel()
 
 print("Done")
@@ -94,21 +93,21 @@ plotRoc(Y_val,
         name = f"../../../thesis/Figures/MLResults/NN/{signal}SearchROCVal.pdf")
 print("Plotted ROC-curves.")
 
-plotDET(Y_train, 
-        pred_Train, 
-        W_train,
-        "Training-data", 
-        plot = True,
-        return_score = True, 
-        name = f"../../../thesis/Figures/MLResults/NN/{signal}SearchDETTrain.pdf")
+# plotDET(Y_train, 
+#         pred_Train, 
+#         W_train,
+#         "Training-data", 
+#         plot = True,
+#         return_score = True, 
+#         name = f"../../../thesis/Figures/MLResults/NN/{signal}SearchDETTrain.pdf")
 
-plotDET(Y_val, 
-        pred_Val, 
-        W_val,
-        "Validation-data", 
-        plot = True,
-        return_score = True, 
-        name = f"../../../thesis/Figures/MLResults/NN/{signal}SearchDETVal.pdf")
+# plotDET(Y_val, 
+#         pred_Val, 
+#         W_val,
+#         "Validation-data", 
+#         plot = True,
+#         return_score = True, 
+#         name = f"../../../thesis/Figures/MLResults/NN/{signal}SearchDETVal.pdf")
 print("Plotted DET-curves.")
 
 exit()

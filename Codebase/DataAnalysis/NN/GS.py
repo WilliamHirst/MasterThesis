@@ -17,7 +17,6 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-
 procUsed = int(100/10)
 
 signal = "ttbarHNL"
@@ -25,14 +24,16 @@ signal = "ttbarHNL"
 df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch"])
 
 print("Preparing data....")
-train, val = splitAndPrepData(df, y, scale = True)
+train, val = splitAndPrepData(df, y, scale = True, PCA = True, n_components = 20)
 print("Done.")
 
 X_train, Y_train, W_train, C_train = train
 X_val, Y_val, W_val, C_val = val
 
-
-nrFeature = len(X_train.keys())
+try:
+    nrFeature = len(X_train.keys())
+except:
+    nrFeature = len(X_train[0])
 class MyHyperModel(kt.HyperModel):
     def build(self, hp):
         model = tf.keras.Sequential(
@@ -99,7 +100,7 @@ state = True
 while state == True:
     answ = input("Do you want to save model? (y/n) ")
     if answ == "y":
-        name = "test"#input("name: ")
+        name = "test_PCA20"
         tuner.hypermodel.build(best_hps).save(f"models/model_{name}.h5")
         state = False
         print("Model saved")
