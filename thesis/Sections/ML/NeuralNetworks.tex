@@ -111,11 +111,11 @@ the backwards propagation is therefore to calculate the gradients $\partial \mat
 $\partial \mathcal{C}/\partial b^l_k$. 
 \\
 \newline
-To begin with we can derive an expression for $\partial \mathcal{C}/\partial w_{k,j}^l$. We define 
+To begin with we can derive an expression for $\partial \mathcal{C}/\partial w_{k,j}^l$. We use the chain-rule to define 
 \begin{align*}
     \frac{\partial \mathcal{C}}{\partial w_{k,j}^l} = \frac{\partial \mathcal{C}}{\partial z^l_k} \frac{\partial z^l_k}{\partial w_{k,j}^l},
 \end{align*}
-which we can simplify further by using equation \ref{eq:activated} to calculate the second term, to become
+which we can simplify further by using equation \ref{eq:activated} to calculate the second term, which becomes
 \begin{align*}
     \frac{\partial \mathcal{C}}{\partial w_{k,j}^l} = \frac{\partial \mathcal{C}}{\partial z^l_k} a^{l-1}_j.
 \end{align*}
@@ -123,8 +123,10 @@ We can redefine the first term in the equation above as $\delta_j^l$ and write
 \begin{align*}
     \delta_k^l = \frac{\partial \mathcal{C}}{\partial z^l_k}
                = \sum_j \frac{\partial \mathcal{C}}{\partial z^{l+1}_j}\frac{\partial z_j^{l+1}}{\partial z^l_k}  
-               = \sum_j \delta_k^{l+1}\frac{\partial z_j^{l+1}}{\partial z^l_k}  
+               = \sum_j \delta_k^{l+1}\frac{\partial z_j^{l+1}}{\partial z^l_k},
 \end{align*}
+where we have again used the chain rule for all contributing nodes.
+\\
 To calculate the final partial derivative we write
 \begin{align*}
     \frac{\partial z_j^{l+1}}{\partial z^l_k} = \frac{\partial z_j^{l+1}}{\partial a^l_j}\frac{\partial a^l_j}{\partial z^l_k}
@@ -136,10 +138,9 @@ This gives use the expression for $\delta_j^l$
 \end{align}
 Finally this gives us the expression
 \begin{align}\label{eq:dw}
-    \frac{\partial \mathcal{C}}{\partial w_{k,j}^l} = \delta_k^{l} a_j^{l-1}
+    \frac{\partial \mathcal{C}}{\partial w_{k,j}^l} = \delta_k^{l} a_j^{l-1}.
 \end{align}
-Next we want to derive $\partial \mathcal{C}/\partial b^l_k$. We can simply multiply the expression 
-with $\partial z^l_k/\partial z_k^l$ and find
+Next we want to derive $\partial \mathcal{C}/\partial b^l_k$. We simply use the chain rule and derive
 \begin{align*}
     \frac{\partial \mathcal{C}}{\partial b^l_k} = \frac{\partial \mathcal{C}}{\partial z^l_k}\frac{\partial z_k^l}{\partial b^l_k},
 \end{align*}

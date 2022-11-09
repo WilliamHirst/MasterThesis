@@ -2100,6 +2100,13 @@ INPUT Sections/ML/Assessment.tex
 INPUT ./Sections/ML/Assessment.tex
 INPUT ./Sections/ML/Assessment.tex
 INPUT Sections/ML/Assessment.tex
+INPUT ./Sections/ML/Scaling.tex
+INPUT ./Sections/ML/Scaling.tex
+INPUT ./Sections/ML/Scaling.tex
+INPUT Sections/ML/Scaling.tex
+INPUT ./Sections/ML/Scaling.tex
+INPUT ./Sections/ML/Scaling.tex
+INPUT Sections/ML/Scaling.tex
 INPUT ./Sections/ML/Hyperparameters.tex
 INPUT ./Sections/ML/Hyperparameters.tex
 INPUT ./Sections/ML/Hyperparameters.tex

@@ -19,6 +19,9 @@ J.~Pumplin, \emph{How to tell quark jets from gluon jets},
   \href{http://dx.doi.org/10.1103/PhysRevD.44.2025}{\emph{Phys. Rev. D} {\bf
   44} (Oct, 1991) 2025--2032}.
 
+\bibitem{StandardScaler}
+{Scikit-learn developers}, ``Pandas.''
+
 \bibitem{XGB}
 {The XGBoost Contributors}, ``Xgboost.''
 
