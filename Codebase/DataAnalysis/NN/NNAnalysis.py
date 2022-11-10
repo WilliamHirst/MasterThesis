@@ -23,9 +23,9 @@ session = InteractiveSession(config=config)
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-signal = "ttbarPCA20"
+signal = "ttbarExtraLayers"
 
-name = "test"
+name = "test_ExtraLayers"
 
 hypermodel = tf.keras.models.load_model(f"models/model_{name}.h5")
 
@@ -38,7 +38,7 @@ df, y, df_data, channels = loadDf(myPath,notInc=["LRS", "filtch"])
 
 
 print("Preparing data....")
-train, val = splitAndPrepData(df, y, scale = True, PCA = True)
+train, val = splitAndPrepData(df, y, scale = True, PCA = False)#, n_components=1-1e-4)
 print("Done.")
 
 X_train, Y_train, W_train, C_train = train
@@ -54,8 +54,8 @@ Scale all prep all Data
 """
 df = scaleData(df)
 df_data = scaleData(df_data)
-df = PCAData(df)
-df_data = PCAData(df_data)
+# df = PCAData(df, n_components=1-1e-3)
+# df_data = PCAData(df_data, n_components=1-1e-3)
 
 
 time = timer()
@@ -64,7 +64,7 @@ with tf.device("/GPU:0"):
         history = hypermodel.fit(X_train, 
                                  Y_train,
                                  sample_weight = W_train, 
-                                 epochs=50, 
+                                 epochs=20, 
                                  batch_size=8096, 
                                  validation_data=(X_val, Y_val, W_val),
                                  verbose = 1)

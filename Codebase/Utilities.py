@@ -164,16 +164,20 @@ def PCAData(X_train, X_val = None, n_components = None):
     from sklearn.decomposition import PCA
     if n_components is None:
         pca = PCA()
-
+    elif n_components < 1 and n_components > 0:
+        pca = PCA(n_components = n_components, svd_solver = 'full' )
     else:
-        pca = PCA(n_components = 1e-4, svd_solver = 'full' )
+        pca = PCA(n_components)
 
+    bf = nFeats(X_train)
     pca = pca.fit(X_train)
+    # print(pca.explained_variance_ratio_)
+    # var=np.cumsum(np.round(pca.explained_variance_ratio_, decimals=3)*100)
+
     X_train = pca.transform(X_train)
-    """
-    If 0 < n_components < 1 and svd_solver == 'full', select the number of components such that the 
-    amount of variance that needs to be explained is greater than the percentage specified by n_components.
-    """
+    af = nFeats(X_train)
+    print(f"Removed {bf-af} features. {af} features left.")
+
     if X_val is None:
         return X_train
     
@@ -195,5 +199,12 @@ def timer(start_time=None):
         thour, temp_sec = divmod((datetime.now() - start_time).total_seconds(), 3600)
         tmin, tsec = divmod(temp_sec, 60)
         print('\nTime taken: %i hours %i minutes and %s seconds.' % (thour, tmin, round(tsec, 2)))
+
+def nFeats(data):
+    try:
+        nF = len(data.keys())
+    except:
+        nF = len(data[0])
+    return nF
 
 
