@@ -29,12 +29,6 @@ X_train, Y_train, W_train, C_train = train
 X_val, Y_val, W_val, C_val = val
 
 
-# pca = decomposition.PCA(n_components=15)
-# pca.fit(X_train)
-# X_train = pca.transform(X_train)
-# X_val = pca.transform(X_val)
-
-
 sum_wpos = W_train[Y_train == 1.0].sum()
 sum_wneg = W_train[Y_train == 0.0].sum()
 

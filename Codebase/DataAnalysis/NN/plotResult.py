@@ -5,7 +5,7 @@ from Plot_stuff.ROOTPlot import *
 sys.path.insert(1, "../../")
 from Utilities import saveLoad
 
-signal = "ttbar" 
+signal = "ttbarHNL" 
 channels = saveLoad("channels_test.npy")
 predict_data = saveLoad("predict_data_test.npy").ravel()
 predict_sorted = saveLoad("predict_sorted_test.npy")
