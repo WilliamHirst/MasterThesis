@@ -1,4 +1,5 @@
-\section{Data scaling}\label{subsec:Scaling}
+\section{Data Handling}\label{subsec:Scaling}
+\subsection{Scaling}
 The distribution of values for different features can vary immensely, and for most 
 cost functions, this is a problem. For some features, a deviation on the magnitude 
 of $10^3$ can be a good approximation, whereas for others it can be a vast 
@@ -9,7 +10,7 @@ simultaneously preserving all information regarding each feature. The choice of 
 chooses to scale the data will heavily affect the performance of the model and is therefore
 a part of the model. 
 \\
-\subsection{Standard Scaler}
+\subsubsection{Standard Scaler}
 The \emph{Standrad Scaler} implemented in this rapport uses Scikit-learns's \emph{StandardScaler}
 \cite{StandardScaler}. The standard scaler function scales each feature individually by subtracting 
 the mean and dividing by the standard deviation. In doing so the resulting scaled data has a mean 
@@ -20,5 +21,7 @@ a dataset $\x$ as
 \end{align}
 where $\boldsymbol{\mu} _x$ and $\boldsymbol{\sigma}_x$ are vectors with the elements being 
 the mean and standard deviation respectively for each feature.
+
+\subsection{Principal Component Analysis}
 
 

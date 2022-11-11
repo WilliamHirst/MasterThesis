@@ -1,4 +1,4 @@
-\documentclass[UKenglish]{book}  
+\documentclass[a4paper,UKenglish]{book}  
 \newcommand\hmmax{0}
 \newcommand\bmmax{0}
 
@@ -9,13 +9,6 @@
 \usepackage{jheppub}
 
 
-\title{Search for heavy neutrinos in a 3-lepton final-state}       
-\subtitle{Applications using supervised machine learning}
-\subsubtitle{by}
-\author{William Hirst}              
-\thesistext{THESIS}
-\thesistextt{for the degree of}
-\thesistexttt{MASTER OF SCIENCE}
 
 
 \bibliographystyle{JHEP}
@@ -25,9 +18,19 @@
 
 \input{Acronyms}
 \begin{document}
-\duoforside[dept={Department of Physics},
-program={Master's Program Name},
-  long]                                         
+
+\uiomasterfp[author=William Hirst,
+                 colour=blue,
+                 compact,
+                 date=\today,
+                 dept=Department of Physics,
+                 fac=Faculty of Mathematics and Natural Sciences,
+                 long,
+                 subtitle=Applications using supervised machine learning,
+                 supervisors={Farid Ould‑Saada \and Eirik Gramstad \and James Catmore},
+                 title=Search for heavy neutrinos in a 3-lepton final-state]
+                 
+                                     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \frontmatter{}
@@ -54,8 +57,8 @@ program={Master's Program Name},
 \input{Sections/ML/Phenomenology}
 \input{Sections/ML/Optimization}
 \input{Sections/ML/Assessment}
-\input{Sections/ML/Scaling}
 \input{Sections/ML/Hyperparameters}
+\input{Sections/ML/DataHandling}
 \input{Sections/ML/NeuralNetworks}
 \input{Sections/ML/GBDT}
 
