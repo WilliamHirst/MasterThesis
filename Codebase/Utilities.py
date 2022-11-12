@@ -127,7 +127,7 @@ def splitAndPrepData(X, Y, split_v = 0.2, scaleWeight = True, scale = False, PCA
     if scale:
         X_train, X_val = scaleData(X_train, X_val, scaler = "Standard")
 
-    if PCA and n_components is not None:
+    if PCA:
         X_train, X_val = PCAData(X_train, X_val, n_components = n_components)
 
 
@@ -171,8 +171,6 @@ def PCAData(X_train, X_val = None, n_components = None):
 
     bf = nFeats(X_train)
     pca = pca.fit(X_train)
-    # print(pca.explained_variance_ratio_)
-    # var=np.cumsum(np.round(pca.explained_variance_ratio_, decimals=3)*100)
 
     X_train = pca.transform(X_train)
     af = nFeats(X_train)

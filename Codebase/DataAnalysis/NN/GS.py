@@ -17,7 +17,7 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-procUsed = int(100/10)
+procUsed = int(100/50)
 
 signal = "ttbarHNL"
 
@@ -48,7 +48,7 @@ class MyHyperModel(kt.HyperModel):
 
             model.add(tf.keras.layers.Dense(units=hp.Int('units_' + str(i),
                                                 min_value=10,
-                                                max_value=30,
+                                                max_value=100,
                                                 step=5),
                                activation = act))
 
@@ -99,7 +99,7 @@ state = True
 while state == True:
     answ = input("Do you want to save model? (y/n) ")
     if answ == "y":
-        name = "test_ExtraLayers2"
+        name = "test_ExtraNodes"
         tuner.hypermodel.build(best_hps).save(f"models/model_{name}.h5")
         state = False
         print("Model saved")
