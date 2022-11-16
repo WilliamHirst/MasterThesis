@@ -23,26 +23,6 @@ from Plot_stuff.ROCM import *
 sys.path.insert(1, "../../")
 from Utilities import *
 
-def MaxChannel(input):
-        
-        def chekc_nodes(i):
-                i_1 = tf.cond(input[:,i] > input[:,i+1], lambda: input[:,i], lambda: 0.)
-                i_1 = tf.cond(input[:,i] > input[:,i+2], lambda: input[:,i], lambda: 0.)
-
-                i_2 = tf.cond(input[:,i+1] > input[:,i], lambda: input[:,i+1], lambda: 0.)
-                i_2 = tf.cond(input[:,i+1] > input[:,i+2], lambda: input[:,i+1], lambda: 0.)
-                
-                i_3 = tf.cond(input[:,i+2] > input[:,i], lambda: input[:,i+2], lambda: 0.)
-                i_3 = tf.cond(input[:,i+2] > input[:,i+1], lambda: input[:,i+2], lambda: 0.)
-                return [i_1,i_2,i_3]
-
-        output = chekc_nodes(0)
-        for i in range(3,600,3):
-                output = tf.concat([output, chekc_nodes(i)], axis=-1)
-        shape = input.get_shape().as_list() 
-        output = tf.reshape(output, [-1, 600])
-        return output
-
 def max_out(inputs, num_units = 200, axis=None):
     shape = inputs.get_shape().as_list()
     if shape[0] is None:
@@ -58,23 +38,32 @@ def max_out(inputs, num_units = 200, axis=None):
     outputs = tf.reduce_max(tf.reshape(inputs, shape), -1, keepdims=False)
     return outputs
 
+def channel_out(inputs, num_units = 200, axis=None):
+    shape = inputs.get_shape().as_list()
+    if shape[0] is None:
+        shape[0] = -1
+    if axis is None:  # Assume that channel is the last dimension
+        axis = -1
+    num_channels = shape[axis]
+    if num_channels % num_units:
+        raise ValueError('number of features({}) is not '
+                         'a multiple of num_units({})'.format(num_channels, num_units))
+    shape[axis] = num_units
+    shape += [num_channels // num_units]
+    grouped = tf.reshape(inputs, shape)
+    top_vals = tf.reduce_max(tf.reshape(inputs, shape), -1, keepdims=True)
+    isMax = tf.reshape(tf.greater_equal(grouped, top_vals), [shape[0], num_channels])
+    output = tf.multiply(tf.cast(isMax,tf.float32), inputs)
 
-                # for j in range(i+1,i+3):
-                #         result = tf.cond(input[j] > max, lambda: 1, lambda: 0)
-                #         if result:
-                #                 input[indx] = 0
-                #                 max = input[j]
-                #                 indx = j
-                #         else:
-                #                 input[j] = 0
-     
-get_custom_objects().update({'MaxChannel': Activation(max_out)})
+    return output
 
 
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-signal = "ttbarHNLMaxChannel"
+signal = "ttbarHNLMaxOut"
+
+print(f"Starting test: {signal}")
 
 df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch"])
 
@@ -98,8 +87,8 @@ model.compile(loss="binary_crossentropy", optimizer=optimizer, metrics=["AUC"])
 print("Done compiling.")
 
 with tf.device("/GPU:0"):
-    callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
-                                                patience=10, 
+    callback = tf.keras.callbacks.EarlyStopping(monitor='val_loss', 
+                                                patience=5, 
                                                 restore_best_weights = True,
                                                 verbose = 1)
     history = model.fit(X_train, 
@@ -107,7 +96,7 @@ with tf.device("/GPU:0"):
                         sample_weight = W_train, 
                         epochs=15, 
                         batch_size=8096, 
-                        #callbacks = [callback],
+                        callbacks = [callback],
                         validation_data=(X_val, Y_val, W_val),
                         verbose = 1)
     pred_Train = model.predict(X_train)
@@ -128,4 +117,18 @@ plotRoc(Y_val,
         plot = True,
         return_score = True, 
         name = f"DNN/{signal}SearchROCVal.pdf")
+
+state = True
+while state == True:
+    answ = input("Do you want to save model? (y/n) ")
+    if answ == "y":
+        name = "test_ExtraNodes"
+        model.save(f"models/model_{name}.h5")
+        model.save()
+        model.save_weights(f'models/model_{name}_weights.h5')
+        state = False
+        print("Model saved")
+    elif answ == "n":
+        state = False
+        print("Model not saved")
 
