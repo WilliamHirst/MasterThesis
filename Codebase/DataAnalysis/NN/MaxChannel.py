@@ -4,7 +4,7 @@ from tensorflow.keras import optimizers
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
 
-from CustomeObjects import max_out, channel_out, Cust_Metric
+from CustomeObjects import max_out, channel_out, Cust_Metric, Cust_Callback
 
 
 
@@ -31,7 +31,7 @@ signal = "ttbarHNLMaxChannel"
 
 print(f"Starting test: {signal}")
 
-df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch"])
+df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
 
 print("Preparing data....")
 train, val = splitAndPrepData(df, y, scale = True, PCA = False)
@@ -44,9 +44,9 @@ nrFeature = nFeats(X_train)
 print("Compiling Model")
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
-model.add(tf.keras.layers.Dense(600,activation = channel_out))
-model.add(tf.keras.layers.Dense(600,activation = channel_out))
-model.add(tf.keras.layers.Dense(600,activation = channel_out))
+model.add(tf.keras.layers.Dense(600,activation = max_out))
+model.add(tf.keras.layers.Dense(600,activation = max_out))
+model.add(tf.keras.layers.Dense(600,activation = max_out))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 optimizer = optimizers.Adam(learning_rate=1e-3)
 model.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
@@ -58,17 +58,20 @@ with tf.device("/GPU:0"):
                                                 restore_best_weights = True,
                                                 verbose = 1,
                                                 mode = "max")
+    CC = Cust_Callback()
+    CC.validation_data = (X_val, Y_val, W_val)
+
     history = model.fit(X_train, 
                         Y_train,
                         sample_weight = W_train, 
                         epochs=50, 
                         batch_size=8096, 
-                        callbacks = [callback],
+                        callbacks = [callback],#, CC],
                         validation_data=(X_val, Y_val, W_val),
                         verbose = 1)
     pred_Train = model.predict(X_train)
     pred_Val = model.predict(X_val)
-
+exit()
 plotRoc(Y_train, 
         pred_Train, 
         W_train,

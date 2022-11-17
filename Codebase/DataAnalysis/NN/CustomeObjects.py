@@ -41,12 +41,13 @@ def channel_out(inputs, num_units = 200, axis=None):
 
     return output
 
-class Cust_AUC(keras.callbacks.Callback):
+class Cust_Callback(keras.callbacks.Callback):
     def on_train_begin(self, logs={}):
         self._data = []
 
     def on_epoch_end(self, batch, logs={}):
-        X_val, y_val = self.validation_data[0], self.validation_data[1]
+        X_val, y_val, sample_weight = self.validation_data[0], self.validation_data[1],  self.validation_data[2]
+
         y_pred = np.asarray(self.model.predict(X_val))
 
         fpr, tpr, thresholds = roc_curve(y_val,y_pred, sample_weight = sample_weight, pos_label=1)
@@ -56,11 +57,17 @@ class Cust_AUC(keras.callbacks.Callback):
         ix = np.argmax(gmeans)
         best_threshold = thresholds[ix]
 
-        X_val = X_val 
+        nrB = np.sum(sample_weight[y_pred < best_threshold])
+        print(nrB)
+        nrS = np.sum(sample_weight[y_pred > best_threshold])
+        print(nrS)
+        sig = nrS/np.sqrt(nrB)
 
         self._data.append({
-            'val_rocauc': roc_auc_score(y_val, y_pred),
+            'val_sig': sig,
         })
+        print(f"The significance: {sig} ")
+
         return
 
     def get_data(self):

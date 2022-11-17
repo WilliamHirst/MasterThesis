@@ -105,8 +105,8 @@ def splitAndPrepData(X, Y, split_v = 0.2, scaleWeight = True, scale = False, PCA
     C_val = X_val.channel
    
     if scaleWeight:
-        W_train[Y_train == 0.0] *= np.sum(W_train[Y_train == 1 ]) / np.sum(W_train[Y_train == 0])
-        W_val[Y_val == 0.0] *= np.sum(W_val[Y_val == 1 ]) / np.sum(W_val[Y_val == 0])
+        W_train = scaleWeights(W_train, Y_train)
+        W_val = scaleWeights(W_val, Y_val)
     
     W_train = removeNegWeights(W_train)
     W_val = removeNegWeights(W_val)
