@@ -4,9 +4,8 @@ from tensorflow.keras import optimizers
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
 
-from keras.layers import Activation
-from keras import backend as K
-from keras.utils.generic_utils import get_custom_objects
+from CustomeObjects import max_out, channel_out, Cust_Metric
+
 
 
 
@@ -23,45 +22,12 @@ from Plot_stuff.ROCM import *
 sys.path.insert(1, "../../")
 from Utilities import *
 
-def max_out(inputs, num_units = 200, axis=None):
-    shape = inputs.get_shape().as_list()
-    if shape[0] is None:
-        shape[0] = -1
-    if axis is None:  # Assume that channel is the last dimension
-        axis = -1
-    num_channels = shape[axis]
-    if num_channels % num_units:
-        raise ValueError('number of features({}) is not '
-                         'a multiple of num_units({})'.format(num_channels, num_units))
-    shape[axis] = num_units
-    shape += [num_channels // num_units]
-    outputs = tf.reduce_max(tf.reshape(inputs, shape), -1, keepdims=False)
-    return outputs
-
-def channel_out(inputs, num_units = 200, axis=None):
-    shape = inputs.get_shape().as_list()
-    if shape[0] is None:
-        shape[0] = -1
-    if axis is None:  # Assume that channel is the last dimension
-        axis = -1
-    num_channels = shape[axis]
-    if num_channels % num_units:
-        raise ValueError('number of features({}) is not '
-                         'a multiple of num_units({})'.format(num_channels, num_units))
-    shape[axis] = num_units
-    shape += [num_channels // num_units]
-    grouped = tf.reshape(inputs, shape)
-    top_vals = tf.reduce_max(tf.reshape(inputs, shape), -1, keepdims=True)
-    isMax = tf.reshape(tf.greater_equal(grouped, top_vals), [shape[0], num_channels])
-    output = tf.multiply(tf.cast(isMax,tf.float32), inputs)
-
-    return output
 
 
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-signal = "ttbarHNLMaxOut"
+signal = "ttbarHNLMaxChannel"
 
 print(f"Starting test: {signal}")
 
@@ -78,23 +44,24 @@ nrFeature = nFeats(X_train)
 print("Compiling Model")
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
-model.add(tf.keras.layers.Dense(600,activation = max_out))
-model.add(tf.keras.layers.Dense(600,activation = max_out))
-model.add(tf.keras.layers.Dense(600,activation = max_out))
+model.add(tf.keras.layers.Dense(600,activation = channel_out))
+model.add(tf.keras.layers.Dense(600,activation = channel_out))
+model.add(tf.keras.layers.Dense(600,activation = channel_out))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 optimizer = optimizers.Adam(learning_rate=1e-3)
-model.compile(loss="binary_crossentropy", optimizer=optimizer, metrics=["AUC"])
+model.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
 print("Done compiling.")
 
 with tf.device("/GPU:0"):
-    callback = tf.keras.callbacks.EarlyStopping(monitor='val_loss', 
-                                                patience=5, 
+    callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
+                                                patience=10, 
                                                 restore_best_weights = True,
-                                                verbose = 1)
+                                                verbose = 1,
+                                                mode = "max")
     history = model.fit(X_train, 
                         Y_train,
                         sample_weight = W_train, 
-                        epochs=15, 
+                        epochs=50, 
                         batch_size=8096, 
                         callbacks = [callback],
                         validation_data=(X_val, Y_val, W_val),
@@ -124,7 +91,6 @@ while state == True:
     if answ == "y":
         name = "test_ExtraNodes"
         model.save(f"models/model_{name}.h5")
-        model.save()
         model.save_weights(f'models/model_{name}_weights.h5')
         state = False
         print("Model saved")
