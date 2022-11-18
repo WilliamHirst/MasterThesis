@@ -23,9 +23,9 @@ session = InteractiveSession(config=config)
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-signal = "ttbarExtraLayers"
+signal = "test_ExtraNodes"
 
-name = "test_ExtraLayers"
+name = "test_ExtraNodes"
 
 hypermodel = tf.keras.models.load_model(f"models/model_{name}.h5")
 
@@ -54,8 +54,8 @@ Scale all prep all Data
 """
 df = scaleData(df)
 df_data = scaleData(df_data)
-# df = PCAData(df, n_components=1-1e-3)
-# df_data = PCAData(df_data, n_components=1-1e-3)
+df = PCAData(df)
+df_data = PCAData(df_data)
 
 
 time = timer()
