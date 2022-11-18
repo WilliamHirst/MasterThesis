@@ -4,6 +4,9 @@ from tensorflow.keras import optimizers
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
 
+from CustomeObjects import max_out, channel_out, Cust_Metric, Cust_Callback
+
+
 
 
 config = ConfigProto()
@@ -21,50 +24,63 @@ from Utilities import *
 
 
 
+
 myPath = "/storage/William_Sakarias/William_Data"
 
-procUsed = int(100/50)
+signal = "ttbarHNLMaxChannel"
 
-signal = "ttbarHNLDropout"
+print(f"Starting test: {signal}")
 
-df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch"])
+df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
 
 print("Preparing data....")
-train, val = splitAndPrepData(df, y, scale = True, PCA = False)
+train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)
 print("Done.")
 
 X_train, Y_train, W_train, C_train = train
-X_val, Y_val, W_val, C_val = val
+X_val, Y_val, W_val, C_val, scaleFactor = val
 nrFeature = nFeats(X_train)
-
-
+print("Compiling Model")
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
 model.add(tf.keras.layers.Dense(600,activation = tf.keras.layers.LeakyReLU(alpha=0.01)))
+model.add(tf.keras.layers.Dropout(0.3 ))
 model.add(tf.keras.layers.Dense(600,activation = tf.keras.layers.LeakyReLU(alpha=0.01)))
-model.add(tf.keras.layers.Dropout(0.5 ))
+model.add(tf.keras.layers.Dropout(0.3 ))
 model.add(tf.keras.layers.Dense(600,activation = tf.keras.layers.LeakyReLU(alpha=0.01)))
+model.add(tf.keras.layers.Dropout(0.3 ))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 optimizer = optimizers.Adam(learning_rate=1e-3)
-model.compile(loss="binary_crossentropy", optimizer=optimizer, metrics=["AUC"])
-
+model.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
+print("Done compiling.")
 
 with tf.device("/GPU:0"):
+    # CC = Cust_Callback(Y_val, W_val)
+    # fetches = [CC.var_y_pred.assign(model.outputs[0])]
+    # model._function_kwargs = {'fetches': fetches}
+
     callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
                                                 patience=10, 
                                                 restore_best_weights = True,
-                                                verbose = 1)
+                                                verbose = 1,
+                                                mode = "max")
     history = model.fit(X_train, 
                         Y_train,
                         sample_weight = W_train, 
-                        epochs=15, 
+                        epochs=50, 
                         batch_size=8096, 
-                        #callbacks = [callback],
+                        callbacks = [callback], #, CC],
                         validation_data=(X_val, Y_val, W_val),
                         verbose = 1)
-    pred_Train = model.predict(X_train)
-    pred_Val = model.predict(X_val)
+    pred_Train = model.predict(X_train, batch_size=8096)
+    pred_Val = model.predict(X_val, batch_size=8096)
+    Calc_Sig(Y_val, pred_Val, W_val/scaleFactor)
+    print(np.max(history.history['val_auc']))
 
+
+
+
+exit()
 plotRoc(Y_train, 
         pred_Train, 
         W_train,
@@ -80,4 +96,17 @@ plotRoc(Y_val,
         plot = True,
         return_score = True, 
         name = f"DNN/{signal}SearchROCVal.pdf")
+
+state = True
+while state == True:
+    answ = input("Do you want to save model? (y/n) ")
+    if answ == "y":
+        name = "test_ExtraNodes"
+        model.save(f"models/model_{name}.h5")
+        model.save_weights(f'models/model_{name}_weights.h5')
+        state = False
+        print("Model saved")
+    elif answ == "n":
+        state = False
+        print("Model not saved")
 

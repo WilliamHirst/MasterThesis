@@ -75,21 +75,7 @@ class Cust_Callback(keras.callbacks.Callback):
     def get_data(self):
         return self._data
 
-def Calc_Sig(y_val, y_pred, sample_weight):
-    fpr, tpr, thresholds = roc_curve(y_val,y_pred, sample_weight = sample_weight, pos_label=1)
 
-    gmeans = np.sqrt(np.array(tpr) * (1-np.array(fpr)/np.max(np.array(fpr))))
-    ix = np.argmax(gmeans)
-    best_threshold = thresholds[ix]
-
-    nrB = np.sum(sample_weight[y_pred < best_threshold])
-    nrS = np.sum(sample_weight[y_pred > best_threshold])
-    sig = nrS/np.sqrt(nrB)
-    sig_2  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
-
-    print(f"The significance: {sig} ")
-    print(f"The significance: {sig_2} ")
-    return
 
 class Cust_Metric(tf.keras.metrics.Metric):
     def __init__(self, num_classes):
