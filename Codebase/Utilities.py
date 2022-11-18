@@ -23,7 +23,7 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
         cont = 0
         for chan in notInc:
             if chan in onlyfiles[i]:
-                cont = 1
+                cont = 1            
         if cont: continue
 
         if "data" not in onlyfiles[i]:
@@ -46,7 +46,6 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
     if not incHigh:
         df = df.drop(columns = [feat for feat in df.keys() if feat not in lowFeats])
         df_data = df_data.drop(columns = [feat for feat in df.keys() if feat not in lowFeats]) 
-
     return df, y, df_data, channels
 
 def mergeToRoot(MC, MC_wgt, Data, Channels, CutOff = None):
@@ -93,7 +92,7 @@ def separateByChannel(prediction, weights, df_channel, channels):
 """
 DATA-HANDLING FUNCTIONS 
 """
-def splitAndPrepData(X, Y, split_v = 0.2, scaleWeight = True, scale = False, PCA = False, n_components = None):
+def splitAndPrepData(X, Y, split_v = 0.2, scaleWeight = True, scale = False, PCA = False, n_components = None, ret_scaleFactor = False):
     from sklearn.model_selection import train_test_split
    
     X_train, X_val, Y_train, Y_val = train_test_split(X, Y, test_size = split_v, random_state=42)
@@ -105,8 +104,8 @@ def splitAndPrepData(X, Y, split_v = 0.2, scaleWeight = True, scale = False, PCA
     C_val = X_val.channel
    
     if scaleWeight:
-        W_train = scaleWeights(W_train, Y_train)
-        W_val = scaleWeights(W_val, Y_val)
+        W_train, _ = scaleWeights(W_train, Y_train)
+        W_val, scaleFactor = scaleWeights(W_val, Y_val, ret_scaleFactor)
     
     W_train = removeNegWeights(W_train)
     W_val = removeNegWeights(W_val)
@@ -132,7 +131,10 @@ def splitAndPrepData(X, Y, split_v = 0.2, scaleWeight = True, scale = False, PCA
 
 
     Tr = (X_train.astype('float32'), Y_train.astype('float32'), W_train.astype('float32'), C_train)
-    Va = (X_val.astype('float32'), Y_val.astype('float32'), W_val.astype('float32'), C_val)
+    if ret_scaleFactor:
+        Va = (X_val.astype('float32'), Y_val.astype('float32'), W_val.astype('float32'), C_val, scaleFactor)
+    else:
+        Va = (X_val.astype('float32'), Y_val.astype('float32'), W_val.astype('float32'), C_val)
 
     return Tr, Va
 
@@ -140,9 +142,12 @@ def removeNegWeights(weight):
     P = np.sum(weight)/np.sum(np.abs(weight))
     return P*np.abs(weight)
 
-def scaleWeights(weights, y):
-    weights[y == 0.0] *= np.sum(weights[y == 1 ]) / np.sum(weights[y == 0])
-    return weights
+def scaleWeights(weights, y, ret_scaleFactor = False):
+    scaleFactor = np.sum(weights[y == 1]) / np.sum(weights[y == 0])
+    weights[y == 0.0] *= scaleFactor
+    if ret_scaleFactor:
+        return weights, scaleFactor
+    return weights, None
 
 
 def scaleData(X_train, X_val = None, scaler = "Standard"):
@@ -204,11 +209,3 @@ def nFeats(data):
     except:
         nF = len(data[0])
     return nF
-
-
-
-    
-
-
-
-

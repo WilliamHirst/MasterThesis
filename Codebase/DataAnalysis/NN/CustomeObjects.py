@@ -1,4 +1,5 @@
 import tensorflow as tf
+from keras import backend as K
 import keras as keras
 import numpy as np
 
@@ -42,25 +43,26 @@ def channel_out(inputs, num_units = 200, axis=None):
     return output
 
 class Cust_Callback(keras.callbacks.Callback):
+    def __init__(self,Y_val, W_val):
+        self.var_y_pred = tf.Variable(0., validate_shape=False)
+        self.var_y_true = Y_val
+        self.sample_weight = W_val
+
     def on_train_begin(self, logs={}):
         self._data = []
 
     def on_epoch_end(self, batch, logs={}):
-        X_val, y_val, sample_weight = self.validation_data[0], self.validation_data[1],  self.validation_data[2]
+        y_pred = self.var_y_pred
 
-        y_pred = np.asarray(self.model.predict(X_val))
-
-        fpr, tpr, thresholds = roc_curve(y_val,y_pred, sample_weight = sample_weight, pos_label=1)
+        fpr, tpr, thresholds = roc_curve(self.var_y_true,y_pred, sample_weight = self.sample_weight, pos_label=1)
 
 
         gmeans = np.sqrt(np.array(tpr) * (1-np.array(fpr)/np.max(np.array(fpr))))
         ix = np.argmax(gmeans)
         best_threshold = thresholds[ix]
 
-        nrB = np.sum(sample_weight[y_pred < best_threshold])
-        print(nrB)
-        nrS = np.sum(sample_weight[y_pred > best_threshold])
-        print(nrS)
+        nrB = np.sum(self.sample_weight[y_pred < best_threshold])
+        nrS = np.sum(self.sample_weight[y_pred > best_threshold])
         sig = nrS/np.sqrt(nrB)
 
         self._data.append({
@@ -72,6 +74,22 @@ class Cust_Callback(keras.callbacks.Callback):
 
     def get_data(self):
         return self._data
+
+def Calc_Sig(y_val, y_pred, sample_weight):
+    fpr, tpr, thresholds = roc_curve(y_val,y_pred, sample_weight = sample_weight, pos_label=1)
+
+    gmeans = np.sqrt(np.array(tpr) * (1-np.array(fpr)/np.max(np.array(fpr))))
+    ix = np.argmax(gmeans)
+    best_threshold = thresholds[ix]
+
+    nrB = np.sum(sample_weight[y_pred < best_threshold])
+    nrS = np.sum(sample_weight[y_pred > best_threshold])
+    sig = nrS/np.sqrt(nrB)
+    sig_2  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
+
+    print(f"The significance: {sig} ")
+    print(f"The significance: {sig_2} ")
+    return
 
 class Cust_Metric(tf.keras.metrics.Metric):
     def __init__(self, num_classes):

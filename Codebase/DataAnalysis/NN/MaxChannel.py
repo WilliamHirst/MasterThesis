@@ -4,7 +4,7 @@ from tensorflow.keras import optimizers
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
 
-from CustomeObjects import max_out, channel_out, Cust_Metric, Cust_Callback
+from CustomeObjects import max_out, channel_out, Cust_Metric, Cust_Callback,Calc_Sig
 
 
 
@@ -34,13 +34,12 @@ print(f"Starting test: {signal}")
 df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
 
 print("Preparing data....")
-train, val = splitAndPrepData(df, y, scale = True, PCA = False)
+train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)
 print("Done.")
 
 X_train, Y_train, W_train, C_train = train
-X_val, Y_val, W_val, C_val = val
+X_val, Y_val, W_val, C_val, scaleFactor = val
 nrFeature = nFeats(X_train)
-
 print("Compiling Model")
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
@@ -53,24 +52,29 @@ model.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics=
 print("Done compiling.")
 
 with tf.device("/GPU:0"):
+    # CC = Cust_Callback(Y_val, W_val)
+    # fetches = [CC.var_y_pred.assign(model.outputs[0])]
+    # model._function_kwargs = {'fetches': fetches}
+
     callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
                                                 patience=10, 
                                                 restore_best_weights = True,
                                                 verbose = 1,
                                                 mode = "max")
-    CC = Cust_Callback()
-    CC.validation_data = (X_val, Y_val, W_val)
-
+    # CC.validation_data = (X_val, Y_val, W_val)
     history = model.fit(X_train, 
                         Y_train,
                         sample_weight = W_train, 
                         epochs=50, 
                         batch_size=8096, 
-                        callbacks = [callback],#, CC],
+                        callbacks = [callback], #, CC],
                         validation_data=(X_val, Y_val, W_val),
                         verbose = 1)
     pred_Train = model.predict(X_train)
     pred_Val = model.predict(X_val)
+    Calc_Sig(Y_val, pred_Val, W_val/scaleFactor)
+
+
 exit()
 plotRoc(Y_train, 
         pred_Train, 
