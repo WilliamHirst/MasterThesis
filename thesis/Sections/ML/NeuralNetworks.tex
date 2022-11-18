@@ -157,6 +157,19 @@ To calculate $\delta_k^L = \partial \mathcal{C}/\partial z^L_k$ we simply multip
 This expression, similarly to equation \ref{eq:delta} is dependent on the choice of $\mathcal{C}$ and 
 the activation functions. Now that equation \ref{eq:deltaL} is defined, we can see that the
 gradient of the parameters in all other layers can be calculated. 
+\subsection{Overfitting, Regularization and Network Ensembles}
+In \ac{ML}, overfitting occurs when a model becomes overly tuned to the training data and as a consequence 
+fails to extract trends which would allow it to predict previously unseen data. The architecture of a \ac{NN}, 
+the maximum depth of a boosted-\ac{DT} or even the size of the dataset can all contribute to overfitting. Apart 
+from predicting on a new data set, there are no rigid methods to detect overfitting. Instead, there exists many 
+attempts to levitate this risk. A simple approach is to introduce \emph{early stopping}. Early stopping simply 
+means to stop training before the parameters of the model are allowed to over tune. The usual approach 
+is to introduce a barrier for the training, which when passed, ends the training. Examples of barriers could be a 
+predetermined loss value on the training set or the lack of progress on a second unseen dataset. Another, more
+invasive and complex method is the introduction of regularization. 
+
+
+
 
 
 
