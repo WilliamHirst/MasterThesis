@@ -43,22 +43,18 @@ nrFeature = nFeats(X_train)
 print("Compiling Model")
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
-model.add(tf.keras.layers.Dense(600,activation = tf.keras.layers.LeakyReLU(alpha=0.01)))
-model.add(tf.keras.layers.Dropout(0.3 ))
-model.add(tf.keras.layers.Dense(600,activation = tf.keras.layers.LeakyReLU(alpha=0.01)))
-model.add(tf.keras.layers.Dropout(0.3 ))
-model.add(tf.keras.layers.Dense(600,activation = tf.keras.layers.LeakyReLU(alpha=0.01)))
-model.add(tf.keras.layers.Dropout(0.3 ))
+model.add(tf.keras.layers.Dense(600,activation = channel_out))
+#model.add(tf.keras.layers.Dropout(0.2))
+model.add(tf.keras.layers.Dense(600,activation = channel_out))
+#model.add(tf.keras.layers.Dropout(0.2))
+model.add(tf.keras.layers.Dense(600,activation = channel_out))
+#model.add(tf.keras.layers.Dropout(0.2))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 optimizer = optimizers.Adam(learning_rate=1e-3)
 model.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
 print("Done compiling.")
 
 with tf.device("/GPU:0"):
-    # CC = Cust_Callback(Y_val, W_val)
-    # fetches = [CC.var_y_pred.assign(model.outputs[0])]
-    # model._function_kwargs = {'fetches': fetches}
-
     callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
                                                 patience=10, 
                                                 restore_best_weights = True,
@@ -75,7 +71,14 @@ with tf.device("/GPU:0"):
     pred_Train = model.predict(X_train, batch_size=8096)
     pred_Val = model.predict(X_val, batch_size=8096)
     Calc_Sig(Y_val, pred_Val, W_val/scaleFactor)
-    print(np.max(history.history['val_auc']))
+    
+    print(f"Optimal Validation AUC: {np.max(history.history['val_auc']):.5}")
+
+    plotRoc(Y_val, 
+            pred_Val, 
+            W_val,
+            "",
+            plot = False)
 
 
 
@@ -110,3 +113,7 @@ while state == True:
         state = False
         print("Model not saved")
 
+
+
+# tf.keras.layers.LeakyReLU(alpha=0.01)
+# tf.keras.layers.Dropout(alpha=0.01)
