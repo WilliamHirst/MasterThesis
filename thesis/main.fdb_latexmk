@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1668787411 "main.aux" "main.bbl" "main" 1668787534
+["bibtex main"] 1669128723 "main.aux" "main.bbl" "main" 1669128726
   "./JHEP.bst" 1635225418 19415 119cff932b2ee8773ea988cf488e8896 ""
   "bibliography.bib" 1667902582 55697 ae1ed13698e95f53be8d41596928b94d ""
-  "main.aux" 1668787534 31535 e4795400fe25e13a95b442a260515453 "pdflatex"
+  "main.aux" 1669128726 31535 127e1afc387f8086ee2bd9a25cfc299c "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1668787531 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1668787534
+["pdflatex"] 1669128723 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1669128726
   "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" 1668087246 2499 eacd58bd312774bde1f8673e2f251215 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -443,7 +443,7 @@
   "Sections/ML/GBDT.tex" 1666784554 4736 01a21b0c8c3dc98ef61a980714ae3b28 ""
   "Sections/ML/Hyperparameters.tex" 1666853765 1224 e1df73540e8f7426fb25e0bcb6a39641 ""
   "Sections/ML/ML.tex" 0 -1 0 ""
-  "Sections/ML/NeuralNetworks.tex" 1668787530 11906 8d8c2cac8ff46e055c8451805a5b255b ""
+  "Sections/ML/NeuralNetworks.tex" 1669128720 12450 9cff7ba2bad12ec148ce86c8a44916ca ""
   "Sections/ML/Optimization.tex" 1666787036 2069 b371860ee29edcaa17c75059f2287ce0 ""
   "Sections/ML/Phenomenology.tex" 1666784279 2762 fe82dc8ab40f547933fb11fd03dffe91 ""
   "Sections/SM/Axiomatic.tex" 1664537552 507 bbc044a638547859df68994bb14f81c2 ""
@@ -454,11 +454,11 @@
   "Sections/SM/TheForces.tex" 1664704445 116 506ee26a3c747bb08deee24dcae7e44b ""
   "Setup/style.sty" 1668086326 7859 2ef7f36dc3b2d63a52a53e3b165772f1 ""
   "jheppub.sty" 1635225418 11993 cd840ce60e85e99a4eccf7d2c59baa18 ""
-  "main.aux" 1668787534 31535 e4795400fe25e13a95b442a260515453 "pdflatex"
-  "main.bbl" 1668787411 2031 88ea17152c1c110a37dcf857062bfdea "bibtex main"
-  "main.out" 1668787534 7912 50d4ead62537cf1ed8f0742c035dc510 "pdflatex"
+  "main.aux" 1669128726 31535 127e1afc387f8086ee2bd9a25cfc299c "pdflatex"
+  "main.bbl" 1669128723 2031 88ea17152c1c110a37dcf857062bfdea "bibtex main"
+  "main.out" 1669128726 7912 50d4ead62537cf1ed8f0742c035dc510 "pdflatex"
   "main.tex" 1668087246 2499 eacd58bd312774bde1f8673e2f251215 ""
-  "main.toc" 1668787534 4473 ee723211529f9fdc070de9f25ade87db "pdflatex"
+  "main.toc" 1669128726 4473 ee723211529f9fdc070de9f25ade87db "pdflatex"
   "uio-fp-navn-eng.pdf" 1643568008 9896 3790f54969705c4284148bf62f780187 ""
   "uio-fp-segl.pdf" 1643566874 64936 89441810db60f45a672971bad5b14ed1 ""
   "uiomasterfp.sty" 1659081738 8559 bdb302d543dc750f296610cabe9cfc0a ""

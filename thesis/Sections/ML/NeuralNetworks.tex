@@ -162,11 +162,18 @@ In \ac{ML}, overfitting occurs when a model becomes overly tuned to the training
 fails to extract trends which would allow it to predict previously unseen data. The architecture of a \ac{NN}, 
 the maximum depth of a boosted-\ac{DT} or even the size of the dataset can all contribute to overfitting. Apart 
 from predicting on a new data set, there are no rigid methods to detect overfitting. Instead, there exists many 
-attempts to levitate this risk. A simple approach is to introduce \emph{early stopping}. Early stopping simply 
+attempts to minimize the risk you are doing so, we call these methods' \emph{regularization}. In \ac{ML}, regularization 
+is known as any attempt to reduce the error in a prediction by reducing overfitting. Generally one can categorize
+regularization as being either implicit or explicit. Explicit regularization means adding terms to the optimization 
+problem. This is a very direct way of insuring no part of the model becomes overly dominant. Examples of this 
+could be adding a penalty in the cost function of a \ac{NN} to ensure no weights become to large. Implicit 
+\\
+A simple approach is to introduce \emph{early stopping}. Early stopping simply 
 means to stop training before the parameters of the model are allowed to over tune. The usual approach 
 is to introduce a barrier for the training, which when passed, ends the training. Examples of barriers could be a 
 predetermined loss value on the training set or the lack of progress on a second unseen dataset. Another, more
 invasive and complex method is the introduction of regularization. 
+
 
 
 
