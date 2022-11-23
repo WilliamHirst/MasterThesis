@@ -32,14 +32,15 @@
 \contentsline {subsection}{\numberline {2.5.1}Scaling}{11}{subsection.2.5.1}%
 \contentsline {subsubsection}{Standard Scaler}{11}{section*.14}%
 \contentsline {subsection}{\numberline {2.5.2}Principal Component Analysis}{11}{subsection.2.5.2}%
-\contentsline {section}{\numberline {2.6}Neural Networks}{11}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}General structure}{12}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Feeding Forward}{12}{subsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.6.3}Back Propagation}{13}{subsection.2.6.3}%
-\contentsline {subsection}{\numberline {2.6.4}Overfitting, Regularization and Network Ensembles}{14}{subsection.2.6.4}%
-\contentsline {section}{\numberline {2.7}Decision Trees and Gradient Boosting}{15}{section.2.7}%
-\contentsline {subsection}{\numberline {2.7.1}Decision Trees}{15}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}An Introduction to Gradient Boosting}{15}{subsection.2.7.2}%
+\contentsline {section}{\numberline {2.6}Regularization}{11}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Neural Networks}{12}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}General structure}{12}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Feeding Forward}{13}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Back Propagation}{13}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}Network Ensembles, dropout and WTA networks}{15}{subsection.2.7.4}%
+\contentsline {section}{\numberline {2.8}Decision Trees and Gradient Boosting}{15}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Decision Trees}{15}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}An Introduction to Gradient Boosting}{16}{subsection.2.8.2}%
 \contentsline {chapter}{\numberline {3}Implementation}{17}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Tools and Data}{17}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Monte Carlo Data}{17}{subsection.3.1.1}%
@@ -51,5 +52,5 @@
 \contentsline {subsection}{\numberline {3.2.3}Jet variables selection}{20}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Validation}{21}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}Negative Weights}{23}{subsection.3.2.5}%
-\contentsline {chapter}{Appendices}{31}{section*.30}%
-\contentsline {chapter}{Appendix A}{33}{appendix*.31}%
+\contentsline {chapter}{Appendices}{31}{section*.31}%
+\contentsline {chapter}{Appendix A}{33}{appendix*.32}%

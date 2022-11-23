@@ -2143,6 +2143,13 @@ INPUT Sections/ML/DataHandling.tex
 INPUT ./Sections/ML/DataHandling.tex
 INPUT ./Sections/ML/DataHandling.tex
 INPUT Sections/ML/DataHandling.tex
+INPUT ./Sections/ML/Regularization.tex
+INPUT ./Sections/ML/Regularization.tex
+INPUT ./Sections/ML/Regularization.tex
+INPUT Sections/ML/Regularization.tex
+INPUT ./Sections/ML/Regularization.tex
+INPUT ./Sections/ML/Regularization.tex
+INPUT Sections/ML/Regularization.tex
 INPUT ./Sections/ML/NeuralNetworks.tex
 INPUT ./Sections/ML/NeuralNetworks.tex
 INPUT ./Sections/ML/NeuralNetworks.tex
@@ -2167,6 +2174,11 @@ INPUT ./Figures/Illustrations/WeightBias.png
 INPUT Figures/Illustrations/WeightBias.png
 INPUT ./Figures/Illustrations/WeightBias.png
 INPUT ./Figures/Illustrations/WeightBias.png
+INPUT ./Figures/Illustrations/Max_out.png
+INPUT ./Figures/Illustrations/Max_out.png
+INPUT Figures/Illustrations/Max_out.png
+INPUT ./Figures/Illustrations/Max_out.png
+INPUT ./Figures/Illustrations/Max_out.png
 INPUT ./Sections/ML/GBDT.tex
 INPUT ./Sections/ML/GBDT.tex
 INPUT ./Sections/ML/GBDT.tex
