@@ -11,9 +11,22 @@ problem. This is a very direct way of insuring no part of the model becomes over
 could be adding a penalty in the cost function of a \ac{NN} to ensure no weights become to large. Implicit
 regularization is a less direct attempt of hindering overfitting. This could be changing the depth of the \ac{ML}-model,
 varying the cost function or altering the data itself.
-\\
-A simple implicit regularization method is to introduce \emph{early stopping} in the training pipeline. Early stopping simply 
-means to stop training before the parameters of the model are allowed to over tune. The usual approach 
+\subsection{Early stopping}
+A simple implicit regularization method is to introduce \emph{early stopping} in the training pipeline. Early stopping 
+simply means to stop training before the parameters of the model are allowed to over tune. The usual approach 
 is to introduce a goal for the training, which when reached, ends the training. Examples of these goals could be a 
 predetermined loss value on the training set or training until lack of progress on a second unseen dataset. The latter
 approach is the one I will use in this thesis. 
+\subsection{Ensembles}
+When comparing different \ac{ML} methods by performance, more often then not the top performing model includes 
+ensembling in one way or another. Like the word suggests, ensembling in \ac{ML} means using a collection of 
+\ac{ML} models to create one complex model. There are many ways to create ensembles of models, most methods 
+fall in to one of three categories; \emph{bagging}, \emph{boosting} and \emph{stacking}. Creating an ensemble of models through bagging, means to use several models each 
+trained on their own sample from the same dataset. The overarching new model is created by averaging the predictions 
+from the ensemble of models. The method seeks to create a unique set of models through exposing each individual model 
+to different training sets. Boosting is different to bagging in that it uses the same training data on all the models.
+The diversity in the models when boosting, stems from intentionally choosing the architecture of the models such 
+that it reduces the error made by the previous ensemble of models. More on the specifics of bagging and boosting in 
+later sections.  \emph{Explain STACKING.}
+
+  

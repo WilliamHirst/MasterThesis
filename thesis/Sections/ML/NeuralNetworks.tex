@@ -158,7 +158,31 @@ This expression, similarly to equation \ref{eq:delta} is dependent on the choice
 the activation functions. Now that equation \ref{eq:deltaL} is defined, we can see that the
 gradient of the parameters in all other layers can be calculated. 
 
-\subsection{Network Ensembles, dropout and WTA networks}
+\subsection{Network Ensembles, dropout and LWTA networks}
+So far in the thesis, I have only covered dense layers, meaning that every node in the layer before it is 
+connected to its own nodes and likewise all its nodes are connected to the nodes in the layer that follows. 
+This definition covers many, but not all hidden layer. Some layers do not function to pass value to and 
+fro between nodes but instead functions by dynamically changing the architecture of the \ac{NN}. The most popular 
+type of layer that fits this definition, is the \emph{dropout}-layer. The dropout-layer functions by randomly 
+choosing a predetermined number of neurons in the layer before it, and dropping them from the network for the current 
+round of training. By doing this the dropout-layer creates an architecture for the network for every round
+of training. Each unique architecture represents its own network in what becomes an ensemble of networks. 
+\\
+As mentioned in previous sections, creating ensembles of models is a form of regularization. In the case of 
+dropout, it minimizes the risk of overfitting by hindering a phenomenon known as complex co-adaptations. Complex
+co-adaptation happens when a neuron becomes overly dominant such that neighboring neurons no longer contribute and 
+therefore lack the motivation to tune. When this happens, networks become fragile and overly specialized to the training 
+data. By randomly dropping neurons, the neighboring neurons are no longer allowed to be passive and are forced 
+to tune to compensate. During testing, the dropout layers no longer take action. The prediction made by the resulting 
+model can therefore be seen as the average of all the smaller networks, making a neural network with dropout-layers 
+a bagging ensemble. \emph{CHECK SCALING OF WEIGHTS BEFORE PREDICTIONS.}
+\\
+Dropout-layers are not the only layers to dynamically change the architecture of a network. In this thesis I additionally 
+explored the lesser known, \ac{LWTA}-layer. \ac{LWTA}, similarly to dropout creates an ensemble of networks by removing a set 
+of nodes for each round of training. Contrary to dropout, \ac{LWTA} (or \emph{max-out}) does not choose the nodes to drop at random,
+but instead creates local units by grouping the nodes, and then removes all nodes except the node with the largest
+activation. The goal of max-out is to create en ensemble of networks where each network is specialized for a given 
+trend in the data. 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{Figures/Illustrations/Max_out.png}
