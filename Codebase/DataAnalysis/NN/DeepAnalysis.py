@@ -1,5 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras import optimizers
+from tensorflow.keras.constraints import max_norm
+
 
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
@@ -43,13 +45,15 @@ nrFeature = nFeats(X_train)
 print("Compiling Model")
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
-model.add(tf.keras.layers.Dense(600,activation = channel_out))
-#model.add(tf.keras.layers.Dropout(0.2))
-model.add(tf.keras.layers.Dense(600,activation = channel_out))
-#model.add(tf.keras.layers.Dropout(0.2))
-model.add(tf.keras.layers.Dense(600,activation = channel_out))
-#model.add(tf.keras.layers.Dropout(0.2))
+model.add(tf.keras.layers.Dropout(0.2))
+model.add(tf.keras.layers.Dense(600,activation = max_out))
+model.add(tf.keras.layers.Dropout(0.2))
+model.add(tf.keras.layers.Dense(600,activation = max_out))
+model.add(tf.keras.layers.Dropout(0.2))
+model.add(tf.keras.layers.Dense(600,activation = max_out))
+model.add(tf.keras.layers.Dropout(0.2))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
+
 optimizer = optimizers.Adam(learning_rate=1e-3)
 model.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
 print("Done compiling.")
@@ -63,7 +67,7 @@ with tf.device("/GPU:0"):
     history = model.fit(X_train, 
                         Y_train,
                         sample_weight = W_train, 
-                        epochs=50, 
+                        epochs=100, 
                         batch_size=8096, 
                         callbacks = [callback], #, CC],
                         validation_data=(X_val, Y_val, W_val),
