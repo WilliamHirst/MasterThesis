@@ -170,29 +170,29 @@ of training. Each unique architecture represents its own network in what becomes
 \\
 As mentioned in previous sections, creating ensembles of models is a form of regularization. In the case of 
 dropout, it minimizes the risk of overfitting by hindering a phenomenon known as complex co-adaptations. Complex
-co-adaptation happens when a neuron becomes overly dominant such that neighboring neurons no longer contribute and 
-therefore lack the motivation to tune. When this happens, networks become fragile and overly specialized to the training 
-data. By randomly dropping neurons, the neighboring neurons are no longer allowed to be passive and are forced 
-to tune to compensate. During evaluation, the dropout layers no longer take action. Instead, the dropout rate (fraction 
-of neurons to drop in the layer) $r$ is used to scale the weights by a factor $1-r$. The prediction made by the resulting 
-model can therefore be seen as the average of all the smaller networks, making a neural network with dropout-layers 
-a bagging ensemble. 
+co-adaptation happens when a neuron becomes overly dominant such that neighboring neurons no longer contribute (relative
+to the dominant neuron) and therefore lack the motivation to tune. When this happens, networks become fragile and overly 
+specialized to the training data. By randomly dropping neurons, the neighboring neurons are no longer allowed to be passive 
+and are forced to tune to compensate. During evaluation, the dropout layers no longer take action. Instead, the dropout rate 
+(fraction of neurons to drop in the layer) $r$ is used to scale the weights by a factor $1-r$. The prediction made by the resulting 
+model can therefore be seen as the average of all the smaller networks. In other words, a neural network containing dropout-layers 
+as a bagging ensemble. 
 \\
 Dropout-layers are not the only layers to dynamically change the architecture of a network. In this thesis I additionally 
 explored the lesser known, \emph{max-out}-layer. Max-out, similarly to dropout creates an ensemble of networks by removing a set 
-of nodes for each round of training. Contrary to dropout, max-out (max-pooling) does not choose the nodes to drop at random,
-but instead creates local units by grouping the nodes, and then removes all nodes except the node with the largest
+of nodes for each round of training. Contrary to dropout, max-out does not choose the nodes to drop at random,
+but instead creates local units by grouping the nodes, and removes all nodes except the node with the largest
 activation. The goal of max-out is to create an ensemble of networks where each network is specialized for a given 
 trend in the data. In this thesis I have implemented the layer such that upon prediction, the redimensionalization 
-is still active. This means that for each data point, a neural network is chosen specifically for the trend in the 
-point. In other words, the max-out layer creates something resembling a stacking ensemble. 
+is still active. This means that for each data point, a neural network is chosen based on the specific activations in 
+each of the nodes. In other words, the max-out layer creates something resembling a stacking ensemble. 
 \\
 In figure \ref{fig:Max_out} I have illustrated a max-out network. The figure shows a \ac{NN} with two hidden layers
 with 8 nodes each. In the first hidden layer the max-out layer creates 4 units, each containing two nodes and in the 
 second layer the max-out creates two nodes with 4 nodes each. The resulting output from the first layer is the 
-4 nodes with the highest activation in their respected unit, likewise the second layers output is the 2 nodes.
+4 nodes with the highest activation in their respected unit, likewise the second layers output is 2 nodes.
 To the right of the network in figure \ref{fig:Max_out}, I have illustrated how the different configuration of 
-nodes creates en ensemble of networks with their own architecture.
+paths through the network creates an ensemble of networks with their own architecture.
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{Figures/Illustrations/Max_out.png}
