@@ -55,7 +55,7 @@
 \contentsline {subsection}{\numberline {3.2.3}Jet variables selection}{22}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Validation}{23}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}Negative Weights}{25}{subsection.3.2.5}%
-\contentsline {section}{\numberline {3.3}The search through neural networks}{25}{section.3.3}%
+\contentsline {section}{\numberline {3.3}The search through neural networks and sparse pathways}{25}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Creating custom layers}{25}{subsection.3.3.1}%
 \contentsline {chapter}{Appendices}{33}{section*.33}%
 \contentsline {chapter}{Appendix A}{35}{appendix*.34}%
