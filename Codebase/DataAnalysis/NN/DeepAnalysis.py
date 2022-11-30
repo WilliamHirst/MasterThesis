@@ -6,7 +6,7 @@ from tensorflow.keras.constraints import max_norm
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
 
-from CustomeObjects import max_out, channel_out, Cust_Metric, Cust_Callback
+from CustomeObjects import max_out, channel_out, global_max_out
 
 
 
@@ -36,22 +36,23 @@ print(f"Starting test: {signal}")
 df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
 
 print("Preparing data....")
-train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)
+train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True, PCA=True, n_components=1-1e-2)
 print("Done.")
 
 X_train, Y_train, W_train, C_train = train
 X_val, Y_val, W_val, C_val, scaleFactor = val
 nrFeature = nFeats(X_train)
+
 print("Compiling Model")
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
-model.add(tf.keras.layers.Dropout(0.2))
+#model.add(tf.keras.layers.Dropout(0.2))
 model.add(tf.keras.layers.Dense(600,activation = max_out))
-model.add(tf.keras.layers.Dropout(0.2))
+#model.add(tf.keras.layers.Dropout(0.2))
 model.add(tf.keras.layers.Dense(600,activation = max_out))
-model.add(tf.keras.layers.Dropout(0.2))
+#model.add(tf.keras.layers.Dropout(0.2))
 model.add(tf.keras.layers.Dense(600,activation = max_out))
-model.add(tf.keras.layers.Dropout(0.2))
+#model.add(tf.keras.layers.Dropout(0.2))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
 optimizer = optimizers.Adam(learning_rate=1e-3)
