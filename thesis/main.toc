@@ -38,10 +38,11 @@
 \contentsline {section}{\numberline {2.7}Neural Networks}{12}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}General structure}{12}{subsection.2.7.1}%
 \contentsline {subsection}{\numberline {2.7.2}Feeding Forward}{13}{subsection.2.7.2}%
-\contentsline {subsection}{\numberline {2.7.3}Back Propagation}{13}{subsection.2.7.3}%
-\contentsline {subsection}{\numberline {2.7.4}Network Ensembles, dropout and LWTA networks}{15}{subsection.2.7.4}%
-\contentsline {section}{\numberline {2.8}Decision Trees and Gradient Boosting}{15}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}Decision Trees}{15}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.7.3}Back Propagation}{14}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}Activation functions}{15}{subsection.2.7.4}%
+\contentsline {subsection}{\numberline {2.7.5}Network Ensembles, dropout and LWTA networks}{15}{subsection.2.7.5}%
+\contentsline {section}{\numberline {2.8}Decision Trees and Gradient Boosting}{16}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Decision Trees}{16}{subsection.2.8.1}%
 \contentsline {subsection}{\numberline {2.8.2}An Introduction to Gradient Boosting}{17}{subsection.2.8.2}%
 \contentsline {chapter}{\numberline {3}Implementation}{19}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Tools and Data}{19}{section.3.1}%
@@ -54,5 +55,7 @@
 \contentsline {subsection}{\numberline {3.2.3}Jet variables selection}{22}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Validation}{23}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}Negative Weights}{25}{subsection.3.2.5}%
-\contentsline {chapter}{Appendices}{33}{section*.31}%
-\contentsline {chapter}{Appendix A}{35}{appendix*.32}%
+\contentsline {section}{\numberline {3.3}The search through neural networks}{25}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Creating custom layers}{25}{subsection.3.3.1}%
+\contentsline {chapter}{Appendices}{33}{section*.33}%
+\contentsline {chapter}{Appendix A}{35}{appendix*.34}%
