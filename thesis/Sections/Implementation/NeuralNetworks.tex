@@ -1,0 +1,58 @@
+\section{The search through neural networks}
+\subsection{Creating custom layers}
+The field of \ac{ML} is one of the most dynamic and fastest growing fields of research
+today. This means, that regardless of the brave attempt made by voluntary contributors and
+the people at Google \footnote{The developers of TensorFlow}, there will always be 
+new and exciting \ac{ML} tools, not yet implemented in their library. This was also 
+the case in this thesis. Specifically, in the case of non-dense layers I was forced
+to dive into the world of \ac{ML} development and create my own implementation. 
+\subsubsection*{Max-out}
+TensorFlow have already implemented a very similar layer called MaxPooling1D. This does 
+exactly what max-out does, but with minor differences. Additionally, to wanting to avoid 
+these differences, I wanted the freedom to experiment with the implementation of the 
+layer. The implementation of both max-out and channel-out was done by creating a custom 
+activation function which is called inside a dense-layer. In the case of max-out, it is 
+in the activation function that the down scaling of nodes happens. 
+\lstset{style=Python}
+\begin{lstlisting}[caption={Python-file for calling dataframe and calculating $M_{lll}$.},captionpos=b, label={lst:max_out}]
+def max_out(inputs, num_units = 200, axis=None):
+    # Calculate the new shape of the layer after max_out.
+    shape = inputs.get_shape().as_list()
+    if shape[0] is None:
+        shape[0] = -1
+    if axis is None:  # Assume that channel is the last dimension
+        axis = -1
+    num_channels = shape[axis]
+    if num_channels % num_units:
+        raise ValueError('Number of features is not a multiple of num_units')
+    shape[axis] = num_units
+    shape += [num_channels // num_units]
+
+    # Calculate the largest value in each unit and discard 
+    # the rest. 
+    outputs = tf.reduce_max(tf.reshape(inputs, shape), -1, keepdims=False)
+    return outputs    
+\end{lstlisting}
+\subsubsection*{Channel-out}
+TensorFlow have already implemented a 
+\lstset{style=Python}
+\begin{lstlisting}[caption={Python-file for calling dataframe and calculating $M_{lll}$.},captionpos=b, label={lst:df_mlll}]
+def channel_out(inputs, num_units = 200, axis=None, training=None):
+    shape = inputs.get_shape().as_list()
+    if shape[0] is None:
+        shape[0] = -1
+    if axis is None:  # Assume that channel is the last dimension
+        axis = -1
+    num_channels = shape[axis]
+    
+    if num_channels % num_units:
+        raise ValueError('number of features({}) is not '
+                         'a multiple of num_units({})'.format(num_channels, num_units))
+    shape[axis] = num_units
+    shape += [num_channels // num_units]
+    grouped = tf.reshape(inputs, shape)
+    top_vals = tf.reduce_max(grouped, -1, keepdims=True)
+    isMax = tf.reshape(tf.greater_equal(grouped, top_vals), [shape[0], num_channels])
+    output = tf.multiply(tf.cast(isMax,tf.float32), inputs)
+    return output  
+\end{lstlisting}

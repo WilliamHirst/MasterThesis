@@ -24,7 +24,7 @@ contains a number of nodes equal to the number of features for the target.
 \\
 The neural network functions by passing information in between the different layers though 
 nodes. The nodes are simply pockets of information, each containing a value. 
-All the nodes in the input layer are connected to all the nodes in the nearest hidden layer,
+All the nodes in the input layer are (in most cases) connected to all nodes in the nearest hidden layer,
 and likewise said hidden layer is connected to the next hidden layer. This structure continues
 until we reach the final layer, the output layer. The structure is illustrated in figure
 \ref{fig:NN}. The figure shows a simple \ac{NN} with a 2 dimensional data set (2 nodes in input-layer),
@@ -66,7 +66,7 @@ and scaled by the bias, $b^l_j$ for $j\in \{0,1,..., N_{l-1} \}$. The inactivate
 \end{align}
 where $w_{kj}^l$ corresponds to the weight in $\bf{w} \sf _k^l$ specific for the connection between node k and j.
 \\
-To attain the full activated value, $a_j^l$ we pass $z_j^l$ through the activation function. The activation function, $\sigma^l$ 
+To attain the full activated value, $a_j^l$ we pass $z_j^l$ through the \emph{activation function}. The activation function, $\sigma^l$ 
 is a generally non-linear function used to control the limit or expand the value range for the node values. The activation 
 function is general for all nodes in a given layer, but can vary in between layers. Therefore,
 we find $a_j^l$ by the equation
@@ -157,6 +157,31 @@ To calculate $\delta_k^L = \partial \mathcal{C}/\partial z^L_k$ we simply multip
 This expression, similarly to equation \ref{eq:delta} is dependent on the choice of $\mathcal{C}$ and 
 the activation functions. Now that equation \ref{eq:deltaL} is defined, we can see that the
 gradient of the parameters in all other layers can be calculated. 
+
+\subsection{Activation functions}
+As mentioned in previous sections, activation functions define how the nodes in the previous layer 
+sum to define the value of the node in the current. There are many types of activation functions, 
+where all have advantages and disadvantages. The choice of activation function for each layer is defined
+before training, making it a hyperparameter. The activation functions applied and tested in this thesis are the following:
+\begin{center}
+\begin{itemize}
+    \item  \emph{Sigmoid}\\  
+    \begin{align*}
+         \sigma{(z)} = \frac{1}{1+e^{-z}} = a \in [0,1]
+    \end{align*},
+    \item \emph{Leaky ReLU}
+    \begin{align*}
+        \sigma{(z)} = 
+        \begin{cases}
+            z,& \text{if } z\geq 0\\
+            \mu z,              & \text{otherwise}
+        \end{cases}
+        = a \in (-\infty, \infty),
+   \end{align*}
+   where $\mu$ is scalar.
+\end{itemize},
+\end{center}
+where $z$ is an inactivated node which is activated to define $a$, the activation.
 
 \subsection{Network Ensembles, dropout and LWTA networks}
 So far in the thesis, I have only covered dense layers, meaning that every node in the layer before it is 
