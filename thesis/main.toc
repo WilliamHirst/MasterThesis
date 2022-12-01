@@ -13,7 +13,15 @@
 \contentsline {subsection}{\numberline {1.3.1}Why look beyond?}{5}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.3.2}Neutrino-Mass problem}{6}{subsection.1.3.2}%
 \contentsline {section}{\numberline {1.4}The Background Channels}{6}{section.1.4}%
-\contentsline {section}{\numberline {1.5}The Signal}{6}{section.1.5}%
+\contentsline {subsection}{\numberline {1.4.1}Z-jets}{6}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Diboson (lll)}{7}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}$t\bar {t}$}{7}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}Diboson (llll)}{7}{subsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.4.5}Top Others}{7}{subsection.1.4.5}%
+\contentsline {subsection}{\numberline {1.4.6}Single Others}{7}{subsection.1.4.6}%
+\contentsline {subsection}{\numberline {1.4.7}Diboson (ll)}{7}{subsection.1.4.7}%
+\contentsline {subsection}{\numberline {1.4.8}Others}{7}{subsection.1.4.8}%
+\contentsline {section}{\numberline {1.5}The Signal}{7}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Introduction to Machine Learning and Data Analysis}{9}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Phenomenology}{9}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Optimization}{9}{section.2.2}%
@@ -21,8 +29,8 @@
 \contentsline {subsection}{\numberline {2.2.2}Adam}{10}{subsection.2.2.2}%
 \contentsline {section}{\numberline {2.3}Model assessment}{10}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Cost functions}{10}{subsection.2.3.1}%
-\contentsline {subsubsection}{Mean Squared Error}{10}{section*.12}%
-\contentsline {subsubsection}{Binary Crossentropy}{10}{section*.13}%
+\contentsline {subsubsection}{Mean Squared Error}{10}{section*.13}%
+\contentsline {subsubsection}{Binary Crossentropy}{10}{section*.14}%
 \contentsline {subsection}{\numberline {2.3.2}The Rate of True-Positve - ROC Curve}{10}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Interpretability}{11}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}Generalizability}{11}{subsection.2.3.4}%
@@ -30,7 +38,7 @@
 \contentsline {subsection}{\numberline {2.4.1}Grid Search}{11}{subsection.2.4.1}%
 \contentsline {section}{\numberline {2.5}Data Handling}{11}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Scaling}{11}{subsection.2.5.1}%
-\contentsline {subsubsection}{Standard Scaler}{11}{section*.14}%
+\contentsline {subsubsection}{Standard Scaler}{11}{section*.15}%
 \contentsline {subsection}{\numberline {2.5.2}Principal Component Analysis}{11}{subsection.2.5.2}%
 \contentsline {section}{\numberline {2.6}Regularization}{11}{section.2.6}%
 \contentsline {subsection}{\numberline {2.6.1}Early stopping}{12}{subsection.2.6.1}%
@@ -57,5 +65,5 @@
 \contentsline {subsection}{\numberline {3.2.5}Negative Weights}{25}{subsection.3.2.5}%
 \contentsline {section}{\numberline {3.3}The search through neural networks and sparse pathways}{25}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Creating custom layers}{25}{subsection.3.3.1}%
-\contentsline {chapter}{Appendices}{33}{section*.33}%
-\contentsline {chapter}{Appendix A}{35}{appendix*.34}%
+\contentsline {chapter}{Appendices}{33}{section*.34}%
+\contentsline {chapter}{Appendix A}{35}{appendix*.35}%
