@@ -20,50 +20,50 @@
 \contentsline {subsection}{\numberline {1.4.5}Top Others}{7}{subsection.1.4.5}%
 \contentsline {subsection}{\numberline {1.4.6}Single Others}{7}{subsection.1.4.6}%
 \contentsline {subsection}{\numberline {1.4.7}Diboson (ll)}{7}{subsection.1.4.7}%
-\contentsline {subsection}{\numberline {1.4.8}Others}{7}{subsection.1.4.8}%
-\contentsline {section}{\numberline {1.5}The Signal}{7}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Introduction to Machine Learning and Data Analysis}{9}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Phenomenology}{9}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Optimization}{9}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Gradient Descent}{10}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Adam}{10}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Model assessment}{10}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Cost functions}{10}{subsection.2.3.1}%
-\contentsline {subsubsection}{Mean Squared Error}{10}{section*.13}%
-\contentsline {subsubsection}{Binary Crossentropy}{10}{section*.14}%
-\contentsline {subsection}{\numberline {2.3.2}The Rate of True-Positve - ROC Curve}{10}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Interpretability}{11}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Generalizability}{11}{subsection.2.3.4}%
-\contentsline {section}{\numberline {2.4}Hyperparameters}{11}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Grid Search}{11}{subsection.2.4.1}%
-\contentsline {section}{\numberline {2.5}Data Handling}{11}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Scaling}{11}{subsection.2.5.1}%
-\contentsline {subsubsection}{Standard Scaler}{11}{section*.15}%
-\contentsline {subsection}{\numberline {2.5.2}Principal Component Analysis}{11}{subsection.2.5.2}%
-\contentsline {section}{\numberline {2.6}Regularization}{11}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Early stopping}{12}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Ensembles}{12}{subsection.2.6.2}%
-\contentsline {section}{\numberline {2.7}Neural Networks}{12}{section.2.7}%
-\contentsline {subsection}{\numberline {2.7.1}General structure}{12}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}Feeding Forward}{13}{subsection.2.7.2}%
-\contentsline {subsection}{\numberline {2.7.3}Back Propagation}{14}{subsection.2.7.3}%
-\contentsline {subsection}{\numberline {2.7.4}Activation functions}{15}{subsection.2.7.4}%
-\contentsline {subsection}{\numberline {2.7.5}Network Ensembles, dropout and LWTA networks}{15}{subsection.2.7.5}%
-\contentsline {section}{\numberline {2.8}Decision Trees and Gradient Boosting}{16}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}Decision Trees}{16}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}An Introduction to Gradient Boosting}{17}{subsection.2.8.2}%
-\contentsline {chapter}{\numberline {3}Implementation of the Analysis}{19}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Tools and Data}{19}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Monte Carlo Data}{19}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}ROOT, RDataframe and Pandas}{19}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Computing features in ROOT: Example}{19}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Features}{21}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Cuts and triggers}{21}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Lepton variables selection}{22}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Jet variables selection}{22}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Validation}{23}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Negative Weights}{25}{subsection.3.2.5}%
-\contentsline {section}{\numberline {3.3}The search through neural networks and sparse pathways}{25}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Creating custom layers}{25}{subsection.3.3.1}%
-\contentsline {chapter}{Appendices}{33}{section*.34}%
-\contentsline {chapter}{Appendix A}{35}{appendix*.35}%
+\contentsline {subsection}{\numberline {1.4.8}Others}{8}{subsection.1.4.8}%
+\contentsline {section}{\numberline {1.5}The Signal}{8}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Introduction to Machine Learning and Data Analysis}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Phenomenology}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Optimization}{11}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Gradient Descent}{12}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Adam}{12}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Model assessment}{12}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Cost functions}{12}{subsection.2.3.1}%
+\contentsline {subsubsection}{Mean Squared Error}{12}{section*.16}%
+\contentsline {subsubsection}{Binary Crossentropy}{12}{section*.17}%
+\contentsline {subsection}{\numberline {2.3.2}The Rate of True-Positve - ROC Curve}{12}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Interpretability}{13}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Generalizability}{13}{subsection.2.3.4}%
+\contentsline {section}{\numberline {2.4}Hyperparameters}{13}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Grid Search}{13}{subsection.2.4.1}%
+\contentsline {section}{\numberline {2.5}Data Handling}{13}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Scaling}{13}{subsection.2.5.1}%
+\contentsline {subsubsection}{Standard Scaler}{13}{section*.18}%
+\contentsline {subsection}{\numberline {2.5.2}Principal Component Analysis}{13}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}Regularization}{13}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Early stopping}{14}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Ensembles}{14}{subsection.2.6.2}%
+\contentsline {section}{\numberline {2.7}Neural Networks}{14}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}General structure}{14}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Feeding Forward}{15}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Back Propagation}{16}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}Activation functions}{17}{subsection.2.7.4}%
+\contentsline {subsection}{\numberline {2.7.5}Network Ensembles, dropout and LWTA networks}{17}{subsection.2.7.5}%
+\contentsline {section}{\numberline {2.8}Decision Trees and Gradient Boosting}{18}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Decision Trees}{18}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}An Introduction to Gradient Boosting}{19}{subsection.2.8.2}%
+\contentsline {chapter}{\numberline {3}Implementation of the Analysis}{21}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Tools and Data}{21}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Monte Carlo Data}{21}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}ROOT, RDataframe and Pandas}{21}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Computing features in ROOT: Example}{21}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Features}{23}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Cuts and triggers}{23}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Lepton variables selection}{24}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Jet variables selection}{24}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Validation}{25}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Negative Weights}{27}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}The search through neural networks and sparse pathways}{27}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Creating custom layers}{27}{subsection.3.3.1}%
+\contentsline {chapter}{Appendices}{35}{section*.37}%
+\contentsline {chapter}{Appendix A}{37}{appendix*.38}%
