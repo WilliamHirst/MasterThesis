@@ -17,7 +17,6 @@ def max_out(inputs, num_units = 200, axis=None):
     shape[axis] = num_units
     shape += [num_channels // num_units]
     outputs = tf.reduce_max(tf.reshape(inputs, shape), -1, keepdims=False)
-    print(outputs.eval()) 
     return outputs
 
 def global_max_out(inputs, num_units = 50, axis=None):
