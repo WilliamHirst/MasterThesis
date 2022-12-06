@@ -34,11 +34,12 @@ def plot_channelout_architecture(network: tf.keras.Model,
                                                   input.reshape(1, -1))
         isactive = [(activations != 0.).reshape([activations.shape[-1]])
                     for activations in all_activations]
-        isactive[-1] = np.where(
+        isactive.append(np.where(
             all_activations[-1] == np.max(all_activations[-1]),
             True, False
-        ).reshape(all_activations[-1].shape[-1])
+        ).reshape(all_activations[-1].shape[-1]))
         ax = npt.plot_pathways(network.layers, isactive, ax=ax, **plot_kwargs)
+    ax = npt.plot_value_line(network.layers, isactive, all_activations, ax=ax, **plot_kwargs)
 
     return fig,ax
 
@@ -51,21 +52,23 @@ if __name__ == "__main__":
     sys.path.insert(1, "../")
     from tensorno.layers import MaxOut
 
-    myPath = "/storage/William_Sakarias/William_Data"
+    # myPath = "/storage/William_Sakarias/William_Data"
 
-    signal = "ttbarHNLMaxChannel"
+    # signal = "ttbarHNLMaxChannel"
 
-    print(f"Starting test: {signal}")
+    # print(f"Starting test: {signal}")
 
-    df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
+    # df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
 
-    print("Preparing data....")
-    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)
-    print("Done.")
+    # print("Preparing data....")
+    # train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)
+    # print("Done.")
 
-    X_train, Y_train, W_train, C_train = train
-    X_val, Y_val, W_val, C_val, scaleFactor = val
-    nrFeature = nFeats(X_train)
+    # X_train, Y_train, W_train, C_train = train
+    # X_val, Y_val, W_val, C_val, scaleFactor = val
+    # nrFeature = nFeats(X_train)
+    X_val = np.random.rand(500,32)
+    nrFeature = nFeats(X_val)
 
     model = tf.keras.Sequential()
     model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
@@ -79,23 +82,23 @@ if __name__ == "__main__":
     print("Done compiling.")
 
     fig, ax = plot_channelout_architecture(model,
-                                 X_val[1:1000].values,
+                                 X_val[1:1000],#.values,
                                  )
     ax.plot()
     fig.savefig("Test.pdf")
-    ax.show()
-    exit()
-    with tf.device("/GPU:0"):
-        callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
-                                                    patience=10, 
-                                                    restore_best_weights = True,
-                                                    verbose = 1,
-                                                    mode = "max")
-        history = model.fit(X_train, 
-                            Y_train,
-                            sample_weight = W_train, 
-                            epochs=100, 
-                            batch_size=8096, 
-                            callbacks = [callback], #, CC],
-                            validation_data=(X_val, Y_val, W_val),
-                            verbose = 1)
+    #ax.show()
+    
+    # with tf.device("/GPU:0"):
+    #     callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
+    #                                                 patience=10, 
+    #                                                 restore_best_weights = True,
+    #                                                 verbose = 1,
+    #                                                 mode = "max")
+    #     history = model.fit(X_train, 
+    #                         Y_train,
+    #                         sample_weight = W_train, 
+    #                         epochs=100, 
+    #                         batch_size=8096, 
+    #                         callbacks = [callback], #, CC],
+    #                         validation_data=(X_val, Y_val, W_val),
+    #                         verbose = 1)

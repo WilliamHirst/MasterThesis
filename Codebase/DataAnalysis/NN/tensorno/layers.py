@@ -84,7 +84,7 @@ class MaxOut(Layer):
         # Finding maximum activation in each group
         outputs = tf.math.reduce_max(inputs, axis=-1,keepdims=True)
 
-        counter = tf.where(tf.equal(inputs, outputs), 1.0, 0.)
+        counter = tf.where(tf.equal(inputs, outputs), outputs, 0.)
         # Reshaping outputs to original input shape
         self.counter = tf.reshape(counter, [num_inputs, self.units])
 

@@ -121,12 +121,13 @@ def plot_nodes(layers: list, ax=None):
         ax.set_yticks([])
 
     for x, layer in enumerate(layers):
-        nodes = layer.units
-        for node in np.arange(-nodes/2, nodes/2):
-            ax.scatter([x], [node], color=plot_utils.colors[0])
-
         if isinstance(layer, (MaxOut, ChannelOut)):
-            group_nodes(x, nodes, layer.num_groups, ax=ax)
+            nodes = layer.units
+            for node in np.arange(-nodes/2, nodes/2):
+                ax.scatter([x], [node], color=plot_utils.colors[0])
+
+            if isinstance(layer, (MaxOut, ChannelOut)):
+                group_nodes(x, nodes, layer.num_groups, ax=ax)
 
     return ax
 
@@ -151,14 +152,13 @@ def plot_active_nodes(layers: list, isactive: list, ax=None):
         ax.set_yticks([])
 
     for x, (layer, active) in enumerate(layers, isactive):
-        if isinstance(layer, (MaxOut, ChannelOut)):
-            colors = np.where(active, "r", "b")
-            nodes = layer.units
-            for node, color in zip(np.arange(-nodes/2, nodes/2), colors):
-                ax.scatter([x], [node], c=color)
+        colors = np.where(active, "r", "b")
+        nodes = layer.units
+        for node, color in zip(np.arange(-nodes/2, nodes/2), colors):
+            ax.scatter([x], [node], c=color)
 
-            if isinstance(layer, (MaxOut, ChannelOut)):
-                group_nodes(x, nodes, layer.num_groups, ax=ax)
+        if isinstance(layer, (MaxOut, ChannelOut)):
+            group_nodes(x, nodes, layer.num_groups, ax=ax)
 
     return ax
 
@@ -199,11 +199,9 @@ def plot_pathways(layers: list, isactive: list, ax=None, **plot_kwargs):
                 ax.plot([x-1, x], [old_node, new_node], **line_kwargs)
         active_nodes_old = active_nodes_new
 
-    ax.arrow(x = x +1, dx = 0, y = active_nodes_old[0],  dy = active_nodes_old[-1]-active_nodes_old[0], **line_kwargs)
-
     return ax
 
-def plot_value_line(layers: list, isactive: list, ax=None, **plot_kwargs):
+def plot_value_line(layers: list, isactive: list, pred: float, ax=None, **plot_kwargs):
     """Plots lines going through all active nodes of all layers.
 
     Args:
@@ -222,23 +220,22 @@ def plot_value_line(layers: list, isactive: list, ax=None, **plot_kwargs):
         ax.set_yticks([])
 
     
-    plt.arrow()
     line_kwargs = dict(
         color=plot_utils.colors[1],
         lw=1,
-        alpha=0.005
+        alpha=0.1
     )
     line_kwargs.update(plot_kwargs)
 
-    active_nodes_old = [np.nan]
-    for x, (layer, active) in enumerate(zip(layers, isactive)):
-        nodes = layer.units
-        active_nodes_new = np.where(active,
-                                    np.arange(-nodes/2, nodes/2),
-                                    np.nan)
-        for old_node in active_nodes_old:
-            for new_node in active_nodes_new:
-                ax.plot([x-1, x], [old_node, new_node], **line_kwargs)
-        active_nodes_old = active_nodes_new
 
+    x = len(layers)
+    nodes = layers[-1].units
+    last_nodes = np.where(isactive[-1],
+                            np.arange(-nodes/2, nodes/2),
+                            np.nan)
+    for p in pred[-1][0]:
+            for node in last_nodes: 
+                ax.plot([x-1, x], [node, p], **line_kwargs)
+
+    ax.arrow(x = x , dx = 0, y = last_nodes[0],  dy = last_nodes[-1]-last_nodes[0], color=plot_utils.colors[1], alpha = 1)
     return ax
