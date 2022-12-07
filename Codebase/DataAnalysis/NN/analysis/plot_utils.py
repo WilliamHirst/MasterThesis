@@ -53,9 +53,9 @@ cmap_terrain = matplotlib.colors.LinearSegmentedColormap.from_list(
 sns.set_style("darkgrid")
 # Set all fonts to be equal to tex
 # https://stackoverflow.com/questions/11367736/matplotlib-consistent-font-using-latex
-plt.rcParams["mathtext.fontset"] = "stix"
-plt.rcParams["font.family"] = "STIXGeneral"
-plt.rcParams["text.usetex"] = True
+# plt.rcParams["mathtext.fontset"] = "stix"
+# plt.rcParams["font.family"] = "STIXGeneral"
+# plt.rcParams["text.usetex"] = True
 
 # Saving parameters
 plt.rcParams["savefig.dpi"] = 300

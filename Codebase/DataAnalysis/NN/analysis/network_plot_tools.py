@@ -182,7 +182,6 @@ def plot_pathways(layers: list, isactive: list, ax=None, **plot_kwargs):
         ax.set_yticks([])
 
     line_kwargs = dict(
-        color=plot_utils.colors[1],
         lw=1,
         alpha=0.005
     )
@@ -221,21 +220,48 @@ def plot_value_line(layers: list, isactive: list, pred: float, ax=None, **plot_k
 
     
     line_kwargs = dict(
-        color=plot_utils.colors[1],
         lw=1,
-        alpha=0.1
+        alpha=0.005
     )
     line_kwargs.update(plot_kwargs)
 
 
-    x = len(layers)
-    nodes = layers[-1].units
+    x = len(layers) - 1
+    nodes = layers[-2].units
     last_nodes = np.where(isactive[-1],
                             np.arange(-nodes/2, nodes/2),
                             np.nan)
-    for p in pred[-1][0]:
-            for node in last_nodes: 
-                ax.plot([x-1, x], [node, p], **line_kwargs)
+    val = layers[-1](pred[-1][pred[-1] != 0].reshape(1, -1))*10
+    val = int(np.round(val.numpy()))/10
+    
+    val = val*(nodes-1)-nodes/2
 
-    ax.arrow(x = x , dx = 0, y = last_nodes[0],  dy = last_nodes[-1]-last_nodes[0], color=plot_utils.colors[1], alpha = 1)
+    for node in last_nodes: 
+        ax.plot([x-1, x], [node, val], **line_kwargs)
+
+    return ax
+
+def plotAxis(layers: list, isactive: list, pred: float, ax=None, **plot_kwargs):
+    if ax is None:
+        _, ax = plt.subplots()
+        ax.set_facecolor("white")
+        ax.set_xticks([])
+        ax.set_yticks([])
+
+    
+    line_kwargs = dict(
+        color=plot_utils.colors[4],
+        head_width = 0.1,
+        lw=0.5,
+        alpha=0.8,
+        width = 0.01
+    )
+    line_kwargs.update(plot_kwargs)
+
+    x = len(layers) - 1
+    nodes = layers[-2].units
+
+    ax.arrow(x = x , dx = 0, y = -nodes/2,  dy = nodes-1,  **line_kwargs)
+    ax.text(x+0.05,nodes/2-1.4, r"$1.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[4])
+    ax.text(x+0.05,-nodes/2, r"$0.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[4])
     return ax
