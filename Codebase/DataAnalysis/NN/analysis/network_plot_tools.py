@@ -99,7 +99,8 @@ def group_nodes(x: float, nodes: int, groups: int, ax):
                                    fc='none',
                                    ec=plot_utils.colors[-1],
                                    lw=1.2,
-                                   clip_on=False))
+                                   clip_on=False,
+                                   zorder = 100))
 
     return ax
 
@@ -124,7 +125,7 @@ def plot_nodes(layers: list, ax=None):
         if isinstance(layer, (MaxOut, ChannelOut)):
             nodes = layer.units
             for node in np.arange(-nodes/2, nodes/2):
-                ax.scatter([x], [node], color=plot_utils.colors[0])
+                ax.scatter([x], [node], color=plot_utils.colors[0], zorder = 150)
 
             if isinstance(layer, (MaxOut, ChannelOut)):
                 group_nodes(x, nodes, layer.num_groups, ax=ax)
@@ -181,11 +182,6 @@ def plot_pathways(layers: list, isactive: list, ax=None, **plot_kwargs):
         ax.set_xticks([])
         ax.set_yticks([])
 
-    line_kwargs = dict(
-        lw=1,
-        alpha=0.005
-    )
-    line_kwargs.update(plot_kwargs)
 
     active_nodes_old = [np.nan]
     for x, (layer, active) in enumerate(zip(layers, isactive)):
@@ -195,7 +191,7 @@ def plot_pathways(layers: list, isactive: list, ax=None, **plot_kwargs):
                                     np.nan)
         for old_node in active_nodes_old:
             for new_node in active_nodes_new:
-                ax.plot([x-1, x], [old_node, new_node], **line_kwargs)
+                ax.plot([x-1, x], [old_node, new_node], **plot_kwargs)
         active_nodes_old = active_nodes_new
 
     return ax
@@ -219,13 +215,6 @@ def plot_value_line(layers: list, isactive: list, pred: float, ax=None, **plot_k
         ax.set_yticks([])
 
     
-    line_kwargs = dict(
-        lw=1,
-        alpha=0.005
-    )
-    line_kwargs.update(plot_kwargs)
-
-
     x = len(layers) - 1
     nodes = layers[-2].units
     last_nodes = np.where(isactive[-1],
@@ -237,7 +226,7 @@ def plot_value_line(layers: list, isactive: list, pred: float, ax=None, **plot_k
     val = val*(nodes-1)-nodes/2
 
     for node in last_nodes: 
-        ax.plot([x-1, x], [node, val], **line_kwargs)
+        ax.plot([x-1, x], [node, val], **plot_kwargs)
 
     return ax
 

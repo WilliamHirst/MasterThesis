@@ -31,7 +31,6 @@ def plot_channelout_architecture(network: tf.keras.Model,
         ax.set_xticks([])
         ax.set_yticks([])
 
-    npt.plot_nodes(network.layers, ax=ax)
     for i in range(len(inputs)):
         all_activations = npt.get_all_activations(network,
                                                   inputs[i].reshape(1, -1))
@@ -44,12 +43,13 @@ def plot_channelout_architecture(network: tf.keras.Model,
         plot_kwargs = dict(
             color=plot_utils.colors[int(targets[i])+1],
             lw=1,
-            alpha=0.005
+            alpha=0.05
         )
         ax = npt.plot_pathways(network.layers, isactive, ax=ax, **plot_kwargs)
         
         ax = npt.plot_value_line(network.layers, isactive, all_activations, ax=ax, **plot_kwargs)
     
+    ax = npt.plot_nodes(network.layers, ax=ax)
     ax = npt.plotAxis(network.layers, isactive, all_activations, ax=ax)
     
     return fig,ax
@@ -94,14 +94,12 @@ if __name__ == "__main__":
     model.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
     print("Done compiling.")
 
-    index_1 = Y_val[Y_val == 1].index[:500]
-    index_2 = Y_val[Y_val == 0].index[:500]
+    index_1 = Y_val[Y_val == 1].index[:50]
+    index_2 = Y_val[Y_val == 0].index[:50]
     index = index_1.append(index_2)
 
-    X_viz = X_val.loc[index].sample(frac = 1).reset_index(drop=True)
-    Y_viz = Y_val.loc[index].sample(frac = 1).reset_index(drop=True)
-
-    print(Y_viz)
+    X_viz = X_val.loc[index].sample(frac = 1, random_state = 0).reset_index(drop=True)
+    Y_viz = Y_val.loc[index].sample(frac = 1, random_state = 0).reset_index(drop=True)
 
     fig, ax = plot_channelout_architecture(model,
                                  X_viz.values,
@@ -120,7 +118,7 @@ if __name__ == "__main__":
         history = model.fit(X_train, 
                             Y_train,
                             sample_weight = W_train, 
-                            epochs=100, 
+                            epochs=5, 
                             batch_size=8096, 
                             callbacks = [callback], #, CC],
                             validation_data=(X_val, Y_val, W_val),
