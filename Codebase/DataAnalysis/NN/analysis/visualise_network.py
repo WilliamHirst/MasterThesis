@@ -1,6 +1,7 @@
 """Contains the code used to plot visualise LWTA NN architecture
 and activation."""
 import matplotlib.pyplot as plt
+
 import tensorflow as tf
 
 import network_plot_tools as npt
@@ -51,6 +52,7 @@ def plot_channelout_architecture(network: tf.keras.Model,
     
     ax = npt.plot_nodes(network.layers, ax=ax)
     ax = npt.plotAxis(network.layers, isactive, all_activations, ax=ax)
+    ax = npt.plot_dist(network.layers, network(inputs), plot_utils.colors[int(targets[i])+1], ax=ax)
     
     return fig,ax
 
@@ -85,9 +87,9 @@ if __name__ == "__main__":
 
     model = tf.keras.Sequential()
     model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
-    model.add(MaxOut(units=10, num_inputs=nrFeature, num_groups=5))
-    model.add(MaxOut(units=10, num_inputs=5, num_groups=5))
-    model.add(MaxOut(units=10, num_inputs=5, num_groups=5))
+    model.add(MaxOut(units=8, num_inputs=nrFeature, num_groups=4))
+    model.add(MaxOut(units=8, num_inputs=4, num_groups=2))
+    model.add(MaxOut(units=8, num_inputs=2, num_groups=4))
     model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
     optimizer = optimizers.Adam(learning_rate=1e-3)
@@ -130,3 +132,17 @@ if __name__ == "__main__":
                                  )
     ax.plot()
     fig.savefig("AfterTraining.pdf")
+
+    fig, ax = plot_channelout_architecture(model,
+                                 X_viz.values[Y_viz==0],
+                                 Y_viz.values[Y_viz==0],
+                                 )
+    ax.plot()
+    fig.savefig("AfterTrainingBkg.pdf")
+
+    fig, ax = plot_channelout_architecture(model,
+                                 X_viz.values[Y_viz==1],
+                                 Y_viz.values[Y_viz==1],
+                                 )
+    ax.plot()
+    fig.savefig("AfterTrainingSig.pdf")

@@ -1,6 +1,7 @@
 """Contains useful functions for plotting neural network architecture."""
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import seaborn as sns
 import numpy as np
 
 import context
@@ -239,7 +240,7 @@ def plotAxis(layers: list, isactive: list, pred: float, ax=None, **plot_kwargs):
 
     
     line_kwargs = dict(
-        color=plot_utils.colors[4],
+        color=plot_utils.colors[-1],
         head_width = 0.1,
         lw=0.5,
         alpha=0.8,
@@ -251,6 +252,41 @@ def plotAxis(layers: list, isactive: list, pred: float, ax=None, **plot_kwargs):
     nodes = layers[-2].units
 
     ax.arrow(x = x , dx = 0, y = -nodes/2,  dy = nodes-1,  **line_kwargs)
-    ax.text(x+0.05,nodes/2-1.4, r"$1.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[4])
-    ax.text(x+0.05,-nodes/2, r"$0.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[4])
+    ax.text(x+0.05,nodes/2-1.4, r"$1.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[-1])
+    ax.text(x+0.05,-nodes/2, r"$0.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[-1])
+    return ax
+
+def plot_dist(layers: list, preds: float, color, ax=None ):
+    """Plots lines going through all active nodes of all layers.
+
+    Args:
+        layers (list): list of tf.keras.layers.Layer instances.
+        isactive (list): list of boolean np.ndarrays indicating whether node
+                         is active or not by layer.
+        ax (ax, optional): plt ax on which to plot. Defaults to None.
+
+    Returns:
+        tuple: ax object on which the function plotted.
+    """
+    if ax is None:
+        _, ax = plt.subplots()
+        ax.set_facecolor("white")
+        ax.set_xticks([])
+        ax.set_yticks([])
+
+    
+    x = len(layers) - 1
+    nodes = layers[-2].units
+
+    dist = preds.numpy()
+
+    # for pred in preds:
+    #     val = pred.numpy()[0]*10
+    #     val = int(np.round(val))/10
+    #     dist = np.append(dist, val)
+        
+    dist *= (nodes-1)-nodes/2
+
+    sns.displot(data=dist, color = color, alpha = .7)
+
     return ax
