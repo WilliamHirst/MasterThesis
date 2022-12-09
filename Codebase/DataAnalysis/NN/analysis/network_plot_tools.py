@@ -255,16 +255,9 @@ def plotAxis(layers: list, isactive: list, pred: float, ax=None, **plot_kwargs):
 
     line = ax.add_line(mpt.lines.Line2D([x,x], [-nodes/2,nodes/2-1]))
 
-    anno_args = {
-        'ha': 'center',
-        'va': 'center',
-        'size': 24,
-        'color': line.get_color()
-    }
-
     add_interval(ax, [x,x], [-nodes/2,nodes/2-1], "--")
-    ax.text(x-0.25,nodes/2 - 0.25, r"$1.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[-1])
-    ax.text(x-0.25,-nodes/2-0.25, r"$0.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[-1])
+    ax.text(x-0.1,nodes/2 - 0.75, r"$1.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[-1])
+    ax.text(x-0.1,-nodes/2-0.25, r"$0.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[-1])
     return ax
 
 def add_interval(ax, xdata, ydata, caps="  "):
@@ -291,23 +284,18 @@ def plot_dist(layers: list, preds: list, target: list, ax=None ):
     Returns:
         tuple: ax object on which the function plotted.
     """
-    if ax is None:
-        _, ax = plt.subplots()
-        ax.set_facecolor("white")
-        ax.set_xticks([])
-        ax.set_yticks([])
-
     
     x = len(layers) - 1
     nodes = layers[-2].units
-    #ax.set_ylim([-nodes/2,nodes/2-1])
 
     dist = preds.numpy()
+    print(dist)
     
         
-    dist *= (nodes-1)-nodes/2
+    dist = dist*(nodes-1)-nodes/2
 
     dist = pd.DataFrame(np.c_[dist, target],columns = ["data"]+["target"] )
+
     sns.kdeplot(data=dist, 
                      y = "data", 
                      color = [plot_utils.colors[1], plot_utils.colors[2]], 
@@ -316,5 +304,6 @@ def plot_dist(layers: list, preds: list, target: list, ax=None ):
                      common_norm=True,
                      fill = True,
                      hue='target')
+    ax.set_ylim([-nodes/2-0.7,nodes/2-0.3])
     ax.get_legend().remove()
     return ax
