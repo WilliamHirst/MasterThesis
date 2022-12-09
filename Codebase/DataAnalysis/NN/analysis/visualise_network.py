@@ -28,19 +28,30 @@ def plot_channelout_architecture(network: tf.keras.Model,
         ax (ax, optional): plt ax on which to plot. Defaults to None.
     """
     if ax is None:
-        fig, ax = plt.subplots()
+        # fig, (ax, ax2) = plt.subplots(
+        #     1,
+        #     2,
+        #     gridspec_kw={"width_ratios": [3, 1]},
+        #     num=0,
+        #     dpi=80,
+        #     facecolor="w",
+        #     edgecolor="k",
+        #     figsize=(7.4, 5.8),
+        # )
+        fig = plt.figure()
+        gs = fig.add_gridspec(1, 2, wspace=0,width_ratios=[3, 1])
+        (ax, ax2) = gs.subplots(sharex='col', sharey='row')
         ax.set_xticks([])
         ax.set_yticks([])
+        ax2.set_xticks([])
+        ax2.set_yticks([])
+        fig.tight_layout()
 
     for i in range(len(inputs)):
         all_activations = npt.get_all_activations(network,
                                                   inputs[i].reshape(1, -1))
         isactive = [(activations != 0.).reshape([activations.shape[-1]])
                     for activations in all_activations]
-        # isactive.append(np.where(
-        #     all_activations[-1] == np.max(all_activations[-1]),
-        #     True, False
-        # ).reshape(all_activations[-1].shape[-1]))
         plot_kwargs = dict(
             color=plot_utils.colors[int(targets[i])+1],
             lw=1,
@@ -52,7 +63,7 @@ def plot_channelout_architecture(network: tf.keras.Model,
     
     ax = npt.plot_nodes(network.layers, ax=ax)
     ax = npt.plotAxis(network.layers, isactive, all_activations, ax=ax)
-    ax = npt.plot_dist(network.layers, network(inputs), plot_utils.colors[int(targets[i])+1], ax=ax)
+    ax = npt.plot_dist(network.layers, network(inputs), plot_utils.colors[int(targets[i])+1], ax=ax2)
     
     return fig,ax
 

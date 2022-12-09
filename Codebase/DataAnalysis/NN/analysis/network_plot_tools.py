@@ -3,6 +3,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import pandas as pd
 
 import context
 import plot_utils
@@ -287,6 +288,9 @@ def plot_dist(layers: list, preds: float, color, ax=None ):
         
     dist *= (nodes-1)-nodes/2
 
-    sns.displot(data=dist, color = color, alpha = .7)
+    dist = pd.DataFrame(dist,columns = ["data"])
+    
+
+    sns.histplot(data=dist, y = "data",color = color, alpha = .7, ax = ax, kde=True)
 
     return ax
