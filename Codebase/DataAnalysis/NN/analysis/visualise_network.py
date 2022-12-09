@@ -28,16 +28,6 @@ def plot_channelout_architecture(network: tf.keras.Model,
         ax (ax, optional): plt ax on which to plot. Defaults to None.
     """
     if ax is None:
-        # fig, (ax, ax2) = plt.subplots(
-        #     1,
-        #     2,
-        #     gridspec_kw={"width_ratios": [3, 1]},
-        #     num=0,
-        #     dpi=80,
-        #     facecolor="w",
-        #     edgecolor="k",
-        #     figsize=(7.4, 5.8),
-        # )
         fig = plt.figure()
         gs = fig.add_gridspec(1, 2, wspace=0,width_ratios=[3, 1])
         (ax, ax2) = gs.subplots(sharex='col', sharey='row')
@@ -63,7 +53,7 @@ def plot_channelout_architecture(network: tf.keras.Model,
     
     ax = npt.plot_nodes(network.layers, ax=ax)
     ax = npt.plotAxis(network.layers, isactive, all_activations, ax=ax)
-    ax = npt.plot_dist(network.layers, network(inputs), plot_utils.colors[int(targets[i])+1], ax=ax2)
+    ax = npt.plot_dist(network.layers, network(inputs), targets, ax=ax2)
     
     return fig,ax
 

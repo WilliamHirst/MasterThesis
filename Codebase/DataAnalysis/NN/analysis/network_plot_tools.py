@@ -1,6 +1,7 @@
 """Contains useful functions for plotting neural network architecture."""
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import matplotlib as mpt
 import seaborn as sns
 import numpy as np
 import pandas as pd
@@ -252,12 +253,33 @@ def plotAxis(layers: list, isactive: list, pred: float, ax=None, **plot_kwargs):
     x = len(layers) - 1
     nodes = layers[-2].units
 
-    ax.arrow(x = x , dx = 0, y = -nodes/2,  dy = nodes-1,  **line_kwargs)
-    ax.text(x+0.05,nodes/2-1.4, r"$1.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[-1])
-    ax.text(x+0.05,-nodes/2, r"$0.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[-1])
+    line = ax.add_line(mpt.lines.Line2D([x,x], [-nodes/2,nodes/2-1]))
+
+    anno_args = {
+        'ha': 'center',
+        'va': 'center',
+        'size': 24,
+        'color': line.get_color()
+    }
+
+    add_interval(ax, [x,x], [-nodes/2,nodes/2-1], "--")
+    ax.text(x-0.25,nodes/2 - 0.25, r"$1.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[-1])
+    ax.text(x-0.25,-nodes/2-0.25, r"$0.0$", size = "x-small", alpha=0.8, color = plot_utils.colors[-1])
     return ax
 
-def plot_dist(layers: list, preds: float, color, ax=None ):
+def add_interval(ax, xdata, ydata, caps="  "):
+    line = ax.add_line(mpt.lines.Line2D(xdata, ydata))
+    anno_args = {
+        'ha': 'center',
+        'va': 'center',
+        'size': 24,
+        'color': line.get_color()
+    }
+    a0 = ax.annotate(caps[0], xy=(xdata[0], ydata[0]), **anno_args)
+    a1 = ax.annotate(caps[1], xy=(xdata[1], ydata[1]), **anno_args)
+    return (line,(a0,a1))
+
+def plot_dist(layers: list, preds: list, target: list, ax=None ):
     """Plots lines going through all active nodes of all layers.
 
     Args:
@@ -278,19 +300,21 @@ def plot_dist(layers: list, preds: float, color, ax=None ):
     
     x = len(layers) - 1
     nodes = layers[-2].units
+    #ax.set_ylim([-nodes/2,nodes/2-1])
 
     dist = preds.numpy()
-
-    # for pred in preds:
-    #     val = pred.numpy()[0]*10
-    #     val = int(np.round(val))/10
-    #     dist = np.append(dist, val)
+    
         
     dist *= (nodes-1)-nodes/2
 
-    dist = pd.DataFrame(dist,columns = ["data"])
-    
-
-    sns.histplot(data=dist, y = "data",color = color, alpha = .7, ax = ax, kde=True)
-
+    dist = pd.DataFrame(np.c_[dist, target],columns = ["data"]+["target"] )
+    sns.kdeplot(data=dist, 
+                     y = "data", 
+                     color = [plot_utils.colors[1], plot_utils.colors[2]], 
+                     alpha = .5, 
+                     ax = ax, 
+                     common_norm=True,
+                     fill = True,
+                     hue='target')
+    ax.get_legend().remove()
     return ax
