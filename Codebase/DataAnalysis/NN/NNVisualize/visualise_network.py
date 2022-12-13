@@ -85,11 +85,6 @@ if __name__ == "__main__":
     X_val, Y_val, W_val, C_val, scaleFactor = val
     nrFeature = nFeats(X_train)
 
-    X_viz = pd.DataFrame(np.random.normal(size=(500,32)))
-    nrFeature = nFeats(X_viz)
-    Y_viz = pd.DataFrame(np.random.normal(size=(500,1)))
-    Y_viz = Y_viz > np.mean(Y_viz)
-
     model = tf.keras.Sequential()
     model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
     model.add(MaxOut(units=8, num_inputs=nrFeature, num_groups=4))

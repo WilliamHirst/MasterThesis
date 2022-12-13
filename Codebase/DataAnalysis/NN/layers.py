@@ -18,6 +18,7 @@ class MaxOut(Layer):
         num_groups: int = 2,
         kernel_initializer="glorot_uniform",
         bias_initializer="zeros",
+        regularizer = None,
         **kwargs
     ):
         # Using Layer initialization
@@ -64,6 +65,7 @@ class MaxOut(Layer):
             "bias",
             shape=[self.units, ],
             initializer=self.bias_initializer,
+            regularizer = regularizer,
             dtype=tf.float32,
             trainable=True,
         )
