@@ -8,7 +8,7 @@ import pandas as pd
 
 import context
 import plot_utils
-from tensorno.layers import MaxOut, ChannelOut
+from layers import MaxOut, ChannelOut
 
 
 def get_layer_names(network: tf.keras.Model) -> list:

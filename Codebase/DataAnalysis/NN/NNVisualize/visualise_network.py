@@ -66,7 +66,7 @@ if __name__ == "__main__":
     import pandas as pd
 
     sys.path.insert(1, "../")
-    from tensorno.layers import MaxOut
+    from layers import MaxOut
 
 
     myPath = "/storage/William_Sakarias/William_Data"
