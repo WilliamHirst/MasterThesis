@@ -16,6 +16,7 @@ def plot_channelout_architecture(network: tf.keras.Model,
                                  inputs,
                                  targets,
                                  ax=None,
+                                 type = "Both",
                                  **plot_kwargs):
     """Plots a channel out network on specified ax, with pathways indicating
     the active nodes for every datapoint in the input.
@@ -29,7 +30,7 @@ def plot_channelout_architecture(network: tf.keras.Model,
     """
     if ax is None:
         fig = plt.figure()
-        gs = fig.add_gridspec(1, 2,width_ratios=[4, 1],wspace=0)
+        gs = fig.add_gridspec(1, 2,width_ratios=[5, 1],wspace=0)
         (ax, ax2) = gs.subplots()
         ax.set_xticks([])
         ax.set_yticks([])
@@ -53,7 +54,7 @@ def plot_channelout_architecture(network: tf.keras.Model,
     
     ax = npt.plot_nodes(network.layers, ax=ax)
     ax = npt.plotAxis(network.layers, isactive, all_activations, ax=ax)
-    ax = npt.plot_dist(network.layers, network(inputs), targets, ax=ax2)
+    ax = npt.plot_dist(network.layers, network(inputs), targets, type = type, ax=ax2)
     
     return fig,ax
 
@@ -68,21 +69,21 @@ if __name__ == "__main__":
     from tensorno.layers import MaxOut
 
 
-    # myPath = "/storage/William_Sakarias/William_Data"
+    myPath = "/storage/William_Sakarias/William_Data"
 
-    # signal = "ttbarHNLMaxChannel"
+    signal = "ttbarHNLMaxChannel"
 
-    # print(f"Starting test: {signal}")
+    print(f"Starting test: {signal}")
 
-    # df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
+    df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
 
-    # print("Preparing data....")
-    # train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)
-    # print("Done.")
+    print("Preparing data....")
+    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)
+    print("Done.")
 
-    # X_train, Y_train, W_train, C_train = train
-    # X_val, Y_val, W_val, C_val, scaleFactor = val
-    # nrFeature = nFeats(X_train)
+    X_train, Y_train, W_train, C_train = train
+    X_val, Y_val, W_val, C_val, scaleFactor = val
+    nrFeature = nFeats(X_train)
 
     X_viz = pd.DataFrame(np.random.normal(size=(500,32)))
     nrFeature = nFeats(X_viz)
@@ -100,19 +101,19 @@ if __name__ == "__main__":
     model.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
     print("Done compiling.")
 
-    # index_1 = Y_val[Y_val == 1].index[:50]
-    # index_2 = Y_val[Y_val == 0].index[:50]
-    # index = index_1.append(index_2)
+    index_1 = Y_val[Y_val == 1].index[:50]
+    index_2 = Y_val[Y_val == 0].index[:50]
+    index = index_1.append(index_2)
 
-    # X_viz = X_val.loc[index].sample(frac = 1, random_state = 0).reset_index(drop=True)
-    # Y_viz = Y_val.loc[index].sample(frac = 1, random_state = 0).reset_index(drop=True)
+    X_viz = X_val.loc[index].sample(frac = 1, random_state = 0).reset_index(drop=True)
+    Y_viz = Y_val.loc[index].sample(frac = 1, random_state = 0).reset_index(drop=True)
 
     fig, ax = plot_channelout_architecture(model,
                                  X_viz.values,
                                  Y_viz.values,
                                  )
     fig.savefig("BeforeTraining.pdf")
-    exit()
+
     with tf.device("/GPU:0"):
         callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
                                                     patience=3, 
@@ -138,6 +139,7 @@ if __name__ == "__main__":
     fig, ax = plot_channelout_architecture(model,
                                  X_viz.values[Y_viz==0],
                                  Y_viz.values[Y_viz==0],
+                                 type = "Bkg"
                                  )
     ax.plot()
     fig.savefig("AfterTrainingBkg.pdf")
@@ -145,6 +147,7 @@ if __name__ == "__main__":
     fig, ax = plot_channelout_architecture(model,
                                  X_viz.values[Y_viz==1],
                                  Y_viz.values[Y_viz==1],
+                                 type = "Sig"
                                  )
     ax.plot()
     fig.savefig("AfterTrainingSig.pdf")

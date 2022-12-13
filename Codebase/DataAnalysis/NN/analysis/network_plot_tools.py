@@ -272,7 +272,7 @@ def add_interval(ax, xdata, ydata, caps="  "):
     a1 = ax.annotate(caps[1], xy=(xdata[1], ydata[1]), **anno_args)
     return (line,(a0,a1))
 
-def plot_dist(layers: list, preds: list, target: list, ax=None ):
+def plot_dist(layers: list, preds: list, target: list, type = "Both", ax=None ):
     """Plots lines going through all active nodes of all layers.
 
     Args:
@@ -289,21 +289,28 @@ def plot_dist(layers: list, preds: list, target: list, ax=None ):
     nodes = layers[-2].units
 
     dist = preds.numpy()
-    print(dist)
     
         
     dist = dist*(nodes-1)-nodes/2
 
     dist = pd.DataFrame(np.c_[dist, target],columns = ["data"]+["target"] )
+    if type == "Both":
+        palette = [plot_utils.colors[1], plot_utils.colors[2]]
+    elif type == "Sig":
+        palette = [plot_utils.colors[2]]
+    elif type == "Bkg":
+        palette = [plot_utils.colors[1]]
+
 
     sns.kdeplot(data=dist, 
                      y = "data", 
-                     color = [plot_utils.colors[1], plot_utils.colors[2]], 
+                     palette = palette, 
                      alpha = .5, 
                      ax = ax, 
                      common_norm=True,
                      fill = True,
-                     hue='target')
+                     hue='target',
+                     clip =(-4.0, 3.0))
     ax.set_ylim([-nodes/2-0.7,nodes/2-0.3])
     ax.get_legend().remove()
     return ax
