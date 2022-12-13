@@ -2164,6 +2164,16 @@ INPUT Sections/ML/DataHandling.tex
 INPUT ./Sections/ML/DataHandling.tex
 INPUT ./Sections/ML/DataHandling.tex
 INPUT Sections/ML/DataHandling.tex
+INPUT ./Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf
+INPUT ./Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf
+INPUT Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf
+INPUT ./Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf
+INPUT ./Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf
+INPUT ./Figures/MLResults/DataHandling/PCA/PCAPlotLast.pdf
+INPUT ./Figures/MLResults/DataHandling/PCA/PCAPlotLast.pdf
+INPUT Figures/MLResults/DataHandling/PCA/PCAPlotLast.pdf
+INPUT ./Figures/MLResults/DataHandling/PCA/PCAPlotLast.pdf
+INPUT ./Figures/MLResults/DataHandling/PCA/PCAPlotLast.pdf
 INPUT ./Sections/ML/Regularization.tex
 INPUT ./Sections/ML/Regularization.tex
 INPUT ./Sections/ML/Regularization.tex
