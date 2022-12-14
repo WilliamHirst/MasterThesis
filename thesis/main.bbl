@@ -1,5 +1,48 @@
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
+\bibitem{Aad_2012}
+G.~Aad, T.~Abajyan, B.~Abbott, J.~Abdallah, S.~A. Khalek, A.~Abdelalim et~al.,
+  \emph{Observation of a new particle in the search for the standard model
+  higgs boson with the {ATLAS} detector at the {LHC}},
+  \href{http://dx.doi.org/10.1016/j.physletb.2012.08.020}{\emph{Physics Letters
+  B} {\bf 716} (sep, 2012) 1--29}.
+
+\bibitem{JJ}
+J.~J. T.~M. F.R.S., \emph{Xlviii. the relation between the atom and the charge
+  of electricity carried by it},
+  \href{http://dx.doi.org/10.1080/14786449508620801}{\emph{The London,
+  Edinburgh, and Dublin Philosophical Magazine and Journal of Science} {\bf 40}
+  (1895) 511--544},
+  [\href{http://arxiv.org/abs/https://doi.org/10.1080/14786449508620801}{{\tt
+  https://doi.org/10.1080/14786449508620801}}].
+
+\bibitem{Rutherfoord}
+P.~E.~R. F.R.S., \emph{Lxxix. the scattering of $\alpha$ and $\beta$ particles
+  by matter and the structure of the atom},
+  \href{http://dx.doi.org/10.1080/14786440508637080}{\emph{The London,
+  Edinburgh, and Dublin Philosophical Magazine and Journal of Science} {\bf 21}
+  (1911) 669--688},
+  [\href{http://arxiv.org/abs/https://doi.org/10.1080/14786440508637080}{{\tt
+  https://doi.org/10.1080/14786440508637080}}].
+
+\bibitem{Reines}
+F.~Reines and C.~L. Cowan, \emph{{The neutrino}},
+  \href{http://dx.doi.org/10.1038/178446a0}{\emph{Nature} {\bf 178} (1956)
+  446--449}.
+
+\bibitem{SSB}
+J.~Bernstein, \emph{Spontaneous symmetry breaking, gauge theories, the higgs
+  mechanism and all that},
+  \href{http://dx.doi.org/10.1103/RevModPhys.46.7}{\emph{Rev. Mod. Phys.} {\bf
+  46} (Jan, 1974) 7--48}.
+
+\bibitem{NeutrinoMass}
+{\scshape Super-Kamiokande Collaboration} collaboration, Y.~Fukuda,
+  T.~Hayakawa, E.~Ichihara, K.~Inoue, K.~Ishihara, H.~Ishino et~al.,
+  \emph{Evidence for oscillation of atmospheric neutrinos},
+  \href{http://dx.doi.org/10.1103/PhysRevLett.81.1562}{\emph{Phys. Rev. Lett.}
+  {\bf 81} (Aug, 1998) 1562--1567}.
+
 \bibitem{joyce1999finnegans}
 J.~Joyce, \emph{Finnegans Wake}.
 \newblock Penguin Books, New York, 1999.

@@ -17,9 +17,9 @@
 \contentsline {subsection}{\numberline {1.4.2}Diboson (lll)}{7}{subsection.1.4.2}%
 \contentsline {subsection}{\numberline {1.4.3}$t\bar {t}$}{7}{subsection.1.4.3}%
 \contentsline {subsection}{\numberline {1.4.4}Diboson (llll)}{7}{subsection.1.4.4}%
-\contentsline {subsection}{\numberline {1.4.5}Top Others}{7}{subsection.1.4.5}%
-\contentsline {subsection}{\numberline {1.4.6}Single Others}{7}{subsection.1.4.6}%
-\contentsline {subsection}{\numberline {1.4.7}Diboson (ll)}{7}{subsection.1.4.7}%
+\contentsline {subsection}{\numberline {1.4.5}Top Others}{8}{subsection.1.4.5}%
+\contentsline {subsection}{\numberline {1.4.6}Single Others}{8}{subsection.1.4.6}%
+\contentsline {subsection}{\numberline {1.4.7}Diboson (ll)}{8}{subsection.1.4.7}%
 \contentsline {subsection}{\numberline {1.4.8}Others}{8}{subsection.1.4.8}%
 \contentsline {section}{\numberline {1.5}The Signal}{8}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Introduction to Machine Learning and Data Analysis}{11}{chapter.2}%
