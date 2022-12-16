@@ -188,9 +188,9 @@ So far in the thesis, I have only covered dense layers, meaning that every node 
 connected to its own nodes and likewise all its nodes are connected to the nodes in the layer that follows. 
 This definition covers many, but not all hidden layer. Some layers do not function to pass value to and 
 fro between nodes but instead functions by dynamically changing the architecture of the \ac{NN}. The most popular 
-type of layer that fits this definition, is the \emph{dropout}-layer. The dropout-layer functions by randomly 
-choosing a predetermined number of neurons in the layer before it, and dropping them from the network for the current 
-round of training. By doing this the dropout-layer creates an architecture for the network for every round
+type of layer that fits this definition, is the \emph{dropout}-layer. The dropout-layer functions by assigning a predetermined 
+probability to each neuron in a given layer. Based on the probability, a number of neurons (dependent on the probability) 
+is dropped in each forward pass. By doing this the dropout-layer creates an architecture for the network for every round
 of training. Each unique architecture represents its own network in what becomes an ensemble of networks. 
 \\
 As mentioned in previous sections, creating ensembles of models is a form of regularization. In the case of 
