@@ -67,16 +67,34 @@ def mergeToRoot(MC, MC_wgt, Data, Channels, CutOff = None):
     df["data18"] = ROOT.RDF.MakeNumpyDataFrame(df_i)
     return df
 
-def saveLoad(name, array = None):
-    if array is None:
-        with open(f"results/{name}", 'rb') as file:
-            output = np.load(file,allow_pickle=True)
+def saveLoad(name, data = None, type = "Numpy"):
+    if data is None:
+        if type ==   "Numpy":
+            with open(f"{name}", 'rb') as file:
+                output = np.load(file,allow_pickle=True)
+        elif type == "Pandas":
+            output = pd.read_hdf(f"{name}")
         return output
     else:
-        with open(f"results/{name}", 'wb') as f:
-            np.save(f, np.asarray(array,dtype=object).ravel())
+        if type ==   "Numpy":
+            with open(f"{name}", 'wb') as f:
+                np.save(f, np.asarray(data,dtype=object).ravel())
+        elif type == "Pandas":
+            data.to_hdf(f"{name}","mini")
         return 
+def loadSamples():
+    X_train = saveLoad("samples/X_train_sample.hdf5", type = "Pandas")
+    Y_train = saveLoad("samples/Y_train_sample.hdf5", type = "Pandas")
+    W_train = saveLoad("samples/W_train_sample.hdf5", type = "Pandas")
+    C_train = saveLoad("samples/C_train_sample.hdf5", type = "Pandas")
 
+    X_val = saveLoad("samples/X_val_sample.hdf5", type = "Pandas")
+    Y_val = saveLoad("samples/Y_val_sample.hdf5", type = "Pandas")
+    W_val = saveLoad("samples/W_val_sample.hdf5", type = "Pandas")
+    C_val = saveLoad("samples/C_val_sample.hdf5", type = "Pandas")
+    Tr = (X_train, Y_train, W_train, C_train)
+    Va = (X_val, Y_val, W_val, C_val)
+    return Tr, Va
 def separateByChannel(prediction, weights, df_channel, channels):
     mc_predict = []
     mc_weights = []
@@ -207,6 +225,7 @@ def nFeats(data):
     try:
         nF = len(data.keys())
     except:
+        print(data)
         nF = len(data[0])
     return nF
 

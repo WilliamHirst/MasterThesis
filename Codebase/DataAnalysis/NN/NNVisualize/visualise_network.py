@@ -66,7 +66,7 @@ if __name__ == "__main__":
     import pandas as pd
 
     sys.path.insert(1, "../")
-    from layers import MaxOut
+    from layers import MaxOut,StochChannelOut
 
 
     myPath = "/storage/William_Sakarias/William_Data"
@@ -88,7 +88,9 @@ if __name__ == "__main__":
     model = tf.keras.Sequential()
     model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
     model.add(MaxOut(units=8, num_inputs=nrFeature, num_groups=4))
+    # model.add(tf.keras.layers.Dropout(0.2))
     model.add(MaxOut(units=8, num_inputs=4, num_groups=2))
+    # # model.add(tf.keras.layers.Dropout(0.2))
     model.add(MaxOut(units=8, num_inputs=2, num_groups=4))
     model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 

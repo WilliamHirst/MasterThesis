@@ -115,10 +115,10 @@ exit()
 predict_sorted, weights_sorted =  separateByChannel(pred_MC , wgt, channel, channels)
 weights_sorted = np.asarray(weights_sorted, dtype = object)
 
-saveLoad("predict_sorted_test.npy", predict_sorted)
-saveLoad("weights_sorted_test.npy", weights_sorted)
-saveLoad("predict_data_test.npy", pred_Data)
-saveLoad("channels_test.npy", channels)
+saveLoad("results/predict_sorted_test.npy", predict_sorted)
+saveLoad("results/weights_sorted_test.npy", weights_sorted)
+saveLoad("results/predict_data_test.npy", pred_Data)
+saveLoad("results/channels_test.npy", channels)
 
 
 
