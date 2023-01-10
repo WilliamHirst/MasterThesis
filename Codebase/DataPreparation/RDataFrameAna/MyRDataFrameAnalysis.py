@@ -27,7 +27,8 @@ storage = "/storage/William_Sakarias/William_Data"
 hname = "MET_2L_mm"
 
 
-fldic = {"eee":0,
+fldic = {
+         "eee":0,
          "eem":1,
          "emm":2,
          "mem":3,
@@ -56,20 +57,14 @@ bkgdic = {"Wjets":{"color":R.kYellow+2},
           "data16":{"color":R.kBlack},
           "data15":{"color":R.kBlack}
 }
-# sigdic = {"LRSMWR2400NR50":{"color":R.kBlack},
-#           "WeHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
-#           "WeHNL5060Glt01ddlepfiltch1":{"color":R.kBlack},
-#           "WeHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
-#           "WmuHNL5040Glt01ddlepfiltch1":{"color":R.kBlack},
-#           "LRSMWR4500NR400":{"color":R.kBlack},
-#           "WmuHNL5070Glt01ddlepfiltch1":{"color":R.kBlack},
-# }
 
-sigdic = {"ttbarHNLfullLepMLp15":{"color":R.kBlack},
-          "ttbarHNLfullLepMLp75":{"color":R.kBlack},
-          "ttbarHNLfullLepMLm15":{"color":R.kBlack},
-          "ttbarHNLfullLepMLm75":{"color":R.kBlack},
-}
+sigdic = {}
+for samp in d_samp.keys():
+    if "MGPy8EG" not in samp:
+        continue
+    sigdic[samp] = {"color":R.kBlack}
+
+
 featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
                         "nr_bins": 40, "min" : 25, "max" : 300},
            "lep2_Pt"  : {"xlabel":"P_{t}(l_{2}) [GeV]",
@@ -439,6 +434,9 @@ toplot = []
 for bkg in bkgdic.keys():
     toplot.append(bkg)
 
+for sig in sigdic.keys():
+     toplot.append(sig)
+
 allFeats = histo.keys()
 featuresPlot = []
 for feat in allFeats:
@@ -451,12 +449,10 @@ for feature in featuresPlot:
     else:
         xlabel = feature
     p = pt.Plot(histo,feature,toplot,xtext = xlabel)
-    p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/{feature}.pdf")
+    p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/SignalSUSY/{feature}.pdf")
     p.can.Draw()
     
 
-for sig in sigdic.keys():
-     toplot.append(sig)
 
 # feature = "lep1_Pt"
 # p = pt.Plot(histo,feature,toplot,xtext = featdic[feature]["xlabel"])
@@ -472,7 +468,6 @@ features = []
 for feat in featuresPlot:
     if "Neg" not in feat:
         features.append(feat)
-exit()
 
 df_s = {}
 for k in df.keys():
