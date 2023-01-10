@@ -82,16 +82,16 @@ def saveLoad(name, data = None, type = "Numpy"):
         elif type == "Pandas":
             data.to_hdf(f"{name}","mini")
         return 
-def loadSamples():
-    X_train = saveLoad("samples/X_train_sample.hdf5", type = "Pandas")
-    Y_train = saveLoad("samples/Y_train_sample.hdf5", type = "Pandas")
-    W_train = saveLoad("samples/W_train_sample.hdf5", type = "Pandas")
-    C_train = saveLoad("samples/C_train_sample.hdf5", type = "Pandas")
+def loadSamples(ex_path = ""):
+    X_train = saveLoad(f"{ex_path}samples/X_train_sample.hdf5", type = "Pandas")
+    Y_train = saveLoad(f"{ex_path}samples/Y_train_sample.hdf5", type = "Pandas")
+    W_train = saveLoad(f"{ex_path}samples/W_train_sample.hdf5", type = "Pandas")
+    C_train = saveLoad(f"{ex_path}samples/C_train_sample.hdf5", type = "Pandas")
 
-    X_val = saveLoad("samples/X_val_sample.hdf5", type = "Pandas")
-    Y_val = saveLoad("samples/Y_val_sample.hdf5", type = "Pandas")
-    W_val = saveLoad("samples/W_val_sample.hdf5", type = "Pandas")
-    C_val = saveLoad("samples/C_val_sample.hdf5", type = "Pandas")
+    X_val = saveLoad(f"{ex_path}samples/X_val_sample.hdf5", type = "Pandas")
+    Y_val = saveLoad(f"{ex_path}samples/Y_val_sample.hdf5", type = "Pandas")
+    W_val = saveLoad(f"{ex_path}samples/W_val_sample.hdf5", type = "Pandas")
+    C_val = saveLoad(f"{ex_path}samples/C_val_sample.hdf5", type = "Pandas")
     Tr = (X_train, Y_train, W_train, C_train)
     Va = (X_val, Y_val, W_val, C_val)
     return Tr, Va

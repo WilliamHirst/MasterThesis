@@ -71,18 +71,21 @@ if __name__ == "__main__":
 
     myPath = "/storage/William_Sakarias/William_Data"
 
-    signal = "ttbarHNLMaxChannel"
+    signal = "SUSY"
 
     print(f"Starting test: {signal}")
 
-    df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
+    df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
 
     print("Preparing data....")
     train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)
     print("Done.")
 
+    # train, val = loadSamples(ex_path = "../")
+
     X_train, Y_train, W_train, C_train = train
-    X_val, Y_val, W_val, C_val, scaleFactor = val
+    X_val, Y_val, W_val, C_val, _  = val
+
     nrFeature = nFeats(X_train)
 
     model = tf.keras.Sequential()
@@ -120,7 +123,7 @@ if __name__ == "__main__":
         history = model.fit(X_train, 
                             Y_train,
                             sample_weight = W_train, 
-                            epochs=5, 
+                            epochs=10, 
                             batch_size=8096, 
                             callbacks = [callback], #, CC],
                             validation_data=(X_val, Y_val, W_val),

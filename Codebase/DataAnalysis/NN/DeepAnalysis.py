@@ -38,7 +38,7 @@ print("Done.")
 # train, val = loadSamples()
 
 X_train, Y_train, W_train, C_train = train
-X_val, Y_val, W_val, C_val, _ = val
+X_val, Y_val, W_val, C_val, scaleFactor = val
 nrFeature = nFeats(X_train)
 
 
@@ -75,7 +75,7 @@ with tf.device("/GPU:0"):
                         verbose = 1)
     pred_Train = model.predict(X_train, batch_size=8192)
     pred_Val = model.predict(X_val, batch_size=8192)
-    #Calc_Sig(Y_val, pred_Val, W_val/scaleFactor)
+    Calc_Sig(Y_val, pred_Val, W_val/scaleFactor)
     
     print(f"Optimal Validation AUC: {np.max(history.history['val_auc']):.5}")
 
