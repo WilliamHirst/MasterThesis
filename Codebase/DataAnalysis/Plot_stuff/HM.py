@@ -22,17 +22,23 @@ def HM(model, X, Y, W, columns):
         X_i = X[index_i]
         Y_i = Y[index_i]
         W_i = W[index_i]
-        Z[map2[f"{m2}"], map1[f"{m1}"]] = plotRoc(  Y_i, 
-                                                    model.predict(X_i, batch_size=8192), 
-                                                    W_i,
-                                                    "",
-                                                    plot = False,
-                                                    return_score = True)
-    
-    fig, ax = plt.subplots()
+
+        W_i.loc[(Y_i==0).to_numpy()] *= np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
+
+        Z[map2[f"{m2}"], map1[f"{m1}"]] = plotRoc(Y_i, 
+                                                  model.predict(X_i, batch_size=8192), 
+                                                  W_i,
+                                                  "",
+                                                  plot = False,
+                                                  return_score = True)
+        print(Z)
+    print(M1)
+    print(M2)
+    print(Z)
+    fig, _ = plt.subplots()
     cmap = plt.contourf(M1, M2, Z)
 
-    fig.colorbar(cmap)
+    fig.colorbar(cmap, ticks=[np.min(np.nonzero(Z)), np.max(Z)])
     plt.savefig(f"HM_test.pdf", bbox_inches="tight")
     plt.show()
 
@@ -44,7 +50,7 @@ def getGrid(col):
         m1.append(txt[0][21:24])
         m2.append(txt[2])
     m1 = np.sort(np.unique(m1))
-    m2 = np.sort(np.unique(m2))[::-1]
+    m2 = np.sort(np.unique(m2))
     Z = np.zeros([len(m2), len(m1)])
     map1 = {}
     map2 = {}
