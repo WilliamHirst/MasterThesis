@@ -11,6 +11,7 @@ from layers import MaxOut, ChannelOut, StochChannelOut
 sys.path.insert(1, "../")
 from Plot_stuff.plot_set import *
 from Plot_stuff.ROCM import *
+from Plot_stuff.HM import *
 
 sys.path.insert(1, "../../")
 from Utilities import *
@@ -45,13 +46,16 @@ nrFeature = nFeats(X_train)
 print("Compiling Model")
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
-model.add(tf.keras.layers.Dropout(0.2))
-model.add(MaxOut(units=600, num_inputs=nrFeature, num_groups=200))
-model.add(tf.keras.layers.Dropout(0.2))
-model.add(MaxOut(units=600, num_inputs=200, num_groups=200))
-model.add(tf.keras.layers.Dropout(0.2))
-model.add(MaxOut(units=600, num_inputs=200, num_groups=200))
-model.add(tf.keras.layers.Dropout(0.2))
+model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+# model.add(tf.keras.layers.Dropout(0.2))
+# model.add(MaxOut(units=600, num_inputs=nrFeature, num_groups=200))
+# model.add(tf.keras.layers.Dropout(0.2))
+# model.add(MaxOut(units=600, num_inputs=200, num_groups=200))
+# model.add(tf.keras.layers.Dropout(0.2))
+# model.add(MaxOut(units=600, num_inputs=200, num_groups=200))
+# model.add(tf.keras.layers.Dropout(0.2))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
 optimizer = optimizers.Adam(learning_rate=1e-3)
@@ -68,7 +72,7 @@ with tf.device("/GPU:0"):
     history = model.fit(X_train, 
                         Y_train,
                         sample_weight = W_train, 
-                        epochs=100, 
+                        epochs=1, 
                         batch_size=8192, 
                         callbacks = [callback], #, CC],
                         validation_data=(X_val, Y_val, W_val),
@@ -77,13 +81,15 @@ with tf.device("/GPU:0"):
     pred_Val = model.predict(X_val, batch_size=8192)
     Calc_Sig(Y_val, pred_Val, W_val/scaleFactor)
     
-    print(f"Optimal Validation AUC: {np.max(history.history['val_auc']):.5}")
+    #print(f"Optimal Validation AUC: {np.max(history.history['val_auc']):.5}")
 
     plotRoc(Y_val, 
             pred_Val, 
             W_val,
             "",
             plot = False)
+    HM(model, X_val, Y_val, W_val, C_val)
+     
 
 
 # saveLoad("samples/X_train_sample.hdf5", X_train[:100000], type = "Pandas")
