@@ -110,7 +110,15 @@ def separateByChannel(prediction, weights, df_channel, channels):
 """
 DATA-HANDLING FUNCTIONS 
 """
-def splitAndPrepData(X, Y, split_v = 0.2, scaleWeight = True, scale = False, PCA = False, n_components = None, ret_scaleFactor = False):
+def splitAndPrepData(X,  
+                     Y, 
+                     split_v = 0.2, 
+                     scaleWeight = True, 
+                     scale = False, 
+                     PCA = False, 
+                     n_components = None, 
+                     ret_scaleFactor = False,
+                     addParam = False):
     from sklearn.model_selection import train_test_split
    
     X_train, X_val, Y_train, Y_val = train_test_split(X, Y, test_size = split_v, random_state=42)
@@ -205,7 +213,29 @@ def PCAData(X_train, X_val = None, n_components = None):
     X_val = pca.transform(X_val)
     return X_train, X_val
 
+def AddParameters(df,Y,data):
+    C = df["channel"] 
+    columns_s = C[Y.to_numpy() == 1] 
+    unique_c = columns_s.unique()
+    dists = {}
 
+    for c in unique_c:
+        txt = c.split("p0")
+        m1 = txt[0][21:24]
+        m2 = txt[2] 
+        indx = (C == c).to_numpy()
+        df[indx]["param1"] = m1
+        dists[f"{len(df[indx])}"] = [m1,m2]
+        df["param2"] = m2
+
+    bkg_params =  np.random.choice([dists.values()],len(data), p=dists.keys())
+    df["param1"] = bkg_params[:,0]
+    df["param2"] = bkg_params[:,1]
+
+    data_params =  np.random.choice([dists.values()],len(data), p=dists.keys())
+    df["param1"] = data_params[:,0]
+    df["param2"] = data_params[:,1]
+    return df
 
 
 """

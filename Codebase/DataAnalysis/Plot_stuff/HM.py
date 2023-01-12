@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 from Plot_stuff.ROCM import *
+import matplotlib.colors as colors
+
 import numpy as np
 
 
@@ -8,10 +10,11 @@ def HM(model, X, Y, W, columns):
     unique_c = columns_s.unique()
 
 
-    print(unique_c)
     bkg = (Y==0).to_numpy()
     Z, map1, map2, M1, M2 = getGrid(unique_c)
+    min_val = 100
 
+    fig, _ = plt.subplots()
     for c in unique_c:
         txt = c.split("p0")
         m1 = txt[0][21:24]
@@ -19,26 +22,33 @@ def HM(model, X, Y, W, columns):
 
         print(m1,m2)
         index_i = (columns == c).to_numpy() + bkg
-        X_i = X[index_i]
-        Y_i = Y[index_i]
-        W_i = W[index_i]
+        X_i = X[index_i].copy()
+        Y_i = Y[index_i].copy()
+        W_i = W[index_i].copy()
 
         W_i.loc[(Y_i==0).to_numpy()] *= np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
 
-        Z[map2[f"{m2}"], map1[f"{m1}"]] = plotRoc(Y_i, 
-                                                  model.predict(X_i, batch_size=8192), 
-                                                  W_i,
-                                                  "",
-                                                  plot = False,
-                                                  return_score = True)
-        print(Z)
-    print(M1)
-    print(M2)
-    print(Z)
-    fig, _ = plt.subplots()
-    cmap = plt.contourf(M1, M2, Z)
+        auc = (plotRoc( Y_i, 
+                        model.predict(X_i, batch_size=8192), 
+                        W_i,
+                        "",
+                        plot = False,
+                        return_score = True))*100 - 90
+        plt.text(m1,m2, f"{auc:.3f}")
 
-    fig.colorbar(cmap, ticks=[np.min(np.nonzero(Z)), np.max(Z)])
+        Z[map2[f"{m2}"], map1[f"{m1}"]] = auc
+
+        if 100*auc < min_val:
+            min_val =  auc
+    print(Z)
+    #norm=colors.LogNorm(clip = True)
+    print(min_val, np.max(Z))
+
+    cmap = plt.contourf(M1, M2, Z,  levels = np.logspace(min_val, np.max(Z),100))
+
+    cbar = fig.colorbar(cmap, ticks=((min_val+90)/100, (np.max(Z)+90)/100))
+    cbar.ax.tick_params(size=0)
+    cbar.set_ticks([])
     plt.savefig(f"HM_test.pdf", bbox_inches="tight")
     plt.show()
 

@@ -2,11 +2,10 @@ import sys
 import tensorflow as tf
 tf.random.set_seed(42)
 from tensorflow.keras import optimizers,regularizers
+
+
 from tensorflow.compat.v1 import ConfigProto, InteractiveSession
 
-config = ConfigProto()
-config.gpu_options.allow_growth = True
-session = InteractiveSession(config=config)
 from layers import MaxOut, ChannelOut, StochChannelOut
 
 sys.path.insert(1, "../")
@@ -18,18 +17,27 @@ sys.path.insert(1, "../../")
 from Utilities import *
 
 
+config = ConfigProto()
+config.gpu_options.allow_growth = True
+session = InteractiveSession(config=config)
+
+
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-signal = "SUSY"
+signal = "ttbarHNLMaxChannel"
 
 print(f"Starting test: {signal}")
 
 df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
 
+df = AddParameters(df, y)
 print("Preparing data....")
 train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-2)
 print("Done.")
+
+
+# train, val = loadSamples()
 
 X_train, Y_train, W_train, C_train = train
 X_val, Y_val, W_val, C_val, scaleFactor = val
@@ -39,12 +47,9 @@ nrFeature = nFeats(X_train)
 print("Compiling Model")
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
-model.add(tf.keras.layers.Dropout(0.2))
-model.add(MaxOut(units=600, num_inputs=nrFeature, num_groups=200))
-model.add(tf.keras.layers.Dropout(0.2))
-model.add(MaxOut(units=600, num_inputs=200, num_groups=200))
-model.add(tf.keras.layers.Dropout(0.2))
-model.add(MaxOut(units=600, num_inputs=200, num_groups=200))
+model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
 optimizer = optimizers.Adam(learning_rate=1e-3)
@@ -70,10 +75,11 @@ with tf.device("/GPU:0"):
     pred_Val = model.predict(X_val, batch_size=8192)
     Calc_Sig(Y_val, pred_Val, W_val/scaleFactor)
     
+    #print(f"Optimal Validation AUC: {np.max(history.history['val_auc']):.5}")
+
     plotRoc(Y_val, 
             pred_Val, 
             W_val,
             "",
             plot = False)
     HM(model, X_val, Y_val, W_val, C_val)
-     
