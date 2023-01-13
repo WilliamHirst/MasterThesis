@@ -17,8 +17,6 @@ from Plot_stuff.HM import *
 sys.path.insert(1, "../../")
 from Utilities import *
 
-
-
 myPath = "/storage/William_Sakarias/William_Data"
 
 signal = "SUSY"

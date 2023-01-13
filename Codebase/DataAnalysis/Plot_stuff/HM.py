@@ -12,6 +12,7 @@ def HM(model, X, Y, W, columns):
 
     bkg = (Y==0).to_numpy()
     Z, map1, map2, M1, M2 = getGrid(unique_c)
+
     min_val = 10000
 
     fig, _ = plt.subplots()
@@ -35,17 +36,37 @@ def HM(model, X, Y, W, columns):
                         plot = False,
                         return_score = True))*100 - 90
 
-        plt.text(m1,m2, f"{(auc/10):.3f}")
+        print(m1,m2, f"{(((auc+90)/100)):.3f}")
+        plt.text(m1,m2, f"{((auc+90)/100):.3f}", color = "white")
 
         Z[map2[f"{m2}"], map1[f"{m1}"]] = auc
 
         if 100*auc < min_val:
             min_val =  auc
-    print(Z)
-    #norm=colors.LogNorm(clip = True)
-    print(min_val, np.max(Z))
+    Z = np.where(Z == 0, np.nan, Z)
+    
+    #print(Z)
+    
+    #print(min_val, np.max(Z))
+    # min_val = 7.443651606392535
 
-    cmap = plt.contourf(M1, M2, Z,  levels = np.logspace(np.log10(min_val), np.log10(np.max(Z)),100))
+    M1 = ['400', '450', '650', '700', '750', '800']
+    M2 = ['0', '100', '150', '200', '250', '300', '350', '400', '500']
+    
+    # Z = [[       np.nan,        np.nan ,9.8069044 ,        np.nan ,9.85493751 ,9.83655702],
+    #     [       np.nan,        np.nan ,9.76849106,        np.nan ,9.84785144 ,9.8427822 ],
+    #     [       np.nan,        np.nan,        np.nan ,9.81122076 ,9.83380099 ,9.8633117 ],
+    #     [       np.nan ,8.96158436 ,9.72649121,        np.nan ,9.80999454 ,9.79416771],
+    #     [7.32182614,        np.nan,        np.nan ,9.73709742 ,9.75160429 ,9.85670611],
+    #     [       np.nan ,7.44365161 ,9.59068287,        np.nan ,9.72308134 ,9.77407459],
+    #     [       np.nan,        np.nan,        np.nan ,9.56079261 ,9.70886932 ,9.72227695],
+    #     [       np.nan,        np.nan ,9.11776657,        np.nan ,9.64152682 ,9.75732222],
+    #     [       np.nan,        np.nan,        np.nan ,9.81110924 ,9.86912759 ,9.85820018]]
+
+
+    # print(np.logspace(np.log10(min_val), np.log10(np.nanmax(Z)),100))
+
+    cmap = plt.pcolormesh(M1, M2, 10**np.array(Z), cmap = 'magma')#, levels = np.logspace(np.log10(min_val), np.log10(np.nanmax(Z)),100)), norm = colors.LogNorm(),
 
     cbar = fig.colorbar(cmap)
     cbar.ax.tick_params(size=0)
