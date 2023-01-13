@@ -12,7 +12,7 @@ def HM(model, X, Y, W, columns):
 
     bkg = (Y==0).to_numpy()
     Z, map1, map2, M1, M2 = getGrid(unique_c)
-    min_val = 100
+    min_val = 10000
 
     fig, _ = plt.subplots()
     for c in unique_c:
@@ -34,7 +34,8 @@ def HM(model, X, Y, W, columns):
                         "",
                         plot = False,
                         return_score = True))*100 - 90
-        plt.text(m1,m2, f"{auc:.3f}")
+
+        plt.text(m1,m2, f"{(auc/10):.3f}")
 
         Z[map2[f"{m2}"], map1[f"{m1}"]] = auc
 
@@ -44,9 +45,9 @@ def HM(model, X, Y, W, columns):
     #norm=colors.LogNorm(clip = True)
     print(min_val, np.max(Z))
 
-    cmap = plt.contourf(M1, M2, Z,  levels = np.logspace(min_val, np.max(Z),100))
+    cmap = plt.contourf(M1, M2, Z,  levels = np.logspace(np.log10(min_val), np.log10(np.max(Z)),100))
 
-    cbar = fig.colorbar(cmap, ticks=((min_val+90)/100, (np.max(Z)+90)/100))
+    cbar = fig.colorbar(cmap)
     cbar.ax.tick_params(size=0)
     cbar.set_ticks([])
     plt.savefig(f"HM_test.pdf", bbox_inches="tight")
