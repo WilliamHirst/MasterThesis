@@ -31,7 +31,9 @@ print(f"Starting test: {signal}")
 
 df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
 
-df = AddParameters(df, y)
+df = AddParameters(df, y, df_data)
+print(df)
+exit()
 print("Preparing data....")
 train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-2)
 print("Done.")
@@ -82,4 +84,4 @@ with tf.device("/GPU:0"):
             W_val,
             "",
             plot = False)
-    HM(model, X_val, Y_val, W_val, C_val)
+    HM(model, X_val, Y_val, W_val, C_val, name = "../../../thesis/Figures/MLResults/NN/SUSY/PNNGrid.pdf")

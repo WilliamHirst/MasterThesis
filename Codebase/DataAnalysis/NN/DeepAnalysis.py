@@ -59,9 +59,9 @@ with tf.device("/GPU:0"):
     history = model.fit(X_train, 
                         Y_train,
                         sample_weight = W_train, 
-                        epochs=1, 
+                        epochs=100, 
                         batch_size=8192, 
-                        callbacks = [callback], #, CC],
+                        callbacks = [callback],
                         validation_data=(X_val, Y_val, W_val),
                         verbose = 1)
     pred_Train = model.predict(X_train, batch_size=8192)
@@ -73,5 +73,5 @@ with tf.device("/GPU:0"):
             W_val,
             "",
             plot = False)
-    HM(model, X_val, Y_val, W_val, C_val)
+    HM(model, X_val, Y_val, W_val, C_val, name = "../../../thesis/Figures/MLResults/NN/SUSY/MaxOutGrid.pdf")
      

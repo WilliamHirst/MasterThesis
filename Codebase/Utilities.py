@@ -224,15 +224,16 @@ def AddParameters(df,Y,data):
         m1 = txt[0][21:24]
         m2 = txt[2] 
         indx = (C == c).to_numpy()
-        df[indx]["param1"] = m1
+        df.loc[indx]["param1"] = m1
         dists[f"{len(df[indx])}"] = [m1,m2]
         df["param2"] = m2
-
-    bkg_params =  np.random.choice([dists.values()],len(data), p=dists.keys())
+    print(dists.values())
+    print(list(dists.keys()))
+    bkg_params =  np.random.choice([dists.values()],len(Y.to_numpy() == 0), p= list(dists.keys()))
     df["param1"] = bkg_params[:,0]
     df["param2"] = bkg_params[:,1]
 
-    data_params =  np.random.choice([dists.values()],len(data), p=dists.keys())
+    data_params =  np.random.choice([dists.values()],len(data),  p= list(dists.keys()))
     df["param1"] = data_params[:,0]
     df["param2"] = data_params[:,1]
     return df
