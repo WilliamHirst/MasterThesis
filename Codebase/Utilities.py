@@ -275,11 +275,14 @@ def Calc_Sig(y_val, y_pred, sample_weight):
     gmeans = np.sqrt(np.array(tpr) * (1-np.array(fpr)/np.max(np.array(fpr))))
     ix = np.argmax(gmeans)
     best_threshold = thresholds[ix]
+    print(best_threshold)
 
-    nrB = np.sum(sample_weight[y_pred < best_threshold])
-    nrS = np.sum(sample_weight[y_pred > best_threshold])
+    nrB = np.sum(sample_weight[y_pred > best_threshold and y_val == 0])
+    nrS = np.sum(sample_weight[y_pred > best_threshold and y_val == 1])
+    print(nrB)
+    print(nrS)
     #sig = nrS/np.sqrt(nrB)
     sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
 
     print(f"The significance: {sig} ")
-    return
+    return sig 

@@ -1,18 +1,20 @@
 import matplotlib.pyplot as plt
 from Plot_stuff.ROCM import *
 import matplotlib.colors as colors
+import sys
+sys.path.insert(1, "../../")
+from Utilities import *
 
 import numpy as np
 
 
-def HM(model, X, Y, W, columns,name):
+def HM(model, X, Y, W, columns,name, metric = "Auc"):
     columns_s = columns[Y.to_numpy() == 1] 
     unique_c = columns_s.unique()
 
 
     bkg = (Y==0).to_numpy()
     Z, map1, map2, M1, M2 = getGrid(unique_c)
-    print(M1, M2)
 
     min_val = 10000
 
@@ -28,29 +30,36 @@ def HM(model, X, Y, W, columns,name):
         Y_i = Y[index_i].copy()
         W_i = W[index_i].copy()
 
-        W_i.loc[(Y_i==0).to_numpy()] *= np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
 
-        auc = (plotRoc( Y_i, 
-                        model.predict(X_i, batch_size=8192), 
-                        W_i,
-                        "",
-                        plot = False,
-                        return_score = True))*100 - 90
+        if metric == "Auc":
+            W_i.loc[(Y_i==0).to_numpy()] *= np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
+            score = (plotRoc( Y_i, 
+                            model.predict(X_i, batch_size=8192), 
+                            W_i,
+                            "",
+                            plot = False,
+                            return_score = True))*100 - 90
+            plt.text(m1,m2, f"{((score+90)/100):.3f}", color = "white")
 
-        print(m1,m2, f"{(((auc+90)/100)):.3f}")
-        plt.text(m1,m2, f"{((auc+90)/100):.3f}", color = "white")
+        elif metric == "Sig":
 
-        Z[map2[f"{m2}"], map1[f"{m1}"]] = auc
+            score = Calc_Sig(Y_i, model.predict(X_i, batch_size=8192), W_i)[1]
 
-        if 100*auc < min_val:
-            min_val =  auc
+
+        Z[map2[f"{m2}"], map1[f"{m1}"]] = score
+
+        print(score[1])
+
+        if 100*score < min_val:
+            min_val =  score
+
     Z = np.where(Z == 0, np.nan, Z)
     cmap = plt.pcolormesh(M1, M2, 10**np.array(Z), cmap = 'magma')#, levels = np.logspace(np.log10(min_val), np.log10(np.nanmax(Z)),100)), norm = colors.LogNorm(),
 
     cbar = fig.colorbar(cmap)
     cbar.ax.tick_params(size=0)
     cbar.set_ticks([])
-    plt.savefig(f"{name}", bbox_inches="tight")
+    plt.savefig(f"{name}{metric}", bbox_inches="tight")
     plt.show()
 
 def getGrid(col):
