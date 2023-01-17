@@ -25,19 +25,18 @@ session = InteractiveSession(config=config)
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-signal = "ttbarHNLMaxChannel"
+signal = "SUSY"
 
 print(f"Starting test: {signal}")
 
 df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
 
-df = AddParameters(df, y, df_data)
-print(df)
-exit()
+#df, df_data = AddParameters(df, y, df_data)
+
+
 print("Preparing data....")
 train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-2)
 print("Done.")
-
 
 # train, val = loadSamples()
 
@@ -75,7 +74,7 @@ with tf.device("/GPU:0"):
                         verbose = 1)
     pred_Train = model.predict(X_train, batch_size=8192)
     pred_Val = model.predict(X_val, batch_size=8192)
-    Calc_Sig(Y_val, pred_Val, W_val/scaleFactor)
+    #Calc_Sig(Y_val, pred_Val, W_val/scaleFactor)
     
     #print(f"Optimal Validation AUC: {np.max(history.history['val_auc']):.5}")
 
@@ -84,4 +83,4 @@ with tf.device("/GPU:0"):
             W_val,
             "",
             plot = False)
-    HM(model, X_val, Y_val, W_val, C_val, name = "../../../thesis/Figures/MLResults/NN/SUSY/PNNGrid.pdf")
+    HM(model, X_val, Y_val, W_val, C_val, name = "../../../thesis/Figures/MLResults/NN/SUSY/NNGrid.pdf")

@@ -218,25 +218,32 @@ def AddParameters(df,Y,data):
     columns_s = C[Y.to_numpy() == 1] 
     unique_c = columns_s.unique()
     dists = {}
+    b_indx = Y.to_numpy() == 0
+    df["param1"] = np.nan
+    df["param2"] = np.nan
 
     for c in unique_c:
         txt = c.split("p0")
         m1 = txt[0][21:24]
         m2 = txt[2] 
         indx = (C == c).to_numpy()
-        df.loc[indx]["param1"] = m1
-        dists[f"{len(df[indx])}"] = [m1,m2]
-        df["param2"] = m2
-    print(dists.values())
-    print(list(dists.keys()))
-    bkg_params =  np.random.choice([dists.values()],len(Y.to_numpy() == 0), p= list(dists.keys()))
-    df["param1"] = bkg_params[:,0]
-    df["param2"] = bkg_params[:,1]
+        df.loc[indx,"param1"] = m1
+        df.loc[indx,"param2"] = m2
+        dists[f"{np.sum(indx)}"] = [m1,m2]
 
-    data_params =  np.random.choice([dists.values()],len(data),  p= list(dists.keys()))
-    df["param1"] = data_params[:,0]
-    df["param2"] = data_params[:,1]
-    return df
+    prob = np.asarray([int(d) for d in dists.keys()])
+    vals = np.asarray(list(dists.values()))
+    keys = np.asarray(list(dists.keys()))
+
+    bkg_params =  vals[np.random.choice(np.arange(len(keys)),np.sum(b_indx), p=prob/np.sum(prob) )]
+
+    df.loc[b_indx,"param1"] = bkg_params[:,0]
+    df.loc[b_indx,"param2"] = bkg_params[:,1]
+
+    data_params =  vals[np.random.choice(np.arange(len(keys)),len(data), p=prob/np.sum(prob) )]
+    data["param1"] = data_params[:,0]
+    data["param2"] = data_params[:,1]
+    return df, data
 
 
 """
