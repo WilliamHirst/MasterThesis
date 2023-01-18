@@ -73,5 +73,6 @@ with tf.device("/GPU:0"):
             W_val,
             "",
             plot = False)
-    HM(model, X_val, Y_val, W_val, C_val, name = "../../../thesis/Figures/MLResults/NN/SUSY/MaxOutGrid.pdf")
+    
+    HM(model, X_val, Y_val, W_val, C_val, name = "../../../thesis/Figures/MLResults/NN/SUSY/MaxOutGrid")
      

@@ -8,7 +8,7 @@ from Utilities import *
 import numpy as np
 
 
-def HM(model, X, Y, W, columns,name, metric = "Auc"):
+def HM(model, X, Y, W, columns,name, metric = "Auc", data = None):
     columns_s = columns[Y.to_numpy() == 1] 
     unique_c = columns_s.unique()
 
@@ -31,6 +31,7 @@ def HM(model, X, Y, W, columns,name, metric = "Auc"):
         W_i = W[index_i].copy()
 
 
+
         if metric == "Auc":
             W_i.loc[(Y_i==0).to_numpy()] *= np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
             score = (plotRoc( Y_i, 
@@ -42,13 +43,13 @@ def HM(model, X, Y, W, columns,name, metric = "Auc"):
             plt.text(m1,m2, f"{((score+90)/100):.3f}", color = "white")
 
         elif metric == "Sig":
-
-            score = Calc_Sig(Y_i, model.predict(X_i, batch_size=8192), W_i)[1]
+            sf = np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
+            W_i.loc[(Y_i==0).to_numpy()] *= sf
+            score = Calc_Sig(model.predict(X_i, batch_size=8192), Y_i, W_i, sf =sf)
 
 
         Z[map2[f"{m2}"], map1[f"{m1}"]] = score
 
-        print(score[1])
 
         if 100*score < min_val:
             min_val =  score
@@ -59,7 +60,7 @@ def HM(model, X, Y, W, columns,name, metric = "Auc"):
     cbar = fig.colorbar(cmap)
     cbar.ax.tick_params(size=0)
     cbar.set_ticks([])
-    plt.savefig(f"{name}{metric}", bbox_inches="tight")
+    plt.savefig(f"{name}{metric}.pdf", bbox_inches="tight")
     plt.show()
 
 def getGrid(col):

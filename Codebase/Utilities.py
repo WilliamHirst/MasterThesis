@@ -15,17 +15,18 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
     from os.path import isfile, join
     onlyfiles = [f for f in listdir(location) if isfile(join(location, f))]
     df = pd.DataFrame()
+    df_data = pd.DataFrame()
     y = np.array([])
     channels = []
     
     for i in range(len(onlyfiles)):
+        
 
         cont = 0
         for chan in notInc:
             if chan in onlyfiles[i]:
                 cont = 1            
         if cont: continue
-
         if "data" not in onlyfiles[i]:
             channel = onlyfiles[i][:-7]
             df_i = pd.read_hdf(f"{location}/{onlyfiles[i]}")
@@ -33,8 +34,10 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
             df = df.append(df_i, ignore_index=True,sort=False)
             channels.append(channel)
         else:
-            df_data = pd.read_hdf(f"{location}/{onlyfiles[i]}")
-            df_data = df_data.drop(columns = ["wgt_SG", "type"]) 
+
+            data_i = pd.read_hdf(f"{location}/{onlyfiles[i]}")
+            data_i = data_i.drop(columns = ["wgt_SG", "type"])
+            df_data = df_data.append(data_i, ignore_index=True,sort=False) 
     
     if signal is None:
         y = df.type
@@ -118,7 +121,8 @@ def splitAndPrepData(X,
                      PCA = False, 
                      n_components = None, 
                      ret_scaleFactor = False,
-                     addParam = False):
+                     addParam = False,
+                     removeNeg = False):
     from sklearn.model_selection import train_test_split
    
     X_train, X_val, Y_train, Y_val = train_test_split(X, Y, test_size = split_v, random_state=42)
@@ -132,9 +136,10 @@ def splitAndPrepData(X,
     if scaleWeight:
         W_train, _ = scaleWeights(W_train, Y_train)
         W_val, scaleFactor = scaleWeights(W_val, Y_val, ret_scaleFactor)
-    
-    W_train = removeNegWeights(W_train)
-    W_val = removeNegWeights(W_val)
+
+    if removeNeg: 
+        W_train = removeNegWeights(W_train)
+        W_val = removeNegWeights(W_val)
 
     W_train = pd.DataFrame(W_train)
     W_val = pd.DataFrame(W_val)
@@ -267,21 +272,36 @@ def nFeats(data):
         nF = len(data[0])
     return nF
 
-def Calc_Sig(y_val, y_pred, sample_weight):
+def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None):
     from sklearn.metrics import roc_curve
 
-    fpr, tpr, thresholds = roc_curve(y_val,y_pred, sample_weight = sample_weight, pos_label=1)
+    fpr, tpr, thresholds = roc_curve(y_label, y_MC, sample_weight = sample_weight, pos_label=1)
 
     gmeans = np.sqrt(np.array(tpr) * (1-np.array(fpr)/np.max(np.array(fpr))))
     ix = np.argmax(gmeans)
     best_threshold = thresholds[ix]
+
+    bkg_indx = y_label == 0
+
+    sample_weight = sample_weight/sf
+
+
     print(best_threshold)
 
-    nrB = np.sum(sample_weight[y_pred > best_threshold and y_val == 0])
-    nrS = np.sum(sample_weight[y_pred > best_threshold and y_val == 1])
+    print(y_MC>best_threshold)
+    if y_Data is None:
+        nrB = np.sum(sample_weight[np.ravel(y_MC>best_threshold) * np.ravel(bkg_indx)].to_numpy() )
+        nrS = np.sum(sample_weight[np.ravel(y_MC>best_threshold) * np.ravel(y_label == 1) ].to_numpy() )
+    else:
+        nrB = int(np.sum(sample_weight[np.ravel(y_MC>best_threshold)]))
+        nrS = len(y_Data[np.ravel(y_Data>best_threshold)]) - nrB
+        nrS *= nrS>0
+
     print(nrB)
     print(nrS)
+
     #sig = nrS/np.sqrt(nrB)
+
     sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
 
     print(f"The significance: {sig} ")

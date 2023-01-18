@@ -483,7 +483,7 @@ for k in df.keys():
     
     print("Saving to hdf5...")
     if "data" in k:
-        pandas.to_hdf(f"{storage}/3L_data.hdf5","mini")
+        pandas.to_hdf(f"{storage}/"+ k + ".hdf5","mini")
     else:
         pandas.to_hdf(f"{storage}/" + k +"mc.hdf5","mini")
     print("Done")
