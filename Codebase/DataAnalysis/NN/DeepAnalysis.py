@@ -37,11 +37,11 @@ nrFeature = nFeats(X_train)
 print("Compiling Model")
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
-model.add(tf.keras.layers.Dropout(0.2))
+model.add(tf.keras.layers.Dropout(0.15))
 model.add(MaxOut(units=600, num_inputs=nrFeature, num_groups=200))
-model.add(tf.keras.layers.Dropout(0.2))
+model.add(tf.keras.layers.Dropout(0.15))
 model.add(MaxOut(units=600, num_inputs=200, num_groups=200))
-model.add(tf.keras.layers.Dropout(0.2))
+model.add(tf.keras.layers.Dropout(0.15))
 model.add(MaxOut(units=600, num_inputs=200, num_groups=200))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
@@ -76,4 +76,9 @@ with tf.device("/GPU:0"):
     
     HM(model, df, Y, W, C, data = None, name = "../../../thesis/Figures/MLResults/NN/SUSY/MaxOutGrid", metric="Sig")
 
-     
+# mc_predict, mc_weights = separateByChannel(prediction, weights, C, C.unique())
+
+# saveLoad("results/predict_sorted_test.npy", mc_predict)
+# saveLoad("results/weights_sorted_test.npy", mc_weights)
+# saveLoad("results/predict_data_test.npy", model(df_data))
+# saveLoad("results/channels_test.npy", C)

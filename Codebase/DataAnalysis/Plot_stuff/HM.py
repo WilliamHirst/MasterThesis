@@ -11,6 +11,7 @@ import numpy as np
 def HM(model, X, Y, W, columns,name, metric = "Auc", data = None):
     columns_s = columns[Y.to_numpy() == 1] 
     unique_c = columns_s.unique()
+    threshold = 0.998
 
 
     bkg = (Y==0).to_numpy()
@@ -47,7 +48,7 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None):
         elif metric == "Sig":
             sf = np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
             W_i.loc[(Y_i==0).to_numpy()] *= sf
-            score = Calc_Sig(model.predict(X_i, batch_size=8192), Y_i, W_i, sf =sf)
+            score = Calc_Sig(model.predict(X_i, batch_size=8192), Y_i, W_i, sf =sf, best_threshold=threshold)
             plt.text(m1,m2, f"{score:.3f}", color = "white") 
             colorBar = lambda Z: Z
             if score < min_val:

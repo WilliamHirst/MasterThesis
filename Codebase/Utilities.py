@@ -272,20 +272,20 @@ def nFeats(data):
         nF = len(data[0])
     return nF
 
-def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None):
-    # from sklearn.metrics import roc_curve
+def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_threshold = None):
+    if best_threshold is None:
+        from sklearn.metrics import roc_curve
 
-    # fpr, tpr, thresholds = roc_curve(y_label, y_MC, sample_weight = sample_weight, pos_label=1)
+        fpr, tpr, thresholds = roc_curve(y_label, y_MC, sample_weight = sample_weight, pos_label=1)
 
-    # gmeans = np.sqrt(np.array(tpr) * (1-np.array(fpr)/np.max(np.array(fpr))))
-    # ix = np.argmax(gmeans)
-    # best_threshold = thresholds[ix]
+        gmeans = np.sqrt(np.array(tpr) * (1-np.array(fpr)/np.max(np.array(fpr))))
+        ix = np.argmax(gmeans)
+        best_threshold = thresholds[ix]
 
     bkg_indx = y_label == 0
 
     sample_weight.loc[np.ravel(np.asarray(y_label==0))] /=  sf
   
-    best_threshold = 0.9975
     if y_Data is None:
         nrB = np.sum(sample_weight[np.ravel(y_MC>best_threshold) * np.ravel(bkg_indx)].to_numpy() )
         nrS = np.sum(sample_weight[np.ravel(y_MC>best_threshold) * np.ravel(y_label == 1) ].to_numpy() )
