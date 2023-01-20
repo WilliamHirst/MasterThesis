@@ -66,13 +66,14 @@ with tf.device("/GPU:0"):
                         verbose = 1)
     pred_Train = model.predict(X_train, batch_size=8192)
     pred_Val = model.predict(X_val, batch_size=8192)
-    Calc_Sig(Y_val, pred_Val, W_val/scaleFactor)
+
     
-    plotRoc(Y_val, 
-            pred_Val, 
-            W_val,
-            "",
-            plot = False)
+    W = df.wgt_SG
+    C = df.channel
+    Y = y
+    df = df.drop(columns = ["channel", "wgt_SG"])
+    df, df_data = scaleData(df,df_data)
     
-    HM(model, X_val, Y_val, W_val, C_val, name = "../../../thesis/Figures/MLResults/NN/SUSY/MaxOutGrid")
+    HM(model, df, Y, W, C, data = None, name = "../../../thesis/Figures/MLResults/NN/SUSY/MaxOutGrid", metric="Sig")
+
      

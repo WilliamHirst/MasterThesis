@@ -67,7 +67,7 @@ with tf.device("/GPU:0"):
     history = model.fit(X_train, 
                         Y_train,
                         sample_weight = W_train, 
-                        epochs=1, 
+                        epochs=100, 
                         batch_size=8192, 
                         callbacks = [callback], #, CC],
                         validation_data=(X_val, Y_val, W_val),
@@ -82,7 +82,7 @@ with tf.device("/GPU:0"):
     C = df.channel
     Y = y
     df = df.drop(columns = ["channel", "wgt_SG"])
-    df, df_data = scaleData(df,df_data)
+    df = scaleData(df)
     
   
-    HM(model, df, Y, W, C, data = None, name = "../../../thesis/Figures/MLResults/NN/SUSY/NNGrid", metric="Sig")
+    HM(model, df, Y, W, C, data = None, name = "../../../thesis/Figures/MLResults/NN/SUSY/PNNGrid", metric="Sig")

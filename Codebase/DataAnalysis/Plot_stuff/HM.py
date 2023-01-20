@@ -40,22 +40,26 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None):
                             "",
                             plot = False,
                             return_score = True))*100 - 90
-            plt.text(m1,m2, f"{((score+90)/100):.3f}", color = "white")
+            colorBar = lambda Z: 10**np.array(Z)
+            if 100*score < min_val:
+                min_val =  score
 
         elif metric == "Sig":
             sf = np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
             W_i.loc[(Y_i==0).to_numpy()] *= sf
             score = Calc_Sig(model.predict(X_i, batch_size=8192), Y_i, W_i, sf =sf)
+            plt.text(m1,m2, f"{score:.3f}", color = "white") 
+            colorBar = lambda Z: Z
+            if score < min_val:
+                min_val =  score
 
 
         Z[map2[f"{m2}"], map1[f"{m1}"]] = score
 
 
-        if 100*score < min_val:
-            min_val =  score
 
     Z = np.where(Z == 0, np.nan, Z)
-    cmap = plt.pcolormesh(M1, M2, 10**np.array(Z), cmap = 'magma')#, levels = np.logspace(np.log10(min_val), np.log10(np.nanmax(Z)),100)), norm = colors.LogNorm(),
+    cmap = plt.pcolormesh(M1, M2, colorBar(Z), cmap = 'magma')#, levels = np.logspace(np.log10(min_val), np.log10(np.nanmax(Z)),100)), norm = colors.LogNorm(),
 
     cbar = fig.colorbar(cmap)
     cbar.ax.tick_params(size=0)
