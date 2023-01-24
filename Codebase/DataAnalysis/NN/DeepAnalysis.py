@@ -19,19 +19,32 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
+name = "MaxOut"
 signal = "SUSY"
+train = False
 
-print(f"Starting test: {signal}")
+
+print(f"Starting test: Model:{name} -- Signal:{signal}")
 
 df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
 
-print("Preparing data....")
-train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-2)
-print("Done.")
+if train:
+    print("Preparing data....")
+    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-2)
+    print("Done.")
 
-X_train, Y_train, W_train, C_train = train
-X_val, Y_val, W_val, C_val, scaleFactor = val
-nrFeature = nFeats(X_train)
+    X_train, Y_train, W_train, C_train = train
+    X_val, Y_val, W_val, C_val, scaleFactor = val
+    nrFeature = nFeats(X_train)
+else:
+    W = df.wgt_SG
+    C = df.channel
+    Y = y
+    df = df.drop(columns = ["channel", "wgt_SG"])
+    df, df_data = scaleData(df,df_data)
+    nrFeature = nFeats(df)
+
+
 
 
 print("Compiling Model")
@@ -45,36 +58,38 @@ model.add(tf.keras.layers.Dropout(0.15))
 model.add(MaxOut(units=600, num_inputs=200, num_groups=200))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
+model.load_weights(f"models/model_{name}.h5")
+
+
 optimizer = optimizers.Adam(learning_rate=1e-3)
 model.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
 print(model.summary())
 print("Done compiling.")
 
 with tf.device("/GPU:0"):
-    callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
-                                                patience=10, 
-                                                restore_best_weights = True,
-                                                verbose = 1,
-                                                mode = "max")
-    history = model.fit(X_train, 
-                        Y_train,
-                        sample_weight = W_train, 
-                        epochs=100, 
-                        batch_size=8192, 
-                        callbacks = [callback],
-                        validation_data=(X_val, Y_val, W_val),
-                        verbose = 1)
-    pred_Train = model.predict(X_train, batch_size=8192)
-    pred_Val = model.predict(X_val, batch_size=8192)
+    if train:
+        callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
+                                                    patience=10, 
+                                                    restore_best_weights = True,
+                                                    verbose = 1,
+                                                    mode = "max")
+        history = model.fit(X_train, 
+                            Y_train,
+                            sample_weight = W_train, 
+                            epochs=100, 
+                            batch_size=8192, 
+                            callbacks = [callback],
+                            validation_data=(X_val, Y_val, W_val),
+                            verbose = 1)
+
+        model.save_weights(f"models/model_{name}.h5")
+        pred_Train = model.predict(X_train, batch_size=8192)
+        pred_Val = model.predict(X_val, batch_size=8192)
+    else:
+        HM(model, df, Y, W, C, data = None, name = "../../../thesis/Figures/MLResults/NN/SUSY/MaxOutGrid", metric="Sig")
+    
 
     
-    W = df.wgt_SG
-    C = df.channel
-    Y = y
-    df = df.drop(columns = ["channel", "wgt_SG"])
-    df, df_data = scaleData(df,df_data)
-    
-    HM(model, df, Y, W, C, data = None, name = "../../../thesis/Figures/MLResults/NN/SUSY/MaxOutGrid", metric="Sig")
 
 # mc_predict, mc_weights = separateByChannel(prediction, weights, C, C.unique())
 

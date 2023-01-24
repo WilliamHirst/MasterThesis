@@ -20,7 +20,6 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
     channels = []
     
     for i in range(len(onlyfiles)):
-        
 
         cont = 0
         for chan in notInc:
@@ -38,7 +37,6 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
             data_i = pd.read_hdf(f"{location}/{onlyfiles[i]}")
             data_i = data_i.drop(columns = ["wgt_SG", "type"])
             df_data = df_data.append(data_i, ignore_index=True,sort=False) 
-    
     if signal is None:
         y = df.type
     else:
@@ -287,19 +285,22 @@ def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_thresho
     sample_weight.loc[np.ravel(np.asarray(y_label==0))] /=  sf
   
     if y_Data is None:
-        nrB = np.sum(sample_weight[np.ravel(y_MC>best_threshold) * np.ravel(bkg_indx)].to_numpy() )
-        nrS = np.sum(sample_weight[np.ravel(y_MC>best_threshold) * np.ravel(y_label == 1) ].to_numpy() )
+        tresholds = np.linspace(0.95,0.999,100)
+        max = 0
+        for thresh in tresholds:
+            nrB = np.sum(sample_weight[np.ravel(y_MC>thresh) * np.ravel(bkg_indx)].to_numpy() )
+            nrS = np.sum(sample_weight[np.ravel(y_MC>thresh) * np.ravel(y_label == 1) ].to_numpy() )
+            sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
+            if sig >max:
+                max = sig
+        sig = max
     else:
         nrB = int(np.sum(sample_weight[np.ravel(y_MC>best_threshold)]))
         nrS = len(y_Data[np.ravel(y_Data>best_threshold)]) - nrB
         nrS *= nrS>0
+        sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
 
     print(nrB)
     print(nrS)
-
-    #sig = nrS/np.sqrt(nrB)
-
-    sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
-
-    print(f"The significance: {sig} ")
-    return sig 
+    print(f"The significance: {sig}.")
+    return sig
