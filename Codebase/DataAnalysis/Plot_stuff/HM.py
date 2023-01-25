@@ -8,10 +8,14 @@ from Utilities import *
 import numpy as np
 
 
-def HM(model, X, Y, W, columns,name, metric = "Auc", data = None):
+def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False):
     columns_s = columns[Y.to_numpy() == 1] 
     unique_c = columns_s.unique()
     threshold = 0.998
+
+    method = name.split('/')[-1]
+    print(method)
+    EmptyJson(metric, method)
 
 
     bkg = (Y==0).to_numpy()
@@ -40,7 +44,7 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None):
                             W_i,
                             "",
                             plot = False,
-                            return_score = True))*100 - 90
+                            return_score = True))
             colorBar = lambda Z: 10**np.array(Z)
             if 100*score < min_val:
                 min_val =  score
@@ -53,7 +57,11 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None):
             colorBar = lambda Z: Z
             if score < min_val:
                 min_val =  score
+        if save:
+            saveToJson(score, m1, m2, metric, method)
 
+        if metric == "AUC":
+            score = score*100 - 90
 
         Z[map2[f"{m2}"], map1[f"{m1}"]] = score
 
@@ -65,7 +73,7 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None):
     cbar = fig.colorbar(cmap)
     cbar.ax.tick_params(size=0)
     cbar.set_ticks([])
-    plt.savefig(f"{name}{metric}.pdf", bbox_inches="tight")
+    plt.savefig(f"../../../thesis/Figures/MLResults/NN/{name}{metric}.pdf", bbox_inches="tight")
     plt.show()
 
 def getGrid(col):

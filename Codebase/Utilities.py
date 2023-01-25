@@ -3,6 +3,8 @@ import pickle as pkl
 import numpy as np
 import pandas as pd
 from DataAnalysis.FeatureSelection import lowFeats 
+import json
+
 
 
 
@@ -270,6 +272,7 @@ def nFeats(data):
         nF = len(data[0])
     return nF
 
+
 def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_threshold = None):
     if best_threshold is None:
         from sklearn.metrics import roc_curve
@@ -285,14 +288,15 @@ def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_thresho
     sample_weight.loc[np.ravel(np.asarray(y_label==0))] /=  sf
   
     if y_Data is None:
-        tresholds = np.linspace(0.95,0.999,100)
+        thresholds = np.concatenate((np.linspace(0.9,0.98,100),np.linspace(0.98,0.9999,100) ))
         max = 0
-        for thresh in tresholds:
+        for thresh in thresholds:
             nrB = np.sum(sample_weight[np.ravel(y_MC>thresh) * np.ravel(bkg_indx)].to_numpy() )
             nrS = np.sum(sample_weight[np.ravel(y_MC>thresh) * np.ravel(y_label == 1) ].to_numpy() )
             sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
             if sig >max:
                 max = sig
+                max_thresh = thresh 
         sig = max
     else:
         nrB = int(np.sum(sample_weight[np.ravel(y_MC>best_threshold)]))
@@ -300,7 +304,46 @@ def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_thresho
         nrS *= nrS>0
         sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
 
-    print(nrB)
-    print(nrS)
     print(f"The significance: {sig}.")
     return sig
+
+def saveToJson(score, m1, m2, metric, method):
+    if metric == "Auc":
+        file = 'AUC'
+    else:
+        file = 'SIG'
+    with open(f'results/{file}.json', 'r') as openfile:
+        # Reading from json file
+        json_object = json.load(openfile)
+    
+    json_object[method][f"{m1}_{m2}"] = {'score': score, 'm1': m1, 'm2': m2}
+
+    json_object = json.dumps(json_object, indent=4)
+ 
+    # Writing to sample.json
+    with open(f'results/{file}.json', "w") as outfile:
+        outfile.write(json_object)
+
+def EmptyJson( metric, method):
+    if metric == "Auc":
+        file = 'AUC'
+    else:
+        file = 'SIG'
+
+    with open(f'results/{file}.json', 'r') as openfile:
+        # Reading from json file
+        json_object = json.load(openfile)
+    
+    json_object[method] = {}
+
+    json_object = json.dumps(json_object, indent=4)
+ 
+    # Writing to sample.json
+    with open(f'results/{file}.json', "w") as outfile:
+        outfile.write(json_object)
+
+
+
+
+    
+

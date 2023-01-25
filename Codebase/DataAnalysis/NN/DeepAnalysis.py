@@ -21,16 +21,16 @@ myPath = "/storage/William_Sakarias/William_Data"
 
 name = "MaxOut"
 signal = "SUSY"
-train = False
+train = True
 
 
-print(f"Starting test: Model:{name} -- Signal:{signal}")
+print(f"Starting test: Model = {name} -- Signal = {signal}")
 
 df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
 
 if train:
     print("Preparing data....")
-    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-2)
+    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
     print("Done.")
 
     X_train, Y_train, W_train, C_train = train
@@ -42,6 +42,7 @@ else:
     Y = y
     df = df.drop(columns = ["channel", "wgt_SG"])
     df, df_data = scaleData(df,df_data)
+    #df = PCAData(df, n_components=1-1e-3)
     nrFeature = nFeats(df)
 
 
@@ -58,7 +59,8 @@ model.add(tf.keras.layers.Dropout(0.15))
 model.add(MaxOut(units=600, num_inputs=200, num_groups=200))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
-model.load_weights(f"models/model_{name}.h5")
+if not train:
+    model.load_weights(f"models/model_{name}.h5")
 
 
 optimizer = optimizers.Adam(learning_rate=1e-3)
@@ -85,8 +87,10 @@ with tf.device("/GPU:0"):
         model.save_weights(f"models/model_{name}.h5")
         pred_Train = model.predict(X_train, batch_size=8192)
         pred_Val = model.predict(X_val, batch_size=8192)
-    else:
-        HM(model, df, Y, W, C, data = None, name = "../../../thesis/Figures/MLResults/NN/SUSY/MaxOutGrid", metric="Sig")
+    else: 
+        HM(model, df, Y, W, C, data = None, name = f"SUSY/{name}Grid", metric="Sig", save = True)
+    
+    
     
 
     
