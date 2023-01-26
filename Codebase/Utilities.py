@@ -273,22 +273,18 @@ def nFeats(data):
     return nF
 
 
-def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_threshold = None):
-    if best_threshold is None:
-        from sklearn.metrics import roc_curve
-
-        fpr, tpr, thresholds = roc_curve(y_label, y_MC, sample_weight = sample_weight, pos_label=1)
-
-        gmeans = np.sqrt(np.array(tpr) * (1-np.array(fpr)/np.max(np.array(fpr))))
-        ix = np.argmax(gmeans)
-        best_threshold = thresholds[ix]
-
+def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_threshold = None, max_sig = None):
     bkg_indx = y_label == 0
 
     sample_weight.loc[np.ravel(np.asarray(y_label==0))] /=  sf
-  
+
+    if max_sig is None:
+        max_sig = 0.9999
+
+    m_s = 0
+    m_b = 0
     if y_Data is None:
-        thresholds = np.concatenate((np.linspace(0.9,0.98,100),np.linspace(0.98,0.9999,100) ))
+        thresholds = np.concatenate((np.linspace(0.9,0.98,100),np.linspace(0.98,max_sig,100) ))
         max = 0
         for thresh in thresholds:
             nrB = np.sum(sample_weight[np.ravel(y_MC>thresh) * np.ravel(bkg_indx)].to_numpy() )
@@ -296,13 +292,20 @@ def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_thresho
             sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
             if sig >max:
                 max = sig
-                max_thresh = thresh 
+                best_threshold = thresh
+                m_s = nrS
+                m_b = nrB
         sig = max
     else:
         nrB = int(np.sum(sample_weight[np.ravel(y_MC>best_threshold)]))
         nrS = len(y_Data[np.ravel(y_Data>best_threshold)]) - nrB
         nrS *= nrS>0
         sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
+
+    print(m_b)
+    print(m_s)
+
+    print(best_threshold)
 
     print(f"The significance: {sig}.")
     return sig

@@ -59,7 +59,7 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
         elif metric == "Sig":
             sf = np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
             W_i.loc[(Y_i==0).to_numpy()] *= sf
-            score = Calc_Sig(predict_prob(X_i), Y_i, W_i, sf =sf, best_threshold=threshold)
+            score = Calc_Sig(predict_prob(X_i), Y_i, W_i, sf =sf, best_threshold=threshold,max_sig= np.max(predict_prob(X_i)))
             plt.text(m1,m2, f"{score:.3f}", color = "white") 
             colorBar = lambda Z: Z
             if score < min_val:
@@ -67,13 +67,13 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
         if save:
             saveToJson(score, m1, m2, metric, method)
 
-        if metric == "AUC":
+        if metric == "Auc":
             score = score*100 - 90
 
         Z[map2[f"{m2}"], map1[f"{m1}"]] = score
 
 
-
+    print(Z)
     Z = np.where(Z == 0, np.nan, Z)
     cmap = plt.pcolormesh(M1, M2, colorBar(Z), cmap = 'magma')#, levels = np.logspace(np.log10(min_val), np.log10(np.nanmax(Z)),100)), norm = colors.LogNorm(),
 
