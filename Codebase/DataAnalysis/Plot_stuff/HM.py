@@ -8,14 +8,21 @@ from Utilities import *
 import numpy as np
 
 
-def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False):
+def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, mlType="NN"):
     columns_s = columns[Y.to_numpy() == 1] 
     unique_c = columns_s.unique()
     threshold = 0.998
 
+    if mlType == "NN":
+        predict_prob = lambda X: model.predict(X, batch_size=8192)
+    elif mlType == "XGB":
+        predict_prob = lambda X: model.predict_proba(X)[:,1]
+
+
     method = name.split('/')[-1]
     print(method)
-    EmptyJson(metric, method)
+    if save:
+        EmptyJson(metric, method)
 
 
     bkg = (Y==0).to_numpy()
@@ -40,7 +47,7 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False):
         if metric == "Auc":
             W_i.loc[(Y_i==0).to_numpy()] *= np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
             score = (plotRoc( Y_i, 
-                            model.predict(X_i, batch_size=8192), 
+                            predict_prob(X_i), 
                             W_i,
                             "",
                             plot = False,
@@ -52,7 +59,7 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False):
         elif metric == "Sig":
             sf = np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
             W_i.loc[(Y_i==0).to_numpy()] *= sf
-            score = Calc_Sig(model.predict(X_i, batch_size=8192), Y_i, W_i, sf =sf, best_threshold=threshold)
+            score = Calc_Sig(predict_prob(X_i), Y_i, W_i, sf =sf, best_threshold=threshold)
             plt.text(m1,m2, f"{score:.3f}", color = "white") 
             colorBar = lambda Z: Z
             if score < min_val:
@@ -73,7 +80,7 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False):
     cbar = fig.colorbar(cmap)
     cbar.ax.tick_params(size=0)
     cbar.set_ticks([])
-    plt.savefig(f"../../../thesis/Figures/MLResults/NN/{name}{metric}.pdf", bbox_inches="tight")
+    plt.savefig(f"../../../thesis/Figures/MLResults/{mlType}/{name}{metric}.pdf", bbox_inches="tight")
     plt.show()
 
 def getGrid(col):

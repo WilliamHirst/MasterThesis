@@ -33,12 +33,6 @@ def plotComp(metric):
         m1.append(int(method_0[i]["m1"]))
         m2.append(int(method_0[i]["m2"]))
 
-    # m1 = np.sort(m1)
-    # m2 = np.sort(m2)
-
-    Scores = []
-    M1 = []
-    M2 = []
     for i in method_0:
         scores = []
         m1_i = method_0[i]["m1"]
@@ -53,8 +47,11 @@ def plotComp(metric):
 
         draw_pie(scores, int(m1_i), int(m2_i), 1500, ax=ax)
 
-    ax.legend(borderpad = 1,fontsize = 'x-large',loc =  'lower left', labels = methods,labelcolor = [color_cycle(2),color_cycle(3),color_cycle(4)],)
-    fig.savefig("test.pdf")
+    method_label = [met[:-4] for met in methods]
+    ax.legend(borderpad = 1.25, framealpha = 1,fontsize = 'xx-large',loc =  'lower left', labels = method_label,labelcolor = [color_cycle(2),color_cycle(3),color_cycle(4)],)
+    ax.set_xlabel(r"$\tilde{\chi}_2$ [Gev]",fontsize =17, loc = "right")
+    ax.set_ylabel(r"$\tilde{\chi}_1$ [Gev]",fontsize =17, loc = "top",rotation=0, labelpad = -20)
+    fig.savefig("../../../thesis/Figures/MLResults/NN/SUSY/NetworkComp.pdf")
 
 
 
@@ -82,7 +79,7 @@ def draw_pie(dist,
         ax.scatter([xpos], [ypos], marker=xy, s=size, color = color_cycle(i))
         i += 1
         
-    ax.scatter([xpos], [ypos], s=size, facecolor = 'none', edgecolors=color_cycle(2+np.where(dist ==100)[0][0]), linewidth = 2.5)
+    ax.scatter([xpos], [ypos], s=size, facecolor = 'none', edgecolors=color_cycle(2+np.where(dist ==100)[0][0]), linewidth = 3)
     return ax
 
 if __name__ == "__main__":
