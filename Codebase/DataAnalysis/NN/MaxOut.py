@@ -21,7 +21,7 @@ myPath = "/storage/William_Sakarias/William_Data"
 
 name = "MaxOut"
 signal = "SUSY"
-train = True
+train = False
 
 
 print(f"Starting test: Model = {name} -- Signal = {signal}")
