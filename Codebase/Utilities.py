@@ -39,6 +39,8 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
             data_i = pd.read_hdf(f"{location}/{onlyfiles[i]}")
             data_i = data_i.drop(columns = ["wgt_SG", "type"])
             df_data = df_data.append(data_i, ignore_index=True,sort=False) 
+        #print(np.sum(df_i.wgt_SG))
+        #print(onlyfiles[i])
     if signal is None:
         y = df.type
     else:
@@ -218,7 +220,7 @@ def PCAData(X_train, X_val = None, n_components = None):
     X_val = pca.transform(X_val)
     return X_train, X_val
 
-def AddParameters(df,Y,data):
+def AddParameters(df,Y,data = None):
     C = df["channel"] 
     columns_s = C[Y.to_numpy() == 1] 
     unique_c = columns_s.unique()
@@ -245,6 +247,9 @@ def AddParameters(df,Y,data):
     df.loc[b_indx,"param1"] = bkg_params[:,0]
     df.loc[b_indx,"param2"] = bkg_params[:,1]
 
+    if data is None:
+        return df
+        
     data_params =  vals[np.random.choice(np.arange(len(keys)),len(data), p=prob/np.sum(prob) )]
     data["param1"] = data_params[:,0]
     data["param2"] = data_params[:,1]
