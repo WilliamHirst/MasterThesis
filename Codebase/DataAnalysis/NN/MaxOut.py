@@ -87,17 +87,20 @@ with tf.device("/GPU:0"):
         model.save_weights(f"models/model_{name}.h5")
         pred_Train = model.predict(X_train, batch_size=8192)
         pred_Val = model.predict(X_val, batch_size=8192)
-    else: 
-        HM(model, df, Y, W, C, data = None, name = f"SUSY/{name}Grid", metric="Sig", save = True)
-    
+    # else: 
+    #     HM(model, df, Y, W, C, data = None, name = f"SUSY/{name}Grid", metric="Sig", save = True)
     
     
 
-    
+indx = (Y ==0).to_numpy() + (C=="MGPy8EGA14N23LOC1N2WZ750p0p00p0p03L2L7").to_numpy() + (C=="MGPy8EGA14N23LOC1N2WZ750p0p050p0p03L2L7").to_numpy() + (C=="MGPy8EGA14N23LOC1N2WZ800p0p00p0p03L2L7").to_numpy()+(C=="MGPy8EGA14N23LOC1N2WZ800p0p050p0p03L2L7").to_numpy()
 
-# mc_predict, mc_weights = separateByChannel(prediction, weights, C, C.unique())
+df = df[indx]
+W = W[indx]
+C = C[indx]
+prediction = model.predict(df, batch_size=8192)
+mc_predict, mc_weights = separateByChannel(prediction, W, C, C.unique())
 
-# saveLoad("results/predict_sorted_test.npy", mc_predict)
-# saveLoad("results/weights_sorted_test.npy", mc_weights)
+saveLoad(f"results/{signal}{name}predict_sorted_test.npy", mc_predict)
+saveLoad(f"results/{signal}{name}weights_sorted_test.npy", mc_weights)
 # saveLoad("results/predict_data_test.npy", model(df_data))
-# saveLoad("results/channels_test.npy", C)
+saveLoad(f"results/{signal}{name}channels_test.npy", C)

@@ -53,7 +53,7 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
         df_data = df_data.drop(columns = [feat for feat in df.keys() if feat not in lowFeats]) 
     return df, y, df_data, channels
 
-def mergeToRoot(MC, MC_wgt, Data, Channels, CutOff = None):
+def mergeToRoot(MC, MC_wgt, Channels, Data=None, CutOff = None):
     import ROOT
     df = {}
     if CutOff is None:
@@ -64,12 +64,12 @@ def mergeToRoot(MC, MC_wgt, Data, Channels, CutOff = None):
         wgt = np.array(MC_wgt[i], dtype=np.float64)        
         df_i = {"ML_Val": ML_Val[ML_Val >= CutOff], "wgt": wgt[ML_Val >= CutOff] }
         df[Channels[i]] = ROOT.RDF.MakeNumpyDataFrame(df_i)
-
-    df_i = pd.DataFrame()
-    ML_Val = np.array(Data,dtype=np.float64)
-    wgt = np.ones(len(Data),dtype=np.float64)
-    df_i = {"ML_Val": ML_Val[ML_Val >= CutOff], "wgt": wgt[ML_Val >= CutOff] }
-    df["data18"] = ROOT.RDF.MakeNumpyDataFrame(df_i)
+    if Data is not None:
+        df_i = pd.DataFrame()
+        ML_Val = np.array(Data,dtype=np.float64)
+        wgt = np.ones(len(Data),dtype=np.float64)
+        df_i = {"ML_Val": ML_Val[ML_Val >= CutOff], "wgt": wgt[ML_Val >= CutOff] }
+        df["data18"] = ROOT.RDF.MakeNumpyDataFrame(df_i)
     return df
 
 def saveLoad(name, data = None, type = "Numpy"):

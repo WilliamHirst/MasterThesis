@@ -5,25 +5,27 @@ from Plot_stuff.ROOTPlot import *
 sys.path.insert(1, "../../")
 from Utilities import saveLoad
 
-signal = "ttbarHNL" 
-channels = saveLoad("channels_test.npy")
-predict_data = saveLoad("predict_data_test.npy").ravel()
-predict_sorted = saveLoad("predict_sorted_test.npy")
-weights_sorted = saveLoad("weights_sorted_test.npy")
+
+
+name = "MaxOut"
+signal = "SUSY"
+
+channels = saveLoad(f"{signal}{name}channels_test.npy")
+# predict_data = saveLoad(f"{signal}{name}predict_data_test.npy").ravel()
+predict_sorted = saveLoad(f"{signal}{name}predict_sorted_test.npy")
+weights_sorted = saveLoad(f"{signal}{name}weights_sorted_test.npy")
 
 
 PlotRootHisto(predict_sorted, 
               weights_sorted, 
-              predict_data, 
               channels, 
-              title = f"NN/{signal}SearchDist", 
+              title = f"NN/SUSY/MLDist/{name}Dist", 
               xlabel = "XGB-Output", 
               bins = 30)
 PlotRootHisto(predict_sorted, 
               weights_sorted, 
-              predict_data, 
               channels, 
-              title = f"NN/{signal}SearchDist_C7", 
+              title = f"NN/SUSY/MLDist/{name}Dist_C7", 
               xlabel = "XGB-Output", 
               bins = 30,
               CutOff = 0.7)

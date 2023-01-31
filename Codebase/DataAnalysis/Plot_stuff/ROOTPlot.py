@@ -7,13 +7,13 @@ import plottingTool as pt
 from pyHelperFunctions import *
 
 
-def PlotRootHisto(MC, MC_wgt, Data, Channels, title, xlabel, bins, CutOff = None):
+def PlotRootHisto(MC, MC_wgt, Channels, title, xlabel, bins, Data = None, CutOff = None):
 
     R.EnableImplicitMT(200)
 
-    R.gSystem.AddDynamicPath("-I/home/wohirst/MasterThesis/Codebase/DataPreparation/RDataFrameAna")
+    R.gSystem.AddDynamicPath("-I/home/wohirst/MasterThesis/CodebasPreparation/RDataFrameAna")
 
-    df = mergeToRoot(MC, MC_wgt, Data, Channels, CutOff)
+    df = mergeToRoot(MC, MC_wgt, Channels, Data=Data, CutOff = CutOff)
     if CutOff is None:
         CutOff = 0
 
