@@ -554,8 +554,9 @@ class Plot:
             else: hist.SetMinimum(ymin*0.9)
             # Fixed
             #hist.SetMinimum(-0.5) 
-            #hist.SetMaximum(2.5)  
-
+            #hist.SetMaximum(2.5)
+        if ymax <1e5:  
+          hist.SetMinimum(5e-1)
         R.gPad.SetTicky()
 
         R.gPad.Update()

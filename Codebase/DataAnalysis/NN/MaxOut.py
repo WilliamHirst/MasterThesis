@@ -97,10 +97,11 @@ indx = (Y ==0).to_numpy() + (C=="MGPy8EGA14N23LOC1N2WZ750p0p00p0p03L2L7").to_num
 df = df[indx]
 W = W[indx]
 C = C[indx]
+C_u = C.unique()
 prediction = model.predict(df, batch_size=8192)
-mc_predict, mc_weights = separateByChannel(prediction, W, C, C.unique())
+mc_predict, mc_weights = separateByChannel(prediction, W, C, C_u)
 
 saveLoad(f"results/{signal}{name}predict_sorted_test.npy", mc_predict)
 saveLoad(f"results/{signal}{name}weights_sorted_test.npy", mc_weights)
 # saveLoad("results/predict_data_test.npy", model(df_data))
-saveLoad(f"results/{signal}{name}channels_test.npy", C)
+saveLoad(f"results/{signal}{name}channels_test.npy", C.unique())

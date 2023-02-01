@@ -7,7 +7,7 @@ import plottingTool as pt
 from pyHelperFunctions import *
 
 
-def PlotRootHisto(MC, MC_wgt, Channels, title, xlabel, bins, Data = None, CutOff = None):
+def PlotRootHisto(MC, MC_wgt, Channels, title, xlabel, bins, sigdic, Data = None, CutOff = None):
 
     R.EnableImplicitMT(200)
 
@@ -35,11 +35,7 @@ def PlotRootHisto(MC, MC_wgt, Channels, title, xlabel, bins, Data = None, CutOff
           #"data16":{"color":R.kBlack},
           #"data15":{"color":R.kBlack}
     }   
-    sigdic = {"ttbarHNLfullLepMLp15":{"color":R.kBlack},
-          "ttbarHNLfullLepMLp75":{"color":R.kBlack},
-          "ttbarHNLfullLepMLm15":{"color":R.kBlack},
-          "ttbarHNLfullLepMLm75":{"color":R.kBlack},
-    }
+
     featdic = {"ML_Val" : {"xlabel": xlabel}}
 
         

@@ -66,7 +66,7 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
             W_i.loc[(Y_i==0).to_numpy()] *= sf
             score = Calc_Sig(predict_prob(X_i), Y_i, W_i, sf =sf, best_threshold=threshold,max_sig= np.max(predict_prob(X_i)))
 
-            plt.text(map1[f"{m1}"]+0.5,map2[f"{m2}"]+0.5, f"{score:.3f}", color = "white", path_effects=[pe.withStroke(linewidth=2, foreground="black")]) 
+            plt.text(map1[f"{m1}"]+0.5,map2[f"{m2}"]+0.5, f"{score:.3f}", color = "white", fontsize = 'medium', path_effects=[pe.withStroke(linewidth=1, foreground="black")]) 
             colorBar = lambda Z: Z
             if score < min_val:
                 min_val =  score
