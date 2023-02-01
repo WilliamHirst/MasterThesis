@@ -13,10 +13,10 @@
 \contentsline {subsection}{\numberline {1.3.1}Why look beyond?}{5}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.3.2}Neutrino-Mass problem}{6}{subsection.1.3.2}%
 \contentsline {section}{\numberline {1.4}The Background Channels}{6}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Z-jets}{6}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.1}Z-jets}{7}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}Diboson (lll)}{7}{subsection.1.4.2}%
 \contentsline {subsection}{\numberline {1.4.3}$t\bar {t}$}{7}{subsection.1.4.3}%
-\contentsline {subsection}{\numberline {1.4.4}Diboson (llll)}{7}{subsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.4.4}Diboson (llll)}{8}{subsection.1.4.4}%
 \contentsline {subsection}{\numberline {1.4.5}Top Others}{8}{subsection.1.4.5}%
 \contentsline {subsection}{\numberline {1.4.6}Single Others}{8}{subsection.1.4.6}%
 \contentsline {subsection}{\numberline {1.4.7}Diboson (ll)}{8}{subsection.1.4.7}%
@@ -24,13 +24,13 @@
 \contentsline {section}{\numberline {1.5}The Signal}{8}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Introduction to Machine Learning and Data Analysis}{11}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Phenomenology}{11}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Optimization}{11}{section.2.2}%
+\contentsline {section}{\numberline {2.2}Optimization}{12}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Gradient Descent}{12}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Adam}{12}{subsection.2.2.2}%
 \contentsline {section}{\numberline {2.3}Model assessment}{12}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Cost functions}{12}{subsection.2.3.1}%
-\contentsline {subsubsection}{Mean Squared Error}{12}{section*.16}%
-\contentsline {subsubsection}{Binary Crossentropy}{12}{section*.17}%
+\contentsline {subsubsection}{Mean Squared Error}{12}{section*.17}%
+\contentsline {subsubsection}{Binary Crossentropy}{12}{section*.18}%
 \contentsline {subsection}{\numberline {2.3.2}The Rate of True-Positve - ROC Curve}{12}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Interpretability}{13}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}Generalizability}{13}{subsection.2.3.4}%
@@ -38,7 +38,7 @@
 \contentsline {subsection}{\numberline {2.4.1}Grid Search}{13}{subsection.2.4.1}%
 \contentsline {section}{\numberline {2.5}Data Handling}{13}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Scaling}{13}{subsection.2.5.1}%
-\contentsline {subsubsection}{Standard Scaler}{13}{section*.18}%
+\contentsline {subsubsection}{Standard Scaler}{13}{section*.19}%
 \contentsline {subsection}{\numberline {2.5.2}Principal Component Analysis}{13}{subsection.2.5.2}%
 \contentsline {section}{\numberline {2.6}Regularization}{13}{section.2.6}%
 \contentsline {subsection}{\numberline {2.6.1}Early stopping}{15}{subsection.2.6.1}%
@@ -48,10 +48,11 @@
 \contentsline {subsection}{\numberline {2.7.2}Feeding Forward}{16}{subsection.2.7.2}%
 \contentsline {subsection}{\numberline {2.7.3}Back Propagation}{17}{subsection.2.7.3}%
 \contentsline {subsection}{\numberline {2.7.4}Activation functions}{18}{subsection.2.7.4}%
-\contentsline {subsection}{\numberline {2.7.5}Network Ensembles, dropout and LWTA networks}{18}{subsection.2.7.5}%
-\contentsline {section}{\numberline {2.8}Decision Trees and Gradient Boosting}{19}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}Decision Trees}{19}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}An Introduction to Gradient Boosting}{20}{subsection.2.8.2}%
+\contentsline {subsection}{\numberline {2.7.5}Network Ensembles, dropout and LWTA networks}{19}{subsection.2.7.5}%
+\contentsline {subsection}{\numberline {2.7.6}Parametrized Neural Network}{19}{subsection.2.7.6}%
+\contentsline {section}{\numberline {2.8}Decision Trees and Gradient Boosting}{20}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Decision Trees}{20}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}An Introduction to Gradient Boosting}{21}{subsection.2.8.2}%
 \contentsline {chapter}{\numberline {3}Implementation of the Analysis}{23}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Tools and Data}{23}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Monte Carlo Data}{23}{subsection.3.1.1}%
@@ -59,11 +60,11 @@
 \contentsline {subsection}{\numberline {3.1.3}Computing features in ROOT: Example}{23}{subsection.3.1.3}%
 \contentsline {section}{\numberline {3.2}Features}{25}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Cuts and triggers}{25}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Lepton variables selection}{26}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Jet variables selection}{26}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.2}Lepton Variables selection}{26}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Jet Variables' selection}{26}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Validation}{27}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}Negative Weights}{29}{subsection.3.2.5}%
 \contentsline {section}{\numberline {3.3}The search through neural networks and sparse pathways}{29}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Creating custom layers}{29}{subsection.3.3.1}%
-\contentsline {chapter}{Appendices}{37}{section*.39}%
-\contentsline {chapter}{Appendix A}{39}{appendix*.40}%
+\contentsline {chapter}{Appendices}{37}{section*.40}%
+\contentsline {chapter}{Appendix A}{39}{appendix*.41}%

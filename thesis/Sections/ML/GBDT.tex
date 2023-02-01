@@ -6,15 +6,14 @@ they are capable of a large range of complex problems. In this section I will co
 of \ac{DT} as applied to a supervised classification problem.
 \\
 Similarly to the traditional cut-and-count method used in particle physics, a \ac{DT} aims to 
-place \emph{rectangular-cuts} on a data set, $\mathcal{X}=\{\textbf{x}_i,\textbf{t}_i\}_{i=0}^{N}$
+place \emph{rectangular-cuts} on a data set, $X$
 to effectively map $\textbf{x}_i\rightarrow t_i$. In other words, the goal of a \ac{DT} is to 
-use $\mathcal{X}$ to from a collection of thresholds $\bf{\mathcal{C}} \sf =\{\mathcal{C}_1, 
-\mathcal{C}_2,...,\mathcal{C}_{N_\mathcal{c}}\}$, which when applied to a new data set, 
-$\tilde{\mathcal{X}}=\{\tilde{\textbf{x}}_i,\tilde{\textbf{t}}_i\}_{i=0}^{\tilde{N}}$ will 
-sort $\tilde{\textbf{x}}_i$ to a $\tilde {y}_i$. In figure \ref{fig:DT}, I have illustrated a simple 
-\ac{DT} classifying a 4-dimensional input data to one of three classifications. As is visualized 
-in figure \ref{fig:DT}, the \ac{DT} applies a set of thresholds on the data to find the route 
-applicable to a target. 
+use the data to create a collection of thresholds $\bf{\mathcal{C}} \sf =\{c_1, 
+c_2,...,c_{N_c}\}$, which when applied to a new data set and target, 
+$\tilde{X}$ and $\tilde{T}$ will sort $\tilde{\textbf{x}}_i$ to a $\tilde {y}_i$. 
+In figure \ref{fig:DT}, I have illustrated a simple \ac{DT} classifying a 4-dimensional 
+input data to one of three classifications. As is visualized in figure \ref{fig:DT}, the \ac{DT} 
+applies a set of thresholds on the data to find the route applicable to a target. 
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{Figures/Illustrations/DT.png}
@@ -46,25 +45,25 @@ techniques, the collecting of weak classifiers is an iterative process.
 \\
 We define an imperfect model $\mathcal{F}_m$, which is a collective of m number of weak 
 classifiers, estimators. A prediction for the model on a given data-points, $x_i$ is 
-defined as $\mathcal{F}_m(x_i)$, and the observed value for the aforementioned data is 
+defined as $\mathcal{F}_m(\textbf{x}_i)$, and the observed value for the aforementioned data is 
 defined as $y_i$. The goal of the iterative process is to minimize some cost-function 
 $\mathcal{C}$ by introducing a new estimator $h_m$ to compensate for any error, 
-$\mathcal{C}(\mathcal{F}_m(x_i), y_i)$. In other words we define the new estimator as:
+$\mathcal{C}(\mathcal{F}_m(\textbf{x}_i), y_i)$. In other words we define the new estimator as:
 \begin{align}
-    \tilde{\mathcal{C}}(\mathcal{F}_m(x_i), y_i) = h_m(x_i),
+    \tilde{\mathcal{C}}(\mathcal{F}_m(\textbf{x}_i), \textbf{y}_i) = h_m(\textbf{x}_i),
 \end{align}
 where we define $\tilde{\mathcal{C}}$ as some relation defined between the observed and 
 predicted values such that when added to the initial prediction we minimize $\mathcal{C}$.
 \\
 Using our new estimator $h_m$, we can now define a new model as
 \begin{align}
-    \mathcal{F}_{m+1}(x_i) = \mathcal{F}_m + h_m (x_i).
+    \mathcal{F}_{m+1}(\textbf{x}_i) = \mathcal{F}_m + h_m (\textbf{x}_i).
 \end{align}
 Similarly to how we define a deepness of trees, we can define the degree of boosting. We define 
 this as the amount of trees used in the iterative process, or M. This means that the final classifier 
 becomes
 \begin{align}
-    \mathcal{F}_M (x_i) = \sum_{i=0}^M h_i(x_i)
+    \mathcal{F}_M (\textbf{x}_i) = \sum_{i=0}^M h_i(\textbf{x}_i)
 \end{align} 
 The XGBoost \cite{XGB} framework used in this analysis enables a gradient-boosted algorithm, 
 and was initially created for the Higgs ML challenge. Since the challenge, XGBoost has become 

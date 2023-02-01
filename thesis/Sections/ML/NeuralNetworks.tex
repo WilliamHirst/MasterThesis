@@ -29,7 +29,7 @@ and likewise said hidden layer is connected to the next hidden layer. This struc
 until we reach the final layer, the output layer. The structure is illustrated in figure
 \ref{fig:NN}. The figure shows a simple \ac{NN} with a 2 dimensional data set (2 nodes in input-layer),
 2 hidden layers with three nodes each and a 1 dimensional target value. It also illustrates 
-how a \ac{NN} aims to map from data, $\x$ to a prediction $\y$.
+how a \ac{NN} aims to map from data to a prediction.
 \begin{figure}
     \centering
     \vspace*{-12.5mm} 
@@ -51,9 +51,9 @@ this report I used a simple \ac{FFNN}.
 
 \subsection{Feeding Forward}\label{subsec:FP}
 With the structure described in the previous section, a trained model, $\mathcal{F}$ produces a prediction,
-$\{\textbf{y}\}_{i=0}^N$ for a data set, $\{\textbf{x}\}_{i=0}^N$, where N is the dimensions of the input, by passing information 
-from input-layer, through all hidden-layers then to output-layer, which we call forward-propagation. In this section 
-I aim to explain the underlying algorithm and math used by the \ac{NN} to map input to output. 
+$Y$ for a data set, $X$ by passing information from input-layer, through all hidden-layers then to output-layer, 
+which we call forward-propagation. In this section I aim to explain the underlying algorithm and math used by the 
+\ac{NN} to map input to output. 
 \\
 We imagine the passing from hidden-layer $l-1$ to $l$, where $l \in \{2,...,L \}$\footnote{There is a special
 case for when $l=1$ which will be addressed in the next paragraphs.} and $L$ is equal to the
@@ -96,8 +96,8 @@ And in the case where $l=L$, $a_j^L$ is equal to the final output.
 The backward propagation acts as the engine that drives the training of a neural network. It has the purpose
 of tuning the weights and biases of the network to achieve maximum performance, as defined by some 
 \emph{cost function}, $\mathcal{C}$. The cost function defines to which metric we aim to optimize the network. 
-In the case a neural network produces a prediction, $\y$ which aims to recreate a target $\ti$ the error in the prediction
-is defined by the cost function as $\mathcal{C}\left(\y, \ti\right)$. To minimize $\mathcal{C}$, the 
+When a neural network produces a prediction, $Y$ the error in the prediction
+is defined by the cost function as $\mathcal{C}\left(Y, T\right)$. To minimize $\mathcal{C}$, the 
 backwards propagation utilizes the gradient with respect to the weights and biases in the network. Instead of a
 direct calculation of the gradient, which is very computationally heavy, the backward propagation 
 aims to calculate the gradient through a recursive algorithm which traces the error backwards through the network. It is 
@@ -227,6 +227,34 @@ paths through the network creates an ensemble of networks with their own archite
     of the max-out activation layers. }
     \label{fig:Max_out}
 \end{figure}
+\subsection{Parametrized Neural Network}
+In this thesis I will be studying \ac{BSM}-simulaitons with a diversity in choice of free parameters. This
+means that my signal is in it of itself diverse. The free parameters studied in this thesis are the mass of 
+new particles. The mass of a particle in a collision can greatly alter the feature space spanned by a channel.
+This means that a \ac{ML}-model could potentially struggle to tune according to all trends in the signal.
+The obvious solution to this problem is simply to implement one model per dataset, or choice of mass. But, not 
+only is this tedious work, but for signals with low statistics you would run the risk of overfitting. 
+\\\newline
+When the data set is dependent on a set of free parameters, $\theta = [\theta_0,\theta_1,\theta_2,...,\theta_N]$,
+we can write $X(\theta)$. For a single neural network trained on a set of parameters, we define the model as 
+$\mathcal{F}(X(\theta))$. In the case we build one model for each choice of parameter, we get a set of models
+defined as $\{ \mathcal{F}_j(X(\theta_j))$, $\mathcal{F}_k(X(\theta_k))$, ...,$\mathcal{F}_l(X(\theta_l))\}$, where
+j, k and l are incises which corresponded to individual choices of parameters respectively. 
+\\
+In the paper by Baldi et al. \cite{PNN}, they propose a separate solution to the problem than the one proposed above, the \ac{PNN}. 
+By simply including the parameters as additional features, we can write $\mathcal{F}(X, \theta)$. In doing so, 
+we can utilize all the statistics at the same time, while also aiding the $\ac{NN}$ in its effort to recognize all individual 
+trends for all signal. In practice, it is doing this by adding a shift to the total output from the initial layer according to 
+the discrete distribution of the parameters. The hope is that each discrete shift will motivate a separate individualistic tuning
+for each choice of parameter. 
+\\
+For the all the \ac{SM} background data, adding a parameter representing the mass of a \ac{BSM} particle is meaningless. 
+Therefore, the background is randomly assigned values according to the same distribution used in the signal data. 
+
+% For a dataset $\x$ which is dependent on a set of free parameters $\thetai$ as $\bf{x}_i(\theta_i)$,   
+
+
+
 
 
 
