@@ -5,15 +5,19 @@ Contrary to \ac{NN}, \ac{DT} are famously easy in theory. Despite the simplicity
 they are capable of a large range of complex problems. In this section I will cover the use 
 of \ac{DT} as applied to a supervised classification problem.
 \\
-Similarly to the traditional cut-and-count method used in particle physics, a \ac{DT} aims to 
-place \emph{rectangular-cuts} on a data set, $X$
-to effectively map $\textbf{x}_i\rightarrow t_i$. In other words, the goal of a \ac{DT} is to 
-use the data to create a collection of thresholds $\bf{\mathcal{C}} \sf =\{c_1, 
-c_2,...,c_{N_c}\}$, which when applied to a new data set and target, 
+The goal of decision trees are to create a flowchart-like tree structure from input to output. 
+Similarly to the traditional cut-and-count method used in particle physics, a \ac{DT} 
+places \emph{rectangular-cuts} on a data set. It does so to create a collection of thresholds 
+$\bf{\mathcal{C}} \sf =\{c_1, c_2,...,c_{N_c}\}$, which when applied to a new data set and target, 
 $\tilde{X}$ and $\tilde{T}$ will sort $\tilde{\textbf{x}}_i$ to a $\tilde {y}_i$. 
+\\
 In figure \ref{fig:DT}, I have illustrated a simple \ac{DT} classifying a 4-dimensional 
 input data to one of three classifications. As is visualized in figure \ref{fig:DT}, the \ac{DT} 
-applies a set of thresholds on the data to find the route applicable to a target. 
+applies a set of thresholds on the data to find the route applicable to a target. For each applied 
+cut, the data split into what we call \emph{branches}. Each branch represents a subset of the data.
+The final subset, after a sufficient amount of cuts ends in what we call \emph{leafs}. The leafs are 
+the label we assign the subset of data contained in this branch.
+\\  
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{Figures/Illustrations/DT.png}
@@ -21,7 +25,6 @@ applies a set of thresholds on the data to find the route applicable to a target
     to one of three values in the target space.}
     \label{fig:DT}
 \end{figure}
-\\
 Just like most \ac{ML}-methods, there are many kinds of \ac{DT} each with their own 
 architecture and benefits. In the case of \ac{DT} the defining qualities can be summarized in
 its choice of \emph{Deepness} and \emph{Optimization}. When provided with a data set, $\mathcal{D}$
@@ -36,7 +39,7 @@ network. How to decide by what standard one chooses to building the hierarchy of
 equivalent of choosing an optimizer. 
 
 
-\subsection{An Introduction to Gradient Boosting}
+\subsection{Gradient Boosting in Decision Trees}
 Gradient-boosting is an algorithm which uses a collective of "weak" 
 classifiers in order to create one strong classifier. In the case of gradient-boosted 
 trees the weak classifiers are a collective of shallow trees, which combine to form a classifier 
@@ -70,4 +73,4 @@ and was initially created for the Higgs ML challenge. Since the challenge, XGBoo
 a favorite for many in the ML community and has later won many other ML challenges. XGBoost 
 often outperforms ordinary decision trees, but what is gains in results it looses in 
 interpretability. A single tree can easily be analyzed and dissected, but when the number 
-of trees increases this becomes harder. 
+of trees increases this becomes harder.
