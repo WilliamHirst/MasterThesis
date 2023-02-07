@@ -95,7 +95,8 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
 
 
 
-    #Z = np.where(Z == 0, np.nan, Z)
+    # Z = np.where(Z == 0, np.nan, Z)
+
     cmap = plt.pcolormesh(np.arange(len(M1)+1), np.arange(len(M2)+1), colorBar(Z), cmap = 'magma')
 
     cbar = fig.colorbar(cmap)
@@ -104,6 +105,9 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
     # Set ticks in center of cells
     ax.set_xticks(np.arange(len(M1)) + 0.5, minor=False)
     ax.set_yticks(np.arange(len(M2)) + 0.5, minor=False)
+    
+    ax.set_xlabel(r"$\tilde{\chi}_2$ [Gev]",fontsize =17, loc = "right")
+    ax.set_ylabel(r"$\tilde{\chi}_1$ [Gev]",fontsize =17, loc = "top",rotation=0, labelpad = -20)
 
     ax.set_xticklabels(M1,rotation=90)
     ax.set_yticklabels(M2)

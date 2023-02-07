@@ -42,7 +42,7 @@ else:
     Y = y
     df = df.drop(columns = ["channel", "wgt_SG"])
     df, df_data = scaleData(df,df_data)
-    #df = PCAData(df, n_components=1-1e-3)
+    # df = PCAData(df, n_components=1-1e-3)
     nrFeature = nFeats(df)
 
 
@@ -87,11 +87,11 @@ with tf.device("/GPU:0"):
         model.save_weights(f"models/model_{name}.h5")
         pred_Train = model.predict(X_train, batch_size=8192)
         pred_Val = model.predict(X_val, batch_size=8192)
-    # else: 
-    #     HM(model, df, Y, W, C, data = None, name = f"SUSY/{name}Grid", metric="Sig", save = True)
+    else: 
+        HM(model, df, Y, W, C, data = None, name = f"SUSY/{name}Grid", metric="Sig", save = True)
     
     
-
+exit()
 indx = (Y ==0).to_numpy() + (C=="MGPy8EGA14N23LOC1N2WZ750p0p00p0p03L2L7").to_numpy() + (C=="MGPy8EGA14N23LOC1N2WZ750p0p050p0p03L2L7").to_numpy() + (C=="MGPy8EGA14N23LOC1N2WZ800p0p00p0p03L2L7").to_numpy()+(C=="MGPy8EGA14N23LOC1N2WZ800p0p050p0p03L2L7").to_numpy()
 
 df = df[indx]

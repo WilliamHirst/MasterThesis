@@ -19,7 +19,7 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-name = "NN_oneMass"
+name = "NN"
 signal = "SUSY"
 train = False
 
@@ -27,7 +27,7 @@ train = False
 print(f"Starting test: Model = {name} -- Signal = {signal}")
 
 df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
-#df, df_data = AddParameters(df, y,df_data)
+# df, df_data = AddParameters(df, y,df_data)
 
 if train:
     #df_i = df[y==0 + df.channel == ""]
