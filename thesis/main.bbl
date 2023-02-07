@@ -51,6 +51,16 @@ J.~Joyce, \emph{Finnegans Wake}.
 W.~Thomson, \emph{Lord kelvin addresed the british association for the
   advancement of science},  1900.
 
+\bibitem{Graviton}
+O.~Antipin, D.~Atwood and A.~Soni, \emph{Search for rs gravitons via wlwl
+  decays},
+  \href{http://dx.doi.org/https://doi.org/10.1016/j.physletb.2008.07.009}{\emph{Physics
+  Letters B} {\bf 666} (2008) 155--161}.
+
+\bibitem{DarkME}
+E.~Oks, \emph{Brief review of recent advances in understanding dark matter and
+  dark energy}, .
+
 \bibitem{Guest_2016}
 D.~Guest, J.~Collado, P.~Baldi, S.-C. Hsu, G.~Urban and D.~Whiteson, \emph{Jet
   flavor classification in high-energy physics with deep neural networks},
@@ -64,6 +74,12 @@ J.~Pumplin, \emph{How to tell quark jets from gluon jets},
 
 \bibitem{StandardScaler}
 {Scikit-learn developers}, ``Pandas.''
+
+\bibitem{PNN}
+P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
+  \emph{Parameterized machine learning for high-energy physics},
+  \href{http://arxiv.org/abs/1601.07913 [hep-ex, physics:hep-ph]}{{\tt
+  1601.07913 [hep-ex, physics:hep-ph]}}.
 
 \bibitem{XGB}
 {The XGBoost Contributors}, ``Xgboost.''

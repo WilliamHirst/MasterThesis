@@ -1,21 +1,25 @@
 \section{Phenomenology}
 \ac{ML} differs from other analysis tools in its ability to
 learn. Where a purely analytical model is static in both method 
-and performance a \ac{ML} model, $\mathcal{F}$ aims to be dynamic and self 
-improving. \ac{ML} utilizes data, $x_i$ to leverage towards an optimal
+and performance, a \ac{ML} model aims to be dynamic and self 
+improving. \ac{ML} utilizes data to leverage towards an optimal
 model. The extent of utilization of data defines a \ac{ML} model as being
 either \emph{supervised}, \emph{semi-supervised} or \emph{unsupervised}. In the case 
-of supervised \ac{ML}, a set of \emph{targets}, $t_i$ are provided along with the
-data which allows a \ac{ML} model to learn to map directly from data to target. Targets
-are simply the measured values corresponding to the input of the \ac{ML}-model. The target
-values can be both continues values, in which case the \ac{ML} method aims to perform a \emph{regression},
-or discrete values, in which case the \ac{ML} method aims to perform a \emph{classification}. 
+of supervised \ac{ML}, a set of \emph{targets} are provided along with the
+data which allows a \ac{ML} model to learn how to map a set of inputs to a target. In this 
+thesis I will use the notation of $X = [\bf{x}_0,\bf{x}_1,\bf{x}_2,...,\bf{x}_N]$ to refer to 
+a dataset, $T = [t_0,t_1,t_2,...,t_N]$ to the corresponding target and $Y=[y_0,y_1,y_2,...,y_N]$ 
+to the output of the model where N is number of points. The datasets contain a set of vectors with length equal to the number 
+of features. The target and output could similarly contain vectors, but will in this thesis be restricted 
+to scalar values. Generally, the target values can be both continues values, in which case the \ac{ML} 
+method aims to perform a \emph{regression}, or discrete values, in which case the \ac{ML} method aims 
+to perform a \emph{classification}. 
 \\
-The goal of supervised learning is that $\mathcal{F}$ can apply any attained knowledge from 
-the study of ($x_i$, $t_i$) to predict the target, $\tilde{t}_i$ of a new dataset
-$\tilde{x}_i$. The success of any prediction is dependent on the quality of the 
+The goal of supervised learning is that model can apply any attained knowledge from 
+the study of a set of inputs and targets to predict the target of a new dataset. 
+The success of any prediction is dependent on the quality of the 
 data used during training, or \emph{training-data}. The training-data is required to 
-be both representative of any trends you hope to detect in the new data set, or test-data
+be both representative of any trends you hope to detect in the new data set (test-data)
 and be of sufficient amount. The latter point stems from a phenomenon known as \emph{over-fitting},
 which is a problem where the training data becomes overly specialized to only predict 
 the target of the training-data, and nothing else\footnote{More on this in later sections.}.
@@ -30,7 +34,7 @@ unsupervised learning is often used to detect anomalies in the data, which means
 heavily on statistics. Because of this, some use the term \emph{anomaly detection} and 
 unsupervised learning interchangeably.
 \\
- Semi-unsupervised learning is a loose term
+Semi-unsupervised learning is a loose term
 which finds itself in the middle of the previous two. It often refers to methods where 
 no concrete target is provided, but instead uses the data provided to create a target. The goal 
 is to alleviate as much bias as possible, but at the same time converge towards the usually 

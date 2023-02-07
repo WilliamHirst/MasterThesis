@@ -22,23 +22,27 @@ which includes only the largest activated node from each unit. By using this fun
 in a dense-layer, said layer will act as a max-out layer. 
 \lstset{style=Python}
 \begin{lstlisting}[caption={Python implementation for the custom activation function used to define the max-out layer.},captionpos=b, label={lst:max_out}]
-def max_out(inputs, num_units = 200, axis=None):
-    # Calculate the new shape of the layer after max_out.
-    shape = inputs.get_shape().as_list()
-    if shape[0] is None:
-        shape[0] = -1
-    if axis is None:  # Assume that channel is the last dimension
-        axis = -1
-    num_channels = shape[axis]
-    if num_channels % num_units:
-        raise ValueError('Number of features is not a multiple of num_units')
-    shape[axis] = num_units
-    shape += [num_channels // num_units]
-    
-    # Calculate the largest value in each unit and discard 
-    # the rest. 
-    outputs = tf.reduce_max(tf.reshape(inputs, shape), -1, keepdims=False)
-    return outputs    
+def call(self, inputs: tf.Tensor) -> tf.Tensor:
+    # Passing input through weight kernel and adding bias terms
+    inputs = gen_math_ops.MatMul(a=inputs, b=self.kernel)
+    inputs = nn_ops.bias_add(inputs, self.bias)
+
+    num_inputs = inputs.shape[0]
+    if num_inputs is None:
+        num_inputs = -1
+    num_competitors = self.units // self.num_groups
+    new_shape = [num_inputs, self.num_groups, num_competitors]
+
+    # Reshaping outputs such that they are grouped correctly
+    inputs = tf.reshape(inputs, new_shape)
+    # Finding maximum activation in each group
+    outputs = tf.math.reduce_max(inputs, axis=-1,keepdims=True)
+
+    counter = tf.where(tf.equal(inputs, outputs), outputs, 0.)
+    # Reshaping outputs to original input shape
+    self.counter = tf.reshape(counter, [num_inputs, self.units])
+
+    return tf.reshape(outputs,[num_inputs, self.num_groups])   
 \end{lstlisting}
 \subsubsection*{Channel-out}
 For the activation function defined to create the channel-out layer, I again grouped
