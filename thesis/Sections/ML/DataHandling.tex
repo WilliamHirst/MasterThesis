@@ -23,6 +23,35 @@ where $\boldsymbol{\mu} _x$ and $\boldsymbol{\sigma}_x$ are vectors with the ele
 the mean and standard deviation respectively for each feature.
 
 \subsection{Principal Component Analysis}
+\ac{PCA} is a popular dimensionality reduction technique used in many analyses. The goal of
+\ac{PCA} is to reduce a high-dimensional dataset while at the same time conserve as much of the 
+variance in the data as possible. The motivation behind dimensionality reduction is rooted in 
+two (main) reasons. The first being noise reduction. Some features could not only be non-contributing 
+during training, but could even introduce noise. The second reason is lack of convergence. In a large 
+data set with many features a \ac{ML} could struggle to identify the most important trends. By reducing 
+the dimensionality in the data, the hope is that this would be easier. 
+\\
+In simple terms, \ac{PCA} finds the direction in the feature space along which the data has the largest 
+variance. It does this in 4 steps:
+\begin{itemize}
+    \item $\textbf{First}$: Center the data around 0 by subtracting the mean from each feature.
+    \item $\textbf{Second}$: Calculate the covariance matrix to find the covariance 
+                             of each feature pair.
+    \item $\textbf{Third}$: Calculate the eigenvalue and eigenvectors of the covariance matrix.
+    \item $\textbf{Fourth}$: Order the eigenvector by the eigenvectors to define the directions 
+                             in the feature space with the largest variance.
+    \item $\textbf{Fifth}$: Cast the data along these directions to form a new data set with 
+                             the new features ranked from largest to lowest variance.
+    \item $\textbf{Sixth}$: Remove the features with the least variance according to some threshold.                      
+\end{itemize}
+In figures \ref{fig:PCA1} and \ref{fig:PCA2} I have plotted the distribution of 10, 100 and 500 samples 
+for the features with the most and second most variance (\ref{fig:PCA1}), and least and second least 
+variance (\ref{fig:PCA2}) after applying \ac{PCA} to our data set. In this \ac{PCA} I am yet to remove features, 
+so all four features are taken from a data set where all the variance is still conserved. With this in 
+mind, the different scales on the y- and x-axis ($10^0$ for figure \ref{fig:PCA1} and $10^{-7}$ for figure 
+\ref{fig:PCA2}) show why we are able to justify removing the features. In figure \ref{fig:PCA2} we observe 
+that all channels exhibit the same trends and are practically identical. In other words, these features 
+would not contribute in training a model to distinguish the different channels.
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf}

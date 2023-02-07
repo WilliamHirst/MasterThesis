@@ -1897,6 +1897,9 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1phv.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1phv.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -2112,11 +2115,16 @@ INPUT Sections/SM/Signal.tex
 INPUT ./Sections/SM/Signal.tex
 INPUT ./Sections/SM/Signal.tex
 INPUT Sections/SM/Signal.tex
-INPUT ./Figures/FDiagrams/signal.png
-INPUT ./Figures/FDiagrams/signal.png
-INPUT Figures/FDiagrams/signal.png
-INPUT ./Figures/FDiagrams/signal.png
-INPUT ./Figures/FDiagrams/signal.png
+INPUT ./Figures/FDiagrams/HNLSignal.png
+INPUT ./Figures/FDiagrams/HNLSignal.png
+INPUT Figures/FDiagrams/HNLSignal.png
+INPUT ./Figures/FDiagrams/HNLSignal.png
+INPUT ./Figures/FDiagrams/HNLSignal.png
+INPUT ./Figures/FDiagrams/WZSignal.png
+INPUT ./Figures/FDiagrams/WZSignal.png
+INPUT Figures/FDiagrams/WZSignal.png
+INPUT ./Figures/FDiagrams/WZSignal.png
+INPUT ./Figures/FDiagrams/WZSignal.png
 INPUT ./Sections/ML/Axiomatic.tex
 INPUT ./Sections/ML/Axiomatic.tex
 INPUT ./Sections/ML/Axiomatic.tex
@@ -2315,7 +2323,6 @@ INPUT Sections/Implementation/Validation.tex
 INPUT ./Sections/Implementation/Validation.tex
 INPUT ./Sections/Implementation/Validation.tex
 INPUT Sections/Implementation/Validation.tex
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT ./Figures/FeaturesHistograms/lep1_Pt.pdf
 INPUT ./Figures/FeaturesHistograms/lep1_Pt.pdf
 INPUT Figures/FeaturesHistograms/lep1_Pt.pdf
@@ -2530,6 +2537,7 @@ INPUT Sections/Implementation/NeuralNetworks.tex
 INPUT ./Sections/Implementation/NeuralNetworks.tex
 INPUT ./Sections/Implementation/NeuralNetworks.tex
 INPUT Sections/Implementation/NeuralNetworks.tex
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/ts1-lmr8.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ot1phv.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ot1phv.fd
