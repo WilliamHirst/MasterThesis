@@ -13,6 +13,8 @@ sys.path.insert(1, "../")
 from Plot_stuff.plot_set import *
 from Plot_stuff.ROCM import *
 from Plot_stuff.HM import *
+from Plot_stuff.THP import *
+
 
 sys.path.insert(1, "../../")
 from Utilities import *
@@ -21,7 +23,7 @@ myPath = "/storage/William_Sakarias/William_Data"
 
 name = "MaxOut"
 signal = "SUSY"
-train = False
+train = True
 
 
 print(f"Starting test: Model = {name} -- Signal = {signal}")
@@ -42,7 +44,7 @@ else:
     Y = y
     df = df.drop(columns = ["channel", "wgt_SG"])
     df, df_data = scaleData(df,df_data)
-    #df = PCAData(df, n_components=1-1e-3)
+    # df = PCAData(df, n_components=1-1e-3)
     nrFeature = nFeats(df)
 
 
@@ -78,20 +80,19 @@ with tf.device("/GPU:0"):
         history = model.fit(X_train, 
                             Y_train,
                             sample_weight = W_train, 
-                            epochs=100, 
+                            epochs=50, 
                             batch_size=8192, 
-                            callbacks = [callback],
+                            #callbacks = [callback],
                             validation_data=(X_val, Y_val, W_val),
                             verbose = 1)
+        #model.save_weights(f"models/model_{name}.h5")
 
-        model.save_weights(f"models/model_{name}.h5")
-        pred_Train = model.predict(X_train, batch_size=8192)
-        pred_Val = model.predict(X_val, batch_size=8192)
-    # else: 
-    #     HM(model, df, Y, W, C, data = None, name = f"SUSY/{name}Grid", metric="Sig", save = True)
+        THP(history=history, model = name ,signal = signal )
+    else: 
+        HM(model, df, Y, W, C, data = None, name = f"SUSY/{name}Grid", metric="Sig", save = True)
     
     
-
+exit()
 indx = (Y ==0).to_numpy() + (C=="MGPy8EGA14N23LOC1N2WZ750p0p00p0p03L2L7").to_numpy() + (C=="MGPy8EGA14N23LOC1N2WZ750p0p050p0p03L2L7").to_numpy() + (C=="MGPy8EGA14N23LOC1N2WZ800p0p00p0p03L2L7").to_numpy()+(C=="MGPy8EGA14N23LOC1N2WZ800p0p050p0p03L2L7").to_numpy()
 
 df = df[indx]

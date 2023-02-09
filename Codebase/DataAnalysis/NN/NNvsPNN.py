@@ -143,6 +143,7 @@ with tf.device("/GPU:0"):
         # pred_Train = model.predict(X_train, batch_size=8192)
         # pred_Val = model.predict(X_val, batch_size=8192)
     
+    
     indx =  (df.channel=="MGPy8EGA14N23LOC1N2WZ700p0p0250p0p03L2L7").to_numpy() + (df.channel=="MGPy8EGA14N23LOC1N2WZ800p0p0250p0p03L2L7").to_numpy() + (df.channel=="MGPy8EGA14N23LOC1N2WZ750p0p0200p0p03L2L7").to_numpy()+(df.channel=="MGPy8EGA14N23LOC1N2WZ750p0p0300p0p03L2L7").to_numpy()+ (df.channel == "MGPy8EGA14N23LOC1N2WZ750p0p0250p0p03L2L7").to_numpy()
 
     df_test = df[indx + (y==0).to_numpy()]
