@@ -23,7 +23,7 @@ myPath = "/storage/William_Sakarias/William_Data"
 
 name = "MaxOut"
 signal = "SUSY"
-train = True
+train = False
 
 
 print(f"Starting test: Model = {name} -- Signal = {signal}")
@@ -80,14 +80,14 @@ with tf.device("/GPU:0"):
         history = model.fit(X_train, 
                             Y_train,
                             sample_weight = W_train, 
-                            epochs=50, 
+                            epochs=100, 
                             batch_size=8192, 
-                            #callbacks = [callback],
+                            callbacks = [callback],
                             validation_data=(X_val, Y_val, W_val),
                             verbose = 1)
-        #model.save_weights(f"models/model_{name}.h5")
+        model.save_weights(f"models/model_{name}.h5")
 
-        THP(history=history, model = name ,signal = signal )
+        #THP(history=history, model = name ,signal = signal )
     else: 
         HM(model, df, Y, W, C, data = None, name = f"SUSY/{name}Grid", metric="Sig", save = True)
     

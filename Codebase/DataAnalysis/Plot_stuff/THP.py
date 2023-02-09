@@ -17,4 +17,4 @@ def THP(history, model, signal):
     plt.plot(validation, label = "Validation")
     plt.legend(fontsize = 16)
     plt.tight_layout(pad=1.1, w_pad=0.7, h_pad=0.2)
-    plt.savefig(f"../../../thesis/Figures/MLResults/NN/{signal}/{model}History.pdf", bbox_inches="tight")
+    plt.savefig(f"../../../thesis/Figures/MLResults/NN/{signal}/History/{model}History.pdf", bbox_inches="tight")
