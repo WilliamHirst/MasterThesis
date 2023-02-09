@@ -1,21 +1,20 @@
 \subsection{Negative Weights}
 The negative weight problem is a well known problem in the world of ML-analysis for HEP, 
 and is a consequence of higher perturbative accuracy. For the purpose of visualizing 
-distributions, negative weights are not a problem. But, when using the weights in the 
-training of the classifier, the XGBoost framework will not work. 
+distributions and training a \ac{NN}, negative weights are not a problem. But, when using 
+the weights in the training of the XGBoost classifier, the algorithm does not work. 
 \\
 Before deciding how to mediate the issue, I decided to plot the distribution for 
 a small subset of features for all the events with negative weights.
-\\
 In figure \ref{fig:lep1_Pt_Neg} I plotted the absolute value $P_t$ distribution of events with
-negative weights and compare it to all the events in figure \ref{fig:lep1_Pt_nNeg}. Similarly
+negative weights and compare it to all the events in figure \ref{fig:lep1_Pt_nNeg}. Similarly,
 I have plotted the same values for the second lepton in figures \ref{fig:lep1_Pt_nNeg} and \ref{fig:lep2_Pt_nNeg}
 respectively. From the two comparisons we see that the distribution of negative
 weights is relatively equal to that of all the events. The same comparisons have
 been made in figures \ref{fig:lep1_Phi_Neg}, \ref{fig:lep1_Phi_nNeg}, \ref{fig:lep2_Phi_nNeg}  
-and \ref{fig:lep2_Phi_nNeg} respectively but for $\phi$. The same obsorvations
+and \ref{fig:lep2_Phi_nNeg} respectively but for $\phi$. The same observations
 are made for both $P_t$ and $\phi$. This means we can be justified in treating the 
-negative weight distribution uniformally across the feature space.
+negative weight distribution uniformly across the feature space.
 \begin{figure}
     \makebox[0.9\linewidth][c]{%
     \centering
@@ -44,7 +43,7 @@ negative weight distribution uniformally across the feature space.
         \label{fig:lep2_Pt_nNeg}
     \end{subfigure}
     }
-    \caption{The absolute value of the $P_t$ for events with stricly negative weights 
+    \caption{The absolute value of the $P_t$ for events with strictly negative weights 
     ($l_1$ \ref{fig:lep1_Pt_Neg}, $l_2$ \ref{fig:lep2_Pt_Neg}) and all events
     ($l_1$ \ref{fig:lep1_Pt_nNeg}, $l_2$ \ref{fig:lep2_Pt_nNeg}). }
 \end{figure}

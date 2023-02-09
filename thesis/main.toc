@@ -54,8 +54,8 @@
 \contentsline {subsection}{\numberline {2.7.5}Network Ensembles, dropout and LWTA networks}{19}{subsection.2.7.5}%
 \contentsline {subsection}{\numberline {2.7.6}Parametrized Neural Network}{20}{subsection.2.7.6}%
 \contentsline {section}{\numberline {2.8}Decision Trees and Gradient Boosting}{20}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}Decision Trees}{20}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}Gradient Boosting in Decision Trees}{21}{subsection.2.8.2}%
+\contentsline {subsection}{\numberline {2.8.1}Decision Trees}{21}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}Gradient Boosting in Decision Trees}{22}{subsection.2.8.2}%
 \contentsline {chapter}{\numberline {3}Implementation of the Analysis}{23}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Tools and Data}{23}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Monte Carlo Data}{23}{subsection.3.1.1}%
@@ -67,7 +67,11 @@
 \contentsline {subsection}{\numberline {3.2.3}Jet Variables' selection}{26}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Validation}{27}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}Negative Weights}{29}{subsection.3.2.5}%
-\contentsline {section}{\numberline {3.3}The search through neural networks and sparse pathways}{29}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Creating custom layers}{29}{subsection.3.3.1}%
-\contentsline {chapter}{Appendices}{37}{section*.44}%
-\contentsline {chapter}{Appendix A}{39}{appendix*.45}%
+\contentsline {section}{\numberline {3.3}The search through Maching Learning}{29}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Model selection}{29}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Creating custom layers}{29}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Model Architecture}{36}{subsection.3.3.3}%
+\contentsline {chapter}{\numberline {4}Results \& Discussion}{39}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Comparing Machine Learning Models}{39}{section.4.1}%
+\contentsline {chapter}{Appendices}{41}{section*.47}%
+\contentsline {chapter}{Appendix A}{43}{appendix*.48}%

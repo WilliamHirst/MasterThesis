@@ -1,4 +1,13 @@
-\section{The search through neural networks and sparse pathways}
+\section{The search through Maching Learning}
+\subsection{Model selection}
+In this analysis I have chosen to compare 4 different \ac{ML}-models, \ac{FFNN}, \ac{PNN},
+\ac{LWTA} and XGBoost. The first three methods are all types of \ac{NN}. I have deliberately 
+chosen to focus on \ac{NN} given that there is far more freedom in the design of the architecture
+of a \ac{NN}, than compared to a XGboost. Additionally, this was motivated by the selfish reason
+being that I found the networks more interesting to study and dissect. Therefor, most of the 
+analysis, comparison and discussion is focused on the networks, while XGBoost is included 
+as a loose benchmark. 
+\\
 \subsection{Creating custom layers}
 The field of \ac{ML} is one of the most dynamic and fastest growing fields of research
 today. This means, that regardless of the brave attempt made by voluntary contributors and
@@ -73,3 +82,23 @@ def channel_out(inputs, num_units = 200, axis=None, training=None):
     output = tf.multiply(tf.cast(isMax,tf.float32), inputs)
     return output  
 \end{lstlisting}
+\subsection{Model Architecture}
+When choosing network architecture, there are several ways to go about it. One way is to apply a grid search.
+A grid search is simply defining a grid of parameters to test, then running through all combinations and 
+choosing the highest performer. With a sufficient amount of tests, a grid search should converge towards 
+an optimal architecture. Grid search is very common and there exists a large range of very complex varieties \cite{GS}.
+For my analysis I choose not to perform a grid search, for several reasons. The first being interpretability.
+Understanding a \ac{NN} is already hard, allowing for complex and unique architectures would only add another layer
+of mysticism. The second is the size of the data set. The larger the data set, the larger the amount of data 
+would be needed to adequately perform tests for each combination of parameters. Not only is this time-consuming,
+but trying to mediate this issue could lead to poor performance. The third and most important reason is that 
+I wanted to experiment with the architectures. By manually tuning the parameters, I was able to achieve a far 
+better understanding of the final architecture. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{Figures/Illustrations/architecture.png}
+    \caption{A visual summary of the workflow and framework use for the 
+    computational analysis. }
+    \label{fig:arch}
+\end{figure}

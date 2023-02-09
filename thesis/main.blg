@@ -28,36 +28,36 @@ Warning--entry type for "Pandas" isn't style-file defined
 Warning--entry type for "StandardScaler" isn't style-file defined
 --line 161 of file bibliography.bib
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
-You've used 21 entries,
+You've used 22 entries,
             2188 wiz_defined-function locations,
-            666 strings with 102875 characters,
-and the built_in function-call counts, 4994 in all, are:
-= -- 456
-> -- 257
+            672 strings with 103025 characters,
+and the built_in function-call counts, 5154 in all, are:
+= -- 470
+> -- 267
 < -- 0
-+ -- 78
-- -- 57
-* -- 381
-:= -- 736
-add.period$ -- 16
-call.type$ -- 21
-change.case$ -- 20
++ -- 81
+- -- 59
+* -- 387
+:= -- 758
+add.period$ -- 18
+call.type$ -- 22
+change.case$ -- 21
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 207
-empty$ -- 486
-format.name$ -- 57
-if$ -- 1256
+cite$ -- 22
+duplicate$ -- 212
+empty$ -- 506
+format.name$ -- 59
+if$ -- 1298
 int.to.chr$ -- 0
-int.to.str$ -- 21
+int.to.str$ -- 22
 missing$ -- 51
-newline$ -- 67
-num.names$ -- 21
-pop$ -- 72
+newline$ -- 71
+num.names$ -- 22
+pop$ -- 79
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 165
+skip$ -- 170
 stack$ -- 0
 substring$ -- 234
 swap$ -- 71
@@ -66,7 +66,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 42
-width$ -- 23
-write$ -- 177
+while$ -- 43
+width$ -- 24
+write$ -- 186
 (There were 6 warnings)

@@ -28,8 +28,9 @@ the mean and standard deviation respectively for each feature.
 variance in the data as possible. The motivation behind dimensionality reduction is rooted in 
 two (main) reasons. The first being noise reduction. Some features could not only be non-contributing 
 during training, but could even introduce noise. The second reason is lack of convergence. In a large 
-data set with many features a \ac{ML} could struggle to identify the most important trends. By reducing 
-the dimensionality in the data, the hope is that this would be easier. 
+data set with many features and different classifications (in our case channels), a \ac{ML} could struggle
+to identify the most important trends. By reducing the dimensionality in the data, the hope is that this 
+would be easier. 
 \\
 In simple terms, \ac{PCA} finds the direction in the feature space along which the data has the largest 
 variance. It does this in 4 steps:

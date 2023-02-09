@@ -112,4 +112,9 @@ M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
   \href{http://dx.doi.org/10.1140/epjc/s10052-019-7140-6}{\emph{The European
   Physical Journal C} {\bf 79} (aug, 2019) }.
 
+\bibitem{GS}
+P.~Liashchynskyi and P.~Liashchynskyi, \emph{Grid search, random search,
+  genetic algorithm: A big comparison for nas},  2019.
+\newblock 10.48550/ARXIV.1912.06059.
+
 \end{thebibliography}\endgroup
