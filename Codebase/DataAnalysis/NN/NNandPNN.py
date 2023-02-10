@@ -20,19 +20,17 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-name = "PNN"
+name = "NNshallow"
 signal = "SUSY"
-train = True
+train = False
 
 
 print(f"Starting test: Model = {name} -- Signal = {signal}")
 
 df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
-df, df_data = AddParameters(df, y,df_data)
+# df, df_data = AddParameters(df, y,df_data)
 
 if train:
-    #df_i = df[y==0 + df.channel == ""]
-    
     print("Preparing data....")
     train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
     print("Done.")
@@ -50,19 +48,16 @@ else:
     nrFeature = nFeats(df)
 
 
-
-
 print("Compiling Model")
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
-model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
-model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
-model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+model.add(tf.keras.layers.Dense(20, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+model.add(tf.keras.layers.Dense(20, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+model.add(tf.keras.layers.Dense(20, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
 if not train:
     model.load_weights(f"models/model_{name}.h5")
-
 
 optimizer = optimizers.Adam(learning_rate=1e-3)
 model.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
@@ -79,14 +74,14 @@ with tf.device("/GPU:0"):
         history = model.fit(X_train, 
                             Y_train,
                             sample_weight = W_train, 
-                            epochs=50, 
+                            epochs=100, 
                             batch_size=8192, 
-                            #callbacks = [callback],
+                            callbacks = [callback],
                             validation_data=(X_val, Y_val, W_val),
                             verbose = 1)
 
-        #model.save_weights(f"models/model_{name}.h5")
-        THP(history=history, model = name ,signal = signal )
+        model.save_weights(f"models/model_{name}.h5")
+        #THP(history=history, model = name ,signal = signal )
 
 
     else: 
