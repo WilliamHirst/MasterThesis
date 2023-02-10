@@ -158,7 +158,7 @@ This expression, similarly to equation \ref{eq:delta} is dependent on the choice
 the activation functions. Now that equation \ref{eq:deltaL} is defined, we can see that the
 gradient of the parameters in all other layers can be calculated. 
 
-\subsection{Activation functions}
+\subsection{Activation functions}\label{subsec:activation}
 As mentioned in previous sections, activation functions define how the nodes in the previous layer 
 sum to define the value of the node in the current. There are many types of activation functions, 
 where all have advantages and disadvantages. The choice of activation function for each layer is defined
@@ -171,14 +171,14 @@ before training, making it a hyperparameter. The activation functions applied an
     \end{align*},
     \item \emph{Leaky ReLU}
     \begin{align*}
-        \sigma{(z)} = 
+        \sigma{(z)} = \left(
         \begin{cases}
             z,& \text{if } z\geq 0\\
-            \mu z,              & \text{otherwise}
-        \end{cases}
+            \alpha z,              & \text{otherwise}
+        \end{cases}\right)
         = a \in (-\infty, \infty),
    \end{align*}
-   where $\mu$ is scalar.
+   where $\alpha$ is scalar.
 \end{itemize},
 \end{center}
 where $z$ is an inactivated node which is activated to define $a$, the activation.
@@ -230,7 +230,7 @@ paths through the network creates an ensemble of networks with their own archite
     of the max-out activation layers. }
     \label{fig:Max_out}
 \end{figure}
-\subsection{Parametrized Neural Network}
+\subsection{Parametrized Neural Network}\label{subsec:PNN}
 In this thesis I will be studying \ac{BSM}-simulaitons with a diversity in choice of free parameters. This
 means that my signal is in it of itself diverse. The free parameters studied in this thesis are the mass of 
 new particles. The mass of a particle in a collision can greatly alter the feature space spanned by a channel.

@@ -1,17 +1,21 @@
-\section{The search through Maching Learning}
+\section{The search through Machine Learning}
 \subsection{Model selection}
-In this analysis I have chosen to compare 4 different \ac{ML}-models, \ac{FFNN}, \ac{PNN},
+In this analysis I have chosen to compare 4 different \ac{ML}-models, dens-\ac{NN}, \ac{PNN},
 \ac{LWTA} and XGBoost. The first three methods are all types of \ac{NN}. I have deliberately 
 chosen to focus on \ac{NN} given that there is far more freedom in the design of the architecture
 of a \ac{NN}, than compared to a XGboost. Additionally, this was motivated by the selfish reason
-being that I found the networks more interesting to study and dissect. Therefor, most of the 
-analysis, comparison and discussion is focused on the networks, while XGBoost is included 
+being that I found the networks more interesting to study and dissect. Therefore, most of the 
+analysis, comparisons and discussion is focused on the networks, while XGBoost is included 
 as a loose benchmark. 
 \\
+The choice of the three network architectures is motivated in wanting to compare a simple 
+deep network, a network ensemble and a \ac{PNN}. I would assume that the optimal architecture
+would be a network which combines elements from each, but for the purpose of discussion
+and research I have chosen to keep them somewhat separate. 
 \subsection{Creating custom layers}
 The field of \ac{ML} is one of the most dynamic and fastest growing fields of research
 today. This means, that regardless of the brave attempt made by voluntary contributors and
-the people at Google \footnote{The developers of TensorFlow}, there will always be 
+the people at Google\footnote{The developers of TensorFlow}, there will always be 
 new and exciting \ac{ML} tools, not yet implemented in their library. This was also 
 the case in this thesis. Specifically, in the case of non-dense layers I was forced
 to dive into the world of \ac{ML} development and create my own implementation. 
@@ -83,22 +87,48 @@ def channel_out(inputs, num_units = 200, axis=None, training=None):
     return output  
 \end{lstlisting}
 \subsection{Model Architecture}
-When choosing network architecture, there are several ways to go about it. One way is to apply a grid search.
+When choosing a network architecture, there are several ways to go about it. One way is to apply a grid search.
 A grid search is simply defining a grid of parameters to test, then running through all combinations and 
 choosing the highest performer. With a sufficient amount of tests, a grid search should converge towards 
 an optimal architecture. Grid search is very common and there exists a large range of very complex varieties \cite{GS}.
-For my analysis I choose not to perform a grid search, for several reasons. The first being interpretability.
+For my analysis I chose not to perform a grid search, for several reasons. The first being interpretability.
 Understanding a \ac{NN} is already hard, allowing for complex and unique architectures would only add another layer
 of mysticism. The second is the size of the data set. The larger the data set, the larger the amount of data 
 would be needed to adequately perform tests for each combination of parameters. Not only is this time-consuming,
 but trying to mediate this issue could lead to poor performance. The third and most important reason is that 
 I wanted to experiment with the architectures. By manually tuning the parameters, I was able to achieve a far 
 better understanding of the final architecture. 
-
 \begin{figure}
+    \makebox[0.9\linewidth][c]{%
     \centering
-    \includegraphics[width=1\textwidth]{Figures/Illustrations/architecture.png}
+    \begin{subfigure}{1.1\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/Illustrations/architecture.png}
+    \end{subfigure}
+    }
     \caption{A visual summary of the workflow and framework use for the 
     computational analysis. }
     \label{fig:arch}
 \end{figure}
+\subsection*{Dense Neural Network and PNN}
+The purpose of the simple dense \ac{NN}, is to compare the other methods to what is usually considered a traditional \ac{NN}.
+All layers are dense layers, meaning that all nodes in the previous layer are connected to the current layer, and likewise
+the current layer is connected to the next. The general structure of the network is summarized in figure \ref{fig:arch}, with 
+the network label \ac{NN}\footnote{Note that the dense network will henceforth be referred to as \ac{NN}}. The figure shows a \ac{DNN} with 
+three hidden layers, all with 600 nodes each. All hidden layers utilize the $LeakyReLU$ activation (see section \ref{subsec:activation})
+with an $\alpha$ = 0.01. The architecture is design to perform deep-training, and will train on all signal simultaneously. 
+\\
+The \ac{PNN} architecture is like the name suggests, included to represent the model proposed by the article \cite{PNN}.
+The architecture is illustrated in figure \ref{fig:arch}, with the label PNN. The figure shows a practically identical 
+structure to the dense-\ac{NN}, with the only difference being in the input-layer. As was discussed in section \ref{subsec:PNN},
+the \ac{PNN} includes the free parameters\footnote{In our case, the masses of the \ac{BSM}-particles.} alongside the features
+in the input layer.
+\subsection*{MaxOut}
+The MaxOut-network differs from the dense-network and the \ac{PNN} in that it uses an ensemble of networks. In figure \ref{fig:arch}
+I have illustrated the MaxOut architecture, with the label MaxOut. The figure shows a network with 6 hidden layers, 3 MaxOut and 3 dropout.
+The network alternates between drop out and MaxOut, starting with dropout and finishing with MaxOut. The MaxOut layers have 600 nodes each 
+which reduces down to the 200 nodes with the largest activation in their respective groups. Each dropout layer has a dropout rate of 0.15.
+\\
+
+
+
