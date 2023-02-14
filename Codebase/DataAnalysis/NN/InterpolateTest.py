@@ -166,5 +166,5 @@ with tf.device("/GPU:0"):
 
 
     name = "PNN_oneMass"
-    HM(modelPNN, df_testPNN, y_test, W, C, data = None, name = f"SUSY/Interpolation/{name}Grid", metric="Sig", save = True)
+    HM(modelPNN, df_testPNN, y_test, W, C, data = None, name = f"SUSY/Interpolation/{name}Grid", metric="Sig", save = False)
     

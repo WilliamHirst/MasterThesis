@@ -51,6 +51,9 @@ else:
 
 
 print("Compiling Model")
+"""
+MAXOUT
+"""
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
 model.add(tf.keras.layers.Dropout(0.15))
@@ -60,6 +63,32 @@ model.add(MaxOut(units=600, num_inputs=200, num_groups=200))
 model.add(tf.keras.layers.Dropout(0.15))
 model.add(MaxOut(units=600, num_inputs=200, num_groups=200))
 model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
+
+# """
+# STOCHCHANNELOUT
+# """
+# model = tf.keras.Sequential()
+# model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
+# model.add(tf.keras.layers.Dropout(0.15))
+# model.add(StochChannelOut(units=600, num_inputs=nrFeature, num_groups=200))
+# model.add(tf.keras.layers.Dropout(0.15))
+# model.add(StochChannelOut(units=600, num_inputs=600, num_groups=200))
+# model.add(tf.keras.layers.Dropout(0.15))
+# model.add(StochChannelOut(units=600, num_inputs=600, num_groups=200))
+# model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
+
+# """
+# CHANNELOUT
+# """
+# model = tf.keras.Sequential()
+# model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
+# model.add(tf.keras.layers.Dropout(0.15))
+# model.add(ChannelOut(units=600, num_inputs=nrFeature, num_groups=200))
+# model.add(tf.keras.layers.Dropout(0.15))
+# model.add(ChannelOut(units=600, num_inputs=600, num_groups=200))
+# model.add(tf.keras.layers.Dropout(0.15))
+# model.add(ChannelOut(units=600, num_inputs=600, num_groups=200))
+# model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
 if not train:
     model.load_weights(f"models/model_{name}.h5")
@@ -89,7 +118,7 @@ with tf.device("/GPU:0"):
 
         #THP(history=history, model = name ,signal = signal )
     else: 
-        HM(model, df, Y, W, C, data = None, name = f"SUSY/{name}Grid", metric="Sig", save = True)
+        HM(model, df, Y, W, C, data = None, name = f"{name}Grid", metric="Sig", save = True)
     
     
 exit()

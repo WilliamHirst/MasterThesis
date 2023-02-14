@@ -102,17 +102,18 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
     cbar = fig.colorbar(cmap)
     cbar.ax.tick_params(size=0)
     cbar.set_ticks([])
+
     # Set ticks in center of cells
     ax.set_xticks(np.arange(len(M1)) + 0.5, minor=False)
     ax.set_yticks(np.arange(len(M2)) + 0.5, minor=False)
     
-    ax.set_xlabel(r"$\tilde{\chi}_2$ [Gev]",fontsize =17, loc = "right")
-    ax.set_ylabel(r"$\tilde{\chi}_1$ [Gev]",fontsize =17, loc = "top",rotation=0, labelpad = -20)
+    ax.set_xlabel(r"$\tilde{\chi}_2$ [Gev]",fontsize =20, loc = "right")
+    ax.set_ylabel(r"$\tilde{\chi}_1$ [Gev]",fontsize =20, loc = "top",rotation=0, labelpad = -20)
 
     ax.set_xticklabels(M1,rotation=90)
     ax.set_yticklabels(M2)
-    print(M2)
-    plt.savefig(f"../../../thesis/Figures/MLResults/{mlType}/{name}{metric}.pdf", bbox_inches="tight")
+
+    plt.savefig(f"../../../thesis/Figures/MLResults/{mlType}/SUSY/Grid/{name}{metric}.pdf", bbox_inches="tight")
     plt.show()
 
 def getGrid(col):

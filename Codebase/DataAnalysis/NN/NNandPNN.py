@@ -20,7 +20,7 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-name = "NNshallow"
+name = "NNPCA"
 signal = "SUSY"
 train = False
 
@@ -32,7 +32,7 @@ df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch"
 
 if train:
     print("Preparing data....")
-    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
+    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True, PCA=True, n_components=1-1e-3)
     print("Done.")
 
     X_train, Y_train, W_train, C_train = train
@@ -44,17 +44,17 @@ else:
     Y = y
     df = df.drop(columns = ["channel", "wgt_SG"])
     df, df_data = scaleData(df,df_data)
-    #df = PCAData(df, n_components=1-1e-3)
+    df = PCAData(df, n_components=1-1e-3)
     nrFeature = nFeats(df)
 
 
 print("Compiling Model")
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
-model.add(tf.keras.layers.Dense(20, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
-model.add(tf.keras.layers.Dense(20, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
-model.add(tf.keras.layers.Dense(20, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
-model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
+model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+model.add(tf.keras.layers.Dense(1,   activation="sigmoid"))
 
 if not train:
     model.load_weights(f"models/model_{name}.h5")
@@ -85,7 +85,7 @@ with tf.device("/GPU:0"):
 
 
     else: 
-        HM(model, df, Y, W, C, data = None, name = f"SUSY/{name}Grid", metric="Sig", save = True)
+        HM(model, df, Y, W, C, data = None, name = f"{name}Grid", metric="Sig", save = True)
     
     
     
