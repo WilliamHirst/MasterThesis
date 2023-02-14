@@ -5,3 +5,4 @@ Dibson
 dibosons
 diboson
 XGBoost
+MaxOut
