@@ -61,16 +61,18 @@ def plotComp(metric, plotters =  None, name =  ""):
 
     colorList = [color_cycle(i+2) for i in range(len(methods))]
     method_label = [met[:-4] for met in methods]
+    print(method_label)
+    print(colorList)
 
     ax.set_xlim([-0.5, len(m1)-0.5])
     ax.set_ylim([-0.5, len(m2)-0.5])
 
     ax.set_xticks(np.arange(len(m1)) , minor=False)
     ax.set_yticks(np.arange(len(m2)) , minor=False)
-    ax.set_xticklabels(m1,rotation=90, fontsize = 18)
+    ax.set_xticklabels(m1, rotation=90, fontsize = 18)
     ax.set_yticklabels(m2, fontsize = 18)
 
-    ax.legend(borderpad = 1.25, framealpha = 1,fontsize = 'xx-large',loc =  'lower left', labels = method_label,labelcolor = colorList,)
+    ax.legend(borderpad = 1.25, framealpha = 0.75,fontsize = 'xx-large',loc =  'lower left', labels = method_label,labelcolor = colorList)
     ax.set_xlabel(r"$\tilde{\chi}_2$ [Gev]",fontsize =24, loc = "right")
     ax.set_ylabel(r"$\tilde{\chi}_1$ [Gev]",fontsize =24, loc = "top",rotation=0, labelpad = -40)
     fig.savefig(f"../../../thesis/Figures/MLResults/NN/SUSY/Comparison/{name}NetworkComp.pdf")
@@ -107,9 +109,11 @@ def draw_pie(dist,
 if __name__ == "__main__":
 
     metric = "Sig"
-    plotters = ["StochChannelOutGrid", "ChannelOutGrid", "MaxOutGrid"]
-    plotters = ["MaxOutGrid", "PNNGrid", "NNGrid"]
-    plotters = ["MaxOutPCAGrid", "PNNPCAGrid", "NNPCAGrid"]
-    name = "PCA"
+    #plotters = ["StochChannelOutGrid", "ChannelOutGrid", "MaxOutGrid"]
+    #lotters = ["MaxOutGrid", "PNNGrid", "NNGrid"]
+    #plotters = ["MaxOutPCAGrid", "PNNPCAGrid", "NNPCAGrid"]
+    plotters = ["HybridPCAMaxOutGrid", "HybridPCALeakyGrid", "PNNPCAGrid", "MaxOutPCAGrid"]
+
+    name = "HybridTest"
     plotComp(metric, plotters = plotters, name = name)
     
