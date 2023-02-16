@@ -38,7 +38,6 @@
 \contentsline {subsection}{\numberline {2.3.3}Interpretability}{13}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}Generalizability}{13}{subsection.2.3.4}%
 \contentsline {section}{\numberline {2.4}Hyperparameters}{13}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Grid Search}{13}{subsection.2.4.1}%
 \contentsline {section}{\numberline {2.5}Data Handling}{13}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Scaling}{13}{subsection.2.5.1}%
 \contentsline {subsubsection}{Standard Scaler}{13}{section*.20}%
@@ -72,7 +71,8 @@
 \contentsline {subsection}{\numberline {3.3.2}Creating custom layers}{29}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}Model Architecture}{36}{subsection.3.3.3}%
 \contentsline {chapter}{\numberline {4}Results \& Discussion}{39}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Comparing Machine Learning Models}{39}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Training History and Overfitting}{39}{subsection.4.1.1}%
-\contentsline {chapter}{Appendices}{41}{section*.52}%
-\contentsline {chapter}{Appendix A}{43}{appendix*.53}%
+\contentsline {section}{\numberline {4.1}Visualizing Sparse Pathways}{39}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Comparing Machine Learning Models}{39}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Training History and Overfitting}{39}{subsection.4.2.1}%
+\contentsline {chapter}{Appendices}{43}{section*.55}%
+\contentsline {chapter}{Appendix A}{45}{appendix*.56}%
