@@ -471,6 +471,8 @@ for feat in featuresPlot:
 
 df_s = {}
 for k in df.keys():
+    if "MGPy8EG" not in k:
+        continue
     if k not in toplot:
         continue
     print("Transforming " + k + "-ROOT to Numpy.")

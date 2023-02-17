@@ -6,6 +6,8 @@ import array
 import sys
 from samples import configure_samples
 from pyHelperFunctions import *
+import re
+
 
 d_samp,d_type,d_reg = configure_samples()#False,False,True,False,False)
 
@@ -134,6 +136,9 @@ def getDataFrames(mypath, nev = 0):
         for s in sp:
             if "merged" in s: break
             typ += s
+        
+        if "p0" not in typ and "MGPy8EGA" in typ:
+            typ = addP0(typ)
 
         if not typ in files.keys():
             files[typ] = {"files":[], "treename":""}
@@ -151,6 +156,15 @@ def getDataFrames(mypath, nev = 0):
         if nev:
             df[typ] = df[typ].Range(nev)
     return df
+
+def addP0(string):
+    elem = string.split("WZ")
+    mass1 = elem[1][0:3]
+    string = string.replace(mass1, f"{mass1}p0")
+    mass2 = re.search(f'MGPy8EGA14N23LOC1N2WZ{mass1}p0(.*)3L2L7', string)[1]
+    string = string.replace(f"{mass2}3L2", f"{mass2}p03L2")
+    return string
+
 
 
 def getRatio1D(hT,hL,vb=0):
