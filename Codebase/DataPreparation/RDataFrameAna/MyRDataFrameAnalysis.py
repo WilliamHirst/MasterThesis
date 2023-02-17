@@ -157,8 +157,8 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             print("Loading %s into dataframe with keys %s" %(mypath_mc,",".join(df_mc.keys())))
         else:
             df_mc = {}
+
         df = {**df_mc}#,**df_data}
-        
         for k in df.keys():
             isData = "data" in k
 

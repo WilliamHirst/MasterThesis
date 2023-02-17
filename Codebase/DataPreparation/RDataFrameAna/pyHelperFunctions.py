@@ -133,26 +133,52 @@ def getDataFrames(mypath, nev = 0):
         if not "merged" in of or not of.endswith(".root"): continue
         sp = of.split("/")[-1].split("_")
         typ = ""
+        treename = getTreeName(of)
         for s in sp:
             if "merged" in s: break
             typ += s
-        
-        if "p0" not in typ and "MGPy8EGA" in typ:
-            typ = addP0(typ)
 
         if not typ in files.keys():
             files[typ] = {"files":[], "treename":""}
-        treename = getTreeName(of)
+            
+        if removeP0(typ) in files.keys() and "MGPy8EGA" in typ and "p0p0" in typ:
+            files[typ] = files[removeP0(typ)]
+            treenames = [files[removeP0(typ)]["treename"],treename]
+            files[typ]["treename"] = treenames
+            files.pop(removeP0(typ))
+
+        elif removeAllP0(typ) in files.keys() and "MGPy8EGA" in typ and "p0" in typ:
+            files[typ] = files[removeAllP0(typ)]
+            treenames = [files[removeAllP0(typ)]["treename"],treename]
+            files[typ]["treename"] = treenames
+            files.pop(removeAllP0(typ))
+        
         if treename == "noname":
             print("ERROR \t Could not find any TTree in %s"%(of))
             continue
-        files[typ]["treename"] = treename
+        if files[typ]["treename"] == "":
+            files[typ]["treename"] = treename
         files[typ]["files"].append(of)
     
 
     for typ in files.keys():
         print("Adding %i files for %s"%(len(files[typ]["files"]),typ))
-        df[typ] = R.RDataFrame(files[typ]["treename"],files[typ]["files"])
+        if isinstance(files[typ]["treename"], str) :
+            df[typ] = R.RDataFrame(files[typ]["treename"],files[typ]["files"])
+        else:
+            tree1 = files[typ]["files"][0] + "/" +files[typ]["treename"][0]
+            tree2 = files[typ]["files"][1] + "/" +files[typ]["treename"][1]
+            tree3 = files[typ]["files"][2] + "/" +files[typ]["treename"][1]
+            print("\n")
+            print(tree1)
+            print(tree2)
+            print(tree3)
+            print("\n")
+            C = R.TChain();
+            C.AddFile(tree1);
+            C.AddFile(tree2);
+            C.AddFile(tree3);
+            df[typ] = R.RDataFrame(C)
         if nev:
             df[typ] = df[typ].Range(nev)
     return df
@@ -164,7 +190,15 @@ def addP0(string):
     mass2 = re.search(f'MGPy8EGA14N23LOC1N2WZ{mass1}p0(.*)3L2L7', string)[1]
     string = string.replace(f"{mass2}3L2", f"{mass2}p03L2")
     return string
-
+def addExtraP0(string):
+    string = string.replace("p0", "p0p0")
+    return string
+def removeP0(string):
+    string = string.replace("p0p0", "p0")
+    return string
+def removeAllP0(string):
+    string = string.replace("p0", "")
+    return string
 
 
 def getRatio1D(hT,hL,vb=0):
