@@ -117,7 +117,7 @@ def getTreeName(fname):
     return "noname"
 
 
-def getDataFrames(mypath, nev = 0):
+def getDataFrames(mypath, nev = 0, storage = ""):
     onlyfiles = []
     for path,dirs,files in walk(mypath):
         #print(path,dirs,files)
@@ -166,19 +166,16 @@ def getDataFrames(mypath, nev = 0):
         if isinstance(files[typ]["treename"], str) :
             df[typ] = R.RDataFrame(files[typ]["treename"],files[typ]["files"])
         else:
-            tree1 = files[typ]["files"][0] + "/" +files[typ]["treename"][0]
-            tree2 = files[typ]["files"][1] + "/" +files[typ]["treename"][1]
-            tree3 = files[typ]["files"][2] + "/" +files[typ]["treename"][1]
-            print("\n")
-            print(tree1)
-            print(tree2)
-            print(tree3)
-            print("\n")
-            C = R.TChain();
-            C.AddFile(tree1);
-            C.AddFile(tree2);
-            C.AddFile(tree3);
-            df[typ] = R.RDataFrame(C)
+            files[typ]["files"][0] = f"{storage}/signal/" + files[typ]["files"][0].split("/")[-1]
+            df[typ] = R.RDataFrame(files[typ]["treename"][-1],files[typ]["files"])
+            # tree1 = files[typ]["files"][0] + "/" +files[typ]["treename"][0]
+            # tree2 = files[typ]["files"][1] + "/" +files[typ]["treename"][1]
+            # tree3 = files[typ]["files"][2] + "/" +files[typ]["treename"][1]
+            # C = R.TChain();
+            # C.AddFile(tree1);
+            # C.AddFile(tree2);
+            # C.AddFile(tree3);
+            # df[typ] = R.RDataFrame(C)
         if nev:
             df[typ] = df[typ].Range(nev)
     return df
@@ -325,3 +322,64 @@ for yr in trgdic.keys():
                 evtrigstr[x][yr] += "trigMatch_%s || "%(trigger)
         trigstr[x][yr] = trigstr[x][yr][:-4]+")"
         evtrigstr[x][yr] = evtrigstr[x][yr][:-4]+")"
+
+
+def changeTreeName(mypath, storage):
+    onlyfiles = []
+    for path,dirs,files in walk(mypath):
+        for f in files:
+            if isfile(join(path, f)) and f.endswith("_merged_processed.root"):
+                onlyfiles.append(join(path, f))
+ 
+    df = {}
+    files = {}
+    for of in onlyfiles:
+        if not "merged" in of or not of.endswith(".root"): continue
+        sp = of.split("/")[-1].split("_")
+        typ = ""
+        treename = getTreeName(of)
+        for s in sp:
+            if "merged" in s: break
+            typ += s
+
+        if not typ in files.keys():
+            files[typ] = {"files":[], "treename":""}
+            
+        if removeP0(typ) in files.keys() and "MGPy8EGA" in typ and "p0p0" in typ:
+            files[typ] = files[removeP0(typ)]
+            treenames = [files[removeP0(typ)]["treename"],treename]
+            files[typ]["treename"] = treenames
+            files.pop(removeP0(typ))
+
+        elif removeAllP0(typ) in files.keys() and "MGPy8EGA" in typ and "p0" in typ:
+            files[typ] = files[removeAllP0(typ)]
+            treenames = [files[removeAllP0(typ)]["treename"],treename]
+            files[typ]["treename"] = treenames
+            files.pop(removeAllP0(typ))
+        
+        if treename == "noname":
+            print("ERROR \t Could not find any TTree in %s"%(of))
+            continue
+        if files[typ]["treename"] == "":
+            files[typ]["treename"] = treename
+        files[typ]["files"].append(of)
+    
+
+    for typ in files.keys():
+        print("Adding %i files for %s"%(len(files[typ]["files"]),typ))
+        if not isinstance(files[typ]["treename"], str) :
+            name = files[typ]["files"][0].split("/")[-1]  
+            oldfile = R.TFile(files[typ]["files"][0], "READ");
+            oldtree =  R.TTree();
+            oldtree = oldfile.Get(files[typ]["treename"][0].split("/")[-1]);
+            oldtree.SetName(files[typ]["treename"][1]);
+            newfile = R.TFile.Open(f"{storage}/{name}", "RECREATE");
+            newtree = oldtree.CloneTree();
+            newfile.Write();
+    return 
+
+if __name__ == "__main__":
+    data_loc = "/storage/shared/data/master_students/William_Sakarias/data_vOCT2022"
+    storage = "/storage/William_Sakarias/William_Data/signal"
+    changeTreeName(f"{data_loc}/",storage)
+

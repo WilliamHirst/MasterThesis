@@ -153,7 +153,7 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
         return
     else:
         if isdir(mypath_mc):
-            df_mc = getDataFrames(mypath_mc)
+            df_mc = getDataFrames(mypath_mc, storage=storage)
             print("Loading %s into dataframe with keys %s" %(mypath_mc,",".join(df_mc.keys())))
         else:
             df_mc = {}
