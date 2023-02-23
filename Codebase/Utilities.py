@@ -28,6 +28,7 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
             if chan in onlyfiles[i]:
                 cont = 1            
         if cont: continue
+            
         if "data" not in onlyfiles[i]:
             channel = onlyfiles[i][:-7]
             df_i = pd.read_hdf(f"{location}/{onlyfiles[i]}")
@@ -230,9 +231,13 @@ def AddParameters(df,Y,data = None):
     df["param2"] = np.nan
 
     for c in unique_c:
-        txt = c.split("p0")
-        m1 = txt[0][21:24]
-        m2 = txt[2] 
+        elem = c.split("WZ")
+        m1 = elem[1][0:3]
+        if "p0p0" in c:
+            elem = c.split("p0p0")
+        else:
+            elem = c.split("p0")
+        m2 = elem[1]  
         indx = (C == c).to_numpy()
         df.loc[indx,"param1"] = m1
         df.loc[indx,"param2"] = m2

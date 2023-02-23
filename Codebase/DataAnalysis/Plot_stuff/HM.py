@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
-from Plot_stuff.ROCM import *
 import matplotlib.colors as colors
 import matplotlib.patheffects as pe
+import re
+
+
 
 import sys
 sys.path.insert(1, "../../")
@@ -32,14 +34,9 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
     print(Z)
     print(M1, M2)
 
-
-    min_val = 10000
-
-    fig, ax = plt.subplots()
+    # fig, ax = plt.subplots()
     for c in unique_c:
-        txt = c.split("p0")
-        m1 = txt[0][21:24]
-        m2 = txt[2]
+        m1, m2 = getMass(c)
 
         print(m1,m2)
         index_i = (columns == c).to_numpy() + bkg
@@ -58,18 +55,15 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
                             plot = False,
                             return_score = True))
             colorBar = lambda Z: 10**np.array(Z)
-            if 100*score < min_val:
-                min_val =  score
+     
 
         elif metric == "Sig":
             sf = np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
             W_i.loc[(Y_i==0).to_numpy()] *= sf
             score = Calc_Sig(predict_prob(X_i), Y_i, W_i, sf =sf, best_threshold=threshold,max_sig= np.max(predict_prob(X_i)))
 
-            plt.text(map1[f"{m1}"]+0.5,map2[f"{m2}"]+0.5, f"{score:.3f}", color = "white", fontsize = 'medium', path_effects=[pe.withStroke(linewidth=1, foreground="black")]) 
-            colorBar = lambda Z: Z
-            if score < min_val:
-                min_val =  score
+            # plt.text(map1[f"{m1}"]+0.5,map2[f"{m2}"]+0.5, f"{score:.3f}", color = "white", fontsize = 'medium', path_effects=[pe.withStroke(linewidth=1, foreground="black")]) 
+       
         if save:
             saveToJson(score, m1, m2, metric, method)
 
@@ -78,27 +72,58 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
 
         Z[map2[f"{m2}"], map1[f"{m1}"]] = score
 
+    gridPlotter(mlType, name, metric)
+    # cmap = plt.pcolormesh(np.arange(len(M1)+1), np.arange(len(M2)+1), colorBar(Z), cmap = 'magma')
 
-    # colorBar = lambda Z: Z
-    # Z = [[0.,         0.,        1.1199161 ,  0.,         0.67562842, 0.5045912 ],
-    #      [0.,         0.,        0.,          0.8597455,  0.68695831, 0.50660583],
-    #      [0.,         0.,        1.07967766,  0.,         0.64853513, 0.4907103 ],
-    #      [0.,         0.,        0.,          0.79560227, 0.43838745, 0.49555962],
-    #      [0.,         2.01730255,0.96195477,  0.,         0.61578891, 0.47611924],
-    #      [1.38402886, 0.,        0.,          0.69550025, 0.59030954, 0.45754442],
-    #      [0.,         0.90806263,0.76242112,  0.,         0.53022775, 0.43298332],
-    #      [0.,         0.,        0.,          0.5452668,  0.48655325, 0.40809008],
-    #      [0.,         0.,        0.47394461,  0.,         0.40635828, 0.35986222]]
+    # cbar = fig.colorbar(cmap)
+    # cbar.ax.tick_params(size=0)
+    # cbar.set_ticks([])
 
-    # M1 = ['400', '450', '650', '700', '750', '800']
-    # M2 = ['0', '50', '100', '150', '200', '250', '300', '350', '400']
+    # # Set ticks in center of cells
+    # ax.set_xticks(np.arange(len(M1)) + 0.5, minor=False)
+    # ax.set_yticks(np.arange(len(M2)) + 0.5, minor=False)
+    
+    # ax.set_xlabel(r"$\tilde{\chi}_2$ [Gev]",fontsize =20, loc = "right")
+    # ax.set_ylabel(r"$\tilde{\chi}_1$ [Gev]",fontsize =20, loc = "top",rotation=0, labelpad = -20)
 
+    # ax.set_xticklabels(M1,rotation=90)
+    # ax.set_yticklabels(M2)
 
+    # plt.savefig(f"../../../thesis/Figures/MLResults/{mlType}/SUSY/Grid/{name}{metric}.pdf", bbox_inches="tight")
+    # plt.show()
 
-    # Z = np.where(Z == 0, np.nan, Z)
+def gridPlotter(mlType, name, metric):
+    import matplotlib
+    method = name.split('/')[-1]
+    with open(f'../{mlType}/results/SIG.json', 'r') as openfile:
+        # Reading from json file
+        json_object = json.load(openfile)
+    scores = json_object[method]
+    M1 = []
+    M2 = []
+    for score in list(scores.keys()):
+        M1.append(int(score.split("_")[0]))
+        M2.append(int(score.split("_")[1]))
+    Z,  M1, M2, map1, map2 = createMap(M1, M2)
+    fig, ax = plt.subplots()
+    for score_key in list(scores.keys()):
+        elem = scores[score_key]
+        score = elem["score"]
+        m1_i =elem["m1"]
+        m2_i =elem["m2"]
+        if score >10:
+            scoreString = f"{score:.0f}"
+            scale = np.NAN
+        else:
+            scoreString = f"{score:.2f}"
+            scale = 1
+        plt.text(map1[f"{m1_i}"]+0.5,map2[f"{m2_i}"]+0.5, scoreString, ha='center', va='center', color = "white", fontsize = 'medium', path_effects=[pe.withStroke(linewidth=1, foreground="black")]) 
+        Z[map2[f"{m2_i}"], map1[f"{m1_i}"]] = score*scale
 
-    cmap = plt.pcolormesh(np.arange(len(M1)+1), np.arange(len(M2)+1), colorBar(Z), cmap = 'magma')
-
+    colorBar = lambda Z: Z
+    cmap = matplotlib.cm.magma
+    cmap.set_bad('white',1.)
+    cmap = plt.pcolormesh(np.arange(len(M1)+1), np.arange(len(M2)+1), colorBar(Z), cmap = cmap)
     cbar = fig.colorbar(cmap)
     cbar.ax.tick_params(size=0)
     cbar.set_ticks([])
@@ -107,12 +132,12 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
     ax.set_xticks(np.arange(len(M1)) + 0.5, minor=False)
     ax.set_yticks(np.arange(len(M2)) + 0.5, minor=False)
     
-    ax.set_xlabel(r"$\tilde{\chi}_2$ [Gev]",fontsize =20, loc = "right")
-    ax.set_ylabel(r"$\tilde{\chi}_1$ [Gev]",fontsize =20, loc = "top",rotation=0, labelpad = -20)
+    ax.set_xlabel(r"$\tilde{\chi}_2$ [Gev]", x = 1, fontsize =20)
+    ax.set_ylabel(r"$\tilde{\chi}_1$ [Gev]", y = 1, fontsize =20,rotation=0, labelpad = -20)
 
     ax.set_xticklabels(M1,rotation=90)
     ax.set_yticklabels(M2)
-
+    plt.tight_layout(pad=1.1, w_pad=0.7, h_pad=0.2)
     plt.savefig(f"../../../thesis/Figures/MLResults/{mlType}/SUSY/Grid/{name}{metric}.pdf", bbox_inches="tight")
     plt.show()
 
@@ -120,9 +145,13 @@ def getGrid(col):
     m1 = []
     m2 = []
     for c in col:
-        txt = c.split("p0")
-        m1.append(int(txt[0][21:24]))
-        m2.append(int(txt[2]))
+        m1_i, m2_i = getMass(c)
+        m1.append(int(m1_i))
+        m2.append(int(m2_i))
+    Z,  m1, m2, map1, map2 = createMap(m1, m2)
+    return Z, map1, map2, m1, m2
+
+def createMap(m1, m2):
     m1 = np.sort(np.unique(m1))
     m2 = np.sort(np.unique(m2))
     m1 = [f"{m}" for m in m1]
@@ -134,10 +163,22 @@ def getGrid(col):
         map1[f"{m1[i]}"] = i
     for i in range(len(m2)):
         map2[f"{m2[i]}"] = i
-    return Z, map1, map2, m1, m2
-        
+    return Z,  m1, m2, map1, map2
 
         
+
+def getMass(string):
+    elem = string.split("WZ")
+    m1 = elem[1][0:3]
+    if "p0p0" in string:
+        elem = string.split("p0p0")
+    else:
+        elem = string.split("p0")
+    m2 = elem[1]  
+    return m1, m2
         
 if __name__ == "__main__":
-    HM(0, 0, 0, 0, 0,0)
+    from ROCM import plotRoc
+    from plot_set import *
+    gridPlotter(mlType = "NN", name ="FS/MaxOutPCA_FSGrid", metric = "Sig")
+    #HM(0, 0, 0, 0, 0,0)

@@ -21,11 +21,11 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-name = "MaxOut"
+name = "MaxOutPCA_FS_MLM"
 signal = "SUSY"
 train = False
-notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"]
-notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p0_1p0"]
+#notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"]
+notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0", "WZ100p0p0","WZ150p0p050p0", "WZ150p0p00p0p", "WZ200p0p00p0", "WZ200p0p050p0"]
 
 
 print(f"Starting test: Model = {name} -- Signal = {signal}")
@@ -34,7 +34,7 @@ df, y, df_data, channels = loadDf(myPath, notInc=notInc)
 
 if train:
     print("Preparing data....")
-    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
+    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True, PCA=True, n_components=1-1e-3)
     print("Done.")
 
     X_train, Y_train, W_train, C_train = train
@@ -46,7 +46,7 @@ else:
     Y = y
     df = df.drop(columns = ["channel", "wgt_SG"])
     df, df_data = scaleData(df,df_data)
-    # df = PCAData(df, n_components=1-1e-3)
+    df = PCAData(df, n_components=1-1e-3)
     nrFeature = nFeats(df)
 
 
@@ -120,7 +120,7 @@ with tf.device("/GPU:0"):
 
         #THP(history=history, model = name ,signal = signal )
     else: 
-        HM(model, df, Y, W, C, data = None, name = f"{name}Grid", metric="Sig", save = True)
+        HM(model, df, Y, W, C, data = None, name = f"FS/{name}Grid", metric="Sig", save = True)
     
     
 exit()
