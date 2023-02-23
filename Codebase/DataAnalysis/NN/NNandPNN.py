@@ -20,7 +20,7 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-name = "NN_FS_MLM"
+name = "PNNPCA_FS_MLM"
 signal = "SUSY"
 train = False
 notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0"]
@@ -31,11 +31,11 @@ notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0
 print(f"Starting test: Model = {name} -- Signal = {signal}")
 
 df, y, df_data, channels = loadDf(myPath, notInc=notInc)
-# df, df_data = AddParameters(df, y,df_data)
+df, df_data = AddParameters(df, y,df_data)
 
 if train:
     print("Preparing data....")
-    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
+    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True, PCA=True, n_components=1-1e-3)
     print("Done.")
 
     X_train, Y_train, W_train, C_train = train
@@ -47,7 +47,7 @@ else:
     Y = y
     df = df.drop(columns = ["channel", "wgt_SG"])
     df, df_data = scaleData(df,df_data)
-    #df = PCAData(df, n_components=1-1e-3)
+    df = PCAData(df, n_components=1-1e-3)
     nrFeature = nFeats(df)
 
 

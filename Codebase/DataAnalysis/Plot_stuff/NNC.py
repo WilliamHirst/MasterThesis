@@ -27,7 +27,7 @@ def plotComp(metric, plotters =  None, name =  ""):
     m1 = []
     m2 = []
 
-    method_0 = json_object[list(methods)[0]]
+    method_0 = json_object[plotters[0]]
     map = {}
     for i in method_0:
         m1.append(int(method_0[i]["m1"]))
@@ -113,7 +113,7 @@ if __name__ == "__main__":
     #lotters = ["MaxOutGrid", "PNNGrid", "NNGrid"]
     #plotters = ["MaxOutPCAGrid", "PNNPCAGrid", "NNPCAGrid"]
     plotters = ["HybridPCAMaxOutGrid", "HybridPCALeakyGrid", "PNNPCAGrid", "MaxOutPCAGrid"]
-
-    name = "HybridTest"
+    plotters = ["MaxOutPCA_FS_MLMGrid", "PNNPCA_FS_MLMGrid", "NN_FS_MLMGrid"]
+    name = "FS_MLM"
     plotComp(metric, plotters = plotters, name = name)
     
