@@ -6,3 +6,4 @@ dibosons
 diboson
 XGBoost
 MaxOut
+quark-antiquark
