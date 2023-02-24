@@ -10,7 +10,7 @@ from plot_set import *
 import numpy as np
 
 
-def plotComp(metric, plotters =  None, name =  ""):
+def plotComp(metric, plotters =  None, name =  "", leg_loc = "lower"):
     if metric == "Auc":
         file = 'AUC'
     else:
@@ -26,7 +26,7 @@ def plotComp(metric, plotters =  None, name =  ""):
 
     m1 = []
     m2 = []
-
+    Cmap = {0: 6, 1 : 3, 2: 4, 3:5}
     method_0 = json_object[plotters[0]]
     map = {}
     for i in method_0:
@@ -54,12 +54,12 @@ def plotComp(metric, plotters =  None, name =  ""):
         scores = 100*np.asarray(scores)/np.max(scores)
         scores = np.around(scores)
 
-        draw_pie(scores,  map[f"{m1_i}_{m2_i}"][0], map[f"{m1_i}_{m2_i}"][1], 1750, ax=ax)
+        draw_pie(scores,  map[f"{m1_i}_{m2_i}"][0], map[f"{m1_i}_{m2_i}"][1], 1750, Cmap, ax=ax)
     
     if plotters is not None:
         methods = [met for met in methods if met in plotters]
 
-    colorList = [color_cycle(i+2) for i in range(len(methods))]
+    colorList = [color_cycle(Cmap[i]) for i in range(len(methods))]
     method_label = [met[:-4] for met in methods]
     print(method_label)
     print(colorList)
@@ -72,9 +72,10 @@ def plotComp(metric, plotters =  None, name =  ""):
     ax.set_xticklabels(m1, rotation=90, fontsize = 18)
     ax.set_yticklabels(m2, fontsize = 18)
 
-    ax.legend(borderpad = 1.25, framealpha = 0.75,fontsize = 'xx-large',loc =  'lower left', labels = method_label,labelcolor = colorList)
+    ax.legend(borderpad = 1.25, framealpha = 0.75,fontsize = 'xx-large',loc =  f'{leg_loc} left', labels = method_label,labelcolor = colorList)
     ax.set_xlabel(r"$\tilde{\chi}_2$ [Gev]",fontsize =24, loc = "right")
     ax.set_ylabel(r"$\tilde{\chi}_1$ [Gev]",fontsize =24, loc = "top",rotation=0, labelpad = -40)
+    plt.tight_layout(pad=1.1, w_pad=0.7, h_pad=0.2)
     fig.savefig(f"../../../thesis/Figures/MLResults/NN/SUSY/Comparison/{name}NetworkComp.pdf")
 
 
@@ -85,6 +86,7 @@ def draw_pie(dist,
              xpos, 
              ypos, 
              size, 
+             map,
              ax=None):
     if ax is None:
         fig, ax = plt.subplots(figsize=(10,8))
@@ -93,27 +95,28 @@ def draw_pie(dist,
     cumsum = np.cumsum(dist)
     cumsum = cumsum/ cumsum[-1]
     pie = [0] + cumsum.tolist()
-    i = 2
+    i = 0
     for r1, r2 in zip(pie[:-1], pie[1:]):
         angles = np.linspace(2 * np.pi * r1, 2 * np.pi * r2)
         x = [0] + np.cos(angles).tolist()
         y = [0] + np.sin(angles).tolist()
 
         xy = np.column_stack([x, y])
-        ax.scatter([xpos], [ypos], marker=xy, s=size, color = color_cycle(i))
+        ax.scatter([xpos], [ypos], marker=xy, s=size, color = color_cycle(map[i]))
         i += 1
         
-    ax.scatter([xpos], [ypos], s=size, facecolor = 'none', edgecolors=color_cycle(2+np.where(dist ==100)[0][0]), linewidth = 8)
+    ax.scatter([xpos], [ypos], s=size, facecolor = 'none', edgecolors=color_cycle(map[np.where(dist == 100)[0][0]]), linewidth = 8)
     return ax
 
 if __name__ == "__main__":
 
     metric = "Sig"
-    #plotters = ["StochChannelOutGrid", "ChannelOutGrid", "MaxOutGrid"]
-    #lotters = ["MaxOutGrid", "PNNGrid", "NNGrid"]
-    #plotters = ["MaxOutPCAGrid", "PNNPCAGrid", "NNPCAGrid"]
+    plotters = ["StochChannelOutGrid", "ChannelOutGrid", "MaxOutGrid"]
+    plotters = ["MaxOutGrid", "PNNGrid", "NNGrid"]
+    plotters = ["MaxOutPCAGrid", "PNNPCAGrid", "NNPCAGrid"]
     plotters = ["HybridPCAMaxOutGrid", "HybridPCALeakyGrid", "PNNPCAGrid", "MaxOutPCAGrid"]
     plotters = ["MaxOutPCA_FS_MLMGrid", "PNNPCA_FS_MLMGrid", "NN_FS_MLMGrid"]
-    name = "FS_MLM"
-    plotComp(metric, plotters = plotters, name = name)
+    plotters = ["MaxOutPCA_FSGrid", "PNNPCA_FSGrid", "NN_FSGrid"]
+    name = "FS"
+    plotComp(metric, plotters = plotters, name = name, leg_loc = "upper")
     
