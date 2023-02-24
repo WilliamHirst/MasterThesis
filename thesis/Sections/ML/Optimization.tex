@@ -10,19 +10,19 @@ optimization methods, the \emph{gradient descent}-method.
 \subsection{Gradient Descent}
 The gradient descent method aims to obtain the optimal parameters $\tilde{\boldsymbol\theta}$ 
 through the application of the derivative of $g$ with respect to $\boldsymbol \theta$. When 
-evaluated in a given point in the parameter space $g(\boldsymbol \theta_i)$ the negative of 
+evaluated at a given point in the parameter space $g(\boldsymbol \theta_i)$ the negative of 
 the gradient $\grad_\theta (g)$, is used to move $\boldsymbol \theta_i$ closer to $\tilde{\boldsymbol\theta}$.
-The negative is used due that $-\grad_\theta (g)$ corresponds to the direction for which a 
+The negative is because $-\grad_\theta (g)$ corresponds to the direction for which a 
 small change $d\boldsymbol\theta$ in the parameter space will result in the biggest 
 decrease in the cost function. Finding the minimum value is an iterative process, meaning
 the steps in the direction of $-\grad_\theta (g)$ is finite. The size of the step is a
-hyperparameters decided by the user and is called the learning rate, $\eta$. The evolution 
+hyperparameter decided by the user and is called the learning rate, $\eta$. The evolution 
 from a step i to $i+1$ becomes
 \begin{align}
     \boldsymbol{\theta}_{i+1}=\boldsymbol{\theta}_i-\eta \cdot \nabla_\theta g\left(\boldsymbol{\theta}_i\right).
 \end{align}
-Choosing the learning rate can drastically effect the performance of the gradient descent method. 
+Choosing the $\eta$ can drastically affect the performance of the gradient descent method. 
 Too large and one risks "jumping" over the true minimum or simply never allowing for parameters
-to reach a high accuracy. Too small and one risks having to spend computation time beyond reason. 
+to reach a high accuracy. Too small and one risks spending computation time beyond reason. 
 \subsection{Adam}
 

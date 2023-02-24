@@ -2,15 +2,15 @@
 % The dominant SM backgrounds can be divided into two categories: (i) from leptonic $\tau$ decays and (ii) from fake leptons. In the first category, the dominant process is the pair production of $W Z$ with $W$ decaying leptonically and $Z \rightarrow \tau \tau$. The trilepton final states with no-OSSF pairs can arise from the subsequent leptonic decay of $\tau$ 's. We estimate this background process via Monte Carlo simulations.
 % \\
 % The dominant processes of the second category are $\gamma^{*} / Z+$ jets and $t \bar{t}$, where two leptons come from $\gamma^{*} / Z \rightarrow \tau \tau$ or the prompt decay of $t$ and $\bar{t}$, and a third lepton is faked from jets containing heavy-flavor mesons.
-We define background as anything that is not of interest. As will be further explained in  later sections,
-we will explicitly demand a 3-lepton final-state in all collisions considered in the analysis. This will 
-remove a lot of background, but not all. Due to the imperfect nature of the reconstruction of events,
-a demand for 3-lepton final-state will not be without errors. This leaves room for more variation in 
-the background than one might expect. In this section I will cover the channels\footnote{By channels,
+We define background as anything that is not of interest and that mimics the signals of new physics considered. 
+As will be further explained in  later sections, we will explicitly demand a 3-lepton final-state in all collisions 
+considered in the analysis. This will remove a lot of background, but not all. Due to the imperfect nature of the 
+reconstruction of events, a demand for 3-lepton final-state will not be without errors. This leaves room for more 
+variation in the background than one might expect. In this section I will cover the channels\footnote{By channels,
 we refer to the physical diversity which could lead to a specific final-state. Often this refers to 
 the different particles which mediates the process from initial- to final-state.} which will 
 be of importance during the analysis. I will also discuss which background channels are the hardest 
-to reduce in a potential signal region, also called the irreducible background. These are 
+to reduce in a potential new physics signal region, also called the irreducible background. These are 
 channels that exhibit similar trends/distribution in the features. Note that the sections bellow
 are listed by contribution to the 3-lepton final-state data (from most to least).  
 
@@ -18,9 +18,10 @@ are listed by contribution to the 3-lepton final-state data (from most to least)
 The Z-jets channel is the largest contribution in all the data. The channel consists of all events
 resulting in a Z-boson alongside jets. In the cases the Z-boson decays into two leptons, the additional 
 jet acts as a fake lepton and the channel classifies as a 3-lepton final state. In figure \ref{fig:z_pjets} 
-I have written the Feynman diagram of an example of such a channel. The figure shows two quarks decaying 
-into a Z-boson and gluon, mediated by a third quark. The Z boson decays into two leptons (normally 
-$e^-e^+$ or $\mu^- \mu^+$) and the gluon decays to a pair of bottom quarks which act as a fake lepton. 
+I have written the Feynman diagram of an example of such a channel. The figure shows a quark-antiquark leading 
+to a Z-boson and gluon. The Z boson decays into two leptons (normally 
+$e^-e^+$ or $\mu^- \mu^+$) and the gluon hadronises as a jet of hadrons which may obtain a b-hadron leading to a 
+fake lepton. 
 \begin{figure}
     \centering
     \makebox[0.75\linewidth][c]{%
@@ -33,7 +34,7 @@ $e^-e^+$ or $\mu^- \mu^+$) and the gluon decays to a pair of bottom quarks which
 \subsection{Diboson (lll)}
 Dibson channels are defined as channels resulting in two bosons. In the case of (lll), the dibosons
 decay into a total of three leptons. In figure \ref{fig:wz} I have drawn the Feynman diagram of an 
-example of such a channel. The figure shows two quarks decaying into a W- and Z-boson through a 
+example of such a channel. The figure shows a W- and Z-boson production through a quark-antiquark pair.
 third quark. The W-boson decays into a lepton with missing energy\footnote{Neutrinos very rarely interact
 with anything, making them almost impossible to detect. We therefore refer to neutrinos as missing energy.}
 and the Z-boson decays into a pair of leptons. 
@@ -46,10 +47,11 @@ and the Z-boson decays into a pair of leptons.
     \label{fig:wz}
 \end{figure}
 \subsection{$t\bar{t}$}
-The $t\bar{t}$ channel is defined as a channel resulting in a pair of top quarks. In figure
-\ref{fig:ttbar} I have drawn a Feynman diagram of an example of such a channel. The figure 
-shows two gluons decaying into a pair of top quarks, mediated by a third. The two top quarks 
-decay into a jet and two leptons with missing energy (neutrinos). 
+The $t\bar{t}$ channel is defined as a proton-proton collision resulting in a pair of top quark-antiquark. 
+In figure \ref{fig:ttbar} I have drawn a Feynman diagram of an example of such a channel. The figure 
+shows gluon-gluon fusion producing a pair of top quarks. The top-antitop pair decay into a bottom-quark 
+and a W boson. The channel constitutes a background when both W bosons decay into a charged and a neutral 
+lepton and one of the b-quarks leads to a fake lepton.
 \begin{figure}
     \centering
     \makebox[0.75\linewidth][c]{%
@@ -60,10 +62,11 @@ decay into a jet and two leptons with missing energy (neutrinos).
 \end{figure}
 
 \subsection{Diboson (llll)}
-In the case of diboson (llll), the channel refers to events resulting in two bosons which decay 
+In the case of diboson (llll), the channel refers to events resulting in two Z-bosons which decay 
 into four leptons. In figure \ref{fig:zz} I have drawn a Feynman diagram of an example of 
-such a diagram. The figure shows two quarks decaying into two Z-bosons through a third quark.
-The two Z-bosons decay into two pairs of leptons. 
+such a diagram. The figure shows a quark-antiquark pair annihilating into two Z-bosons.
+The two Z-bosons decay into two pairs of leptons. This process constitutes a backgorund when one 
+of the leptons is not reconstructed in the detector.
 \begin{figure}
     \centering
     \makebox[0.75\linewidth][c]{%
@@ -107,7 +110,7 @@ The two Z-bosons decay into two pairs of leptons.
 \begin{figure}
     \centering
     \makebox[0.75\linewidth][c]{%
-    \includegraphics[width=0.225\textwidth, angle = -90]{Figures/FDiagrams/zzz.png}
+    \includegraphics[width=0.225\textwidth, angle = -90]{Figures/FDiagrams/WZW.png}
     }
     \caption{The Feynman diagram of the Triboson-channel.}
     \label{fig:zzz}
