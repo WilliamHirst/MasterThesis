@@ -39,11 +39,12 @@ variance. It does this in 4 steps:
     \item $\textbf{Second}$: Calculate the covariance matrix to find the covariance 
                              of each feature pair.
     \item $\textbf{Third}$: Calculate the eigenvalue and eigenvectors of the covariance matrix.
-    \item $\textbf{Fourth}$: Order the eigenvector by the eigenvectors to define the directions 
+    \item $\textbf{Fourth}$: Order the eigenvector by size of the eigenvalues to define the directions 
                              in the feature space with the largest variance.
     \item $\textbf{Fifth}$: Cast the data along these directions to form a new data set with 
                              the new features ranked from largest to lowest variance.
-    \item $\textbf{Sixth}$: Remove the features with the least variance according to some threshold.                      
+    \item $\textbf{Sixth}$: Remove the features with the least variance according to some threshold
+                            defined by the user.                      
 \end{itemize}
 In figures \ref{fig:PCA1} and \ref{fig:PCA2} I have plotted the distribution of 10, 100 and 500 samples 
 for the features with the most and second most variance (\ref{fig:PCA1}), and least and second least 

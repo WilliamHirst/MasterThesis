@@ -3,7 +3,7 @@ The concept of a \ac{NN} has been around for more than 80 years, and today they 
 of the most popular and successful \ac{ML} methods. The key to its popularity stems from
 its versatility, achieving high performance in a large range of both regression 
 and classification problems. One of the defining qualities in a \ac{NN} is the 
-possibility of diverse architecture, meaning that a there are many
+possibility of diverse architecture, meaning that there are many
 categorize of \ac{NN}, where each category has an even deeper selection of
 networks. Categories ranging from \ac{CNN}, \ac{RNN} to simple \ac{FFNN}, where each
 category is specified for their own set of problems. In this section I will introduce 
@@ -12,9 +12,9 @@ algorithm of the back- and forward propagation.
 
 \subsection{General structure}
 There are often drawn comparisons between the structure of the neural network, 
-and the way the human mind operate, hence neural. Similarly to the human mind, a \ac{NN} is 
+and the way the human mind operates, hence neural. Similarly to the human mind, a \ac{NN} is 
 composed of different neurons communicating information backwards and forwards in different 
-regions In the case of a neural network we call these regions layers. All layers
+regions. In the case of a neural network we call these regions layers. All layers
 are composed of a specified number of neurons. A \ac{NN} has three types of layers;
 \emph{input-layer}, \emph{hidden-layer} and \emph{output-layer}. There is only one input layer, and it has
 the same number of nodes equal to the number of features for each data point. 
@@ -22,7 +22,7 @@ There can be an arbitrary number of hidden layers, with each hidden-layer contai
 an arbitrary number of nodes. Finally, the \ac{NN} has an output layer. The output-layer
 contains a number of nodes equal to the number of features for the target.
 \\
-The neural network functions by passing information in between the different layers though 
+The neural network functions by passing information in between the different layers through 
 nodes. The nodes are simply pockets of information, each containing a value. 
 All the nodes in the input layer are (in most cases) connected to all nodes in the nearest hidden layer,
 and likewise said hidden layer is connected to the next hidden layer. This structure continues
@@ -41,7 +41,7 @@ how a \ac{NN} aims to map from data to a prediction.
 In figure \ref{fig:NN} we can see how all the different nodes are connected, illustrated by 
 the arrows. The passing of values between different nodes are controlled by a set of weights and
 bias parameters. These parameters are defined for each connection and are what will be tuned 
-during training. The weights and biases for a given connection of two nodes, defines the effect on node 
+during training. The weights and biases for a given connection of two nodes, defines the effect one node 
 has on the other.
 \\
 In a traditional \ac{FFNN} the information is passed linearly (in figure \ref{fig:NN}, from left to right) 
@@ -60,7 +60,7 @@ case for when $l=1$ which will be addressed in the next paragraphs.} and $L$ is 
 number of hidden layers. The value of a node in layer $l$, is defined as $a^l_j$ (as indicated by figure \ref{fig:NN}), 
 where $j\in \{0,1,...,N_l\}$ and $N_l$ is equal to the number of nodes in $l$. The value of $a_j^l$ is defined as 
 the \emph{activated} sum of all nodes in the previous layer, $a_j^{l-1}$ where the sum is weighted by a parameter $\bf{w} \sf _j^l$ 
-and scaled by the bias, $b^l_j$ for $j\in \{0,1,..., N_{l-1} \}$. The inactivated value of for a node j in layer l is defined as 
+and scaled by the bias, $b^l_j$ for $j\in \{0,1,..., N_{l-1} \}$. The activated value of a node j in layer l is defined as 
 \begin{align}\label{eq:activated}
     z_j^l = \sum_{k=1} ^ {N_{l-1}} w_{kj}^la_k^{l-1} + b^l_k,
 \end{align}
@@ -71,11 +71,11 @@ is a generally non-linear function used to control the limit or expand the value
 function is general for all nodes in a given layer, but can vary in between layers. Therefore,
 we find $a_j^l$ by the equation
 \begin{align}\label{eq:ajl}
-    a_j^l = \sigma \left (\sum_{k=1} ^ {N_{l}} w_{kj}^la_k^{l-1} + b^l_k\right ) = \sigma^l(z_j^l).
+    a_j^l = \sigma \left (\sum_{k=1} ^ {N_{l-1}} w_{kj}^la_k^{l-1} + b^l_k\right ) = \sigma^l(z_j^l).
 \end{align}
 A more detailed illustration of the information pass from one layer to a node in the next is displayed 
 in figure \ref{fig:WB}. In figure \ref{fig:WB}, we see all steps described in the process; \emph{(1)} all nodes in 
-l-1 are summed with a corresponding weight, \emph{(2)} the sum is scaled by a constant term (bias), \emph{(3)} the 
+l-1 are summed with a corresponding weight, \emph{(2)} the sum is shifted by a constant term (bias), \emph{(3)} the 
 scaled and weighted sum defines the inactivated value $z_j^l$, \emph{(4)} we define $a^l_j$ by passing the 
 sum through $\sigma^l$.  
 \begin{figure}
@@ -84,9 +84,9 @@ sum through $\sigma^l$.
     \caption{An illustration information pass for one layer to another.}
     \label{fig:WB}
 \end{figure}
-This method is used for information pass between all layers, except the between the first and the second. 
+This method is used for information pass between all layers, except between the first and the second. 
 In this case we simply replace the activated term, $a_k^{l-1}$ in equation \ref{eq:ajl}, by the input data,
-$x_i$ for $i\in\{0,1,...,N\}$, where N is equal to the number features for the data. In the case $l=1$, \ref{eq:ajl} 
+$x_i$ for $i\in\{0,1,...,N\}$, where N is equal to the number of features for the data. In the case $l=1$, \ref{eq:ajl} 
 becomes
 \begin{align}
     a_j^1 = \sigma \left (\sum_{k=1} ^ {N} w_{kj}^1x_k + b^1_k\right ) = \sigma(z_j^1).
@@ -97,8 +97,8 @@ The backward propagation acts as the engine that drives the training of a neural
 of tuning the weights and biases of the network to achieve maximum performance, as defined by some 
 \emph{cost function}, $\mathcal{C}$. The cost function defines to which metric we aim to optimize the network. 
 When a neural network produces a prediction, $Y$ the error in the prediction
-is defined by the cost function as $\mathcal{C}\left(Y, T\right)$. To minimize $\mathcal{C}$, the 
-backwards propagation utilizes the gradient with respect to the weights and biases in the network. Instead of a
+is defined by the cost function as $\mathcal{C}\left(Y, T\right)$, where T is the target. To minimize $\mathcal{C}$, the 
+backward propagation utilizes the gradient with respect to the weights and biases in the network. Instead of a
 direct calculation of the gradient, which is very computationally heavy, the backward propagation 
 aims to calculate the gradient through a recursive algorithm which traces the error backwards through the network. It is 
 this algorithm I will describe in this section.
@@ -132,9 +132,9 @@ To calculate the final partial derivative we write
     \frac{\partial z_j^{l+1}}{\partial z^l_k} = \frac{\partial z_j^{l+1}}{\partial a^l_j}\frac{\partial a^l_j}{\partial z^l_k}
                                               = w_{jk}^{l+1}(\sigma^l(z_j^l))'.
 \end{align*}
-This gives use the expression for $\delta_j^l$
+This gives the expression for $\delta_k^l$
 \begin{align}\label{eq:delta}
-    \delta_k^l  = \sum_k \delta_k^{l+1}w_{jk}^{l+1}(\sigma^l(z_j^l))'  
+    \delta_k^l  = \sum_j \delta_k^{l+1}w_{jk}^{l+1}(\sigma^l(z_j^l))'  
 \end{align}
 Finally this gives us the expression
 \begin{align}\label{eq:dw}
@@ -196,16 +196,16 @@ dropout-layer creates an architecture for the network for every round of trainin
 its own network in what becomes an ensemble of networks. 
 \\
 As mentioned in previous sections, creating ensembles of models is a form of regularization. In the case of 
-dropout, it minimizes the risk of overfitting by hindering a phenomenon known as complex co-adaptations. Complex
+dropout, it minimizes the risk of overfitting by hindering a phenomenon known as complex co-adaptation. Complex
 co-adaptation happens when a neuron becomes overly dominant such that neighboring neurons no longer contribute (relative
 to the dominant neuron) and therefore lack the motivation to tune. When this happens, networks become fragile and overly 
 specialized to the training data. By randomly dropping neurons, the neighboring neurons are no longer allowed to be passive 
 and are forced to tune to compensate. During evaluation, the dropout layers no longer take action. Instead, the dropout rate 
 (fraction of neurons to drop in the layer) $r$ is used to scale the weights by a factor $1-r$. The prediction made by the resulting 
 model can therefore be seen as the average of all the smaller networks. In other words, a neural network containing dropout-layers 
-as a bagging ensemble. 
+as a bagging ensemble (see subsection \ref{subsec:Ensembles}). 
 \\
-\subsubsection*{Max-Out}
+\subsubsection*{Max-Out}\label{subsubsec:maxout}
 Dropout-layers are not the only layers to dynamically change the architecture of a network. In this thesis I additionally 
 explored the lesser known, \emph{max-out}-layer. Max-out, similarly to dropout creates an ensemble of networks by removing a set 
 of nodes for each round of training. Contrary to dropout, max-out does not choose the nodes to drop at random,
@@ -213,11 +213,12 @@ but instead creates local units by grouping the nodes, and removes all nodes exc
 activation. The goal of max-out is to create an ensemble of networks where each network is specialized for a given 
 trend in the data. In this thesis I have implemented the layer such that upon prediction, the redimensionalization 
 is still active. This means that for each data point, a neural network is chosen based on the specific activations in 
-each of the nodes. In other words, the max-out layer creates something resembling a stacking ensemble. 
+each of the nodes. In other words, the max-out layer creates something resembling a stacking ensemble (see subsection 
+\ref{subsec:Ensembles}). 
 \\
 In figure \ref{fig:Max_out} I have illustrated a max-out network. The figure shows a \ac{NN} with two hidden layers
 with 8 nodes each. In the first hidden layer the max-out layer creates 4 units, each containing two nodes and in the 
-second layer the max-out creates two nodes with 4 nodes each. The resulting output from the first layer is the 
+second layer the max-out creates two units with 4 nodes each. The resulting output from the first layer is the 
 4 nodes with the highest activation in their respected unit, likewise the second layers output is 2 nodes.
 To the right of the network in figure \ref{fig:Max_out}, I have illustrated how the different configuration of 
 paths through the network creates an ensemble of networks with their own architecture.
@@ -230,19 +231,21 @@ paths through the network creates an ensemble of networks with their own archite
     of the max-out activation layers. }
     \label{fig:Max_out}
 \end{figure}
+\subsubsection*{Channel-Out}\label{subsubsec:channelout}
 \subsection{Parametrized Neural Network}\label{subsec:PNN}
-In this thesis I will be studying \ac{BSM}-simulaitons with a diversity in choice of free parameters. This
+In this thesis I will be studying \ac{BSM}-simulations with a diversity in choice of free parameters. This
 means that my signal is in it of itself diverse. The free parameters studied in this thesis are the mass of 
 new particles. The mass of a particle in a collision can greatly alter the feature space spanned by a channel.
 This means that a \ac{ML}-model could potentially struggle to tune according to all trends in the signal.
-The obvious solution to this problem is simply to implement one model per dataset, or choice of mass. But, not 
-only is this tedious work, but for signals with low statistics you would run the risk of overfitting. 
+The obvious solution to this problem is simply to implement one model per mass combination, or choice of mass 
+and simply reusing the background. But, not only is this tedious work, but for signals with low statistics 
+you would run the risk of overfitting. 
 \\\newline
 When the data set is dependent on a set of free parameters, $\theta = [\theta_0,\theta_1,\theta_2,...,\theta_N]$,
 we can write $X(\theta)$. For a single neural network trained on a set of parameters, we define the model as 
 $\mathcal{F}(X(\theta))$. In the case we build one model for each choice of parameter, we get a set of models
 defined as $\{ \mathcal{F}_j(X(\theta_j))$, $\mathcal{F}_k(X(\theta_k))$, ...,$\mathcal{F}_l(X(\theta_l))\}$, where
-j, k and l are incises which corresponded to individual choices of parameters respectively. 
+j, k and l are indices which correspond to individual choices of parameters respectively. 
 \\
 In the paper by Baldi et al. \cite{PNN}, they propose a separate solution to the problem than the one proposed above, the \ac{PNN}. 
 By simply including the parameters as additional features, we can write $\mathcal{F}(X, \theta)$. In doing so, 

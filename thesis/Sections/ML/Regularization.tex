@@ -8,7 +8,7 @@ attempts to minimize the risk of it, we call these methods' \emph{regularization
 is known as any attempt to reduce the error in a prediction by reducing overfitting. Generally one can categorize
 regularization as being either implicit or explicit. Explicit regularization means adding terms to the optimization 
 problem. This is a very direct way of insuring no part of the model becomes overly dominant. Examples of this 
-could be adding a penalty in the cost function of a \ac{NN} to ensure no weights become to large. Implicit
+could be adding a penalty in the cost function of a \ac{NN} to ensure no weights become too large. Implicit
 regularization is a less direct attempt of hindering overfitting. This could be changing the depth of the \ac{ML}-model,
 varying the cost function or altering the data itself.
 \subsection{Early stopping}
@@ -17,7 +17,7 @@ simply means to stop training before the parameters of the model are allowed to 
 is to introduce a goal for the training, which when reached, ends the training. Examples of these goals could be a 
 predetermined loss value on the training set or training until lack of progress on a second unseen dataset. The latter
 approach is the one I will use in this thesis. 
-\subsection{Ensembles}
+\subsection{Ensembles}\label{subsec:Ensembles}
 When comparing different \ac{ML} methods by performance, more often then not the top performing model includes 
 ensembling in one way or another. Like the word suggests, ensembling in \ac{ML} means using a collection of 
 \ac{ML} models to create one complex model. There are many ways to create ensembles of models, most methods 

@@ -1,5 +1,5 @@
 \section{Tools and Data}
-Every year technology for generating and measuring particle collisions is improved. 
+Every year technology for generating and measuring particle collisions is improving. 
 As a consequence, the amount of data increases drastically. The ATLAS experiment
 is one of the largest particle detector experiments currently operating at the 
 CERN laboratory near Geneva. ATLAS alone generates approximately 1 petabyte of raw
@@ -12,7 +12,7 @@ In this section I will cover some tools and frameworks I have used to
 complete my analysis. Large amounts of details and explanations will not be covered. 
 Instead, this section will highlight which tools were used and some motivation
 for choosing them. Additionally, I will cover some details regarding the data
-being used, both \ac{MC} and real.
+being used, both \ac{MC}-sumulations and real collision data.
 \subsection{Monte Carlo Data}
 \subsection{ROOT, RDataframe and Pandas}
 ROOT \cite{ROOT} is at its core a large $C{++}$ library and data structure made specifically for big data
@@ -26,38 +26,39 @@ All distribution plots made for this thesis were created using ROOT. ROOT has im
 effective \ac{API} for data comparison and visualization. ROOT allows for quick and direct 
 comparison between data through an advanced graphical user interface. Additionally, a lot of
 functionality for creating complex stacked histogram are implemented in the ROOT \ac{API}, such
-as uncertainty calculations and ordering of histograms. 
+as uncertainty calculations, ordering of histograms and statistical analysis tools. 
 \\
 As for the data structure, the raw data was loaded as a ROOT-file. To easier handle the data and add
 new features, I used the RDataFrame structure \cite{RDataFrame}. RDataFrame allows for easy 
 addition of new columns as well as filtering of events through native functionality. As a consequence
-I used RDataFrame to calculate all higher-level features such as $M_{T2}$, $M_{lll}$ etc. An example is 
-shown in the following section. 
+I used RDataFrame to calculate all higher-level features such as the stransverse mass $(M_{T2}$), 
+invariant mass of 3 leptons ($M_{lll}$) etc. An example is shown in the following section. 
 \\
 After all data handling was complete, I used ROOT's $AsNumpy$ function to translate the data frame as 
 a numpy object, which then allowed me to transform it to a Pandas-data frame \cite{Pandas}. This is done
 because Pandas, like most \ac{ML}-tools work in a strict Python environment. Pandas, similarly to RDataFrame
-includes many deep computational libraries, and is optimal for analysis of big data. When all \ac{ML} is completed,
-the data is transformed back to RDataFrame, to take advantage of plotting functionality in ROOT.
+includes many deep computational libraries, and is optimal for analysis of big data. When the full \ac{ML} 
+pipeline (data-handling, training, validating ets.) is completed, the data is transformed back to RDataFrame, 
+to take advantage of the plotting functionality in ROOT.
 
 \subsection{Computing features in ROOT: Example}
 In this section I will cover a simple example to highlight the steps taken in generating the dataset 
-I used during analysis. As mentioned earlier, the two main frameworks used were RDataFrame and Pandas. 
+I used in the analysis. As mentioned earlier, the two main frameworks used were RDataFrame and Pandas. 
 In this example I will cover the case of a feature not already in the ROOT file, namely the trilepton
-invariant mass. All loading of data is done using the ROOT framework and is quickly made into a 
+invariant mass. All loading of data is done using the ROOT framework and is quickly transformed into a 
 RDataFrame. To effectively generate new features, we want to stay in ROOT and RDataFrame. Therefore,
 we create our $C{++}$-file, \emph{helperfunction}. The helperfunction contains all additional 
-ROOT function that are used in the analysis and is not already native to ROOT. In the case 
-of computing the trilepton invariant mass, the $C{++}$-function is created like shown in 
+ROOT functions that are used in the analysis and are not already native to ROOT. In the case 
+of computing the trilepton invariant mass, the $C{++}$-function is created like shown in listing 
 \ref{lst:mlll}.
 \\
-In \ref{lst:mlll}, we see a couple of measures taken to uphold to the ROOT environment. The first is 
+In listing \ref{lst:mlll}, we see a couple of measures taken to uphold to the ROOT environment. The first is 
 the typecasting to $VecF\_t$. $VecF\_t$ is created to wrap floats in the native ROOT vector object, $RVec$. 
 The same is done in other cases such as float and integers, $VecI\_t$ and $VecB\_t$. The second measure
 was using $TLorentzVector$ \cite{TLorentzVector} to calculate the invariant mass. $TLorentzVector$ is a class
 native to ROOT with many built-in functions. In this case we use the class to create three vectors through the 
 variables, $P_t$, $\eta$, $\phi$ and M. Then, through the $TLorentzVector$ class we can simply
-add all three vector together, and extract the invariant mass. 
+add all three vector together, and extract the invariant mass of the 3 leptons. 
 \lstset{style=Cpp}
 \begin{lstlisting}[caption={$C{++}$-function for $M_{lll}$.},captionpos=b, label={lst:mlll}]
 // Compute the trilepton invariant mass 
@@ -72,11 +73,11 @@ float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
 }
 \end{lstlisting}
 With a helper function created in $C{++}$ we can move over to a Python and RDataFrame environment
-for calculation and plotting. In the code written in \ref{lst:df_mlll}, I have shown a simple example 
+for calculation and plotting. In the code written in listing \ref{lst:df_mlll}, I have shown a simple example 
 of loading new $C{++}$-functions, filtering out bad events, calculating new features and adding said 
-features to a histogram. The first three lines of code both process and include the helperfunction 
-functions into the ROOT framework. Then I loop over all keys in the data frame, which in my case
-are the different channels (i.e Diboson, $t\bar{t}$ etc.). For each channel I filter out 'good' events,
+features to a histogram. The first three lines of code both process and include the helperfunctions 
+into the ROOT framework. Then I loop over all keys in the data frame, which in my case
+are the different channels (i.e Diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
 based on the criteria from section \ref{subsec:Cuts}. Then, I use RDataFrame's $Define$ function to calculate
 and add a new feature using our $ComputeInvariantMass$-function. Finally, I save the feature as 
 an $Histo1D$ object, which I plot later using ROOT plotting \ac{API}'s.

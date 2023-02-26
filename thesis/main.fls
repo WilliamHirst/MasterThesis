@@ -2317,6 +2317,7 @@ INPUT Sections/Implementation/Cuts.tex
 INPUT ./Sections/Implementation/Cuts.tex
 INPUT ./Sections/Implementation/Cuts.tex
 INPUT Sections/Implementation/Cuts.tex
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT ./Sections/Implementation/Selection.tex
 INPUT ./Sections/Implementation/Selection.tex
 INPUT ./Sections/Implementation/Selection.tex
@@ -2545,7 +2546,6 @@ INPUT Sections/Implementation/NeuralNetworks.tex
 INPUT ./Sections/Implementation/NeuralNetworks.tex
 INPUT ./Sections/Implementation/NeuralNetworks.tex
 INPUT Sections/Implementation/NeuralNetworks.tex
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/ts1-lmr8.tfm
 INPUT ./Figures/Illustrations/architecture.png
 INPUT ./Figures/Illustrations/architecture.png
@@ -2626,16 +2626,15 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmtt.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmtt.fd
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmtt9.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmcsc10.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/ts1-lmri9.tfm
 OUTPUT main.thm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc

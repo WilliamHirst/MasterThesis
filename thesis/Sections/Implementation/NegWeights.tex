@@ -2,7 +2,8 @@
 The negative weight problem is a well known problem in the world of ML-analysis for HEP, 
 and is a consequence of higher perturbative accuracy. For the purpose of visualizing 
 distributions and training a \ac{NN}, negative weights are not a problem. But, when using 
-the weights in the training of the XGBoost classifier, the algorithm does not work. 
+the weights in the training of the XGBoost classifier, the algorithm does not work. EXPLAIN
+WHY. 
 \\
 Before deciding how to mediate the issue, I decided to plot the distribution for 
 a small subset of features for all the events with negative weights.
@@ -11,7 +12,7 @@ negative weights and compare it to all the events in figure \ref{fig:lep1_Pt_nNe
 I have plotted the same values for the second lepton in figures \ref{fig:lep1_Pt_nNeg} and \ref{fig:lep2_Pt_nNeg}
 respectively. From the two comparisons we see that the distribution of negative
 weights is relatively equal to that of all the events. The same comparisons have
-been made in figures \ref{fig:lep1_Phi_Neg}, \ref{fig:lep1_Phi_nNeg}, \ref{fig:lep2_Phi_nNeg}  
+been made in figures \ref{fig:lep1_Phi_Neg}, \ref{fig:lep1_Phi_nNeg}, \ref{fig:lep2_Phi_Neg}  
 and \ref{fig:lep2_Phi_nNeg} respectively but for $\phi$. The same observations
 are made for both $P_t$ and $\phi$. This means we can be justified in treating the 
 negative weight distribution uniformly across the feature space.
@@ -83,8 +84,9 @@ negative weight distribution uniformly across the feature space.
 \end{figure}
 How one chooses to deal with this problem can heavily effect results and many solutions 
 are suggested as a consequence. Given the time main focus of this rapport, the 
-simplest solution was chosen. Namely, I chose to normalize all the weights as a 
-whole, conserving the total sum of the weights and at the same time changing all 
+simplest solution was chosen. Namely, I chose to take the absolute value 
+\footnote{Thereby removing all negative weights.} and normalize all the weights, 
+conserving the total sum of the weights and at the same time changing all 
 negative signs. The simple procedure is shown bellow in equation \ref{eq:negw},
 \begin{align}\label{eq:negw}
     w_i & = P \mid w_i \mid\,  \\

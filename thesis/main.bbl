@@ -90,6 +90,12 @@ P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
 \bibitem{XGB}
 {The XGBoost Contributors}, ``Xgboost.''
 
+\bibitem{Chen_2016}
+T.~Chen and C.~Guestrin, \emph{{XGBoost}},  in \emph{Proceedings of the 22nd
+  {ACM} {SIGKDD} International Conference on Knowledge Discovery and Data
+  Mining}, {ACM}, aug, 2016.
+\newblock \href{http://dx.doi.org/10.1145/2939672.2939785}{DOI}.
+
 \bibitem{ROOT}
 {The Root team}, ``Root.''
 
@@ -105,18 +111,15 @@ P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
 \bibitem{franchini_search_2019}
 M.~Franchini, K.~H. Mankinen, G.~Carratta, F.~Scutti, A.~Gorisek, E.~Lytken
   et~al., \emph{Search for type-{III} seesaw heavy leptons in dilepton final
-  states in \$pp\$ collisions at \${\textbackslash}sqrt\{s\}\$ = 13 {TeV} with
-  the {ATLAS} detector}, .
+  states in $pp$ collisions at {$\sqrt{s}$} = 13 {TeV} with the {ATLAS}
+  detector}, .
 
 \bibitem{Aaboud_2019}
 M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
   reconstruction and identification in the {ATLAS} experiment using the 2015
-  and 2016 {LHC} proton{\textendash}proton collision data at
-  {\textdollar}{\textdollar}{\textbackslash}sqrt$\lbrace$s$\rbrace$ =
-  13{\textdollar}{\textdollar}~{\textdollar}{\textdollar}{\textbackslash}text
-  $\lbrace${TeV}$\rbrace${\textdollar}{\textdollar}},
-  \href{http://dx.doi.org/10.1140/epjc/s10052-019-7140-6}{\emph{The European
-  Physical Journal C} {\bf 79} (aug, 2019) }.
+  and 2016 {LHC} proton{\textendash}proton collision data at {$\sqrt{s}$}= 13
+  {TeV}}, \href{http://dx.doi.org/10.1140/epjc/s10052-019-7140-6}{\emph{The
+  European Physical Journal C} {\bf 79} (aug, 2019) }.
 
 \bibitem{GS}
 P.~Liashchynskyi and P.~Liashchynskyi, \emph{Grid search, random search,

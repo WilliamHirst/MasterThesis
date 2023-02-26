@@ -2,7 +2,7 @@
 \subsection{Decision Trees}
 \ac{DT} are, similarly to \ac{NN} one of the most popular \ac{ML} methods used today.
 Contrary to \ac{NN}, \ac{DT} are famously easy in theory. Despite the simplicity of \ac{DT}, 
-they are capable of a large range of complex problems. In this section I will cover the use 
+they are capable of solving a large range of complex problems. In this section I will cover the use 
 of \ac{DT} as applied to a supervised classification problem.
 \\
 The goal of decision trees are to create a flowchart-like tree structure from input to output. 
@@ -15,7 +15,7 @@ In figure \ref{fig:DT}, I have illustrated a simple \ac{DT} classifying a 4-dime
 input data to one of three classifications. As is visualized in figure \ref{fig:DT}, the \ac{DT} 
 applies a set of thresholds on the data to find the route applicable to a target. For each applied 
 cut, the data split into what we call \emph{branches}. Each branch represents a subset of the data.
-The final subset, after a sufficient amount of cuts ends in what we call \emph{leafs}. The leafs are 
+The final subset, after a sufficient amount of cuts ends in what we call \emph{leaves}. The leaves are 
 the label we assign the subset of data contained in this branch.
 \\  
 \begin{figure}
@@ -46,7 +46,7 @@ trees the weak classifiers are a collective of shallow trees, which combine to f
 that allows for deeper learning. As is the case for most gradient-boosting 
 techniques, the collecting of weak classifiers is an iterative process.
 \\
-We define an imperfect model $\mathcal{F}_m$, which is a collective of m number of weak 
+We define an imperfect model $\mathcal{F}_m$, which is a collection of m number of weak 
 classifiers, estimators. A prediction for the model on a given data-points, $x_i$ is 
 defined as $\mathcal{F}_m(\textbf{x}_i)$, and the observed value for the aforementioned data is 
 defined as $y_i$. The goal of the iterative process is to minimize some cost-function 
@@ -73,4 +73,5 @@ and was initially created for the Higgs ML challenge. Since the challenge, XGBoo
 a favorite for many in the ML community and has later won many other ML challenges. XGBoost 
 often outperforms ordinary decision trees, but what is gains in results it looses in 
 interpretability. A single tree can easily be analyzed and dissected, but when the number 
-of trees increases this becomes harder.
+of trees increases this becomes harder. For more detailed explanation on the XGBoost framework,
+the reader is refered to Ref.\cite{Chen_2016}

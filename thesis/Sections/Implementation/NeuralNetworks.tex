@@ -1,6 +1,6 @@
 \section{The search through Machine Learning}
 \subsection{Model selection}
-In this analysis I have chosen to compare 4 different \ac{ML}-models, dens-\ac{NN}, \ac{PNN},
+In this analysis I have chosen to compare 4 different \ac{ML}-models, dens-\acf{NN}, \acf{PNN},
 \ac{LWTA} and XGBoost. The first three methods are all types of \ac{NN}. I have deliberately 
 chosen to focus on \ac{NN} given that there is far more freedom in the design of the architecture
 of a \ac{NN}, than compared to a XGboost. Additionally, this was motivated by the selfish reason
@@ -21,16 +21,15 @@ the case in this thesis. Specifically, in the case of non-dense layers I was for
 to dive into the world of \ac{ML} development and create my own implementation. 
 \subsubsection*{Max-out}
 TensorFlow have already implemented a very similar layer called MaxPooling1D. This does 
-exactly what max-out does, but with minor differences. Additionally, to wanting to avoid 
-these differences, I wanted the freedom to experiment with the implementation of the 
-layer. The implementation of both max-out and channel-out was done by creating a custom 
-activation function which is called inside a dense-layer. In the case of max-out, it is 
-inside the activation function that the down scaling of nodes happens. 
+exactly what max-out (see subsection \ref{subsubsec:maxout}) does, but with minor differences. 
+Additionally, I wanted the freedom to experiment with the implementation of the layer. The 
+implementation of both max-out and channel-out (see subsection \ref{subsubsec:channelout}) 
+was done by creating a custom activation function which is called inside a dense-layer. 
 \\
 In the code listing, \ref{lst:max_out} I have included the code implementation of the
 activation function used to create the max-out layer. The listing shows how the function
 takes the input from the previous layer, defines the new shape of what will become the 
-output, groups the nodes in the size defined by number of units, then return an output 
+output, groups the nodes in the size defined by number of units, then returns an output 
 which includes only the largest activated node from each unit. By using this function 
 in a dense-layer, said layer will act as a max-out layer. 
 \lstset{style=Python}
@@ -87,7 +86,7 @@ def channel_out(inputs, num_units = 200, axis=None, training=None):
     return output  
 \end{lstlisting}
 \subsection{Model Architecture}
-When choosing a network architecture, there are several ways to go about it. One way is to apply a grid search.
+When choosing a network architecture, there are several ways to proceed. One way is to apply a grid search.
 A grid search is simply defining a grid of parameters to test, then running through all combinations and 
 choosing the highest performer. With a sufficient amount of tests, a grid search should converge towards 
 an optimal architecture. Grid search is very common and there exists a large range of very complex varieties \cite{GS}.
@@ -111,23 +110,24 @@ better understanding of the final architecture.
     \label{fig:arch}
 \end{figure}
 \subsection*{Dense Neural Network and PNN}
-The purpose of the simple dense \ac{NN}, is to compare the other methods to what is usually considered a traditional \ac{NN}.
+The purpose of the simple dense \ac{NN}, is to compare the more complex networks to what is usually considered a traditional \ac{NN}.
 All layers are dense layers, meaning that all nodes in the previous layer are connected to the current layer, and likewise
 the current layer is connected to the next. The general structure of the network is summarized in figure \ref{fig:arch}, with 
 the network label \ac{NN}\footnote{Note that the dense network will henceforth be referred to as \ac{NN}}. The figure shows a \ac{DNN} with 
-three hidden layers, all with 600 nodes each. All hidden layers utilize the $LeakyReLU$ activation (see section \ref{subsec:activation})
-with an $\alpha$ = 0.01. The architecture is design to perform deep-training, and will train on all signal simultaneously. 
+three hidden layers, all with 600 nodes each. All hidden layers utiliz the $LeakyReLU$ activation (see section \ref{subsec:activation})
+with an $\alpha$ = 0.01. The architecture is designed to perform deep-training, and will train on a training set where all mass combinations 
+are included\footnote{Contrary to training one network for each mass combination.}. 
 \\
-The \ac{PNN} architecture is like the name suggests, included to represent the model proposed by the article \cite{PNN}.
+The \ac{PNN} architecture is like the name suggests, included to represent the model proposed by the article by Baldi et al. \cite{PNN}.
 The architecture is illustrated in figure \ref{fig:arch}, with the label PNN. The figure shows a practically identical 
 structure to the dense-\ac{NN}, with the only difference being in the input-layer. As was discussed in section \ref{subsec:PNN},
-the \ac{PNN} includes the free parameters\footnote{In our case, the masses of the \ac{BSM}-particles.} alongside the features
+the \ac{PNN} includes the new physics signal free parameters\footnote{In our case, the masses of the \ac{BSM}-particles.} alongside the features
 in the input layer.
 \subsection*{MaxOut}
 The MaxOut-network differs from the dense-network and the \ac{PNN} in that it uses an ensemble of networks. In figure \ref{fig:arch}
 I have illustrated the MaxOut architecture, with the label MaxOut. The figure shows a network with 6 hidden layers, 3 MaxOut and 3 dropout.
 The network alternates between drop out and MaxOut, starting with dropout and finishing with MaxOut. The MaxOut layers have 600 nodes each 
-which reduces down to the 200 nodes with the largest activation in their respective groups. Each dropout layer has a dropout rate of 0.15.
+which reduce down to the 200 nodes with the largest activation in their respective groups. Each dropout layer has a dropout rate of 0.15.
 \\
 
 
