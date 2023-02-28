@@ -129,6 +129,7 @@ I have illustrated the MaxOut architecture, with the label MaxOut. The figure sh
 The network alternates between drop out and MaxOut, starting with dropout and finishing with MaxOut. The MaxOut layers have 600 nodes each 
 which reduce down to the 200 nodes with the largest activation in their respective groups. Each dropout layer has a dropout rate of 0.15.
 \\
-
+\subsection{Training and Validating the Models}
+To allow for fair testing between the different models, I implemented the same training strategy for all. 
 
 

@@ -67,6 +67,10 @@ D.~Chung, L.~Everett, G.~Kane, S.~King, J.~Lykken and L.-T. Wang, \emph{The
   \href{http://dx.doi.org/https://doi.org/10.1016/j.physrep.2004.08.032}{\emph{Physics
   Reports} {\bf 407} (2005) 1--203}.
 
+\bibitem{PDetector}
+J.~Pequenao, ``{Event Cross Section in a computer generated image of the ATLAS
+  detector.}.'' 2008.
+
 \bibitem{Guest_2016}
 D.~Guest, J.~Collado, P.~Baldi, S.-C. Hsu, G.~Urban and D.~Whiteson, \emph{Jet
   flavor classification in high-energy physics with deep neural networks},
@@ -79,7 +83,9 @@ J.~Pumplin, \emph{How to tell quark jets from gluon jets},
   44} (Oct, 1991) 2025--2032}.
 
 \bibitem{StandardScaler}
-{Scikit-learn developers}, ``Pandas.''
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel
+  et~al., \emph{Scikit-learn: Machine learning in {P}ython}, {\emph{Journal of
+  Machine Learning Research} {\bf 12} (2011) 2825--2830}.
 
 \bibitem{PNN}
 P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
@@ -88,7 +94,11 @@ P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
   1601.07913 [hep-ex, physics:hep-ph]}}.
 
 \bibitem{XGB}
-{The XGBoost Contributors}, ``Xgboost.''
+T.~Chen and C.~Guestrin, \emph{{XGBoost}: A scalable tree boosting system},  in
+  \emph{Proceedings of the 22nd ACM SIGKDD International Conference on
+  Knowledge Discovery and Data Mining}, KDD '16, (New York, NY, USA),
+  pp.~785--794, ACM, 2016.
+\newblock \href{http://dx.doi.org/10.1145/2939672.2939785}{DOI}.
 
 \bibitem{Chen_2016}
 T.~Chen and C.~Guestrin, \emph{{XGBoost}},  in \emph{Proceedings of the 22nd
@@ -97,13 +107,16 @@ T.~Chen and C.~Guestrin, \emph{{XGBoost}},  in \emph{Proceedings of the 22nd
 \newblock \href{http://dx.doi.org/10.1145/2939672.2939785}{DOI}.
 
 \bibitem{ROOT}
-{The Root team}, ``Root.''
+R.~Brun and F.~Rademakers, \emph{Root - an object oriented data analysis
+  framework},  in \emph{AIHENP'96 Workshop, Lausane}, vol.~389, pp.~81--86,
+  1996.
 
 \bibitem{RDataFrame}
 {The Root team}, ``Rdataframe.''
 
 \bibitem{Pandas}
-{The Pandas team and voluntary contributers}, ``Pandas.''
+T.~pandas~development team, \emph{pandas-dev/pandas: Pandas},  Feb., 2020.
+\newblock 10.5281/zenodo.3509134.
 
 \bibitem{TLorentzVector}
 {The Root team}, ``Tlorentzvector.''
