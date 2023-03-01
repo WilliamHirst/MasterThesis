@@ -7,12 +7,10 @@ import json
 
 
 
-
-
 """
 MERGE AND TRANSFORM DATAFRAMES.
 """
-def loadDf(location, signal = None, incHigh = True, notInc = []):
+def loadDf(location, signal = None, incHigh = True, notInc = [], IncludeRange = None):
     from os import listdir
     from os.path import isfile, join
     onlyfiles = [f for f in listdir(location) if isfile(join(location, f))]
@@ -21,12 +19,7 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
     y = np.array([])
     channels = []
     for i in range(len(onlyfiles)):
-
-        cont = 0
-        for chan in notInc:
-            if chan in onlyfiles[i]:
-                cont = 1            
-        if cont: continue
+        if checkIfInclude(notInc, IncludeRange, onlyfiles[i]): continue
             
         if "data" not in onlyfiles[i]:
             channel = onlyfiles[i][:-7]
@@ -39,15 +32,6 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
             data_i = pd.read_hdf(f"{location}/{onlyfiles[i]}")
             data_i = data_i.drop(columns = ["wgt_SG", "type"])
             df_data = df_data.append(data_i, ignore_index=True,sort=False) 
-        # if "MGPy8EGA14N" in channel:
-        #     elem = channel.split("WZ")
-        #     m1 = elem[1][0:3]
-        #     if "p0p0" in channel:
-        #         elem = channel.split("p0p0")
-        #     else:
-        #         elem = channel.split("p0")
-        #     m2 = elem[1]  
-        #     saveToJson(int(np.sum(df_i.wgt_SG)), m1, m2, "NrEvents", "Events")
     if signal is None:
         y = df.type
     else:
@@ -58,7 +42,11 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
     if not incHigh:
         df = df.drop(columns = [feat for feat in df.keys() if feat not in lowFeats])
         df_data = df_data.drop(columns = [feat for feat in df.keys() if feat not in lowFeats]) 
+    print(df.channel.unique())
+    exit()
     return df, y, df_data, channels
+
+
 
 def mergeToRoot(MC, MC_wgt, Channels, Data=None, CutOff = None):
     import ROOT
@@ -364,6 +352,34 @@ def EmptyJson( metric, method):
     with open(f'results/{file}.json', "w") as outfile:
         outfile.write(json_object)
 
+def checkIfInclude(notInc, IncludeRange, channel): 
+    for chan in notInc:
+        if chan in channel:
+            print(channel, 'TEST 1')
+            return 1
+
+    # Checks if signal has mass inside inclusive mass range.
+    if IncludeRange is not None and "MGPy8EGA14N23" in channel:
+        m1Min, m1Max, m2Min, m2Max = IncludeRange
+        m1, m2 = getMass(channel)
+        if m1 >= m1Min and m1 <= m1Max and m2 >= m2Min and m2 <= m2Max:
+            return 0
+        print(channel, 'TEST 2')
+        return 1
+    
+    print(channel, 'TEST 3')
+    return 0
+
+def getMass(string):
+    elem = string.split("WZ")
+    m1 = elem[1][0:3]
+    if "p0p0" in string:
+        elem = string.split("p0p0")
+    else:
+        elem = string.split("p0")
+    m2 = elem[1]  
+    return m1, m2
+    
 
 
 

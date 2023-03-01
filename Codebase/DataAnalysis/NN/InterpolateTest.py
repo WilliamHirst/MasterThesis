@@ -22,11 +22,14 @@ myPath = "/storage/William_Sakarias/William_Data"
 name = "PNN_oneMass"
 signal = "SUSY"
 train = False
-
+notInc = ["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"]
+notInc = []
+IncludeRange = [450, 650, 150, 350]
 
 print(f"Starting test: Model = {name} -- Signal = {signal}")
 
-df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
+
+df, y, df_data, channels = loadDf(myPath, notInc = notInc)
 dfPNN, df_dataPNN = AddParameters(df, y,df_data)
 
 """
