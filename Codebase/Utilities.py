@@ -42,8 +42,6 @@ def loadDf(location, signal = None, incHigh = True, notInc = [], IncludeRange = 
     if not incHigh:
         df = df.drop(columns = [feat for feat in df.keys() if feat not in lowFeats])
         df_data = df_data.drop(columns = [feat for feat in df.keys() if feat not in lowFeats]) 
-    print(df.channel.unique())
-    exit()
     return df, y, df_data, channels
 
 
