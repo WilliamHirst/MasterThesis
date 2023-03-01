@@ -34,7 +34,6 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
     print(Z)
     print(M1, M2)
 
-    # fig, ax = plt.subplots()
     for c in unique_c:
         m1, m2 = getMass(c)
 
@@ -62,7 +61,6 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
             W_i.loc[(Y_i==0).to_numpy()] *= sf
             score = Calc_Sig(predict_prob(X_i), Y_i, W_i, sf =sf, best_threshold=threshold,max_sig= np.max(predict_prob(X_i)))
 
-            # plt.text(map1[f"{m1}"]+0.5,map2[f"{m2}"]+0.5, f"{score:.3f}", color = "white", fontsize = 'medium', path_effects=[pe.withStroke(linewidth=1, foreground="black")]) 
        
         if save:
             saveToJson(score, m1, m2, metric, method)
@@ -73,29 +71,11 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
         Z[map2[f"{m2}"], map1[f"{m1}"]] = score
 
     gridPlotter(mlType, name, metric)
-    # cmap = plt.pcolormesh(np.arange(len(M1)+1), np.arange(len(M2)+1), colorBar(Z), cmap = 'magma')
 
-    # cbar = fig.colorbar(cmap)
-    # cbar.ax.tick_params(size=0)
-    # cbar.set_ticks([])
-
-    # # Set ticks in center of cells
-    # ax.set_xticks(np.arange(len(M1)) + 0.5, minor=False)
-    # ax.set_yticks(np.arange(len(M2)) + 0.5, minor=False)
-    
-    # ax.set_xlabel(r"$\tilde{\chi}_2$ [Gev]",fontsize =20, loc = "right")
-    # ax.set_ylabel(r"$\tilde{\chi}_1$ [Gev]",fontsize =20, loc = "top",rotation=0, labelpad = -20)
-
-    # ax.set_xticklabels(M1,rotation=90)
-    # ax.set_yticklabels(M2)
-
-    # plt.savefig(f"../../../thesis/Figures/MLResults/{mlType}/SUSY/Grid/{name}{metric}.pdf", bbox_inches="tight")
-    # plt.show()
-
-def gridPlotter(mlType, name, metric):
+def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10):
     import matplotlib
     method = name.split('/')[-1]
-    with open(f'../{mlType}/results/SIG.json', 'r') as openfile:
+    with open(f'../{mlType}/results/{file_name}.json', 'r') as openfile:
         # Reading from json file
         json_object = json.load(openfile)
     scores = json_object[method]
@@ -111,7 +91,7 @@ def gridPlotter(mlType, name, metric):
         score = elem["score"]
         m1_i =elem["m1"]
         m2_i =elem["m2"]
-        if score >10:
+        if score >cut_off:
             scoreString = f"{score:.0f}"
             scale = np.NAN
         else:
@@ -180,5 +160,5 @@ def getMass(string):
 if __name__ == "__main__":
     from ROCM import plotRoc
     from plot_set import *
-    gridPlotter(mlType = "NN", name ="FS/MaxOutPCA_FSGrid", metric = "Sig")
+    #gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
     #HM(0, 0, 0, 0, 0,0)

@@ -20,7 +20,6 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
     df_data = pd.DataFrame()
     y = np.array([])
     channels = []
-    
     for i in range(len(onlyfiles)):
 
         cont = 0
@@ -40,8 +39,15 @@ def loadDf(location, signal = None, incHigh = True, notInc = []):
             data_i = pd.read_hdf(f"{location}/{onlyfiles[i]}")
             data_i = data_i.drop(columns = ["wgt_SG", "type"])
             df_data = df_data.append(data_i, ignore_index=True,sort=False) 
-        #print(np.sum(df_i.wgt_SG))
-        #print(onlyfiles[i])
+        # if "MGPy8EGA14N" in channel:
+        #     elem = channel.split("WZ")
+        #     m1 = elem[1][0:3]
+        #     if "p0p0" in channel:
+        #         elem = channel.split("p0p0")
+        #     else:
+        #         elem = channel.split("p0")
+        #     m2 = elem[1]  
+        #     saveToJson(int(np.sum(df_i.wgt_SG)), m1, m2, "NrEvents", "Events")
     if signal is None:
         y = df.type
     else:
@@ -323,8 +329,11 @@ def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_thresho
 def saveToJson(score, m1, m2, metric, method):
     if metric == "Auc":
         file = 'AUC'
+    elif metric == "NrEvents":
+        file = metric
     else:
         file = 'SIG'
+        
     with open(f'results/{file}.json', 'r') as openfile:
         # Reading from json file
         json_object = json.load(openfile)
