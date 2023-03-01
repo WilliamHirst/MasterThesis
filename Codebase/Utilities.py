@@ -355,19 +355,15 @@ def EmptyJson( metric, method):
 def checkIfInclude(notInc, IncludeRange, channel): 
     for chan in notInc:
         if chan in channel:
-            print(channel, 'TEST 1')
             return 1
 
     # Checks if signal has mass inside inclusive mass range.
     if IncludeRange is not None and "MGPy8EGA14N23" in channel:
         m1Min, m1Max, m2Min, m2Max = IncludeRange
         m1, m2 = getMass(channel)
-        if m1 >= m1Min and m1 <= m1Max and m2 >= m2Min and m2 <= m2Max:
+        if int(m1) >= m1Min and int(m1) <= m1Max and int(m2) >= m2Min and int(m2) <= m2Max:
             return 0
-        print(channel, 'TEST 2')
         return 1
-    
-    print(channel, 'TEST 3')
     return 0
 
 def getMass(string):
