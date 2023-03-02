@@ -93,6 +93,7 @@ def loadSamples(ex_path = ""):
     Tr = (X_train, Y_train, W_train, C_train)
     Va = (X_val, Y_val, W_val, C_val)
     return Tr, Va
+
 def separateByChannel(prediction, weights, df_channel, channels):
     mc_predict = []
     mc_weights = []
@@ -116,8 +117,25 @@ def splitAndPrepData(X,
                      PCA = False, 
                      n_components = None, 
                      ret_scaleFactor = False,
-                     addParam = False,
                      removeNeg = False):
+    """_summary_
+
+    Args:
+        X (_type_): Feature data set
+        Y (_type_): Labels for data set
+        split_v (float, optional): Ratio to split data in training and background. 
+                                   Defaults to 0.2.
+        scaleWeight (bool, optional): Bool . Defaults to True.
+        scale (bool, optional): _description_. Defaults to False.
+        PCA (bool, optional): _description_. Defaults to False.
+        n_components (_type_, optional): _description_. Defaults to None.
+        ret_scaleFactor (bool, optional): _description_. Defaults to False.
+        removeNeg (bool, optional): _description_. Defaults to False.
+
+    Returns:
+        _type_: _description_
+    """
+
     from sklearn.model_selection import train_test_split
    
     X_train, X_val, Y_train, Y_val = train_test_split(X, Y, test_size = split_v, random_state=42)
@@ -174,7 +192,6 @@ def scaleWeights(weights, y, ret_scaleFactor = False):
     if ret_scaleFactor:
         return weights, scaleFactor
     return weights, None
-
 
 def scaleData(X_train, X_val = None, scaler = "Standard"):
     if scaler == "Standard":

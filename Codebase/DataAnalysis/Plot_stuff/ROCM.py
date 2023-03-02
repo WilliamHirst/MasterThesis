@@ -11,8 +11,8 @@ import numpy as np
 def plotRoc(Y, Y_pred, weights, title, return_score = False, name = None, plot = None ):
     fpr, tpr, thresholds = roc_curve(Y,Y_pred, sample_weight = weights, pos_label=1)
     sorted_index = np.argsort(fpr)
-    fpr =  np.array(fpr)#[sorted_index]
-    tpr = np.array(tpr)#[sorted_index]
+    fpr =  np.array(fpr)[sorted_index]
+    tpr = np.array(tpr)[sorted_index]
     
     # fpr = fpr[np.where(fpr<=1)]
     # tpr = tpr[np.where(fpr<=1)]

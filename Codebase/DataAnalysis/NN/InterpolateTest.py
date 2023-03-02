@@ -13,19 +13,21 @@ sys.path.insert(1, "../")
 from Plot_stuff.plot_set import *
 from Plot_stuff.ROCM import *
 from Plot_stuff.HM import *
+from Plot_stuff.THP import *
+
 
 sys.path.insert(1, "../../")
 from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-name = "PNN_oneMass"
+name = "NN_Interpolation"
 signal = "SUSY"
-train = False
+
 notInc = ["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"]
 IncludeRange = [450, 650, 150, 350] 
 #IncludeRange = [500, 600, 200, 300]
-TestMasses = {500: [200, 250,300], 550: [200, 300], 600: [200, 250,300]} 
+TestMasses = {"500": ["200", "250","300"], "550": ["200", "300"], "600": ["200", "250","300"]} 
 
 print(f"Starting test: Model = {name} -- Signal = {signal}")
 
@@ -37,6 +39,7 @@ Create one signal dataset
 """
 # indx_m = (df.channel == "MGPy8EGA14N23LOC1N2WZ550p0250p03L2L7").to_numpy() 
 # indx_1 = (y==0).to_numpy() + indx_m
+
 # df_1 = df[indx_1] 
 # y_1 = y[indx_1]
 
@@ -48,7 +51,6 @@ indx_b = (y==0).to_numpy()
 indx = indx_b.copy()
 for chan in df[y == 1].channel.unique():
     m1, m2 = getMass(chan)
-    print(m1, m2 ,TestMasses.keys())
     if m1 in list(TestMasses.keys()):
         if m2 in TestMasses[m1]:
             print(m1,m2)
@@ -57,17 +59,18 @@ for chan in df[y == 1].channel.unique():
 
 df_R = df[indx]
 y_R = y[indx]
-print(df_R[y_R==1].channel.unique())
-exit()
 
+# indx = indx_m and (y==1).to_numpy() and not indx and indx_b
+# print(df[indx].channel.unique())
+# exit()
 #dfPNN, df_dataPNN = AddParameters(df_R, y_R, df_data)
 
 
 
 print("Preparing data....")
 # trainPNN, valPNN = splitAndPrepData(dfPNN, yPNN, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
-# train_1, val_1 = splitAndPrepData(df_1, y_1, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
-train_MaxOut, val_MaxOut = splitAndPrepData(df_R, y_R, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
+train_1, val_1 = splitAndPrepData(df_R, y_R, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
+# train_MaxOut, val_MaxOut = splitAndPrepData(df_R, y_R, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
 print("Done.")
 
 
@@ -77,13 +80,13 @@ print("Done.")
 
 
 
-# X_train_1, Y_train_1, W_train_1, C_train_1 = train_1
-# X_val_1, Y_val_1, W_val_1, C_val_1, scaleFactor_1 = val_1
-# nrFeature_1 = nFeats(X_train_1)
+X_train_1, Y_train_1, W_train_1, C_train_1 = train_1
+X_val_1, Y_val_1, W_val_1, C_val_1, scaleFactor_1 = val_1
+nrFeature_1 = nFeats(X_train_1)
 
-X_trainMaxOut, Y_trainMaxOut, W_trainMaxOut, C_trainMaxOut = train_MaxOut
-X_valMaxOut, Y_valMaxOut, W_valMaxOut, C_valMaxOut, scaleFactorMaxOut = val_MaxOut
-nrFeatureMaxOut = nFeats(X_trainMaxOut)
+# X_trainMaxOut, Y_trainMaxOut, W_trainMaxOut, C_trainMaxOut = train_MaxOut
+# X_valMaxOut, Y_valMaxOut, W_valMaxOut, C_valMaxOut, scaleFactorMaxOut = val_MaxOut
+# nrFeatureMaxOut = nFeats(X_trainMaxOut)
 
 """
 PNN
@@ -100,47 +103,53 @@ print("Compiling Model")
 """
 MaxOut
 """
-print("Compiling Model")
-modelMaxOut = tf.keras.Sequential()
-modelMaxOut.add(tf.keras.layers.InputLayer(input_shape=(nrFeatureMaxOut,)))
-modelMaxOut.add(tf.keras.layers.Dropout(0.15))
-modelMaxOut.add(MaxOut(units=600, num_inputs=nrFeatureMaxOut, num_groups=200))
-modelMaxOut.add(tf.keras.layers.Dropout(0.15))
-modelMaxOut.add(MaxOut(units=600, num_inputs=200, num_groups=200))
-modelMaxOut.add(tf.keras.layers.Dropout(0.15))
-modelMaxOut.add(MaxOut(units=600, num_inputs=200, num_groups=200))
-modelMaxOut.add(tf.keras.layers.Dense(1, activation="sigmoid"))
+# print("Compiling Model")
+# modelMaxOut = tf.keras.Sequential()
+# modelMaxOut.add(tf.keras.layers.InputLayer(input_shape=(nrFeatureMaxOut,)))
+# modelMaxOut.add(tf.keras.layers.Dropout(0.15))
+# modelMaxOut.add(MaxOut(units=600, num_inputs=nrFeatureMaxOut, num_groups=200))
+# modelMaxOut.add(tf.keras.layers.Dropout(0.15))
+# modelMaxOut.add(MaxOut(units=600, num_inputs=200, num_groups=200))
+# modelMaxOut.add(tf.keras.layers.Dropout(0.15))
+# modelMaxOut.add(MaxOut(units=600, num_inputs=200, num_groups=200))
+# modelMaxOut.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
 """
 NN
 """
-# model_1 = tf.keras.Sequential()
-# model_1.add(tf.keras.layers.InputLayer(input_shape=(nrFeature_1,)))
-# model_1.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
-# model_1.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
-# model_1.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
-# model_1.add(tf.keras.layers.Dense(1, activation="sigmoid"))
+model_1 = tf.keras.Sequential()
+model_1.add(tf.keras.layers.InputLayer(input_shape=(nrFeature_1,)))
+model_1.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+model_1.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+model_1.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=0.01)))
+model_1.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
 optimizer = optimizers.Adam(learning_rate=1e-3)
-# model_1.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
+model_1.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
 # modelPNN.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
-modelMaxOut.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
+# modelMaxOut.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
 print("Done compiling.")
 
 with tf.device("/GPU:0"):
-    callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
+    # callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
+    #                                             patience=10, 
+    #                                             restore_best_weights = True,
+    #                                             verbose = 1,
+    #                                             mode = "max")
+    
+    callback_1 = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
                                                 patience=10, 
                                                 restore_best_weights = True,
                                                 verbose = 1,
                                                 mode = "max")
-    # history = model_1.fit(X_train_1, 
-    #                       Y_train_1,
-    #                       sample_weight = W_train_1, 
-    #                       epochs=100, 
-    #                       batch_size=8192, 
-    #                       callbacks = [callback],
-    #                       validation_data=(X_val_1, Y_val_1, W_val_1),
-    #                       verbose = 1)
+    history = model_1.fit(X_train_1, 
+                          Y_train_1,
+                          sample_weight = W_train_1, 
+                          epochs=20, 
+                          batch_size=8192, 
+                          callbacks = [callback_1],
+                          validation_data=(X_val_1, Y_val_1, W_val_1),
+                          verbose = 1)
 
     # history = modelPNN.fit(X_trainPNN, 
     #                        Y_trainPNN,
@@ -151,20 +160,20 @@ with tf.device("/GPU:0"):
     #                        validation_data=(X_valPNN, Y_valPNN, W_valPNN),
     #                        verbose = 1)
 
-    history = modelMaxOut.fit(X_trainMaxOut, 
-                              Y_trainMaxOut,
-                              sample_weight = W_trainMaxOut, 
-                              epochs=100, 
-                              batch_size=8192, 
-                              callbacks = [callback],
-                              validation_data=(X_valMaxOut, Y_valMaxOut, W_valMaxOut),
-                              verbose = 1)
+    # history = modelMaxOut.fit(X_trainMaxOut, 
+    #                           Y_trainMaxOut,
+    #                           sample_weight = W_trainMaxOut, 
+    #                           epochs=100, 
+    #                           batch_size=8192, 
+    #                           callbacks = [callback],
+    #                           validation_data=(X_valMaxOut, Y_valMaxOut, W_valMaxOut),
+    #                           verbose = 1)
     
     # indx =  (df.channel=="MGPy8EGA14N23LOC1N2WZ700p0p0250p0p03L2L7").to_numpy() + (df.channel=="MGPy8EGA14N23LOC1N2WZ800p0p0250p0p03L2L7").to_numpy() + (df.channel=="MGPy8EGA14N23LOC1N2WZ750p0p0200p0p03L2L7").to_numpy()+(df.channel=="MGPy8EGA14N23LOC1N2WZ750p0p0300p0p03L2L7").to_numpy()+ (df.channel == "MGPy8EGA14N23LOC1N2WZ750p0p0250p0p03L2L7").to_numpy()
-    indx = indx_b + (y==1).to_numpy()-indx_s + indx_m
-    print(df[indx].channel.unique())
+  
     # df_test = df[indx + (y==0).to_numpy()]
     # y_test = y[indx + (y==0).to_numpy()]
+
     df_test = df
     y_test = y 
 
@@ -179,13 +188,13 @@ with tf.device("/GPU:0"):
     df_test = scaleData(df_test)
     # df_testPNN = scaleData(df_testPNN)
 
-    # name = "MaxOut_oneMass"
-    # HM(modelMaxOut, df_test, y_test, W, C, data = None, name = f"SUSY/Interpolation/{name}Grid", metric="Sig", save = False)
+    # name = "MaxOut_Interpolation"
+    # HM(modelMaxOut, df_test, y_test, W, C, data = None, name = f"Interpolation/{name}Grid", metric="Sig", save = True)
 
     name = "NN_Interpolation"
     HM(model_1, df_test, y_test, W, C, data = None, name = f"Interpolation/{name}Grid", metric="Sig", save = True)
+    THP(history, name, signal)
 
-
-    name = "PNN_oneMass"
-    # HM(modelPNN, df_testPNN, y_test, W, C, data = None, name = f"SUSY/Interpolation/{name}Grid", metric="Sig", save = False)
+    # name = "PNN_oneMass"
+    # HM(modelPNN, df_testPNN, y_test, W, C, data = None, name = f"Interpolation/{name}Grid", metric="Sig", save = True)
     
