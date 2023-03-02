@@ -2310,6 +2310,11 @@ INPUT ./Figures/Illustrations/TaskFlow.png
 INPUT Figures/Illustrations/TaskFlow.png
 INPUT ./Figures/Illustrations/TaskFlow.png
 INPUT ./Figures/Illustrations/TaskFlow.png
+INPUT ./Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
+INPUT ./Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
+INPUT Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
+INPUT ./Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
+INPUT ./Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
 INPUT ./Sections/Implementation/Features.tex
 INPUT ./Sections/Implementation/Features.tex
 INPUT ./Sections/Implementation/Features.tex
