@@ -21,7 +21,7 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-name = "NN_Interpolation"
+name = "NN_OneMass_Interpolation"
 signal = "SUSY"
 
 notInc = ["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"]
@@ -37,28 +37,28 @@ df, y, df_data, channels = loadDf(myPath, notInc = notInc, IncludeRange = Includ
 """
 Create one signal dataset
 """
-# indx_m = (df.channel == "MGPy8EGA14N23LOC1N2WZ550p0250p03L2L7").to_numpy() 
-# indx_1 = (y==0).to_numpy() + indx_m
+indx_m = (df.channel == "MGPy8EGA14N23LOC1N2WZ550p0250p03L2L7").to_numpy() 
+indx_1 = (y==0).to_numpy() + indx_m
 
-# df_1 = df[indx_1] 
-# y_1 = y[indx_1]
+df_1 = df[indx_1] 
+y_1 = y[indx_1]
 
-
+print(df_1.channel.unique())
 """
 Remove signals which will be used to test.
 """
-indx_b = (y==0).to_numpy()
-indx = indx_b.copy()
-for chan in df[y == 1].channel.unique():
-    m1, m2 = getMass(chan)
-    if m1 in list(TestMasses.keys()):
-        if m2 in TestMasses[m1]:
-            print(m1,m2)
-            continue
-    indx += (df.channel == chan).to_numpy()
+# indx_b = (y==0).to_numpy()
+# indx = indx_b.copy()
+# for chan in df[y == 1].channel.unique():
+#     m1, m2 = getMass(chan)
+#     if m1 in list(TestMasses.keys()):
+#         if m2 in TestMasses[m1]:
+#             print(m1,m2)
+#             continue
+#     indx += (df.channel == chan).to_numpy()
 
-df_R = df[indx]
-y_R = y[indx]
+# df_R = df[indx]
+# y_R = y[indx]
 
 # indx = indx_m and (y==1).to_numpy() and not indx and indx_b
 # print(df[indx].channel.unique())
@@ -69,7 +69,7 @@ y_R = y[indx]
 
 print("Preparing data....")
 # trainPNN, valPNN = splitAndPrepData(dfPNN, yPNN, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
-train_1, val_1 = splitAndPrepData(df_R, y_R, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
+train_1, val_1 = splitAndPrepData(df_1, y_1, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
 # train_MaxOut, val_MaxOut = splitAndPrepData(df_R, y_R, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
 print("Done.")
 
@@ -138,8 +138,8 @@ with tf.device("/GPU:0"):
     #                                             mode = "max")
     
     callback_1 = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
-                                                patience=10, 
-                                                restore_best_weights = True,
+                                                patience=15, 
+                                                restore_best_weights = False,
                                                 verbose = 1,
                                                 mode = "max")
     history = model_1.fit(X_train_1, 
@@ -191,7 +191,7 @@ with tf.device("/GPU:0"):
     # name = "MaxOut_Interpolation"
     # HM(modelMaxOut, df_test, y_test, W, C, data = None, name = f"Interpolation/{name}Grid", metric="Sig", save = True)
 
-    name = "NN_Interpolation"
+    name = "NN_OneMass_Overfitting15_Interpolation"
     HM(model_1, df_test, y_test, W, C, data = None, name = f"Interpolation/{name}Grid", metric="Sig", save = True)
     THP(history, name, signal)
 
