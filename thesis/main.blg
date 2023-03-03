@@ -22,36 +22,36 @@ Warning--entry type for "TLorentzVector" isn't style-file defined
 Warning--entry type for "Pandas" isn't style-file defined
 --line 182 of file bibliography.bib
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
-You've used 25 entries,
+You've used 26 entries,
             2188 wiz_defined-function locations,
-            714 strings with 104087 characters,
-and the built_in function-call counts, 6679 in all, are:
-= -- 633
-> -- 343
+            717 strings with 104237 characters,
+and the built_in function-call counts, 6810 in all, are:
+= -- 642
+> -- 357
 < -- 0
-+ -- 101
-- -- 76
-* -- 517
-:= -- 976
-add.period$ -- 28
-call.type$ -- 25
-change.case$ -- 24
++ -- 105
+- -- 79
+* -- 525
+:= -- 999
+add.period$ -- 29
+call.type$ -- 26
+change.case$ -- 25
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 291
-empty$ -- 628
-format.name$ -- 76
-if$ -- 1682
+cite$ -- 26
+duplicate$ -- 295
+empty$ -- 637
+format.name$ -- 79
+if$ -- 1713
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 62
-newline$ -- 83
-num.names$ -- 25
-pop$ -- 87
+int.to.str$ -- 26
+missing$ -- 65
+newline$ -- 86
+num.names$ -- 26
+pop$ -- 89
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 202
+skip$ -- 203
 stack$ -- 0
 substring$ -- 348
 swap$ -- 104
@@ -60,7 +60,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 57
-width$ -- 27
-write$ -- 233
+while$ -- 58
+width$ -- 28
+write$ -- 239
 (There were 3 warnings)

@@ -139,4 +139,8 @@ P.~Liashchynskyi and P.~Liashchynskyi, \emph{Grid search, random search,
   genetic algorithm: A big comparison for nas},  2019.
 \newblock 10.48550/ARXIV.1912.06059.
 
+\bibitem{8020}
+A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
+  between training and testing sets: A pedagogical explanation}, .
+
 \end{thebibliography}\endgroup

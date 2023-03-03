@@ -1,0 +1,33 @@
+\section{Model Training and Validation}
+\subsection{Training and Validating data}
+When building a \ac{ML}-model, the usual approach is to divide your data into three sets; training, validation and 
+testing. The training set is used to tune the internal parameters of the model, i.e. the weights and biases of a \ac{NN} or the cuts of a \ac{DT}.
+The validation set is used to tune the hyperparameters of the model, i.e. the architecture of the \ac{NN} or the maximum depth of the \ac{DT} etc.
+The test set should only be used when the model is finished, and is used to benchmark the models' performance. In our case, the performance we are 
+interested in, is the performance on the full \ac{MC}-bakgroundset and its comparison to the measured collision data.\footnote{See section INSERT 
+THE APPROPRIATE SECTION.}. Therefore, in this analysis only two sets of data will be used, training and validation where both are sampled from the simulated
+\ac{MC} data set. In theory, one could even just use one data set (training) including all the data, but the second was added as a precaution to reduce 
+overfitting when applied to the measured collision data.
+\\
+The overarching strategy is summarized in the following points:
+\begin{itemize}
+    \item Shuffle the data set. 
+    \item Split the data set in two, training ($80\%$) and validation ($20\%$)
+    \item Scale the two data set such that the sum of the weights of the background is equal to the sum of the weights of the signal in each data set.
+    \item Scale both data sets using the Standard Scalar approach (see section \ref{subsubsec:StandardScalar}) using the parameters of the training set 
+          on both sets.
+\end{itemize}
+The first step ensures an equal distribution of processes in both data sets. The $80-20\%$ is a popular practice in \ac{ML} (see \cite{8020}) and was chosen 
+here for convenience. The third step is done to ensure an equal prioritization for background classification and signal classification. In other words, if there 
+was a large imbalance between signal and background, the model would be motivated to tune more towards one trend than another. The final step is motivated in the
+section regarding data handling \ref{subsubsec:StandardScalar}. 
+
+\subsection{Training strategy}
+To best compare the different \ac{ML}-models, I decide to apply the same training strategy to all (including the boosted \ac{DT}). The strategy is simply to train the model 
+with the training set, then apply an early-stoppage algorithm (see section \ref{subsec:EarlyStopping}) with a cut-off based on the performance on the validation set. For 
+every epoch, the model makes a prediction on the validation data set, and logs the results. If more than 10 epochs go by without improving on the epoch with the best result,
+training stops and the weights of the best epoch are reset. 
+\\
+The performance from each epoch was measured in \ac{AUC} (see section \ref{subsec:AUC}), where the \ac{AUC} was calculated with the same weighting as in training ($50\%$ signal
+and $50\%$ background). The distribution of signal vs background is important when studying AUC, as it will greatly affect the value. For example, a classifier which predicts all 
+data to be background is a poor classifier. But, the larger the amount of background relative to signal, the higher the \ac{AUC} would be measured for such a classifier. 
