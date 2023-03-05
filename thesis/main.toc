@@ -56,6 +56,8 @@
 \contentsline {section}{\numberline {2.8}Decision Trees and Gradient Boosting}{21}{section.2.8}%
 \contentsline {subsection}{\numberline {2.8.1}Decision Trees}{21}{subsection.2.8.1}%
 \contentsline {subsection}{\numberline {2.8.2}Gradient Boosting in Decision Trees}{22}{subsection.2.8.2}%
+\contentsline {section}{\numberline {2.9}Machine Learning Applied to a BSM Search}{23}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}Interpretability}{23}{subsection.2.9.1}%
 \contentsline {chapter}{\numberline {3}Implementation of the Analysis}{25}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Tools and Data}{25}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Monte Carlo Data}{25}{subsection.3.1.1}%
@@ -79,5 +81,5 @@
 \contentsline {section}{\numberline {4.1}Visualizing Sparse Pathways}{43}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Comparing Machine Learning Models}{43}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Training History and Overfitting}{43}{subsection.4.2.1}%
-\contentsline {chapter}{Appendices}{47}{section*.59}%
-\contentsline {chapter}{Appendix A}{49}{appendix*.60}%
+\contentsline {chapter}{Appendices}{47}{section*.60}%
+\contentsline {chapter}{Appendix A}{49}{appendix*.61}%
