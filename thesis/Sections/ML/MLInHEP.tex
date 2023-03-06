@@ -1,4 +1,4 @@
-\section{Machine Learning Applied to a BSM Search}
+\section{Machine Learning Applied to a BSM Search}\label{sec:MLHEP}
 So far I have presented the goal of my analysis (to discover new physics)
 as well as the tools (\ac{ML}) I will be using to achieve it. In this section
 I will discuss how \ac{ML} is applied to the problem as well as how it compares
@@ -14,32 +14,45 @@ or similar, one could interpret the deviation as a new physics.
 \\
 To summarize, a search for new physics, is a search for deviation between simulation and 
 experiment. At first thought, this might seem like a simple task. And if said deviation 
-were large, it would be easy. In reality, any new physics which predicts large contributions 
+was large, it would be easy. In reality, any new physics which predicts large contributions 
 in the data currently measured by \ac{ATLAS} has been excluded a long time ago. Today, any
-promising extension of the \ac{SM} predicts to contribute weakly in any detector. As will 
+promising extension of the \ac{SM} predicts to contribute rarely in any detector. As will 
 be presented in later section, some theories that will be searched for in this thesis, only 
 contribute to a total of 6 events in a data set consisting of more than $3800000$ events 
 ($<0.002\%$). Not only would such a deviation be incredibly hard to detect, but it would 
 be close to impossible to determine if such a deviation is rooted in new physics or simply 
-statistical deviation between the two sets of data. 
+noise. 
 \\
 The traditional approach to this problem, is to study the data in physics motivated regions. 
-For example, in section \ref{sec:signal} I presented the feynman diagrams of the signals I 
+For example, in section \ref{sec:signal} I presented the Feynman diagrams of the signals I 
 searched for in this thesis. As mentioned, this type of final state is expected to exhibit 
 large amounts of missing transverse energy\footnote{Due to the neutralions being both heavy 
 and neutral.}. The traditional approach is to neglect all the data with small amounts of missing 
 energy, and only consider events of interest. By applying these kinds of constraints on the data, 
 you are creating a region where you expect to find as much of the signal as possible and as little 
 of the background. After applying a sufficient amount of demands (or cuts), you would count the 
-remaining data in your \emph{search region} and check for deviation. This approach is called cut-and-count.
+remaining data in your \emph{search region} and check for deviation. This approach is called \ac{CC}.
 \\
-\begin{figure}
+\begin{figure} 
     \centering
     \makebox[0.75\linewidth][c]{%
     \includegraphics[width=0.65\textwidth]{Figures/Illustrations/CandC.png}
     }
     \caption{An illustration of a traditional cut-and-count approach as well 
     as the motivation for creating a \ac{ML} variable.}
-    \label{fig:ROC}
+    \label{fig:overlap}
 \end{figure}
-\subsection{Interpretability}
+For a signal which greatly differs from the \ac{SM}, the \ac{CC} method could be sufficient. But, in 
+cases where the signal is similar to background, it becomes harder to create effective\footnote{By effective
+cuts I mean cuts which removes large amounts of the background while at the same time preserves as much of 
+the signal as possible.} cuts. In figure \ref{fig:overlap}, I have drawn an illustration of two different feature distributions both 
+displaying the distribution for a hypothetical signal and background. Additionally, I have drawn a 
+threshold in both distributions which represents the cut made to create a search region. In the first 
+figure (left) the distributions of signal and background are relatively similar, and the signal region 
+contains large amounts of background. In the second (right), the distributions of signal and background 
+are greatly different, and this variable would allow for a much more effective signal region. 
+\\
+The goal of introducing \ac{ML}, is to create a new feature in the data set where background and signal
+exhibit as little overlap as possible. In other words, the introduction of \ac{ML} means simply to 
+introduce another high-level features (like the invariant mass of the trilepton), but where the function 
+is found through training of a model instead of "theory". 

@@ -26,3 +26,18 @@ Too large and one risks "jumping" over the true minimum or simply never allowing
 to reach a high accuracy. Too small and one risks spending computation time beyond reason. 
 \subsection{Adam}
 
+\subsection{Cost functions}\label{subsec:Cost}
+How we define the performance of a \ac{ML} model is not only important when 
+evaluating the model, but is crucial during training. In the case of classification,
+it is natural to assume an appropriate metric should involve a comparison between 
+the predicted classification and the true classification. The variation of 
+performance metrics stems from the diversity of how one quantifies the comparison 
+between the two. During training, we define an objective function used to guide 
+the model towards optimal tuning. We call this function the \emph{cost function}. 
+\\
+\subsubsection{Mean Squared Error}\label{subsubsec:MSE}
+\ac{MSE}
+\subsubsection{Binary Crossentropy}
+\begin{align}
+    \mathcal{C}\left(Y, T\right) =-\sum_{i=1}^N\left[ \textbf{y}_i \log \left(\textbf{t}_i\right)+\left(1-\textbf{y}_i\right) \log \left(1-\textbf{t}_i\right)\right]
+\end{align}
