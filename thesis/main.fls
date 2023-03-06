@@ -2595,6 +2595,13 @@ INPUT Sections/Results/Axiomatic.tex
 INPUT ./Sections/Results/Axiomatic.tex
 INPUT ./Sections/Results/Axiomatic.tex
 INPUT Sections/Results/Axiomatic.tex
+INPUT ./Sections/Results/DNN.tex
+INPUT ./Sections/Results/DNN.tex
+INPUT ./Sections/Results/DNN.tex
+INPUT Sections/Results/DNN.tex
+INPUT ./Sections/Results/DNN.tex
+INPUT ./Sections/Results/DNN.tex
+INPUT Sections/Results/DNN.tex
 INPUT ./Sections/Results/EnsembleMethods.tex
 INPUT ./Sections/Results/EnsembleMethods.tex
 INPUT ./Sections/Results/EnsembleMethods.tex
@@ -2622,6 +2629,13 @@ INPUT ./Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf
 INPUT Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf
 INPUT ./Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf
 INPUT ./Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf
+INPUT ./Sections/Results/PNN.tex
+INPUT ./Sections/Results/PNN.tex
+INPUT ./Sections/Results/PNN.tex
+INPUT Sections/Results/PNN.tex
+INPUT ./Sections/Results/PNN.tex
+INPUT ./Sections/Results/PNN.tex
+INPUT Sections/Results/PNN.tex
 INPUT ./Sections/Results/MLComparison.tex
 INPUT ./Sections/Results/MLComparison.tex
 INPUT ./Sections/Results/MLComparison.tex

@@ -78,8 +78,13 @@
 \contentsline {subsection}{\numberline {3.4.1}Training and Validating data}{40}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Training strategy}{41}{subsection.3.4.2}%
 \contentsline {chapter}{\numberline {4}Results \& Discussion}{43}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Visualizing Sparse Pathways}{43}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Comparing Machine Learning Models}{43}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Training History and Overfitting}{43}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.1}Dense Neural Networks}{43}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Deep vs Shallow}{43}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Ensemble methods}{43}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Visualizing Sparse Pathways}{43}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Parametrized Neural Network}{43}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Discriminating Masses}{43}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Comparing Machine Learning Models}{43}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Training History and Overfitting}{43}{subsection.4.4.1}%
 \contentsline {chapter}{Appendices}{47}{section*.60}%
 \contentsline {chapter}{Appendix A}{49}{appendix*.61}%
