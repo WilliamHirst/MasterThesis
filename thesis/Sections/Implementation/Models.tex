@@ -1,4 +1,4 @@
-\section{The search through Machine Learning}
+\section{The Machine Learning Models}
 \subsection{Model selection}
 In this analysis I have chosen to compare 4 different \ac{ML}-models, dens-\acf{NN}, \acf{PNN},
 \ac{LWTA} and XGBoost. The first three methods are all types of \ac{NN}. I have deliberately 
@@ -128,24 +128,6 @@ The MaxOut-network differs from the dense-network and the \ac{PNN} in that it us
 I have illustrated the MaxOut architecture, with the label MaxOut. The figure shows a network with 6 hidden layers, 3 MaxOut and 3 dropout.
 The network alternates between drop out and MaxOut, starting with dropout and finishing with MaxOut. The MaxOut layers have 600 nodes each 
 which reduce down to the 200 nodes with the largest activation in their respective groups. Each dropout layer has a dropout rate of 0.15.
-\\
-\subsection{Training and Validating data}
-When building a \ac{ML}-model, the usual approach is to divide your data into three sets; training, validation and 
-testing. The training set is used to tune the internal parameters of the model, i.e. the weights and biases of a \ac{NN} or the cuts of a \ac{DT}.
-The validation set is used to tune the hyperparameters of the model, i.e. the architecture of the \ac{NN} or the maximum depth of the \ac{DT} etc.
-The test set should only be used when the model is finished, and is used to benchmark the models' performance. In our case, the performance we are 
-interested in, is the performance on the full \ac{MC}-bakgroundset and its comparison to the measured collision data.\footnote{See section INSERT 
-THE APPROPRIATE SECTION.}. Therefore, in this analysis only two sets of data will be used, training and validation. In theory, one could even just 
-use one data set (training) including all the data, but the second was added as a precaution to reduce overfitting when applied to the measured collision
-data.
-\\
-The overarching strategy is summarized in the following points:
-\begin{itemize}
-    \item Shuffle the data set. 
-    \item Split the data set in two, training ($80\%$) and validation ($20\%$)
-    \item Scale the two data set such that the sum of the weights of the background is equal to the sum of the weights of the signal in each data set.
-    \item Scale both data sets using the Standard Scalar approach (see section \ref{subsubsec:StandardScalar}) using the parameters of the training set 
-          on both sets.
-\end{itemize}
-The first stem ensures an equal 
+  
+ 
 

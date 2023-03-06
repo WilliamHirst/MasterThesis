@@ -238,9 +238,15 @@ means that my signal is in it of itself diverse. The free parameters studied in 
 new particles. The mass of a particle in a collision can greatly alter the feature space spanned by a channel.
 This means that a \ac{ML}-model could potentially struggle to tune according to all trends in the signal.
 The obvious solution to this problem is simply to implement one model per mass combination, or choice of mass 
-and simply reusing the background. But, not only is this tedious work, but for signals with low statistics 
-you would run the risk of overfitting. 
-\\\newline
+and simply reusing the background. Although this approach is very popular, I have decided not to use it for (mainly)
+three reasons:
+\begin{itemize}
+    \item This approach has been carefully studied for many years, and leaves little room to further explore. 
+    \item Some signals overlap in the feature space. This means that by neglecting signal with relative 
+          similar mass, you could be neglecting statistics which could help tune to your original signal. 
+    \item By including two signals with relatively similar masses, some\footnote{See the paper by Baldi et al. \cite{PNN}.} 
+          suggest that the model would be able to interpolate between the masses and cover a larger search area.
+\end{itemize}
 When the data set is dependent on a set of free parameters, $\theta = [\theta_0,\theta_1,\theta_2,...,\theta_N]$,
 we can write $X(\theta)$. For a single neural network trained on a set of parameters, we define the model as 
 $\mathcal{F}(X(\theta))$. In the case we build one model for each choice of parameter, we get a set of models
