@@ -68,12 +68,10 @@ def writeHistsToFile(histo, writetofile = True):
             histo[k].SetMarkerStyle(20)
         elif d_samp[typ]["type"] == "sig":
             #histo[k].SetFillColor(0)
-            histo[k].SetFillColorAlpha(d_samp[typ]["l_color"],0.3)
+            # histo[k].SetFillColorAlpha(d_samp[typ]["l_color"],0.3)
             histo[k].SetLineColor(d_samp[typ]["l_color"])
             
-            histo[k].SetMarkerStyle(1)
-            histo[k].SetMarkerSize(2)
-            histo[k].SetLineStyle(1)
+            histo[k].SetLineStyle(9)
             histo[k].SetLineWidth(4)
         if writetofile:
             histo[k].Write()
