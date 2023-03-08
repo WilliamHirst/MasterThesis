@@ -66,69 +66,69 @@ for samp in d_samp.keys():
 
 
 featdic = {"lep1_Pt"  : {"xlabel":"P_{t}(l_{1}) [GeV]",
-                        "nr_bins": 40, "min" : 25, "max" : 300},
+                        "nr_bins": 40, "min" : 25, "max" : 300, "plotLeg" : False},
            "lep2_Pt"  : {"xlabel":"P_{t}(l_{2}) [GeV]",
-                        "nr_bins": 30, "min" : 20, "max" : 250},
+                        "nr_bins": 30, "min" : 20, "max" : 250, "plotLeg" : True},
            "lep3_Pt"  : {"xlabel":"P_{t}(l_{3}) [GeV]",
-                        "nr_bins": 30, "min" : 7, "max" : 120},
+                        "nr_bins": 30, "min" : 7, "max" : 120, "plotLeg" : False},
            "lep1_E"  : {"xlabel":"E(l_{1}) [GeV]",
-                        "nr_bins": 40, "min" : 20, "max" : 500},
+                        "nr_bins": 40, "min" : 20, "max" : 500, "plotLeg" : True},
            "lep2_E"  : {"xlabel":"E(l_{2}) [GeV]",
-                        "nr_bins": 40, "min" : 20, "max" : 500},
+                        "nr_bins": 40, "min" : 20, "max" : 500, "plotLeg" : True},
            "lep3_E"  : {"xlabel":"E(l_{3}) [GeV]",
-                        "nr_bins": 40, "min" : 20, "max" : 500},
+                        "nr_bins": 40, "min" : 20, "max" : 500, "plotLeg" : True},
            "lep1_Mt"  : {"xlabel":"M_{T}(l_{1}) [GeV]",
-                        "nr_bins": 40, "min" : 20, "max" : 250},
+                        "nr_bins": 40, "min" : 20, "max" : 250, "plotLeg" : True},
            "lep2_Mt"  : {"xlabel":"M_{T}(l_{2}) [GeV]",
-                        "nr_bins": 30, "min" : 15, "max" : 200},
+                        "nr_bins": 30, "min" : 15, "max" : 200, "plotLeg" : False},
            "lep3_Mt"  : {"xlabel":"M_{T}(l_{3}) [GeV]",
-                        "nr_bins": 30, "min" : 10, "max" : 120},
+                        "nr_bins": 30, "min" : 10, "max" : 120, "plotLeg" : True},
            "lep1_Eta" : {"xlabel":"\eta(l_{1})",
-                        "nr_bins": 20, "min" : -3, "max" : 3},
+                        "nr_bins": 20, "min" : -3, "max" : 3, "plotLeg" : True},
            "lep2_Eta" : {"xlabel":"\eta(l_{2})",
-                        "nr_bins": 20, "min" : -3, "max" : 3},
+                        "nr_bins": 20, "min" : -3, "max" : 3, "plotLeg" : False},
            "lep3_Eta" : {"xlabel":"\eta(l_{3})",
-                        "nr_bins": 20, "min" : -3, "max" : 3},
+                        "nr_bins": 20, "min" : -3, "max" : 3, "plotLeg" : True},
            "lep1_Phi" : {"xlabel":"\phi(l_{1})",
-                        "nr_bins": 20, "min" : -3.5, "max" : 3.5},
+                        "nr_bins": 20, "min" : -3.5, "max" : 3.5, "plotLeg" : False},
            "lep2_Phi" : {"xlabel":"\phi(l_{2})",
-                        "nr_bins": 20, "min" : -3.5, "max" : 3.5},
+                        "nr_bins": 20, "min" : -3.5, "max" : 3.5, "plotLeg" : True},
            "lep3_Phi" : {"xlabel":"\phi(l_{3})",
-                        "nr_bins": 20, "min" : -3.5, "max" : 3.5},
+                        "nr_bins": 20, "min" : -3.5, "max" : 3.5, "plotLeg" : False},
            "lep1_Charge" : {"xlabel": "Charge(l_{1})",
-                        "nr_bins": 2, "min" : -2, "max" : 2},
+                        "nr_bins": 2, "min" : -2, "max" : 2, "plotLeg" : False},
            "lep2_Charge" : {"xlabel": "Charge(l_{2})",
-                        "nr_bins": 2, "min" : -2, "max" : 2},
+                        "nr_bins": 2, "min" : -2, "max" : 2, "plotLeg" : True},
            "lep3_Charge" : {"xlabel": "Charge(l_{3})",
-                        "nr_bins": 2, "min" : -2, "max" : 2},
+                        "nr_bins": 2, "min" : -2, "max" : 2, "plotLeg" : False},
            "lep1_Flavor" : {"xlabel": "Flavor(l_{1})",
-                        "nr_bins": 2, "min" : 0.5, "max" : 2.5},
+                        "nr_bins": 2, "min" : 0.5, "max" : 2.5, "plotLeg" : True},
            "lep2_Flavor" : {"xlabel": "Flavor(l_{2})",
-                        "nr_bins": 2, "min" : 0.5, "max" : 2.5},
+                        "nr_bins": 2, "min" : 0.5, "max" : 2.5, "plotLeg" : False},
            "lep3_Flavor" : {"xlabel": "Flavor(l_{3})",
-                        "nr_bins": 2, "min" : 0.5, "max" : 2.5},
-           "met_Et"   : {"xlabel":"E_{T}^{miss}[GeV]"},
-           "met_Phi"  : {"xlabel":"\phi (miss)"},
-           "deltaR"  : {"xlabel":"\Delta R"},
-           "mlll"  : {"xlabel":"M_{lll} [GeV]"},
-           "mll_OSSF"  : {"xlabel":"M_{ll} (OSSF) [GeV]"},
-           "Ht_lll"  : {"xlabel":"H_{t}(lll)[GeV]"},
-           "Ht_SS"  : {"xlabel":"H_{t}(SS)[GeV]"},
-           "Ht_met_Et"  : {"xlabel":"H_{t}(lll) + E_{T}^{miss}[GeV]"},
-           "M_jj"  : {"xlabel":"M_{jj}[GeV]"},
-           "njet_SG" : {"xlabel":"Nr of signal Jets"},
-           "met_Sign"  : {"xlabel":"Significance of E_{t}^{miss}"},
-           "flcomp"  : {"xlabel":"Flavour Combination"},
-           "nbjet85" : {"xlabel":"Nr of B-jets (85)"},
-           "nbjet77" : {"xlabel":"Nr of B-jets (77)"},
-           "lep1_Pt_Neg" : {"xlabel": "|P_{t}(l_{1})| [GeV] (-w_{i}) "},
-           "lep2_Pt_Neg" : {"xlabel": "|P_{t}(l_{2})| [GeV] (-w_{i})"},
-           "lep1_Phi_Neg" : {"xlabel": "|\phi(l_{1})|(-w_{i})"},
-           "lep2_Phi_Neg" : {"xlabel": "|\phi(l_{2})|(-w_{i})"},
-           "lep1_Pt_nNeg" : {"xlabel": "P_{t}(l_{1}) [GeV]"},
-           "lep2_Pt_nNeg" : {"xlabel": "P_{t}(l_{2}) [GeV]"},
-           "lep1_Phi_nNeg" : {"xlabel": "\phi(l_{1})"},
-           "lep2_Phi_nNeg" : {"xlabel": "\phi(l_{2})"}
+                        "nr_bins": 2, "min" : 0.5, "max" : 2.5, "plotLeg" : True},
+           "met_Et"   : {"xlabel":"E_{T}^{miss}[GeV]", "plotLeg" : False},
+           "met_Phi"  : {"xlabel":"\phi (miss)", "plotLeg" : True},
+           "deltaR"  : {"xlabel":"\Delta R", "plotLeg" : False},
+           "mlll"  : {"xlabel":"M_{lll} [GeV]", "plotLeg" : False},
+           "mll_OSSF"  : {"xlabel":"M_{ll} (OSSF) [GeV]", "plotLeg" : True},
+           "Ht_lll"  : {"xlabel":"H_{t}(lll)[GeV]", "plotLeg" : True},
+           "Ht_SS"  : {"xlabel":"H_{t}(SS)[GeV]", "plotLeg" : False},
+           "Ht_met_Et"  : {"xlabel":"H_{t}(lll) + E_{T}^{miss}[GeV]", "plotLeg" : True},
+           "M_jj"  : {"xlabel":"M_{jj}[GeV]", "plotLeg" : True},
+           "njet_SG" : {"xlabel":"Nr of signal Jets", "plotLeg" : False},
+           "met_Sign"  : {"xlabel":"Significance of E_{t}^{miss}", "plotLeg" : False},
+           "flcomp"  : {"xlabel":"Flavour Combination", "plotLeg" : True},
+           "nbjet85" : {"xlabel":"Nr of B-jets (85)", "plotLeg" : True},
+           "nbjet77" : {"xlabel":"Nr of B-jets (77)", "plotLeg" : False},
+           "lep1_Pt_Neg" : {"xlabel": "|P_{t}(l_{1})| [GeV] (-w_{i}) ", "plotLeg" : False},
+           "lep2_Pt_Neg" : {"xlabel": "|P_{t}(l_{2})| [GeV] (-w_{i})", "plotLeg" : False},
+           "lep1_Phi_Neg" : {"xlabel": "|\phi(l_{1})|(-w_{i})", "plotLeg" : False},
+           "lep2_Phi_Neg" : {"xlabel": "|\phi(l_{2})|(-w_{i})", "plotLeg" : False},
+           "lep1_Pt_nNeg" : {"xlabel": "P_{t}(l_{1}) [GeV]", "plotLeg" : True},
+           "lep2_Pt_nNeg" : {"xlabel": "P_{t}(l_{2}) [GeV]", "plotLeg" : True},
+           "lep1_Phi_nNeg" : {"xlabel": "\phi(l_{1})", "plotLeg" : True},
+           "lep2_Phi_nNeg" : {"xlabel": "\phi(l_{2})", "plotLeg" : True}
 
 }
 Nlep = 3
@@ -160,6 +160,9 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
 
         df = {**df_mc}#,**df_data}
         for k in df.keys():
+            # if k != "Wjets" and k != "data18" and k != "ttbar":
+            if k not in list(bkgdic.keys()):
+                continue
             isData = "data" in k
 
             if not isData:
@@ -433,9 +436,9 @@ writeHistsToFile(histo, False)
 toplot = []
 for bkg in bkgdic.keys():
     toplot.append(bkg)
-
-for sig in sigdic.keys():
-     toplot.append(sig)
+# toplot = ["Wjets", "data18", "ttbar"]
+# for sig in sigdic.keys():
+#      toplot.append(sig)
 
 allFeats = histo.keys()
 featuresPlot = []
@@ -448,10 +451,10 @@ for feature in featuresPlot:
         xlabel = featdic[feature]["xlabel"]
     else:
         xlabel = feature
-    p = pt.Plot(histo,feature,toplot,xtext = xlabel)
-    p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/SignalSUSY/{feature}.pdf")
+    p = pt.Plot(histo,feature,toplot,xtext = xlabel, plotLeg=featdic[feature]["plotLeg"])
+    p.can.SaveAs(f"../../../thesis/Figures/FeaturesHistograms/test/{feature}.pdf")
     p.can.Draw()
-    
+exit()
 
 
 # feature = "lep1_Pt"

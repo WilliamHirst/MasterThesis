@@ -20,9 +20,9 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-name = "PNNPCA_FS_MLM"
+name = "PNN_FS_MLM"
 signal = "SUSY"
-train = False
+train = True
 #notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0"]
 notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0", "WZ100p0p0","WZ150p0p050p0", "WZ150p0p00p0p", "WZ200p0p00p0", "WZ200p0p050p0"]
 
@@ -35,7 +35,7 @@ df, df_data = AddParameters(df, y,df_data)
 
 if train:
     print("Preparing data....")
-    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True, PCA=True, n_components=1-1e-3)
+    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
     print("Done.")
 
     X_train, Y_train, W_train, C_train = train

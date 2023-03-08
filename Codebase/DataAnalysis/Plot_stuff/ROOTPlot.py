@@ -7,7 +7,7 @@ import plottingTool as pt
 from pyHelperFunctions import *
 
 
-def PlotRootHisto(MC, MC_wgt, Channels, title, xlabel, bins, sigdic, Data = None, CutOff = None):
+def PlotRootHisto(MC, MC_wgt, Channels, title, xlabel, bins, sigdic, Data = None, CutOff = None, noData = False):
 
     R.EnableImplicitMT(200)
 
@@ -46,6 +46,9 @@ def PlotRootHisto(MC, MC_wgt, Channels, title, xlabel, bins, sigdic, Data = None
     def runANA(df, histo, allhisto):
 
         for k in df.keys():
+
+            if k not in list(bkgdic.keys()) and k not in list(sigdic.keys()):
+                continue 
             # HISTOGRAMS
             histo["ML_Val_%s"%k] = df[k].Histo1D(("ML_Val_%s"%k,"ML_Val_%s"%k,bins,CutOff,1),"ML_Val","wgt")
         
@@ -81,7 +84,7 @@ def PlotRootHisto(MC, MC_wgt, Channels, title, xlabel, bins, sigdic, Data = None
             xlabel = featdic[feature]["xlabel"]
         else:
             xlabel = feature
-        p = pt.Plot(histo,feature,toplot,xtext = xlabel, mergeSig = False)
+        p = pt.Plot(histo,feature,toplot,xtext = xlabel, mergeSig = False, noData = noData, plotLeg = True)
         p.can.SaveAs(f"../../../thesis/Figures/MLResults/{title}.pdf")
         p.can.Draw()
     

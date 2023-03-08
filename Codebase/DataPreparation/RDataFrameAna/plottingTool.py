@@ -40,7 +40,7 @@ def findKey(histname):
 
 class Plot:
 
-    def __init__(p,hdic,hname = "lepPt_ele_hT", bkgs = [], is1D = True, xtext = "Feature 1", doscale = False, mergeSig = True):
+    def __init__(p,hdic,hname = "lepPt_ele_hT", bkgs = [], is1D = True, xtext = "Feature 1", doscale = False, mergeSig = True, noData = False, plotLeg = True):
 
       p.doscale = doscale
       p.is1D = is1D
@@ -51,12 +51,11 @@ class Plot:
       p.Data = [d for d in bkgs if "data" in d]
 
       p.MergeSig = mergeSig
-
-  
+      p.plotLeg = plotLeg
+      p.noData = noData
       p.Neg = False
       if "Neg" in hname:
         p.Neg = True
-        print()
 
 
       if p.is1D: p.plot1D(hdic,hname,bkgs)
@@ -131,18 +130,29 @@ class Plot:
           p.isEff = True
       
         # Define canvas and pads
-        p.can  = R.TCanvas('','',1000,1000)
+        if p.noData:
+          p.can  = R.TCanvas('','',1750,1000)
+        elif p.plotLeg:
+          p.can  = R.TCanvas('','',1300,1000)
+        else:
+          p.can  = R.TCanvas('','',1000,1000)
         p.customise_gPad()
         if not p.isEff:
           if p.Neg:
             p.pad1 = R.TPad('pad1', '', 0.0, 0., 1.0, 1.0)
+          elif p.noData:
+             p.pad1 = R.TPad('pad1', '', 0.0, 0., 1, 1.0)
           else:
             p.pad1 = R.TPad('pad1', '', 0.0, 0.40, 1.0, 1.0)
             p.pad2 = R.TPad('pad2', '', 0.0, 0.00, 1.0, 0.4)
 
         # Margins used for the pads
-        gpLeft = 0.17
-        gpRight = 0.05
+        if p.noData or p.plotLeg:
+          gpLeft = 0.125
+          gpRight = 0.25
+        else:
+          gpLeft = 0.17
+          gpRight = 0.05
         #-------
         # PAD1
         #-------
@@ -151,6 +161,8 @@ class Plot:
           p.pad1.cd()
           if p.Neg:
             p.customise_gPad(top=0.08, bot=0.25, left=gpLeft, right=gpRight)
+          elif p.noData:
+            p.customise_gPad(top=0.08, bot=0.15, left=gpLeft, right=gpRight)
           else:
             p.customise_gPad(top=0.08, bot=0.04, left=gpLeft, right=gpRight)
 
@@ -158,16 +170,21 @@ class Plot:
         if not p.isEff:
           if p.Neg:
             p.leg = R.TLegend(0.60,0.71,0.91,0.90)
+            p.leg.SetTextSize(0.015)
+            p.leg.SetNColumns(2)
+          elif p.noData:
+            p.leg = R.TLegend(0.75,0.5,1,0.9)
+            p.leg.SetTextSize(0.03)
+            p.leg.SetNColumns(1)
           else:
-            p.leg = R.TLegend(0.60,0.56,0.91,0.90)
+            p.leg = R.TLegend(0.75,0.5,1,0.9)
+            p.leg.SetTextSize(0.04)
+            p.leg.SetNColumns(1)
         else:
           p.leg = R.TLegend(0.55,0.77,0.91,0.94)
         p.leg.SetBorderSize(0)
-        p.leg.SetNColumns(2)
-        if p.Neg:
-          p.leg.SetTextSize(0.015)
-        else:
-          p.leg.SetTextSize(0.02)
+   
+       
 
 
         p.nTotBkg = 0.0
@@ -203,7 +220,6 @@ class Plot:
         else:
           print("Sorry there's nothing there to plot")
         
-        p.leg.Draw()
 
         ATL_status = "Internal"
         text_size = 0.045
@@ -234,8 +250,12 @@ class Plot:
           p.can.Update()
         
 
-        if not p.isEff:
-          myText(0.77, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.025, R.kBlack)
+        if not p.isEff and p.plotLeg:
+          p.leg.Draw()
+          if p.noData:
+            myText(0.815, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.04, R.kBlack)
+          else:
+            myText(0.77, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.04, R.kBlack)
 
         
         p.ratio = R.TH1D()
@@ -250,7 +270,7 @@ class Plot:
         # PAD2
         #-------
         p.can.cd()
-        if not p.isEff and not p.Neg:
+        if not p.isEff and not p.Neg and not p.noData:
           p.pad2.Draw()
           p.pad2.cd()
           p.customise_gPad(top=0.05, bot=0.39, left=gpLeft, right=gpRight)
@@ -465,13 +485,13 @@ class Plot:
         print("ytitle  = ",  ytitle)
 
         # Top panel
-        if 'Events' in ytitle and not p.Neg:
+        if 'Events' in ytitle and not p.Neg and not p.noData:
             xax.SetLabelSize(0)
             xax.SetLabelOffset(0.02)
             xax.SetTitleOffset(2.0)
             xax.SetTickSize(0.04)
         # Bottom panel
-        else:
+        elif p.Neg:
             xax.SetLabelSize(text_size - 7)
             xax.SetLabelOffset(0.03)
             if p.Neg:
@@ -479,6 +499,18 @@ class Plot:
             else:
               xax.SetTitleOffset(3.5)
             xax.SetTickSize(0.08)
+        elif p.noData:
+          xax.SetLabelSize(text_size - 7)
+          xax.SetLabelOffset(0.03)
+          xax.SetTitleOffset(1.2)
+        
+          xax.SetTickSize(0.08)
+        else:
+          xax.SetLabelSize(text_size - 7)
+          xax.SetLabelOffset(0.03)
+          xax.SetTitleOffset(3.25)
+        
+          xax.SetTickSize(0.08)
 
         # xax.SetRangeUser(0,2000)
         # xax.SetNdivisions(-505)
@@ -495,7 +527,12 @@ class Plot:
 
         yax.SetTitle(ytitle)
         yax.SetTitleSize(text_size)
-        yax.SetTitleOffset(1.8)
+        if p.noData:
+          yax.SetTitleOffset(1.15)
+        elif p.plotLeg:
+          yax.SetTitleOffset(1.15)
+        else:
+          yax.SetTitleOffset(1.8)
 
         yax.SetLabelOffset(0.015)
         yax.SetLabelSize(text_size - 7)
@@ -525,6 +562,9 @@ class Plot:
                     ymax *= 10*10
                     if p.Neg:
                       ymin = 0.05
+                      ymax = 1e6
+                    elif p.noData:
+                      ymin = 5
                       ymax = 1e6
                     else:
                       ymin = 5
