@@ -40,7 +40,7 @@ def findKey(histname):
 
 class Plot:
 
-    def __init__(p,hdic,hname = "lepPt_ele_hT", bkgs = [], is1D = True, xtext = "Feature 1", doscale = False, mergeSig = True, noData = False):
+    def __init__(p,hdic,hname = "lepPt_ele_hT", bkgs = [], is1D = True, xtext = "Feature 1", doscale = False, mergeSig = True, noData = False, plotLeg = True):
 
       p.doscale = doscale
       p.is1D = is1D
@@ -51,7 +51,7 @@ class Plot:
       p.Data = [d for d in bkgs if "data" in d]
 
       p.MergeSig = mergeSig
-
+      p.plotLeg = plotLeg
       p.noData = noData
       p.Neg = False
       if "Neg" in hname:
@@ -130,7 +130,7 @@ class Plot:
           p.isEff = True
       
         # Define canvas and pads
-        if p.noData:
+        if p.noData and p.plotLeg:
           p.can  = R.TCanvas('','',1750,1000)
         else:
           p.can  = R.TCanvas('','',1000,1000)
@@ -145,7 +145,7 @@ class Plot:
             p.pad2 = R.TPad('pad2', '', 0.0, 0.00, 1.0, 0.4)
 
         # Margins used for the pads
-        if p.noData:
+        if p.noData and p.plotLeg:
           gpLeft = 0.125
           gpRight = 0.25
         else:
@@ -218,7 +218,6 @@ class Plot:
         else:
           print("Sorry there's nothing there to plot")
         
-        p.leg.Draw()
 
         ATL_status = "Internal"
         text_size = 0.045
@@ -249,7 +248,8 @@ class Plot:
           p.can.Update()
         
 
-        if not p.isEff:
+        if not p.isEff and p.plotLeg:
+          p.leg.Draw()
           if p.noData:
             myText(0.815, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.03, R.kBlack)
           else:
@@ -554,7 +554,7 @@ class Plot:
                       ymin = 0.05
                       ymax = 1e6
                     elif p.noData:
-                      ymin = 0.1
+                      ymin = 5
                       ymax = 1e6
                     else:
                       ymin = 5

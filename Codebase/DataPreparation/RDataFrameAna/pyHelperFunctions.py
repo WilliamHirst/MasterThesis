@@ -72,7 +72,7 @@ def writeHistsToFile(histo, writetofile = True):
             histo[k].SetLineColor(d_samp[typ]["l_color"])
             
             histo[k].SetLineStyle(9)
-            histo[k].SetLineWidth(4)
+            histo[k].SetLineWidth(3)
         if writetofile:
             histo[k].Write()
 

@@ -84,7 +84,7 @@ def PlotRootHisto(MC, MC_wgt, Channels, title, xlabel, bins, sigdic, Data = None
             xlabel = featdic[feature]["xlabel"]
         else:
             xlabel = feature
-        p = pt.Plot(histo,feature,toplot,xtext = xlabel, mergeSig = False, noData = noData)
+        p = pt.Plot(histo,feature,toplot,xtext = xlabel, mergeSig = False, noData = noData, plotLeg = True)
         p.can.SaveAs(f"../../../thesis/Figures/MLResults/{title}.pdf")
         p.can.Draw()
     
