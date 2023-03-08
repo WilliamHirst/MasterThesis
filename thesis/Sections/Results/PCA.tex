@@ -1,5 +1,5 @@
 \section{Increasing Sensitivity through PCA}
-So far in the analysis, all features have been given an equal role in the beginning of training. 
+So far in the analysis, all features have been given an equal weighting in the beginning of training,
 But, as mentioned in section \ref{sec:MLHEP}, not all features contribute to an effective signal 
 region. In section \ref{subsec:PCA}, I explained how through the use of \ac{PCA}, we are able to 
 create a new set of features which can be ordered by amount of variance. In this way, we can reduce
@@ -7,6 +7,4 @@ the dimensionality of the data set, while at the same time preserving most of th
 section I will present the results of training on a data set which has gone through such a \ac{PCA}.
 \\
 In this analysis I performed a \ac{PCA} on the data set, and demanded that $99.99\%$ of the variance 
-should be preserved. In doing so, 5 features were removed.
-
- 
+should be preserved. In doing so, 5 features were removed. 
