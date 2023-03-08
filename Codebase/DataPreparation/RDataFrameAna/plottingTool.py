@@ -130,8 +130,10 @@ class Plot:
           p.isEff = True
       
         # Define canvas and pads
-        if p.noData and p.plotLeg:
+        if p.noData:
           p.can  = R.TCanvas('','',1750,1000)
+        elif p.plotLeg:
+          p.can  = R.TCanvas('','',1300,1000)
         else:
           p.can  = R.TCanvas('','',1000,1000)
         p.customise_gPad()
@@ -145,7 +147,7 @@ class Plot:
             p.pad2 = R.TPad('pad2', '', 0.0, 0.00, 1.0, 0.4)
 
         # Margins used for the pads
-        if p.noData and p.plotLeg:
+        if p.noData or p.plotLeg:
           gpLeft = 0.125
           gpRight = 0.25
         else:
@@ -175,9 +177,9 @@ class Plot:
             p.leg.SetTextSize(0.03)
             p.leg.SetNColumns(1)
           else:
-            p.leg = R.TLegend(0.60,0.56,0.91,0.90)
-            p.leg.SetTextSize(0.02)
-            p.leg.SetNColumns(2)
+            p.leg = R.TLegend(0.75,0.5,1,0.9)
+            p.leg.SetTextSize(0.04)
+            p.leg.SetNColumns(1)
         else:
           p.leg = R.TLegend(0.55,0.77,0.91,0.94)
         p.leg.SetBorderSize(0)
@@ -251,9 +253,9 @@ class Plot:
         if not p.isEff and p.plotLeg:
           p.leg.Draw()
           if p.noData:
-            myText(0.815, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.03, R.kBlack)
+            myText(0.815, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.04, R.kBlack)
           else:
-            myText(0.77, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.025, R.kBlack)
+            myText(0.77, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.04, R.kBlack)
 
         
         p.ratio = R.TH1D()
@@ -503,6 +505,12 @@ class Plot:
           xax.SetTitleOffset(1.2)
         
           xax.SetTickSize(0.08)
+        else:
+          xax.SetLabelSize(text_size - 7)
+          xax.SetLabelOffset(0.03)
+          xax.SetTitleOffset(3.25)
+        
+          xax.SetTickSize(0.08)
 
         # xax.SetRangeUser(0,2000)
         # xax.SetNdivisions(-505)
@@ -520,6 +528,8 @@ class Plot:
         yax.SetTitle(ytitle)
         yax.SetTitleSize(text_size)
         if p.noData:
+          yax.SetTitleOffset(1.15)
+        elif p.plotLeg:
           yax.SetTitleOffset(1.15)
         else:
           yax.SetTitleOffset(1.8)
