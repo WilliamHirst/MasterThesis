@@ -41,7 +41,7 @@ df  = scaleData(df)
 """ 
 Setting the parameters manually to one signal comb.
 """
-index = C == "MGPy8EGA14N23LOC1N2WZ300p0p0150p0p03L2L7"
+index = C == "MGPy8EGA14N23LOC1N2WZ300p0p0200p0p03L2L7"
 df_param1 = np.array(df[index]["param1"])
 df_param2 = np.array(df[index]["param2"])
 df["param1"] = df_param1[0]
@@ -69,6 +69,6 @@ with tf.device("/GPU:0"):
     prediction = model.predict(df, batch_size=8192)
     mc_predict, mc_weights = separateByChannel(prediction, W, C, C_u)
     
-saveLoad("results/PNNDistTest/predict_sorted_PNN150300.npy", mc_predict)
-saveLoad("results/PNNDistTest/weights_sorted_PNN150300.npy", mc_weights)
-saveLoad("results/PNNDistTest/channels_PNN150300.npy", C_u)
+saveLoad("results/PNNDistTest/predict_sorted_PNN200300.npy", mc_predict)
+saveLoad("results/PNNDistTest/weights_sorted_PNN200300.npy", mc_weights)
+saveLoad("results/PNNDistTest/channels_PNN200300.npy", C_u)
