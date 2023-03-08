@@ -1,0 +1,89 @@
+\acswitchoff 
+\babel@toc {UKenglish}{}\relax 
+\contentsline {chapter}{Introduction}{1}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}The Standard model of elementary particles and beyond.}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}The bulding blocks}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}The leptons}{4}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}The quarks}{4}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}The Forces}{5}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Electromagnetism}{5}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}The Strong Force}{5}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}The Weak Force}{5}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}Beyond the Standard Model}{5}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Why look beyond?}{5}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Neutrino-Mass problem}{6}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Super Symmetry and the Neutralino}{6}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4}Proton-Proton collisions at the LHC}{7}{section.1.4}%
+\contentsline {section}{\numberline {1.5}The Background Channels}{8}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Z-jets}{8}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Diboson (lll)}{8}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}$t\bar {t}$}{8}{subsection.1.5.3}%
+\contentsline {subsection}{\numberline {1.5.4}Diboson (llll)}{9}{subsection.1.5.4}%
+\contentsline {subsection}{\numberline {1.5.5}Top Others}{9}{subsection.1.5.5}%
+\contentsline {subsection}{\numberline {1.5.6}Single Others}{9}{subsection.1.5.6}%
+\contentsline {subsection}{\numberline {1.5.7}Diboson (ll)}{9}{subsection.1.5.7}%
+\contentsline {subsection}{\numberline {1.5.8}Others}{9}{subsection.1.5.8}%
+\contentsline {section}{\numberline {1.6}The Signal}{9}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Heavy Neutral Lepton}{9}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Neutralino's}{9}{subsection.1.6.2}%
+\contentsline {chapter}{\numberline {2}Introduction to Machine Learning and Data Analysis}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Phenomenology}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Optimization}{12}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Gradient Descent}{12}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Adam}{12}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Cost functions}{12}{subsection.2.2.3}%
+\contentsline {subsubsection}{Mean Squared Error}{12}{section*.19}%
+\contentsline {subsubsection}{Binary Crossentropy}{12}{section*.20}%
+\contentsline {section}{\numberline {2.3}Hyperparameters}{12}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Data Handling}{13}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Scaling}{13}{subsection.2.4.1}%
+\contentsline {subsubsection}{Standard Scaler}{13}{section*.21}%
+\contentsline {subsection}{\numberline {2.4.2}Principal Component Analysis}{13}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}Regularization}{15}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Early stopping}{15}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Ensembles}{15}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}Neural Networks}{15}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}General structure}{15}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Feeding Forward}{16}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}Back Propagation}{17}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.4}Activation functions}{18}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.5}Network Ensembles, dropout and LWTA networks}{19}{subsection.2.6.5}%
+\contentsline {subsection}{\numberline {2.6.6}Parametrized Neural Network}{19}{subsection.2.6.6}%
+\contentsline {section}{\numberline {2.7}Decision Trees and Gradient Boosting}{20}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Decision Trees}{20}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Gradient Boosting in Decision Trees}{21}{subsection.2.7.2}%
+\contentsline {section}{\numberline {2.8}Machine Learning Applied to a BSM Search}{22}{section.2.8}%
+\contentsline {section}{\numberline {2.9}Model assessment}{23}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}The Rate of True-Positve - ROC Curve}{23}{subsection.2.9.1}%
+\contentsline {subsection}{\numberline {2.9.2}Sensitivity}{23}{subsection.2.9.2}%
+\contentsline {chapter}{\numberline {3}Implementation of the Analysis}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Tools and Data}{25}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Monte Carlo Data}{25}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}ROOT, RDataframe and Pandas}{25}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Computing features in ROOT: Example}{25}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}The Signal}{27}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Features}{27}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Cuts and triggers}{27}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Lepton Variables}{28}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Jet Variables}{29}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Validation}{29}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Negative Weights}{32}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}The Machine Learning Models}{32}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Model selection}{32}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Creating custom layers}{32}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Model Architecture}{39}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Model Training and Validation}{40}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Training and Validating data}{40}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Training strategy}{41}{subsection.3.4.2}%
+\contentsline {chapter}{\numberline {4}Results \& Discussion}{43}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Dense Neural Networks}{43}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Deep vs Shallow}{43}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Ensemble methods}{43}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Visualizing Sparse Pathways}{43}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Parametrized Neural Network}{43}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Discriminating Masses}{43}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Increasing Sensitivity through PCA}{43}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Comparing Machine Learning Models}{46}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Training History and Overfitting}{46}{subsection.4.5.1}%
+\contentsline {chapter}{Appendices}{49}{section*.63}%
+\contentsline {chapter}{Appendix A}{51}{appendix*.64}%
