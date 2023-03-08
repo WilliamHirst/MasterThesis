@@ -7,7 +7,7 @@ from Utilities import saveLoad
 
 
 
-name = "PNNV2"
+name = "PNN150300"
 signal = "SUSY"
 
 channels = saveLoad(f"results/PNNDistTest/channels_{name}.npy")
