@@ -253,7 +253,7 @@ class Plot:
         if not p.isEff and p.plotLeg:
           p.leg.Draw()
           if p.noData:
-            myText(0.815, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.04, R.kBlack)
+            myText(0.815, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.03, R.kBlack)
           else:
             myText(0.77, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.04, R.kBlack)
 

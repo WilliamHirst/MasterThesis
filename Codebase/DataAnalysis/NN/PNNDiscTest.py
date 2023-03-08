@@ -23,29 +23,35 @@ myPath = "/storage/William_Sakarias/William_Data"
 category = "PNN"
 name = "PNN_FS_MLM"
 signal = "SUSY"
-#notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0"]
+
 notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0", "WZ100p0p0","WZ150p0p050p0", "WZ150p0p00p0p", "WZ200p0p00p0", "WZ200p0p050p0"]
-
-
 
 print(f"Starting test: Model = {name} -- Signal = {signal}")
 
 df, y, df_data, channels = loadDf(myPath, notInc=notInc)
+df = AddParameters(df, y)
 
-# indx = (y ==0).to_numpy() + (df.channel=="MGPy8EGA14N23LOC1N2WZ250p050p03L2L7").to_numpy() + (df.channel=="MGPy8EGA14N23LOC1N2WZ350p0p00p0p03L2L7").to_numpy() + (df.channel=="MGPy8EGA14N23LOC1N2WZ300p0p0200p0p03L2L7").to_numpy()+(df.channel=="MGPy8EGA14N23LOC1N2WZ500p0p0100p0p03L2L7").to_numpy()
 
-# df = df[indx]
-# y = y[indx]
-# print(df[y==1].channel.unique())
-df["param1"] = 250 
-df["param2"] = 50 
+# df["param1"] = 3000 # 50
+# df["param2"] = 2000 # 250
+
 
 W = df.wgt_SG
 C = df.channel
 Y = y
 df = df.drop(columns = ["channel", "wgt_SG"])
 df  = scaleData(df)
+print(df)
+""" 
+Setting the parameters manually to one signal comb.
+"""
+index = C == "MGPy8EGA14N23LOC1N2WZ250p050p03L2L7"
+df_param1 = np.array(df[index]["param1"])
+df_param2 = np.array(df[index]["param2"])
+df["param1"] = df_param1[0]
+df["param2"] = df_param2[0]
 nrFeature = nFeats(df)
+print(df)
 
 
 print("Compiling Model")
@@ -64,16 +70,10 @@ print(model.summary())
 print("Done compiling.")
 
 with tf.device("/GPU:0"):
-    df = df
-    W = W
-    C = C
     C_u = C.unique()
     prediction = model.predict(df, batch_size=8192)
     mc_predict, mc_weights = separateByChannel(prediction, W, C, C_u)
     
-    
-mc_predict, mc_weights = separateByChannel(prediction, W, C, C_u)
-
-saveLoad("results/predict_sorted_PNN.npy", mc_predict)
-saveLoad("results/weights_sorted_PNN.npy", mc_weights)
-saveLoad("results/channels_PNN.npy", C_u)
+saveLoad("results/PNNDistTest/predict_sorted_PNNV2.npy", mc_predict)
+saveLoad("results/PNNDistTest/weights_sorted_PNNV2.npy", mc_weights)
+saveLoad("results/PNNDistTest/channels_PNNV2.npy", C_u)
