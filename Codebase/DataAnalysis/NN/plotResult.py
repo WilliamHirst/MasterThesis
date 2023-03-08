@@ -17,7 +17,7 @@ weights_sorted = saveLoad(f"results/PNNDistTest/weights_sorted_{name}.npy")
 sigdic = {"MGPy8EGA14N23LOC1N2WZ250p050p03L2L7": 0,
         "MGPy8EGA14N23LOC1N2WZ200p0p0100p0p03L2L7": 0,
         "MGPy8EGA14N23LOC1N2WZ300p0p0200p0p03L2L7": 0,
-        "MGPy8EGA14N23LOC1N2WZ500p0p0100p0p03L2L7": 0}
+        "MGPy8EGA14N23LOC1N2WZ300p0p0150p0p03L2L7": 0}
 
 PlotRootHisto(predict_sorted, 
               weights_sorted, 
@@ -34,5 +34,5 @@ PlotRootHisto(predict_sorted,
               xlabel = f"{name}(200,300)-Output", 
               bins = 30,
               sigdic=sigdic,
-              CutOff = 0.7,
+              CutOff = 0.95,
               noData = True)
