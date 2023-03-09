@@ -10,13 +10,13 @@ that the \ac{PNN} model is tuned to each signal combination.
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
     \centering
-    \begin{subfigure}{.45\textwidth}
+    \begin{subfigure}{.475\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf}
         \caption{}
         \label{fig:PNN50250Dist}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{.45\textwidth}
+    \begin{subfigure}{.475\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf}
         \caption{}
         \label{fig:PNN50250Dist_95}
@@ -28,13 +28,13 @@ that the \ac{PNN} model is tuned to each signal combination.
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
     \centering
-    \begin{subfigure}{.45\textwidth}
+    \begin{subfigure}{.475\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN150300Dist.pdf}
         \caption{}
         \label{fig:PNN150300Dist}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{.45\textwidth}
+    \begin{subfigure}{.475\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN150300Dist_C7.pdf}
         \caption{}
         \label{fig:PNN150300Dist_95}
@@ -43,3 +43,17 @@ that the \ac{PNN} model is tuned to each signal combination.
     \caption{}
     \label{fig:PNN150300Dist}
 \end{figure}
+
+\begin{table}
+    \centering
+    $
+    \begin{array}{ccccc}
+        \hline \text { \backslashbox{Label}{Channel} }  & \text {$(50,250)$}& \text {$(100,200)$} & \text {$(150,300)$} & \text {$(200,300)$} \\
+        \hline\text {$(50,250)$}   & \text { $80.8\%$ } & \text { $54.2\%$ } & \text { $77.5\%$ } & \text { $49.9\%$ } \\
+        \text {$(150,300)$}  & \text { $75.3\%$ } & \text { $71.9\%$ } & \text { $40.1\%$ } & \text { $0\%$ } \\
+        \hline
+    \end{array}
+    $
+    \caption{Requirments for signal electrons and muons.}
+\label{table:SG}
+\end{table}
