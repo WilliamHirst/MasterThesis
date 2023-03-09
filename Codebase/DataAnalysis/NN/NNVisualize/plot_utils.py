@@ -26,11 +26,11 @@ def make_figs_path(filename):
 
 colors = [
     sns.color_palette('husl')[-3],
+    'mediumorchid',
     sns.color_palette('husl')[-2],
-    sns.color_palette('husl')[-1],
     'mediumorchid',
     sns.color_palette('deep')[-1],
-    sns.color_palette('dark')[-1]
+    sns.color_palette('dark')[-1],
 ]
 
 markers = ["s", "o", "X","*", "^"]
@@ -43,7 +43,7 @@ cmap_terrain = matplotlib.colors.LinearSegmentedColormap.from_list(
     "darkslategrey",
     sns.color_palette('dark')[-1],
     sns.color_palette('husl')[-3],
-    # sns.color_palette('deep')[-1],
+    sns.color_palette('deep')[-1],
     "darkturquoise",
     sns.color_palette('husl')[-2],
     # 'mediumorchid',

@@ -75,16 +75,16 @@ if __name__ == "__main__":
 
     print(f"Starting test: {signal}")
 
-    df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
+    # df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
 
-    print("Preparing data....")
-    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)
-    print("Done.")
+    # print("Preparing data....")
+    # train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)
+    # print("Done.")
 
-    # train, val = loadSamples(ex_path = "../")
+    train, val = loadSamples(ex_path = "../")
 
     X_train, Y_train, W_train, C_train = train
-    X_val, Y_val, W_val, C_val, _  = val
+    X_val, Y_val, W_val, C_val  = val
 
     nrFeature = nFeats(X_train)
 
