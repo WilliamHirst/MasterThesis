@@ -74,17 +74,19 @@ if __name__ == "__main__":
     signal = "SUSY"
 
     print(f"Starting test: {signal}")
+    IncludeRange = [250, 300, 50, 200] 
 
-    # df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
+    df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"], IncludeRange=IncludeRange)
 
-    # print("Preparing data....")
-    # train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)
-    # print("Done.")
+    print("Preparing data....")
+    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=False)
+    print("Done.")
 
-    train, val = loadSamples(ex_path = "../")
+    # train, val = loadSamples(ex_path = "../")
 
     X_train, Y_train, W_train, C_train = train
-    X_val, Y_val, W_val, C_val  = val
+    X_val, Y_val, W_val, C_val = val
+
 
     nrFeature = nFeats(X_train)
 
@@ -116,7 +118,7 @@ if __name__ == "__main__":
 
     with tf.device("/GPU:0"):
         callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
-                                                    patience=3, 
+                                                    patience=10, 
                                                     restore_best_weights = True,
                                                     verbose = 1,
                                                     mode = "max")
@@ -151,3 +153,29 @@ if __name__ == "__main__":
                                  )
     ax.plot()
     fig.savefig("AfterTrainingSig.pdf")
+
+    index_1 = Y_val[(C_val == "MGPy8EGA14N23LOC1N2WZ250p050p03L2L7").to_numpy()].index[:50]
+    index_2 = Y_val[(C_val ==  "MGPy8EGA14N23LOC1N2WZ300p0p0200p0p03L2L7").to_numpy()].index[:50]
+
+    X_viz_1 = X_val.loc[index_1].sample(frac = 1, random_state = 0).reset_index(drop=True)
+    Y_viz_1 = Y_val.loc[index_1].sample(frac = 1, random_state = 0).reset_index(drop=True)
+
+    X_viz_2 = X_val.loc[index_2].sample(frac = 1, random_state = 0).reset_index(drop=True)
+    Y_viz_2 = Y_val.loc[index_2].sample(frac = 1, random_state = 0).reset_index(drop=True)
+
+    fig, ax = plot_channelout_architecture(model,
+                                 X_viz_1.values,
+                                 Y_viz_1.values,
+                                 type = "Sig"
+                                 )
+    ax.plot()
+    fig.savefig("AfterTrainingSig50250.pdf")
+
+    fig, ax = plot_channelout_architecture(model,
+                                 X_viz_2.values,
+                                 Y_viz_2.values,
+                                 type = "Sig"
+                                 )
+    ax.plot()
+    fig.savefig("AfterTrainingSig200300.pdf")
+    
