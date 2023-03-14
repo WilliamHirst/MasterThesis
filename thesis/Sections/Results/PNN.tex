@@ -1,7 +1,7 @@
 \section{Parametrized Neural Network}
 \subsection{Discriminating Masses}
-In figure \ref{fig:PNNDist} I have drawn the distribution of the output from the trained \ac{PNN} architecture 
-(see section \ref{subsec:PNNArch}). The model was trained using the FS-MLM data set. In figure \ref{fig:PNNDist},
+In figure \ref{fig:PNN50250Dist} I have drawn the distribution of the output from the trained \ac{PNN} architecture 
+(see section \ref{subsec:PNNArch}). The model was trained using the FS-MLM data set. In figure \ref{fig:PNN50250Dist},
 4 signals have been included; ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV), ($\tilde{\chi}_1=100$, $\tilde{\chi}_2=200$GeV), 
 ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) and ($\tilde{\chi}_1=150$, $\tilde{\chi}_2=250$GeV). All data, including 
 both signal and background were given the values of $50$ and $250$. As was the hope, the \ac{PNN} performs better on 
@@ -22,7 +22,11 @@ that the \ac{PNN} model is tuned to each signal combination.
         \label{fig:PNN50250Dist_95}
     \end{subfigure}
     }
-    \caption{}
+    \caption{The output distribution from a trained \ac{PNN} model for the background and signals with 4 different mass combinations:
+    ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV), ($\tilde{\chi}_1=100$, $\tilde{\chi}_2=200$GeV), 
+    ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) and ($\tilde{\chi}_1=150$, $\tilde{\chi}_2=250$GeV), and where all the data were given the 
+    parameter features of ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV). The figure includes the full output range (\ref{fig:PNN50250Dist}) 
+    and the output ranging from 0.95-1.00 (\ref{fig:PNN50250Dist_95}).}
     \label{fig:PNN50250}
 \end{figure}
 \begin{figure}
@@ -40,7 +44,11 @@ that the \ac{PNN} model is tuned to each signal combination.
         \label{fig:PNN200300Dist_95}
     \end{subfigure}
     }
-    \caption{}
+    \caption{The output distribution from a trained \ac{PNN} model for the background and signals with 4 different mass combinations:
+    ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV), ($\tilde{\chi}_1=100$, $\tilde{\chi}_2=200$GeV), 
+    ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) and ($\tilde{\chi}_1=150$, $\tilde{\chi}_2=250$GeV), and where all the data were given the 
+    parameter features of ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV). The figure includes the full output range (\ref{fig:PNN50250Dist}) 
+    and the output ranging from 0.95-1.00 (\ref{fig:PNN50250Dist_95}).}
     \label{fig:PNN200300Dist}
 \end{figure}
 
@@ -49,11 +57,12 @@ that the \ac{PNN} model is tuned to each signal combination.
     $
     \begin{array}{ccccc}
         \hline \text { \backslashbox{\textbf{Label}}{\textbf{Channel}} }  & \text {$(50,250)$}& \text {$(100,200)$} & \text {$(150,300)$} & \text {$(200,300)$} \\
-        \hline\text {$(50,250)$}   & \text { $80.8\%$ } & \text { $45.8\%$ } & \text { $77.5\%$ } & \text { $50.1\%$ } \\
-        \hline\text {$(200,300)$}   & \text { $77.3\%$ } & \text { $54.6\%$ } & \text { $76.3\%$ } & \text { $59.0\%$ } \\
+        \hline\text {$(50,250)$}   & \text { $\bf{80.8}\%$ } & \text { $45.8\%$ } & \text { $\bf{77.5}\%$ } & \text { $50.1\%$ } \\
+        \hline\text {$(200,300)$}   & \text { $77.3\%$ } & \text { $\bf{54.6}\%$ } & \text { $76.3\%$ } & \text { $\bf{59.0}\%$ } \\
         \hline
     \end{array}
     $
-    \caption{Requirments for signal electrons and muons.}
+    \caption{A listing of the remaining procentage of each mass combination in the output range 0.95-1.00 using the 
+    labels ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) and ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) respectively.}
 \label{table:SG}
 \end{table}
