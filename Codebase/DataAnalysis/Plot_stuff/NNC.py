@@ -71,8 +71,8 @@ def plotComp(metric, plotters =  None, name =  "", leg_loc = "lower"):
     ax.set_yticks(np.arange(len(m2)) , minor=False)
     ax.set_xticklabels(m1, rotation=90, fontsize = 18)
     ax.set_yticklabels(m2, fontsize = 18)
-
-    ax.legend(borderpad = 1.25, framealpha = 0.75,fontsize = 'xx-large',loc =  f'{leg_loc} left', labels = method_label,labelcolor = colorList)
+    legend_kwargs = dict(labels = method_label, labelcolor = colorList)
+    ax.legend(borderpad = 1.25, framealpha = 0.75,fontsize = 'xx-large',loc =  f'{leg_loc} left', **legend_kwargs)
     ax.set_xlabel(r"$\tilde{\chi}_2$ [Gev]",fontsize =24, loc = "right")
     ax.set_ylabel(r"$\tilde{\chi}_1$ [Gev]",fontsize =24, loc = "top",rotation=0, labelpad = -40)
     plt.tight_layout(pad=1.1, w_pad=0.7, h_pad=0.2)
@@ -117,6 +117,7 @@ if __name__ == "__main__":
     plotters = ["HybridPCAMaxOutGrid", "HybridPCALeakyGrid", "PNNPCAGrid", "MaxOutPCAGrid"]
     plotters = ["MaxOutPCA_FS_MLMGrid", "PNNPCA_FS_MLMGrid", "NN_FS_MLMGrid"]
     plotters = ["MaxOutPCA_FSGrid", "PNNPCA_FSGrid", "NN_FSGrid"]
-    name = "FS"
+    plotters = ["NNPCAGrid", "NNGrid"]
+    name = "NNPCA"
     plotComp(metric, plotters = plotters, name = name, leg_loc = "upper")
     
