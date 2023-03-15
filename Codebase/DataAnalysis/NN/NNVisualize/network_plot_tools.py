@@ -56,11 +56,6 @@ def get_layer_activations(network: tf.keras.Model,
 
     return np.asarray(layer_i.counter)
     
-    # if isinstance(input, np.ndarray):
-    #     return intermediate_model(input).numpy()
-    # else:
-    #     return intermediate_model(input)
-
 
 def get_all_activations(network: tf.keras.Model, input) -> list:
     """Gets the output from every layer in a tf Model instance given input.

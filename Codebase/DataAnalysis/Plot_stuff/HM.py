@@ -86,6 +86,7 @@ def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10):
         M2.append(int(score.split("_")[1]))
     Z,  M1, M2, map1, map2 = createMap(M1, M2)
     fig, ax = plt.subplots()
+    ax.grid(visible = False)
     for score_key in list(scores.keys()):
         elem = scores[score_key]
         score = elem["score"]
@@ -99,11 +100,11 @@ def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10):
             scale = 1
         plt.text(map1[f"{m1_i}"]+0.5,map2[f"{m2_i}"]+0.5, scoreString, ha='center', va='center', color = "white", fontsize = 'medium', path_effects=[pe.withStroke(linewidth=1, foreground="black")]) 
         Z[map2[f"{m2_i}"], map1[f"{m1_i}"]] = score*scale
-
     colorBar = lambda Z: Z
-    cmap = matplotlib.cm.magma
+    cmap = matplotlib.cm.magma.copy()
     cmap.set_bad('white',1.)
-    cmap = plt.pcolormesh(np.arange(len(M1)+1), np.arange(len(M2)+1), colorBar(Z), cmap = cmap)
+    cmap.set_under(color= "#eeeeee")
+    cmap = plt.pcolormesh(np.arange(len(M1)+1), np.arange(len(M2)+1), colorBar(Z), cmap = cmap,vmin=0.0000001, edgecolors = "face")
     cbar = fig.colorbar(cmap)
     cbar.ax.tick_params(size=0)
     cbar.set_ticks([])
@@ -160,5 +161,8 @@ def getMass(string):
 if __name__ == "__main__":
     from ROCM import plotRoc
     from plot_set import *
+    # cmap.set_under(color='black')
+    
     #gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
+    gridPlotter(mlType = "NN", name ="ChannelOutGrid", metric = "sig")
     #HM(0, 0, 0, 0, 0,0)
