@@ -37,6 +37,8 @@
 \input{Sections/Abstract/Abstract}
 \input{Sections/Acknow}
 \tableofcontents{}
+% \addtocontents{toc}{\protect\setcounter{tocdepth}{}}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mainmatter{}
@@ -82,8 +84,9 @@
 \input{Sections/Results/DNN}
 \input{Sections/Results/EnsembleMethods}
 \input{Sections/Results/PNN}
-\input{Sections/Results/PCA}
 \input{Sections/Results/MLComparison}
+\input{Sections/Results/PCA}
+\input{Sections/Results/FS}
 
 
 %%%%%%%%%%%%% Conclusion %%%%%%%%%%%%%%%%%%%%
@@ -100,6 +103,7 @@
   \renewcommand{\thechapter}{A}
   \renewcommand{\theequation}{\thechapter.\arabic{equation}}
   \input{Sections/Appendix/Appendix1}
+  \input{Sections/Appendix/Appendix2}
 \end{appendices}
 
 \twocolumn{

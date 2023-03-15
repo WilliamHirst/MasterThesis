@@ -28,30 +28,25 @@ activation in the uppermost node, while the signal data does not.
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
-    \begin{subfigure}{.65\textwidth}
+    \begin{subfigure}{.6\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf}
+        \caption{}
+        \label{fig:BTraining}
     \end{subfigure}
-    }
-    \caption{A calculated visualization of an untrained MaxOut network with three hidden layers. Each path 
-    represents a data point where all connected nodes were the largest activation in their respective 
-    group. The distribution on the far right represent the output distribution for the background (pink)
-    and signal (blue).
-    }
-    \label{fig:BTraining}
-\end{figure}
-\begin{figure}
-    \makebox[\linewidth][c]{%
-    \centering
-    \begin{subfigure}{.65\textwidth}
+    \hfill
+    \begin{subfigure}{.6\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/AfterTraining.pdf}
+        \caption{}
+        \label{fig:ATraining}
     \end{subfigure}
     }
-    \caption{A calculated visualization of a trained MaxOut network with 3 hidden layers. Each path 
+    \caption{A calculated visualization of a 3 layer MaxOut network. Each path 
     represents a data point where all connected nodes were the largest activation in their respective 
-    group. The distribution on the far right represent the output distribution for the background (pink)
-    and signal (blue).}
-    \label{fig:ATraining}
+    group. The distribution on the far right represent the output distribution. The figure to the left
+    (\ref{fig:ATrainingSig}) is the result before training and the figure to right (\ref{fig:ATrainingBkg})
+    is after.}. 
 \end{figure}
+
 
 \begin{figure}
     \makebox[\linewidth][c]{%

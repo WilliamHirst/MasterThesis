@@ -10,13 +10,13 @@ that the \ac{PNN} model is tuned to each signal combination.
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
     \centering
-    \begin{subfigure}{.475\textwidth}
+    \begin{subfigure}{.5\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf}
         \caption{}
         \label{fig:PNN50250Dist}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{.475\textwidth}
+    \begin{subfigure}{.5\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf}
         \caption{}
         \label{fig:PNN50250Dist_95}
@@ -32,13 +32,13 @@ that the \ac{PNN} model is tuned to each signal combination.
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
     \centering
-    \begin{subfigure}{.475\textwidth}
+    \begin{subfigure}{.5\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf}
         \caption{}
         \label{fig:PNN200300Dist}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{.475\textwidth}
+    \begin{subfigure}{.5\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf}
         \caption{}
         \label{fig:PNN200300Dist_95}
@@ -49,7 +49,7 @@ that the \ac{PNN} model is tuned to each signal combination.
     ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) and ($\tilde{\chi}_1=150$, $\tilde{\chi}_2=250$GeV), and where all the data were given the 
     parameter features of ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV). The figure includes the full output range (\ref{fig:PNN50250Dist}) 
     and the output ranging from 0.95-1.00 (\ref{fig:PNN50250Dist_95}).}
-    \label{fig:PNN200300Dist}
+    \label{fig:PNN200300DistComp}
 \end{figure}
 
 \begin{table}
@@ -64,5 +64,18 @@ that the \ac{PNN} model is tuned to each signal combination.
     $
     \caption{A listing of the remaining procentage of each mass combination in the output range 0.95-1.00 using the 
     labels ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) and ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) respectively.}
-\label{table:SG}
+\label{table:PNNSigComp}
 \end{table}
+
+\subsection{Sensitivity Result}
+\begin{figure}
+    \makebox[\linewidth][c]{%
+    \centering
+    \begin{subfigure}{.65\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf}
+    \end{subfigure}
+    }
+    \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
+    created by the \ac{PNN} network.}
+    \label{fig:PNNGridSig}
+\end{figure}
