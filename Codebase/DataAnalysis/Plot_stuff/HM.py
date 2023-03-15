@@ -104,7 +104,7 @@ def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10):
     cmap = matplotlib.cm.magma.copy()
     cmap.set_bad('white',1.)
     cmap.set_under(color= "#eeeeee")
-    cmap = plt.pcolormesh(np.arange(len(M1)+1), np.arange(len(M2)+1), colorBar(Z), cmap = cmap,vmin=0.0000001, edgecolors = "face")
+    cmap = plt.pcolormesh(np.arange(len(M1)+1), np.arange(len(M2)+1), colorBar(Z), cmap = cmap,vmin=0.0000001, edgecolors = "whitesmoke", linewidth =0.1)
     cbar = fig.colorbar(cmap)
     cbar.ax.tick_params(size=0)
     cbar.set_ticks([])
@@ -164,9 +164,9 @@ if __name__ == "__main__":
     # cmap.set_under(color='black')
     
     #gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
-    #names = ["ChannelOutGrid", "HybridPCALeakyGrid", "HybridPCAMaxOutGrid", "MaxOutGrid", "MaxOutPCAGrid", "NNGrid", "NNPCAGrid", "NNshallowGrid", "PNNGrid", "PNNPCAGrid", "StochChannelOutGrid"]
-    #names = ["MaxOutPCA_FS_MLMGrid", "MaxOutPCA_FSGrid", "NN_FS_MLMGrid", "NN_FSGrid", "PNNPCA_FS_MLMGrid", "PNNPCA_FSGrid"]
-    names = ["MaxOut_InterpolationGrid", "NN_InterpolationGrid", "NN_OneMass_InterpolationGrid", "NN_OneMass_Overfitting_InterpolationGrid", "NN_OneMass_Overfitting8_InterpolationGrid", "NN_OneMass_Overfitting10_InterpolationGrid", "NN_OneMass_Overfitting15_InterpolationGrid"]
+    # names = ["ChannelOutGrid", "HybridPCALeakyGrid", "HybridPCAMaxOutGrid", "MaxOutGrid", "MaxOutPCAGrid", "NNGrid", "NNPCAGrid", "NNshallowGrid", "PNNGrid", "PNNPCAGrid", "StochChannelOutGrid"]
+    names = ["MaxOutPCA_FS_MLMGrid", "MaxOutPCA_FSGrid", "NN_FS_MLMGrid", "NN_FSGrid", "PNNPCA_FS_MLMGrid", "PNNPCA_FSGrid"]
+    #names = ["MaxOut_InterpolationGrid", "NN_InterpolationGrid", "NN_OneMass_InterpolationGrid", "NN_OneMass_Overfitting_InterpolationGrid", "NN_OneMass_Overfitting8_InterpolationGrid", "NN_OneMass_Overfitting10_InterpolationGrid", "NN_OneMass_Overfitting15_InterpolationGrid"]
     for name in names:
-        gridPlotter(mlType = "NN", name =f"Interpolation/{name}", metric = "Sig")
+        gridPlotter(mlType = "NN", name =f"FS/{name}", metric = "Sig")
     #HM(0, 0, 0, 0, 0,0)
