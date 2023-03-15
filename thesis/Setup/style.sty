@@ -36,6 +36,8 @@
 \usepackage{fontawesome} % Github icon, etc. \faGithub
 \usepackage{hologo}      % Logos, such as BibTeX
 \usepackage{romannum}
+\usepackage{multicol}
+
 %------ header and foot --------
 \usepackage{fancyhdr}
 
@@ -228,6 +230,7 @@
   showstringspaces=false,
   float=htpb,
   numbers=left,
+  backgroundcolor = \ttb\color{gray!10},
   captionpos=b,
   numbersep=5pt,
   linewidth=0.95\linewidth,
@@ -235,28 +238,29 @@
   breaklines=true
   breakwhitespace=false,
   }
-% ------------ cpp --------------------
-
-\lstdefinestyle{Cpp}{
-        language=C++,
-        basicstyle=\footnotesize,
-        otherkeywords={self, VecF_t},
-        tabsize=1,
-        keywordstyle=\ttb\color{celestialblue},
-        emph={__init__, update_port},
-        emphstyle=\ttb\color{deepred},
-        stringstyle=\ttb\color{atomictangerine},
-        commentstyle=\ttb\color{deepgreen},
-        frame=single,
-        showstringspaces=false,
-        float=htpb,
-        numbers=left,
-        captionpos=b,
-        numbersep=5pt,
-        linewidth=0.95\linewidth,
-        xleftmargin=0.05\linewidth,
-        breaklines=true
-        breakwhitespace=false,
-        }
+  % ------------ cpp --------------------
+  
+  \lstdefinestyle{Cpp}{
+    language=C++,
+    basicstyle=\footnotesize,
+    otherkeywords={self, VecF_t},
+    tabsize=1,
+    keywordstyle=\ttb\color{celestialblue},
+    emph={__init__, update_port},
+    emphstyle=\ttb\color{deepred},
+    stringstyle=\ttb\color{atomictangerine},
+    commentstyle=\ttb\color{deepgreen},
+    frame=single,
+    backgroundcolor = \ttb\color{gray!10},
+    showstringspaces=false,
+    float=htpb,
+    numbers=left,
+    captionpos=b,
+    numbersep=5pt,
+    linewidth=0.95\linewidth,
+    xleftmargin=0.05\linewidth,
+    breaklines=true
+    breakwhitespace=false,
+    }
 \makeatother
 %-------------------- end style ---------------------------

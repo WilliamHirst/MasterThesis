@@ -6,30 +6,50 @@ sure that the layers worked as intended. To do this I created a small network wi
 nodes each, all applying MaxOut layers with 4, 2 and 4 groups respectively. In this section I will 
 dissect the activations of said network before and after training.
 \\
-In figure \ref{fig:BTraining}, I have plotted the activation of 500
+In figure \ref{fig:BTraining}, I have plotted the activation of 100 randomly sampled collisions, 50 
+background and 50 signal for an untrained model. Adjacent, I plotted the resulting distribution of the 
+output. From the figure we observe little to no deviation between the activation from the signal and 
+the background. This is mirrored in the distribution of the output which is centered around the middle 
+of the range. A small exception can be found for larger output values, where we observe a small distribution
+of signal values. This is due outliers in the signal data set.
+\\
+In figure \ref{fig:ATraining}, I plotted a similar plot as described above, but using a trained model.
+In this figure the output is far more separated, and we see noticeable differences in the activation 
+of nodes. To highlight the difference in activation, I drew two new figures where the signal 
+(\ref{fig:ATrainingSig}) and background (\ref{fig:ATrainingBkg}) were drawn individually.
+In the two figures we notice that there is still a noticeable variation in the activation for
+both signal and background. This is due to outliers in the data, but also the variation of trend.
+Regardless, there are still clear trends in activation which lets us know that the model has found 
+specific paths in the network for signal and background separately. Most noticeably, the two group 
+in the middle hidden layer highlight this fact. In the case of the signal, the upper group show a clear 
+favoritism to the second bottom node. For the background this is also partly true, but with far more 
+spread in the other nods. Similarly, in the bottom group (in the same layer), the background shows large
+activation in the uppermost node, while the signal data does not. 
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
-    \begin{subfigure}{.8\textwidth}
+    \begin{subfigure}{.65\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf}
     \end{subfigure}
     }
-    \caption{A calculated visualization of a 3 layer MaxOut network. Each path 
+    \caption{A calculated visualization of an untrained MaxOut network with three hidden layers. Each path 
     represents a data point where all connected nodes were the largest activation in their respective 
-    group. The distribution on the far right represent the output distribution for the background (blue)
-    and signal (pink).
+    group. The distribution on the far right represent the output distribution for the background (pink)
+    and signal (blue).
     }
     \label{fig:BTraining}
 \end{figure}
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
-    \begin{subfigure}{.8\textwidth}
+    \begin{subfigure}{.65\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/AfterTraining.pdf}
     \end{subfigure}
     }
-    \caption{The event distribution for each channel over the number of b-jets 
-    with $77\%$ \ref{fig:nbjet77} and $85\%$ \ref{fig:nbjet85} efficiency.}
+    \caption{A calculated visualization of a trained MaxOut network with 3 hidden layers. Each path 
+    represents a data point where all connected nodes were the largest activation in their respective 
+    group. The distribution on the far right represent the output distribution for the background (pink)
+    and signal (blue).}
     \label{fig:ATraining}
 \end{figure}
 
@@ -48,7 +68,84 @@ In figure \ref{fig:BTraining}, I have plotted the activation of 500
         \label{fig:ATrainingBkg}
     \end{subfigure}
     }
-    \caption{The event distribution for each channel over the number of b-jets 
-    with $77\%$ \ref{fig:nbjet77} and $85\%$ \ref{fig:nbjet85} efficiency.}
-    \label{fig:NetDist}
+    \caption{A calculated visualization of a 3 layer MaxOut network. Each path 
+    represents a data point where all connected nodes were the largest activation in their respective 
+    group. The distribution on the far right represent the output distribution and the figure with blue 
+    paths \ref{fig:ATrainingSig} is the result of signal and the figure pink \ref{fig:ATrainingBkg}.
+    }. 
+    \label{fig:NetDist1}
+\end{figure}
+
+\begin{figure}
+    \makebox[\linewidth][c]{%
+    \centering
+    \begin{subfigure}{.6\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf}
+        \caption{}
+        \label{fig:ATrainingSig50250}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.6\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf}
+        \caption{}
+        \label{fig:ATrainingSig200300}
+    \end{subfigure}
+    }
+    \caption{A calculated visualization of a trained MaxOut network with 3 hidden layers. Each path 
+    represents a data point where all connected nodes were the largest activation in their respective 
+    group. The figure to the left (\ref{fig:ATrainingSig50250}) is a result of signal with 
+    ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) and the right (\ref{fig:ATrainingSig200300}) 
+    ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV).}
+    \label{fig:NetVisSigComp}
+\end{figure}
+
+\begin{figure}
+    \makebox[\linewidth][c]{%
+    \centering
+    \hfill
+    \hfill
+    \begin{subfigure}{.1\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf}
+        \caption{}
+        \label{fig:ATrainingSig50250Zoom}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.104\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf}
+        \caption{}
+        \label{fig:ATrainingSig200300Zoom}
+    \end{subfigure}
+    \hfill
+    \hfill
+    }
+    \caption{A cut-out of the fifth and sixth neuron (counting from the top) in the second hidden layer, activated 
+    by the signal with ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) \ref{fig:ATrainingSig50250Zoom} and 
+    ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) \ref{fig:ATrainingSig200300Zoom}.}
+    \label{fig:NetVisZoom}
+\end{figure}
+
+\subsection{Sensitivity Result}
+\begin{figure}
+    \makebox[\linewidth][c]{%
+    \centering
+    \begin{subfigure}{.65\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf}
+    \end{subfigure}
+    }
+    \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
+    created by the \emph{MaxOut} network.}
+    \label{fig:MaxOutGridSig}
+\end{figure}
+
+\begin{figure}
+    \makebox[\linewidth][c]{%
+    \centering
+    \begin{subfigure}{.75\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf}
+    \end{subfigure}
+    }
+    \caption{A sensitivity comparison between the ensemble methods (MaxOut, \ac{SCO}, ChannelOut) on the original 
+    signal data. The size of the "pie" represents the relative size of the significance and the color around each 
+    point displays the method with the largest sensitivity for the respective combination.}
+    \label{fig:EnsembleComp}
 \end{figure}
