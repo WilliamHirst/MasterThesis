@@ -1950,6 +1950,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1phv.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1phv.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -2113,6 +2114,11 @@ INPUT ./Figures/Illustrations/detector.jpeg
 INPUT Figures/Illustrations/detector.jpeg
 INPUT ./Figures/Illustrations/detector.jpeg
 INPUT ./Figures/Illustrations/detector.jpeg
+INPUT ./Figures/Illustrations/Kinematics.png
+INPUT ./Figures/Illustrations/Kinematics.png
+INPUT Figures/Illustrations/Kinematics.png
+INPUT ./Figures/Illustrations/Kinematics.png
+INPUT ./Figures/Illustrations/Kinematics.png
 INPUT ./Sections/SM/Background.tex
 INPUT ./Sections/SM/Background.tex
 INPUT ./Sections/SM/Background.tex

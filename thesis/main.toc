@@ -1,5 +1,6 @@
 \acswitchoff 
 \babel@toc {UKenglish}{}\relax 
+\setcounter {tocdepth}{1}
 \contentsline {chapter}{Introduction}{1}{chapter*.4}%
 \contentsline {chapter}{\numberline {1}The Standard model of elementary particles and beyond.}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}The bulding blocks}{3}{section.1.1}%
@@ -20,7 +21,7 @@
 \contentsline {subsection}{\numberline {1.5.1}Z-jets}{7}{subsection.1.5.1}%
 \contentsline {subsection}{\numberline {1.5.2}Diboson (lll)}{9}{subsection.1.5.2}%
 \contentsline {subsection}{\numberline {1.5.3}$t\bar {t}$}{9}{subsection.1.5.3}%
-\contentsline {subsection}{\numberline {1.5.4}Diboson (llll)}{9}{subsection.1.5.4}%
+\contentsline {subsection}{\numberline {1.5.4}Diboson (llll)}{10}{subsection.1.5.4}%
 \contentsline {subsection}{\numberline {1.5.5}Top Others}{10}{subsection.1.5.5}%
 \contentsline {subsection}{\numberline {1.5.6}Single Others}{10}{subsection.1.5.6}%
 \contentsline {subsection}{\numberline {1.5.7}Diboson (ll)}{10}{subsection.1.5.7}%
@@ -34,12 +35,12 @@
 \contentsline {subsection}{\numberline {2.2.1}Gradient Descent}{14}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Adam}{14}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Cost functions}{14}{subsection.2.2.3}%
-\contentsline {subsubsection}{Mean Squared Error}{14}{section*.19}%
-\contentsline {subsubsection}{Binary Crossentropy}{14}{section*.20}%
+\contentsline {subsubsection}{Mean Squared Error}{14}{section*.20}%
+\contentsline {subsubsection}{Binary Crossentropy}{14}{section*.21}%
 \contentsline {section}{\numberline {2.3}Hyperparameters}{14}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Data Handling}{15}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Scaling}{15}{subsection.2.4.1}%
-\contentsline {subsubsection}{Standard Scaler}{15}{section*.21}%
+\contentsline {subsubsection}{Standard Scaler}{15}{section*.22}%
 \contentsline {subsection}{\numberline {2.4.2}Principal Component Analysis}{15}{subsection.2.4.2}%
 \contentsline {section}{\numberline {2.5}Regularization}{17}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Early stopping}{17}{subsection.2.5.1}%
@@ -95,8 +96,8 @@
 \contentsline {subsection}{\numberline {4.5.3}PNN and PCA}{54}{subsection.4.5.3}%
 \contentsline {section}{\numberline {4.6}Comparing Models on Full Statistics Signal}{54}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}Running on Full Statics}{54}{subsection.4.6.1}%
-\contentsline {chapter}{Appendices}{59}{section*.78}%
-\contentsline {chapter}{Appendix A}{61}{appendix*.79}%
+\contentsline {chapter}{Appendices}{59}{section*.77}%
+\contentsline {chapter}{Appendix A}{61}{appendix*.78}%
 \contentsline {section}{\numberline {A.1}Sensitivity Grids}{61}{section.Alph0.1}%
 \contentsline {subsection}{\numberline {A.1.1}Ensembles}{61}{subsection.Alph0.1.1}%
 \contentsline {section}{\numberline {A.2}The Features}{61}{section.Alph0.2}%
