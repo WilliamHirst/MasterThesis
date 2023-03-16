@@ -94,12 +94,20 @@ def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10):
         m2_i =elem["m2"]
         if score >cut_off:
             scoreString = f"{score:.0f}"
+            fontsize = 'medium'
             scale = np.NAN
         else:
             scoreString = f"{score:.2f}"
+            fontsize = 'medium'
             scale = 1
-        plt.text(map1[f"{m1_i}"]+0.5,map2[f"{m2_i}"]+0.5, scoreString, ha='center', va='center', color = "white", fontsize = 'medium', path_effects=[pe.withStroke(linewidth=1, foreground="black")]) 
+        if metric == "NrEvents":
+            if elem["isSubset"]:
+                # ax.add_patch(plt.Rectangle((map1[f"{m1_i}"]+0.05,map2[f"{m2_i}"]+0.05), .9, .9, fc='none', ec='white', lw=3, clip_on=False, zorder = 10))
+                polygon = plt.Polygon([(map1[f"{m1_i}"]+0.65,map2[f"{m2_i}"]+1), (map1[f"{m1_i}"]+1,map2[f"{m2_i}"]+1), (map1[f"{m1_i}"]+1,map2[f"{m2_i}"]+0.675),], zorder = 10, color = "white", lw = 0)
+                ax.add_patch(polygon)
+        plt.text(map1[f"{m1_i}"]+0.5,map2[f"{m2_i}"]+0.5, scoreString, ha='center', va='center', color = "white", fontsize = fontsize, path_effects=[pe.withStroke(linewidth=1, foreground="black")]) 
         Z[map2[f"{m2_i}"], map1[f"{m1_i}"]] = score*scale
+
     colorBar = lambda Z: Z
     cmap = matplotlib.cm.magma.copy()
     cmap.set_bad('white',1.)
@@ -162,7 +170,9 @@ if __name__ == "__main__":
     from ROCM import plotRoc
     from plot_set import *
     # cmap.set_under(color='black')
-    
+    gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
+    # gridPlotter(mlType = "NN", name =f"NrSignal", metric = "Events", file_name="NrEvents")
+    exit()
     #gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
     # names = ["ChannelOutGrid", "HybridPCALeakyGrid", "HybridPCAMaxOutGrid", "MaxOutGrid", "MaxOutPCAGrid", "NNGrid", "NNPCAGrid", "NNshallowGrid", "PNNGrid", "PNNPCAGrid", "StochChannelOutGrid"]
     names = ["MaxOutPCA_FS_MLMGrid", "MaxOutPCA_FSGrid", "NN_FS_MLMGrid", "NN_FSGrid", "PNNPCA_FS_MLMGrid", "PNNPCA_FSGrid"]
