@@ -91,6 +91,10 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel
   et~al., \emph{Scikit-learn: Machine learning in {P}ython}, {\emph{Journal of
   Machine Learning Research} {\bf 12} (2011) 2825--2830}.
 
+\bibitem{wang_maxout_2013}
+Q.~Wang and J.~{JaJa}, ``From maxout to channel-out: Encoding information on
+  sparse pathways.''
+
 \bibitem{PNN}
 P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
   \emph{Parameterized machine learning for high-energy physics},

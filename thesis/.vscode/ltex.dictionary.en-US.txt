@@ -7,3 +7,5 @@ diboson
 XGBoost
 MaxOut
 quark-antiquark
+channelout
+maxout
