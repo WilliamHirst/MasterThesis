@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  21 MAR 2023 15:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  21 MAR 2023 15:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2068,158 +2068,165 @@ Package pdftex.def Info: Figures/Illustrations/architecture.png  used on input l
 
 ]
 Chapter 4.
-) (./Sections/Results/XGBoost.tex) (./Sections/Results/DNN.tex
-<Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf, id=3203, 408.36356pt x 345.27995pt>
+) (./Sections/Results/XGBoost.tex
+<Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf, id=3209, 408.36356pt x 345.27995pt>
+File: Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf Graphic file (type pdf)
+<use Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf>
+Package pdftex.def Info: Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf  used on input line 14.
+(pdftex.def)             Requested size: 327.1945pt x 276.66162pt.
+) (./Sections/Results/DNN.tex
+<Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf, id=3210, 408.36356pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf  used on input line 9.
 (pdftex.def)             Requested size: 303.82193pt x 256.89932pt.
-<Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf, id=3206, 408.36356pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf, id=3213, 408.36356pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf  used on input line 20.
 (pdftex.def)             Requested size: 303.82193pt x 256.89932pt.
-<Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_InterpolationGridSig.pdf, id=3209, 408.36356pt x 345.37029pt>
+<Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_InterpolationGridSig.pdf, id=3216, 408.36356pt x 345.37029pt>
 File: Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_InterpolationGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_InterpolationGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_InterpolationGridSig.pdf  used on input line 40.
 (pdftex.def)             Requested size: 280.4565pt x 237.20433pt.
-<Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_InterpolationGridSig.pdf, id=3210, 408.36356pt x 345.37029pt>
+<Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_InterpolationGridSig.pdf, id=3217, 408.36356pt x 345.37029pt>
 File: Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_InterpolationGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_InterpolationGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_InterpolationGridSig.pdf  used on input line 40.
 (pdftex.def)             Requested size: 280.4565pt x 237.20433pt.
 ) (./Sections/Results/EnsembleMethods.tex
-<Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf, id=3217, 462.52798pt x 346.89601pt>
+<Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf, id=3224, 462.52798pt x 346.89601pt>
 File: Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf  used on input line 42.
 (pdftex.def)             Requested size: 280.4565pt x 210.35176pt.
-<Figures/MLResults/NN/NetworkVis/AfterTraining.pdf, id=3218, 462.52798pt x 346.89601pt>
+<Figures/MLResults/NN/NetworkVis/AfterTraining.pdf, id=3225, 462.52798pt x 346.89601pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTraining.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTraining.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTraining.pdf  used on input line 42.
 (pdftex.def)             Requested size: 280.4565pt x 210.35176pt.
-<Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf, id=3223, 462.52798pt x 346.89601pt>
+ [47] [48 <./Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf> <./Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf>] [49 <./Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf> <./Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_InterpolationGridSig.pdf> <./Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_InterpolationGridSig.pdf>]
+<Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf, id=3392, 462.52798pt x 346.89601pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf  used on input line 65.
 (pdftex.def)             Requested size: 280.4565pt x 210.35176pt.
-<Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf, id=3224, 462.52798pt x 346.89601pt>
+<Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf, id=3393, 462.52798pt x 346.89601pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf  used on input line 65.
 (pdftex.def)             Requested size: 280.4565pt x 210.35176pt.
-<Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf, id=3229, 462.52798pt x 346.89601pt>
+<Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf, id=3398, 462.52798pt x 346.89601pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf  used on input line 88.
 (pdftex.def)             Requested size: 280.4565pt x 210.35176pt.
-<Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf, id=3230, 462.52798pt x 346.89601pt>
+<Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf, id=3399, 462.52798pt x 346.89601pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf  used on input line 88.
 (pdftex.def)             Requested size: 280.4565pt x 210.35176pt.
-<Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf, id=3235, 38.66063pt x 69.9164pt>
+<Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf, id=3404, 38.66063pt x 69.9164pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf  used on input line 115.
 (pdftex.def)             Requested size: 46.74512pt x 84.5372pt.
-<Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf, id=3236, 41.74425pt x 72.31648pt>
+<Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf, id=3405, 41.74425pt x 72.31648pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf  used on input line 115.
 (pdftex.def)             Requested size: 48.61378pt x 84.22041pt.
-<Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf, id=3241, 408.36356pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf, id=3410, 408.36356pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf  used on input line 129.
 (pdftex.def)             Requested size: 303.82193pt x 256.89932pt.
-<Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf, id=3242, 722.7pt x 578.16pt>
+<Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf, id=3411, 722.7pt x 578.16pt>
 File: Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf  used on input line 141.
 (pdftex.def)             Requested size: 350.56706pt x 280.45137pt.
-) (./Sections/Results/PNN.tex [47] [48 <./Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf> <./Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf>] [49 <./Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_InterpolationGridSig.pdf> <./Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_InterpolationGridSig.pdf> <./Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTraining.pdf>] [50 <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf>] [51 <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf> <./Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf>]
-<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf, id=3496, 569.12625pt x 317.185pt>
+) (./Sections/Results/PNN.tex
+<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf, id=3420, 569.12625pt x 317.185pt>
 File: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf  used on input line 24.
 (pdftex.def)             Requested size: 233.71138pt x 130.25479pt.
-<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf, id=3497, 569.12625pt x 317.185pt>
+<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf, id=3421, 569.12625pt x 317.185pt>
 File: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf  used on input line 24.
 (pdftex.def)             Requested size: 233.71138pt x 130.25479pt.
-<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf, id=3504, 569.12625pt x 317.185pt>
+<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf, id=3428, 569.12625pt x 317.185pt>
 File: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf  used on input line 46.
 (pdftex.def)             Requested size: 233.71138pt x 130.25479pt.
-<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf, id=3505, 569.12625pt x 317.185pt>
+<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf, id=3429, 569.12625pt x 317.185pt>
 File: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf  used on input line 46.
 (pdftex.def)             Requested size: 233.71138pt x 130.25479pt.
-<Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf, id=3512, 408.36356pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf, id=3436, 408.36356pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf  used on input line 77.
 (pdftex.def)             Requested size: 303.82193pt x 256.89932pt.
 ) (./Sections/Results/MLComparison.tex
-<Figures/MLResults/NN/SUSY/History/NNHistory.pdf, id=3515, 454.89008pt x 335.91121pt>
+<Figures/MLResults/NN/SUSY/History/NNHistory.pdf, id=3439, 454.89008pt x 335.91121pt>
 File: Figures/MLResults/NN/SUSY/History/NNHistory.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/History/NNHistory.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/History/NNHistory.pdf  used on input line 22.
 (pdftex.def)             Requested size: 186.96625pt x 138.06789pt.
-<Figures/MLResults/NN/SUSY/History/PNNHistory.pdf, id=3516, 454.77716pt x 335.91121pt>
+<Figures/MLResults/NN/SUSY/History/PNNHistory.pdf, id=3440, 454.77716pt x 335.91121pt>
 File: Figures/MLResults/NN/SUSY/History/PNNHistory.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/History/PNNHistory.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/History/PNNHistory.pdf  used on input line 22.
 (pdftex.def)             Requested size: 186.96625pt x 138.09865pt.
-<Figures/MLResults/NN/SUSY/History/MaxOutHistory.pdf, id=3517, 454.89008pt x 335.91121pt>
+<Figures/MLResults/NN/SUSY/History/MaxOutHistory.pdf, id=3441, 454.89008pt x 335.91121pt>
 File: Figures/MLResults/NN/SUSY/History/MaxOutHistory.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/History/MaxOutHistory.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/History/MaxOutHistory.pdf  used on input line 22.
 (pdftex.def)             Requested size: 186.96625pt x 138.06789pt.
-) (./Sections/Results/PCA.tex [52 <./Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf>] [53 <./Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf, page is rotated 90 degrees> <./Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf, page is rotated 90 degrees> <./Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf, page is rotated 90 degrees> <./Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf, page is rotated 90 degrees>] [54 <./Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf> <./Figures/MLResults/NN/SUSY/History/NNHistory.pdf> <./Figures/MLResults/NN/SUSY/History/PNNHistory.pdf> <./Figures/MLResults/NN/SUSY/History/MaxOutHistory.pdf>]
-<Figures/MLResults/NN/SUSY/Grid/NNPCAGridSig.pdf, id=3904, 408.36356pt x 345.27995pt>
+) (./Sections/Results/PCA.tex [50 <./Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTraining.pdf>] [51 <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf>] [52 <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf> <./Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf>] [53 <./Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf> <./Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf, page is rotated 90 degrees> <./Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf, page is rotated 90 degrees>] [54 <./Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf, page is rotated 90 degrees> <./Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf, page is rotated 90 degrees> <./Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf> <./Figures/MLResults/NN/SUSY/History/NNHistory.pdf> <./Figures/MLResults/NN/SUSY/History/PNNHistory.pdf> <./Figures/MLResults/NN/SUSY/History/MaxOutHistory.pdf>]
+<Figures/MLResults/NN/SUSY/Grid/NNPCAGridSig.pdf, id=3940, 408.36356pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/NNPCAGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/NNPCAGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/NNPCAGridSig.pdf  used on input line 18.
 (pdftex.def)             Requested size: 303.82193pt x 256.89932pt.
-<Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf, id=3909, 722.7pt x 578.16pt>
+<Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf, id=3945, 722.7pt x 578.16pt>
 File: Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf  used on input line 30.
 (pdftex.def)             Requested size: 303.82193pt x 243.05492pt.
-<Figures/MLResults/NN/SUSY/Grid/MaxOutPCAGridSig.pdf, id=3914, 408.36356pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/MaxOutPCAGridSig.pdf, id=3950, 408.36356pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/MaxOutPCAGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/MaxOutPCAGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/MaxOutPCAGridSig.pdf  used on input line 43.
 (pdftex.def)             Requested size: 303.82193pt x 256.89932pt.
-<Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf, id=3917, 722.7pt x 578.16pt>
+<Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf, id=3953, 722.7pt x 578.16pt>
 File: Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf  used on input line 54.
 (pdftex.def)             Requested size: 303.82193pt x 243.05492pt.
-<Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf, id=3922, 408.36356pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf, id=3958, 408.36356pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf  used on input line 66.
 (pdftex.def)             Requested size: 303.82193pt x 256.89932pt.
-<Figures/MLResults/NN/SUSY/Comparison/PNNPCANetworkComp.pdf, id=3927, 722.7pt x 578.16pt>
+<Figures/MLResults/NN/SUSY/Comparison/PNNPCANetworkComp.pdf, id=3963, 722.7pt x 578.16pt>
 File: Figures/MLResults/NN/SUSY/Comparison/PNNPCANetworkComp.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Comparison/PNNPCANetworkComp.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/PNNPCANetworkComp.pdf  used on input line 77.
 (pdftex.def)             Requested size: 303.82193pt x 243.05492pt.
-<Figures/MLResults/NN/SUSY/Comparison/PCANetworkComp.pdf, id=3932, 722.7pt x 578.16pt>
+<Figures/MLResults/NN/SUSY/Comparison/PCANetworkComp.pdf, id=3968, 722.7pt x 578.16pt>
 File: Figures/MLResults/NN/SUSY/Comparison/PCANetworkComp.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Comparison/PCANetworkComp.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/PCANetworkComp.pdf  used on input line 89.
 (pdftex.def)             Requested size: 303.82193pt x 243.05492pt.
 ) (./Sections/Results/FS.tex
-<Figures/MLResults/NN/SUSY/Grid/FS/MaxOutPCA_FS_MLMGridSig.pdf, id=3937, 408.36356pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/FS/MaxOutPCA_FS_MLMGridSig.pdf, id=3973, 408.36356pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/FS/MaxOutPCA_FS_MLMGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/FS/MaxOutPCA_FS_MLMGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/FS/MaxOutPCA_FS_MLMGridSig.pdf  used on input line 11.
@@ -2230,12 +2237,12 @@ Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/FS/MaxOutPCA_FS_MLMGridS
 
 
 ] [62] (./Sections/Appendix/Appendix1.tex
-<Figures/MLResults/NN/SUSY/Grid/StochChannelOutGridSig.pdf, id=4227, 408.36356pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/StochChannelOutGridSig.pdf, id=4263, 408.36356pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/StochChannelOutGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/StochChannelOutGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/StochChannelOutGridSig.pdf  used on input line 10.
 (pdftex.def)             Requested size: 280.4565pt x 237.14229pt.
-<Figures/MLResults/NN/SUSY/Grid/ChannelOutGridSig.pdf, id=4230, 408.36356pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/ChannelOutGridSig.pdf, id=4266, 408.36356pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/ChannelOutGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/ChannelOutGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/ChannelOutGridSig.pdf  used on input line 21.
@@ -2281,21 +2288,21 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3D6270653142876898281509D5DA5803;6115.
+(rerunfilecheck)             Checksum: AED5350B20F1FC8F52CD04926C371F8C;6115.
  ) 
 Here is how much of TeX's memory you used:
- 57923 strings out of 478268
- 1298282 string characters out of 5846347
- 2157112 words of memory out of 5000000
- 74180 multiletter control sequences out of 15000+600000
+ 57937 strings out of 478268
+ 1298769 string characters out of 5846347
+ 2157441 words of memory out of 5000000
+ 74190 multiletter control sequences out of 15000+600000
  614249 words of font info for 326 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,19n,103p,1224b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,19n,103p,1240b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (78 pages, 5278600 bytes).
+Output written on main.pdf (78 pages, 5334854 bytes).
 PDF statistics:
- 4639 PDF objects out of 5155 (max. 8388607)
- 2583 compressed objects within 26 object streams
- 450 named destinations out of 1000 (max. 500000)
- 80148 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 4677 PDF objects out of 5155 (max. 8388607)
+ 2601 compressed objects within 27 object streams
+ 452 named destinations out of 1000 (max. 500000)
+ 80153 words of extra memory for PDF output out of 89155 (max. 10000000)
 

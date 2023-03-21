@@ -2660,6 +2660,12 @@ INPUT Sections/Results/XGBoost.tex
 INPUT ./Sections/Results/XGBoost.tex
 INPUT ./Sections/Results/XGBoost.tex
 INPUT Sections/Results/XGBoost.tex
+INPUT ./Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf
+INPUT ./Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf
+INPUT Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf
+INPUT ./Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf
+INPUT ./Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmri9.tfm
 INPUT ./Sections/Results/DNN.tex
 INPUT ./Sections/Results/DNN.tex
 INPUT ./Sections/Results/DNN.tex
@@ -2739,7 +2745,6 @@ INPUT ./Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf
 INPUT Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf
 INPUT ./Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf
 INPUT ./Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmri9.tfm
 INPUT ./Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf
 INPUT ./Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf
 INPUT Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf
