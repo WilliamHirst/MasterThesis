@@ -12,7 +12,7 @@ from Utilities import *
 import numpy as np
 
 
-def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, mlType="NN"):
+def HM(model, X, Y, W, columns, name, metric = "Auc", data = None, save = False, mlType="NN"):
     columns_s = columns[Y.to_numpy() == 1] 
     unique_c = columns_s.unique()
     threshold = 0.998
@@ -70,12 +70,12 @@ def HM(model, X, Y, W, columns,name, metric = "Auc", data = None, save = False, 
 
         Z[map2[f"{m2}"], map1[f"{m1}"]] = score
 
-    gridPlotter(mlType, name, metric)
+    #gridPlotter(mlType, name, metric)
 
 def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10):
     import matplotlib
     method = name.split('/')[-1]
-    with open(f'../{mlType}/results/{file_name}.json', 'r') as openfile:
+    with open(f'../results/{file_name}.json', 'r') as openfile:
         # Reading from json file
         json_object = json.load(openfile)
     scores = json_object[method]
@@ -169,8 +169,9 @@ def getMass(string):
 if __name__ == "__main__":
     from ROCM import plotRoc
     from plot_set import *
+    gridPlotter(mlType = "XGB", name =f"XGBNoWeightsGrid", metric = "Sig")
     # cmap.set_under(color='black')
-    gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
+    # gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
     # gridPlotter(mlType = "NN", name =f"NrSignal", metric = "Events", file_name="NrEvents")
     exit()
     #gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)

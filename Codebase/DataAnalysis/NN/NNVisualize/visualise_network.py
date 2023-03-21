@@ -115,7 +115,7 @@ if __name__ == "__main__":
                                  Y_viz.values,
                                  )
     fig.savefig("BeforeTraining.pdf")
-
+    
     with tf.device("/GPU:0"):
         callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
                                                     patience=10, 

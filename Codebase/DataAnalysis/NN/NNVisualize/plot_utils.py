@@ -23,14 +23,16 @@ def make_figs_path(filename):
 
     return str(figs_path)
 
-
+signal  =  sns.color_palette('husl')[-2]
+bkg = 'mediumorchid'
+boxes = sns.color_palette('dark')[-1]
 colors = [
-    sns.color_palette('husl')[-3],
-    'mediumorchid',
-    sns.color_palette('husl')[-2],
+    boxes,
+    bkg,
+    signal,
     'mediumorchid',
     sns.color_palette('deep')[-1],
-    sns.color_palette('dark')[-1],
+    boxes,
 ]
 
 markers = ["s", "o", "X","*", "^"]
@@ -38,17 +40,7 @@ markers = ["s", "o", "X","*", "^"]
 cmap = matplotlib.colors.LinearSegmentedColormap.from_list(
     "", colors[:2] + [colors[3]])
 
-cmap_terrain = matplotlib.colors.LinearSegmentedColormap.from_list(
-    "", [
-    "darkslategrey",
-    sns.color_palette('dark')[-1],
-    sns.color_palette('husl')[-3],
-    sns.color_palette('deep')[-1],
-    "darkturquoise",
-    sns.color_palette('husl')[-2],
-    # 'mediumorchid',
-    sns.color_palette('husl')[-1],
-] )
+
 
 sns.set_style("darkgrid")
 # Set all fonts to be equal to tex

@@ -16,7 +16,7 @@ def plotComp(metric, plotters =  None, name =  "", leg_loc = "lower"):
     else:
         file = 'SIG'
 
-    with open('../NN/results/SIG.json', 'r') as openfile:
+    with open('../results/SIG.json', 'r') as openfile:
         # Reading from json file
         json_object = json.load(openfile)
 

@@ -337,7 +337,7 @@ def saveToJson(score, m1, m2, metric, method):
     else:
         file = 'SIG'
         
-    with open(f'results/{file}.json', 'r') as openfile:
+    with open(f'../results/{file}.json', 'r') as openfile:
         # Reading from json file
         json_object = json.load(openfile)
     
@@ -346,7 +346,7 @@ def saveToJson(score, m1, m2, metric, method):
     json_object = json.dumps(json_object, indent=4)
  
     # Writing to sample.json
-    with open(f'results/{file}.json', "w") as outfile:
+    with open(f'../results/{file}.json', "w") as outfile:
         outfile.write(json_object)
 
 def EmptyJson( metric, method):
@@ -355,7 +355,7 @@ def EmptyJson( metric, method):
     else:
         file = 'SIG'
 
-    with open(f'results/{file}.json', 'r') as openfile:
+    with open(f'../results/{file}.json', 'r') as openfile:
         # Reading from json file
         json_object = json.load(openfile)
     
@@ -364,7 +364,7 @@ def EmptyJson( metric, method):
     json_object = json.dumps(json_object, indent=4)
  
     # Writing to sample.json
-    with open(f'results/{file}.json', "w") as outfile:
+    with open(f'../results/{file}.json', "w") as outfile:
         outfile.write(json_object)
 
 def checkIfInclude(notInc, IncludeRange, channel): 
