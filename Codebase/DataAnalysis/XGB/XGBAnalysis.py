@@ -12,95 +12,62 @@ from Plot_stuff.ROOTPlot import *
 
 sys.path.insert(1, "../../")
 from Utilities import *
-
+from Plot_stuff.HM import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-signal = "ttbarHNL"
+name = "XGBNoWeights"
+signal = "SUSY"
+train = True
+IncludeRange = [400, 800, 0, 400] 
+notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "500p0", "550p0", "600p0", "450p0p0350p0", "450p0p0250p0","450p0p0150p0", "450p0p050p0", "400p0p00p0","400p0p0100p0","400p0p0200p0", "400p0p0300p0","650p050p0", "650p0150p0", "650p0250p0", "650p0350p0", "700p0100p0", "700p00p0", "700p0200p0", "700p0300p0", "700p0400p0"]
 
-df, y, df_data, channels = loadDf(myPath, notInc=["LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"])
+print(f"Starting test: Model = {name} -- Signal = {signal}")
 
-
+df, y, df_data, channels = loadDf(myPath, notInc=notInc, IncludeRange=IncludeRange)
 print("Preparing data....")
-train, val = splitAndPrepData(df, y, scale = False, ret_scaleFactor=True)
+train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True, removeNeg=True)#, PCA=True, n_components=1-1e-3)
 print("Done.")
 
 X_train, Y_train, W_train, C_train = train
 X_val, Y_val, W_val, C_val, scaleFactor = val
+nrFeature = nFeats(X_train)
 
 sum_wpos = W_train[Y_train == 1.0].sum()
 sum_wneg = W_train[Y_train == 0.0].sum()
 
+W_train[:] = 1 
+W_val[:] = 1 
+
+W_train[Y_train == 0.0] *= 1/np.sum(W_train[Y_train == 1.0])
+W_val[Y_val == 0.0] *= 1/np.sum(W_val[Y_val == 1.0])
+
 xgb = XGB.XGBClassifier(
-            max_depth=4, 
-            n_estimators=100,
-            learning_rate=0.1,
-            n_jobs=4,
-            subsample = 0.8,
             tree_method="hist",
             objective='binary:logistic',
             eval_metric = 'auc',
-            scale_pos_weight = np.float32(sum_wneg/sum_wpos)[0],
-            missing=-999.0,
             use_label_encoder=False,
+            #scale_pos_weight = np.float32(sum_wneg/sum_wpos)[0],
             ) 
             
-time = timer()
-print("Training....")
-xgb = xgb.fit(X_train, Y_train, sample_weight = W_train, eval_set= [(X_val, Y_val)], sample_weight_eval_set = [W_val], early_stopping_rounds = 10)
-print("Done")
-timer(time)
-results = xgb.evals_result()
-print(np.max(results["validation_0"]["auc"]))
+xgb = xgb.fit(X_train, Y_train, early_stopping_rounds = 10, eval_set= [(X_val, Y_val)], sample_weight = W_train, sample_weight_eval_set = [W_val])
 
+W = df.wgt_SG
+C = df.channel
+Y = y
+df = df.drop(columns = ["channel", "wgt_SG"])
+df, df_data = scaleData(df,df_data)
 
-# plotRoc(Y_train, 
-#         xgb.predict_proba(X_train)[:,1], 
-#         W_train,
-#         "Training-data", 
-#         plot = True,
-#         return_score = True, 
-#         name = f"../../../thesis/Figures/MLResults/XGB/{signal}SearchROCTrain.pdf")
+HM(xgb, df, Y, W, C, data = None, name = f"{name}Grid", metric="Sig", save = True, mlType = 'XGB')
+    
+    
+    
 
-plotRoc(Y_val, 
-        xgb.predict_proba(X_val)[:,1], 
-        W_val,
-        "Validation-data", 
-        plot = False,
-        return_score = True, 
-        name = f"../../../thesis/Figures/MLResults/XGB/{signal}SearchROCVal.pdf")
+    
 
-Calc_Sig(Y_val, xgb.predict_proba(X_val)[:,1], W_val/scaleFactor)
+# mc_predict, mc_weights = separateByChannel(prediction, weights, C, C.unique())
 
-exit()
-channel = df.channel
-wgt = df.wgt_SG
-df = df.drop(columns=["wgt_SG","channel"])
-
-predict_sorted, weights_sorted =  separateByChannel(xgb.predict_proba(df)[:,1], wgt, channel, channels)
-predict_data = xgb.predict_proba(df_data)[:,1]
-
-
-print("Plotting...")
-PlotRootHisto(predict_sorted, 
-              weights_sorted, 
-              predict_data, 
-              channels, 
-              title = f"XGB/{signal}SearchDist", 
-              xlabel = "XGB-Output", 
-              bins = 30)
-PlotRootHisto(predict_sorted, 
-              weights_sorted, 
-              predict_data, 
-              channels, 
-              title = f"XGB/{signal}SearchDist_C7", 
-              xlabel = "XGB-Output", 
-              bins = 30,
-              CutOff = 0.7)
-
-plotFI(xgb, df.keys(), signal)
-print("Finshed plots.")
-
-
-
-
+# saveLoad("results/predict_sorted_test.npy", mc_predict)
+# saveLoad("results/weights_sorted_test.npy", mc_weights)
+# saveLoad("results/predict_data_test.npy", model(df_data))
+# saveLoad("results/channels_test.npy", C)
