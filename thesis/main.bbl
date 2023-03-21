@@ -151,4 +151,13 @@ P.~Liashchynskyi and P.~Liashchynskyi, \emph{Grid search, random search,
 A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
   between training and testing sets: A pedagogical explanation}, .
 
+\bibitem{ATLAS-CONF-2011-152}
+{\scshape ATLAS} collaboration, \emph{{Performance of the Reconstruction and
+  Identification of Hadronic Tau Decays with ATLAS}},  tech. rep., CERN,
+  Geneva, 2011.
+
+\bibitem{ATLAS-CONF-2017-064}
+{\scshape ATLAS} collaboration, \emph{{Performance of Top Quark and W Boson
+  Tagging in Run 2 with ATLAS}},  tech. rep., CERN, Geneva, 2017.
+
 \end{thebibliography}\endgroup

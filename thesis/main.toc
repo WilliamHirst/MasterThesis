@@ -70,7 +70,7 @@
 \contentsline {subsection}{\numberline {3.1.4}The Signal}{31}{subsection.3.1.4}%
 \contentsline {section}{\numberline {3.2}Features}{31}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Cuts and triggers}{31}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Lepton Variables}{32}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.2}Lepton Variables}{33}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Jet Variables}{33}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Validation}{33}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}Negative Weights}{36}{subsection.3.2.5}%
@@ -82,23 +82,24 @@
 \contentsline {subsection}{\numberline {3.4.1}Training and Validating data}{44}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Training strategy}{45}{subsection.3.4.2}%
 \contentsline {chapter}{\numberline {4}Results \& Discussion}{47}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Dense Neural Networks}{47}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Deep vs Shallow}{47}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Parameter Specific Networks and Interpolation}{47}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Ensemble methods}{47}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Visualizing Sparse Pathways}{47}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Sensitivity Result}{47}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Parametrized Neural Network}{47}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Discriminating Masses}{47}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Sensitivity Result}{52}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Comparing Machine Learning Models}{52}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Training History and Overfitting}{52}{subsection.4.4.1}%
-\contentsline {section}{\numberline {4.5}Increasing Sensitivity through PCA}{52}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}NN and PCA}{52}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}MaxOut Network and PCA}{56}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}PNN and PCA}{56}{subsection.4.5.3}%
-\contentsline {section}{\numberline {4.6}Comparing Models on Full Statistics Signal}{56}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Running on Full Statics}{56}{subsection.4.6.1}%
+\contentsline {section}{\numberline {4.1}Benchmarking the Analysis with Boosted Trees}{47}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Dense Neural Networks}{47}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Deep vs Shallow}{47}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Parameter Specific Networks and Interpolation}{47}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Ensemble methods}{47}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Visualizing Sparse Pathways}{47}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Sensitivity Result}{47}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Parametrized Neural Network}{52}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Discriminating Masses}{52}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Sensitivity Result}{52}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Comparing Machine Learning Models}{52}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Training History and Overfitting}{52}{subsection.4.5.1}%
+\contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{52}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}NN and PCA}{55}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}MaxOut Network and PCA}{55}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}PNN and PCA}{55}{subsection.4.6.3}%
+\contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{55}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Running on Full Statics}{55}{subsection.4.7.1}%
 \contentsline {chapter}{Appendices}{61}{section*.79}%
 \contentsline {chapter}{Appendix A}{63}{appendix*.80}%
 \contentsline {section}{\numberline {A.1}Sensitivity Grids}{63}{section.Alph0.1}%

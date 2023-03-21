@@ -2653,6 +2653,13 @@ INPUT Sections/Results/Axiomatic.tex
 INPUT ./Sections/Results/Axiomatic.tex
 INPUT ./Sections/Results/Axiomatic.tex
 INPUT Sections/Results/Axiomatic.tex
+INPUT ./Sections/Results/XGBoost.tex
+INPUT ./Sections/Results/XGBoost.tex
+INPUT ./Sections/Results/XGBoost.tex
+INPUT Sections/Results/XGBoost.tex
+INPUT ./Sections/Results/XGBoost.tex
+INPUT ./Sections/Results/XGBoost.tex
+INPUT Sections/Results/XGBoost.tex
 INPUT ./Sections/Results/DNN.tex
 INPUT ./Sections/Results/DNN.tex
 INPUT ./Sections/Results/DNN.tex
