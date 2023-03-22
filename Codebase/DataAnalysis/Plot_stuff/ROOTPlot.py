@@ -47,6 +47,7 @@ def PlotRootHisto(MC, MC_wgt, Channels, title, xlabel, bins, sigdic, Data = None
 
         for k in df.keys():
 
+            print(k)
             if k not in list(bkgdic.keys()) and k not in list(sigdic.keys()):
                 continue 
             # HISTOGRAMS

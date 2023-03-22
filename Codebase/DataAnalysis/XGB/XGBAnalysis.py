@@ -36,18 +36,18 @@ nrFeature = nFeats(X_train)
 sum_wpos = W_train[Y_train == 1.0].sum()
 sum_wneg = W_train[Y_train == 0.0].sum()
 
-W_train[:] = 1 
-W_val[:] = 1 
+# W_train[:] = 1 
+# W_val[:] = 1 
 
-W_train[Y_train == 0.0] *= 1/np.sum(W_train[Y_train == 1.0])
-W_val[Y_val == 0.0] *= 1/np.sum(W_val[Y_val == 1.0])
+# W_train[Y_train == 0.0] *= 1/np.sum(W_train[Y_train == 1.0])
+# W_val[Y_val == 0.0] *= 1/np.sum(W_val[Y_val == 1.0])
 
 xgb = XGB.XGBClassifier(
             tree_method="hist",
             objective='binary:logistic',
             eval_metric = 'auc',
             use_label_encoder=False,
-            #scale_pos_weight = np.float32(sum_wneg/sum_wpos)[0],
+            scale_pos_weight = np.float32(sum_wneg/sum_wpos)[0],
             ) 
             
 xgb = xgb.fit(X_train, Y_train, early_stopping_rounds = 10, eval_set= [(X_val, Y_val)], sample_weight = W_train, sample_weight_eval_set = [W_val])
@@ -56,18 +56,16 @@ W = df.wgt_SG
 C = df.channel
 Y = y
 df = df.drop(columns = ["channel", "wgt_SG"])
-df, df_data = scaleData(df,df_data)
+df = scaleData(df)
+C_u = C.unique()
 
-HM(xgb, df, Y, W, C, data = None, name = f"{name}Grid", metric="Sig", save = True, mlType = 'XGB')
+# HM(xgb, df, Y, W, C, data = None, name = f"{name}Grid", metric="Sig", save = True, mlType = 'XGB')
     
     
+mc_predict, mc_weights = separateByChannel(xgb.predict_proba(df)[:,1], W, C, C_u)
     
+saveLoad("../results/XGB/predict_sorted_xgb.npy", mc_predict)
+saveLoad("../results/XGB/weights_sorted_xgb.npy", mc_weights)
+saveLoad("../results/XGB/channels_xgb.npy", C_u)
 
     
-
-# mc_predict, mc_weights = separateByChannel(prediction, weights, C, C.unique())
-
-# saveLoad("results/predict_sorted_test.npy", mc_predict)
-# saveLoad("results/weights_sorted_test.npy", mc_weights)
-# saveLoad("results/predict_data_test.npy", model(df_data))
-# saveLoad("results/channels_test.npy", C)

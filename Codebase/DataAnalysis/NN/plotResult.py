@@ -10,9 +10,9 @@ from Utilities import saveLoad
 name = "PNN150300"
 signal = "SUSY"
 
-channels = saveLoad(f"results/PNNDistTest/channels_{name}.npy")
-predict_sorted = saveLoad(f"results/PNNDistTest/predict_sorted_{name}.npy")
-weights_sorted = saveLoad(f"results/PNNDistTest/weights_sorted_{name}.npy")
+channels = saveLoad(f"../results/PNNDistTest/channels_{name}.npy")
+predict_sorted = saveLoad(f"../results/PNNDistTest/predict_sorted_{name}.npy")
+weights_sorted = saveLoad(f"../results/PNNDistTest/weights_sorted_{name}.npy")
 
 sigdic = {"MGPy8EGA14N23LOC1N2WZ250p050p03L2L7": 0,
         "MGPy8EGA14N23LOC1N2WZ200p0p0100p0p03L2L7": 0,
