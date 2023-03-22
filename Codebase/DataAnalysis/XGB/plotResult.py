@@ -34,5 +34,5 @@ PlotRootHisto(predict_sorted,
               xlabel = f"XGB-Output", 
               bins = 30,
               sigdic=sigdic,
-              CutOff = 0.9,
+              CutOff = 0.975,
               noData = True)
