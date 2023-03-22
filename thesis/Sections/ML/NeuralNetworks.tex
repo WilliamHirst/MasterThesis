@@ -189,7 +189,7 @@ connected to its own nodes and likewise all its nodes are connected to the nodes
 This definition covers many, but not all hidden layer. Some layers do not function to pass value to and 
 fro between nodes but instead functions by dynamically changing the architecture of the \ac{NN}. The most popular 
 type of layer that fits this definition, is the \emph{dropout}-layer. 
-\subsubsection*{Dropout}
+\subsubsection*{Dropout}\label{subsubsec:Dropout}
 The dropout-layer functions by assigning a predetermined probability to each neuron in a given layer. Based on the 
 probability, a number of neurons (dependent on the probability) is dropped in each forward pass. By doing this the 
 dropout-layer creates an architecture for the network for every round of training. Each unique architecture represents 
@@ -204,34 +204,74 @@ and are forced to tune to compensate. During evaluation, the dropout layers no l
 (fraction of neurons to drop in the layer) $r$ is used to scale the weights by a factor $1-r$. The prediction made by the resulting 
 model can therefore be seen as the average of all the smaller networks. In other words, a neural network containing dropout-layers 
 as a bagging ensemble (see subsection \ref{subsec:Ensembles}). 
-\\
-\subsubsection*{Max-Out}\label{subsubsec:maxout}
+
+\subsubsection*{Channel-Out}\label{subsubsec:Channel-Out}
 Dropout-layers are not the only layers to dynamically change the architecture of a network. In this thesis I additionally 
-explored the lesser known, \emph{max-out}-layer. Max-out, similarly to dropout creates an ensemble of networks by removing a set 
-of nodes for each round of training. Contrary to dropout, max-out does not choose the nodes to drop at random,
-but instead creates local units by grouping the nodes, and removes all nodes except the node with the largest
-activation. The goal of max-out is to create an ensemble of networks where each network is specialized for a given 
+explored the lesser known, \emph{Channel-Out}-layer as found in the paper by Srivastava et al. \cite{wang_maxout_2013}. 
+Channel-out, similarly to dropout creates an ensemble of networks by removing a set 
+of nodes for each round of training. Contrary to dropout, channel-out does not choose the nodes to drop at random,
+but instead creates local \emph{units} by grouping the nodes, and removes all nodes except the node with the largest
+activation in each respective unit. The goal of channel-out is to create an ensemble of networks where each network is specialized for a given 
 trend in the data. In this thesis I have implemented the layer such that upon prediction, the redimensionalization 
 is still active. This means that for each data point, a neural network is chosen based on the specific activations in 
-each of the nodes. In other words, the max-out layer creates something resembling a stacking ensemble (see subsection 
+each of the nodes. In other words, the channel-out layer creates something resembling a stacking ensemble (see subsection 
 \ref{subsec:Ensembles}). 
+\subsubsection*{Stochastic-Channel-Out}\label{subsubsec:stochchannelout}
+As I will describe in further detail in sections to come, I choose to implement channel-out layer myself. A consequence of this 
+was that I was able to experiment. In section \ref{subsubsec:Dropout}, I described the issue of complex co-adaptation. I also described 
+a possible solution to the issue, the dropout layer. Although dropout and channel-out function rather similarly, they do not deal 
+with this issue similarly. Where the dropout layer will force dormant nodes to contribute in the training by allowing for dominant
+nodes to be dropped, the channel-out would instead allow for dominant nodes to take further control inside their respective unit.
 \\
-In figure \ref{fig:Max_out} I have illustrated a max-out network. The figure shows a \ac{NN} with two hidden layers
-with 8 nodes each. In the first hidden layer the max-out layer creates 4 units, each containing two nodes and in the 
-second layer the max-out creates two units with 4 nodes each. The resulting output from the first layer is the 
-4 nodes with the highest activation in their respected unit, likewise the second layers output is 2 nodes.
-To the right of the network in figure \ref{fig:Max_out}, I have illustrated how the different configuration of 
-paths through the network creates an ensemble of networks with their own architecture.
+To remedy this issue, I proposed a new layer, the \ac{SCO}. \ac{SCO} functions similarly to channel-out, with the exeption of 
+the units. Where the channel-out utilizes static local units\footnote{I.e. the nodes are placed in local units in the beginning of training 
+and held constant throughout.} throughout training, the \ac{SCO} instead utilizes dynamic units which changes for each data point. In other words, 
+for each data point, each node would potentially have a new group of nodes to compare with when finding the larges activation.
+The goal of the \ac{SCO} is to capitalize on the randomness of the dropout layer, and the trend specific paths' aspect from the 
+channel-out layer.
+\\  
+In the same manner as for channel-out, the redimensionalization is active during prediction and training a like for the \ac{SCO}. This 
+means that also the \ac{SCO} creates an ensemble resembling a bagging ensemble.
+\subsubsection*{Maxout}\label{subsubsec:maxout} 
+Additionally, to the channel-out I will be applying a second layer proposed by the paper by Srivastava et al. \cite{wang_maxout_2013}, 
+the \emph{Maxout} layer. The maxout layer functions very similarly to the channel-out with a small difference in the dropping of nodes. 
+In the dropout layer, nodes are dropped by neglecting all contributions from said node, or in other words by multiplying the activation 
+by all dropped nodes by zero. This is replicated in both the channel-out layer and the \ac{SCO} layer. In doing so, all nodes, activated 
+and dropped alike, possesses their own set of weights and biases. This is not the case for the maxout layer.
+In the maxout layer, each unit possesses just one set of weights and biases. For each forward pass in the network, the largest activated 
+node will contribute to the nodes in the following layer using the same weights and biases as the rest of the nodes in the units. However, not 
+that the nodes only share parameters connected to the layer in front, not behind. This allows for the maxout layer to have fewer parameters to 
+tune, while at the same time building trend specific pathways similar to channel-out and \ac{SCO}. \\
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{Figures/Illustrations/Max_out.png}
     \caption{An illustration of a Neural network with two hidden layers, each with 8 neurons.
-    The first hidden layer has a max-out activation layer with 4 units, the second has 2.
+    The first hidden layer has a maxout activation layer with 4 units, the second has 2.
     The figure also illustrates  the resulting ensemble of smaller neural networks as a consequence
-    of the max-out activation layers. }
+    of the maxout activation layers. }
     \label{fig:Max_out}
 \end{figure}
-\subsubsection*{Channel-Out}\label{subsubsec:channelout}
+In figure \ref{fig:Max_out} I have illustrated a maxout network. The figure shows a \ac{NN} with two hidden layers
+with 8 nodes each. In the first hidden layer the maxout layer creates 4 units, each containing two nodes and in the 
+second layer the maxout creates two units with 4 nodes each. The resulting output from the first layer is the 
+4 nodes with the highest activation in their respected unit, likewise the second layers output is 2 nodes.
+To the right of the network in figure \ref{fig:Max_out}, I have illustrated how the different configuration of 
+paths through the network creates an ensemble of networks with their own architecture. Note in the figure how, as described in the 
+previous section, each node possesses its own connections to the previous layer, while sharing the connections with the 
+rest of the unit, to the next. In figure \ref{fig:NetEnsembleComp} I have drawn a separate illustration to show how 
+this differs from both channel-out and \ac{SCO} in this regard. Figure \ref{fig:NetEnsembleComp} illustrates how 
+all three layers redimensionalize the network, how channelout and \ac{SCO} differ from maxout in regard to the relationship 
+between units and parameters and finally how channel-out differs from \ac{SCO} in choice of units\footnote{In figure 
+\ref{fig:NetEnsembleComp} this is highlighted by the different colors surrounding the nodes in \ac{SCO}, where each color 
+represents a unit.}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/Illustrations/EnsembleComp.png}
+    \caption{An illustration of three different layers, channelout, \ac{SCO} and maxout. The figure shows how each layer 
+    redimensionalize the network and how channelout and \ac{SCO} differ from maxout in regard to the relationship 
+    between units and parameters.}
+    \label{fig:NetEnsembleComp}
+\end{figure}
 \subsection{Parametrized Neural Network}\label{subsec:PNN}
 In this thesis I will be studying \ac{BSM}-simulations with a diversity in choice of free parameters. This
 means that my signal is in it of itself diverse. The free parameters studied in this thesis are the mass of 

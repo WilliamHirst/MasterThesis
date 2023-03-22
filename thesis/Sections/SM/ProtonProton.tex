@@ -42,8 +42,8 @@ The kinematic variables of a particle collision are crucial in any \ac{HEP} anal
 geometry. In figure \ref{fig:Kinematics} I have drawn a simple axis to illustrate the kinematics of a particle in both the 
 longitudinal (left) and transverse (right) plane. In a three-dimensional axis where the particles colliding travel along the 
 z-axis, the zy-axis defines the longitudinal plane.  The angle between the z-axis and the direction of the momentum of
-one of the particles, define the polar angle of said particle, $\theta$.
-
+one of the particles, define the polar angle of said particle, $\theta$. The xy-axis define the transverse plane and the 
+angle between the x-axis and the direction of the transverse momentum define the azimuthal angle, $\phi$.
 \begin{figure}
     \centering
     \makebox[0.75\linewidth][c]{%
@@ -54,3 +54,15 @@ one of the particles, define the polar angle of said particle, $\theta$.
     longitudial and transverse plane. }
     \label{fig:Kinematics}
 \end{figure}
+The transverse momentum and the azimuthal angel are both used in this analysis and are used to create further features. 
+Instead of the polar angle, a preferred feature is the pseudorapidity, $\eta$. The pseudorapidity is defined as 
+\begin{align}
+    \eta = -ln\left[tan\left(\frac{\theta}{2}\right)\right]
+\end{align}
+The pseudorapidity is a preferred feautre to the polar angle because differences in $\eta$ are lorentz invariant under boosts 
+along the longitudial axis. A large range of features are created using the variables described above. In the appendix I have 
+added a summary of all the features used in this analysis (see table \ref{table:Features}). One of said features is the distance 
+between the particle in the $\eta-\phi$-axis, $\Delta R$. We define $\Delta R$ as 
+\begin{align}
+    \Delta R = \sqrt{(\Delta \eta)^2 + (\Delta \phi)^2}.
+\end{align}
