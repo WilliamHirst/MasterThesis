@@ -102,5 +102,5 @@
 \contentsline {section}{\numberline {A.1}Sensitivity Grids}{61}{section.Alph0.1}%
 \contentsline {subsection}{\numberline {A.1.1}Ensembles}{61}{subsection.Alph0.1.1}%
 \contentsline {subsection}{\numberline {A.1.2}Increasing Sensitivity Through}{61}{subsection.Alph0.1.2}%
-\contentsline {section}{\numberline {A.2}The Features}{61}{section.Alph0.2}%
-\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{61}{section.Alph0.3}%
+\contentsline {section}{\numberline {A.2}The Features}{63}{section.Alph0.2}%
+\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{64}{section.Alph0.3}%

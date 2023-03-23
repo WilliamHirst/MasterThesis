@@ -45,10 +45,10 @@ in a dense-layer, said layer will act as a max-out layer.
     \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Nr\ Units,\ Size \ of \ Units))$
     \\
     \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit
-    \State \ \ \ \ $Input \gets \textbf{Max}(Input)$
+    \State \ \ \ \ $Output \gets \textbf{Max}(Input)$
     \\
-    \State \ \ \ \ $\%$ Reshape to original size.
-    \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Original \ Shape))$
+    \State \ \ \ \ $\%$ Reshape to size equal the number of units.
+    \State \ \ \ \ $Output \gets \textbf{Reshape}(Input,(Nr \ Units))$
     \State \ \ \ \ $\textbf{return}\ Input$
     \end{algorithmic}
 \end{algorithm}
@@ -74,12 +74,12 @@ the largest activated nodes along with the rest whom are now set to zero.
     \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit.
     \State \ \ \ \ $Output \gets \textbf{Max}(Input)$
     \\
-    \State \ \ \ \ $\%$ Set original activation where activation is largest, but 0 where not.
+    \State \ \ \ \ $\%$ Set original activation where activation is largest and 0 where it's not.
     \State \ \ \ \ $Output \gets \textbf{Where}(Input == Output, Input,0)$
     \\
     \State \ \ \ \ $\%$ Reshape to original size.
-    \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Original \ Shape))$
-    \State \ \ \ \ $\textbf{return}\ Input$
+    \State \ \ \ \ $Output \gets \textbf{Reshape}(Output,(Input's \ Original \ Shape))$
+    \State \ \ \ \ $\textbf{return}\ Output$
     \end{algorithmic}
 \end{algorithm}
 \subsubsection*{\ac{SCO}}
@@ -94,17 +94,27 @@ the only change needed was grouping the nodes differently for each prediction. T
     \State \ \ \ \ $Input \gets Input \times Weights$
     \State \ \ \ \ $Input \gets Input + Bias$
     \\
+    \State \ \ \ \ $\%$ Shuffle all the values
+    \State \ \ \ \ $InputShuflle \gets \textbf{Shuffle}(Input)$
+    \\
     \State \ \ \ \ $\%$ Reshape input into units
-    \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Nr\ Units,\ Size \ of \ Units))$
+    \State \ \ \ \ $InputShuflle \gets \textbf{Reshape}(InputShuflle,(Nr\ Units,\ Size \ of \ Units))$
     \\
     \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit.
-    \State \ \ \ \ $Output \gets \textbf{Max}(Input)$
+    \State \ \ \ \ $OutputShuffle \gets \textbf{Max}(InputShuflle)$
     \\
-    \State \ \ \ \ $\%$ Set original activation where activation is largest, but 0 where not.
-    \State \ \ \ \ $Output \gets \textbf{Where}(Input == Output, Input,0)$
+    \State \ \ \ \ $\%$ Set 1 where activation is largest and 0 where not.
+    \State \ \ \ \ $OutputShuffle \gets \textbf{Where}(InputShuflle == OutputShuffle, 1,0)$
+    \\
+    \State \ \ \ \ $\%$ Un-shuffle all the values
+    \State \ \ \ \ $Output \gets \textbf{UnShuffle}(Input)$
     \\
     \State \ \ \ \ $\%$ Reshape to original size.
-    \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Original \ Shape))$
+    \State \ \ \ \ $Output \gets \textbf{Reshape}(Output,(Input's \ Original \ Shape))$
+    \\
+    \State \ \ \ \ $\%$ Multiply input with output to set all input that are not the largest, to zero.
+    \State \ \ \ \ $Input \gets Input \times Output$
+    \\
     \State \ \ \ \ $\textbf{return}\ Input$
     \end{algorithmic}
 \end{algorithm}
