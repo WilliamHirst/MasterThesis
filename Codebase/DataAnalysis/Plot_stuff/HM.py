@@ -116,67 +116,15 @@ def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10, addExlusi
                     continue
                 # Plot above
                 if Z[i+1][j] < 1.64 and i+1 < shape[0]:
-                    ax.plot((j, j+1), (i+1,i+1), c = "mediumorchid", lw = 2)
+                    ax.plot((j, j+1), (i+1,i+1),c = "cyan", lw = 2)
                 if Z[i-1][j] < 1.64 and i+1 < shape[0]:
-                    ax.plot((j, j+1), (i,i), c = "mediumorchid", lw = 2)
+                    ax.plot((j, j+1), (i,i),c = "cyan", lw = 2)
                 # Plot to the right
                 if Z[i][j+1] < 1.64 :
-                    ax.plot((j+1, j+1), (i,i+1), c = "mediumorchid", lw = 2)
+                    ax.plot((j+1, j+1), (i,i+1),c = "cyan", lw = 2)
                 # Plot to the left
                 if Z[i][j-1] < 1.64 :
-                    ax.plot((j, j), (i,i+1),c = "mediumorchid", lw = 2)
-                    
-        # Checked = np.zeros(np.shape(Z))
-        # i = 0
-        # j = 0
-        # go = 1
-        # while go:
-        #     if Z[i][j] < 1.64:
-        #         i += 1
-        #         continue
-        #     goBack = 0 
-        #     while:
-        #         # Plot to the Left
-        #         if Z[i][j-1] < 1.64 :
-        #             ax.plot((j, j), (i,i+1),"--",c = "cyan", lw = 1.5)
-        #         else:
-        #             if goBack != 1:
-        #                 j -= 1
-        #                 goBack = 2
-        #                 continue
-        #         # Plot Above
-        #         if Z[i+1][j] < 1.64 and i+1 < shape[0]:
-        #             ax.plot((j, j+1), (i+1,i+1), "--",c = "cyan", lw = 1.5)
-        #         else:
-        #             if goBack != 4:
-        #                 i += 1
-        #                 goBack = 3
-        #                 continue
-        #         # Plot to the Right
-        #         if Z[i][j+1] < 1.64 :
-        #             ax.plot((j+1, j+1), (i,i+1), "--",c = "cyan", lw = 1.5)
-        #         else:
-        #             if goBack != 2:
-        #                 j += 1
-        #                 goBack = 1
-        #                 continue
-
-        #         # Plot Below
-        #         if Z[i-1][j] < 1.64 and i+1 < shape[0]:
-        #             ax.plot((j, j+1), (i,i), "--",c = "cyan", lw = 1.5)
-        #         else:
-        #             if goBack != 3:
-        #                 i -= 1
-        #                 goBack = 4
-        #                 continue
-        #         i -= 1
-                
-                
-
-
-
-
-
+                    ax.plot((j, j), (i,i+1),c = "cyan", lw = 2)
     colorBar = lambda Z: Z
     cmap = matplotlib.cm.magma.copy()
     cmap.set_bad('white',1.)
@@ -196,7 +144,7 @@ def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10, addExlusi
     ax.set_xticklabels(M1,rotation=90)
     ax.set_yticklabels(M2)
     plt.tight_layout(pad=1.1, w_pad=0.7, h_pad=0.2)
-    plt.savefig(f"../../../thesis/Figures/MLResults/{mlType}/SUSY/Grid/{name}{metric}Test.pdf", bbox_inches="tight")
+    plt.savefig(f"../../../thesis/Figures/MLResults/{mlType}/SUSY/Grid/{name}{metric}.pdf", bbox_inches="tight")
     plt.show()
 
 def getGrid(col):
@@ -246,7 +194,7 @@ if __name__ == "__main__":
     # names = ["ChannelOutGrid", "HybridPCALeakyGrid", "HybridPCAMaxOutGrid", "MaxOutGrid", "MaxOutPCAGrid", "NNGrid", "NNPCAGrid", "NNshallowGrid", "PNNGrid", "PNNPCAGrid", "StochChannelOutGrid"]
     names = ["MaxOutPCA_FS_MLMGrid", "MaxOutPCA_FSGrid", "NN_FS_MLMGrid", "NN_FSGrid", "PNNPCA_FS_MLMGrid", "PNNPCA_FSGrid"]
     #names = ["MaxOut_InterpolationGrid", "NN_InterpolationGrid", "NN_OneMass_InterpolationGrid", "NN_OneMass_Overfitting_InterpolationGrid", "NN_OneMass_Overfitting8_InterpolationGrid", "NN_OneMass_Overfitting10_InterpolationGrid", "NN_OneMass_Overfitting15_InterpolationGrid"]
-    names = ["PNNPCA_FS_MLMGrid"] 
+    # names = ["PNNPCA_FS_MLMGrid"] 
     for name in names:
         gridPlotter(mlType = "NN", name =f"FS/{name}", metric = "Sig", addExlusion=True)
     #HM(0, 0, 0, 0, 0,0)
