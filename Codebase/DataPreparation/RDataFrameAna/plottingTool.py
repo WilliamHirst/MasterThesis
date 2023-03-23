@@ -540,15 +540,6 @@ class Plot:
         ymax = hist.GetMaximum()
         ymin = hist.GetMinimum()
 
-        # print(yax.GetTitle()
-        # print('ymax       = ', ymax)
-        # print('SF         = ', scaleFactor )
-        # print('ymax x SF  = ', ymax*scaleFactor)
-        # print('ymin       = ', ymin)
-        # print('ymin x 0.9 = ', ymin*scaleFactor)
-        # if ymin == 0.0:
-        #     print 'ymin = 0.0'
-
         # Top events panel
         if 'Events' in ytitle:
             yax.SetNdivisions(505)
@@ -564,7 +555,7 @@ class Plot:
                       ymin = 0.05
                       ymax = 1e6
                     elif p.noData:
-                      ymin = 1e-2
+                      ymin = 5
                       ymax = 1e6
                     else:
                       ymin = 5

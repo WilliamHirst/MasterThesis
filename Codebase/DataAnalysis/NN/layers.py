@@ -271,7 +271,10 @@ class StochChannelOut(Layer):
             num_inputs = -1
         
         shuffle_index = tf.random.shuffle(self.index)
-        unshuffle_index = tf.tensor_scatter_nd_update(tensor = self.zeros , indices = tf.reshape(shuffle_index, [inputs.shape[1],1]), updates = self.index)
+        unshuffle_index = tf.tensor_scatter_nd_update(tensor = self.zeros , 
+                                                      indices = tf.reshape(shuffle_index, 
+                                                                           [inputs.shape[1],1]), 
+                                                      updates = self.index)
         inputs_s = tf.gather(inputs, shuffle_index, axis = 1)
   
 
