@@ -32,30 +32,27 @@ takes the input from the previous layer, defines the new shape of what will beco
 output, groups the nodes in the size defined by number of units, then returns an output 
 which includes only the largest activated node from each unit. By using this function 
 in a dense-layer, said layer will act as a max-out layer. 
-\lstset{style=Python}
-\begin{lstlisting}[caption={Python implementation for the custom activation function used to define the max-out layer.},captionpos=b, label={lst:max_out}]
-def call(self, inputs: tf.Tensor) -> tf.Tensor:
-    # Passing input through weight kernel and adding bias terms
-    inputs = gen_math_ops.MatMul(a=inputs, b=self.kernel)
-    inputs = nn_ops.bias_add(inputs, self.bias)
 
-    num_inputs = inputs.shape[0]
-    if num_inputs is None:
-        num_inputs = -1
-    num_competitors = self.units // self.num_groups
-    new_shape = [num_inputs, self.num_groups, num_competitors]
+\begin{algorithm}
+    \caption{The pseudo code for implementing the Maxout layer in TensorFlow}\label{alg:maxout}
+    \begin{algorithmic}[1]
+    \State def \textbf{MaxOut}(Input): 
+    \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms
+    \State \ \ \ \ $Input \gets Input \times Weights$
+    \State \ \ \ \ $Input \gets Input + Bias$
+    \\
+    \State \ \ \ \ $\%$ Reshape input into units
+    \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Nr\ Units,\ Size \ of \ Units))$
+    \\
+    \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit
+    \State \ \ \ \ $Input \gets \textbf{Max}(Input)$
+    \\
+    \State \ \ \ \ $\%$ Reshape to original size.
+    \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Original \ Shape))$
+    \State \ \ \ \ $\textbf{return}\ Input$
+    \end{algorithmic}
+\end{algorithm}
 
-    # Reshaping outputs such that they are grouped correctly
-    inputs = tf.reshape(inputs, new_shape)
-    # Finding maximum activation in each group
-    outputs = tf.math.reduce_max(inputs, axis=-1,keepdims=True)
-
-    counter = tf.where(tf.equal(inputs, outputs), outputs, 0.)
-    # Reshaping outputs to original input shape
-    self.counter = tf.reshape(counter, [num_inputs, self.units])
-
-    return tf.reshape(outputs,[num_inputs, self.num_groups])   
-\end{lstlisting}
 \subsubsection*{Channel-out}
 For the activation function defined to create the channel-out layer, I again grouped
 the nodes similarly as I did for max-out. Instead of returning the largest value from each 
@@ -63,48 +60,54 @@ unit, I used TensorFlow's function, $tf.greater\_equal$ to create a tensor with 
 booleans are chosen by comparing each unit to the largest value in that unit. By multiplying 
 this tensor to the original input, I am left with the desired result of a tensor containing 
 the largest activated nodes along with the rest whom are now set to zero. 
-\lstset{style=Python}
-\begin{lstlisting}[caption={Python implementation for the custom activation function used to define the channel-out layer.},captionpos=b, label={lst:channel_out}]
-def call(self, inputs: tf.Tensor,mask: tf.Tensor = None) -> tf.Tensor:
-    # Pass input through weight kernel and adding bias terms.
-    inputs = gen_math_ops.MatMul(a=inputs, b=self.kernel)
-    inputs = nn_ops.bias_add(inputs, self.bias)
-
-    num_inputs = inputs.shape[0]
-    if num_inputs is None:
-    num_inputs = -1
-
-    # Reshaping inputs such that they are grouped correctly
-    num_competitors = self.units // self.num_groups
-    new_shape = [num_inputs, self.num_groups, num_competitors]
-    inputs = tf.reshape(inputs, new_shape)
-
-    # Finding maximum activations and setting losers to 0.
-    outputs = tf.math.reduce_max(inputs, axis=-1, keepdims=True)
-    outputs = tf.where(tf.equal(inputs, outputs), outputs, 0.)
-    # Reshaping outputs to original input shape
-    outputs = tf.reshape(outputs, [num_inputs, self.units])
-
-    self.counter = outputs
-    return outputs 
-\end{lstlisting}
+\begin{algorithm}
+    \caption{The pseudo code for implementing the channel-out layer in TensorFlow}\label{alg:channel-out}
+    \begin{algorithmic}[1]
+    \State def \textbf{Channel-out}(Input): 
+    \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms.
+    \State \ \ \ \ $Input \gets Input \times Weights$
+    \State \ \ \ \ $Input \gets Input + Bias$
+    \\
+    \State \ \ \ \ $\%$ Reshape input into units
+    \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Nr\ Units,\ Size \ of \ Units))$
+    \\
+    \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit.
+    \State \ \ \ \ $Output \gets \textbf{Max}(Input)$
+    \\
+    \State \ \ \ \ $\%$ Set original activation where activation is largest, but 0 where not.
+    \State \ \ \ \ $Output \gets \textbf{Where}(Input == Output, Input,0)$
+    \\
+    \State \ \ \ \ $\%$ Reshape to original size.
+    \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Original \ Shape))$
+    \State \ \ \ \ $\textbf{return}\ Input$
+    \end{algorithmic}
+\end{algorithm}
 \subsubsection*{\ac{SCO}}
-
-\lstset{style=Python}
-\begin{lstlisting}[caption={Python implementation for the custom activation function used to define the channel-out layer.},captionpos=b, label={lst:channel_out}]
-
-    shuffle_index = tf.random.shuffle(self.index)
-    unshuffle_index = tf.tensor_scatter_nd_update(tensor = self.zeros , 
-                                                indices = tf.reshape(shuffle_index, 
-                                                                    [inputs.shape[1],1]), 
-                                                updates = self.index)
-    inputs_s = tf.gather(inputs, shuffle_index, axis = 1)
-
-
-
-    outputs = tf.gather(outputs, unshuffle_index, axis = 1) 
-    outputs = tf.multiply(inputs, outputs)
-\end{lstlisting}
+In section \ref{subsubsec:stochchannelout} I described how \ac{SCO} is an extension of channel-out. The only difference
+between the two, is that \ac{SCO} utilizes dynamic units instead of static. Therefore, when creating the \ac{SCO} layer,
+the only change needed was grouping the nodes differently for each prediction. This was implemented by 
+\begin{algorithm}
+    \caption{The pseudo code for implementing the SCO layer in TensorFlow}\label{alg:SCO}
+    \begin{algorithmic}[1]
+    \State def \textbf{SCO}(Input): 
+    \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms.
+    \State \ \ \ \ $Input \gets Input \times Weights$
+    \State \ \ \ \ $Input \gets Input + Bias$
+    \\
+    \State \ \ \ \ $\%$ Reshape input into units
+    \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Nr\ Units,\ Size \ of \ Units))$
+    \\
+    \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit.
+    \State \ \ \ \ $Output \gets \textbf{Max}(Input)$
+    \\
+    \State \ \ \ \ $\%$ Set original activation where activation is largest, but 0 where not.
+    \State \ \ \ \ $Output \gets \textbf{Where}(Input == Output, Input,0)$
+    \\
+    \State \ \ \ \ $\%$ Reshape to original size.
+    \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Original \ Shape))$
+    \State \ \ \ \ $\textbf{return}\ Input$
+    \end{algorithmic}
+\end{algorithm}
 \subsection{Model Architecture}
 When choosing a network architecture, there are several ways to proceed. One way is to apply a grid search.
 A grid search is simply defining a grid of parameters to test, then running through all combinations and 
@@ -153,7 +156,8 @@ rate of 0.15. Channel-out and \ac{SCO} have the same architecture to maxout, but
 
 \subsection*{XGBoost}\label{subsec:XGBoost}
 The main motivation to apply XGBoost is simply to benchmark my analysis, and therefore not a lot of effort has been put into the design of the 
-architecture. Therefore, the default parameters\footnote{See \href{https://xgboost.readthedocs.io/en/stable/parameter.html}{https://xgboost.readthedocs.io/en/stable/parameter.html}
+architecture. Therefore, the default parameters\footnote{See \href{https://xgboost.readthedocs.io/en/stable/parameter.html}
+{https://xgboost.readthedocs.io/en/stable/parameter.html}
 for a complete overview of default parameters.} of XGBoost has been used. The main parameters of the model are summarized as the following:
 \begin{itemize}
     \item $\eta$ (learning-rate) = 0.3

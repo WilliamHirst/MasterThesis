@@ -1,2 +1,3 @@
 {"rule":"THE_PUNCT","sentence":"^\\QThe \"final-piece\" of the puzzle came in 1956 when we discovered the, at that time thought of as massless neutrino.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QIn the case where \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is equal to the final output.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QSee https://xgboost.readthedocs.io/en/stable/parameter.html https://xgboost.readthedocs.io/en/stable/parameter.html for a complete overview of default parameters.\\E$"}

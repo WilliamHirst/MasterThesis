@@ -23,10 +23,10 @@ was a large imbalance between signal and background, the model would be motivate
 section regarding data handling \ref{subsubsec:StandardScalar}. 
 
 \subsection{Training strategy}
-To best compare the different \ac{ML}-models, I decide to apply the same training strategy to all (including the boosted \ac{DT}). The strategy is simply to train the model 
+To best compare the different \ac{ML}-models, I decide to apply the same training strategy to all (including the \ac{BDT}). The strategy is simply to train the model 
 with the training set, then apply an early-stoppage algorithm (see section \ref{subsec:EarlyStopping}) with a cut-off based on the performance on the validation set. For 
 every epoch, the model makes a prediction on the validation data set, and logs the results. If more than 10 epochs go by without improving on the epoch with the best result,
-training stops and the weights of the best epoch are reset. 
+training stops and the weights of the best epoch are reset. This strategy was repeated for the \ac{BDT}, but logging for each new additional tree instead of epoch.
 \\
 The performance from each epoch was measured in \ac{AUC} (see section \ref{subsec:AUC}), where the \ac{AUC} was calculated with the same weighting as in training ($50\%$ signal
 and $50\%$ background). The distribution of signal vs background is important when studying AUC, as it will greatly affect the value. For example, a classifier which predicts all 
