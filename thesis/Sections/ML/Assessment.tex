@@ -24,5 +24,28 @@ an equal weighting of both signal and background.
     \caption{An illustration of a ROC curve.}
     \label{fig:ROC}
 \end{figure}
-\subsection{Sensitivity}
-
+\subsection{Sensitivity}\label{subsec:Sensitivity}
+\ac{AUC} is a very good measure of how separated the distribution for signal and background are 
+for a feature. In the search for new physics, features with large separation between signal and background
+are incredibly helpful, but not the end goal. The final result in the search for new physics is the discovery 
+of a significant deviation between the \ac{SM} and experiment. We measure the deviation between the measured 
+collision data and the simulated \ac{SM} data in units of significance, Z. 
+\\
+For a given signal region with $n_{obs}$ events of measured collision data and b simulated \ac{SM} data, we define
+the significance of a deviation as
+\begin{align}
+Z=\sqrt{2\left[n_{\text {obs }} \ln \frac{n_{\text {obs }}}{b}-n_{\mathrm{obs}}+b\right]} \text { or } 
+Z=\sqrt{2\left[(s+b) \ln \left(1+\frac{s}{b}\right)-s\right]}, 
+\end{align}
+where we have defined the signal, s as $s = n_{obs} - b$. In the case of large statistics ($b>>s$), we can write Z 
+as 
+\begin{align}\label{eq:Z}
+    Z=\frac{n_{o b s}-b}{\sqrt{b}} = \frac{s}{\sqrt{b}}.
+\end{align}
+By studying equation \ref{eq:Z} we observe that the significance resembels the ration for signal and background. The 
+larger the Z, the more significant the deviation. In physics, one often deems the results a discovery if Z is larger than 5.  
+\\
+In the case we are not intrested in discovering physics, but simple to measure the sensitivity of a model, we can also use 
+significance. In this case we do not have $n_{obs}$. Instead we simply define s as the number of events for the simulated signal 
+inside the signal region. This number would be spesific for each mass combination and will be a measure for how sensitive 
+the model is for that exact combination. 

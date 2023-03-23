@@ -65,25 +65,45 @@ this tensor to the original input, I am left with the desired result of a tensor
 the largest activated nodes along with the rest whom are now set to zero. 
 \lstset{style=Python}
 \begin{lstlisting}[caption={Python implementation for the custom activation function used to define the channel-out layer.},captionpos=b, label={lst:channel_out}]
-def channel_out(inputs, num_units = 200, axis=None, training=None):
-    # Calculate the new shape of the layer after max_out.
-    shape = inputs.get_shape().as_list()
-    if shape[0] is None:
-        shape[0] = -1
-    if axis is None:  # Assume that channel is the last dimension
-        axis = -1
-    num_channels = shape[axis]
-    
-    if num_channels % num_units:
-        raise ValueError('Number of features is not a multiple of num_units')
-    shape[axis] = num_units
-    shape += [num_channels // num_units]
-    grouped = tf.reshape(inputs, shape)
-    # Calculate the largest value in each unit and discard 
-    top_vals = tf.reduce_max(grouped, -1, keepdims=True)
-    isMax = tf.reshape(tf.greater_equal(grouped, top_vals), [shape[0], num_channels])
-    output = tf.multiply(tf.cast(isMax,tf.float32), inputs)
-    return output  
+def call(self, inputs: tf.Tensor,mask: tf.Tensor = None) -> tf.Tensor:
+    # Pass input through weight kernel and adding bias terms.
+    inputs = gen_math_ops.MatMul(a=inputs, b=self.kernel)
+    inputs = nn_ops.bias_add(inputs, self.bias)
+
+    num_inputs = inputs.shape[0]
+    if num_inputs is None:
+    num_inputs = -1
+
+    # Reshaping inputs such that they are grouped correctly
+    num_competitors = self.units // self.num_groups
+    new_shape = [num_inputs, self.num_groups, num_competitors]
+    inputs = tf.reshape(inputs, new_shape)
+
+    # Finding maximum activations and setting losers to 0.
+    outputs = tf.math.reduce_max(inputs, axis=-1, keepdims=True)
+    outputs = tf.where(tf.equal(inputs, outputs), outputs, 0.)
+    # Reshaping outputs to original input shape
+    outputs = tf.reshape(outputs, [num_inputs, self.units])
+
+    self.counter = outputs
+    return outputs 
+\end{lstlisting}
+\subsubsection*{\ac{SCO}}
+
+\lstset{style=Python}
+\begin{lstlisting}[caption={Python implementation for the custom activation function used to define the channel-out layer.},captionpos=b, label={lst:channel_out}]
+
+    shuffle_index = tf.random.shuffle(self.index)
+    unshuffle_index = tf.tensor_scatter_nd_update(tensor = self.zeros , 
+                                                indices = tf.reshape(shuffle_index, 
+                                                                    [inputs.shape[1],1]), 
+                                                updates = self.index)
+    inputs_s = tf.gather(inputs, shuffle_index, axis = 1)
+
+
+
+    outputs = tf.gather(outputs, unshuffle_index, axis = 1) 
+    outputs = tf.multiply(inputs, outputs)
 \end{lstlisting}
 \subsection{Model Architecture}
 When choosing a network architecture, there are several ways to proceed. One way is to apply a grid search.
@@ -123,12 +143,21 @@ The architecture is illustrated in figure \ref{fig:arch}, with the label PNN. Th
 structure to the dense-\ac{NN}, with the only difference being in the input-layer. As was discussed in section \ref{subsec:PNN},
 the \ac{PNN} includes the new physics signal free parameters\footnote{In our case, the masses of the \ac{BSM}-particles.} alongside the features
 in the input layer.
-\subsection*{MaxOut}
-The MaxOut-network differs from the dense-network and the \ac{PNN} in that it uses an ensemble of networks. In figure \ref{fig:arch}
-I have illustrated the MaxOut architecture, with the label MaxOut. The figure shows a network with 6 hidden layers, 3 MaxOut and 3 dropout.
-The network alternates between drop out and MaxOut, starting with dropout and finishing with MaxOut. The MaxOut layers have 600 nodes each 
-which reduce down to the 200 nodes with the largest activation in their respective groups. Each dropout layer has a dropout rate of 0.15.
+\subsection*{MaxOut, Channel-Out and \ac{SCO}}
+The ensemble methods are slightly than both the dense \ac{NN} and \ac{PNN} in terms of architecture. To limit the complexity for comparison reasons
+I choose to build an identical architecture for maxout, channel-Out and \ac{SCO}, with the only difference being which of the three layers is used.  
+In figure \ref{fig:arch} I have illustrated the MaxOut architecture, with the label MaxOut. The figure shows a network with 6 hidden layers, 
+3 MaxOut and 3 dropout. The network alternates between drop out and MaxOut, starting with dropout and finishing with MaxOut. The MaxOut layers 
+have 600 nodes each which reduce down to the 200 nodes with the largest activation in their respective groups. Each dropout layer has a dropout 
+rate of 0.15. Channel-out and \ac{SCO} have the same architecture to maxout, but replacing maxout with the two respectively. 
 
 \subsection*{XGBoost}\label{subsec:XGBoost}
- 
+The main motivation to apply XGBoost is simply to benchmark my analysis, and therefore not a lot of effort has been put into the design of the 
+architecture. Therefore, the default parameters\footnote{See \href{https://xgboost.readthedocs.io/en/stable/parameter.html}{https://xgboost.readthedocs.io/en/stable/parameter.html}
+for a complete overview of default parameters.} of XGBoost has been used. The main parameters of the model are summarized as the following:
+\begin{itemize}
+    \item $\eta$ (learning-rate) = 0.3
+    \item Max depth = 6
+    \item Maximum number of trees = 100
+\end{itemize}
 

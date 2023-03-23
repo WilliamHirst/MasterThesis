@@ -4,23 +4,50 @@
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
-    \begin{subfigure}{.6\textwidth}
+    \begin{subfigure}{.5\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/StochChannelOutGridSig.pdf}
+        \caption{}
+        \label{fig:StochChannelOutGridSig}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/ChannelOutGridSig.pdf}
+        \caption{}
+        \label{fig:ChannelOutGridSig}
     \end{subfigure}
     }
     \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
-    created by the \ac{SCO} network.}
-    \label{fig:StochChannelOutGridSig}
+    created by the \ac{SCO} \ref{fig:StochChannelOutGridSig} and a channel-out network \ref{fig:ChannelOutGridSig}. 
+    A \ac{PCA} analysis has been applied to the data being utilized in this result.}
 \end{figure}
+
+\subsection{Increasing Sensitivity Through}
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
-    \begin{subfigure}{.6\textwidth}
-        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/ChannelOutGridSig.pdf}
+    \begin{subfigure}{.5\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/NNPCAGridSig.pdf}
+        \caption{}
+        \label{fig:NNPCAGridSig}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/MaxOutPCAGridSig.pdf}
+        \caption{}
+        \label{fig:MaxOutPCAGridSig}
     \end{subfigure}
     }
     \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
-    created by the \emph{ChannelOut} network.}
-    \label{fig:ChannelOutGridSig}
+    created by the \ac{NN} \ref{fig:NNPCAGridSig} and a maxout network \ref{fig:MaxOutPCAGridSig}. A \ac{PCA} 
+    analysis has been applied to the data being utilized in this result.}
 \end{figure}
 
+\begin{figure}
+    \makebox[\linewidth][c]{%
+    \centering
+    \begin{subfigure}{.65\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf}
+    \end{subfigure}
+    }
+    \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
+    created by the \ac{PNN} network. A \ac{PCA} analysis has been applied to the data being utilized in this result.}
+    \label{fig:PNNPCAGridSig}
+\end{figure}
