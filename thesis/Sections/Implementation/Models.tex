@@ -1,7 +1,7 @@
 \section{The Machine Learning Models}
 \subsection{Model selection}
-In this analysis I have chosen to compare 4 different \ac{ML}-models, dens-\acf{NN}, \acf{PNN},
-\ac{LWTA} and XGBoost. The first three methods are all types of \ac{NN}. I have deliberately 
+In this analysis I have chosen to compare 4 different "types" of \ac{ML}-models, dens-\acf{NN}, \acf{PNN},
+ensemble and XGBoost. The first three methods are all types of \ac{NN}. I have deliberately 
 chosen to focus on \ac{NN} given that there is far more freedom in the design of the architecture
 of a \ac{NN}, than compared to a XGboost. Additionally, this was motivated by the selfish reason
 being that I found the networks more interesting to study and dissect. Therefore, most of the 
@@ -16,52 +16,25 @@ and research I have chosen to keep them somewhat separate.
 The field of \ac{ML} is one of the most dynamic and fastest growing fields of research
 today. This means, that regardless of the brave attempt made by voluntary contributors and
 the people at Google\footnote{The developers of TensorFlow}, there will always be 
-new and exciting \ac{ML} tools, not yet implemented in their library. This was also 
+new and exciting \ac{ML} tools and algorithm, not yet implemented in their library. This was also 
 the case in this thesis. Specifically, in the case of non-dense layers I was forced
 to dive into the world of \ac{ML} development and create my own implementation. 
-\subsubsection*{Max-out}
-TensorFlow have already implemented a very similar layer called MaxPooling1D. This does 
-exactly what max-out (see subsection \ref{subsubsec:maxout}) does, but with minor differences. 
-Additionally, I wanted the freedom to experiment with the implementation of the layer. The 
-implementation of both max-out and channel-out (see subsection \ref{subsubsec:channelout}) 
-was done by creating a custom activation function which is called inside a dense-layer. 
 \\
-In the code listing, \ref{lst:max_out} I have included the code implementation of the
-activation function used to create the max-out layer. The listing shows how the function
-takes the input from the previous layer, defines the new shape of what will become the 
-output, groups the nodes in the size defined by number of units, then returns an output 
-which includes only the largest activated node from each unit. By using this function 
-in a dense-layer, said layer will act as a max-out layer. 
-
-\begin{algorithm}
-    \caption{The pseudo code for implementing the Maxout layer in TensorFlow}\label{alg:maxout}
-    \begin{algorithmic}[1]
-    \State def \textbf{MaxOut}(Input): 
-    \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms
-    \State \ \ \ \ $Input \gets Input \times Weights$
-    \State \ \ \ \ $Input \gets Input + Bias$
-    \\
-    \State \ \ \ \ $\%$ Reshape input into units
-    \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Nr\ Units,\ Size \ of \ Units))$
-    \\
-    \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit
-    \State \ \ \ \ $Output \gets \textbf{Max}(Input)$
-    \\
-    \State \ \ \ \ $\%$ Reshape to size equal the number of units.
-    \State \ \ \ \ $Output \gets \textbf{Reshape}(Input,(Nr \ Units))$
-    \State \ \ \ \ $\textbf{return}\ Input$
-    \end{algorithmic}
-\end{algorithm}
-
+All ensemble methods described in section \label{subsec:LWTA} (with the exception of dropout), channel-out, 
+\ac{SCO} and maxout, resemble a layer already implemented by Tensorflow. This layer is called MaxPooling1D
+\footnote{For more information on MaxPoolind1D, the reader is referred to the documentation 
+($\href{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}$,
+accessed 24.03.2023).}. But, to allow for experimentation I decided to not use MaxPooling1d, but instead 
+implement my own custom layers. All custom layers were created by creating new functions inside the 
+TensorFlow's dense layer. In the following sections I will describe the algorithm underlying the implementation
+of each layer.
 \subsubsection*{Channel-out}
-For the activation function defined to create the channel-out layer, I again grouped
-the nodes similarly as I did for max-out. Instead of returning the largest value from each 
-unit, I used TensorFlow's function, $tf.greater\_equal$ to create a tensor with booleans. The 
-booleans are chosen by comparing each unit to the largest value in that unit. By multiplying 
-this tensor to the original input, I am left with the desired result of a tensor containing 
-the largest activated nodes along with the rest whom are now set to zero. 
+In algorithm \ref{alg:channel-out} I summerised the implementation of channel-out used in this analysis. For each 
+input which is to be passed through a forward-pass, the function first passes it through the weights and biases 
+as described in section \label{subsec:FP}. This is true for all the other layers as well. In line 7 I reshape the input 
+to add an additional dimension which creates the units. In line 10 
 \begin{algorithm}
-    \caption{The pseudo code for implementing the channel-out layer in TensorFlow}\label{alg:channel-out}
+    \caption{The pseudocode for implementing the channel-out layer in TensorFlow}\label{alg:channel-out}
     \begin{algorithmic}[1]
     \State def \textbf{Channel-out}(Input): 
     \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms.
@@ -87,7 +60,7 @@ In section \ref{subsubsec:stochchannelout} I described how \ac{SCO} is an extens
 between the two, is that \ac{SCO} utilizes dynamic units instead of static. Therefore, when creating the \ac{SCO} layer,
 the only change needed was grouping the nodes differently for each prediction. This was implemented by 
 \begin{algorithm}
-    \caption{The pseudo code for implementing the SCO layer in TensorFlow}\label{alg:SCO}
+    \caption{The pseudocode for implementing the SCO layer in TensorFlow}\label{alg:SCO}
     \begin{algorithmic}[1]
     \State def \textbf{SCO}(Input): 
     \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms.
@@ -115,6 +88,32 @@ the only change needed was grouping the nodes differently for each prediction. T
     \State \ \ \ \ $\%$ Multiply input with output to set all input that are not the largest, to zero.
     \State \ \ \ \ $Input \gets Input \times Output$
     \\
+    \State \ \ \ \ $\textbf{return}\ Input$
+    \end{algorithmic}
+\end{algorithm}
+\subsubsection*{Max-out}
+In the code listing, \ref{lst:max_out} I have included the code implementation of the
+activation function used to create the max-out layer. The listing shows how the function
+takes the input from the previous layer, defines the new shape of what will become the 
+output, groups the nodes in the size defined by number of units, then returns an output 
+which includes only the largest activated node from each unit. By using this function 
+in a dense-layer, said layer will act as a max-out layer. 
+\begin{algorithm}
+    \caption{The pseudocode for implementing the maxout layer in TensorFlow}\label{alg:maxout}
+    \begin{algorithmic}[1]
+    \State def \textbf{MaxOut}(Input): 
+    \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms
+    \State \ \ \ \ $Input \gets Input \times Weights$
+    \State \ \ \ \ $Input \gets Input + Bias$
+    \\
+    \State \ \ \ \ $\%$ Reshape input into units
+    \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Nr\ Units,\ Size \ of \ Units))$
+    \\
+    \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit
+    \State \ \ \ \ $Output \gets \textbf{Max}(Input)$
+    \\
+    \State \ \ \ \ $\%$ Reshape to size equal the number of units.
+    \State \ \ \ \ $Output \gets \textbf{Reshape}(Input,(Nr \ Units))$
     \State \ \ \ \ $\textbf{return}\ Input$
     \end{algorithmic}
 \end{algorithm}

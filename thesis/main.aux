@@ -66,6 +66,8 @@
 \@writefile{toc}{\contentsline {section}{\numberline {1.4}Proton-Proton collisions at the LHC}{7}{section.1.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.4.1}An Introduction to Particle Accelerators and Detecors}{7}{subsection.1.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.4.2}The Kinematics}{7}{subsection.1.4.2}\protected@file@percent }
+\newlabel{eq:eta}{{1.1}{7}{The Kinematics}{equation.1.4.1}{}}
+\newlabel{eq:eta@cref}{{[equation][1][1]1.1}{[1][7][]7}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.5}The Background Channels}{7}{section.1.5}\protected@file@percent }
 \newlabel{sec:bkg}{{1.5}{7}{The Background Channels}{section.1.5}{}}
 \newlabel{sec:bkg@cref}{{[section][5][1]1.5}{[1][7][]7}}
@@ -195,6 +197,8 @@
 \citation{wang_maxout_2013}
 \citation{wang_maxout_2013}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6.5}Network Ensembles, dropout and LWTA networks}{21}{subsection.2.6.5}\protected@file@percent }
+\newlabel{subsec:LWTA}{{2.6.5}{21}{Network Ensembles, dropout and LWTA networks}{subsection.2.6.5}{}}
+\newlabel{subsec:LWTA@cref}{{[subsection][5][2,6]2.6.5}{[1][20][]21}}
 \newlabel{subsubsec:Dropout}{{2.6.5}{21}{Dropout}{section*.27}{}}
 \newlabel{subsubsec:Dropout@cref}{{[subsection][5][2,6]2.6.5}{[1][21][]21}}
 \newlabel{subsubsec:Channel-Out}{{2.6.5}{21}{Channel-Out}{section*.28}{}}
@@ -251,4 +255,509 @@
 \citation{ROOT}
 \citation{RDataFrame}
 \citation{Pandas}
-\cit
+\citation{TLorentzVector}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Implementation of the Analysis}{29}{chapter.3}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:Implementation}{{3}{29}{Implementation of the Analysis}{chapter.3}{}}
+\newlabel{chap:Implementation@cref}{{[chapter][3][]3}{[1][29][]29}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Tools and Data}{29}{section.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Monte Carlo Data}{29}{subsection.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}ROOT, RDataframe and Pandas}{29}{subsection.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Computing features in ROOT: Example}{29}{subsection.3.1.3}\protected@file@percent }
+\newlabel{lst:mlll}{{3.1}{30}{$C{++}$-function for $M_{lll}$}{lstlisting.3.1}{}}
+\newlabel{lst:mlll@cref}{{[lstlisting][1][3]3.1}{[1][30][]30}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.1}{\ignorespaces $C{++}$-function for $M_{lll}$.}}{30}{lstlisting.3.1}\protected@file@percent }
+\newlabel{lst:df_mlll}{{3.2}{30}{Python-file for calling dataframe and calculating $M_{lll}$}{lstlisting.3.2}{}}
+\newlabel{lst:df_mlll@cref}{{[lstlisting][2][3]3.2}{[1][30][]30}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.2}{\ignorespaces Python-file for calling dataframe and calculating $M_{lll}$.}}{30}{lstlisting.3.2}\protected@file@percent }
+\citation{franchini_search_2019}
+\citation{Aaboud_2019}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces A visual summary of the workflow and framework use for the computational analysis. \relax }}{31}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:WF}{{3.1}{31}{A visual summary of the workflow and framework use for the computational analysis. \relax }{figure.caption.37}{}}
+\newlabel{fig:WF@cref}{{[figure][1][3]3.1}{[1][30][]31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}The Signal}{31}{subsection.3.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Features}{31}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Cuts and triggers}{31}{subsection.3.2.1}\protected@file@percent }
+\newlabel{subsec:Cuts}{{3.2.1}{31}{Cuts and triggers}{subsection.3.2.1}{}}
+\newlabel{subsec:Cuts@cref}{{[subsection][1][3,2]3.2.1}{[1][31][]31}}
+\citation{franchini_search_2019}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces A depiction of all mass combinations in the full signal data set.\relax }}{32}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:nrSignal}{{3.2}{32}{A depiction of all mass combinations in the full signal data set.\relax }{figure.caption.38}{}}
+\newlabel{fig:nrSignal@cref}{{[figure][2][3]3.2}{[1][30][]32}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Requirments for baseline electrons and muons.\relax }}{32}{table.caption.39}\protected@file@percent }
+\newlabel{table:BL}{{3.1}{32}{Requirments for baseline electrons and muons.\relax }{table.caption.39}{}}
+\newlabel{table:BL@cref}{{[table][1][3]3.1}{[1][31][]32}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Requirments for signal electrons and muons.\relax }}{33}{table.caption.40}\protected@file@percent }
+\newlabel{table:SG}{{3.2}{33}{Requirments for signal electrons and muons.\relax }{table.caption.40}{}}
+\newlabel{table:SG@cref}{{[table][2][3]3.2}{[1][31][]33}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces Trigger requirments for events produced in their respective years.\relax }}{33}{table.caption.41}\protected@file@percent }
+\newlabel{table:Triggers}{{3.3}{33}{Trigger requirments for events produced in their respective years.\relax }{table.caption.41}{}}
+\newlabel{table:Triggers@cref}{{[table][3][3]3.3}{[1][31][]33}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Lepton Variables}{33}{subsection.3.2.2}\protected@file@percent }
+\newlabel{subsec:LepSel}{{3.2.2}{33}{Lepton Variables}{subsection.3.2.2}{}}
+\newlabel{subsec:LepSel@cref}{{[subsection][2][3,2]3.2.2}{[1][32][]33}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Jet Variables}{33}{subsection.3.2.3}\protected@file@percent }
+\newlabel{subsec:JetSel}{{3.2.3}{33}{Jet Variables}{subsection.3.2.3}{}}
+\newlabel{subsec:JetSel@cref}{{[subsection][3][3,2]3.2.3}{[1][33][]33}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Validation}{33}{subsection.3.2.4}\protected@file@percent }
+\newlabel{table:Ref3L}{{3.3a}{34}{\relax }{figure.caption.42}{}}
+\newlabel{table:Ref3L@cref}{{[subfigure][1][3,3]3.3a}{[1][33][]34}}
+\newlabel{sub@table:Ref3L}{{a}{34}{\relax }{figure.caption.42}{}}
+\newlabel{sub@table:Ref3L@cref}{{[subfigure][1][3,3]3.3a}{[1][33][]34}}
+\newlabel{table:RefGen}{{3.3b}{34}{\relax }{figure.caption.42}{}}
+\newlabel{table:RefGen@cref}{{[subfigure][2][3,3]3.3b}{[1][33][]34}}
+\newlabel{sub@table:RefGen}{{b}{34}{\relax }{figure.caption.42}{}}
+\newlabel{sub@table:RefGen@cref}{{[subfigure][2][3,3]3.3b}{[1][33][]34}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces References to figures for all event specific feature distribution.\relax }}{34}{figure.caption.42}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}Negative Weights}{34}{subsection.3.2.5}\protected@file@percent }
+\newlabel{fig:lep1_Pt}{{3.4a}{35}{\relax }{figure.caption.43}{}}
+\newlabel{fig:lep1_Pt@cref}{{[subfigure][1][3,4]3.4a}{[1][33][]35}}
+\newlabel{sub@fig:lep1_Pt}{{a}{35}{\relax }{figure.caption.43}{}}
+\newlabel{sub@fig:lep1_Pt@cref}{{[subfigure][1][3,4]3.4a}{[1][33][]35}}
+\newlabel{fig:lep1_Eta}{{3.4b}{35}{\relax }{figure.caption.43}{}}
+\newlabel{fig:lep1_Eta@cref}{{[subfigure][2][3,4]3.4b}{[1][33][]35}}
+\newlabel{sub@fig:lep1_Eta}{{b}{35}{\relax }{figure.caption.43}{}}
+\newlabel{sub@fig:lep1_Eta@cref}{{[subfigure][2][3,4]3.4b}{[1][33][]35}}
+\newlabel{fig:met_Et}{{3.4c}{35}{\relax }{figure.caption.43}{}}
+\newlabel{fig:met_Et@cref}{{[subfigure][3][3,4]3.4c}{[1][33][]35}}
+\newlabel{sub@fig:met_Et}{{c}{35}{\relax }{figure.caption.43}{}}
+\newlabel{sub@fig:met_Et@cref}{{[subfigure][3][3,4]3.4c}{[1][33][]35}}
+\newlabel{fig:flcomp}{{3.4d}{35}{\relax }{figure.caption.43}{}}
+\newlabel{fig:flcomp@cref}{{[subfigure][4][3,4]3.4d}{[1][33][]35}}
+\newlabel{sub@fig:flcomp}{{d}{35}{\relax }{figure.caption.43}{}}
+\newlabel{sub@fig:flcomp@cref}{{[subfigure][4][3,4]3.4d}{[1][33][]35}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces \ac {MC} and real data comparison and event distribution for each channel over $P_t$ \ref  {fig:lep1_Pt} and $\eta $ \ref  {fig:lep1_Eta} for the first lepton. Similarly, the distribution over the $E_T^{miss}$ \ref  {fig:met_Et} and flavor combination of the three leptons \ref  {fig:flcomp}.\relax }}{35}{figure.caption.43}\protected@file@percent }
+\newlabel{fig:Dist1}{{3.4}{35}{\ac {MC} and real data comparison and event distribution for each channel over $P_t$ \ref {fig:lep1_Pt} and $\eta $ \ref {fig:lep1_Eta} for the first lepton. Similarly, the distribution over the $E_T^{miss}$ \ref {fig:met_Et} and flavor combination of the three leptons \ref {fig:flcomp}.\relax }{figure.caption.43}{}}
+\newlabel{fig:Dist1@cref}{{[figure][4][3]3.4}{[1][33][]35}}
+\newlabel{fig:lep1_Pt_Neg}{{3.5a}{36}{\relax }{figure.caption.44}{}}
+\newlabel{fig:lep1_Pt_Neg@cref}{{[subfigure][1][3,5]3.5a}{[1][34][]36}}
+\newlabel{sub@fig:lep1_Pt_Neg}{{a}{36}{\relax }{figure.caption.44}{}}
+\newlabel{sub@fig:lep1_Pt_Neg@cref}{{[subfigure][1][3,5]3.5a}{[1][34][]36}}
+\newlabel{fig:lep1_Pt_nNeg}{{3.5b}{36}{\relax }{figure.caption.44}{}}
+\newlabel{fig:lep1_Pt_nNeg@cref}{{[subfigure][2][3,5]3.5b}{[1][34][]36}}
+\newlabel{sub@fig:lep1_Pt_nNeg}{{b}{36}{\relax }{figure.caption.44}{}}
+\newlabel{sub@fig:lep1_Pt_nNeg@cref}{{[subfigure][2][3,5]3.5b}{[1][34][]36}}
+\newlabel{fig:lep2_Pt_Neg}{{3.5c}{36}{\relax }{figure.caption.44}{}}
+\newlabel{fig:lep2_Pt_Neg@cref}{{[subfigure][3][3,5]3.5c}{[1][34][]36}}
+\newlabel{sub@fig:lep2_Pt_Neg}{{c}{36}{\relax }{figure.caption.44}{}}
+\newlabel{sub@fig:lep2_Pt_Neg@cref}{{[subfigure][3][3,5]3.5c}{[1][34][]36}}
+\newlabel{fig:lep2_Pt_nNeg}{{3.5d}{36}{\relax }{figure.caption.44}{}}
+\newlabel{fig:lep2_Pt_nNeg@cref}{{[subfigure][4][3,5]3.5d}{[1][34][]36}}
+\newlabel{sub@fig:lep2_Pt_nNeg}{{d}{36}{\relax }{figure.caption.44}{}}
+\newlabel{sub@fig:lep2_Pt_nNeg@cref}{{[subfigure][4][3,5]3.5d}{[1][34][]36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces The absolute value of the $P_t$ for events with strictly negative weights ($l_1$ \ref  {fig:lep1_Pt_Neg}, $l_2$ \ref  {fig:lep2_Pt_Neg}) and all events ($l_1$ \ref  {fig:lep1_Pt_nNeg}, $l_2$ \ref  {fig:lep2_Pt_nNeg}). \relax }}{36}{figure.caption.44}\protected@file@percent }
+\newlabel{fig:lep1_Phi_Neg}{{3.6a}{37}{\relax }{figure.caption.45}{}}
+\newlabel{fig:lep1_Phi_Neg@cref}{{[subfigure][1][3,6]3.6a}{[1][34][]37}}
+\newlabel{sub@fig:lep1_Phi_Neg}{{a}{37}{\relax }{figure.caption.45}{}}
+\newlabel{sub@fig:lep1_Phi_Neg@cref}{{[subfigure][1][3,6]3.6a}{[1][34][]37}}
+\newlabel{fig:lep1_Phi_nNeg}{{3.6b}{37}{\relax }{figure.caption.45}{}}
+\newlabel{fig:lep1_Phi_nNeg@cref}{{[subfigure][2][3,6]3.6b}{[1][34][]37}}
+\newlabel{sub@fig:lep1_Phi_nNeg}{{b}{37}{\relax }{figure.caption.45}{}}
+\newlabel{sub@fig:lep1_Phi_nNeg@cref}{{[subfigure][2][3,6]3.6b}{[1][34][]37}}
+\newlabel{fig:lep2_Phi_Neg}{{3.6c}{37}{\relax }{figure.caption.45}{}}
+\newlabel{fig:lep2_Phi_Neg@cref}{{[subfigure][3][3,6]3.6c}{[1][34][]37}}
+\newlabel{sub@fig:lep2_Phi_Neg}{{c}{37}{\relax }{figure.caption.45}{}}
+\newlabel{sub@fig:lep2_Phi_Neg@cref}{{[subfigure][3][3,6]3.6c}{[1][34][]37}}
+\newlabel{fig:lep2_Phi_nNeg}{{3.6d}{37}{\relax }{figure.caption.45}{}}
+\newlabel{fig:lep2_Phi_nNeg@cref}{{[subfigure][4][3,6]3.6d}{[1][34][]37}}
+\newlabel{sub@fig:lep2_Phi_nNeg}{{d}{37}{\relax }{figure.caption.45}{}}
+\newlabel{sub@fig:lep2_Phi_nNeg@cref}{{[subfigure][4][3,6]3.6d}{[1][34][]37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces The absolute value of the $\phi $ for events with strictly negative weights ($l_1$ \ref  {fig:lep1_Phi_Neg}, $l_2$ \ref  {fig:lep2_Phi_Neg}) and all events ($l_1$ \ref  {fig:lep1_Phi_nNeg}, $l_2$ \ref  {fig:lep2_Phi_nNeg}). \relax }}{37}{figure.caption.45}\protected@file@percent }
+\newlabel{eq:negw}{{3.1}{38}{Negative Weights}{equation.3.2.1}{}}
+\newlabel{eq:negw@cref}{{[equation][1][3]3.1}{[1][38][]38}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}The Machine Learning Models}{38}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Model selection}{38}{subsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Creating custom layers}{38}{subsection.3.3.2}\protected@file@percent }
+\newlabel{subsec:CustomLayer}{{3.3.2}{38}{Creating custom layers}{subsection.3.3.2}{}}
+\newlabel{subsec:CustomLayer@cref}{{[subsection][2][3,3]3.3.2}{[1][38][]38}}
+\newlabel{subsec:LWTA}{{3.3.2}{38}{Creating custom layers}{subsection.3.3.2}{}}
+\newlabel{subsec:LWTA@cref}{{[subsection][2][3,3]3.3.2}{[1][38][]38}}
+\newlabel{subsec:FP}{{3.3.2}{38}{Channel-out}{section*.46}{}}
+\newlabel{subsec:FP@cref}{{[subsection][2][3,3]3.3.2}{[1][38][]38}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces The pseudocode for implementing the channel-out layer in TensorFlow\relax }}{39}{algorithm.1}\protected@file@percent }
+\newlabel{alg:channel-out}{{1}{39}{The pseudocode for implementing the channel-out layer in TensorFlow\relax }{algorithm.1}{}}
+\newlabel{alg:channel-out@cref}{{[algorithm][1][]1}{[1][38][]39}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces The pseudocode for implementing the SCO layer in TensorFlow\relax }}{39}{algorithm.2}\protected@file@percent }
+\newlabel{alg:SCO}{{2}{39}{The pseudocode for implementing the SCO layer in TensorFlow\relax }{algorithm.2}{}}
+\newlabel{alg:SCO@cref}{{[algorithm][2][]2}{[1][38][]39}}
+\citation{GS}
+\citation{PNN}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces A visual summary of the workflow and framework use for the computational analysis. \relax }}{40}{figure.caption.49}\protected@file@percent }
+\newlabel{fig:arch}{{3.7}{40}{A visual summary of the workflow and framework use for the computational analysis. \relax }{figure.caption.49}{}}
+\newlabel{fig:arch@cref}{{[figure][7][3]3.7}{[1][40][]40}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces The pseudocode for implementing the maxout layer in TensorFlow\relax }}{40}{algorithm.3}\protected@file@percent }
+\newlabel{alg:maxout}{{3}{40}{The pseudocode for implementing the maxout layer in TensorFlow\relax }{algorithm.3}{}}
+\newlabel{alg:maxout@cref}{{[algorithm][3][]3}{[1][38][]40}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Model Architecture}{40}{subsection.3.3.3}\protected@file@percent }
+\newlabel{subsec:PNNArch}{{3.3.3}{41}{Dense Neural Network and PNN}{section*.50}{}}
+\newlabel{subsec:PNNArch@cref}{{[subsection][3][3,3]3.3.3}{[1][40][]41}}
+\newlabel{subsec:XGBoost}{{3.3.3}{41}{XGBoost}{section*.52}{}}
+\newlabel{subsec:XGBoost@cref}{{[subsection][3][3,3]3.3.3}{[1][41][]41}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Model Training and Validation}{41}{section.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Training and Validating data}{41}{subsection.3.4.1}\protected@file@percent }
+\citation{8020}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Training strategy}{42}{subsection.3.4.2}\protected@file@percent }
+\citation{ATLAS-CONF-2011-152}
+\citation{ATLAS-CONF-2017-064}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Results \& Discussion}{43}{chapter.4}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{subsec:ResDisc}{{4}{43}{Results \& Discussion}{chapter.4}{}}
+\newlabel{subsec:ResDisc@cref}{{[chapter][4][]4}{[1][43][]43}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Benchmarking the Analysis with Boosted Trees}{43}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Dense Neural Networks}{43}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Deep vs Shallow}{43}{subsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Parameter Specific Networks and Interpolation}{43}{subsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Ensemble methods}{43}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Visualizing Sparse Pathways}{43}{subsection.4.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces A grid displaying the achieved significance on the original signal set, using the signal region created by the \emph  {XGBoost} network.\relax }}{44}{figure.caption.53}\protected@file@percent }
+\newlabel{fig:XGBoost}{{4.1}{44}{A grid displaying the achieved significance on the original signal set, using the signal region created by the \emph {XGBoost} network.\relax }{figure.caption.53}{}}
+\newlabel{fig:XGBoost@cref}{{[figure][1][4]4.1}{[1][43][]44}}
+\newlabel{fig:XGBDist}{{4.2a}{44}{\relax }{figure.caption.54}{}}
+\newlabel{fig:XGBDist@cref}{{[subfigure][1][4,2]4.2a}{[1][43][]44}}
+\newlabel{sub@fig:XGBDist}{{a}{44}{\relax }{figure.caption.54}{}}
+\newlabel{sub@fig:XGBDist@cref}{{[subfigure][1][4,2]4.2a}{[1][43][]44}}
+\newlabel{fig:XGBDist_95}{{4.2b}{44}{\relax }{figure.caption.54}{}}
+\newlabel{fig:XGBDist_95@cref}{{[subfigure][2][4,2]4.2b}{[1][43][]44}}
+\newlabel{sub@fig:XGBDist_95}{{b}{44}{\relax }{figure.caption.54}{}}
+\newlabel{sub@fig:XGBDist_95@cref}{{[subfigure][2][4,2]4.2b}{[1][43][]44}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces The output distribution from a trained XGBoost model for the background and signals with 4 different mass combinations: ($\tilde  {\chi }_1=200$, $\tilde  {\chi }_2=400$GeV), ($\tilde  {\chi }_1=400$, $\tilde  {\chi }_2=650$GeV), ($\tilde  {\chi }_1=700$, $\tilde  {\chi }_2=50$GeV) and ($\tilde  {\chi }_1=400$, $\tilde  {\chi }_2=800$GeV). The figure includes the full output range (\ref  {fig:XGBDist}) and the output ranging from 0.9-1.00 (\ref  {fig:XGBDist_95}).\relax }}{44}{figure.caption.54}\protected@file@percent }
+\newlabel{fig:XGBDistComp}{{4.2}{44}{The output distribution from a trained XGBoost model for the background and signals with 4 different mass combinations: ($\tilde {\chi }_1=200$, $\tilde {\chi }_2=400$GeV), ($\tilde {\chi }_1=400$, $\tilde {\chi }_2=650$GeV), ($\tilde {\chi }_1=700$, $\tilde {\chi }_2=50$GeV) and ($\tilde {\chi }_1=400$, $\tilde {\chi }_2=800$GeV). The figure includes the full output range (\ref {fig:XGBDist}) and the output ranging from 0.9-1.00 (\ref {fig:XGBDist_95}).\relax }{figure.caption.54}{}}
+\newlabel{fig:XGBDistComp@cref}{{[figure][2][4]4.2}{[1][43][]44}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces A grid displaying the achieved significance on the original signal set, using the signal region created by the shallow \ac {NN} network.\relax }}{45}{figure.caption.55}\protected@file@percent }
+\newlabel{fig:NNshallowGridSig}{{4.3}{45}{A grid displaying the achieved significance on the original signal set, using the signal region created by the shallow \ac {NN} network.\relax }{figure.caption.55}{}}
+\newlabel{fig:NNshallowGridSig@cref}{{[figure][3][4]4.3}{[1][43][]45}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces A grid displaying the achieved significance on the original signal set, using the signal region created by the deep \ac {NN} network.\relax }}{45}{figure.caption.56}\protected@file@percent }
+\newlabel{fig:NNGridSig}{{4.4}{45}{A grid displaying the achieved significance on the original signal set, using the signal region created by the deep \ac {NN} network.\relax }{figure.caption.56}{}}
+\newlabel{fig:NNGridSig@cref}{{[figure][4][4]4.4}{[1][43][]45}}
+\newlabel{fig:OneMass}{{4.5a}{46}{\relax }{figure.caption.57}{}}
+\newlabel{fig:OneMass@cref}{{[subfigure][1][4,5]4.5a}{[1][43][]46}}
+\newlabel{sub@fig:OneMass}{{a}{46}{\relax }{figure.caption.57}{}}
+\newlabel{sub@fig:OneMass@cref}{{[subfigure][1][4,5]4.5a}{[1][43][]46}}
+\newlabel{fig:SeveralMass}{{4.5b}{46}{\relax }{figure.caption.57}{}}
+\newlabel{fig:SeveralMass@cref}{{[subfigure][2][4,5]4.5b}{[1][43][]46}}
+\newlabel{sub@fig:SeveralMass}{{b}{46}{\relax }{figure.caption.57}{}}
+\newlabel{sub@fig:SeveralMass@cref}{{[subfigure][2][4,5]4.5b}{[1][43][]46}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces \relax }}{46}{figure.caption.57}\protected@file@percent }
+\newlabel{fig:Interpolation}{{4.5}{46}{\relax }{figure.caption.57}{}}
+\newlabel{fig:Interpolation@cref}{{[figure][5][4]4.5}{[1][43][]46}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Sensitivity Result}{46}{subsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Parametrized Neural Network}{46}{section.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Discriminating Masses}{46}{subsection.4.4.1}\protected@file@percent }
+\newlabel{fig:BTraining}{{4.6a}{47}{\relax }{figure.caption.58}{}}
+\newlabel{fig:BTraining@cref}{{[subfigure][1][4,6]4.6a}{[1][43][]47}}
+\newlabel{sub@fig:BTraining}{{a}{47}{\relax }{figure.caption.58}{}}
+\newlabel{sub@fig:BTraining@cref}{{[subfigure][1][4,6]4.6a}{[1][43][]47}}
+\newlabel{fig:ATraining}{{4.6b}{47}{\relax }{figure.caption.58}{}}
+\newlabel{fig:ATraining@cref}{{[subfigure][2][4,6]4.6b}{[1][43][]47}}
+\newlabel{sub@fig:ATraining}{{b}{47}{\relax }{figure.caption.58}{}}
+\newlabel{sub@fig:ATraining@cref}{{[subfigure][2][4,6]4.6b}{[1][43][]47}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces A calculated visualization of a 3 layer MaxOut network. Each path represents a data point where all connected nodes were the largest activation in their respective group. The distribution on the far right represent the output distribution. The figure to the left (\ref  {fig:ATrainingSig}) is the result before training and the figure to right (\ref  {fig:ATrainingBkg}) is after.\relax }}{47}{figure.caption.58}\protected@file@percent }
+\newlabel{fig:ATrainingSig}{{4.7a}{47}{\relax }{figure.caption.59}{}}
+\newlabel{fig:ATrainingSig@cref}{{[subfigure][1][4,7]4.7a}{[1][46][]47}}
+\newlabel{sub@fig:ATrainingSig}{{a}{47}{\relax }{figure.caption.59}{}}
+\newlabel{sub@fig:ATrainingSig@cref}{{[subfigure][1][4,7]4.7a}{[1][46][]47}}
+\newlabel{fig:ATrainingBkg}{{4.7b}{47}{\relax }{figure.caption.59}{}}
+\newlabel{fig:ATrainingBkg@cref}{{[subfigure][2][4,7]4.7b}{[1][46][]47}}
+\newlabel{sub@fig:ATrainingBkg}{{b}{47}{\relax }{figure.caption.59}{}}
+\newlabel{sub@fig:ATrainingBkg@cref}{{[subfigure][2][4,7]4.7b}{[1][46][]47}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces A calculated visualization of a 3 layer MaxOut network. Each path represents a data point where all connected nodes were the largest activation in their respective group. The distribution on the far right represent the output distribution and the figure with blue paths \ref  {fig:ATrainingSig} is the result of signal and the figure pink \ref  {fig:ATrainingBkg}. \relax }}{47}{figure.caption.59}\protected@file@percent }
+\newlabel{fig:NetDist1}{{4.7}{47}{A calculated visualization of a 3 layer MaxOut network. Each path represents a data point where all connected nodes were the largest activation in their respective group. The distribution on the far right represent the output distribution and the figure with blue paths \ref {fig:ATrainingSig} is the result of signal and the figure pink \ref {fig:ATrainingBkg}. \relax }{figure.caption.59}{}}
+\newlabel{fig:NetDist1@cref}{{[figure][7][4]4.7}{[1][46][]47}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces A listing of the remaining procentage of each mass combination in the output range 0.95-1.00 using the labels ($\tilde  {\chi }_1=50$, $\tilde  {\chi }_2=250$GeV) and ($\tilde  {\chi }_1=200$, $\tilde  {\chi }_2=300$GeV) respectively.\relax }}{47}{table.caption.66}\protected@file@percent }
+\newlabel{table:PNNSigComp}{{4.1}{47}{A listing of the remaining procentage of each mass combination in the output range 0.95-1.00 using the labels ($\tilde {\chi }_1=50$, $\tilde {\chi }_2=250$GeV) and ($\tilde {\chi }_1=200$, $\tilde {\chi }_2=300$GeV) respectively.\relax }{table.caption.66}{}}
+\newlabel{table:PNNSigComp@cref}{{[table][1][4]4.1}{[1][46][]47}}
+\newlabel{fig:ATrainingSig50250}{{4.8a}{48}{\relax }{figure.caption.60}{}}
+\newlabel{fig:ATrainingSig50250@cref}{{[subfigure][1][4,8]4.8a}{[1][46][]48}}
+\newlabel{sub@fig:ATrainingSig50250}{{a}{48}{\relax }{figure.caption.60}{}}
+\newlabel{sub@fig:ATrainingSig50250@cref}{{[subfigure][1][4,8]4.8a}{[1][46][]48}}
+\newlabel{fig:ATrainingSig200300}{{4.8b}{48}{\relax }{figure.caption.60}{}}
+\newlabel{fig:ATrainingSig200300@cref}{{[subfigure][2][4,8]4.8b}{[1][46][]48}}
+\newlabel{sub@fig:ATrainingSig200300}{{b}{48}{\relax }{figure.caption.60}{}}
+\newlabel{sub@fig:ATrainingSig200300@cref}{{[subfigure][2][4,8]4.8b}{[1][46][]48}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces A calculated visualization of a trained MaxOut network with 3 hidden layers. Each path represents a data point where all connected nodes were the largest activation in their respective group. The figure to the left (\ref  {fig:ATrainingSig50250}) is a result of signal with ($\tilde  {\chi }_1=50$, $\tilde  {\chi }_2=250$GeV) and the right (\ref  {fig:ATrainingSig200300}) ($\tilde  {\chi }_1=200$, $\tilde  {\chi }_2=300$GeV).\relax }}{48}{figure.caption.60}\protected@file@percent }
+\newlabel{fig:NetVisSigComp}{{4.8}{48}{A calculated visualization of a trained MaxOut network with 3 hidden layers. Each path represents a data point where all connected nodes were the largest activation in their respective group. The figure to the left (\ref {fig:ATrainingSig50250}) is a result of signal with ($\tilde {\chi }_1=50$, $\tilde {\chi }_2=250$GeV) and the right (\ref {fig:ATrainingSig200300}) ($\tilde {\chi }_1=200$, $\tilde {\chi }_2=300$GeV).\relax }{figure.caption.60}{}}
+\newlabel{fig:NetVisSigComp@cref}{{[figure][8][4]4.8}{[1][46][]48}}
+\newlabel{fig:ATrainingSig50250Zoom}{{4.9a}{48}{\relax }{figure.caption.61}{}}
+\newlabel{fig:ATrainingSig50250Zoom@cref}{{[subfigure][1][4,9]4.9a}{[1][46][]48}}
+\newlabel{sub@fig:ATrainingSig50250Zoom}{{a}{48}{\relax }{figure.caption.61}{}}
+\newlabel{sub@fig:ATrainingSig50250Zoom@cref}{{[subfigure][1][4,9]4.9a}{[1][46][]48}}
+\newlabel{fig:ATrainingSig200300Zoom}{{4.9b}{48}{\relax }{figure.caption.61}{}}
+\newlabel{fig:ATrainingSig200300Zoom@cref}{{[subfigure][2][4,9]4.9b}{[1][46][]48}}
+\newlabel{sub@fig:ATrainingSig200300Zoom}{{b}{48}{\relax }{figure.caption.61}{}}
+\newlabel{sub@fig:ATrainingSig200300Zoom@cref}{{[subfigure][2][4,9]4.9b}{[1][46][]48}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces A cut-out of the fifth and sixth neuron (counting from the top) in the second hidden layer, activated by the signal with ($\tilde  {\chi }_1=50$, $\tilde  {\chi }_2=250$GeV) \ref  {fig:ATrainingSig50250Zoom} and ($\tilde  {\chi }_1=200$, $\tilde  {\chi }_2=300$GeV) \ref  {fig:ATrainingSig200300Zoom}.\relax }}{48}{figure.caption.61}\protected@file@percent }
+\newlabel{fig:NetVisZoom}{{4.9}{48}{A cut-out of the fifth and sixth neuron (counting from the top) in the second hidden layer, activated by the signal with ($\tilde {\chi }_1=50$, $\tilde {\chi }_2=250$GeV) \ref {fig:ATrainingSig50250Zoom} and ($\tilde {\chi }_1=200$, $\tilde {\chi }_2=300$GeV) \ref {fig:ATrainingSig200300Zoom}.\relax }{figure.caption.61}{}}
+\newlabel{fig:NetVisZoom@cref}{{[figure][9][4]4.9}{[1][46][]48}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces A grid displaying the achieved significance on the original signal set, using the signal region created by the \emph  {MaxOut} network.\relax }}{49}{figure.caption.62}\protected@file@percent }
+\newlabel{fig:MaxOutGridSig}{{4.10}{49}{A grid displaying the achieved significance on the original signal set, using the signal region created by the \emph {MaxOut} network.\relax }{figure.caption.62}{}}
+\newlabel{fig:MaxOutGridSig@cref}{{[figure][10][4]4.10}{[1][46][]49}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces A sensitivity comparison between the ensemble methods (MaxOut, \ac {SCO}, ChannelOut) on the original signal data. The size of the "pie" represents the relative size of the significance and the color around each point displays the method with the largest sensitivity for the respective combination.\relax }}{49}{figure.caption.63}\protected@file@percent }
+\newlabel{fig:EnsembleComp}{{4.11}{49}{A sensitivity comparison between the ensemble methods (MaxOut, \ac {SCO}, ChannelOut) on the original signal data. The size of the "pie" represents the relative size of the significance and the color around each point displays the method with the largest sensitivity for the respective combination.\relax }{figure.caption.63}{}}
+\newlabel{fig:EnsembleComp@cref}{{[figure][11][4]4.11}{[1][46][]49}}
+\newlabel{fig:PNN50250Dist}{{4.12a}{50}{\relax }{figure.caption.64}{}}
+\newlabel{fig:PNN50250Dist@cref}{{[subfigure][1][4,12]4.12a}{[1][46][]50}}
+\newlabel{sub@fig:PNN50250Dist}{{a}{50}{\relax }{figure.caption.64}{}}
+\newlabel{sub@fig:PNN50250Dist@cref}{{[subfigure][1][4,12]4.12a}{[1][46][]50}}
+\newlabel{fig:PNN50250Dist_95}{{4.12b}{50}{\relax }{figure.caption.64}{}}
+\newlabel{fig:PNN50250Dist_95@cref}{{[subfigure][2][4,12]4.12b}{[1][46][]50}}
+\newlabel{sub@fig:PNN50250Dist_95}{{b}{50}{\relax }{figure.caption.64}{}}
+\newlabel{sub@fig:PNN50250Dist_95@cref}{{[subfigure][2][4,12]4.12b}{[1][46][]50}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces The output distribution from a trained \ac {PNN} model for the background and signals with 4 different mass combinations: ($\tilde  {\chi }_1=50$, $\tilde  {\chi }_2=250$GeV), ($\tilde  {\chi }_1=100$, $\tilde  {\chi }_2=200$GeV), ($\tilde  {\chi }_1=200$, $\tilde  {\chi }_2=300$GeV) and ($\tilde  {\chi }_1=150$, $\tilde  {\chi }_2=250$GeV), and where all the data were given the parameter features of ($\tilde  {\chi }_1=50$, $\tilde  {\chi }_2=250$GeV). The figure includes the full output range (\ref  {fig:PNN50250Dist}) and the output ranging from 0.975-1.00 (\ref  {fig:PNN50250Dist_95}).\relax }}{50}{figure.caption.64}\protected@file@percent }
+\newlabel{fig:PNN50250}{{4.12}{50}{The output distribution from a trained \ac {PNN} model for the background and signals with 4 different mass combinations: ($\tilde {\chi }_1=50$, $\tilde {\chi }_2=250$GeV), ($\tilde {\chi }_1=100$, $\tilde {\chi }_2=200$GeV), ($\tilde {\chi }_1=200$, $\tilde {\chi }_2=300$GeV) and ($\tilde {\chi }_1=150$, $\tilde {\chi }_2=250$GeV), and where all the data were given the parameter features of ($\tilde {\chi }_1=50$, $\tilde {\chi }_2=250$GeV). The figure includes the full output range (\ref {fig:PNN50250Dist}) and the output ranging from 0.975-1.00 (\ref {fig:PNN50250Dist_95}).\relax }{figure.caption.64}{}}
+\newlabel{fig:PNN50250@cref}{{[figure][12][4]4.12}{[1][46][]50}}
+\newlabel{fig:PNN200300Dist}{{4.13a}{50}{\relax }{figure.caption.65}{}}
+\newlabel{fig:PNN200300Dist@cref}{{[subfigure][1][4,13]4.13a}{[1][46][]50}}
+\newlabel{sub@fig:PNN200300Dist}{{a}{50}{\relax }{figure.caption.65}{}}
+\newlabel{sub@fig:PNN200300Dist@cref}{{[subfigure][1][4,13]4.13a}{[1][46][]50}}
+\newlabel{fig:PNN200300Dist_95}{{4.13b}{50}{\relax }{figure.caption.65}{}}
+\newlabel{fig:PNN200300Dist_95@cref}{{[subfigure][2][4,13]4.13b}{[1][46][]50}}
+\newlabel{sub@fig:PNN200300Dist_95}{{b}{50}{\relax }{figure.caption.65}{}}
+\newlabel{sub@fig:PNN200300Dist_95@cref}{{[subfigure][2][4,13]4.13b}{[1][46][]50}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces The output distribution from a trained \ac {PNN} model for the background and signals with 4 different mass combinations: ($\tilde  {\chi }_1=50$, $\tilde  {\chi }_2=250$GeV), ($\tilde  {\chi }_1=100$, $\tilde  {\chi }_2=200$GeV), ($\tilde  {\chi }_1=200$, $\tilde  {\chi }_2=300$GeV) and ($\tilde  {\chi }_1=150$, $\tilde  {\chi }_2=250$GeV), and where all the data were given the parameter features of ($\tilde  {\chi }_1=200$, $\tilde  {\chi }_2=300$GeV). The figure includes the full output range (\ref  {fig:PNN50250Dist}) and the output ranging from 0.975-1.00 (\ref  {fig:PNN50250Dist_95}).\relax }}{50}{figure.caption.65}\protected@file@percent }
+\newlabel{fig:PNN200300DistComp}{{4.13}{50}{The output distribution from a trained \ac {PNN} model for the background and signals with 4 different mass combinations: ($\tilde {\chi }_1=50$, $\tilde {\chi }_2=250$GeV), ($\tilde {\chi }_1=100$, $\tilde {\chi }_2=200$GeV), ($\tilde {\chi }_1=200$, $\tilde {\chi }_2=300$GeV) and ($\tilde {\chi }_1=150$, $\tilde {\chi }_2=250$GeV), and where all the data were given the parameter features of ($\tilde {\chi }_1=200$, $\tilde {\chi }_2=300$GeV). The figure includes the full output range (\ref {fig:PNN50250Dist}) and the output ranging from 0.975-1.00 (\ref {fig:PNN50250Dist_95}).\relax }{figure.caption.65}{}}
+\newlabel{fig:PNN200300DistComp@cref}{{[figure][13][4]4.13}{[1][46][]50}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {PNN} network.\relax }}{51}{figure.caption.67}\protected@file@percent }
+\newlabel{fig:PNNGridSig}{{4.14}{51}{A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {PNN} network.\relax }{figure.caption.67}{}}
+\newlabel{fig:PNNGridSig@cref}{{[figure][14][4]4.14}{[1][46][]51}}
+\newlabel{fig:NNHist}{{4.15a}{51}{\relax }{figure.caption.68}{}}
+\newlabel{fig:NNHist@cref}{{[subfigure][1][4,15]4.15a}{[1][51][]51}}
+\newlabel{sub@fig:NNHist}{{a}{51}{\relax }{figure.caption.68}{}}
+\newlabel{sub@fig:NNHist@cref}{{[subfigure][1][4,15]4.15a}{[1][51][]51}}
+\newlabel{fig:PNNHist}{{4.15b}{51}{\relax }{figure.caption.68}{}}
+\newlabel{fig:PNNHist@cref}{{[subfigure][2][4,15]4.15b}{[1][51][]51}}
+\newlabel{sub@fig:PNNHist}{{b}{51}{\relax }{figure.caption.68}{}}
+\newlabel{sub@fig:PNNHist@cref}{{[subfigure][2][4,15]4.15b}{[1][51][]51}}
+\newlabel{fig:MaxOutHist}{{4.15c}{51}{\relax }{figure.caption.68}{}}
+\newlabel{fig:MaxOutHist@cref}{{[subfigure][3][4,15]4.15c}{[1][51][]51}}
+\newlabel{sub@fig:MaxOutHist}{{c}{51}{\relax }{figure.caption.68}{}}
+\newlabel{sub@fig:MaxOutHist@cref}{{[subfigure][3][4,15]4.15c}{[1][51][]51}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces \relax }}{51}{figure.caption.68}\protected@file@percent }
+\newlabel{fig:History}{{4.15}{51}{\relax }{figure.caption.68}{}}
+\newlabel{fig:History@cref}{{[figure][15][4]4.15}{[1][51][]51}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Sensitivity Result}{51}{subsection.4.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Comparing Machine Learning Models}{51}{section.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Training History and Overfitting}{51}{subsection.4.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{51}{section.4.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {NN} network. A \ac {PCA} analysis has been applied to the data being utilized in this result.\relax }}{52}{figure.caption.70}\protected@file@percent }
+\newlabel{fig:NNPCAComp}{{4.16}{52}{A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {NN} network. A \ac {PCA} analysis has been applied to the data being utilized in this result.\relax }{figure.caption.70}{}}
+\newlabel{fig:NNPCAComp@cref}{{[figure][16][4]4.16}{[1][51][]52}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{52}{section.4.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.1}Running on Full Statics}{52}{subsection.4.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {NN} network. A \ac {PCA} analysis has been applied to the data being utilized in this result.\relax }}{53}{figure.caption.72}\protected@file@percent }
+\newlabel{fig:MaxOutPCAComp}{{4.17}{53}{A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {NN} network. A \ac {PCA} analysis has been applied to the data being utilized in this result.\relax }{figure.caption.72}{}}
+\newlabel{fig:MaxOutPCAComp@cref}{{[figure][17][4]4.17}{[1][52][]53}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {NN} network. A \ac {PCA} analysis has been applied to the data being utilized in this result.\relax }}{53}{figure.caption.74}\protected@file@percent }
+\newlabel{fig:PNNPCAComp}{{4.18}{53}{A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {NN} network. A \ac {PCA} analysis has been applied to the data being utilized in this result.\relax }{figure.caption.74}{}}
+\newlabel{fig:PNNPCAComp@cref}{{[figure][18][4]4.18}{[1][52][]53}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.19}{\ignorespaces A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {NN} network. A \ac {PCA} analysis has been applied to the data being utilized in this result.\relax }}{54}{figure.caption.75}\protected@file@percent }
+\newlabel{fig:PCAComp}{{4.19}{54}{A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {NN} network. A \ac {PCA} analysis has been applied to the data being utilized in this result.\relax }{figure.caption.75}{}}
+\newlabel{fig:PCAComp@cref}{{[figure][19][4]4.19}{[1][52][]54}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.20}{\ignorespaces A grid displaying the achieved significance on the full statistics signal set, using the signal region created by the \emph  {MaxOut} network.\relax }}{54}{figure.caption.76}\protected@file@percent }
+\newlabel{fig:MaxOutPCA_FS_MLMGridSig}{{4.20}{54}{A grid displaying the achieved significance on the full statistics signal set, using the signal region created by the \emph {MaxOut} network.\relax }{figure.caption.76}{}}
+\newlabel{fig:MaxOutPCA_FS_MLMGridSig@cref}{{[figure][20][4]4.20}{[1][52][]54}}
+\@writefile{toc}{\contentsline {chapter}{Appendices}{55}{section*.77}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Appendix A}{57}{appendix*.78}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Sensitivity Grids}{57}{section.Alph0.1}\protected@file@percent }
+\newlabel{sec: Sensitivity}{{A.1}{57}{Sensitivity Grids}{section.Alph0.1}{}}
+\newlabel{sec: Sensitivity@cref}{{[subappendix][1][2147483647,0]A.1}{[1][57][]57}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.1}Ensembles}{57}{subsection.Alph0.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.2}Increasing Sensitivity Through}{57}{subsection.Alph0.1.2}\protected@file@percent }
+\newlabel{fig:StochChannelOutGridSig}{{21a}{58}{\relax }{figure.caption.79}{}}
+\newlabel{fig:StochChannelOutGridSig@cref}{{[subfigure][1][2147483647,0,21]21a}{[1][57][]58}}
+\newlabel{sub@fig:StochChannelOutGridSig}{{a}{58}{\relax }{figure.caption.79}{}}
+\newlabel{sub@fig:StochChannelOutGridSig@cref}{{[subfigure][1][2147483647,0,21]21a}{[1][57][]58}}
+\newlabel{fig:ChannelOutGridSig}{{21b}{58}{\relax }{figure.caption.79}{}}
+\newlabel{fig:ChannelOutGridSig@cref}{{[subfigure][2][2147483647,0,21]21b}{[1][57][]58}}
+\newlabel{sub@fig:ChannelOutGridSig}{{b}{58}{\relax }{figure.caption.79}{}}
+\newlabel{sub@fig:ChannelOutGridSig@cref}{{[subfigure][2][2147483647,0,21]21b}{[1][57][]58}}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {SCO} \ref  {fig:StochChannelOutGridSig} and a channel-out network \ref  {fig:ChannelOutGridSig}. A \ac {PCA} analysis has been applied to the data being utilized in this result.\relax }}{58}{figure.caption.79}\protected@file@percent }
+\newlabel{fig:NNPCAGridSig}{{22a}{58}{\relax }{figure.caption.80}{}}
+\newlabel{fig:NNPCAGridSig@cref}{{[subfigure][1][2147483647,0,22]22a}{[1][57][]58}}
+\newlabel{sub@fig:NNPCAGridSig}{{a}{58}{\relax }{figure.caption.80}{}}
+\newlabel{sub@fig:NNPCAGridSig@cref}{{[subfigure][1][2147483647,0,22]22a}{[1][57][]58}}
+\newlabel{fig:MaxOutPCAGridSig}{{22b}{58}{\relax }{figure.caption.80}{}}
+\newlabel{fig:MaxOutPCAGridSig@cref}{{[subfigure][2][2147483647,0,22]22b}{[1][57][]58}}
+\newlabel{sub@fig:MaxOutPCAGridSig}{{b}{58}{\relax }{figure.caption.80}{}}
+\newlabel{sub@fig:MaxOutPCAGridSig@cref}{{[subfigure][2][2147483647,0,22]22b}{[1][57][]58}}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {NN} \ref  {fig:NNPCAGridSig} and a maxout network \ref  {fig:MaxOutPCAGridSig}. A \ac {PCA} analysis has been applied to the data being utilized in this result.\relax }}{58}{figure.caption.80}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {PNN} network. A \ac {PCA} analysis has been applied to the data being utilized in this result.\relax }}{59}{figure.caption.81}\protected@file@percent }
+\newlabel{fig:PNNPCAGridSig}{{23}{59}{A grid displaying the achieved significance on the original signal set, using the signal region created by the \ac {PNN} network. A \ac {PCA} analysis has been applied to the data being utilized in this result.\relax }{figure.caption.81}{}}
+\newlabel{fig:PNNPCAGridSig@cref}{{[figure][23][2147483647,0]23}{[1][57][]59}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}The Features}{59}{section.Alph0.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2.1}The Feature Distribution}{60}{subsection.Alph0.2.1}\protected@file@percent }
+\newlabel{subsec:Dist}{{A.2.1}{60}{The Feature Distribution}{subsection.Alph0.2.1}{}}
+\newlabel{subsec:Dist@cref}{{[subsubappendix][1][2147483647,0,2]A.2.1}{[1][59][]60}}
+\newlabel{fig:lep3_Pt}{{24a}{60}{\relax }{figure.caption.82}{}}
+\newlabel{fig:lep3_Pt@cref}{{[subfigure][1][2147483647,0,24]24a}{[1][59][]60}}
+\newlabel{sub@fig:lep3_Pt}{{a}{60}{\relax }{figure.caption.82}{}}
+\newlabel{sub@fig:lep3_Pt@cref}{{[subfigure][1][2147483647,0,24]24a}{[1][59][]60}}
+\newlabel{fig:lep2_Pt}{{24b}{60}{\relax }{figure.caption.82}{}}
+\newlabel{fig:lep2_Pt@cref}{{[subfigure][2][2147483647,0,24]24b}{[1][59][]60}}
+\newlabel{sub@fig:lep2_Pt}{{b}{60}{\relax }{figure.caption.82}{}}
+\newlabel{sub@fig:lep2_Pt@cref}{{[subfigure][2][2147483647,0,24]24b}{[1][59][]60}}
+\newlabel{fig:lep2_Eta}{{24c}{60}{\relax }{figure.caption.82}{}}
+\newlabel{fig:lep2_Eta@cref}{{[subfigure][3][2147483647,0,24]24c}{[1][59][]60}}
+\newlabel{sub@fig:lep2_Eta}{{c}{60}{\relax }{figure.caption.82}{}}
+\newlabel{sub@fig:lep2_Eta@cref}{{[subfigure][3][2147483647,0,24]24c}{[1][59][]60}}
+\newlabel{fig:lep3_Eta}{{24d}{60}{\relax }{figure.caption.82}{}}
+\newlabel{fig:lep3_Eta@cref}{{[subfigure][4][2147483647,0,24]24d}{[1][59][]60}}
+\newlabel{sub@fig:lep3_Eta}{{d}{60}{\relax }{figure.caption.82}{}}
+\newlabel{sub@fig:lep3_Eta@cref}{{[subfigure][4][2147483647,0,24]24d}{[1][59][]60}}
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces \ac {MC} and real data comparison and event distribution for each channel over $P_t$ for the first \ref  {fig:lep1_Pt}, second \ref  {fig:lep2_Pt} and third \ref  {fig:lep3_Pt} lepton. Similarly, the distribution over $\eta $ for the \ref  {fig:lep1_Eta}, second \ref  {fig:lep2_Eta} and third \ref  {fig:lep3_Eta} lepton.\relax }}{60}{figure.caption.82}\protected@file@percent }
+\newlabel{fig:Dist2}{{24}{60}{\ac {MC} and real data comparison and event distribution for each channel over $P_t$ for the first \ref {fig:lep1_Pt}, second \ref {fig:lep2_Pt} and third \ref {fig:lep3_Pt} lepton. Similarly, the distribution over $\eta $ for the \ref {fig:lep1_Eta}, second \ref {fig:lep2_Eta} and third \ref {fig:lep3_Eta} lepton.\relax }{figure.caption.82}{}}
+\newlabel{fig:Dist2@cref}{{[figure][24][2147483647,0]24}{[1][59][]60}}
+\newlabel{fig:lep1_Phi}{{25a}{61}{\relax }{figure.caption.83}{}}
+\newlabel{fig:lep1_Phi@cref}{{[subfigure][1][2147483647,0,25]25a}{[1][61][]61}}
+\newlabel{sub@fig:lep1_Phi}{{a}{61}{\relax }{figure.caption.83}{}}
+\newlabel{sub@fig:lep1_Phi@cref}{{[subfigure][1][2147483647,0,25]25a}{[1][61][]61}}
+\newlabel{fig:lep2_Phi}{{25b}{61}{\relax }{figure.caption.83}{}}
+\newlabel{fig:lep2_Phi@cref}{{[subfigure][2][2147483647,0,25]25b}{[1][61][]61}}
+\newlabel{sub@fig:lep2_Phi}{{b}{61}{\relax }{figure.caption.83}{}}
+\newlabel{sub@fig:lep2_Phi@cref}{{[subfigure][2][2147483647,0,25]25b}{[1][61][]61}}
+\newlabel{fig:lep3_Phi}{{25c}{61}{\relax }{figure.caption.83}{}}
+\newlabel{fig:lep3_Phi@cref}{{[subfigure][3][2147483647,0,25]25c}{[1][61][]61}}
+\newlabel{sub@fig:lep3_Phi}{{c}{61}{\relax }{figure.caption.83}{}}
+\newlabel{sub@fig:lep3_Phi@cref}{{[subfigure][3][2147483647,0,25]25c}{[1][61][]61}}
+\newlabel{fig:lep1_Mt}{{25d}{61}{\relax }{figure.caption.83}{}}
+\newlabel{fig:lep1_Mt@cref}{{[subfigure][4][2147483647,0,25]25d}{[1][61][]61}}
+\newlabel{sub@fig:lep1_Mt}{{d}{61}{\relax }{figure.caption.83}{}}
+\newlabel{sub@fig:lep1_Mt@cref}{{[subfigure][4][2147483647,0,25]25d}{[1][61][]61}}
+\newlabel{fig:lep2_Mt}{{25e}{61}{\relax }{figure.caption.83}{}}
+\newlabel{fig:lep2_Mt@cref}{{[subfigure][5][2147483647,0,25]25e}{[1][61][]61}}
+\newlabel{sub@fig:lep2_Mt}{{e}{61}{\relax }{figure.caption.83}{}}
+\newlabel{sub@fig:lep2_Mt@cref}{{[subfigure][5][2147483647,0,25]25e}{[1][61][]61}}
+\newlabel{fig:lep3_Mt}{{25f}{61}{\relax }{figure.caption.83}{}}
+\newlabel{fig:lep3_Mt@cref}{{[subfigure][6][2147483647,0,25]25f}{[1][61][]61}}
+\newlabel{sub@fig:lep3_Mt}{{f}{61}{\relax }{figure.caption.83}{}}
+\newlabel{sub@fig:lep3_Mt@cref}{{[subfigure][6][2147483647,0,25]25f}{[1][61][]61}}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces \ac {MC} and real data comparison and event distribution for each channel over $\phi $ for the first \ref  {fig:lep1_Phi}, second \ref  {fig:lep2_Phi} and third \ref  {fig:lep3_Phi} lepton. Similarly, the distribution over $m_t$ for the first \ref  {fig:lep1_Mt}, second \ref  {fig:lep2_Mt} and third \ref  {fig:lep3_Mt} lepton.\relax }}{61}{figure.caption.83}\protected@file@percent }
+\newlabel{fig:lep1_Charge}{{26a}{62}{\relax }{figure.caption.84}{}}
+\newlabel{fig:lep1_Charge@cref}{{[subfigure][1][2147483647,0,26]26a}{[1][62][]62}}
+\newlabel{sub@fig:lep1_Charge}{{a}{62}{\relax }{figure.caption.84}{}}
+\newlabel{sub@fig:lep1_Charge@cref}{{[subfigure][1][2147483647,0,26]26a}{[1][62][]62}}
+\newlabel{fig:lep2_Charge}{{26b}{62}{\relax }{figure.caption.84}{}}
+\newlabel{fig:lep2_Charge@cref}{{[subfigure][2][2147483647,0,26]26b}{[1][62][]62}}
+\newlabel{sub@fig:lep2_Charge}{{b}{62}{\relax }{figure.caption.84}{}}
+\newlabel{sub@fig:lep2_Charge@cref}{{[subfigure][2][2147483647,0,26]26b}{[1][62][]62}}
+\newlabel{fig:lep3_Charge}{{26c}{62}{\relax }{figure.caption.84}{}}
+\newlabel{fig:lep3_Charge@cref}{{[subfigure][3][2147483647,0,26]26c}{[1][62][]62}}
+\newlabel{sub@fig:lep3_Charge}{{c}{62}{\relax }{figure.caption.84}{}}
+\newlabel{sub@fig:lep3_Charge@cref}{{[subfigure][3][2147483647,0,26]26c}{[1][62][]62}}
+\newlabel{fig:lep1_Flavor}{{26d}{62}{\relax }{figure.caption.84}{}}
+\newlabel{fig:lep1_Flavor@cref}{{[subfigure][4][2147483647,0,26]26d}{[1][62][]62}}
+\newlabel{sub@fig:lep1_Flavor}{{d}{62}{\relax }{figure.caption.84}{}}
+\newlabel{sub@fig:lep1_Flavor@cref}{{[subfigure][4][2147483647,0,26]26d}{[1][62][]62}}
+\newlabel{fig:lep2_Flavor}{{26e}{62}{\relax }{figure.caption.84}{}}
+\newlabel{fig:lep2_Flavor@cref}{{[subfigure][5][2147483647,0,26]26e}{[1][62][]62}}
+\newlabel{sub@fig:lep2_Flavor}{{e}{62}{\relax }{figure.caption.84}{}}
+\newlabel{sub@fig:lep2_Flavor@cref}{{[subfigure][5][2147483647,0,26]26e}{[1][62][]62}}
+\newlabel{fig:lep3_Flavor}{{26f}{62}{\relax }{figure.caption.84}{}}
+\newlabel{fig:lep3_Flavor@cref}{{[subfigure][6][2147483647,0,26]26f}{[1][62][]62}}
+\newlabel{sub@fig:lep3_Flavor}{{f}{62}{\relax }{figure.caption.84}{}}
+\newlabel{sub@fig:lep3_Flavor@cref}{{[subfigure][6][2147483647,0,26]26f}{[1][62][]62}}
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces \ac {MC} and real data comparison and event distribution for each channel over the charge for the first \ref  {fig:lep1_Charge} , second \ref  {fig:lep2_Charge} and third \ref  {fig:lep3_Charge} lepton. Similarly, the distribution over the flavor for the first \ref  {fig:lep1_Flavor}, second \ref  {fig:lep2_Flavor} and third \ref  {fig:lep3_Flavor} lepton\relax }}{62}{figure.caption.84}\protected@file@percent }
+\newlabel{fig:deltaR}{{27a}{63}{\relax }{figure.caption.85}{}}
+\newlabel{fig:deltaR@cref}{{[subfigure][1][2147483647,0,27]27a}{[1][63][]63}}
+\newlabel{sub@fig:deltaR}{{a}{63}{\relax }{figure.caption.85}{}}
+\newlabel{sub@fig:deltaR@cref}{{[subfigure][1][2147483647,0,27]27a}{[1][63][]63}}
+\newlabel{fig:met_Phi}{{27b}{63}{\relax }{figure.caption.85}{}}
+\newlabel{fig:met_Phi@cref}{{[subfigure][2][2147483647,0,27]27b}{[1][63][]63}}
+\newlabel{sub@fig:met_Phi}{{b}{63}{\relax }{figure.caption.85}{}}
+\newlabel{sub@fig:met_Phi@cref}{{[subfigure][2][2147483647,0,27]27b}{[1][63][]63}}
+\newlabel{fig:mlll}{{27c}{63}{\relax }{figure.caption.85}{}}
+\newlabel{fig:mlll@cref}{{[subfigure][3][2147483647,0,27]27c}{[1][63][]63}}
+\newlabel{sub@fig:mlll}{{c}{63}{\relax }{figure.caption.85}{}}
+\newlabel{sub@fig:mlll@cref}{{[subfigure][3][2147483647,0,27]27c}{[1][63][]63}}
+\newlabel{fig:mll_OSSF}{{27d}{63}{\relax }{figure.caption.85}{}}
+\newlabel{fig:mll_OSSF@cref}{{[subfigure][4][2147483647,0,27]27d}{[1][63][]63}}
+\newlabel{sub@fig:mll_OSSF}{{d}{63}{\relax }{figure.caption.85}{}}
+\newlabel{sub@fig:mll_OSSF@cref}{{[subfigure][4][2147483647,0,27]27d}{[1][63][]63}}
+\newlabel{fig:met_Sign}{{27e}{63}{\relax }{figure.caption.85}{}}
+\newlabel{fig:met_Sign@cref}{{[subfigure][5][2147483647,0,27]27e}{[1][63][]63}}
+\newlabel{sub@fig:met_Sign}{{e}{63}{\relax }{figure.caption.85}{}}
+\newlabel{sub@fig:met_Sign@cref}{{[subfigure][5][2147483647,0,27]27e}{[1][63][]63}}
+\newlabel{fig:Ht_lll}{{27f}{63}{\relax }{figure.caption.85}{}}
+\newlabel{fig:Ht_lll@cref}{{[subfigure][6][2147483647,0,27]27f}{[1][63][]63}}
+\newlabel{sub@fig:Ht_lll}{{f}{63}{\relax }{figure.caption.85}{}}
+\newlabel{sub@fig:Ht_lll@cref}{{[subfigure][6][2147483647,0,27]27f}{[1][63][]63}}
+\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces \ac {MC} and real data comparison and event distribution for for each channel over the energy \ref  {fig:met_Et} and azimuthal angel \ref  {fig:met_Phi} for the transverse momentum. The distribution of the invariant mass of the three leptons \ref  {fig:mlll} and the OSSF pair \ref  {fig:mll_OSSF}. The distribution over the significance of the missing transverse enegy \ref  {fig:met_Sign} and the sum of $P_t$ \ref  {fig:Ht_lll}.\relax }}{63}{figure.caption.85}\protected@file@percent }
+\newlabel{fig:Ht_SS}{{28a}{64}{\relax }{figure.caption.86}{}}
+\newlabel{fig:Ht_SS@cref}{{[subfigure][1][2147483647,0,28]28a}{[1][64][]64}}
+\newlabel{sub@fig:Ht_SS}{{a}{64}{\relax }{figure.caption.86}{}}
+\newlabel{sub@fig:Ht_SS@cref}{{[subfigure][1][2147483647,0,28]28a}{[1][64][]64}}
+\newlabel{fig:Ht_met_Et}{{28b}{64}{\relax }{figure.caption.86}{}}
+\newlabel{fig:Ht_met_Et@cref}{{[subfigure][2][2147483647,0,28]28b}{[1][64][]64}}
+\newlabel{sub@fig:Ht_met_Et}{{b}{64}{\relax }{figure.caption.86}{}}
+\newlabel{sub@fig:Ht_met_Et@cref}{{[subfigure][2][2147483647,0,28]28b}{[1][64][]64}}
+\newlabel{fig:njet_SG}{{28c}{64}{\relax }{figure.caption.86}{}}
+\newlabel{fig:njet_SG@cref}{{[subfigure][3][2147483647,0,28]28c}{[1][64][]64}}
+\newlabel{sub@fig:njet_SG}{{c}{64}{\relax }{figure.caption.86}{}}
+\newlabel{sub@fig:njet_SG@cref}{{[subfigure][3][2147483647,0,28]28c}{[1][64][]64}}
+\newlabel{fig:M_jj}{{28d}{64}{\relax }{figure.caption.86}{}}
+\newlabel{fig:M_jj@cref}{{[subfigure][4][2147483647,0,28]28d}{[1][64][]64}}
+\newlabel{sub@fig:M_jj}{{d}{64}{\relax }{figure.caption.86}{}}
+\newlabel{sub@fig:M_jj@cref}{{[subfigure][4][2147483647,0,28]28d}{[1][64][]64}}
+\newlabel{fig:nbjet77}{{28e}{64}{\relax }{figure.caption.86}{}}
+\newlabel{fig:nbjet77@cref}{{[subfigure][5][2147483647,0,28]28e}{[1][64][]64}}
+\newlabel{sub@fig:nbjet77}{{e}{64}{\relax }{figure.caption.86}{}}
+\newlabel{sub@fig:nbjet77@cref}{{[subfigure][5][2147483647,0,28]28e}{[1][64][]64}}
+\newlabel{fig:nbjet85}{{28f}{64}{\relax }{figure.caption.86}{}}
+\newlabel{fig:nbjet85@cref}{{[subfigure][6][2147483647,0,28]28f}{[1][64][]64}}
+\newlabel{sub@fig:nbjet85}{{f}{64}{\relax }{figure.caption.86}{}}
+\newlabel{sub@fig:nbjet85@cref}{{[subfigure][6][2147483647,0,28]28f}{[1][64][]64}}
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces \ac {MC} and real data comparison and event distribution for each channel over the sum of $P_t$ for the SS pair \ref  {fig:Ht_SS} and the sum over all three leptons added with $E_t^{miss}$ \ref  {fig:Ht_met_Et}. The distribution over $\Delta R$ \ref  {fig:deltaR} and the flavor combination of the three leptons \ref  {fig:flcomp}. The distribution of number of jets \ref  {fig:njet_SG} and the mass of the leading di-jet pair \ref  {fig:M_jj}.\relax }}{64}{figure.caption.86}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces A summary and description of all features used in this analysis.\relax }}{65}{table.caption.87}\protected@file@percent }
+\newlabel{table:Features}{{2}{65}{A summary and description of all features used in this analysis.\relax }{table.caption.87}{}}
+\newlabel{table:Features@cref}{{[table][2][2147483647,0]2}{[1][65][]65}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{65}{section.Alph0.3}\protected@file@percent }
+\newlabel{lst:channel_out}{{1}{65}{Python implementation for the custom activation function used to define the channel-out layer}{lstlisting.Alph0.1}{}}
+\newlabel{lst:channel_out@cref}{{[lstlisting][1][2147483647,0]1}{[1][65][]65}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{\ignorespaces Python implementation for the custom activation function used to define the channel-out layer.}}{65}{lstlisting.Alph0.1}\protected@file@percent }
+\newlabel{lst:channel_out}{{2}{65}{Python implementation for the custom activation function used to define the \ac {SCO} layer}{lstlisting.Alph0.2}{}}
+\newlabel{lst:channel_out@cref}{{[lstlisting][2][2147483647,0]2}{[1][65][]65}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}{\ignorespaces Python implementation for the custom activation function used to define the \ac {SCO} layer.}}{65}{lstlisting.Alph0.2}\protected@file@percent }
+\newlabel{lst:max_out}{{3}{66}{Python implementation for the custom activation function used to define the max-out layer}{lstlisting.Alph0.3}{}}
+\newlabel{lst:max_out@cref}{{[lstlisting][3][2147483647,0]3}{[1][66][]66}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}{\ignorespaces Python implementation for the custom activation function used to define the max-out layer.}}{66}{lstlisting.Alph0.3}\protected@file@percent }
+\bibdata{bibliography.bib}
+\bibcite{Aad_2012}{{1}{}{{}}{{}}}
+\bibcite{JJ}{{2}{}{{}}{{}}}
+\bibcite{Rutherfoord}{{3}{}{{}}{{}}}
+\bibcite{Reines}{{4}{}{{}}{{}}}
+\bibcite{SSB}{{5}{}{{}}{{}}}
+\bibcite{NeutrinoMass}{{6}{}{{}}{{}}}
+\bibcite{joyce1999finnegans}{{7}{}{{}}{{}}}
+\bibcite{Kelvin}{{8}{}{{}}{{}}}
+\bibcite{Graviton}{{9}{}{{}}{{}}}
+\bibcite{DarkME}{{10}{}{{}}{{}}}
+\bibcite{SUSY}{{11}{}{{}}{{}}}
+\bibcite{PDetector}{{12}{}{{}}{{}}}
+\bibcite{gramstad_searches_nodate}{{13}{}{{}}{{}}}
+\bibcite{Guest_2016}{{14}{}{{}}{{}}}
+\bibcite{PhysRevD.44.2025}{{15}{}{{}}{{}}}
+\bibcite{StandardScaler}{{16}{}{{}}{{}}}
+\bibcite{wang_maxout_2013}{{17}{}{{}}{{}}}
+\bibcite{PNN}{{18}{}{{}}{{}}}
+\bibcite{XGB}{{19}{}{{}}{{}}}
+\bibcite{Chen_2016}{{20}{}{{}}{{}}}
+\bibcite{ROOT}{{21}{}{{}}{{}}}
+\bibcite{RDataFrame}{{22}{}{{}}{{}}}
+\bibcite{Pandas}{{23}{}{{}}{{}}}
+\bibcite{TLorentzVector}{{24}{}{{}}{{}}}
+\bibcite{franchini_search_2019}{{25}{}{{}}{{}}}
+\bibcite{Aaboud_2019}{{26}{}{{}}{{}}}
+\bibcite{GS}{{27}{}{{}}{{}}}
+\bibcite{8020}{{28}{}{{}}{{}}}
+\bibcite{ATLAS-CONF-2011-152}{{29}{}{{}}{{}}}
+\bibcite{ATLAS-CONF-2017-064}{{30}{}{{}}{{}}}
+\ACRO{total-barriers}{1}
+\ACRO{usage}{MC=={10}||SM=={36}||BSM=={3}||ML=={50}||OSSF=={2}||SS=={1}||QED=={2}||QCD=={4}||QFT=={3}||SR=={1}||DNN=={4}||LHC=={3}||CP=={1}||NN=={35}||CNN=={1}||RNN=={1}||FFNN=={3}||HPC=={3}||API=={5}||DT=={16}||BDT=={3}||ROC=={5}||AUC=={7}||MSE=={1}||LWTA=={0}||PNN=={9}||SUSY=={5}||SP=={3}||PCA=={8}||BEH=={1}||ATLAS=={6}||EM=={3}||CC=={3}||SCO=={23}||HEP=={2}}
+\ACRO{pages}{QED=={10@1@3}||QFT=={12@1@5}||CP=={13@1@6}||BEH=={13@1@6}||SP=={13@1@6}||SUSY=={13@1@6}||EM=={14@1@7}||SR=={20@1@13}||MSE=={21@1@14}||CNN=={24@1@17}||RNN=={24@1@17}||FFNN=={24@1@17}||ATLAS=={14@1@7|32@1@25}||CC=={32@1@25}||ROC=={33@1@26}||LHC=={14@1@7|36@1@29}||QCD=={10@1@3|11@1@4|38@1@31}||OSSF=={39@1@32}||SS=={39@1@32}||SM=={8@1@1|10@1@3|12@1@5|13@1@6|30@1@23|32@1@25|33@1@26|40@1@33}||DNN=={20@1@13|47@1@40}||BSM=={29@1@22|30@1@23|47@1@40}||DT=={21@1@14|22@1@15|31@1@24|48@1@41}||MC=={32@1@25|36@1@29|38@1@31|40@1@33|48@1@41}||BDT=={20@1@13|49@1@42}||AUC=={33@1@26|49@1@42}||HEP=={14@1@7|50@1@43}||ML=={8@1@1|20@1@13|21@1@14|22@1@15|24@1@17|29@1@22|31@1@24|32@1@25|36@1@29|37@1@30|38@1@31|40@1@33|45@1@38|48@1@41|49@1@42|50@1@43}||HPC=={36@1@29|50@1@43}||NN=={21@1@14|22@1@15|24@1@17|25@1@18|27@1@20|28@1@21|30@1@23|31@1@24|41@1@34|45@1@38|47@1@40|48@1@41|50@1@43}||API=={36@1@29|37@1@30|50@1@43}||PNN=={30@1@23|45@1@38|47@1@40|48@1@41|53@1@46}||PCA=={22@1@15|58@1@51}||SCO=={28@1@21|45@1@38|48@1@41|72@1@65|73@1@66}}
+\ACRO{barriers}{}
+\ACRO{readaux}
+\providecommand\NAT@force@numbers{}\NAT@force@numbers
+\gdef \@abspage@last{78}
