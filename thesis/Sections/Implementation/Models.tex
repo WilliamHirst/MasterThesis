@@ -16,23 +16,25 @@ and research I have chosen to keep them somewhat separate.
 The field of \ac{ML} is one of the most dynamic and fastest growing fields of research
 today. This means, that regardless of the brave attempt made by voluntary contributors and
 the people at Google\footnote{The developers of TensorFlow}, there will always be 
-new and exciting \ac{ML} tools and algorithm, not yet implemented in their library. This was also 
-the case in this thesis. Specifically, in the case of non-dense layers I was forced
+new and exciting \ac{ML} tools and algorithm, not yet implemented in their library. This was 
+certainly the case in this thesis. For several of the non-dense layers I was forced
 to dive into the world of \ac{ML} development and create my own implementation. 
 \\
-All ensemble methods described in section \label{subsec:LWTA} (with the exception of dropout), channel-out, 
+All ensemble methods described in section \ref{subsec:LWTA} (except for dropout), channel-out, 
 \ac{SCO} and maxout, resemble a layer already implemented by Tensorflow. This layer is called MaxPooling1D
 \footnote{For more information on MaxPoolind1D, the reader is referred to the documentation 
 ($\href{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}$,
-accessed 24.03.2023).}. But, to allow for experimentation I decided to not use MaxPooling1d, but instead 
-implement my own custom layers. All custom layers were created by creating new functions inside the 
-TensorFlow's dense layer. In the following sections I will describe the algorithm underlying the implementation
-of each layer.
+accessed 24.03.2023).}. But, to allow for experimentation I decided to not use MaxPooling1D, but instead 
+implement my own custom layers. All custom layers were implemented by creating new functions inside 
+TensorFlow's dense layer, which are called when the network makes a prediction. In the following sections 
+I will describe the algorithms underlying the implementation of each layer.
 \subsubsection*{Channel-out}
-In algorithm \ref{alg:channel-out} I summerised the implementation of channel-out used in this analysis. For each 
+In algorithm \ref{alg:channel-out} I summarized the implementation of channel-out used in this analysis. For each 
 input which is to be passed through a forward-pass, the function first passes it through the weights and biases 
-as described in section \label{subsec:FP}. This is true for all the other layers as well. In line 7 I reshape the input 
-to add an additional dimension which creates the units. In line 10 
+as described in section \ref{subsec:FP}. This is true for all the other layers as well. In line 7 I reshape the input 
+to add a dimension which creates the units. In line 10 I create a new variable, $Output$ by reducing each unit to the 
+largest activated node. Further I set each node to 0 which is not equal to the largest activation. Finally, I reshape 
+the output to the original shape and return the output.  
 \begin{algorithm}
     \caption{The pseudocode for implementing the channel-out layer in TensorFlow}\label{alg:channel-out}
     \begin{algorithmic}[1]
@@ -56,9 +58,16 @@ to add an additional dimension which creates the units. In line 10
     \end{algorithmic}
 \end{algorithm}
 \subsubsection*{\ac{SCO}}
-In section \ref{subsubsec:stochchannelout} I described how \ac{SCO} is an extension of channel-out. The only difference
-between the two, is that \ac{SCO} utilizes dynamic units instead of static. Therefore, when creating the \ac{SCO} layer,
-the only change needed was grouping the nodes differently for each prediction. This was implemented by 
+In section \ref{subsubsec:stochchannelout} I described how \ac{SCO} is an extension of channel-out. This is certainly
+also the case for the algorithms explaining the implementation. In algorithm \ref{alg:SCO} I have described 
+algorithm used in the implementation of \ac{SCO} in this analysis. Similar to channel-out, the algorithm begins by 
+passing input through weights and biases. Then, contrary to channel-out the nodes of the input are shuffled. This 
+is to ensure that when the input is reshaped (in line 10), the units are made differently for each pass through 
+the function. Again the maximum activation is found to create a new variable, this time called $OutputShuffle$. 
+In line 16 $InputShuflle$ and $OutputShuffle$ are compared such that where $InputShuflle$ is equal to the largest 
+activation, the value is set to 1 and otherwise set to 0. $OutputShuffle$ is then unshuffled, and reshaped to the 
+original shape. Finally, the input which has been passed through the weights and biases, is multiplied with 
+$Output$ and returned.
 \begin{algorithm}
     \caption{The pseudocode for implementing the SCO layer in TensorFlow}\label{alg:SCO}
     \begin{algorithmic}[1]
@@ -80,24 +89,22 @@ the only change needed was grouping the nodes differently for each prediction. T
     \State \ \ \ \ $OutputShuffle \gets \textbf{Where}(InputShuflle == OutputShuffle, 1,0)$
     \\
     \State \ \ \ \ $\%$ Un-shuffle all the values
-    \State \ \ \ \ $Output \gets \textbf{UnShuffle}(Input)$
+    \State \ \ \ \ $Output \gets \textbf{UnShuffle}(OutputShuffle)$
     \\
     \State \ \ \ \ $\%$ Reshape to original size.
     \State \ \ \ \ $Output \gets \textbf{Reshape}(Output,(Input's \ Original \ Shape))$
     \\
     \State \ \ \ \ $\%$ Multiply input with output to set all input that are not the largest, to zero.
-    \State \ \ \ \ $Input \gets Input \times Output$
+    \State \ \ \ \ $NewOutput \gets Input \times Output$
     \\
-    \State \ \ \ \ $\textbf{return}\ Input$
+    \State \ \ \ \ $\textbf{return}\ NewOutput$
     \end{algorithmic}
 \end{algorithm}
 \subsubsection*{Max-out}
-In the code listing, \ref{lst:max_out} I have included the code implementation of the
-activation function used to create the max-out layer. The listing shows how the function
-takes the input from the previous layer, defines the new shape of what will become the 
-output, groups the nodes in the size defined by number of units, then returns an output 
-which includes only the largest activated node from each unit. By using this function 
-in a dense-layer, said layer will act as a max-out layer. 
+In algorithm \ref{alg:maxout} I have summarized the algorithm behind the implementation of the maxout layer.
+Off the three layers (channel-out, \ac{SCO} and maxout), maxout was the simplest to implement. After passing 
+the input through the weights and biases and reshaped to form the units, the input is reduced to only include 
+the largest activation in each layer. Finally, the output is reshaped to the original shape and returned.
 \begin{algorithm}
     \caption{The pseudocode for implementing the maxout layer in TensorFlow}\label{alg:maxout}
     \begin{algorithmic}[1]
@@ -156,12 +163,12 @@ structure to the dense-\ac{NN}, with the only difference being in the input-laye
 the \ac{PNN} includes the new physics signal free parameters\footnote{In our case, the masses of the \ac{BSM}-particles.} alongside the features
 in the input layer.
 \subsection*{MaxOut, Channel-Out and \ac{SCO}}
-The ensemble methods are slightly than both the dense \ac{NN} and \ac{PNN} in terms of architecture. To limit the complexity for comparison reasons
+The ensemble methods are slightly more complex than both the dense \ac{NN} and \ac{PNN} in terms of architecture. To limit the complexity for comparison reasons
 I choose to build an identical architecture for maxout, channel-Out and \ac{SCO}, with the only difference being which of the three layers is used.  
 In figure \ref{fig:arch} I have illustrated the MaxOut architecture, with the label MaxOut. The figure shows a network with 6 hidden layers, 
 3 MaxOut and 3 dropout. The network alternates between drop out and MaxOut, starting with dropout and finishing with MaxOut. The MaxOut layers 
 have 600 nodes each which reduce down to the 200 nodes with the largest activation in their respective groups. Each dropout layer has a dropout 
-rate of 0.15. Channel-out and \ac{SCO} have the same architecture to maxout, but replacing maxout with the two respectively. 
+rate of 0.15. Channel-out and \ac{SCO} have the same architecture to maxout, but replacing maxout with each of the two respectively. 
 
 \subsection*{XGBoost}\label{subsec:XGBoost}
 The main motivation to apply XGBoost is simply to benchmark my analysis, and therefore not a lot of effort has been put into the design of the 
