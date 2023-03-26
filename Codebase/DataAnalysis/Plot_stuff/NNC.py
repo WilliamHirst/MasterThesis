@@ -26,7 +26,7 @@ def plotComp(metric, plotters =  None, name =  "", leg_loc = "lower"):
 
     m1 = []
     m2 = []
-    Cmap = {0: 6, 1 : 3, 2: -1, 3:1}
+    Cmap = {0: 6, 1 : -1, 2: 3, 3:1}
     method_0 = json_object[plotters[0]]
     map = {}
     for i in method_0:
@@ -127,8 +127,8 @@ if __name__ == "__main__":
     name = "Ensembles"
     plotters = ["NNPCAGrid", "NNGrid"]
     name = "NNPCA"
-    plotters = ["MaxOutPCAGrid", "MaxOutGrid"]
-    name = "MaxOutPCA"
+    # plotters = ["MaxOutPCAGrid", "MaxOutGrid"]
+    # name = "MaxOutPCA"
     # plotters = ["PNNPCAGrid", "PNNGrid"]
     # name = "PNNPCA"
     plotComp(metric, plotters = plotters, name = name, leg_loc = "lower")
