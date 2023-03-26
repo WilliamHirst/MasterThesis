@@ -22,14 +22,6 @@ I have written the Feynman diagram of an example of such a channel. The figure s
 to a Z-boson and gluon. The Z boson decays into two leptons (normally 
 $e^-e^+$ or $\mu^- \mu^+$) and the gluon hadronises as a jet of hadrons which may obtain a b-hadron leading to a 
 fake lepton. 
-\begin{figure}
-    \centering
-    \makebox[0.75\linewidth][c]{%
-    \includegraphics[width=0.225\textwidth, angle = -90]{Figures/FDiagrams/Z_pjets.png}
-    }
-    \caption{The Feynman diagram of the  Z-jets channel.}
-    \label{fig:z_pjets}
-\end{figure}
 
 \subsection{Diboson (lll)}
 Dibson channels are defined as channels resulting in two bosons. In the case of (lll), the dibosons
@@ -38,28 +30,13 @@ example of such a channel. The figure shows a W- and Z-boson production through 
 third quark. The W-boson decays into a lepton with missing energy\footnote{Neutrinos very rarely interact
 with anything, making them almost impossible to detect. We therefore refer to neutrinos as missing energy.}
 and the Z-boson decays into a pair of leptons. 
-\begin{figure}
-    \centering
-    \makebox[0.75\linewidth][c]{%
-    \includegraphics[width=0.225\textwidth, angle = -90]{Figures/FDiagrams/wz.png}
-    }
-    \caption{The Feynman diagram of the diboson WZ-channel.}
-    \label{fig:wz}
-\end{figure}
+
 \subsection{$t\bar{t}$}
 The $t\bar{t}$ channel is defined as a proton-proton collision resulting in a pair of top quark-antiquark. 
 In figure \ref{fig:ttbar} I have drawn a Feynman diagram of an example of such a channel. The figure 
 shows gluon-gluon fusion producing a pair of top quarks. The top-antitop pair decay into a bottom-quark 
 and a W boson. The channel constitutes a background when both W bosons decay into a charged and a neutral 
 lepton and one of the b-quarks leads to a fake lepton.
-\begin{figure}
-    \centering
-    \makebox[0.75\linewidth][c]{%
-    \includegraphics[width=0.225\textwidth, angle = -90]{Figures/FDiagrams/ttbar.png}
-    }
-    \caption{The Feynman diagram of the $t\bar{t}$-channel.}
-    \label{fig:ttbar}
-\end{figure}
 
 \subsection{Diboson (llll)}
 In the case of diboson (llll), the channel refers to events resulting in two Z-bosons which decay 
@@ -67,51 +44,72 @@ into four leptons. In figure \ref{fig:zz} I have drawn a Feynman diagram of an e
 such a diagram. The figure shows a quark-antiquark pair annihilating into two Z-bosons.
 The two Z-bosons decay into two pairs of leptons. This process constitutes a backgorund when one 
 of the leptons is not reconstructed in the detector.
-\begin{figure}
-    \centering
-    \makebox[0.75\linewidth][c]{%
-    \includegraphics[width=0.225\textwidth, angle = -90]{Figures/FDiagrams/zz.png}
-    }
-    \caption{The Feynman diagram of the ZZ-channel.}
-    \label{fig:zz}
-\end{figure}
-
 
 
 \subsection{Top Others}
 \subsection{Single Others}
 \subsection{Diboson (ll)}
-\begin{figure}
-    \centering
-    \makebox[0.75\linewidth][c]{%
-    \includegraphics[width=0.225\textwidth, angle = -90]{Figures/FDiagrams/ww.png}
-    }
-    \caption{The Feynman diagram of the WW-channel.}
-    \label{fig:ww}
-\end{figure}
 \subsection{Others}
+
 
 \begin{figure}
     \centering
-    \makebox[0.75\linewidth][c]{%
-    \includegraphics[width=0.225\textwidth, angle = -90]{Figures/FDiagrams/w_pjets.png}
+    \vfill
+    \makebox[\linewidth][c]{%
+    \begin{subfigure}{.5\textwidth}
+        \includegraphics[width=0.45\textwidth, angle = -90]{Figures/FDiagrams/Z_pjets.png}
+        \caption{}
+        \label{fig:z_pjets}
+    \end{subfigure}
+    \hspace{1.5cm}
+    \begin{subfigure}{.5\textwidth}
+        \includegraphics[width=0.45\textwidth, angle = -90]{Figures/FDiagrams/wz.png}
+        \caption{}
+        \label{fig:wz}
+    \end{subfigure}
     }
-    \caption{The Feynman diagram of the diboson W-jets channel.}
-    \label{fig:w_pjets}
-\end{figure}
-\begin{figure}
-    \centering
-    \makebox[0.75\linewidth][c]{%
-    \includegraphics[width=0.225\textwidth, angle = -90]{Figures/FDiagrams/h.png}
+    \vfill
+    \makebox[\linewidth][c]{%
+    \begin{subfigure}{.5\textwidth}
+        \includegraphics[width=0.45\textwidth, angle = -90]{Figures/FDiagrams/ttbar.png}
+        \caption{}
+        \label{fig:ttbar}
+    \end{subfigure}
+    \hspace{1.5cm}
+    \begin{subfigure}{.5\textwidth}
+        \includegraphics[width=0.45\textwidth, angle = -90]{Figures/FDiagrams/zz.png}
+        \caption{}
+        \label{fig:zz}
+    \end{subfigure}
     }
-    \caption{The Feynman diagram of the Higgs-channel.}
-    \label{fig:h}
-\end{figure}
-\begin{figure}
-    \centering
-    \makebox[0.75\linewidth][c]{%
-    \includegraphics[width=0.225\textwidth, angle = -90]{Figures/FDiagrams/WZW.png}
+    \vfill
+    \makebox[\linewidth][c]{%
+    \begin{subfigure}{.5\textwidth}
+        \includegraphics[width=0.45\textwidth, angle = -90]{Figures/FDiagrams/ww.png}
+        \caption{}
+        \label{fig:ww}
+    \end{subfigure}
+    \hspace{1.5cm}
+    \begin{subfigure}{.5\textwidth}
+        \includegraphics[width=0.45\textwidth, angle = -90]{Figures/FDiagrams/w_pjets.png}
+        \caption{}
+        \label{fig:w_pjets}
+    \end{subfigure}
     }
-    \caption{The Feynman diagram of the Triboson-channel.}
-    \label{fig:zzz}
+    \makebox[\linewidth][c]{%
+    \begin{subfigure}{.5\textwidth}
+        \includegraphics[width=0.45\textwidth, angle = -90]{Figures/FDiagrams/h.png}
+        \caption{}
+        \label{fig:h}
+    \end{subfigure}
+    \hspace{1.5cm}
+    \begin{subfigure}{.5\textwidth}
+        \includegraphics[width=0.46\textwidth, angle = -90]{Figures/FDiagrams/WZW.png}
+        \caption{}
+        \label{fig:zzz}
+    \end{subfigure}
+    }
+    \caption{}
+    \label{fig:Feynman}
 \end{figure}
+\newpage

@@ -21,26 +21,26 @@
 \contentsline {subsection}{\numberline {1.5.1}Z-jets}{9}{subsection.1.5.1}%
 \contentsline {subsection}{\numberline {1.5.2}Diboson (lll)}{9}{subsection.1.5.2}%
 \contentsline {subsection}{\numberline {1.5.3}$t\bar {t}$}{9}{subsection.1.5.3}%
-\contentsline {subsection}{\numberline {1.5.4}Diboson (llll)}{10}{subsection.1.5.4}%
-\contentsline {subsection}{\numberline {1.5.5}Top Others}{10}{subsection.1.5.5}%
-\contentsline {subsection}{\numberline {1.5.6}Single Others}{10}{subsection.1.5.6}%
-\contentsline {subsection}{\numberline {1.5.7}Diboson (ll)}{10}{subsection.1.5.7}%
-\contentsline {subsection}{\numberline {1.5.8}Others}{10}{subsection.1.5.8}%
-\contentsline {section}{\numberline {1.6}The Signal}{10}{section.1.6}%
-\contentsline {subsection}{\numberline {1.6.1}Heavy Neutral Lepton}{10}{subsection.1.6.1}%
-\contentsline {subsection}{\numberline {1.6.2}Neutralino's}{10}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.5.4}Diboson (llll)}{9}{subsection.1.5.4}%
+\contentsline {subsection}{\numberline {1.5.5}Top Others}{9}{subsection.1.5.5}%
+\contentsline {subsection}{\numberline {1.5.6}Single Others}{9}{subsection.1.5.6}%
+\contentsline {subsection}{\numberline {1.5.7}Diboson (ll)}{9}{subsection.1.5.7}%
+\contentsline {subsection}{\numberline {1.5.8}Others}{9}{subsection.1.5.8}%
+\contentsline {section}{\numberline {1.6}The Signal}{11}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Heavy Neutral Lepton}{11}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Neutralino's}{11}{subsection.1.6.2}%
 \contentsline {chapter}{\numberline {2}Introduction to Machine Learning and Data Analysis}{13}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Phenomenology}{13}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Optimization}{14}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Gradient Descent}{14}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Adam}{14}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Cost functions}{14}{subsection.2.2.3}%
-\contentsline {subsubsection}{Mean Squared Error}{14}{section*.20}%
-\contentsline {subsubsection}{Binary Crossentropy}{14}{section*.21}%
+\contentsline {subsubsection}{Mean Squared Error}{14}{section*.13}%
+\contentsline {subsubsection}{Binary Crossentropy}{14}{section*.14}%
 \contentsline {section}{\numberline {2.3}Hyperparameters}{14}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Data Handling}{15}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Scaling}{15}{subsection.2.4.1}%
-\contentsline {subsubsection}{Standard Scaler}{15}{section*.22}%
+\contentsline {subsubsection}{Standard Scaler}{15}{section*.15}%
 \contentsline {subsection}{\numberline {2.4.2}Principal Component Analysis}{15}{subsection.2.4.2}%
 \contentsline {section}{\numberline {2.5}Regularization}{17}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Early stopping}{17}{subsection.2.5.1}%
@@ -80,7 +80,7 @@
 \contentsline {subsection}{\numberline {3.3.3}Model Architecture}{39}{subsection.3.3.3}%
 \contentsline {section}{\numberline {3.4}Model Training and Validation}{41}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Training and Validating data}{41}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Training strategy}{42}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.2}Training Strategy}{42}{subsection.3.4.2}%
 \contentsline {chapter}{\numberline {4}Results \& Discussion}{43}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Benchmarking the Analysis with Boosted Trees}{43}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Dense Neural Networks}{43}{section.4.2}%
@@ -88,20 +88,20 @@
 \contentsline {subsection}{\numberline {4.2.2}Parameter Specific Networks and Interpolation}{43}{subsection.4.2.2}%
 \contentsline {section}{\numberline {4.3}Ensemble methods}{46}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Visualizing Sparse Pathways}{46}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Sensitivity Result}{46}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Parametrized Neural Network}{46}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Discriminating Masses}{46}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Sensitivity Result}{50}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}Comparing Machine Learning Models}{50}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Training History and Overfitting}{50}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.3.2}Training History and Overfitting}{46}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Sensitivity Result}{49}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Parametrized Neural Network}{49}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Discriminating Masses}{49}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Sensitivity Result}{49}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Comparing Machine Learning Models}{49}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{52}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{52}{section.4.7}%
 \contentsline {subsection}{\numberline {4.7.1}Running on Full Statics}{52}{subsection.4.7.1}%
-\contentsline {chapter}{Appendices}{55}{section*.77}%
-\contentsline {chapter}{Appendix A}{57}{appendix*.78}%
-\contentsline {section}{\numberline {A.1}Sensitivity Grids}{57}{section.Alph0.1}%
-\contentsline {subsection}{\numberline {A.1.1}Ensembles}{57}{subsection.Alph0.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Increasing Sensitivity Through}{57}{subsection.Alph0.1.2}%
-\contentsline {section}{\numberline {A.2}The Features}{59}{section.Alph0.2}%
-\contentsline {subsection}{\numberline {A.2.1}The Feature Distribution}{60}{subsection.Alph0.2.1}%
-\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{65}{section.Alph0.3}%
+\contentsline {chapter}{Appendices}{57}{section*.70}%
+\contentsline {chapter}{Appendix A}{59}{appendix*.71}%
+\contentsline {section}{\numberline {A.1}Sensitivity Grids}{59}{section.Alph0.1}%
+\contentsline {subsection}{\numberline {A.1.1}Ensembles}{59}{subsection.Alph0.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Increasing Sensitivity Through}{59}{subsection.Alph0.1.2}%
+\contentsline {section}{\numberline {A.2}The Features}{61}{section.Alph0.2}%
+\contentsline {subsection}{\numberline {A.2.1}The Feature Distribution}{62}{subsection.Alph0.2.1}%
+\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{67}{section.Alph0.3}%
