@@ -17,6 +17,10 @@ def color_cycle(num_color):
     color = plt.rcParams['axes.prop_cycle'].by_key()['color']
     return color[num_color]
 
+import numpy as np
+x = np.linspace(0.0, 1.0, 100)
+CMAP = matplotlib.cm.magma
+color_cycle = CMAP(x)[np.newaxis, :, :3][0,::10]
 
 #--- Plot commands ---#
 # plt.figure(num=0, dpi=80, facecolor='w', edgecolor='k')

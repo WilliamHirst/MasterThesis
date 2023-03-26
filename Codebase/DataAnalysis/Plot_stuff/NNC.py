@@ -26,7 +26,7 @@ def plotComp(metric, plotters =  None, name =  "", leg_loc = "lower"):
 
     m1 = []
     m2 = []
-    Cmap = {0: 6, 1 : 3, 2: -1, 3:5}
+    Cmap = {0: 6, 1 : 3, 2: -1, 3:1}
     method_0 = json_object[plotters[0]]
     map = {}
     for i in method_0:
@@ -111,17 +111,25 @@ def draw_pie(dist,
     return ax
 
 if __name__ == "__main__":
-    x = np.linspace(0.0, 1.0, 100)
-    color_cycle = matplotlib.cm.magma(x)[np.newaxis, :, :3][0,::10]
 
     metric = "Sig"
     plotters = ["MaxOutGrid", "PNNGrid", "NNGrid"]
+    name = "Gen"
     plotters = ["MaxOutPCAGrid", "PNNPCAGrid", "NNPCAGrid"]
+    name = "PCA"
     plotters = ["HybridPCAMaxOutGrid", "HybridPCALeakyGrid", "PNNPCAGrid", "MaxOutPCAGrid"]
+    name = "Hybrid"
     plotters = ["MaxOutPCA_FS_MLMGrid", "PNNPCA_FS_MLMGrid", "NN_FS_MLMGrid"]
+    name = "FS_MLM"
     plotters = ["MaxOutPCA_FSGrid", "PNNPCA_FSGrid", "NN_FSGrid"]
-    plotters = ["NNPCAGrid", "NNGrid"]
+    name = "FS"
     plotters = ["StochChannelOutGrid", "ChannelOutGrid", "MaxOutGrid"]
     name = "Ensembles"
+    plotters = ["NNPCAGrid", "NNGrid"]
+    name = "NNPCA"
+    plotters = ["MaxOutPCAGrid", "MaxOutGrid"]
+    name = "MaxOutPCA"
+    # plotters = ["PNNPCAGrid", "PNNGrid"]
+    # name = "PNNPCA"
     plotComp(metric, plotters = plotters, name = name, leg_loc = "lower")
     
