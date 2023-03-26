@@ -5,6 +5,7 @@ from cycler import cycler
 import seaborn as sns
 
 
+
 def make_figs_path(filename):
     cur_path = pl.Path(__file__)
     root_path = cur_path
@@ -23,7 +24,7 @@ def make_figs_path(filename):
 
     return str(figs_path)
 
-signal  =  sns.color_palette('husl')[-2]
+signal  = sns.color_palette('husl')[-2]
 bkg = 'mediumorchid'
 boxes = sns.color_palette('dark')[-1]
 colors = [

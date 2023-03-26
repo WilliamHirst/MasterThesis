@@ -73,16 +73,16 @@ if __name__ == "__main__":
 
     signal = "SUSY"
 
-    print(f"Starting test: {signal}")
-    IncludeRange = [250, 300, 50, 200] 
+    # print(f"Starting test: {signal}")
+    # IncludeRange = [250, 300, 50, 200] 
 
-    df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"], IncludeRange=IncludeRange)
+    # df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"], IncludeRange=IncludeRange)
 
-    print("Preparing data....")
-    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=False)
-    print("Done.")
+    # print("Preparing data....")
+    # train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=False)
+    # print("Done.")
 
-    # train, val = loadSamples(ex_path = "../")
+    train, val = loadSamples(ex_path = "../")
 
     X_train, Y_train, W_train, C_train = train
     X_val, Y_val, W_val, C_val = val
@@ -114,7 +114,8 @@ if __name__ == "__main__":
                                  X_viz.values,
                                  Y_viz.values,
                                  )
-    fig.savefig("BeforeTraining.pdf")
+    fig.savefig("BeforeTrainingTest.pdf")
+    exit()
     
     with tf.device("/GPU:0"):
         callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 

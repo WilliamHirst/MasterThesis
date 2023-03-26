@@ -21,20 +21,23 @@ from Utilities import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-name = "MaxOutPCA_FS_MLM"
+name = "MaxOut"
 signal = "SUSY"
-train = False
+train = True
 #notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"]
-notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0", "WZ100p0p0","WZ150p0p050p0", "WZ150p0p00p0p", "WZ200p0p00p0", "WZ200p0p050p0"]
+notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0", "WZ100p0p0","WZ150p0p050p0", "WZ150p0p00p0p", "WZ200p0p00p0", "WZ200p0p050p0"] #FS_MLM
+
+IncludeRange = [400, 800, 0, 400] 
+notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "500p0", "550p0", "600p0", "450p0p0350p0", "450p0p0250p0","450p0p0150p0", "450p0p050p0", "400p0p00p0","400p0p0100p0","400p0p0200p0", "400p0p0300p0","650p050p0", "650p0150p0", "650p0250p0", "650p0350p0", "700p0100p0", "700p00p0", "700p0200p0", "700p0300p0", "700p0400p0"] #OG
 
 
 print(f"Starting test: Model = {name} -- Signal = {signal}")
 
-df, y, df_data, channels = loadDf(myPath, notInc=notInc)
+df, y, df_data, channels = loadDf(myPath, notInc=notInc, IncludeRange=IncludeRange)
 
 if train:
     print("Preparing data....")
-    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True, PCA=True, n_components=1-1e-3)
+    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3)
     print("Done.")
 
     X_train, Y_train, W_train, C_train = train
@@ -111,14 +114,14 @@ with tf.device("/GPU:0"):
         history = model.fit(X_train, 
                             Y_train,
                             sample_weight = W_train, 
-                            epochs=100, 
+                            epochs=50, 
                             batch_size=8192, 
-                            callbacks = [callback],
+                            # callbacks = [callback],
                             validation_data=(X_val, Y_val, W_val),
                             verbose = 1)
-        model.save_weights(f"models/model_{name}.h5")
+        # model.save_weights(f"models/model_{name}.h5")
 
-        #THP(history=history, model = name ,signal = signal )
+        THP(history=history, model = name ,signal = signal )
     else: 
         HM(model, df, Y, W, C, data = None, name = f"FS/{name}Grid", metric="Sig", save = True)
     

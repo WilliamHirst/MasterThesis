@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib.colors as colors
 import matplotlib.patheffects as pe
-from plot_set import *
 import re
 
 
