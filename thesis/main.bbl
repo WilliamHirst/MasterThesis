@@ -114,6 +114,9 @@ T.~Chen and C.~Guestrin, \emph{{XGBoost}},  in \emph{Proceedings of the 22nd
   Mining}, {ACM}, aug, 2016.
 \newblock \href{http://dx.doi.org/10.1145/2939672.2939785}{DOI}.
 
+\bibitem{magnar}
+M.~Bugge, \emph{Discovery and exclusion in high energy physics},  2022.
+
 \bibitem{ROOT}
 R.~Brun and F.~Rademakers, \emph{Root - an object oriented data analysis
   framework},  in \emph{AIHENP'96 Workshop, Lausane}, vol.~389, pp.~81--86,
@@ -141,6 +144,16 @@ M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
   and 2016 {LHC} proton{\textendash}proton collision data at {$\sqrt{s}$}= 13
   {TeV}}, \href{http://dx.doi.org/10.1140/epjc/s10052-019-7140-6}{\emph{The
   European Physical Journal C} {\bf 79} (aug, 2019) }.
+
+\bibitem{Aad:2800889}
+{\scshape ATLAS} collaboration, G.~Aad, B.~Abbott, D.~Abbott, A.~Abed~Abud,
+  K.~Abeling, D.~Abhayasinghe et~al., \emph{{Observation of $WWW$ production in
+  $pp$ collisions at {$\sqrt{s}$} = 13 TeV with the ATLAS detector. Observation
+  of WWW Production in pp Collisions at {$\sqrt{s}$} = 13eV with the ATLAS
+  Detector}},
+  \href{http://dx.doi.org/10.1103/PhysRevLett.129.061803}{\emph{Phys. Rev.
+  Lett.} {\bf 129} (2022) 061803}, [\href{http://arxiv.org/abs/2201.13045}{{\tt
+  2201.13045}}].
 
 \bibitem{GS}
 P.~Liashchynskyi and P.~Liashchynskyi, \emph{Grid search, random search,

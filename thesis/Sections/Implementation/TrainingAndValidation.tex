@@ -22,7 +22,7 @@ here for convenience. The third step is done to ensure an equal prioritization f
 was a large imbalance between signal and background, the model would be motivated to tune more towards one trend than another. The final step is motivated in the
 section regarding data handling \ref{subsubsec:StandardScalar}. 
 
-\subsection{Training strategy}
+\subsection{Training Strategy}\label{subsec:TrainingStrategy}
 To best compare the different \ac{ML}-models, I decide to apply the same training strategy to all (including the \ac{BDT}). The strategy is simply to train the model 
 with the training set, then apply an early-stoppage algorithm (see section \ref{subsec:EarlyStopping}) with a cut-off based on the performance on the validation set. For 
 every epoch, the model makes a prediction on the validation data set, and logs the results. If more than 10 epochs go by without improving on the epoch with the best result,
