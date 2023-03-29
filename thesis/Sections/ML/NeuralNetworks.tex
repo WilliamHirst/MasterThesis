@@ -296,7 +296,7 @@ j, k and l are indices which correspond to individual choices of parameters resp
 In the paper by Baldi et al. \cite{PNN}, they propose a separate solution to the problem than the one proposed above, the \ac{PNN}. 
 By simply including the parameters as additional features, we can write $\mathcal{F}(X, \theta)$. In doing so, 
 we can utilize all the statistics at the same time, while also aiding the $\ac{NN}$ in its effort to recognize all individual 
-trends for all signal. In practice, it is doing this by adding a shift to the total output from the initial layer according to 
+trends for all signal. In practice, it is aiding the \ac{NN} by adding a shift to the total output from the initial layer according to 
 the discrete distribution of the parameters. The hope is that each discrete shift will motivate a separate individualistic tuning
 for each choice of parameter. 
 \begin{figure}

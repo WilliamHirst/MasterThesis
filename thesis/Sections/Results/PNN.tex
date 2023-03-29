@@ -1,12 +1,20 @@
 \section{Parametrized Neural Network}
 \subsection{Discriminating Masses}
+When introducing the \ac{PNN} in section \ref{subsec:PNN}, I mentioned that by including the masses of the introduced particles
+in the feature set, we motivate and individualistic tuning for each mass combination in the signal set. To test if this is indeed what 
+happens, I will in this section present results where I manually assign different mass combinations the same label. The hope 
+is that if indeed the \ac{PNN} has been able to tune individually for each mass combination, then the \ac{PNN} should perform best 
+when the events are correctly labeled compared to when they are not. 
+\\
 In figure \ref{fig:PNN50250Dist} I have drawn the distribution of the output from the trained \ac{PNN} architecture 
 (see section \ref{subsec:PNNArch}). The model was trained using the FS-MLM data set. In figure \ref{fig:PNN50250Dist},
 4 signals have been included; ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV), ($\tilde{\chi}_1=100$, $\tilde{\chi}_2=200$GeV), 
 ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) and ($\tilde{\chi}_1=150$, $\tilde{\chi}_2=250$GeV). All data, including 
-both signal and background were given the values of $50$ and $250$. As was the hope, the \ac{PNN} performs better on 
-the signal for which the parameter choice was correct ($50-250$) and worse on the rest. This means
-that the \ac{PNN} model is tuned to each signal combination.
+both signal and background were given the labels of $50$ and $250$. In figure \ref{fig:PNN50250Dist} the full output range
+is included, whereas in figure \ref{fig:PNN50250Dist_95} only the output in the range $0.975-1$ has been included. From studying  
+the figures and the corresponding legends, we can deduce that the signal which is given the correct label is also the signal which 
+has the highest percentage of conserved events when applying a simple cut off $0.975$\footnote{This is further evident when studying 
+the efficiency rates in table \ref{table:PNNSigComp}.}.\\
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
     \centering
@@ -29,6 +37,11 @@ that the \ac{PNN} model is tuned to each signal combination.
     and the output ranging from 0.975-1.00 (\ref{fig:PNN50250Dist_95}).}
     \label{fig:PNN50250}
 \end{figure}
+In section \ref{sec:XGBoost} I presented results indicating that some signals were easier to separate from background than others. This leads me to the 
+question; did the \ac{PNN} perform better on the signal with ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) because of the labeling, or simply
+because this particular signal was easier to separate. To answer this question I conducted a second test. In figure \ref{fig:PNN200300DistComp} 
+I repeated the same analysis described in the paragraphs above, but where all the signals were given the label ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV).
+Similarly to the previous results, I drew the output 
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
     \centering
@@ -64,7 +77,7 @@ that the \ac{PNN} model is tuned to each signal combination.
     $
     \caption{A listing of the remaining procentage of each mass combination in the output range 0.95-1.00 using the 
     labels ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) and ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) respectively.}
-\label{table:PNNSigComp}
+    \label{table:PNNSigComp}
 \end{table}
 
 \subsection{Sensitivity Result}

@@ -122,7 +122,7 @@ activation in the uppermost node, while the signal data does not.
 In section \ref{sec:Regularization} I described how creating ensembles of networks is a form of regularization. Therefore,
 it is of interest to study the relationship between performance on the training set and the validation set for our ensemble 
 methods. In figure \ref{fig:History} I drew plots displaying the performance on the training and validation scores after each 
-epoch, as measured in \ac{AUC} for both a dense \ac{NN} (\ref{fig:NNHist}) and maxout (\ref{fig:MaxOutHist}).
+epoch (50 in total), as measured in \ac{AUC} for both a dense \ac{NN} (\ref{fig:NNHist}) and maxout (\ref{fig:MaxOutHist}).
 \\ 
 In figure \ref{fig:NNHist} we can observe that a deep, dense \ac{NN} reaches a maximum in performance for the validation set after only 
 a couple epochs. This peak is then followed by a quick drop in performance, while the training set increases in performance. 
@@ -136,7 +136,6 @@ In section \ref{subsec:TrainingStrategy}, I discussed the training strategy used
 the implementation of an early-stopping criteria which makes sure that the model only continues to train as long as the performance on the 
 validation data set increases. By studying the subfigures in figure \ref{fig:History}, we can deduce that the ensemble methods will not only 
 be able to avoid overfitting, but will as a consequence be allowed to train much longer than the other models.
-
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
