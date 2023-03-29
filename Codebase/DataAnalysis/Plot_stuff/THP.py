@@ -11,6 +11,7 @@ def THP(history, model, signal):
     """
     training =  history.history['auc']
     validation =  history.history['val_auc']
+    model_name = model.split("_")[0]
 
     fig, ax = plt.subplots(figsize=(8,6))
     plt.plot(training, label = "Training", c = color_cycle[-1])
@@ -19,8 +20,8 @@ def THP(history, model, signal):
     ax.set_xlabel("Epochs", fontsize=18)
     ax.grid(color = "whitesmoke", linestyle ='-', linewidth =1.5)
     ax.set_axisbelow(True)
-    ax.set_title(f"{model}", fontsize = 18, loc = "right")
-    plt.legend(fontsize = 16)
+    ax.set_title(f"{model_name}", fontsize = 18, loc = "right")
+    plt.legend(fontsize = 18)
     plt.tight_layout(pad=1.1, w_pad=0.7, h_pad=0.2)
     plt.savefig(f"../../../thesis/Figures/MLResults/NN/{signal}/History/{model}History.pdf", bbox_inches="tight")
 
