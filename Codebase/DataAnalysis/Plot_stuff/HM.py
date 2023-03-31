@@ -13,7 +13,7 @@ from Utilities import *
 import numpy as np
 
 
-def HM(model, X, Y, W, columns, name, metric = "Auc", data = None, save = False, mlType="NN"):
+def HM(model, X, Y, W, columns, name, metric = "Auc", data = None, save = False, saveTxt = False, mlType="NN"):
     columns_s = columns[Y.to_numpy() == 1] 
     unique_c = columns_s.unique()
     threshold = 0.998
@@ -31,7 +31,7 @@ def HM(model, X, Y, W, columns, name, metric = "Auc", data = None, save = False,
 
 
     bkg = (Y==0).to_numpy()
-    Z, map1, map2, M1, M2 = getGrid(unique_c)
+    Z, _, _, M1, M2 = getGrid(unique_c)
     print(Z)
     print(M1, M2)
 
@@ -54,24 +54,20 @@ def HM(model, X, Y, W, columns, name, metric = "Auc", data = None, save = False,
                             "",
                             plot = False,
                             return_score = True))
-            colorBar = lambda Z: 10**np.array(Z)
      
 
         elif metric == "Sig":
             sf = np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
             W_i.loc[(Y_i==0).to_numpy()] *= sf
-            score = Calc_Sig(predict_prob(X_i), Y_i, W_i, sf =sf, best_threshold=threshold,max_sig= np.max(predict_prob(X_i)))
+            if saveTxt:
+                score, nbkg, nsig  = Calc_Sig(predict_prob(X_i), Y_i, W_i, sf =sf, best_threshold=threshold,max_sig= np.max(predict_prob(X_i)), returnNr=True)
+                saveToTxt(m1, m2, nbkg, nsig, method)
+            else:    
+                score = Calc_Sig(predict_prob(X_i), Y_i, W_i, sf =sf, best_threshold=threshold,max_sig= np.max(predict_prob(X_i)))
 
-       
         if save:
             saveToJson(score, m1, m2, metric, method)
-
-        if metric == "Auc":
-            score = score*100 - 90
-
-        Z[map2[f"{m2}"], map1[f"{m1}"]] = score
-
-    #gridPlotter(mlType, name, metric)
+        
 
 def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10, addExlusion = False):
     import matplotlib

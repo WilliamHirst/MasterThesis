@@ -140,6 +140,16 @@ def SetupROOT():
     ROOT.gStyle.SetOptTitle(1)
     ROOT.gStyle.SetOptStat(0)
     ROOT.gStyle.SetTitleBorderSize(0)
+    ROOT.gStyle.SetPalette(60)
+    # palette = ROOT.MakeNullPointer(ROOT.Int_t)
+    # palette = 5*(ROOT.Int_t)
+    # palette[0] = 15
+    # palette[1] = 20
+    # palette[2] = 23
+    # palette[3] = 30
+    # palette[4] = 32
+    
+    # ROOT.gStyle.SetPalette(10000)
 
 # ##########
 def TextsFromRaw(plottexts_raw, ROOT, VB=0):
@@ -174,7 +184,6 @@ class munch:
         if 'argv' in optD: s.argv = optD['argv']
         else: s.argv = sys.argv
 
-        print(s.argv)
 
         s.HOME = os.getenv('HOME')
         s.fn_globalhistory = '%s/.globalhistory__munch.txt' %(s.HOME)
@@ -613,8 +622,8 @@ class munch:
     # ##########
     def Plot(s):
 
-        if s.dict['autoColorStyleUse']:
-            s.dict['autoColorStyle'] = NextColourStyle(argtext=s.dict['autoColorStyleMode'], blackfirst=1)
+        # if s.dict['autoColorStyleUse']:
+        #     s.dict['autoColorStyle'] = NextColourStyle(argtext=s.dict['autoColorStyleMode'], blackfirst=1)
 
         if s.ndim == 1:
             s.Plot1D() # make external loop here as well (probably)
@@ -736,7 +745,14 @@ class munch:
         if coordproblem: 
             print('(IS NOW LIKELY TO CRASH OR BE ERRONEOUS)')
 
-        
+    def CalcSig(s):
+        bkg = s.tabledict["nbkg"]
+        sig = s.tabledict["nsig"]
+        sign = []
+        for bkg_i, sig_i in zip(bkg, sig):
+            print(bkg_i, sig_i)
+            sign.append(ROOT.RooStats.NumberCountingUtils.BinomialObsZ(int(bkg_i)+int(sig_i),int(bkg_i),0.2))
+        s.tabledict["sign"] = sign
 
     # ##########
     def Plot2D(s):
@@ -766,14 +782,16 @@ class munch:
         
         tax = hDef.GetXaxis()
         tay = hDef.GetYaxis()
-        tax.SetTitle(s.xcoordT)
-        tay.SetTitle(s.ycoordT)
-        tax.CenterTitle()
-        tay.CenterTitle()
+        tax.SetTitle(r"\tilde \chi_{2}")
+        tax.SetTitleSize(0.05)
+        tax.SetLabelSize(0.035)
+        tay.SetTitle(r"\tilde \chi_{1}")
+        tay.SetTitleSize(0.05)
+        tay.SetLabelSize(0.035)
         # print tax.GetTitleOffset()
         # print tay.GetTitleOffset()
-        tax.SetTitleOffset(s.dict['xtitleoffset'])
-        tay.SetTitleOffset(s.dict['ytitleoffset'])
+        tax.SetTitleOffset(0.8)
+        tay.SetTitleOffset(1)
         # print tax.GetTickLength()
         tax.SetTickLength(s.dict['ticklengthx'])  # no effect
         tay.SetTickLength(s.dict['ticklengthy'])
@@ -785,6 +803,7 @@ class munch:
             #ndim = len(x)
             
             contT = s.contsT[cont]
+            s.CalcSig()
             s.contval[cont] = GetPlainArray(table=s.tabledict, var=cont, arraytype='f', protection=s.dict['operationprotection'])  # should we allow this to also be scaled?
 
             # ------ hard xy-range (remove from table) [1. contours]
@@ -796,7 +815,6 @@ class munch:
                         x.pop(i); y.pop(i)
                         s.contval[cont].pop(i)
             # -----
-                
             gr = ROOT.TGraph2D(len(x), x, y, s.contval[cont])  # needs 'f'
             gr.SetName(contT)
             s.gr_cont.append(gr)  # needed?
@@ -836,9 +854,9 @@ class munch:
                 outs_table.append('  gr:%i  %10.3f  %10.3f  %14.5f' %(igr, x[i], y[i], s.z[i]))
             #for out in outs: print out
 
-            
             gr = ROOT.TGraph2D(len(x), x, y, s.z)
             gr.SetName(resvarT)
+            
             
             #grClone = ROOT.TGraph2D(len(x), x, y, s.z) ; grClone.SetName('grClone')  # DEBUGGING
             
@@ -892,54 +910,14 @@ class munch:
 
             hgr.SetMinimum(s.zrangemin)
             hgr.SetMaximum(s.zrangemax)
-            
+        
             hgr.Draw(s.drawstyle_gr2D)  # 
-            #gr.Draw(s.drawstyle_gr2D)  # No change: contourcolours exactly as for hgr
-            ##hgr.Draw("text")
-            ##gr.Draw("tri0")
-            ##gr.Draw("textsame")
-            ##gr.Draw("contsame")
-
-            #_mu=200;_M2=250; print 'gr  mu:%.0f  M2:%.0f  %14.8f' %(_mu, _M2, gr.Interpolate(_mu, _M2))
-            #_mu=250;_M2=250; print 'gr  mu:%.0f  M2:%.0f  %14.8f' %(_mu, _M2, gr.Interpolate(_mu, _M2))
-            #_mu=300;_M2=250; print 'gr  mu:%.0f  M2:%.0f  %14.8f' %(_mu, _M2, gr.Interpolate(_mu, _M2))
-            #_mu=350;_M2=250; print 'gr  mu:%.0f  M2:%.0f  %14.8f' %(_mu, _M2, gr.Interpolate(_mu, _M2))
-            #_mu=200;_M2=250; print 'hgr mu:%.0f  M2:%.0f  %14.8f' %(_mu, _M2, hgr.Interpolate(_mu, _M2))
-            #_mu=250;_M2=250; print 'hgr mu:%.0f  M2:%.0f  %14.8f' %(_mu, _M2, hgr.Interpolate(_mu, _M2))
-            #_mu=300;_M2=250; print 'hgr mu:%.0f  M2:%.0f  %14.8f' %(_mu, _M2, hgr.Interpolate(_mu, _M2))
-            #_mu=350;_M2=250; print 'hgr mu:%.0f  M2:%.0f  %14.8f' %(_mu, _M2, hgr.Interpolate(_mu, _M2))
-
-            # The problem with the DM/exp=1 contour is understood by the above.
-            #   gr  mu:200  M2:250      0.00009770
-            #   gr  mu:250  M2:250      0.00019700
-            #   gr  mu:300  M2:250     56.50000000
-            #   gr  mu:350  M2:250     94.30000305
-            #   hgr mu:200  M2:250      0.00009881
-            #   hgr mu:250  M2:250      2.72887529  <-- this one is considerably smeared
-            #   hgr mu:300  M2:250     53.92820204
-            #   hgr mu:350  M2:250     94.25449162
-            # The hgr (from gr->GetHistogram) actually smears out existing values 
-            # And this is why the DM/exp=1 contour is wrongly placed.
-            # (This is all due to the very abrupt change of DM/exp near (e.g.) the funnel)
-
             # Contour plotting
             
             tlegcont = ROOT.TLegend(0.5,0.5, 0.8,0.8)
             for cont in s.conts:
                 hgr_cont = s.hgr_cont[cont]
                 hgr_cont.Draw(s.dict['drawstyle_cont'])
-                #tlegcont = BLegends(ROOT.TLegend, objarr=s.hgr_cont, titarr=s.conts)
-                #tlegcont.AddEntry(s.hgr_cont[cont], s.conts)
-                # WORK-IN-PROGRESS ... WANT TO FIND A WAY TO AUTO-LABEL CONTOURS
-                
-                #print 'WARNINGWARNING: plotting contour %s, but it will not show through the default contour plot...' %(cont)
-                # when using 'zsurf2' with theta=90 and phi=0 instead of 'zcont4', contours do show
-
-            #if 0: # CONTOUR DEBUG TEST (why does it not hit DM/exp=1) 
-            #    hgr.SetContour(1, array.array('d',[1.]))
-            #    hgr.SetLineColor(2)
-            #    hgr.SetLineWidth(8)
-
                 
             # Numbers on plot (manual)
             # ----------
@@ -1296,8 +1274,6 @@ class munch:
 
         # ====
 
-        # 2014-01-29:
-
 
         if Arg.hasget(['-coord']):  # Ex: -coord MU,M_2:M2
             zz = Arg.list()
@@ -1330,9 +1306,6 @@ class munch:
                 else: zvarT = w[0]
                 s.resvars.append(zvar)
                 s.resvarsT[zvar] = zvarT
-                #print 'dict: ', zvar, zvarT, s.resvarsT[zvar]
-            #print s.resvars
-            #print s.resvarsT
 
 
         if Arg.hasget(['-cont','-conts']):  # Ex: -cont var:[varT]:val1,val2,val3:col:sty:wid,,
@@ -1353,7 +1326,7 @@ class munch:
                 if len(w) >= 4: zcol = int(w[3])
                 if len(w) >= 5: zsty = int(w[4])
                 if len(w) >= 6: zwid = int(w[5])
-
+                # print(zvals,zcol)
                 s.conts.append(zvar)
                 s.contsT[zvar] = zvarT
                 s.contsDef[zvar] = {'vals': zvals, 'col':zcol, 'sty':zsty, 'wid':zwid}   # might be an idea to make a class
@@ -1659,6 +1632,7 @@ class munch:
             # print zs
             for z in zs:
                 zw = z.split(',')
+                print(zw)
                 
                 # First determine var type (default is string)
                 ztype = 'string'

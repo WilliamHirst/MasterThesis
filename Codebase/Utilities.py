@@ -292,7 +292,7 @@ def nFeats(data):
     return nF
 
 
-def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_threshold = None, max_sig = None):
+def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_threshold = None, max_sig = None, returnNr = False):
     bkg_indx = y_label == 0
 
     sample_weight.loc[np.ravel(np.asarray(y_label==0))] /=  sf
@@ -302,20 +302,19 @@ def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_thresho
 
     m_s = 0
     m_b = 0
-    if y_Data is None:
-        thresholds = np.concatenate((np.linspace(0.9,0.98,100),np.linspace(0.98,max_sig,100) ))
-        max = 0
-        for thresh in thresholds:
-            nrB = np.sum(sample_weight[np.ravel(y_MC>thresh) * np.ravel(bkg_indx)].to_numpy() )
-            nrS = np.sum(sample_weight[np.ravel(y_MC>thresh) * np.ravel(y_label == 1) ].to_numpy() )
-            sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
-            if sig >max:
-                max = sig
-                best_threshold = thresh
-                m_s = nrS
-                m_b = nrB
-        sig = max
-    else:
+    thresholds = np.concatenate((np.linspace(0.9,0.98,100),np.linspace(0.98,max_sig,100) ))
+    max = 0
+    for thresh in thresholds:
+        nrB = np.sum(sample_weight[np.ravel(y_MC>thresh) * np.ravel(bkg_indx)].to_numpy() )
+        nrS = np.sum(sample_weight[np.ravel(y_MC>thresh) * np.ravel(y_label == 1) ].to_numpy() )
+        sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
+        if sig >max:
+            max = sig
+            best_threshold = thresh
+            m_s = nrS
+            m_b = nrB
+    sig = max
+    if y_Data is not None:
         nrB = int(np.sum(sample_weight[np.ravel(y_MC>best_threshold)]))
         nrS = len(y_Data[np.ravel(y_Data>best_threshold)]) - nrB
         nrS *= nrS>0
@@ -323,11 +322,26 @@ def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_thresho
 
     print(m_b)
     print(m_s)
-
     print(best_threshold)
 
     print(f"The significance: {sig}.")
-    return sig
+    if returnNr:
+        return sig, nrB, nrS
+        
+def saveToTxt(m1, m2, nbkg, nsig, method):
+    from os.path import exists
+    path = f'../results/{method}Sig.txt'
+    if not exists(path):
+        f = open(path, 'w')
+        f.write(f"m1    m2    nbkg    nsig")
+    else:
+        f = open(path, 'a')
+    f.write(f"{m1}    {m2}    {nbkg}    {nsig}")
+    
+    f.close()
+
+        
+    
 
 def saveToJson(score, m1, m2, metric, method):
     if metric == "Auc":
