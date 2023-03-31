@@ -1,0 +1,399 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Gamma rays from the halo -- theory}
+\label{section_hr}
+
+Among the yields of pair annihilations of halo dark matter particles,
+the role played by gamma-rays could be a major one. Unlike the cases
+involving charged particles, for gamma-rays it is straightforward
+to relate the distribution of sources and the expected flux
+at the earth. Most flux estimated can be obtained just by summing
+over the contributions along 
+lines of sight (or better, geodesics): gamma-rays have a low 
+enough cross section on gas and dust and therefore the Galaxy is 
+essentially transparent to them (except perhaps in the innermost part, 
+very close to the region where a massive black hole is inferred); 
+absorption by starlight and infrared background becomes effecient
+only for very far away sources (redshift larger than about 1).
+
+It follows that in case the gamma-ray signal is detectable, 
+this might be the only chance for mapping the fine structure of a dark 
+halo, with a much better resolution for inomogenities (clumps) with 
+respect what is accevable through dynamical measurements or lensing effects. 
+Turning the latter argument around, if the fine structure of the Galactic 
+halo is clumpy, or if a large density enhancement is present towards the 
+Galactic center, as seen in N-body simulations of dark matter halos,
+this dark matter detection tecnique is much more promising than indicated 
+by the earliest estimates in which smooth non-singular halo 
+scenarios were considered (recall that the fluxes per unit volume are 
+proportional to the square of the dark matter density locally in space).
+
+A further reason to examine in details this detection methods is that
+we are approaching what will probably be the golden age for
+gamma-ray observations, with a several new experiments that are going 
+to map the gamma-ray sky. These experiments will have unprecendented 
+sensitivities and cover an energy range, namely 10 GeV -- few hundred GeV, 
+in which very scarce data are available at the time being and which may 
+turn out to be the most interesting for dark matter detection.
+The hypothesis of a gamma-ray signal from neutralino annihilations 
+will be tested for both by the upcoming space experiments 
+(GLAST, AMS, AGILE) and by the new generation of ground-based 
+air cherenkov telescopes (ACTs) being built (Magic, Hess, Veritas).
+
+The bulk of the gamma-ray yield from neutralino annihilations arise in the
+decay of neutral pions produced in the fragmetation processes initiated
+by tree level final states~\cite{oldcontga,lpj,gahalo}
+(analogously to the other halo signals,
+in \ds\ we include all tree level final states and make use of a
+Monte Carlo simulation for fragmentation and decay processes, see 
+Section~\ref{sec:mcsim}). Unfortunately the $\pi^0$ 
+intermediate state is common to other astrophysical processes, and this
+may turn out to be a limiting factor to disentangle dark matter sources.
+At the same time, however, a relevant gamma-ray contribution may arise 
+directly (at one-loop level) in two body final states; although such 
+photons are much fewer than those from $\pi^0$ decays they have a much 
+better signature: neutralinos annihilating in the galactic halos move 
+with a velocity of the order $v/c \sim$ 10$^{-3}$, hence these outgoing 
+photons (as any particle in any of the allowed two body final states)
+will then be nearly monochromatic, with energy of the order of the
+neutralino mass\cite{charm,oldlines,jkline,lp,ub,lpj}. 
+There is no other known astrophysical source with such a signature:
+the detection of a line signal out of a spectrally smooth gamma-ray 
+background would be a spectacular confirmation of the existence of dark 
+matter in form of exotic massive particles.
+
+If dark matter is in form of neutralinos, there are two processes
+givin rise to line signals, the annihilation into two photons and into
+one photon and a Z boson. Both of them are included in the \ds\ 
+package, as well as the contribution with a continuum energy spectrum.
+We review them briefly here, focussing first on annihilation rates
+and giving then expressions for gamma-ray fluxes.
+
+
+\subsection{$\chi\chi\to \gamma\gamma$}
+
+In \ds\ the full expression for the annihilation cross section of
+the process
+\beq
+\tilde{\chi}^{0}_{1} + \tilde{\chi}^{0}_{1} \rightarrow \gamma
++\gamma
+\eeq
+is computed at full one loop level, in the limit of vanishing relative 
+velocity of the neutralino pair, i.e. the case of interest for neutralinos
+in galactic halos; the outgoing photons have an energy equal to 
+the mass of ${\chi}^{0}_{1}$:
+\beq
+E_{\gamma} = M_{\chi}.
+\eeq
+The neutralino pair must be in an S wave state with pseudoscalar quantum 
+numbers; projecting out of the amplitude the $^{1}$S$_{0}$ state
+simplifies the calculation, and a further simplification is obtained by
+computing the amplitude in the non linear gauge defined in~\cite{fujikawa}, 
+which is a slight variant of the usual linear R-gauge (or 't Hooft gauge). 
+
+The amplitude of the annihilation process can be factorized in the
+form
+\beq
+\mathcal{A} =\frac{e^2}{2 \sqrt{2} \; \pi^2}
+  \epsilon\left(\epsilon_{1},\epsilon_{2},k_{1},k_{2} \right)
+  \;\tilde{\mathcal{A}}
+\eeq
+where $\epsilon_{1}$, $\epsilon_{2}$ and $k_{1}$, $k_{2}$ are
+respectively the polarization tensors and the momenta of the two outgoing 
+photons. The cross section is then given, as a function of
+$\tilde{\mathcal{A}}$, by the formula
+\beq
+  v\sigma_{2\gamma} = \frac{\alpha^2 M^2_{\chi}}{16 \pi^3} \left|\;
+\tilde{\mathcal{A}}\; \right|^{2}\;\;\;.  \label{eq:sigmav2g}
+\eeq
+
+The total amplitude is implemented in \ds\ as the sum of the contributions 
+obtained from four different classes of diagrams:
+\begin{eqnarray*}
+\tilde{\mathcal{A}}=\tilde{\mathcal{A}}_{f\tilde{f}}+
+  \tilde{\mathcal{A}}_{H^+}+\tilde{\mathcal{A}}_{W}+\tilde{\mathcal{A}}_{G},
+\end{eqnarray*}
+where the indices label the particles in the internal loops, i.e.,
+respectively, fermions and sfermions, charged Higgs and charginos, 
+W-bosons and charginos, and, in the gauge we chose, charginos and Goldstone 
+bosons. For every $\mathcal{A}$ term, real
+and imaginary parts are splitted; the full set of analytic formulas are 
+given in \cite{lp}, following the notation of \cite{linejk}, where some of 
+the contributions were first computed. They are rather lengthy expressions
+with non trivial dependences on various combinations of parameters in 
+the MSSM. We reproduce here, as an example, the formulas for the diagrams
+with W bosons and charginos, which, in  most cases, give the dominant 
+contribution to the cross section as discovered in \cite{lp}. The sum over
+$\chi^+_i$ includes the two chargino eigenstates:
+\begin{eqnarray}
+Re\,\tilde{\mathcal{A}}_{W} & = &
+\sum_{\chi^+_i} \frac{1}{M^2_{\chi}} \; \left[ 2\;
+\frac{\left(a-b\right)\;
+  S_{\chi W}}{1+a-b} \;I_{1} \left( a,b \right)+\frac{S_{\chi W}-2
+\sqrt{a}\;
+  D_{\chi W}}{1-a-b} \;I_{1} \left( a,1 \right) \right. \nonumber \\
+   &&\left. + \left( 2\;\frac{S_{\chi W}-2 \sqrt{a}\;D_{\chi
+W}}{1-a-b}-
+    \frac{3\,S_{\chi W}-4 \sqrt{a}\;D_{\chi W}}{1-b}  \right)\;I_{2}
+    \left( a,b \right) \right. \nonumber \\
+   && \left.+ \left( \frac{\left(2+b\right)\,S_{\chi W}-4 \sqrt{a}\;
+    D_{\chi W}}{1-b} -2\;\frac{\left( 1-a+b \right)\; S_{\chi
+W}}{1+a-b}
+    \right)\;I_{3}\left( a,b \right) \right]
+\end{eqnarray}
+
+\begin{eqnarray}
+Im\,\tilde{\mathcal{A}}_{W} & = &
+  -\pi\;\sum_{\chi^+_i} \frac{1}{M^2_{\chi}} \; \left( 2\;
+   \frac{\left(a-b\right)\;S_{\chi W}}{1+a-b} \right) \cdot \nonumber
+\\
+  &&\cdot \, \log \left( \frac{1+\sqrt{1-b/a}}{1-\sqrt{1-b/a}} \right)
+   \theta \left(1-m^2_{W}\,/\,M^2_{\chi} \right) \label{imw}
+\end{eqnarray}
+where we defined:
+\begin{eqnarray*}
+a=\frac{M^2_{\chi^0_1}}{M^2_{\chi^+_i}} &&
+b=\frac{m^2_{W}}{M^2_{\chi^+_i}}
+\end{eqnarray*}
+\begin{eqnarray*}
+S_{\chi W}=\frac{1}{2}\;\left(g^L_{W1i}\;
+g^{L\,\ast}_{W1i}+g^R_{W1i}\;
+  g^{R\,\ast}_{W1i} \right) && D_{\chi W}=\frac{1}{2}\;\left(
+g^L_{W1i}\;
+  g^{R\,\ast}_{W1i}+g^R_{W1i}\; g^{L\,\ast}_{W1i} \right)\;\; ,
+\end{eqnarray*}
+and the functions $I_{1}\left( a,b \right)$,
+$I_{2}\left( a,b \right)$ and $I_{3}\left( a,b \right)$, which arise
+from the loop integrations, are given by:
+\begin{eqnarray}
+I_{1}\left( a,b \right) = \int_{0}^{1} \frac{d\,x}{x} \; \log \left(
+\left|
+\frac{4\,a\,x^2-4\;a\,x + b}{b} \right| \right)
+\end{eqnarray}
+\begin{eqnarray}
+I_{2}\left( a,b \right) = \int_{0}^{1} \frac{d\,x}{x} \; \log \left(
+\left|
+\frac{-a\,x^2+(a+b-1)\,x + 1}{a\,x^2+(-a+b-1)\,x + 1} \right| \right)
+\end{eqnarray}
+\begin{eqnarray}
+I_{3}\left( a,b \right) = \int_{0}^{1} \frac{d\,x}{x} \; \log \left(
+\left|
+\frac{-a\,x^2+(a+1-b)\,x + b}{a\,x^2+(-a+1-b)\,x + b} \right| \right) .
+\end{eqnarray}
+$I_{1}\left( a,b \right)$ is the well known three point function that
+appears in triangle diagrams; it is an analytic function of
+a/b. $I_{2}\left( a,b \right)$ and $I_{3}\left( a,b \right)$ may be
+expressed in terms of dilogarithms. In \ds, they are computed in the
+integral form as, for any physically interesting value of the
+parameters a and b, the integrands are smooth functions of $x$.
+
+The branching ratio for neutralino annihilations into $2\gamma$ is 
+typically not larger than 1\%, with the largest values of
+$v\sigma_{2\gamma}$, for neutralinos with a cosmologically significant
+relic aboundance, in the range $10^{-29}$--$10^{-28}$~cm$^3$s$^{-1}$.
+Such values may be large enough for the discovery of this signal
+in upcoming measurements; at the same time it should be kept in mind
+that very low values for the cross section are feasible as well.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{$\chi\chi\to Z\gamma$}
+
+The process of neutralino annihilation into a photon and a Z$^0$ boson
+\cite{ub}
+\beq
+\tilde{\chi}^{0}_{1} + \tilde{\chi}^{0}_{1} \rightarrow \gamma
++ Z^0
+\eeq
+also gives a nearly
+monochromatic line (with a small smearing caused by the finite
+  width of the $Z^0$ boson), with  energy
+\beq
+E_{\gamma} = M_{\chi} - \frac{m_Z^2}{4\,M_{\chi}}.
+\eeq
+
+The steps followed in \ds\
+to compute the cross section are essentially the same
+as those described for the  $2\gamma$ case.
+Again the total amplitude is obtained by summing the contribution
+from four classes of diagrams and by splitting for each of them 
+real and imaginary parts. The analytic formulas were derived in 
+\cite{ub}, and are much less compact than those 
+obtained for the process of neutralino annihilation into two photons.
+
+The maximum value of $v\sigma_{Z\gamma}$, for neutralinos with a 
+cosmologically significant relic aboundance, is around 
+$2\cdot 10^{-28}$~cm$^3$s$^{-1}$ and occurs for a nearly
+pure Higgsinos. In the heavy mass range, the value of $v\sigma_{Z\gamma}$
+reaches a plateau of around $0.6 \cdot 10^{-28}$~cm$^3$s$^{-1}$. This
+interesting effect of a non-diminishing cross section with higgsino mass
+(which is due to a contribution to the real part of the amplitude)
+is also valid for the $2\gamma$ final state in the corresponding limit, 
+with a value of $1\cdot 10^{-28}$~cm$^3$s$^{-1}$ \cite{lp}.
+Since the gamma-ray background drops rapidly with increasing photon
+energy, these processes may be interesting for detecting dark
+matter neutralinos near the upper range of allowed neutralino masses.
+
+Whenever the lightest neutralino contain a significant Wino or Higgsino
+component the value of $v\sigma_{Z\gamma}$ maybe as large as, or even larger 
+than, twice the value of $v\sigma_{2\gamma}$. It is therefore usually
+not a good approximation to neglect the $Z\gamma$ state compared to
+$2\gamma$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Gamma rays with continuum energy spectrum}
+
+The advantage with the gamma-ray lines discussed in the previous Sections
+is the distinctive spectral signature, which has no plausible astrophysical
+counterpart. 
+
+Compared to the monochromatic flux, the gamma-ray flux produced in 
+$\pi^0$ decays is much larger but has less distinctive features.
+The photon spectrum in the process of a pion decaying into $2\gamma$ is, 
+independent of the pion energy, peaked at half of the $\pi^0$ mass, 
+about 70~MeV, and symmetric with respect to this peak if plotted in 
+logaritmic variables. Of course, this is true both for pions produced in 
+neutralino annihilations and, e.g., for those generated by cosmic ray 
+protons interacting with the interstellar medium.
+
+When considered together with to the cosmic ray induced Galactic gamma-ray
+background, the neutralino induced signal looks like a component analogous
+to the secondary flux due to nucleon nucleon interactions: it is
+drowned into the Bremsstrahlung component at low energy, while it may 
+be the dominant contribution at energies above 1 GeV or so. 
+In fact, if the exotic component is indeed significant
+an option to disentangle it would be to search for a break in the
+energy spectrum at about the neutralino mass, where the line feature
+might be present as well: while the maximal energy for a photon emitted 
+in neatralino pair annihilations is equal to the neutralino mass,
+the component from cosmic ray protons extends to much higher energies,
+essentially with the same spectral index as for the proton spectrum
+(the role played by the third main background component, 
+inverse Compton emission, has still to settled at the time being and
+may worsen the problem of discrimitation against background).
+
+Besides this (weak) spectral feature, another way to disentangle
+the dark matter signal may be to exploit a directional signature:
+data with a wide angular coverage should be analyzed to seach for 
+a gamma-ray flux component following the shape and density profile 
+of the dark halo, including eventual contributions from clumps.
+
+
+\subsection{Sources and fluxes}
+
+Given a density distribution of dark matter neutralinos along some line
+of sight $l$, the monochromatic gamma-ray flux per unit solid
+angle in that direction is:
+\beq
+{d\Phi_{\gamma}(\psi)\over d\Omega} 
+= \frac{N_{\gamma}\;v\sigma_{X^0\gamma}}{8\pi M_\chi^2}
+\int_{line\;of\;sight}\rho_{\chi}^2(l)\; d\,l(\psi)\;,
+\label{eq:gaflux}
+\eeq
+where $\psi$ is an angle to label the direction of observation and where 
+$N_{\gamma} = 2$ for $\chi\,\chi\rightarrow \gamma\,\gamma$, 
+$N_{\gamma} = 1$ for $\chi\,\chi\rightarrow Z\,\gamma$. Analogously,
+the gamma-ray flux with continuum energy spectrum is obtained by replacing
+$N_{\gamma}\;v\sigma_{X^0\gamma}$ with 
+$\sum_f dN_{\gamma}^f/dE\;v\sigma_{f}$, where the sum is over all tree
+level final states. Separating the dependence on the dark matter distribution
+from the part which is related to values of the cross section and the 
+neutralino mass, we rewrite Eq.~(\ref{eq:gaflux}) as:
+\beq
+{d\Phi_{\gamma}(\psi)\over d\Omega} 
+\simeq  9.395 \cdot 10^{-12}\left( \frac{N_{\gamma}\;v\sigma_{X^0\gamma}}
+{10^{-29}\ {\rm cm}^3 {\rm s}^{-1}}\right)\left( \frac{10\,\rm{GeV}}
+{M_\chi}\right)^2 \cdot 
+J\left(\psi\right)\;\rm{cm}^{-2}\;\rm{s}^{-1}\;\rm{sr}^{-1}\;,
+\eeq
+where we have defined the dimensionless function
+\beq
+J\left(\psi\right) = \frac{1} {8.5\, \rm{kpc}}
+\cdot \left(\frac{1}{0.3\,{\rm GeV}/{\rm cm}^3}\right)^2
+\int_{line\;of\;sight}\rho_{\chi}^2(l)\; d\,l(\psi)\;.
+\label{eq:jpsi}
+\eeq
+The relevant quantity for a measurement is, rather than $J\left(\psi\right)$,
+the integral of $J\left(\psi\right)$ over the solid angle given by the
+angular acceptance $\Delta\Omega$ of a detector which is pointing in
+the direction $\psi$. Defining:
+\begin{equation}
+\langle\,J\left(\psi\right)\rangle_{\Delta\Omega}
+= \frac{1}{\Delta\Omega} \int_{\Delta\Omega} d\Omega^{\prime}
+J\left(\psi^{\prime}\right)\;, 
+\label{eq:jave}
+\end{equation}
+the flux measured in a detector is:
+\begin{equation}
+\Phi_{\gamma}(\psi, \Delta\Omega) = 9.395 \cdot 10^{-12}
+\left(\frac{N_{\gamma}\;v\sigma_{X^0\gamma}}
+{10^{-29}\ {\rm cm}^3 {\rm s}^{-1}}\right)
+\left( \frac{10\,\rm{GeV}}{M_\chi}\right)^2 
+\langle\,J\left(\psi\right)\rangle_{\Delta\Omega}\times\Delta\Omega 
+\;\rm{cm}^{-2}\;\rm{s}^{-1}\; \rm{sr}^{-1}\; .
+\label{signal}
+\end{equation}
+Finally, the formalism we introduced can be used also to estimate
+the flux in the simple case of a single source which, for the given 
+detector, can be approximated as point-like (see examples below). 
+If such 
+source is in the direction $\psi$ at a distance $d$, Eq.~(\ref{eq:jave})
+becomes:
+\begin{equation}
+\langle\,J\left(\psi\right)\rangle_{\Delta\Omega}
+= \frac{1} {8.5\, \rm{kpc}}
+\cdot \left(\frac{1}{0.3\,{\rm GeV}/{\rm cm}^3}\right)^2
+\cdot \frac{1}{d^2} \cdot \frac{1}{\Delta\Omega}
+\int d^3r \;\rho_{\chi}^2(\vec{r}) 
+\end{equation}
+where the integral is over the extention of the source (much smaller
+than $d$).
+
+Several targets have been discussed as sources of gamma-rays from the
+annihilation of dark matter particles. An obvious source is the dark
+halo of our own galaxy~\cite{galga} and in particular the Galactic center,
+as the dark matter density profile is expected, in most models, to be 
+picked towards it, possibly with huge enhancements close to te central 
+black hole. The Galactic center is an ideal target for both ground-
+and space-based gamma-ray telescopes. As satellite experiments have 
+much wider field of views and will provide a full sky coverage,
+they will test the hypothesis of gamma-rays emitted in clumps of dark 
+matter which may be present in the 
+halo~\cite{clumpyga,gahalo,clumpy,clumpybeg}. 
+Another possibility which has been considered is the case of 
+gamma-ray fluxes from external nearby galaxies~\cite{extergal}. 
+Furthermore, it has 
+been proposed to search for an extragalactic flux originated by all 
+cosmological annihilations of dark matter 
+particles~\cite{extragal,extragalbeu}.
+
+\ds\ is suitable to compute the gamma-ray flux from all these (and possibly 
+other) sources. Two cases are fully included in the package:
+assuming neutralinos are smoothly distributed in the Galactic halo
+with $\rho_{\chi}$ equal to the dark matter density profile, in 
+\ds\ Eq.~\ref{eq:jave} is computed for a specified halo profile and 
+any given $\psi$ and $\Delta\Omega$~\cite{lpj}. 
+The second option deals with the
+case of a portion of dark matter being in the form of clumps, each of
+which is treated as a non-resolvable source in the detector, distributed
+in the Galaxy according to a probability distribution which
+follows the dark matter density profile (see \cite{clumpy}
+for details). It is straightforward to extend this to all other 
+astrophysical sources; in case of cosmological sources one has just 
+to pay attention to include redshift effects and absoption on starlight 
+and infrared background, see~\cite{extragalbeu}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Neutrinos from halo -- theory}
+
+Usually, the flux of neutrinos from annihilation of neutralinos in
+the Milky Way halo is too small to be detectable, but for some clumpy
+or cuspy models, it might be detectable. The calculation of the
+neutrino-flux follows closely the calculation of the continuous gamma
+ray flux, with the main addition that neutrino interactions close to
+the detector are also included. Hence, both the neutrino flux and the
+neutrino-induced muon flux can be obtained. The neutrino to muon
+conversion rate in the Earth can also be obtained.

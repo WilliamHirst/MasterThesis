@@ -1,0 +1,68 @@
+README for DarkSUSY
+===================
+
+* For compiling and installing instructions, read README.INSTALL
+
+* If you want to develop code for DarkSUSY, read README.DEVELOPER
+
+If you use this code, please refer to it as:
+
+P. Gondolo, J. Edsjö, P. Ullio, L. Bergstöm, M. Schelke and E.A. Baltz,
+JCAP 07 (2004) 008 [astro-ph/0406204]; P. Gondolo, J. Edsjö, P. Ullio, 
+L. Bergström, M. Schelke, E.A. Baltz, T. Bringmann and G. Duda, 
+http://www.physto.se/~edsjo/darksusy
+
+Most of the routines in DarkSUSY are based upon original physics work
+published separately. Please also refer to those when you
+use them. Below are some of the main publications behind different
+routines in DarkSUSY (if you use the default options).
+
+* General MSSM routines:
+    L. Bergstrom and P. Gondolo, Astrop. Phys. 5 (1996) 263.
+
+* Relic density:
+    P. Gondolo and G. Gelmini, Nucl. Phys. B360 (1991) 145.
+    J. Edsjo and P. Gondolo, Phys. Rev. D56 (1997) 1879.
+    J. Edsjo, M. Schelke, P. Ullio and P. Gondolo,
+    JCAP 04 (2003) 001.
+
+* Direct detection:
+    L. Bergstrom and P. Gondolo, Astrop. Phys. 5 (1996) 263.
+
+* Neutrino telescopes:
+    L. Bergstrom, J. Edsjo and P. Gondolo, Phys. Rev. D58 (1998) 103519.
+
+* Positrons:
+    E.A. Baltz and J. Edsjo, Phys. Rev. D59 (1999) 023511.
+
+* Antiprotons:
+    L. Bergstrom, J. Edsjo and P. Ullio, Astrophys. J. 526 (1999) 215.
+
+* Gamma lines
+    L. Bergstrom and P. Ullio, Nucl. Phys. B504 (1997) 27.
+    P. Ullio and L. Bergstrom, Phys. Rev. D57 (1998) 1962.
+
+* Internal bremsstrahlung
+    T. Bringmann, L. Bergstrom and J. Edsjo, JHEP 0801 (2008) 049.    
+
+* Cont. gammas from the halo:
+    L. Bergstrom, J. Edsjo and P. Ullio, Phys. Rev. D58 (1998) 083507.
+
+* Kinetic decoupling and microhalos
+    T. Bringmann and S. Hofmann, JCAP 0407 (2007) 16;
+    T. Bringmann, NJP 11 (2009) 10527.
+
+* FeynHiggs: For Higgs masses
+    See the FeynHiggs web page for information on how to refer to it.
+
+* HiggsBounds: For Higgs limits from accelerators
+    See HiggsBounds web page for information on how to refer to it.
+
+* Isasugra: for mSUGRA
+    See the isajet web page for information on how to refer to it.
+
+* SLHALIB: for reading/writing SLHA files
+    See the slhalib web page for information on how to refer to it.
+
+Note that this list is far from complete, so you will most likely have
+to consider also referring other work depending on how you use DarkSUSY.

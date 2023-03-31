@@ -1,0 +1,268 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Relic density -- routines}
+
+In \ft{src/rd}, the general relic density routines are found. These
+routines can be used for any dark matter candidate and the interface
+to neutralino dark matter is in \ft{src/rn}. We will first discuss how
+the routines for neutralino relic density are used and then how the
+general routines work.
+
+\subsection{Neutralino relic density}
+
+\begin{sub}{function \ftb{dsrdomega}(coann,fast,xf,ierr,iwar,nfc)
+\hfill r8}
+  \itit{Purpose:} Calculate the relic density of the lightest
+  neutralino, possibly including coannihilations between different
+  neutralinos, neutralinos and charginos and between charginos.
+  \itit{Input:}
+  \itv{coann}{i} 
+  =0: do not include coannihilations. \\
+  =1: include all coannihilations \\
+  =2: include coannihilations between
+    neutralino--neutralino, neutralino--chargino and
+    chargino--chargino.
+  \itv{fast}{i}
+  =1: Do a faster calculation, with slightly less accuracy in the
+  numerical integrations and only including coannihilations (if
+  \ft{coann=1}) with other particles up to 1.3 times heavier than the
+  lightest neutralino.\\
+  =2: Do a more accurate calculation, with higher accuracy in the
+  numerical integrations and including coannihilations (if
+  \ft{coann=1}) with other particles up to 2.1 times heavier than the
+  lightest neutralino.
+  \itit{Output:}
+  \itv{xf}{r8} $x$ is defined as $x=m_\chi/T$ and \ft{xf} is the $x$
+  at which freeze-out occurs (defined as the temperature at which the
+  number density is a factor of two higher than the equilibrium
+  density). 
+  \itv{ierr}{i} =0: Calculation went OK.\\
+  $\neq0$: Somethig went wrong. 
+  \itv{iwar}{i} =0: Calculation went OK.\\
+  $\neq0$: A slight inaccuracy may have occured at a resonance or
+  threshold for numerical reasons. Usually, this doesn't affect the
+  result, but one should keep it in mind in case the returned relic
+  density seems strange.
+  \itv{nfc}{i} The number of points (in $p_{\rm eff}$) at which the
+  cross section was evaluated.
+\end{sub}
+
+\begin{sub}{subroutine \ftb{dsrdwrate}(unit1,unit2,ich)}
+  \itit{Purpose:} Writes a table of the partial
+    annihilation rates $W_F(p,\cos\theta)$ into each final channel $F$ as a
+    function of the center-of-mass momentum $p$ and at $\cos\theta=0.1$ to 
+    \ft{unit2}. 
+  \itit{Inputs:}
+  \itv{unit1}{i} What is this?
+  \itv{unit2}{i} Unit number to write output to.
+  \itv{ich}{i} What initial state channel to use:\\
+   =1: neutralino--neutralino annihilation\\
+   =2: neutralino--chargino coannihilation\\
+   =3: chargino--chargino coannihilations.
+  \itit{Comment:} Only annihilation between the \emph{lightest}
+    neutralinos and charginos are included.
+\end{sub}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{General relic density routines}
+
+The routine that performs the actual relic density calculation is
+\begin{sub}{subroutines
+\ftb{dsrdens}(wx,ncoann,mcoann,dof,nrs,rm,rw,nt,tm,oh2,tf,ierr,iwar)}
+  \itit{Purpose:} Calculate the relic density of a dark matter
+  candidte.
+  \itit{Input:}
+  \itv{wx}{r8} User-defined function that returns the effective
+    invariant annihilation rate, $W_{\rm eff}$, as a function of the
+    effective momentum $p_{\rm eff}$. The function has to be declared
+    \ft{external} in the calling routine.
+  \itv{ncoann}{i} Number of particles that coannihilate.
+  \itv{mcoann}{r8} An array with the masses (in GeV) that can
+    coannihilate.
+  \itv{dof}{r8} Number of internal degrees of freedom for the
+  coannihilating particles.
+  \itv{nrs}{i} Number of resonances.
+  \itv{rm}{r8} An array with the masses of the resonances (in GeV).
+  \itv{rw}{r8} An array with the widths of the resonances (in GeV).
+  \itv{nt}{i} Number of thresholds.
+  \itv{tm}{r8} An array with the $\sqrt{s}$ (in GeV) at which the
+    thresholds occur.
+  \itit{Output:}
+  \itv{oh2}{r8} The relic density, $\Omega h^2$ where $h$ is the Hubble
+  constant in units of 100 km s$^{-1}$ Mpc$^{-1}$.
+  \itv{tf}{r8} The temperature (in GeV) at which the freeze-out
+  occured. Freeze-out is defined to occur when the number density is 2
+  times the equlibrium density.
+  \itv{ierr}{i} =0: Calculation went OK.\\
+    $\neq0$: Somethig went wrong. 
+  \itv{iwar}{i} =0: Calculation went OK.\\
+    $\neq0$: A slight inaccuracy may have occured at a resonance or
+    threshold for numerical reasons. Usually, this doesn't affect the
+    result, but one should keep it in mind in case the returned relic
+    density seems strange.
+\end{sub}
+It is up to the user to prepare the input function and arrays
+accordingly before calling the routine.
+
+All internal settings of the relic density routines are set in common
+blocks in \ft{dsrdcom.h}. The most important parameters that can be
+changed by the user are
+
+\begin{sub}{Important parameters in \ftb{dsrdcom.h}}
+  \itit{Purpose:} Provide a set of parameters, with which the internal
+  behaviour of the relic density routines can be changed.
+  \itit{Parameters}
+  \itv{tharsi}{i} Size of the coannihilation, resonance and threshold
+    arrays (default=50). Increase this size if you have more than 50
+    coannihilating particles, more than 50 resonances or more than 50
+    thresholds.
+  \itv{rdluerr}{i} Logical unit number where error messages are
+    printed.
+  \itv{rdtag}{c*12} Idtag that is printed in case of errors.
+  \itv{cosmin}{r8} \ldots
+  \itv{waccd}{r8} \ldots
+  \itv{dpminr}{r8} \ldots
+  \itv{dpthr}{r8} \ldots
+  \itv{wdiffr}{r8} \ldots
+  \itv{wdifft}{r8} \ldots
+  \itv{hstep}{r8} \ldots
+\end{sub}
+
+When the relic density has been calculated, the integer variable \code{copart} in \code{dsandwcom.h} is set to indicate which coannihilating particles that have been included in the calculation. In Table~\ref{tab:copart}, the meaning if this variable is shown.
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{rrrcrrl} \hline
+\multicolumn{3}{c}{\code{copart}} & & \multicolumn{2}{c}{PAW variables} \\ \cline{1-3} \cline{5-6}
+Bit set & Octal value & Decimal value && \code{cop1} bit & \code{cop2} bit & Particle \\ \hline
+ 0 &             1 &            1 &&   0 &  -- & $\tilde{\chi}_1^0$ \\
+ 1 &             2 &            2 &&   1 &  -- & $\tilde{\chi}_2^0$ \\
+ 2 &             4 &            4 &&   2 &  -- & $\tilde{\chi}_3^0$ \\
+ 3 &            10 &            8 &&   3 &  -- & $\tilde{\chi}_4^0$ \\ \hline
+ 4 &            20 &           16 &&   4 &  -- & $\tilde{\chi}_1^\pm$ \\
+ 5 &            40 &           32 &&   5 &  -- & $\tilde{\chi}_2^\pm$ \\ \hline
+ 6 &           100 &           64 &&   6 &  -- & $\tilde{e}_1$ \\
+ 7 &           200 &          128 &&   7 &  -- & $\tilde{\mu}_1$ \\
+ 8 &           400 &          256 &&   8 &  -- & $\tilde{\tau}_1$ \\
+ 9 &        1\,000 &          512 &&   9 &  -- & $\tilde{e}_2$ \\
+10 &        2\,000 &       1\,024 &&  10 &  -- & $\tilde{\mu}_2$ \\
+11 &        4\,000 &       2\,048 &&  11 &  -- & $\tilde{\tau}_2$ \\ \hline
+12 &       10\,000 &       4\,096 &&  12 &  -- & $\tilde{\nu}_e$ \\
+13 &       20\,000 &       8\,192 &&  13 &  -- & $\tilde{\nu}_\mu$ \\
+14 &       40\,000 &      16\,384 &&  14 &  -- & $\tilde{\nu}_\tau$ \\ \hline
+15 &      100\,000 &      32\,768 &&  -- &   0 & $\tilde{u}_1$ \\
+16 &      200\,000 &      65\,536 &&  -- &   1 & $\tilde{c}_1$ \\
+17 &      400\,000 &     131\,072 &&  -- &   2 & $\tilde{t}_1$ \\
+18 &   1\,000\,000 &     262\,144 &&  -- &   3 & $\tilde{u}_2$ \\
+19 &   2\,000\,000 &     524\,288 &&  -- &   4 & $\tilde{c}_2$ \\
+20 &   4\,000\,000 &  1\,048\,576 &&  -- &   5 & $\tilde{t}_2$ \\ \hline
+21 &  10\,000\,000 &  2\,097\,152 &&  -- &   6 & $\tilde{d}_1$ \\
+22 &  20\,000\,000 &  4\,197\,304 &&  -- &   7 & $\tilde{s}_1$ \\
+23 &  40\,000\,000 &  8\,388\,608 &&  -- &   8 & $\tilde{b}_1$ \\
+24 & 100\,000\,000 & 16\,777\,216 &&  -- &   9 & $\tilde{d}_2$ \\
+25 & 200\,000\,000 & 33\,554\,432 &&  -- &  10 & $\tilde{s}_2$ \\
+26 & 400\,000\,000 & 67\,108\,864 &&  -- &  11 & $\tilde{b}_2$ \\ \hline
+\end{tabular}
+\caption{The bits of \code{copart} are set to indicate which initial states that
+are included in the coannihilation calculation. In the output file \code{*.omegaco}, the value of \code{copart} is written in octal format. In PAW \code{cop1} and \code{cop2} are available. Check if a bit is set with \code{btest(cop1,bit)}.}
+\label{tab:copart}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Brief description of the internal routines}
+
+Below, the remaining routines related to the relic density calculation
+are briefly mentioned. For more details, we refer to the routines
+themselves.
+
+\begin{brief-subs}
+\bsub{dsrdaddpt}
+  To add one point in the $W_{\rm eff}$-$p_{\rm eff}$ table.
+\bsub{dsrdcom}
+  To initialize parameters in the common blocks in \ft{dsrdcom.h}. If
+  you want to change these parameters yourself, include \ft{dsrdcom.h}
+  in your code and change the parameters you want.
+\bsub{dsrddof150}
+  To prepare a table of the degrees of freedom as a
+  function of the temperature in the early Universe.
+\bsub{dsrddpmin}
+  To return the allowed minimal distance in $p_{\rm
+  eff}$ between two points in the $W_{\rm eff}$-$p_{\rm eff}$ plane.
+  The returned value depends on if there is a resonance present or not
+  at the given $p_{\rm eff}$.
+\bsub{dsrdeqn}
+  To solve the relic density equation by means of an
+  implicit trapezoidal method with adaptive stepsize and termination.
+\bsub{dsrdfunc}
+  To return the invariant annihilation rate times the
+  thermal distribution.
+\bsub{dsrdfuncs}
+  To provide \ft{dsrdfunc} in a form suitable for
+  numerical integration.
+\bsub{dsrdlny}
+  To return $\ln(W_{\rm eff}$ for a given $p_{\rm
+  eff}$.
+\bsub{dsrdnormlz}
+  To return a unit vector in a given direction.
+\bsub{dsrdqad}
+  To calculate the relic density with a
+  quick-and-dirty method. It uses the approximative expressions in
+  Kolb \& Turner with the cross section expaned in $v$.
+\bsub{dsrdqrkck}
+  To numerically integrate a function with a
+  Runge-Kutta method
+\bsub{dsrdrhs}
+  To calculate terms on the right-hand side in the
+  Boltzmann equation.
+\bsub{dsrdset}
+  To set the control parameters for the relic density calculation. Currently, only the choice of effective degrees of freedom is implemented through \ft{dsrdset}; the other parameters are passed as arguments to \ft{dsrdomega}.
+\bsub{dsrdspline}
+  To set up the table $W_{\rm eff}$-$p_{\rm eff}$ for
+  spline interpolation.
+\bsub{dsrdstart}
+  To sort and store information about coannihilations,
+  resonances and thresholds in common blocks.
+\bsub{dsrdtab}
+  To set up the table $W_{\rm eff}$-$p_{\rm eff}$.
+\bsub{dsrdthav}
+  To calculate the thermally averaged annihilation
+  cross section at a given temperature.
+\bsub{dsrdthclose}
+  ...
+\bsub{dsrdthlim}
+  To determine the end-points for the thermal
+  average integration.
+\bsub{dsrdthtest}
+  To check if a given entry in the $W_{\rm
+  eff}$-$p_{\rm eff}$ table is at a threshold.
+\bsub{dsrdwdwdcos}
+  To write out a table of $dW_{\rm eff}/d\cos \theta$
+  as a function of $\cos \theta$ for a given $p_{\rm eff}$.
+\bsub{dsrdwfunc}
+  To write out \ft{dsrdfunc} for a given $x=m_\chi/T$.
+\bsub{dsrdwintp}
+  To return the invariant rate $W_{\rm eff}$ for any
+  given $p_{\rm eff}$ by performing a spline interpolation in the
+  $W_{\rm eff}$-$p_{\rm eff}$ table.
+\bsub{dsrdwintpch}
+  To check the spline interpolation in the $W_{\rm
+  eff}$-$p_{\rm eff}$ table and compare with a linear interpolation.
+\bsub{dsrdwintrp}
+  To write out a table of the invariant rate $W_{\rm
+  eff}$ and some internal integration variables and expressions.
+\bsub{dsrdwres}
+  To write out the table $W_{\rm eff}$-$p_{\rm eff}$.
+\end{brief-subs}
+
+\bigskip
+
+Below are brief descriptions of routines in \ft{src/rn} not mentioned above
+
+\begin{brief-subs}
+\bsub{dsrdres}
+  To prepare the array of resonances needed before the
+  call to \ft{dsrdens}.
+\bsub{dsrdthr}
+  To prepare the array of thresholds needed before the
+  call to \ft{dsrdens}.
+\end{brief-subs}
+

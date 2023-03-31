@@ -1,0 +1,268 @@
+ *********************************************************
+ *** Welcome to DarkSUSY version                       ***
+ *** trunk (rev 356)                                             ***
+ *********************************************************
+  
+ Initializing DarkSUSY...
+ WARNING in dspbset: using halo model nfwsm       
+ for the setup. If you change halo model, make sure
+ to call dspbset again.
+ dsntsunread: Opening file 
+ /data1/edsjo/DarkSUSY/library/trunk/share/DarkSUSY/bs05op.dat                  
+                                                                                
+                                           
+ dsntsunread: Opening file 
+ /data1/edsjo/DarkSUSY/library/trunk/share/DarkSUSY/nele_bs05op.dat             
+                                                                                
+                                           
+ dsntsunread: tabulating potential inside the Sun...
+   ...done
+ dsntsunread: tabulating column density inside the Sun...
+   ...done
+ dsreadnuclides: reading /data1/edsjo/DarkSUSY/library/trunk/share/DarkSUSY/nuclides.dat
+ 
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ~                                                        ~
+ ~          HiggsBounds 1.0 (fortran77 version)           ~
+ ~                                                        ~
+ ~     Philip Bechtle, Oliver Brein, Sven Heinemeyer,     ~
+ ~            Georg Weiglein, Karina E. Williams          ~
+ ~                                                        ~
+ ~ arXiv:0811.4169, http://www.ippp.dur.ac.uk/HiggsBounds ~
+ ~                                                        ~
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+ HiggsBounds collects together results from 
+ 
+     * the LEP collaborations and LEP Higgs Working Group
+     * the CDF and D0 Collaborations
+     * the program HDECAY (arXiv:hep-ph/9704448)
+     * TeV4LHC Higgs Working Group report
+       (see arXiv:hep-ph/0612172 and ref. therein)
+ 
+ Tevatron-Constraints: initialization of data tables
+ reading tables for channel ZH->llbb
+   CDF table with 2.4 fb^-1 (CDF note 9475)
+   CDF table with 1 fb^-1 (hep-ex/0807.4493)
+   D0 table with 2.3fb^-1 (D0 note 5570)
+ reading tables for channel ZH->nunubb
+   CDF table with 2.1 fb^-1 (CDF note 9483)
+   D0 table (D0 note 5586)
+ reading tables for channel WH->lnubb
+   D0 table (D0 note 5472)
+   CDF table with 2.7 fb^-1 (CDF note 9463)
+ reading tables for channel ppH -> WW
+   D0 table for ppH -> WW -> ll with 3.0 fb^-1 (D0 note 5757)
+   CDF table for 3.0 fb^-1 (hep-ex/0809.3930)
+ reading tables for the CDF & D0 SM combined limits (hep-ex/0712.2383)
+ reading tables for the CDF H -> tau tau SM combined limits (CDF note 9248)
+ reading tables for the CDF & D0 SM combined limits (hep-ex/0804.3423)
+ reading tables for the CDF & D0 SM combined limits (hep-ex/0808.0534)
+ reading tables for pp -> bH, H -> bb
+   CDF tanb-table (CDF note 9284)
+   D0 tanb-table (D0 note 5726)
+   D0 absolute sigma x BR table in pikobarn for 1fb^-1 (hep-ex/0805.3556)
+ reading tables for channel ppH -> tau tau (D0 hep-ex/0805.2491)
+   D0 absolute sigma x BR table in pikobarn for 1fb^-1
+   CDF absolute sigma x BR table in pikobarn for 1.8 fb^-1 (CDF note 9071)
+ reading tables for channel WH->WWW
+   D0 absolute sigma x BR table in pikobarn for 1 fb^-1 (D0 note 5485)
+   CDF with 1.9 fb^-1 (CDF note 7307)
+ reading tables for channel: ppH -> gamma gamma
+   D0 with 2.27 fb^-1 (D0 note 5737)
+   D0 absolute sigma x BR table in pikobarn for 1.1 fb^-1 (D0 hep-ex/0803.1514)
+ finished reading Tevatron tables
+ Overall mass range of Tevatron tables: [ 70.00    , 300.0    ] GeV.
+ 
+ LEP-Constraints: initialization of data tables (hep-ex/0602042)
+ reading table 14b
+ reading table 14c
+ reading tables 15, 16 and 22
+ reading tables 18, 19, 23, 24
+ reading tables 20, 21
+ finished reading LEP tables
+ 
+ Initialization of DarkSUSY complete.
+  
+ Model: BA_AP_000001
+ Parameters:    107.000000000000        600.000000000000     
+  0.000000000000000E+000   1.00000000000000        5.00000000000000     
+    hwarning =            0
+      unphys =            0
+   Neutralino mass =    247.672531127930     
+   Gaugino fraction =   0.994326464508866     
+   H1 mass =     887.360107421875        2.12299880543452     
+   H2 mass =     111.700912475586       2.922412818952870E-003
+   H3 mass =     880.847717285156        2.34694363010867     
+   H+- mass =    890.181945800781        2.50502919744649     
+    Calculating omega h^2, please be patient...
+ dsrdreaddof: reading /data1/edsjo/DarkSUSY/library/trunk/share/DarkSUSY/dsdofHP_B.dat
+    Oh2 =   4.868856044482460E-002
+  
+ Model: BA_BP_000001
+ Parameters:    57.0000000000000        250.000000000000     
+  0.000000000000000E+000   1.00000000000000        10.0000000000000     
+    hwarning =            0
+      unphys =            0
+   Neutralino mass =    96.7034912109375     
+   Gaugino fraction =   0.971132073273594     
+   H1 mass =     372.551513671875       0.859502252895855     
+   H2 mass =     109.237915039062       3.431536645989221E-003
+   H3 mass =     369.767974853516        1.13425089587723     
+   H+- mass =    380.597564697266        1.14441340533216     
+    Calculating omega h^2, please be patient...
+    Oh2 =   0.119284188871343     
+  
+ Model: BA_CP_000001
+ Parameters:    80.0000000000000        400.000000000000     
+  0.000000000000000E+000   1.00000000000000        10.0000000000000     
+    hwarning =            0
+      unphys =            0
+   Neutralino mass =    161.338165283203     
+   Gaugino fraction =   0.988335426587633     
+   H1 mass =     578.516418457031        1.30520146764102     
+   H2 mass =     112.738777160645       3.110222601934334E-003
+   H3 mass =     574.506835937500        1.46705774322936     
+   H+- mass =    583.744995117188        1.87152928069632     
+    Calculating omega h^2, please be patient...
+    Oh2 =   8.646845270123357E-002
+  
+ Model: BA_DP_000001
+ Parameters:    101.000000000000        525.000000000000     
+  0.000000000000000E+000  -1.00000000000000        10.0000000000000     
+    hwarning =            0
+      unphys =            0
+   Neutralino mass =    216.951751708984     
+   Gaugino fraction =   0.994623111028156     
+   H1 mass =     742.834411621094        1.66921370012090     
+   H2 mass =     113.513626098633       3.078110569547553E-003
+   H3 mass =     737.718627929688        1.74642058269952     
+   H+- mass =    746.839843750000        2.40848329473406     
+    Calculating omega h^2, please be patient...
+    Oh2 =   5.719937095220953E-002
+  
+ Model: BA_EP_000001
+ Parameters:    1532.00000000000        300.000000000000     
+  0.000000000000000E+000   1.00000000000000        10.0000000000000     
+    hwarning =            0
+      unphys =            0
+   Neutralino mass =    122.162635803223     
+   Gaugino fraction =   0.967942070274590     
+   H1 mass =     1566.51342773438        27.5995295742217     
+   H2 mass =     112.973999023438       2.875855412094235E-003
+   H3 mass =     1556.16015625000        28.0260115385509     
+   H+- mass =    1568.44592285156        24.0523027620842     
+    Calculating omega h^2, please be patient...
+    Oh2 =    4.88684525782839     
+  
+ Model: BA_FP_000001
+ Parameters:    3440.00000000000        1000.00000000000     
+  0.000000000000000E+000   1.00000000000000        10.0000000000000     
+    hwarning =            0
+      unphys =            0
+   Neutralino mass =    436.905029296875     
+   Gaugino fraction =   0.992287116218655     
+   H1 mass =     3571.73657226562        56.6759167246611     
+   H2 mass =     118.131286621094       2.961769448217354E-003
+   H3 mass =     3548.34130859375        58.1140540330061     
+   H+- mass =    3572.58691406250        50.9121660348835     
+    Calculating omega h^2, please be patient...
+    Oh2 =    13.9673627552974     
+  
+ Model: BA_GP_000001
+ Parameters:    113.000000000000        375.000000000000     
+  0.000000000000000E+000   1.00000000000000        20.0000000000000     
+    hwarning =            0
+      unphys =            0
+   Neutralino mass =    151.176452636719     
+   Gaugino fraction =   0.987325954869500     
+   H1 mass =     520.567993164062        3.82174135096586     
+   H2 mass =     113.150650024414       3.129693287695937E-003
+   H3 mass =     517.148010253906        3.91426154137027     
+   H+- mass =    526.796203613281        5.41068479265515     
+    Calculating omega h^2, please be patient...
+    Oh2 =   0.109221577556586     
+  
+ Model: BA_HP_000001
+ Parameters:    244.000000000000        935.000000000000     
+  0.000000000000000E+000   1.00000000000000        20.0000000000000     
+    hwarning =            0
+      unphys =            0
+   Neutralino mass =    396.256683349609     
+   Gaugino fraction =   0.997400129922094     
+   H1 mass =     1203.38720703125        7.93039862341401     
+   H2 mass =     118.300994873047       3.018778466467606E-003
+   H3 mass =     1195.50305175781        7.93117685103052     
+   H+- mass =    1206.11340332031        12.4154063822455     
+    Calculating omega h^2, please be patient...
+    Oh2 =   0.129609357291743     
+  
+ Model: BA_IP_000001
+ Parameters:    181.000000000000        350.000000000000     
+  0.000000000000000E+000   1.00000000000000        35.0000000000000     
+    hwarning =            0
+      unphys =            0
+   Neutralino mass =    141.097213745117     
+   Gaugino fraction =   0.985663328427152     
+   H1 mass =     443.154144287109        9.92808768824958     
+   H2 mass =     112.770751953125       3.094269566644232E-003
+   H3 mass =     440.289520263672        9.93094772900346     
+   H+- mass =    451.001953125000        13.1568272286437     
+    Calculating omega h^2, please be patient...
+    Oh2 =   0.143605490160910     
+  
+ Model: BA_JP_000001
+ Parameters:    299.000000000000        750.000000000000     
+  0.000000000000000E+000   1.00000000000000        35.0000000000000     
+    hwarning =            0
+      unphys =            0
+   Neutralino mass =    315.347045898438     
+   Gaugino fraction =   0.996233847924564     
+   H1 mass =     887.640808105469        18.1244251404865     
+   H2 mass =     117.376396179199       3.016109218405656E-003
+   H3 mass =     881.839294433594        18.0076745287891     
+   H+- mass =    891.647705078125        27.8610736333055     
+    Calculating omega h^2, please be patient...
+    Oh2 =   0.122986912609071     
+  
+ Model: BA_KP_000001
+ Parameters:    1001.00000000000        1300.00000000000     
+  0.000000000000000E+000  -1.00000000000000        46.0000000000000     
+    hwarning =            0
+      unphys =            0
+   Neutralino mass =    564.776733398438     
+   Gaugino fraction =   0.998454318115590     
+   H1 mass =     1028.44226074219        35.5369307376116     
+   H2 mass =     119.570327758789       3.160047317157356E-003
+   H3 mass =     1021.74652099609        35.3358889229084     
+   H+- mass =    1032.58032226562        55.0502848708379     
+    Calculating omega h^2, please be patient...
+    Oh2 =    1.46132546136658     
+  
+ Model: BA_LP_000001
+ Parameters:    303.000000000000        450.000000000000     
+  0.000000000000000E+000   1.00000000000000        47.0000000000000     
+    hwarning =            0
+      unphys =            0
+   Neutralino mass =    184.771499633789     
+   Gaugino fraction =   0.990756207145561     
+   H1 mass =     485.786987304688        19.3057909327959     
+   H2 mass =     114.461097717285       3.021613071966994E-003
+   H3 mass =     482.637939453125        19.1879089859308     
+   H+- mass =    493.488922119141        26.3952316060926     
+    Calculating omega h^2, please be patient...
+    Oh2 =   0.146501319931322     
+  
+ Model: BA_MP_000001
+ Parameters:    1125.00000000000        1840.00000000000     
+  0.000000000000000E+000   1.00000000000000        51.0000000000000     
+    hwarning =            0
+      unphys =            0
+   Neutralino mass =    809.178833007812     
+   Gaugino fraction =   0.999101099918612     
+   H1 mass =     1651.61889648438        66.3424524732756     
+   H2 mass =     121.145576477051       3.046460263834189E-003
+   H3 mass =     1640.82116699219        65.9603332100635     
+   H+- mass =    1654.04174804688        104.515538609786     
+    Calculating omega h^2, please be patient...
+    Oh2 =   0.279613112881842     

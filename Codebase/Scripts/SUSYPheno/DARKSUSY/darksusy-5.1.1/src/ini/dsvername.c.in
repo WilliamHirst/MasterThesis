@@ -1,0 +1,25 @@
+/* #include "../../config.h" */
+#include <string.h>
+
+#define DSVERNAME "@DSVERSION@@DSREV@"
+
+void dsvername(char*name)
+{
+  name[0]='\0';
+  strcpy(name,DSVERNAME);
+  return;
+}
+
+void dsvername_(char*name)
+{
+  name[0]='\0';
+  strcpy(name,DSVERNAME);
+  return;
+}
+
+void dsvername__(char*name)
+{
+  name[0]='\0';
+  strcpy(name,DSVERNAME);
+  return;
+}

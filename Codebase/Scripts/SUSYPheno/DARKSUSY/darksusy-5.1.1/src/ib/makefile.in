@@ -1,0 +1,44 @@
+# Makefile for ib directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemfpg.pl on Nov 04, 2011.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dsprep.h dsmssm.h dsmpconst.h dsidtag.h dsibcom.h dshrcom.h \
+dshacom.h dshmcom.h
+
+vpath %.h $(DINC)
+
+SRC = dsIBf_intdE.f dsIBf_intdxdy.f dsIBf_intdxdy2.f dsIBf_intdy.f \
+dsIBf_intdy2.f dsIBffdxdy.f dsIBffdxdy_1.f dsIBffdxdy_2.f dsIBffdxdy_3.f \
+dsIBffdxdy_4.f dsIBffdxdy_5.f dsIBffdxdy_6.f dsIBffdxdy_7.f \
+dsIBffdxdy_8.f dsIBfsrdxdy.f dsIBhhdxdy.f dsIBintsel.f dsIBintsel2.f \
+dsIBselect.f dsIBset.f dsIBwhdxdy.f dsIBwhdxdy_1.f dsIBwhdxdy_2.f \
+dsIBwhdxdy_3.f dsIBwhdxdy_4.f dsIBwhdxdy_5.f dsIBwhdxdy_6.f \
+dsIBwhdxdy_7.f dsIBwhdxdy_8.f dsIBwhdxdy_9.f dsIBwwdxdy.f dsIBwwdxdy_1.f \
+dsIBwwdxdy_2.f dsIBwwdxdy_3.f dsIBwwdxdy_4.f dsIBwwdxdy_5.f \
+dsIBwwdxdy_6.f dsIBwwdxdy_7.f dsIByield.f dsIByield_fsr.f \
+dsIByield_user.f dsIByieldone.f dsIByieldone_fsr.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

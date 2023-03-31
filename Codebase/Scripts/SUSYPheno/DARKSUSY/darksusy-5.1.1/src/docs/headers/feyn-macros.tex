@@ -1,0 +1,111 @@
+% definitions for symbols and sections
+\def\lsim{\mathrel{\rlap{\lower4pt\hbox{\hskip1pt$\sim$}}
+    \raise1pt\hbox{$<$}}}         %less than or approx. symbol
+\def\gsim{\mathrel{\rlap{\lower4pt\hbox{\hskip1pt$\sim$}}
+    \raise1pt\hbox{$>$}}}         %grater than or approx. symbol
+\def\esim{\mathrel{\rlap{\raise2pt\hbox{$\sim$}}
+    \lower1pt\hbox{$-$}}}         %equal to or approx. symbol
+\newcommand{\cE}{\mathcal{E}}
+
+%%%%% Feynman Rules Appendix macros %%%%%
+
+\newcommand{\lrpartial}{
+ {\stackrel{\hbox{\small $\leftrightarrow$}}{\partial}}}
+
+\newcommand{\lrpartialmu}{
+ {\stackrel{\hbox{\small $\leftrightarrow$}}{\partial^\mu}}}
+
+%Definition of oo, neutralino and math symbols
+\newcommand{\neu}{\tilde{\chi}}
+    
+%Other definitions
+\setlength{\unitlength}{1 cm}
+%\setlength{\parindent}{0cm}
+
+%Define vertex macros
+\newcommand{\vertex}[5]
+{\begin{equation}
+  \begin{picture}(9,2.8)(0,0)
+  \put(0.5,1.3){#2}
+  \put(4.2,0.15){#3}
+  \put(4.2,2.6){#4}
+  \put(6.0,1.4){#5}
+  \hspace{1.1cm}\epsfig{file=#1, height=2.8cm}
+  \end{picture}
+\end{equation}}
+
+\newcommand{\vertexrev}[5]
+{\begin{equation}
+  \begin{picture}(9,2.8)(0,0)
+  \put(0.5,0.15){#2}
+  \put(0.5,2.6){#3}
+  \put(4.2,1.3){#4}
+  \put(6.0,1.4){#5}
+  \hspace{1.1cm}\epsfig{file=#1, height=2.8cm}
+  \end{picture}
+\end{equation}}
+
+\newcommand{\vertexmom}[7]
+{\begin{equation}
+  \begin{picture}(9,2.8)(0,0)
+  \put(0.5,1.3){#2}
+  \put(4.2,0.15){#3}
+  \put(4.2,2.6){#4}
+  \put(6.0,1.4){#5}
+  \put(2.8,0.4){#6}
+  \put(2.8,2.3){#7}
+  \hspace{1.1cm}\epsfig{file=#1, height=2.8cm}
+  \end{picture}
+\end{equation}}
+
+\newcommand{\vertexmome}[8]
+{\begin{equation}
+  \begin{picture}(9,2.8)(0,0)
+  \put(0.5,1.3){#2}
+  \put(4.2,0.15){#3}
+  \put(4.2,2.6){#4}
+  \put(6.0,1.7){#5}
+  \put(6.2,1.1){#6}
+  \put(2.8,0.4){#7}
+  \put(2.8,2.3){#8}
+  \hspace{1.1cm}\epsfig{file=#1, height=2.8cm}
+  \end{picture}
+\end{equation}}
+
+\newcommand{\vertexgauge}[6]
+{\begin{equation}
+  \begin{picture}(9,2.8)(0,0)
+  \put(0.5,1.3){#2}
+  \put(4.2,0.15){#3}
+  \put(4.2,2.6){#4}
+  \put(1.8,1.7){$k_1$}
+  \put(3.6,1.0){$k_2$}
+  \put(3.6,1.8){$k_3$}
+  \put(0.5,0.9){$\alpha$}
+  \put(4.2,0.55){$\beta$}
+  \put(4.2,2.2){$\gamma$}
+  \put(6.0,1.7){#5}
+  \put(6.2,1.1){#6}
+  \hspace{1.1cm}\epsfig{file=#1, height=2.8cm}
+  \end{picture}
+\end{equation}}
+
+\newcommand{\vertexind}[7]
+{\begin{equation}
+  \begin{picture}(9,2.8)(0,0)
+  \put(0.5,1.3){#2}
+  \put(4.2,0.15){#3}
+  \put(4.2,2.6){#4}
+  \put(6.0,1.4){#5}
+  \put(3.55,0.15){#6}
+  \put(3.55,2.6){#7}
+  \hspace{1.1cm}\epsfig{file=#1, height=2.8cm}
+  \end{picture}
+\end{equation}}
+
+
+
+
+
+
+

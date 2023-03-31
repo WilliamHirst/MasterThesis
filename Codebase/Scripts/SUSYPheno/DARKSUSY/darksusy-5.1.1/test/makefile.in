@@ -1,0 +1,47 @@
+#FF=$(FC)
+FF=@F77@
+
+### Compiler options ###
+
+# Options for linux
+FOPT = @FOPT@
+
+### Setups for the DarkSUSY install directory ###
+
+# Determine where to install stuff (prefix is set in configure)
+prefix=@prefix@
+# DS_INSTALL is where the library and data files will be installed
+DS_INSTALL=${prefix}
+
+LIB=$(DS_INSTALL)/lib
+INC=-I./ -I$(DS_INSTALL)/include -I$(DS_INSTALL)/src/templates
+cfitsio=@CFITSIO@
+
+### you must set GALPROP_LIBS if you have compiled galprop
+
+all: dsmain dstest dstest-isasugra
+
+dsmain : dsmain.f $(LIB)/libdarksusy.a $(LIB)/libisajet.a
+	$(FF) $(FOPT) $(INC) -L$(LIB) -o dsmain dsmain.f \
+        -ldarksusy -lisajet -lHB -lFH
+
+dstest : dstest.f $(LIB)/libdarksusy.a $(LIB)/libisajet.a
+	$(FF) $(FOPT) $(INC) -L$(LIB) -o dstest dstest.f \
+        -ldarksusy -lHB -lFH
+
+dstest-galprop : dstest-galprop.f $(LIB)/libdarksusy.a $(LIB)/libisajet.a
+	$(FF) $(FOPT) $(INC) -L$(LIB) -o dstest-galprop \
+	dstest-galprop.f -ldarksusy -lstdc++ -L${cfitsio} -lcfitsio -lHB -lFH
+
+dstest-galprop-one : dstest-galprop-one.f $(LIB)/libdarksusy.a $(LIB)/libisajet.a
+	$(FF) $(FOPT) $(INC) -L$(LIB) -o dstest-galprop-one \
+	dstest-galprop-one.f -ldarksusy -lstdc++ -L${cfitsio} -lcfitsio -lHB -lFH
+
+dstest-isasugra : dstest-isasugra.f $(LIB)/libdarksusy.a $(LIB)/libisajet.a
+	$(FF) $(FOPT) $(INC) -L$(LIB) -o dstest-isasugra \
+        dstest-isasugra.f \
+        -ldarksusy -lisajet -lHB -lFH
+
+dsslha2slha : dsslha2slha.f $(LIB)/libdarksusy.a $(LIB)/libisajet.a
+	$(FF) $(FOPT) $(INC) -L$(LIB) -o dsslha2slha dsslha2slha.f \
+        -ldarksusy -lisajet -lHB -lFH

@@ -1,0 +1,31 @@
+The general procedure to get isajet (or really isasugra) for DarkSUSY is:
+
+* Download isajet from
+  http://www.hep.fsu.edu/~isajet/
+
+* Then extract isajet with the command
+  make isajet.f
+  Alternatively, run nypatchy on isajet.car using the commands discovered by running make -n isajet.f.
+
+* Make a directory 'small-files' and put isajet.f in there, then split it into
+  smaller files with:
+  fcsasplit isajet.f
+ 
+  (or use f77split from http://people.sc.fsu.edu/~burkardt/c_src/f77split/f77split.html if fcsasplit is not available).
+
+* Create a new directory with files for DarkSUSY, e.g. isajet778-for-darksusy:
+
+* Copy the files in the small-files directory that are needed into that new
+  directory. The needed files are aldata.f and all the corresponding .f-files
+  that are defined in OBJ in the makefile. There is a script called
+  copy-needed-files.sh that can be used (after updating it) to do this.
+
+* NOTICE: for compatibility with gfortran, change 'BLOCK DATA' to 'SUBROUTINE' in aldata.f.
+
+* Check that the interface in src/rge is OK with the new version (.e.g. that
+  the common blocks are defined correctly in include/dsisasugra.h).
+
+* Try to compile dstest-isasugra.f with this new version. If it works,
+  everything is fine. However, there may be some more of the small files that
+  are needed. Then add them and try again.
+

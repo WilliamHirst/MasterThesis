@@ -1,0 +1,1968 @@
+/storage/shared/software/Scripts/SUSYPheno
+rm -f hdecay.o haber.o feynhiggs.o hsqsq.o susylha.o hgaga.o dmb.o elw.o hgg.o
+gfortran -c  hdecay.f
+gfortran -c  haber.f
+gfortran -c  feynhiggs.f
+feynhiggs.f:4282:72:
+
+        PAUSE 'RTSEC EXCEED MAXIMUM ITERATIONS'
+                                                                        1
+Warning: Deleted feature: PAUSE statement at (1)
+feynhiggs.f:3436:72:
+
+       CALL BQUER(S,M1,M2,B0S12,B1S12)
+                                                                        1
+Warning: Type mismatch in argument ‘b0’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:3437:72:
+
+       CALL BQUER(XMF,M3,M1,B031,B131)
+                                                                        1
+Warning: Type mismatch in argument ‘b0’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:3438:72:
+
+       CALL BQUER(XMF,M3,M2,B032,B132)
+                                                                        1
+Warning: Type mismatch in argument ‘b0’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7111:72:
+
+       call gengquad (4,s,mel,mel,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7114:72:
+
+       call gengquad (4,s,mmu,mmu,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7117:72:
+
+       call gengquad (4,s,mta,mta,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7120:72:
+
+       call gengquad (4,s,mup,mup,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7123:72:
+
+       call gengquad (4,s,mdn,mdn,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7126:72:
+
+       call gengquad (4,s,mch,mch,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7129:72:
+
+       call gengquad (4,s,mst,mst,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7132:72:
+
+       call gengquad (4,s,mtt,mtt,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7135:72:
+
+       call gengquad (4,s,mbb,mbb,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7300:72:
+
+       call genzquad (4,s,mel,mel,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7303:72:
+
+       call genzquad (4,s,mmu,mmu,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7306:72:
+
+       call genzquad (4,s,mta,mta,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7309:72:
+
+       call genzquad (4,s,mup,mup,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7312:72:
+
+       call genzquad (4,s,mdn,mdn,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7315:72:
+
+       call genzquad (4,s,mch,mch,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7318:72:
+
+       call genzquad (4,s,mst,mst,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7321:72:
+
+       call genzquad (4,s,mtt,mtt,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:7324:72:
+
+       call genzquad (4,s,mbb,mbb,aa,aa,aa,aa, siga,dsiga)
+                                                                        1
+Warning: Type mismatch in argument ‘a’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+feynhiggs.f:12729:72:
+
+         CALL BQUER(K2,M1,M2,B0B0,B1B1)
+                                                                        1
+Warning: Type mismatch in argument ‘b0’ at (1); passed COMPLEX(8) to REAL(8) [-Wargument-mismatch]
+gfortran -c  hsqsq.f
+gfortran -c  susylha.f
+gfortran -c  hgaga.f
+gfortran -c  dmb.f
+gfortran -c  elw.f
+gfortran -c  hgg.f
+gfortran  hdecay.o haber.o feynhiggs.o hsqsq.o susylha.o hgaga.o dmb.o elw.o hgg.o -o run
+rm -f sources/microPath.h
+./clean
+Remove all generated files? (Y/N)
+OK!
+clean CalcHEP_src
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src'
+if(test -r FlagsForSh) then echo FlagsForSh - compiler flags; rm -i  FlagsForSh; fi
+FlagsForSh - compiler flags
+rm: remove regular file 'FlagsForSh'? ./sbin/setPath " "
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src'
+clean CPVMSSM
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CPVMSSM'
+gmake -C lib  clean
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CPVMSSM/lib'
+rm -f *.o *.a  localpath.h
+gmake -C nngg clean
+gmake[3]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CPVMSSM/lib/nngg'
+rm -f nngg.a lGamma.exe *.o */*.o
+gmake[3]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CPVMSSM/lib/nngg'
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CPVMSSM/lib'
+gmake -C work clean 
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CPVMSSM/work'
+rm -f *.a *.o  lock_ LOCK  tmp/*  so_generated/* lock_
+rm -f  path.c VandP.c  autoprot.h
+rm -rf _*_*_ results/*
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CPVMSSM/work'
+rm -f calchep/tmp/* lanhep/*.mdl
+rm -rf calchep/results/*
+../sources/cleanexe
+rm -f micromegas.in CPsuperH.in CPsuperH.out Key.dat cpsuperh2_slha.out
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CPVMSSM'
+clean IDM
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/IDM'
+gmake -C lib  clean
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/IDM/lib'
+rm -f *.o *.a *.so *.dll *.exe so_located
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/IDM/lib'
+gmake -C work clean 
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/IDM/work'
+rm -f *.a *.o  lock_ LOCK  tmp/*  so_generated/* lock_
+rm -f  path.c VandP.c autoprot.h
+rm -rf _*_*_ results/*
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/IDM/work'
+rm -fr calchep/tmp/* calchep/results/* lanhep/*.mdl
+../sources/cleanexe
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/IDM'
+clean LHM
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/LHM'
+gmake -C lib  clean
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/LHM/lib'
+rm -f *.o *.a *.so *.dll *.exe so_located
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/LHM/lib'
+gmake -C work clean 
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/LHM/work'
+rm -f *.a *.o  lock_ LOCK  tmp/*  so_generated/* lock_
+rm -f  path.c VandP.c autoprot.h
+rm -rf _*_*_ results/*
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/LHM/work'
+rm -fr HB.slha  calchep/tmp/* calchep/results/* lanhep/*.mdl
+../sources/cleanexe
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/LHM'
+clean man
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/man'
+rm -f  *.dvi *.log *.aux *.toc	
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/man'
+clean mdlIndep
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/mdlIndep'
+gmake -C lib  clean
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/mdlIndep/lib'
+rm -f *.o *.a *.so *.dll *.exe so_located
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/mdlIndep/lib'
+gmake -C work clean 
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/mdlIndep/work'
+rm -f *.a *.o  lock_ LOCK  tmp/*  so_generated/* lock_
+rm -f  path.c VandP.c autoprot.h
+rm -rf _*_*_ results/*
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/mdlIndep/work'
+rm -fr calchep/tmp/* calchep/results/*
+../sources/cleanexe
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/mdlIndep'
+clean MSSM
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM'
+rm -fr calchep/tmp/* calchep/results/*  lanhep/*.mdl 
+rm -f suspect2_lha.in suspect2_lha.out HB.in HB.slha nngg.out nngg.in Key.dat output.flha
+../sources/cleanexe
+gmake -C lib  clean
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/lib'
+rm -f *.o *.a  *.so *.dll *.exe *_path.h isajet_slha so_locations 
+gmake -C nngg     clean
+gmake[3]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/lib/nngg'
+rm -f nngg.a lGamma.exe *.o */*.o
+gmake[3]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/lib/nngg'
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/lib'
+gmake -C work clean 
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/work'
+rm -f *.a *.o  lock_ LOCK  tmp/*  so_generated/* lock_
+rm -f  path.c VandP.c autoprot.h
+rm -rf _*_*_ results/*
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/work'
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM'
+clean NMSSM
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/NMSSM'
+gmake -C lib  clean
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/NMSSM/lib'
+rm -f lpath.h *.o *.a  
+make -C nngg clean
+make[3]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/NMSSM/lib/nngg'
+rm -f nngg.a lGamma.exe *.o */*.o
+make[3]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/NMSSM/lib/nngg'
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/NMSSM/lib'
+gmake -C work clean
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/NMSSM/work'
+rm -f *.a *.o  lock_ LOCK tmp/*  so_generated/* lock_
+rm -f  path.c VandP.c  autoprot.h
+rm -rf _*_*_  results/*
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/NMSSM/work'
+../sources/cleanexe
+rm -fr calchep/tmp/* calchep/results/aux	 
+rm -f calchep/tmp/* calchep/results/* lanhep/*.mdl lanhep/masses.chk
+rm -f  omega decay spectr inp
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/NMSSM'
+clean RHNM
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/RHNM'
+gmake -C lib  clean
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/RHNM/lib'
+rm -f *.o *.a 
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/RHNM/lib'
+gmake -C work clean 
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/RHNM/work'
+rm -f *.a *.o  lock_ LOCK  tmp/*  so_generated/* lock_
+rm -f  path.c VandP.c  extern.h extern_g.h
+rm -rf _*_*_  results/*
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/RHNM/work'
+rm -f calchep/tmp/* 
+rm -rf calchep/results/*
+../sources/cleanexe
+rm -f LesHin LesHout suspect2_lha.in suspect2_lha.out suspect2.out tab
+rm -f Control.in LesHouches.in Messages.out SPheno.out slha.in slha.out
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/RHNM'
+clean SM4
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/SM4'
+gmake -C lib  clean
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/SM4/lib'
+rm -f *.o *.a *.so *.dll *.exe so_located
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/SM4/lib'
+gmake -C work clean 
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/SM4/work'
+rm -f *.a *.o  lock_ LOCK  tmp/*  so_generated/* lock_
+rm -f  path.c VandP.c autoprot.h
+rm -rf _*_*_ results/*
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/SM4/work'
+rm -fr calchep/tmp/* calchep/results/*
+../sources/cleanexe
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/SM4'
+clean sources
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/sources'
+rm -f *.a  *.o 
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/sources'
+clean Z3M
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Z3M'
+gmake -C lib  clean
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Z3M/lib'
+rm -f *.o *.a *.so *.dll *.exe so_located
+gmake -C nngg     clean
+gmake[3]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Z3M/lib/nngg'
+rm -f nngg.a lGamma.exe *.o */*.o
+gmake[3]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Z3M/lib/nngg'
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Z3M/lib'
+gmake -C work clean 
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Z3M/work'
+rm -f *.a *.o  lock_ LOCK  tmp/*  so_generated/* lock_
+rm -f  path.c VandP.c autoprot.h
+rm -rf _*_*_ results/*
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Z3M/work'
+rm -fr calchep/tmp/* calchep/results/* lanhep/*.mdl
+../sources/cleanexe
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Z3M'
+clean Packages/CPsuperH2.3
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/CPsuperH2.3'
+rm -f cpsuperh.exe 
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/CPsuperH2.3'
+clean Packages/HiggsBounds-4.1.0
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/HiggsBounds-4.1.0'
+rm -f *.o *.mod *.MOD *.a
+rm -f store_pathname.f90
+rm -f *.o *.mod *.MOD *.a *~ 
+rm -f example_programs/*~ 
+rm -f store_pathname.f90
+rm -f example_programs/HBwithFH
+rm -f example_programs/HBwithCPsuperH
+rm -f example_programs/example-SM_vs_4thGen
+rm -f extract_SM_results_for_web
+rm -f HiggsBounds
+rm -f cs-ratios_sigma-bg-Hb/Tevatron*~
+rm -f example_programs/example-4thGen-results.dat
+rm -f example_programs/example-SM-results.dat
+rm -f example_programs/Key.dat
+rm -f example_programs/HBwithCPsuperH_effC.f
+rm -f example_programs/HBwithFH_effC.F
+rm -f example_programs/debug_channels.txt
+rm -f example_programs/debug_predratio.txt
+rm -f README_old
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/HiggsBounds-4.1.0'
+clean Packages/LoopTools-2.1
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/LoopTools-2.1'
+rm  -f libooptools.a libooptools_check.a  lt/A0.o lt/B0.o lt/B1.o lt/B00.o lt/B11.o lt/DB0.o lt/DB00.o lt/DB1.o lt/DB11.o lt/C0.o lt/D0.o lt/C0i.o lt/Cget.o lt/D0i.o lt/Dget.o lt/CA0.o lt/CB0.o lt/CB1.o lt/CB00.o lt/CB11.o lt/CDB0.o lt/CDB00.o lt/CDB1.o lt/CDB11.o lt/CC0.o lt/CD0.o lt/CC0i.o lt/CCget.o lt/CD0i.o lt/CDget.o lt/ini.o lt/cache.o ltcheck/auxB.o ltcheck/auxCD.o ltcheck/check.o ltcheck/A0check.o ltcheck/B0check.o ltcheck/B1check.o ltcheck/B00check.o ltcheck/B11check.o ltcheck/DB0check.o ltcheck/DB1check.o ltcheck/DB00check.o ltcheck/DB11check.o ltcheck/C0check.o ltcheck/D0check.o lt/C0i.o lt/Cget.o lt/D0i.o lt/Dget.o lt/CA0.o lt/CB0.o lt/CB1.o lt/CB00.o lt/CB11.o lt/CDB0.o lt/CDB00.o lt/CDB1.o lt/CDB11.o lt/CC0.o lt/CD0.o lt/CC0i.o lt/CCget.o lt/CD0i.o lt/CDget.o lt/ini.o lt/cache.o ff/ffinit.o ff/ffbndc.o ff/ffxli2.o ff/ffcli2.o ff/fftran.o ff/ffabcd.o ff/ff2dl2.o ff/ffcrr.o ff/ffcxr.o ff/ffcxs3.o ff/ffcxs4.o ff/ffxxyz.o ff/ffcxyz.o ff/ffdxc0.o ff/ffdcc0.o ff/ffdcxs.o ff/ffdel2.o ff/ffdel3.o ff/ffdel4.o ff/ffcel2.o ff/ffcel3.o ff/ffcel4.o ff/ffxa0.o ff/ffxb0.o ff/ffxb1.o ff/ffxb2p.o ff/ffxdb0.o ff/ffxdb1.o ff/ffxc0.o ff/ffxc0i.o ff/ffxc0p0.o ff/ffxc0p.o ff/ffxd0.o ff/ffxd0h.o ff/ffxd0i.o ff/ffxd0m0.o ff/ffxd0p.o ff/ffxdbd.o ff/ffca0.o ff/ffcb0.o ff/ffcb1.o ff/ffcb2.o ff/ffcb2p.o ff/ffcdb0.o ff/ffcc0.o ff/ffcc0p.o ff/ffcd0.o ff/ffcdbd.o
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/LoopTools-2.1'
+clean Packages/NMSSMTools_4.1.2
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/NMSSMTools_4.1.2'
+gmake -C sources clean
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/NMSSMTools_4.1.2/sources'
+rm -f *.a  *.o
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/NMSSMTools_4.1.2/sources'
+gmake -C main clean
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/NMSSMTools_4.1.2/main'
+rm -f *.o nmhdecay nmspec
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/NMSSMTools_4.1.2/main'
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/NMSSMTools_4.1.2'
+clean Packages/SuSpect_2.41
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/SuSpect_2.41'
+rm -f suspect.a suspect.exe
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/SuSpect_2.41'
+mv: cannot stat 'CalcHEP_src/FlagsForSh': No such file or directory
+echo \#define micrO \"/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5\"  > sources/microPath.h
+gmake -C CalcHEP_src
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src'
+./getFlags
+MAKE= gmake
+UNIX Linux
+C compiler detected
+can not generate shared library
+tring to add -fPIC option
+: shared liblary generation OK
+X11 OK
+Fortran compiler is detected
+gfortran OK
+FFLAGS OK
+./sbin/setPath /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src
+gmake -C c_source/getmem 
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/getmem'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include   -c -o getmem.o getmem.c
+ar rv ../../lib/serv.a getmem.o
+ar: creating ../../lib/serv.a
+a - getmem.o
+ranlib ../../lib/serv.a
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/getmem'
+gmake -C c_source/chep_crt
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/chep_crt'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC  -Iinclude -I../getmem/include     -c -o crt.o crt.c
+ar rv ../../lib/serv.a crt.o
+a - crt.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC  -Iinclude -I../getmem/include     -c -o file_scr.o file_scr.c
+ar rv ../../lib/serv.a file_scr.o
+a - file_scr.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC  -Iinclude -I../getmem/include     -c -o edittab.o edittab.c
+ar rv ../../lib/serv.a edittab.o
+a - edittab.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC  -Iinclude -I../getmem/include     -c -o syst.o syst.c
+ar rv ../../lib/serv.a syst.o
+a - syst.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC  -Iinclude -I../getmem/include     -c -o viewdir.o viewdir.c
+ar rv ../../lib/serv.a viewdir.o
+a - viewdir.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC  -Iinclude -I../getmem/include     -c -o help.o help.c
+ar rv ../../lib/serv.a help.o
+a - help.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC  -Iinclude -I../getmem/include     -c -o crt_util.o crt_util.c
+ar rv ../../lib/serv.a crt_util.o
+a - crt_util.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC  -Iinclude -I../getmem/include     -c -o pictures.o pictures.c
+ar rv ../../lib/serv.a pictures.o
+a - pictures.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC  -Iinclude -I../getmem/include     -c -o tex_util.o tex_util.c
+ar rv ../../lib/serv.a tex_util.o
+a - tex_util.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC  -Iinclude -I../getmem/include     -c -o X11_crt0.o xwin/X11_crt0.c
+ar rv ../../lib/serv.a X11_crt0.o
+a - X11_crt0.o
+ranlib ../../lib/serv.a
+cp ../../lib/serv.a ../../lib/servNoX11.a   	
+gcc -c -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC  -Iinclude -I../getmem/include   -o noxwin/X11_crt0.o noxwin/X11_crt0.c
+ar d ../../lib/servNoX11.a X11_crt0.o
+ar r ../../lib/servNoX11.a noxwin/X11_crt0.o
+ranlib ../../lib/servNoX11.a
+rm noxwin/X11_crt0.o 
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/chep_crt'
+gmake -C c_source/service2
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/service2'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../getmem/include    -c -o writeF.o writeF.c
+ar rv ../../lib/serv.a writeF.o
+a - writeF.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../getmem/include    -c -o files.o files.c
+ar rv ../../lib/serv.a files.o
+a - files.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../getmem/include    -c -o calc.o calc.c
+ar rv ../../lib/serv.a calc.o
+a - calc.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../getmem/include    -c -o paragraphs.o paragraphs.c
+ar rv ../../lib/serv.a paragraphs.o
+a - paragraphs.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../getmem/include    -c -o parser.o parser.c
+ar rv ../../lib/serv.a parser.o
+a - parser.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../getmem/include    -c -o read_func.o read_func.c
+ar rv ../../lib/serv.a read_func.o
+a - read_func.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../getmem/include    -c -o sets.o sets.c
+ar rv ../../lib/serv.a sets.o
+a - sets.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../getmem/include    -c -o fcompare.o fcompare.c
+ar rv ../../lib/serv.a fcompare.o
+a - fcompare.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../getmem/include   -o ../../bin/calc    main_calc.c ../../lib/serv.a -lm
+rm calc.o writeF.o fcompare.o files.o sets.o read_func.o parser.o paragraphs.o
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/service2'
+gmake -C c_source/polynom  
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/polynom'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../getmem/include  -I../service2/include  -I../symb/include  -DNUM_LONG_LONG   -c -o tensor.o tensor.c
+ar rv ../../lib/symb.a tensor.o
+ar: creating ../../lib/symb.a
+a - tensor.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../getmem/include  -I../service2/include  -I../symb/include  -DNUM_LONG_LONG   -c -o ps_tensor.o ps_tensor.c
+ar rv ../../lib/symb.a ps_tensor.o
+a - ps_tensor.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../getmem/include  -I../service2/include  -I../symb/include  -DNUM_LONG_LONG   -c -o symb_tot.o symb_tot.c
+ar rv ../../lib/symb.a symb_tot.o
+a - symb_tot.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../getmem/include  -I../service2/include  -I../symb/include  -DNUM_LONG_LONG   -c -o polynom.o polynom.c
+ar rv ../../lib/symb.a polynom.o
+a - polynom.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../getmem/include  -I../service2/include  -I../symb/include  -DNUM_LONG_LONG   -c -o symb_reader.o symb_reader.c
+ar rv ../../lib/symb.a symb_reader.o
+a - symb_reader.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../getmem/include  -I../service2/include  -I../symb/include  -DNUM_LONG_LONG   -c -o spur.o spur.c
+ar rv ../../lib/symb.a spur.o
+a - spur.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../getmem/include  -I../service2/include  -I../symb/include  -DNUM_LONG_LONG   -c -o symb_wrt.o symb_wrt.c
+ar rv ../../lib/symb.a symb_wrt.o
+a - symb_wrt.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../getmem/include  -I../service2/include  -I../symb/include  -DNUM_LONG_LONG   -c -o spinor.o spinor.c
+ar rv ../../lib/symb.a spinor.o
+a - spinor.o
+ranlib ../../lib/symb.a
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/polynom'
+gmake -C c_source/ntools
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/ntools'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../num/include    -c -o vegas.o vegas.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/ntools.a vegas.o
+ar: creating /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/ntools.a
+a - vegas.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../num/include    -c -o simpson.o simpson.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/ntools.a simpson.o
+a - simpson.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../num/include    -c -o drandXX.o drandXX.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/ntools.a drandXX.o
+a - drandXX.o
+ranlib /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/ntools.a
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/ntools'
+gmake -C c_source/dynamicME
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/dynamicME'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../SLHAplus/include  -I../service2/include  -I../../include -DMAKE=\"gmake\" -Wmissing-prototypes   -c -o dynamic_cs.o dynamic_cs.c
+ar rv ../../lib/dynamic_me.a dynamic_cs.o
+ar: creating ../../lib/dynamic_me.a
+a - dynamic_cs.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../SLHAplus/include  -I../service2/include  -I../../include -DMAKE=\"gmake\" -Wmissing-prototypes   -c -o kin4.o kin4.c
+ar rv ../../lib/dynamic_me.a kin4.o
+a - kin4.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../SLHAplus/include  -I../service2/include  -I../../include -DMAKE=\"gmake\" -Wmissing-prototypes   -c -o vp.o vp.c
+ar rv ../../lib/dynamic_me.a vp.o
+a - vp.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../SLHAplus/include  -I../service2/include  -I../../include -DMAKE=\"gmake\" -Wmissing-prototypes   -c -o VVdecay.o VVdecay.c
+ar rv ../../lib/dynamic_me.a VVdecay.o
+a - VVdecay.o
+ranlib ../../lib/dynamic_me.a
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../SLHAplus/include  -I../service2/include  -I../../include -DMAKE=\"gmake\" -Wmissing-prototypes   -c -o vp_dynam.o vp_dynam.c
+vp_dynam.c: In function ‘getDynamicVP’:
+vp_dynam.c:55:4: warning: implicit declaration of function ‘messanykey’ [-Wimplicit-function-declaration]
+    messanykey(10,10,dlerror()); free(SO); return 2;}
+    ^~~~~~~~~~
+ar rv ../../lib/dynamic_vp.a vp_dynam.o
+ar: creating ../../lib/dynamic_vp.a
+a - vp_dynam.o
+ranlib ../../lib/dynamic_vp.a
+rm vp_dynam.o
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/dynamicME'
+gmake -C c_source/plot 
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/plot'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../num/include  -I../chep_crt/include  -I../service2/include  -I../getmem/include    -c -o plot.o plot.c
+ar rv ../../lib/serv.a plot.o
+a - plot.o
+ranlib ../../lib/serv.a
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../num/include  -I../chep_crt/include  -I../service2/include  -I../getmem/include  -o ../../bin/plot_view view_tab.c ../../lib/serv.a  -lX11 -lm
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/plot'
+gmake -C c_source/num 
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/num'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o num_serv.o num_serv.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a num_serv.o
+ar: creating /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a
+a - num_serv.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o interface.o interface.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a interface.o
+a - interface.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o tools.o tools.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a tools.o
+a - tools.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o regul.o regul.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a regul.o
+a - regul.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o regfunal.o regfunal.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a regfunal.o
+a - regfunal.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o rw_sess.o rw_sess.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a rw_sess.o
+a - rw_sess.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o 4_vector.o 4_vector.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a 4_vector.o
+a - 4_vector.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o alphas2.o alphas2.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a alphas2.o
+a - alphas2.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o n_calchep_.o n_calchep_.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a n_calchep_.o
+a - n_calchep_.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o q_kin.o q_kin.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a q_kin.o
+a - q_kin.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o kinaux.o kinaux.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a kinaux.o
+a - kinaux.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o histogram.o histogram.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a histogram.o
+a - histogram.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o phys_val.o phys_val.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a phys_val.o
+a - phys_val.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o decay.o decay.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a decay.o
+a - decay.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o comp.o comp.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a comp.o
+a - comp.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o spectrum.o spectrum.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a spectrum.o
+a - spectrum.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o kininpt.o kininpt.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a kininpt.o
+a - kininpt.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o rd_num.o rd_num.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a rd_num.o
+a - rd_num.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o cs_22.o cs_22.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a cs_22.o
+a - cs_22.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o width_12.o width_12.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a width_12.o
+a - width_12.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o runVegas.o runVegas.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a runVegas.o
+a - runVegas.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o subproc.o subproc.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a subproc.o
+a - subproc.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o mc_menu.o mc_menu.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a mc_menu.o
+a - mc_menu.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o err_code.o err_code.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a err_code.o
+a - err_code.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o param.o param.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a param.o
+a - param.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o pdt.o pdt.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a pdt.o
+a - pdt.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o qcdScale.o qcdScale.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a qcdScale.o
+a - qcdScale.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o cut.o cut.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a cut.o
+a - cut.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o sf_lha.o strfun/sf_lha.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a sf_lha.o
+a - sf_lha.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o sf_epp.o strfun/sf_epp.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a sf_epp.o
+a - sf_epp.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o sf_lsr.o strfun/sf_lsr.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a sf_lsr.o
+a - sf_lsr.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o sf_epa.o strfun/sf_epa.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a sf_epa.o
+a - sf_epa.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o sf_pdt.o strfun/sf_pdt.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a sf_pdt.o
+a - sf_pdt.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o sf_isr.o strfun/sf_isr.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a sf_isr.o
+a - sf_isr.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o strfun.o strfun/strfun.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a strfun.o
+a - strfun.o
+ranlib /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o usrfun_dummy.o usrfun_dummy.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/dummy.a usrfun_dummy.o
+ar: creating /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/dummy.a
+a - usrfun_dummy.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o usrFF_dummy.o usrFF_dummy.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/dummy.a usrFF_dummy.o
+a - usrFF_dummy.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include    -c -o pdf_dummy.o pdf_dummy.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/dummy.a pdf_dummy.o
+a - pdf_dummy.o
+ranlib /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/dummy.a
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -c -o /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/n_calchep.o  n_calchep.c
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -DforMICROMEGAS -shared -o /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/sqme_aux.so     sqme_aux.c ferror.c -lm
+gcc -o ../../bin/Int  -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../chep_crt/include  -I../plot/include  -I../service2/include  -I../getmem/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  userInt.c /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/serv.a /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/num_c.a /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/ntools.a  -lm
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/num'
+gmake -C c_source/tab
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/tab'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../num/include  -I../chep_crt/include  -I../service2/include  -I../getmem/include  -I../mix_events/include  -I../dynamicME/include   -o ../../bin/events2tab events2tab.c dummy_output.c ../../lib/num_c.a ../../lib/serv.a ../../include/VandPgate.c ../../lib/dummy.a ../../lib/ntools.a -lX11 -rdynamic -ldl   -lm 
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../num/include  -I../chep_crt/include  -I../service2/include  -I../getmem/include  -I../mix_events/include  -I../dynamicME/include   -o ../../bin/show_distr show_distr.c dummy_output.c ../../lib/num_c.a ../../include/VandPgate.c ../../lib/serv.a ../../lib/dummy.a ../../lib/ntools.a -lX11 -rdynamic -ldl   -lm
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../num/include  -I../chep_crt/include  -I../service2/include  -I../getmem/include  -I../mix_events/include  -I../dynamicME/include   -o ../../bin/sum_distr sum_distr.c dummy_output.c ../../lib/num_c.a ../../lib/serv.a ../../include/VandPgate.c ../../lib/dummy.a ../../lib/ntools.a -lX11 -rdynamic -ldl  -lm
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../../include  -I../num/include  -I../chep_crt/include  -I../service2/include  -I../getmem/include  -I../mix_events/include  -I../dynamicME/include   -o ../../bin/lhe2tab lhe2tab.c ../mix_events/readLHE.c dummy_output.c ../../lib/num_c.a ../../lib/serv.a ../../include/VandPgate.c ../../lib/dummy.a ../../lib/ntools.a  -lX11 -rdynamic -ldl  -lm
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/tab'
+gmake -C c_source/SLHAplus
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/SLHAplus'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -I./include   -c -o alpha_s.o alpha_s.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a alpha_s.o
+ar: creating /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a
+a - alpha_s.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -I./include   -c -o aux.o aux.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a aux.o
+a - aux.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -I./include   -c -o chDiag.o chDiag.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a chDiag.o
+a - chDiag.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -I./include   -c -o ferror.o ferror.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a ferror.o
+a - ferror.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -I./include   -c -o fixArg.o fixArg.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a fixArg.o
+a - fixArg.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -I./include   -c -o hgg.o hgg.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a hgg.o
+a - hgg.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -I./include   -c -o jacobi.o jacobi.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a jacobi.o
+a - jacobi.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -I./include   -c -o polint.o polint.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a polint.o
+a - polint.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -I./include   -c -o SLHAreader.o SLHAreader.c
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a SLHAreader.o
+a - SLHAreader.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -I./include   -c -o fortran.o fortran.c
+fortran.c:43:6: warning: no previous prototype for ‘slhareadstream_’ [-Wmissing-prototypes]
+ int  slhareadstream_(int *N, int *mode, char * end, int len )
+      ^~~~~~~~~~~~~~~
+fortran.c:56:5: warning: no previous prototype for ‘slharead_’ [-Wmissing-prototypes]
+ int slharead_(char * fname, int * mode, int len)
+     ^~~~~~~~~
+fortran.c:66:5: warning: no previous prototype for ‘slhawrite_’ [-Wmissing-prototypes]
+ int slhawrite_(char *fname, int len)
+     ^~~~~~~~~~
+fortran.c:72:5: warning: no previous prototype for ‘slhadecayexists_’ [-Wmissing-prototypes]
+ int slhadecayexists_(int *pNum){ return slhaDecayExists(*pNum);}
+     ^~~~~~~~~~~~~~~~
+fortran.c:74:8: warning: no previous prototype for ‘slhawidth_’ [-Wmissing-prototypes]
+ double slhawidth_(int *pNum)
+        ^~~~~~~~~~
+fortran.c:77:8: warning: no previous prototype for ‘slhabranch_’ [-Wmissing-prototypes]
+ double slhabranch_(int*pNum,int*N,int*nCh)
+        ^~~~~~~~~~~
+fortran.c:80:8: warning: no previous prototype for ‘slhaval0_’ [-Wmissing-prototypes]
+ double slhaval0_(char * Block, double *Q, int len)
+        ^~~~~~~~~
+fortran.c:89:8: warning: no previous prototype for ‘slhaval1_’ [-Wmissing-prototypes]
+ double slhaval1_(char * Block, double *Q, int *k1, int len)
+        ^~~~~~~~~
+fortran.c:98:8: warning: no previous prototype for ‘slhaval2_’ [-Wmissing-prototypes]
+ double slhaval2_(char * Block, double *Q, int *k1,int*k2, int len)
+        ^~~~~~~~~
+fortran.c:107:8: warning: no previous prototype for ‘slhaval3_’ [-Wmissing-prototypes]
+ double slhaval3_(char * Block, double *Q, int *k1,int*k2,int*k3, int len)
+        ^~~~~~~~~
+fortran.c:116:16: warning: no previous prototype for ‘cslhaval0_’ [-Wmissing-prototypes]
+ double complex cslhaval0_(char * Block, double *Q, int len)
+                ^~~~~~~~~~
+fortran.c:126:17: warning: no previous prototype for ‘cslhaval1_’ [-Wmissing-prototypes]
+ double complex  cslhaval1_(char * Block, double *Q, int *k1, int len)
+                 ^~~~~~~~~~
+fortran.c:135:16: warning: no previous prototype for ‘cslhaval2_’ [-Wmissing-prototypes]
+ double complex cslhaval2_(char * Block, double *Q, int *k1,int*k2, int len)
+                ^~~~~~~~~~
+fortran.c:144:16: warning: no previous prototype for ‘cslhaval3_’ [-Wmissing-prototypes]
+ double complex cslhaval3_(char * Block, double *Q, int *k1,int*k2,int*k3, int len)
+                ^~~~~~~~~~
+fortran.c:154:5: warning: no previous prototype for ‘slhavalexists0_’ [-Wmissing-prototypes]
+ int slhavalexists0_(char * Block, int len)
+     ^~~~~~~~~~~~~~~
+fortran.c:160:5: warning: no previous prototype for ‘slhavalexists1_’ [-Wmissing-prototypes]
+ int slhavalexists1_(char * Block, int*k1, int len)
+     ^~~~~~~~~~~~~~~
+fortran.c:166:5: warning: no previous prototype for ‘slhavalexists2_’ [-Wmissing-prototypes]
+ int slhavalexists2_(char * Block, int*k1, int*k2, int len)
+     ^~~~~~~~~~~~~~~
+fortran.c:172:5: warning: no previous prototype for ‘slhavalexists3_’ [-Wmissing-prototypes]
+ int slhavalexists3_(char * Block, int*k1, int*k2, int*k3, int len)
+     ^~~~~~~~~~~~~~~
+fortran.c:197:5: warning: no previous prototype for ‘findqnumbers_’ [-Wmissing-prototypes]
+ int findqnumbers_(int *pdg,int*eQ3,int*spinDim,int*cDim,int*neutral)
+     ^~~~~~~~~~~~~
+fortran.c:202:5: warning: no previous prototype for ‘allqnumbers_’ [-Wmissing-prototypes]
+ int allqnumbers_(int *i, int*pdg,int*eQ3,int*spinDim,int*cDim,int*neutral)
+     ^~~~~~~~~~~~
+fortran.c:211:5: warning: no previous prototype for ‘allblocks_’ [-Wmissing-prototypes]
+ int allblocks_(int *i,int*j,char*name,int*Len,int*key, double complex * val,int l)
+     ^~~~~~~~~~
+fortran.c:223:5: warning: no previous prototype for ‘alldecays_’ [-Wmissing-prototypes]
+ int alldecays_(int*i,int*j,int*pdg,int*Len,int*decay,double*width,double*br)
+     ^~~~~~~~~~
+fortran.c:233:5: warning: no previous prototype for ‘openappend_’ [-Wmissing-prototypes]
+ int openappend_(char *fileName,int len)
+     ^~~~~~~~~~~
+fortran.c:243:5: warning: no previous prototype for ‘system1_’ [-Wmissing-prototypes]
+ int system1_(char *command, int len)
+     ^~~~~~~~
+fortran.c:253:5: warning: no previous prototype for ‘system2_’ [-Wmissing-prototypes]
+ int system2_(char *format, char*path, int len1,int len2)
+     ^~~~~~~~
+fortran.c:264:6: warning: no previous prototype for ‘setsystimelim_’ [-Wmissing-prototypes]
+ void setsystimelim_(int *lim, int *quant)
+      ^~~~~~~~~~~~~~
+fortran.c:269:5: warning: no previous prototype for ‘aprintf0_’ [-Wmissing-prototypes]
+ int aprintf0_(char * format, int len)
+     ^~~~~~~~~
+fortran.c:276:5: warning: no previous prototype for ‘aprintf1_’ [-Wmissing-prototypes]
+ int aprintf1_(char * format, double * x1,int len)
+     ^~~~~~~~~
+fortran.c:283:5: warning: no previous prototype for ‘aprintf2_’ [-Wmissing-prototypes]
+ int aprintf2_(char * format, double * x1, double *x2,int len)
+     ^~~~~~~~~
+fortran.c:290:5: warning: no previous prototype for ‘aprintf3_’ [-Wmissing-prototypes]
+ int aprintf3_(char * format, double*x1,double*x2,double*x3, int len)
+     ^~~~~~~~~
+fortran.c:297:5: warning: no previous prototype for ‘aprintf4_’ [-Wmissing-prototypes]
+ int aprintf4_(char * format, double*x1,double*x2,double*x3,double*x4,int len)
+     ^~~~~~~~~
+fortran.c:304:5: warning: no previous prototype for ‘aprintf5_’ [-Wmissing-prototypes]
+ int aprintf5_(char * format, double*x1,double*x2,double*x3,double*x4,double*x5,int len)
+     ^~~~~~~~~
+fortran.c:311:8: warning: no previous prototype for ‘slhavalformat_’ [-Wmissing-prototypes]
+ double slhavalformat_(char * Block, double *Q, char * format,int len1,int len2)
+        ^~~~~~~~~~~~~~
+fortran.c:323:5: warning: no previous prototype for ‘slhastrformat_’ [-Wmissing-prototypes]
+ int slhastrformat_(char * Block, char * format, char * fRes, int len1,int len2,int len3)
+     ^~~~~~~~~~~~~~
+fortran.c:339:5: warning: no previous prototype for ‘rjacobi_’ [-Wmissing-prototypes]
+ int rjacobi_(double*a,int*n,double*d,double*v){ return rJacobi(a,*n,d,v); }
+     ^~~~~~~~
+fortran.c:341:5: warning: no previous prototype for ‘rjacobia_’ [-Wmissing-prototypes]
+ int rjacobia_(double*a,int*n,double*d,double*u,double*v)
+     ^~~~~~~~~
+fortran.c:343:5: warning: no previous prototype for ‘cjacobih_’ [-Wmissing-prototypes]
+ int cjacobih_(double complex*a,int*n,double*d,double complex*v){return cJacobiH(a,*n,d,v);}
+     ^~~~~~~~~
+fortran.c:344:5: warning: no previous prototype for ‘cjacobis_’ [-Wmissing-prototypes]
+ int cjacobis_(double complex*a,int*n,double*d,double complex*v){return cJacobiS(a,*n,d,v);}
+     ^~~~~~~~~
+fortran.c:345:5: warning: no previous prototype for ‘cjacobia_’ [-Wmissing-prototypes]
+ int cjacobia_(double complex*a,int*n,double*d,double complex*u,double complex*v)
+     ^~~~~~~~~
+fortran.c:348:5: warning: no previous prototype for ‘initdiagonal_’ [-Wmissing-prototypes]
+ int initdiagonal_(void) { return initDiagonal();}
+     ^~~~~~~~~~~~~
+fortran.c:350:5: warning: no previous prototype for ‘rdiagonal2_’ [-Wmissing-prototypes]
+ int rdiagonal2_(aList3(double*))  { return rDiagonal(2,aList3(*));}
+     ^~~~~~~~~~~
+fortran.c:351:5: warning: no previous prototype for ‘rdiagonal3_’ [-Wmissing-prototypes]
+ int rdiagonal3_(aList6(double*))  { return rDiagonal(3,aList6(*));}
+     ^~~~~~~~~~~
+fortran.c:352:5: warning: no previous prototype for ‘rdiagonal4_’ [-Wmissing-prototypes]
+ int rdiagonal4_(aList10(double*)) { return rDiagonal(4,aList10(*));}
+     ^~~~~~~~~~~
+fortran.c:353:5: warning: no previous prototype for ‘rdiagonal5_’ [-Wmissing-prototypes]
+ int rdiagonal5_(aList15(double*)) { return rDiagonal(5,aList15(*));}
+     ^~~~~~~~~~~
+fortran.c:355:5: warning: no previous prototype for ‘cdiagonalh2_’ [-Wmissing-prototypes]
+ int cdiagonalh2_(aList3(double complex*))  { return cDiagonalH(2,aList3(*));}
+     ^~~~~~~~~~~~
+fortran.c:356:5: warning: no previous prototype for ‘cdiagonalh3_’ [-Wmissing-prototypes]
+ int cdiagonalh3_(aList6(double complex*))  { return cDiagonalH(3,aList6(*));}
+     ^~~~~~~~~~~~
+fortran.c:357:5: warning: no previous prototype for ‘cdiagonalh4_’ [-Wmissing-prototypes]
+ int cdiagonalh4_(aList10(double complex*)) { return cDiagonalH(4,aList10(*));}
+     ^~~~~~~~~~~~
+fortran.c:358:5: warning: no previous prototype for ‘cdiagonalh5_’ [-Wmissing-prototypes]
+ int cdiagonalh5_(aList15(double complex*)) { return cDiagonalH(5,aList15(*));}
+     ^~~~~~~~~~~~
+fortran.c:360:5: warning: no previous prototype for ‘cdiagonals2_’ [-Wmissing-prototypes]
+ int cdiagonals2_(aList3(double complex*))  { return cDiagonalS(2,aList3(*));}
+     ^~~~~~~~~~~~
+fortran.c:361:5: warning: no previous prototype for ‘cdiagonals3_’ [-Wmissing-prototypes]
+ int cdiagonals3_(aList6(double complex*))  { return cDiagonalS(3,aList6(*));}
+     ^~~~~~~~~~~~
+fortran.c:362:5: warning: no previous prototype for ‘cdiagonals4_’ [-Wmissing-prototypes]
+ int cdiagonals4_(aList10(double complex*)) { return cDiagonalS(4,aList10(*));}
+     ^~~~~~~~~~~~
+fortran.c:363:5: warning: no previous prototype for ‘cdiagonals5_’ [-Wmissing-prototypes]
+ int cdiagonals5_(aList15(double complex*)) { return cDiagonalS(5,aList15(*));}
+     ^~~~~~~~~~~~
+fortran.c:365:5: warning: no previous prototype for ‘cdiagonala2_’ [-Wmissing-prototypes]
+ int cdiagonala2_(aList4(double complex*))  { return cDiagonalA(2,aList4(*));}
+     ^~~~~~~~~~~~
+fortran.c:366:5: warning: no previous prototype for ‘cdiagonala3_’ [-Wmissing-prototypes]
+ int cdiagonala3_(aList9(double complex*))  { return cDiagonalA(3,aList9(*));}
+     ^~~~~~~~~~~~
+fortran.c:367:5: warning: no previous prototype for ‘cdiagonala4_’ [-Wmissing-prototypes]
+ int cdiagonala4_(aList16(double complex*)) { return cDiagonalA(4,aList16(*));}
+     ^~~~~~~~~~~~
+fortran.c:368:5: warning: no previous prototype for ‘cdiagonala5_’ [-Wmissing-prototypes]
+ int cdiagonala5_(aList25(double complex*)) { return cDiagonalA(5,aList25(*));}
+     ^~~~~~~~~~~~
+fortran.c:370:5: warning: no previous prototype for ‘rdiagonala2_’ [-Wmissing-prototypes]
+ int rdiagonala2_(aList4(double*))  { return rDiagonalA(2,aList4(*));}
+     ^~~~~~~~~~~~
+fortran.c:371:5: warning: no previous prototype for ‘rdiagonala3_’ [-Wmissing-prototypes]
+ int rdiagonala3_(aList9(double*))  { return rDiagonalA(3,aList9(*));}
+     ^~~~~~~~~~~~
+fortran.c:372:5: warning: no previous prototype for ‘rdiagonala4_’ [-Wmissing-prototypes]
+ int rdiagonala4_(aList16(double*)) { return rDiagonalA(4,aList16(*));}
+     ^~~~~~~~~~~~
+fortran.c:373:5: warning: no previous prototype for ‘rdiagonala5_’ [-Wmissing-prototypes]
+ int rdiagonala5_(aList25(double*)) { return rDiagonalA(5,aList25(*));}
+     ^~~~~~~~~~~~
+fortran.c:375:9: warning: no previous prototype for ‘massarray_’ [-Wmissing-prototypes]
+ double  massarray_(int * id, int *i){ return   MassArray(*id,  *i);}
+         ^~~~~~~~~~
+fortran.c:376:10: warning: no previous prototype for ‘mixmatrix_’ [-Wmissing-prototypes]
+ double   mixmatrix_ (int*id, int*i,int*j){ return    MixMatrix (*id,*i,*j);}
+          ^~~~~~~~~~
+fortran.c:377:10: warning: no previous prototype for ‘mixmatrixu_’ [-Wmissing-prototypes]
+ double   mixmatrixu_(int*id, int*i,int*j){ return    MixMatrixU(*id,*i,*j);}
+          ^~~~~~~~~~~
+fortran.c:378:8: warning: no previous prototype for ‘remixmatrix_’ [-Wmissing-prototypes]
+ double remixmatrix_ (int*id, int*i,int*j){return creal(cMixMatrix (*id,*i,*j));}
+        ^~~~~~~~~~~~
+fortran.c:379:8: warning: no previous prototype for ‘remixmatrixu_’ [-Wmissing-prototypes]
+ double remixmatrixu_(int*id, int*i,int*j){return creal(cMixMatrixU(*id,*i,*j));}
+        ^~~~~~~~~~~~~
+fortran.c:380:8: warning: no previous prototype for ‘immixmatrix_’ [-Wmissing-prototypes]
+ double immixmatrix_ (int*id, int*i,int*j){return cimag(cMixMatrix (*id,*i,*j));}
+        ^~~~~~~~~~~~
+fortran.c:381:8: warning: no previous prototype for ‘immixmatrixu_’ [-Wmissing-prototypes]
+ double immixmatrixu_(int*id, int*i,int*j){return cimag(cMixMatrixU(*id,*i,*j));}
+        ^~~~~~~~~~~~~
+fortran.c:385:9: warning: no previous prototype for ‘initqcd_’ [-Wmissing-prototypes]
+ double  initqcd_(double * alfsMZ, double * McMc, double * MbMb, double * Mtp)
+         ^~~~~~~~
+fortran.c:387:8: warning: no previous prototype for ‘alphaqcd_’ [-Wmissing-prototypes]
+ double alphaqcd_(double * q) { return alphaQCD(*q);}
+        ^~~~~~~~~
+fortran.c:388:8: warning: no previous prototype for ‘mcrun_’ [-Wmissing-prototypes]
+ double mcrun_(double *q){ return McRun(*q);}
+        ^~~~~~
+fortran.c:389:8: warning: no previous prototype for ‘mbrun_’ [-Wmissing-prototypes]
+ double mbrun_(double *q){ return MbRun(*q);}
+        ^~~~~~
+fortran.c:390:8: warning: no previous prototype for ‘mtrun_’ [-Wmissing-prototypes]
+ double mtrun_(double *q){ return MtRun(*q);}
+        ^~~~~~
+fortran.c:392:8: warning: no previous prototype for ‘mceff_’ [-Wmissing-prototypes]
+ double mceff_(double *q){ return McEff(*q);}
+        ^~~~~~
+fortran.c:393:8: warning: no previous prototype for ‘mbeff_’ [-Wmissing-prototypes]
+ double mbeff_(double *q){ return MbEff(*q);}
+        ^~~~~~
+fortran.c:394:8: warning: no previous prototype for ‘mteff_’ [-Wmissing-prototypes]
+ double mteff_(double *q){ return MtEff(*q);}
+        ^~~~~~
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a fortran.o
+a - fortran.o
+gfortran  -fno-automatic  -c -o faux.o faux.f
+ar rv /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a faux.o
+a - faux.o
+ranlib /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a
+rm -f *.o
+ln -s /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/model_aux.a 
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/SLHAplus'
+gmake -C c_source/mix_events
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/mix_events'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../SLHAplus/include  -I../symb/include  -I../polynom/include  -o ../../bin/event_mixer event_mixer.c event2pyth.c ch_events.c ../../lib/libSLHAplus.a -lm 
+event2pyth.c:37:7: warning: no previous prototype for ‘printAll’ [-Wmissing-prototypes]
+ void  printAll(void)
+       ^~~~~~~~
+ch_events.c:197:6: warning: no previous prototype for ‘closeevents_’ [-Wmissing-prototypes]
+ void closeevents_(void)
+      ^~~~~~~~~~~~
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../SLHAplus/include  -I../symb/include  -I../polynom/include  -o ../../bin/event2lhe event2lhe.c ch_events.c -lm 
+ch_events.c:197:6: warning: no previous prototype for ‘closeevents_’ [-Wmissing-prototypes]
+ void closeevents_(void)
+      ^~~~~~~~~~~~
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/mix_events'
+gmake -C c_source/symb
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/symb'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o physics.o physics.c
+ar rv ../../lib/symb.a physics.o
+a - physics.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o reader0.o reader0.c
+ar rv ../../lib/symb.a reader0.o
+a - reader0.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o pre_read.o pre_read.c
+ar rv ../../lib/symb.a pre_read.o
+a - pre_read.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o m_utils.o m_utils.c
+ar rv ../../lib/symb.a m_utils.o
+a - m_utils.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o screen.o screen.c
+ar rv ../../lib/symb.a screen.o
+a - screen.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o pvars.o pvars.c
+ar rv ../../lib/symb.a pvars.o
+a - pvars.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o symbolic.o symbolic.c
+ar rv ../../lib/symb.a symbolic.o
+a - symbolic.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o sos.o sos.c
+ar rv ../../lib/symb.a sos.o
+a - sos.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o model.o model.c
+ar rv ../../lib/symb.a model.o
+a - model.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o r_code.o r_code.c
+ar rv ../../lib/symb.a r_code.o
+a - r_code.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o saveres.o saveres.c
+ar rv ../../lib/symb.a saveres.o
+a - saveres.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o cweight.o cweight.c
+ar rv ../../lib/symb.a cweight.o
+a - cweight.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o process.o process.c
+ar rv ../../lib/symb.a process.o
+a - process.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o rfactor.o rfactor.c
+ar rv ../../lib/symb.a rfactor.o
+a - rfactor.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o numcheck.o numcheck.c
+ar rv ../../lib/symb.a numcheck.o
+a - numcheck.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o syst2.o syst2.c
+ar rv ../../lib/symb.a syst2.o
+a - syst2.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o ghosts.o ghosts.c
+ar rv ../../lib/symb.a ghosts.o
+a - ghosts.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o read_mdl.o read_mdl.c
+ar rv ../../lib/symb.a read_mdl.o
+a - read_mdl.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o chess.o chess.c
+ar rv ../../lib/symb.a chess.o
+a - chess.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o s_files.o s_files.c
+ar rv ../../lib/symb.a s_files.o
+a - s_files.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o colorf.o colorf.c
+ar rv ../../lib/symb.a colorf.o
+a - colorf.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o denominators.o denominators.c
+ar rv ../../lib/symb.a denominators.o
+a - denominators.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o prepdiag.o prepdiag.c
+ar rv ../../lib/symb.a prepdiag.o
+a - prepdiag.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o lbl.o lbl.c
+ar rv ../../lib/symb.a lbl.o
+a - lbl.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o draw_ampl.o diagram/draw_ampl.c
+ar rv ../../lib/symb.a draw_ampl.o
+a - draw_ampl.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o showgrph.o diagram/showgrph.c
+ar rv ../../lib/symb.a showgrph.o
+a - showgrph.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o squar.o diagram/squar.c
+ar rv ../../lib/symb.a squar.o
+a - squar.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o constr.o diagram/constr.c
+ar rv ../../lib/symb.a constr.o
+a - constr.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o diaprins.o diagram/diaprins.c
+ar rv ../../lib/symb.a diaprins.o
+a - diaprins.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o diagrams.o diagram/diagrams.c
+ar rv ../../lib/symb.a diagrams.o
+a - diagrams.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o drawdiag.o diagram/drawdiag.c
+ar rv ../../lib/symb.a drawdiag.o
+a - drawdiag.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o reader_c.o out/reader_c.c
+ar rv ../../lib/symb.a reader_c.o
+a - reader_c.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o out_serv.o out/out_serv.c
+ar rv ../../lib/symb.a out_serv.o
+a - out_serv.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o math_out.o out/math_out.c
+ar rv ../../lib/symb.a math_out.o
+a - math_out.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o optimise.o out/optimise.c
+ar rv ../../lib/symb.a optimise.o
+a - optimise.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o l_string.o out/l_string.c
+ar rv ../../lib/symb.a l_string.o
+a - l_string.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o form_out.o out/form_out.c
+ar rv ../../lib/symb.a form_out.o
+a - form_out.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o procvar.o out/procvar.c
+ar rv ../../lib/symb.a procvar.o
+a - procvar.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o red_out.o out/red_out.c
+ar rv ../../lib/symb.a red_out.o
+a - red_out.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG   -c -o c_out.o out/c_out.c
+ar rv ../../lib/symb.a c_out.o
+a - c_out.o
+echo physics.o screen.o pvars.o symbolic.o read_mdl.o saveres.o syst2.o chess.o denominators.o prepdiag.o lbl.o reader0.o pre_read.o m_utils.o sos.o model.o s_files.o r_code.o cweight.o process.o numcheck.o ghosts.o rfactor.o colorf.o draw_ampl.o showgrph.o squar.o constr.o diaprins.o diagrams.o drawdiag.o reader_c.o out_serv.o math_out.o optimise.o l_string.o form_out.o procvar.o red_out.o c_out.o
+physics.o screen.o pvars.o symbolic.o read_mdl.o saveres.o syst2.o chess.o denominators.o prepdiag.o lbl.o reader0.o pre_read.o m_utils.o sos.o model.o s_files.o r_code.o cweight.o process.o numcheck.o ghosts.o rfactor.o colorf.o draw_ampl.o showgrph.o squar.o constr.o diaprins.o diagrams.o drawdiag.o reader_c.o out_serv.o math_out.o optimise.o l_string.o form_out.o procvar.o red_out.o c_out.o
+ranlib ../../lib/symb.a
+gcc  -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG -o ../../bin/s_calchep s_calchep.c ../../lib/symb.a ../../lib/serv.a ../../lib/dynamic_vp.a ../../lib/dynamic_me.a ../../lib/libSLHAplus.a ../../lib/dummy.a ../../lib/ntools.a  -lX11 -lm -rdynamic -ldl 
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -Iinclude -I../chep_crt/include  -I../service2/include  -I../polynom/include  -I../getmem/include  -I../plot/include  -I../dynamicME/include  -I../SLHAplus/include  -I../ntools/include  -I../num/include  -I../../include  -DNUM_LONG_LONG -o ../../bin/make_VandP make_VandP.c ../../lib/symb.a ../../lib/serv.a ../../lib/dynamic_me.a  -lX11 -lm
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/c_source/symb'
+chmod 755 mkWORKdir
+#--------------------------------------------------------
+# CalcHEP has compiled successfuly and can be started.
+# The manual can be found on the CalcHEP website:
+#      http://theory.sinp.msu.ru/~pukhov/calchep.html
+# The next step is typically to run 
+#      ./mkWORKdir  <new_dir>
+# where <new_dir> is the new directory where you will do
+# your calculations.  After creating this directory, you
+# should cd into it and run calchep or calchep_batch.
+# Please see the manual for further details.
+#---------------------------------------------------------
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src'
+gmake -C sources
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/sources'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o cs22.o cs22.c
+cs22.c:260:7: warning: no previous prototype for ‘sethelicities_’ [-Wmissing-prototypes]
+ void  sethelicities_(double *h1,double *h2) { Helicity[0]=*h1; Helicity[1]=*h2;}
+       ^~~~~~~~~~~~~~
+ar rv micromegas.a cs22.o
+ar: creating micromegas.a
+a - cs22.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o decayFort.o decayFort.c
+decayFort.c:7:8: warning: no previous prototype for ‘pwidth_’ [-Wmissing-prototypes]
+ double pwidth_(char * name, txtList *L , int len)
+        ^~~~~~~
+decayFort.c:14:6: warning: no previous prototype for ‘printtxtlist_’ [-Wmissing-prototypes]
+ void printtxtlist_(txtList * list, int * Nch)
+      ^~~~~~~~~~~~~
+decayFort.c:27:9: warning: no previous prototype for ‘findbr_’ [-Wmissing-prototypes]
+ double  findbr_(txtList*list, char * name,int len)
+         ^~~~~~~
+ar rv micromegas.a decayFort.o
+a - decayFort.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o directDetFort.o directDetFort.c
+directDetFort.c:16:8: warning: no previous prototype for ‘fescloop_’ [-Wmissing-prototypes]
+ double fescloop_(double * sing, double * mq, double * msq, double *mne)
+        ^~~~~~~~~
+directDetFort.c:21:8: warning: no previous prototype for ‘XYloop_’ [-Wmissing-prototypes]
+ double XYloop_(double sing, double mq, double msq, double mne)
+        ^~~~~~~
+directDetFort.c:78:8: warning: no previous prototype for ‘nucleusrecoilaux_’ [-Wmissing-prototypes]
+ double nucleusrecoilaux_(
+        ^~~~~~~~~~~~~~~~~
+directDetFort.c:115:8: warning: no previous prototype for ‘nucleusrecoil0aux_’ [-Wmissing-prototypes]
+ double nucleusrecoil0aux_( double (*fDv)(double*),
+        ^~~~~~~~~~~~~~~~~~
+directDetFort.c:140:8: warning: no previous prototype for ‘dnderecoil_’ [-Wmissing-prototypes]
+ double dnderecoil_(double *tab, double *E)
+        ^~~~~~~~~~~
+ar rv micromegas.a directDetFort.o
+a - directDetFort.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o spectraFort.o spectraFort.c
+spectraFort.c:6:8: warning: no previous prototype for ‘hprofilezhao_’ [-Wmissing-prototypes]
+ double hprofilezhao_(double *r) {return hProfileZhao(*r);}
+        ^~~~~~~~~~~~~
+spectraFort.c:7:8: warning: no previous prototype for ‘noclamps_’ [-Wmissing-prototypes]
+ double noclamps_(double *r) {return 1;}
+        ^~~~~~~~~
+spectraFort.c:10:6: warning: no previous prototype for ‘setprofilezhao_’ [-Wmissing-prototypes]
+ void setprofilezhao_(double *alpha, double*beta, double*gamma, double*rc)
+      ^~~~~~~~~~~~~~~
+spectraFort.c:13:8: warning: no previous prototype for ‘hprofileeinasto’ [-Wmissing-prototypes]
+ double hprofileeinasto(double * r){ return hProfileEinasto(*r);}
+        ^~~~~~~~~~~~~~~
+spectraFort.c:14:7: warning: no previous prototype for ‘setprofileeinasto_’ [-Wmissing-prototypes]
+ void  setprofileeinasto_(double *alpha){ setProfileEinasto(*alpha);}
+       ^~~~~~~~~~~~~~~~~~
+spectraFort.c:22:6: warning: no previous prototype for ‘sethaloprofile_’ [-Wmissing-prototypes]
+ void sethaloprofile_(double(*hProfile)(double*))
+      ^~~~~~~~~~~~~~~
+spectraFort.c:28:6: warning: no previous prototype for ‘setrhoclumps_’ [-Wmissing-prototypes]
+ void setrhoclumps_(double(*cProfile)(double*))
+      ^~~~~~~~~~~~~
+spectraFort.c:34:6: warning: no previous prototype for ‘setclumpconst_’ [-Wmissing-prototypes]
+ void setclumpconst_(double*f,double*rho) {  setClumpConst(*f,*rho); }
+      ^~~~~~~~~~~~~~
+spectraFort.c:56:8: warning: no previous prototype for ‘spectdnde_’ [-Wmissing-prototypes]
+ double spectdnde_(double *E, double *tab){ return SpectdNdE(*E, tab); }
+        ^~~~~~~~~~
+spectraFort.c:68:6: warning: no previous prototype for ‘gammafluxtab_’ [-Wmissing-prototypes]
+ void gammafluxtab_(double *fi, double * dfi, double *sigmaV, double *Sp, double *Sobs)
+      ^~~~~~~~~~~~~
+spectraFort.c:71:8: warning: no previous prototype for ‘gammaflux_’ [-Wmissing-prototypes]
+ double gammaflux_(double *fi, double *dfi,  double *dSigmadE)
+        ^~~~~~~~~~
+spectraFort.c:74:6: warning: no previous prototype for ‘posifluxtab_’ [-Wmissing-prototypes]
+ void posifluxtab_(double* Emin, double*sigmav, double *tab ,double *tabOut)
+      ^~~~~~~~~~~~
+spectraFort.c:77:6: warning: no previous prototype for ‘pbarfluxtab_’ [-Wmissing-prototypes]
+ void pbarfluxtab_(double* Emin, double*sigmav, double *tab,double *tabOut)
+      ^~~~~~~~~~~~
+spectraFort.c:81:14: warning: no previous prototype for ‘solarmodulation_’ [-Wmissing-prototypes]
+ extern void  solarmodulation_(double *PHI, double *mass, double * inTab, double * outTab)
+              ^~~~~~~~~~~~~~~~
+spectraFort.c:84:5: warning: no previous prototype for ‘basicspectra_’ [-Wmissing-prototypes]
+ int basicspectra_(int *pdgN, int *outN, double * tab)
+     ^~~~~~~~~~~~~
+spectraFort.c:87:5: warning: no previous prototype for ‘basicnuspectra_’ [-Wmissing-prototypes]
+ int basicnuspectra_(int*forSun,int *pdgN, int *outN, double * tab)
+     ^~~~~~~~~~~~~~~
+spectraFort.c:95:6: warning: no previous prototype for ‘displayfunc_’ [-Wmissing-prototypes]
+ void displayfunc_(double (*F)(double*),double *x1,double *x2,char *fmess,int len)
+      ^~~~~~~~~~~~
+ar rv micromegas.a spectraFort.o
+a - spectraFort.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o fortran.o fortran.c
+fortran.c:66:6: warning: no previous prototype for ‘nextodd_’ [-Wmissing-prototypes]
+ void nextodd_(int *n, char * pName, double *pMass,int len)
+      ^~~~~~~~
+fortran.c:74:6: warning: no previous prototype for ‘pdg2name_’ [-Wmissing-prototypes]
+ void pdg2name_(int * pdg, char * name,int len)
+      ^~~~~~~~~
+fortran.c:82:8: warning: no previous prototype for ‘pmass_’ [-Wmissing-prototypes]
+ double pmass_(char * pName, int len)
+        ^~~~~~
+fortran.c:88:5: warning: no previous prototype for ‘qnumbers_’ [-Wmissing-prototypes]
+ int qnumbers_(char*pname, int *spin2,int*charge3,int*cdim,int len)
+     ^~~~~~~~~
+fortran.c:98:8: warning: no previous prototype for ‘darkomegafo_’ [-Wmissing-prototypes]
+ double darkomegafo_(double*Xf,int*fast,double*Beps){return darkOmegaFO(Xf,*fast,*Beps);}
+        ^~~~~~~~~~~~
+fortran.c:116:8: warning: no previous prototype for ‘onechannel_’ [-Wmissing-prototypes]
+ double onechannel_(double *Xf,double *Beps,char*fn1,char*fn2,char*fn3,char*fn4,
+        ^~~~~~~~~~~
+fortran.c:145:5: warning: no previous prototype for ‘slhadecayprint_’ [-Wmissing-prototypes]
+ int slhadecayprint_(char * pname,int *Nch,int len)
+     ^~~~~~~~~~~~~~~
+fortran.c:161:8: warning: no previous prototype for ‘vsigma_’ [-Wmissing-prototypes]
+ double vsigma_(double*T,double*Beps,int*Fast){ return vSigma(*T,*Beps,*Fast);}
+        ^~~~~~~
+fortran.c:183:5: warning: no previous prototype for ‘omegach_’ [-Wmissing-prototypes]
+ int omegach_(int*i,double*w,int*pdg,char*txt,int len)   {return channels(omegaCh,  i,w,pdg,txt,len);}
+     ^~~~~~~~
+fortran.c:185:5: warning: no previous prototype for ‘vsigmatch_’ [-Wmissing-prototypes]
+ int vsigmatch_(int *i,double*w,int*pdg,char*txt,int len){return channels(vSigmaTCh,i,w,pdg,txt,len);}
+     ^~~~~~~~~~
+fortran.c:187:5: warning: no previous prototype for ‘vsigmach_’ [-Wmissing-prototypes]
+ int vsigmach_(int *i,double*w,int*pdg,char*txt,int len) {return channels(vSigmaCh, i,w,pdg,txt,len);}
+     ^~~~~~~~~
+fortran.c:194:5: warning: no previous prototype for ‘neutrinoflux_’ [-Wmissing-prototypes]
+ int neutrinoflux_( double(*fDv)(double*), int* forSun, double* nu, double * Nu)
+     ^~~~~~~~~~~~~
+fortran.c:203:6: warning: no previous prototype for ‘muonupward_’ [-Wmissing-prototypes]
+ void muonupward_(double*nu, double*Nu, double*mu) { muonUpward(nu, Nu, mu);}
+      ^~~~~~~~~~~
+fortran.c:204:6: warning: no previous prototype for ‘muoncontained_’ [-Wmissing-prototypes]
+ void muoncontained_(double*nu,double*Nu,double *rho, double*mu) { muonContained(nu,Nu,*rho, mu);}
+      ^~~~~~~~~~~~~~
+fortran.c:206:6: warning: no previous prototype for ‘cleandecaytable_’ [-Wmissing-prototypes]
+ void cleandecaytable_(void) { cleanDecayTable(); }
+      ^~~~~~~~~~~~~~~~
+fortran.c:207:6: warning: no previous prototype for ‘setvvdecay_’ [-Wmissing-prototypes]
+ void setvvdecay_(int*vwdecay,int*vzdecay ){ VWdecay=*vwdecay;  VZdecay=*vzdecay;  cleanDecayTable(); }
+      ^~~~~~~~~~~
+fortran.c:209:8: warning: no previous prototype for ‘captureaux_’ [-Wmissing-prototypes]
+ double captureaux_(int*forSun,double(*fDv)(double*), double*csIp,double*csIn,double*csDp, double*csDn)
+        ^~~~~~~~~~~
+ar rv micromegas.a fortran.o
+a - fortran.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o var_service.o var_service.c
+var_service.c:104:6: warning: no previous prototype for ‘assignval_’ [-Wmissing-prototypes]
+ int  assignval_(char * f_name, double * val, int len)
+      ^~~~~~~~~~
+var_service.c:110:5: warning: no previous prototype for ‘findval_’ [-Wmissing-prototypes]
+ int findval_(char*f_name, double*val, int len)
+     ^~~~~~~~
+var_service.c:118:6: warning: no previous prototype for ‘assignvalw_’ [-Wmissing-prototypes]
+ void assignvalw_(char* f_name, double * val, int len)
+      ^~~~~~~~~~~
+var_service.c:124:8: warning: no previous prototype for ‘findvalw_’ [-Wmissing-prototypes]
+ double findvalw_(char*f_name, int len)  /*FORTRAN*/
+        ^~~~~~~~~
+ar rv micromegas.a var_service.o
+a - var_service.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o common.o common.c
+common.c:45:6: warning: no previous prototype for ‘forceug_’ [-Wmissing-prototypes]
+ void forceug_(int * key) { ForceUG=*key;}
+      ^~~~~~~~
+ar rv micromegas.a common.o
+a - common.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o spectra.o spectra.c
+ar rv micromegas.a spectra.o
+a - spectra.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o displayPlot.o displayPlot.c
+displayPlot.c:93:7: warning: no previous prototype for ‘killplots_’ [-Wmissing-prototypes]
+ void  killplots_(void) { killPlots();}
+       ^~~~~~~~~~
+ar rv micromegas.a displayPlot.o
+a - displayPlot.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o oddPrtcls.o oddPrtcls.c
+ar rv micromegas.a oddPrtcls.o
+a - oddPrtcls.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o pdt2.o pdt2.c
+ar rv micromegas.a pdt2.o
+a - pdt2.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o synch.o synch.c
+ar rv micromegas.a synch.o
+a - synch.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o SMhdecay.o SMhdecay.c
+SMhdecay.c:12:8: warning: no previous prototype for ‘widthsmh_’ [-Wmissing-prototypes]
+ double widthsmh_(double* Mh){ return polint4(*Mh,101,MH,width);}
+        ^~~~~~~~~
+SMhdecay.c:13:8: warning: no previous prototype for ‘brsmhgg_’ [-Wmissing-prototypes]
+ double brsmhgg_(double*Mh)  { return polint4(*Mh,101,MH,brG);  }
+        ^~~~~~~~
+SMhdecay.c:14:8: warning: no previous prototype for ‘brsmhaa_’ [-Wmissing-prototypes]
+ double brsmhaa_(double*Mh)  { return polint4(*Mh,101,MH,brA);  }
+        ^~~~~~~~
+ar rv micromegas.a SMhdecay.o
+a - SMhdecay.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o propagate.o propagate.c
+propagate.c:741:6: warning: no previous prototype for ‘pBarBackgroundTab’ [-Wmissing-prototypes]
+ void pBarBackgroundTab(double *pBarTab)
+      ^~~~~~~~~~~~~~~~~
+propagate.c:749:9: warning: no previous prototype for ‘electonFFluxAMS’ [-Wmissing-prototypes]
+ double  electonFFluxAMS(double E)
+         ^~~~~~~~~~~~~~~
+propagate.c:840:8: warning: no previous prototype for ‘el_FluxAMS’ [-Wmissing-prototypes]
+ double el_FluxAMS(double E)
+        ^~~~~~~~~~
+propagate.c:845:8: warning: no previous prototype for ‘pos_FluxAMS’ [-Wmissing-prototypes]
+ double pos_FluxAMS(double E)
+        ^~~~~~~~~~~
+propagate.c:890:8: warning: no previous prototype for ‘pos_FluxPAMELA_E3’ [-Wmissing-prototypes]
+ double pos_FluxPAMELA_E3(double E)
+        ^~~~~~~~~~~~~~~~~
+ar rv micromegas.a propagate.o
+a - propagate.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o tools.o tools.c
+tools.c:316:6: warning: no previous prototype for ‘printInterpolation’ [-Wmissing-prototypes]
+ void printInterpolation(int N,double *xa, double * ya)
+      ^~~~~~~~~~~~~~~~~~
+ar rv micromegas.a tools.o
+a - tools.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o wPolar.o wPolar.c
+ar rv micromegas.a wPolar.o
+a - wPolar.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o omega.o omega.c
+ar rv micromegas.a omega.o
+a - omega.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o kin23.o kin23.c
+kin23.c:133:8: warning: no previous prototype for ‘cs23’ [-Wmissing-prototypes]
+ double cs23(numout*cc, int nsub, double Pcm, int ii3)
+        ^~~~
+kin23.c:214:8: warning: no previous prototype for ‘cs23Vegas’ [-Wmissing-prototypes]
+ double cs23Vegas(numout * cc, int nsub, double Pcm, int ii3,
+        ^~~~~~~~~
+kin23.c:360:8: warning: no previous prototype for ‘cs24Vegas’ [-Wmissing-prototypes]
+ double cs24Vegas(numout * cc, int nsub, double Pcm, int ii3, int ii4,
+        ^~~~~~~~~
+ar rv micromegas.a kin23.o
+a - kin23.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o f2c2f.o f2c2f.c
+ar rv micromegas.a f2c2f.o
+a - f2c2f.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o neutrino.o neutrino.c
+ar rv micromegas.a neutrino.o
+a - neutrino.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o dynamic_cs.o dynamic_cs.c
+ar rv micromegas.a dynamic_cs.o
+a - dynamic_cs.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o directDet.o directDet.c
+directDet.c:266:8: warning: no previous prototype for ‘twist2FF__’ [-Wmissing-prototypes]
+ double twist2FF__(double sgn, double mq,double msq,double mne)
+        ^~~~~~~~~~
+directDet.c:278:8: warning: no previous prototype for ‘twist2_subtractionFF__’ [-Wmissing-prototypes]
+ double twist2_subtractionFF__(double sgn, double mq,double msq,double mne)
+        ^~~~~~~~~~~~~~~~~~~~~~
+directDet.c:285:8: warning: no previous prototype for ‘zeroloopFactor’ [-Wmissing-prototypes]
+ double zeroloopFactor(double sgn, double mq,double msq,double mne)
+        ^~~~~~~~~~~~~~
+directDet.c:601:6: warning: no previous prototype for ‘setrecoilrnergygrid_’ [-Wmissing-prototypes]
+ void setrecoilrnergygrid_(double * step, int * nSteps)
+      ^~~~~~~~~~~~~~~~~~~~
+ar rv micromegas.a directDet.o
+a - directDet.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o higgsmass.o higgsmass.c
+ar rv micromegas.a higgsmass.o
+a - higgsmass.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o dummy.o dummy.c
+ar rv micromegas.a dummy.o
+a - dummy.o
+ranlib micromegas.a 
+rm -f *.o
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/sources'
+gmake -C work
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/work'
+../../CalcHEP_src/bin/make_VandP models 1 
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -I../../CalcHEP_src/include   -c -o VandP.o VandP.c
+ar rv work_aux.a VandP.o
+ar: creating work_aux.a
+a - VandP.o
+echo char \* WORK=\"`pwd`\"\; >  path.c
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -I../../CalcHEP_src/include   -c -o path.o path.c
+ar rv work_aux.a path.o
+a - path.o
+ranlib work_aux.a 
+rm -f VandP.o  path.o
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/work'
+gmake -C lib
+gmake[1]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/lib'
+gmake -C /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/lib/../../Packages/SuSpect_2.41
+gmake[2]: Entering directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/SuSpect_2.41'
+gfortran  -fno-automatic  -c -o bsg.o bsg.f
+ar rv suspect.a bsg.o
+ar: creating suspect.a
+a - bsg.o
+gfortran  -fno-automatic  -c -o suspect2.o suspect2.f
+ar rv suspect.a suspect2.o
+a - suspect2.o
+gfortran  -fno-automatic  -c -o twoloophiggs.o twoloophiggs.f
+ar rv suspect.a twoloophiggs.o
+a - twoloophiggs.o
+ranlib suspect.a
+rm -f bsg.o suspect2.o  twoloophiggs.o
+gfortran  -o suspect.exe -fno-automatic suspect2_call.f suspect.a
+gmake[2]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/Packages/SuSpect_2.41'
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o deltarho.o deltarho.c
+deltarho.c:19:9: warning: no previous prototype for ‘deltarho_’ [-Wmissing-prototypes]
+ double  deltarho_(void)
+         ^~~~~~~~~
+ar rv aLib.a deltarho.o
+ar: creating aLib.a
+a - deltarho.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o btau.o btau.c
+ar rv aLib.a btau.o
+a - btau.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o gmuon.o gmuon.c
+ar rv aLib.a gmuon.o
+a - gmuon.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o lesHouches.o lesHouches.c
+ar rv aLib.a lesHouches.o
+a - lesHouches.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o matrix.o matrix.c
+ar rv aLib.a matrix.o
+a - matrix.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o suspect_call+.o suspect_call+.c
+suspect_call+.c:7:20: warning: no previous prototype for ‘suspectsugra_’ [-Wmissing-prototypes]
+ #define xxxsugra_  suspectsugra_
+                    ^~~~~~~~~~~~~
+sugrac.inc:19:6: note: in expansion of macro ‘xxxsugra_’
+ int  xxxsugra_(double* tb, double* gMG1,double* gMG2,double* gMG3,
+      ^~~~~~~~~
+suspect_call+.c:13:19: warning: no previous prototype for ‘suspectamsb_’ [-Wmissing-prototypes]
+ #define xxxamsb_  suspectamsb_
+                   ^~~~~~~~~~~~
+amsb.inc:12:6: note: in expansion of macro ‘xxxamsb_’
+ int  xxxamsb_(double* m0,double* m32, double* tb, double* sgn)
+      ^~~~~~~~
+suspect_call+.c:19:23: warning: no previous prototype for ‘suspectewsbmssm_’ [-Wmissing-prototypes]
+ #define xxxewsbmssm_  suspectewsbmssm_
+                       ^~~~~~~~~~~~~~~~
+pmssm.inc:45:6: note: in expansion of macro ‘xxxewsbmssm_’
+ int  xxxewsbmssm_(void){ return  xxxEwsbMSSM();}
+      ^~~~~~~~~~~~
+suspect_call+.c:24:23: warning: no previous prototype for ‘suspectsugranuh_’ [-Wmissing-prototypes]
+ #define xxxsugranuh_  suspectsugranuh_
+                       ^~~~~~~~~~~~~~~~
+sugracHiggs.inc:17:6: note: in expansion of macro ‘xxxsugranuh_’
+ int  xxxsugranuh_(double* tb, double* gMG1,double* gMG2,double* gMG3,
+      ^~~~~~~~~~~~
+ar rv aLib.a suspect_call+.o
+a - suspect_call+.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o bsg_nlo.o bsg_nlo.c
+ar rv aLib.a bsg_nlo.o
+a - bsg_nlo.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o loopGamma.o loopGamma.c
+ar rv aLib.a loopGamma.o
+a - loopGamma.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o lambdas.o lambdas.c
+lambdas.c:61:8: warning: no previous prototype for ‘calcLambdas’ [-Wmissing-prototypes]
+ double calcLambdas(void)
+        ^~~~~~~~~~~
+lambdas.c:250:8: warning: no previous prototype for ‘Lambda1’ [-Wmissing-prototypes]
+ double Lambda1(void){ return hself_hdec__1.lambda1;}
+        ^~~~~~~
+lambdas.c:251:8: warning: no previous prototype for ‘Lambda2’ [-Wmissing-prototypes]
+ double Lambda2(void){ return hself_hdec__1.lambda2;}
+        ^~~~~~~
+lambdas.c:252:8: warning: no previous prototype for ‘Lambda3’ [-Wmissing-prototypes]
+ double Lambda3(void){ return hself_hdec__1.lambda3;}
+        ^~~~~~~
+lambdas.c:253:8: warning: no previous prototype for ‘Lambda4’ [-Wmissing-prototypes]
+ double Lambda4(void){ return hself_hdec__1.lambda4;}
+        ^~~~~~~
+lambdas.c:254:8: warning: no previous prototype for ‘Lambda5’ [-Wmissing-prototypes]
+ double Lambda5(void){ return hself_hdec__1.lambda5;}
+        ^~~~~~~
+lambdas.c:255:8: warning: no previous prototype for ‘Lambda6’ [-Wmissing-prototypes]
+ double Lambda6(void){ return hself_hdec__1.lambda6;}
+        ^~~~~~~
+lambdas.c:256:8: warning: no previous prototype for ‘Lambda7’ [-Wmissing-prototypes]
+ double Lambda7(void){ return hself_hdec__1.lambda7;}
+        ^~~~~~~
+lambdas.c:267:22: warning: no previous prototype for ‘subh1_hdec__’ [-Wmissing-prototypes]
+ /* Subroutine */ int subh1_hdec__(double *ma, double *tanb,
+                      ^~~~~~~~~~~~
+lambdas.c:899:22: warning: no previous prototype for ‘gfun_hdec__’ [-Wmissing-prototypes]
+ /* Subroutine */ int gfun_hdec__(double *ma, double *tanb, double
+                      ^~~~~~~~~~~
+lambdas.c:1617:22: warning: no previous prototype for ‘delmb_hdec__’ [-Wmissing-prototypes]
+ /* Subroutine */ int delmb_hdec__(double *ma, double *tanb,
+                      ^~~~~~~~~~~~
+lambdas.c:2086:8: warning: no previous prototype for ‘t_hdec__’ [-Wmissing-prototypes]
+ double t_hdec__(double *x, double *y, double *z__)
+        ^~~~~~~~
+ar rv aLib.a lambdas.o
+a - lambdas.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o calchep_func.o calchep_func.c
+calchep_func.c:72:8: warning: no previous prototype for ‘findGIparam’ [-Wmissing-prototypes]
+ double findGIparam(double ok)
+        ^~~~~~~~~~~
+calchep_func.c:125:8: warning: no previous prototype for ‘SWGI’ [-Wmissing-prototypes]
+ double SWGI(double ok){return SW;}
+        ^~~~
+calchep_func.c:126:8: warning: no previous prototype for ‘MZGI’ [-Wmissing-prototypes]
+ double MZGI(double ok){return MZ;}
+        ^~~~
+calchep_func.c:127:8: warning: no previous prototype for ‘tbGI’ [-Wmissing-prototypes]
+ double tbGI(double ok){return tb;}
+        ^~~~
+calchep_func.c:128:8: warning: no previous prototype for ‘muGI’ [-Wmissing-prototypes]
+ double muGI(double ok){return mu;}
+        ^~~~
+ar rv aLib.a calchep_func.o
+a - calchep_func.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o masslim.o masslim.c
+ar rv aLib.a masslim.o
+a - masslim.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o hbBlocks.o hbBlocks.c
+ar rv aLib.a hbBlocks.o
+a - hbBlocks.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o model.o model.c
+ar rv aLib.a model.o
+a - model.o
+echo \#define SOFTSUSY \"/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/lib/../../Packages/softsusy-3.1.6\"  > ssusy_path.h
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o ssusy_call.o ssusy_call.c
+ssusy_call.c:59:9: warning: no previous prototype for ‘softSusySUGRAnuhc’ [-Wmissing-prototypes]
+ double  softSusySUGRAnuhc(double tb, double gMG1,double gMG2,double gMG3,
+         ^~~~~~~~~~~~~~~~~
+ssusy_call.c:76:9: warning: no previous prototype for ‘softSusyAMSBc’ [-Wmissing-prototypes]
+ double  softSusyAMSBc(double m0,double m32, double tb, double sgn)
+         ^~~~~~~~~~~~~
+ssusy_call.c:88:6: warning: no previous prototype for ‘softSusyGMSB’ [-Wmissing-prototypes]
+ int  softSusyGMSB(double L,double Mmess,  double tb, double sgn, int N5,double cGrav)
+      ^~~~~~~~~~~~
+ssusy_call.c:96:9: warning: no previous prototype for ‘softSusyEwsbMSSMc’ [-Wmissing-prototypes]
+ double  softSusyEwsbMSSMc(double tb, double MG1, double MG2, double MG3, double Al, double At, double Ab,
+         ^~~~~~~~~~~~~~~~~
+ar rv aLib.a ssusy_call.o
+a - ssusy_call.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o ssusy_call+.o ssusy_call+.c
+ssusy_call+.c:8:19: warning: no previous prototype for ‘softsusysugra_’ [-Wmissing-prototypes]
+ #define xxxsugra_ softsusysugra_
+                   ^~~~~~~~~~~~~~
+sugrac.inc:19:6: note: in expansion of macro ‘xxxsugra_’
+ int  xxxsugra_(double* tb, double* gMG1,double* gMG2,double* gMG3,
+      ^~~~~~~~~
+ssusy_call+.c:13:18: warning: no previous prototype for ‘softsusyamsb_’ [-Wmissing-prototypes]
+ #define xxxamsb_ softsusyamsb_
+                  ^~~~~~~~~~~~~
+amsb.inc:12:6: note: in expansion of macro ‘xxxamsb_’
+ int  xxxamsb_(double* m0,double* m32, double* tb, double* sgn)
+      ^~~~~~~~
+ssusy_call+.c:17:22: warning: no previous prototype for ‘softSusyEwsbMSSM’ [-Wmissing-prototypes]
+ #define xxxEwsbMSSM  softSusyEwsbMSSM
+                      ^~~~~~~~~~~~~~~~
+pmssm.inc:8:5: note: in expansion of macro ‘xxxEwsbMSSM’
+ int xxxEwsbMSSM(void)
+     ^~~~~~~~~~~
+ssusy_call+.c:18:22: warning: no previous prototype for ‘softsusyewsbmssm_’ [-Wmissing-prototypes]
+ #define xxxewsbmssm_ softsusyewsbmssm_
+                      ^~~~~~~~~~~~~~~~~
+pmssm.inc:45:6: note: in expansion of macro ‘xxxewsbmssm_’
+ int  xxxewsbmssm_(void){ return  xxxEwsbMSSM();}
+      ^~~~~~~~~~~~
+In file included from ssusy_call+.c:24:
+sugracHiggs.inc:17:6: warning: no previous prototype for ‘xxxsugranuh_’ [-Wmissing-prototypes]
+ int  xxxsugranuh_(double* tb, double* gMG1,double* gMG2,double* gMG3,
+      ^~~~~~~~~~~~
+ar rv aLib.a ssusy_call+.o
+a - ssusy_call+.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o superIso.o superIso.c
+superIso.c:32:5: warning: no previous prototype for ‘callsuperisoslha_’ [-Wmissing-prototypes]
+ int callsuperisoslha_(void){ return callSuperIsoSLHA();}
+     ^~~~~~~~~~~~~~~~~
+ar rv aLib.a superIso.o
+a - superIso.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o DDtest.o DDtest.c
+ar rv aLib.a DDtest.o
+a - DDtest.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o fillVal.o fillVal.c
+ar rv aLib.a fillVal.o
+a - fillVal.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o isasugra_call+.o isasugra_call+.c
+isasugra_call+.c:8:20: warning: no previous prototype for ‘isajetsugra_’ [-Wmissing-prototypes]
+ #define xxxsugra_  isajetsugra_
+                    ^~~~~~~~~~~~
+sugrac.inc:19:6: note: in expansion of macro ‘xxxsugra_’
+ int  xxxsugra_(double* tb, double* gMG1,double* gMG2,double* gMG3,
+      ^~~~~~~~~
+isasugra_call+.c:13:23: warning: no previous prototype for ‘isajetewsbmssm_’ [-Wmissing-prototypes]
+ #define xxxewsbmssm_  isajetewsbmssm_
+                       ^~~~~~~~~~~~~~~
+pmssm.inc:45:6: note: in expansion of macro ‘xxxewsbmssm_’
+ int  xxxewsbmssm_(void){ return  xxxEwsbMSSM();}
+      ^~~~~~~~~~~~
+isasugra_call+.c:18:19: warning: no previous prototype for ‘isajetamsb_’ [-Wmissing-prototypes]
+ #define xxxamsb_  isajetamsb_
+                   ^~~~~~~~~~~
+amsb.inc:12:6: note: in expansion of macro ‘xxxamsb_’
+ int  xxxamsb_(double* m0,double* m32, double* tb, double* sgn)
+      ^~~~~~~~
+In file included from isasugra_call+.c:24:
+sugracHiggs.inc:17:6: warning: no previous prototype for ‘xxxsugranuh_’ [-Wmissing-prototypes]
+ int  xxxsugranuh_(double* tb, double* gMG1,double* gMG2,double* gMG3,
+      ^~~~~~~~~~~~
+ar rv aLib.a isasugra_call+.o
+a - isasugra_call+.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o rdVarMSSM.o rdVarMSSM.c
+ar rv aLib.a rdVarMSSM.o
+a - rdVarMSSM.o
+echo \#define ISAJET \"`pwd`\"  > isajet_path.h
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o isasugra_call.o isasugra_call.c
+isasugra_call.c:53:9: warning: no previous prototype for ‘isajetSUGRAnuhc’ [-Wmissing-prototypes]
+ double  isajetSUGRAnuhc(double tb, double gMG1,double gMG2,double gMG3,
+         ^~~~~~~~~~~~~~~
+isasugra_call.c:65:9: warning: no previous prototype for ‘isajetAMSBc’ [-Wmissing-prototypes]
+ double  isajetAMSBc(double m0,double m32, double tb, double sgn)
+         ^~~~~~~~~~~
+isasugra_call.c:78:9: warning: no previous prototype for ‘isajetEwsbMSSMc’ [-Wmissing-prototypes]
+ double  isajetEwsbMSSMc(double tb, double MG1, double MG2, double MG3, double Al, double At, double Ab,
+         ^~~~~~~~~~~~~~~
+ar rv aLib.a isasugra_call.o
+a - isasugra_call.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o rdLesH.o rdLesH.c
+ar rv aLib.a rdLesH.o
+a - rdLesH.o
+echo \#define SUSPECT \"/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/lib/../../Packages/SuSpect_2.41\"  > suspect_path.h
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o suspect_call.o suspect_call.c
+suspect_call.c:68:9: warning: no previous prototype for ‘suspectSUGRAnuhc’ [-Wmissing-prototypes]
+ double  suspectSUGRAnuhc(double tb, double gMG1,double gMG2,double gMG3,
+         ^~~~~~~~~~~~~~~~
+suspect_call.c:85:9: warning: no previous prototype for ‘suspectAMSBc’ [-Wmissing-prototypes]
+ double  suspectAMSBc(double m0,double m32, double tb, double sgn)
+         ^~~~~~~~~~~~
+suspect_call.c:96:8: warning: no previous prototype for ‘suspectEwsbMSSMc’ [-Wmissing-prototypes]
+ double suspectEwsbMSSMc(double tb, double MG1, double MG2, double MG3, double Al, double At, double Ab,
+        ^~~~~~~~~~~~~~~~
+ar rv aLib.a suspect_call.o
+a - suspect_call.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o hMasses.o hMasses.c
+ar rv aLib.a hMasses.o
+a - hMasses.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o klnu.o klnu.c
+klnu.c:41:8: warning: no previous prototype for ‘rl23_’ [-Wmissing-prototypes]
+ double rl23_(void) { return Rl23_();}
+        ^~~~~
+ar rv aLib.a klnu.o
+a - klnu.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o my_complex.o my_complex.c
+ar rv aLib.a my_complex.o
+a - my_complex.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o fort_aux.o fort_aux.c
+fort_aux.c:31:5: warning: no previous prototype for ‘leshinput_’ [-Wmissing-prototypes]
+ int leshinput_(char *fname, int len)
+     ^~~~~~~~~~
+fort_aux.c:54:6: warning: no previous prototype for ‘hbblocks_’ [-Wmissing-prototypes]
+ int  hbblocks_(char * fname,int len)
+      ^~~~~~~~~
+ar rv aLib.a fort_aux.o
+a - fort_aux.o
+echo \#define SPHENO \"/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/lib/../../Packages/SPheno3.1.3/bin\"  > spheno_path.h
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o spheno_call.o spheno_call.c
+spheno_call.c:56:9: warning: no previous prototype for ‘sphenoSUGRAnuhc’ [-Wmissing-prototypes]
+ double  sphenoSUGRAnuhc(double tb, double gMG1,double gMG2,double gMG3,
+         ^~~~~~~~~~~~~~~
+spheno_call.c:71:9: warning: no previous prototype for ‘sphenoAMSBc’ [-Wmissing-prototypes]
+ double  sphenoAMSBc(double m0,double m32, double tb, double sgn)
+         ^~~~~~~~~~~
+spheno_call.c:82:9: warning: no previous prototype for ‘sphenoEwsbMSSMc’ [-Wmissing-prototypes]
+ double  sphenoEwsbMSSMc(double tb, double MG1, double MG2, double MG3, double Al, double At, double Ab,
+         ^~~~~~~~~~~~~~~
+ar rv aLib.a spheno_call.o
+a - spheno_call.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o spheno_call+.o spheno_call+.c
+spheno_call+.c:8:20: warning: no previous prototype for ‘sphenosugra_’ [-Wmissing-prototypes]
+ #define xxxsugra_  sphenosugra_
+                    ^~~~~~~~~~~~
+sugrac.inc:19:6: note: in expansion of macro ‘xxxsugra_’
+ int  xxxsugra_(double* tb, double* gMG1,double* gMG2,double* gMG3,
+      ^~~~~~~~~
+spheno_call+.c:13:19: warning: no previous prototype for ‘sphenoamsb_’ [-Wmissing-prototypes]
+ #define xxxamsb_  sphenoamsb_
+                   ^~~~~~~~~~~
+amsb.inc:12:6: note: in expansion of macro ‘xxxamsb_’
+ int  xxxamsb_(double* m0,double* m32, double* tb, double* sgn)
+      ^~~~~~~~
+spheno_call+.c:18:23: warning: no previous prototype for ‘sphenoEwsbMSSM’ [-Wmissing-prototypes]
+ #define xxxEwsbMSSM   sphenoEwsbMSSM
+                       ^~~~~~~~~~~~~~
+pmssm.inc:8:5: note: in expansion of macro ‘xxxEwsbMSSM’
+ int xxxEwsbMSSM(void)
+     ^~~~~~~~~~~
+spheno_call+.c:19:23: warning: no previous prototype for ‘sphenoewsbmssm_’ [-Wmissing-prototypes]
+ #define xxxewsbmssm_  sphenoewsbmssm_
+                       ^~~~~~~~~~~~~~~
+pmssm.inc:45:6: note: in expansion of macro ‘xxxewsbmssm_’
+ int  xxxewsbmssm_(void){ return  xxxEwsbMSSM();}
+      ^~~~~~~~~~~~
+In file included from spheno_call+.c:25:
+sugracHiggs.inc:17:6: warning: no previous prototype for ‘xxxsugranuh_’ [-Wmissing-prototypes]
+ int  xxxsugranuh_(double* tb, double* gMG1,double* gMG2,double* gMG3,
+      ^~~~~~~~~~~~
+ar rv aLib.a spheno_call+.o
+a - spheno_call+.o
+gcc -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC   -c -o bsmu.o bsmu.c
+ar rv aLib.a bsmu.o
+a - bsmu.o
+ranlib aLib.a
+rm -f hbBlocks.o suspect_call+.o loopGamma.o fort_aux.o deltarho.o gmuon.o suspect_call.o DDtest.o isasugra_call+.o spheno_call+.o btau.o spheno_call.o hMasses.o bsmu.o bsg_nlo.o model.o lambdas.o calchep_func.o lesHouches.o fillVal.o ssusy_call.o my_complex.o matrix.o masslim.o superIso.o rdVarMSSM.o ssusy_call+.o rdLesH.o klnu.o isasugra_call.o 
+gmake[1]: Leaving directory '/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/lib'
+gcc  -g -fsigned-char -Wstrict-prototypes -Wimplicit  -Wmissing-prototypes -fPIC -o micromegas_mini_slha micromegas_mini_slha.c  lib/aLib.a ../sources/micromegas.a  /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/dynamic_me.a ../sources/micromegas.a work/work_aux.a  lib/aLib.a   /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/sqme_aux.so /storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/CalcHEP_src/lib/libSLHAplus.a ../CalcHEP_src/lib/num_c.a ../CalcHEP_src/lib/ntools.a   ../CalcHEP_src/lib/serv.a -lX11  -rdynamic -ldl   -lm 
+rm -f *.o
+gfortran -c -finit-local-zero -fbacktrace -fno-align-commons bsg.f
+gfortran -c -finit-local-zero -fbacktrace -fno-align-commons twoloophiggs.f
+gfortran -c -finit-local-zero -fbacktrace -fno-align-commons suspect2.f
+gfortran -c -finit-local-zero -fbacktrace -fno-align-commons sdecay.f
+sdecay.f:11684:15:
+
+       do i=1,4,1
+                                                                        2
+          bhcgd(i) = whcgd(i)/hcwdth
+               1
+Warning: Array reference at (1) out of bounds (4 > 2) in loop beginning at (2)
+sdecay.f:11684:26:
+
+       do i=1,4,1
+                                                                        2
+          bhcgd(i) = whcgd(i)/hcwdth
+                          1
+Warning: Array reference at (1) out of bounds (4 > 2) in loop beginning at (2)
+gfortran -c -finit-local-zero -fbacktrace -fno-align-commons lightst4bod.f
+lightst4bod.f:1172:22:
+
+lightst4bod.f:1169:72:
+
+       do j=1,6
+                                                                        2
+lightst4bod.f:1172:22:
+
+       g1l2=EcharR(3,1,j)
+                      1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+lightst4bod.f:2192:22:
+
+lightst4bod.f:2189:72:
+
+       do j=1,6
+                                                                        2
+lightst4bod.f:2192:22:
+
+       g1l2=EcharR(3,1,j)
+                      1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+lightst4bod.f:2441:24:
+
+lightst4bod.f:2414:72:
+
+       do j=1,6
+                                                                        2
+lightst4bod.f:2441:24:
+
+       g2l2=-DcharL(3,kk,j)
+                        1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+lightst4bod.f:2442:24:
+
+lightst4bod.f:2414:72:
+
+       do j=1,6
+                                                                        2
+lightst4bod.f:2442:24:
+
+       g2r2=-EcharR(3,kk,j)
+                        1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+lightst4bod.f:2743:24:
+
+lightst4bod.f:2732:72:
+
+       do kk=1,6
+                                                                        2
+lightst4bod.f:2743:24:
+
+       g3r2=gneutul(ifer,kk,1)
+                        1
+Warning: Array reference at (1) out of bounds (6 > 4) in loop beginning at (2)
+lightst4bod.f:4659:22:
+
+lightst4bod.f:4656:72:
+
+       do j=1,6
+                                                                        2
+lightst4bod.f:4659:22:
+
+       g1l2=EcharR(3,1,j)
+                      1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+lightst4bod.f:5409:25:
+
+lightst4bod.f:5405:72:
+
+       do j=1,6
+                                                                        2
+lightst4bod.f:5409:25:
+
+       g1l2=EcharR(ifer,1,j)
+                         1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+lightst4bod.f:5410:25:
+
+lightst4bod.f:5405:72:
+
+       do j=1,6
+                                                                        2
+lightst4bod.f:5410:25:
+
+       g1r2=DcharL(ifer,1,j)
+                         1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+lightst4bod.f:5513:25:
+
+lightst4bod.f:5509:72:
+
+       do j=1,6
+                                                                        2
+lightst4bod.f:5513:25:
+
+       g1l2=EcharR(ifer,1,j)
+                         1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+lightst4bod.f:6358:25:
+
+lightst4bod.f:6355:72:
+
+       do j=1,6
+                                                                        2
+lightst4bod.f:6358:25:
+
+       g1l2=EcharR(ifer,1,j)
+                         1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+lightst4bod.f:6607:24:
+
+lightst4bod.f:6579:72:
+
+       do j=1,6
+                                                                        2
+lightst4bod.f:6607:24:
+
+       g2l2=-DcharL(3,kk,j)
+                        1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+lightst4bod.f:6608:24:
+
+lightst4bod.f:6579:72:
+
+       do j=1,6
+                                                                        2
+lightst4bod.f:6608:24:
+
+       g2r2=-EcharR(3,kk,j)
+                        1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+lightst4bod.f:6931:24:
+
+lightst4bod.f:6918:72:
+
+       do kk=1,6
+                                                                        2
+lightst4bod.f:6931:24:
+
+       g3r2=gneutul(ifer,kk,1)
+                        1
+Warning: Array reference at (1) out of bounds (6 > 4) in loop beginning at (2)
+lightst4bod.f:7498:25:
+
+lightst4bod.f:7495:72:
+
+       do j=1,6
+                                                                        2
+lightst4bod.f:7498:25:
+
+       g1l2=EcharR(ifer,1,j)
+                         1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+lightst4bod.f:8904:26:
+
+lightst4bod.f:8816:72:
+
+       do jj=1,6
+                                                                        2
+lightst4bod.f:8904:26:
+
+       gcd3l=gneutdl(ifer2,jj,1)
+                          1
+Warning: Array reference at (1) out of bounds (6 > 4) in loop beginning at (2)
+lightst4bod.f:8905:26:
+
+lightst4bod.f:8816:72:
+
+       do jj=1,6
+                                                                        2
+lightst4bod.f:8905:26:
+
+       gcd3r=gneutdr(ifer2,jj,1)
+                          1
+Warning: Array reference at (1) out of bounds (6 > 4) in loop beginning at (2)
+lightst4bod.f:8927:26:
+
+lightst4bod.f:8816:72:
+
+       do jj=1,6
+                                                                        2
+lightst4bod.f:8927:26:
+
+       gbd3R=gneutul(ifer, jj, 1)
+                          1
+Warning: Array reference at (1) out of bounds (6 > 4) in loop beginning at (2)
+lightst4bod.f:9034:25:
+
+lightst4bod.f:9023:72:
+
+       do kk=1,6
+                                                                        2
+lightst4bod.f:9034:25:
+
+       g3l2=gneutdl(ifer2,kk,1)
+                         1
+Warning: Array reference at (1) out of bounds (6 > 4) in loop beginning at (2)
+lightst4bod.f:9035:25:
+
+lightst4bod.f:9023:72:
+
+       do kk=1,6
+                                                                        2
+lightst4bod.f:9035:25:
+
+       g3r2=gneutdr(ifer2,kk,1)
+                         1
+Warning: Array reference at (1) out of bounds (6 > 4) in loop beginning at (2)
+lightst4bod.f:9057:24:
+
+lightst4bod.f:9023:72:
+
+       do kk=1,6
+                                                                        2
+lightst4bod.f:9057:24:
+
+       g3l2=gneutuL(ifer,kk,1)
+                        1
+Warning: Array reference at (1) out of bounds (6 > 4) in loop beginning at (2)
+lightst4bod.f:9058:24:
+
+lightst4bod.f:9023:72:
+
+       do kk=1,6
+                                                                        2
+lightst4bod.f:9058:24:
+
+       g3r2=gneutur(ifer,kk,1)
+                        1
+Warning: Array reference at (1) out of bounds (6 > 4) in loop beginning at (2)
+gfortran -c -finit-local-zero -fbacktrace -fno-align-commons Xvegas.f
+gfortran -c -finit-local-zero -fbacktrace -fno-align-commons lightst3bod.f
+lightst3bod.f:94:17:
+
+lightst3bod.f:91:72:
+
+       do s=1,6
+                                                                        2
+lightst3bod.f:94:17:
+
+       DcharL(i,k,s)=g2ew*vv(k,2)/Sqrt(2d0)/amw/dsin(datan(tanbeta))
+                 1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+lightst3bod.f:98:17:
+
+lightst3bod.f:91:72:
+
+       do s=1,6
+                                                                        2
+lightst3bod.f:98:17:
+
+       EcharR(i,k,s)=g2ew*uu(k,2)/dsqrt(2d0)/amw
+                 1
+Warning: Array reference at (1) out of bounds (6 > 2) in loop beginning at (2)
+gfortran -c -finit-local-zero -fbacktrace -fno-align-commons susylha.f
+gfortran -c -finit-local-zero -fbacktrace -fno-align-commons hgaga.f
+gfortran -c -finit-local-zero -fbacktrace -fno-align-commons hdecay.f
+gfortran bsg.o twoloophiggs.o suspect2.o sdecay.o lightst4bod.o Xvegas.o lightst3bod.o susylha.o hgaga.o hdecay.o -o run
+make: *** No rule to make target 'uninstall'.  Stop.
+make: *** No rule to make target 'distclean'.  Stop.
+configure: error: unrecognized option: --64
+Try `./configure --help' for more information.
+make: *** No targets specified and no makefile found.  Stop.
+make: *** No rule to make target 'install'.  Stop.
+mkdir: cannot create directory ‘/storage/shared/software/Scripts/SUSYPheno/MICROMEGA/micromegas_3.5.5/MSSM/work/so_generated/’: File exists

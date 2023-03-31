@@ -1,0 +1,24 @@
+
+//**.****|****.****|****.****|****.****|****.****|****.****|****.****|****.****|
+// * Configure.cc *                                galprop package * 4/14/2000 
+//**"****!****"****!****"****!****"****!****"****!****"****!****"****!****"****|
+
+#include<iostream.h>
+#include"Configure.h"
+
+int Configure::init()
+{
+   cout<<">>>>Configure"<<endl;
+   directory_length=100;
+   galdef_directory=new char[directory_length];
+   fits_directory=new char[directory_length];
+   adjunct_directory=new char[directory_length];
+   strcpy(galdef_directory, "@prefix@/share/DarkSUSY/GALDEF/");
+   strcpy(  fits_directory, "@prefix@/share/DarkSUSY/FITS/"  );
+   strcpy(adjunct_directory,"@prefix@/share/DarkSUSY/adjunct/"  );
+   cout<<"Configure: galdef_directory:  "<< galdef_directory<<endl;
+   cout<<"Configure:   fits_directory:  "<<   fits_directory<<endl;
+   cout<<"Configure:adjunct_directory:  "<<adjunct_directory<<endl;
+   cout<<"<<<<Configure"<<endl;
+   return 0;
+}

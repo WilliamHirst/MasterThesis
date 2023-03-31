@@ -1,0 +1,40 @@
+# Makefile for pb directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemfpg.pl on Nov 04, 2011.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dsprep.h dsmpconst.h dspbprivate.h dsidtag.h dsdirver.h \
+dspbcom.h dshacom.h dshrcom.h dshmcom.h dsgalpropcom.h
+
+vpath %.h $(DINC)
+
+SRC = dspbaddterm.f dspbbeupargc.f dspbbeupargs.f dspbbeuparh.f \
+dspbbeuparm.f dspbcharpar1.f dspbcharpar2.f dspbgalpropdiff.f \
+dspbgalpropig.f dspbgalpropig2.f dspbkdiff.f dspbkdiffm.f dspbset.f \
+dspbsigmavpbar.f dspbtd15.f dspbtd15beu.f dspbtd15beucl.f \
+dspbtd15beuclsp.f dspbtd15beum.f dspbtd15char.f dspbtd15comp.f \
+dspbtd15point.f dspbtd15x.f dspbtpb.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

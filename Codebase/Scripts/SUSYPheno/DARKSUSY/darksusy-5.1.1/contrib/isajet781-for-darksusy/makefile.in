@@ -1,0 +1,48 @@
+# makefile for isajet 7.81
+# Date: June 4, 2011
+
+# This file will create isasugra and put it into libisajet.a
+
+FF=@F77@
+FOPT=@FOPT@
+
+DS_ROOT=../..
+LIB=$(DS_ROOT)/lib
+
+########################################################
+### READ THROUGH AND CHANGE THE DEFAULT VALUES BELOW ###
+### BEFORE COMPILING.                                ###
+########################################################
+
+# Obsolete:
+# aldata.o was not included here, instead it was compiled separately and put
+# in the DarkSUSY lib directory. Make sure to link to it whenever you link
+# to libisajet.a.
+# For compatibility with gfortran, aldata.o _is_ included here (after 'BLOCK DATA' has been changed to 'SUBROUTINE').
+
+OBJ = aldata.o alqcd.o amass.o amgmw.o ayukdiag.o b0func.o bases.o besk1.o bhinit.o bhplot.o bhrset.o bhsave.o bi.o bk2mvsm.o boostx.o brems.o bschck.o bsdate.o bsdims.o bsetgu.o bsetgv.o bsggut.o bsgrid.o bsinfo.o bsinit.o bsintg.o bslist.o bsordr.o bsparm.o bsprnt.o bsread.o bstcnv.o bstime.o bsutim.o bswrit.o bufin.o bufout.o c0.o cbk2mvsm.o ccon.o cdagger.o charge.o chargino.o chdec.o chint.o ci.o cmatmul.o cmd.o cmodsq.o colr12.o colr13.o colr22.o con.o coup1x.o coup2x.o coup3x.o coup4x.o cputim.o cre.o crge215.o crge601.o crkstp.o csfmul.o csmrgedr.o cteq5l.o ctq5pdf.o ctrace.o ctxc2i.o ctxi2c.o ctxin.o ctxout.o d0.o dadmul.o dagger.o dblpcm.o dblvec.o dboost.o dcabs1.o ddilog.o decay.o decjet.o decoutcoup.o decps1.o decps2.o decrun.o decss3.o dectau.o decva.o dhfill.o dhinit.o dhplot.o di.o diagsqm.o dincgm.o disnan.o dlabad.o dladiv.o dlaisnan.o dlamc1.o dlamc2.o dlamc3.o dlamc4.o dlamc5.o dlamch.o dlapy2.o dlapy3.o dmatmul.o domssm.o downmhcond.o downmhighmh.o downmhighmz.o downmscond.o downsqm.o dre.o drge215.o drge601.o drkstp.o drllyn.o drn.o drnset.o drotsq.o drotsqback.o dscal.o dsmma.o dsmrgedr.o dtrace.o dtrint.o dzasum.o dznrm2.o eaixxx.o eaoxxx.o ebeam.o edit.o eebeg.o eemax.o ei.o eigsys.o eisrs1.o elctrn.o epf.o estruc.o evol01.o evol02.o evol03.o evol05.o evol06.o evol07.o evol11.o evolms.o evolve.o fa12.o fa12_integr.o fbrbm.o fes.o flavor.o fntg.o fortop.o frgjet.o frgmnt.o fsixxx.o fsoxxx.o func.o func_int.o funs.o fvixxx.o fvoxxx.o gamma.o gammac1.o gammac2.o gammahp.o gammasm.o gammawb1.o gammawb2.o gamtot.o gbeam.o ges.o getpas.o getpt.o gettot.o ggggxx.o gggxxx.o gluneno.o gout601.o gstruc.o hdcyad.o hdcysy.o heavyx.o hermtest.o hevolv.o higgs.o highin.o hioxxx.o hsssxx.o hssxxx.o hvsxxx.o hvvxxx.o idamax.o idanti.o idgen.o ieeeck.o iframs.o ilaenv.o ilazlc.o inisap.o iosxxx.o iovxxx.o ipartns.o ipjset.o iprtns.o irmov0.o isaamu.o isabeg.o isabmm.o isabsg.o isachp.o isaend.o isaevt.o isahep.o isaini.o isajet.o isalha.o isalhd.o isalhe.o isared.o isares.o isasrt.o isawbg.o isawev.o isawig.o isawnd.o ispjet.o istrad.o iswdky.o itrans.o ixxxxx.o j3xxxx.o jeexxx.o jetgen.o jgggxx.o jggxxx.o jioxxx.o jssxxx.o jtioxx.o jvssxx.o jvsxxx.o jvvxxx.o jw3wxx.o jwwwxx.o kkgf1.o kkgf2.o kkgf3.o kmin.o label.o lboost.o logerr.o logic.o logmgm.o logmgy.o logmij.o logp.o logphi.o logphw.o logpt.o logqm.o logqt.o logthw.o logx.o logxw.o logyth.o logyw.o lsame.o lstsq.o mass.o masssqm.o mat2vec.o mbias.o mbset.o mginit.o mmamsb.o modsq.o mom2cx.o momntx.o movlev.o mprod2.o mprod2x.o mprod3.o mprod3x.o mprod4x.o mprod5x.o muljet.o nogood.o omega.o ordecr.o order.o orth.o outcoup.o oxxxxx.o pdgid.o piblbl.o piblbr.o pibrbr.o pielel.o pierer.o pillll.o pilllr.o pilrlr.o pinene.o pitltl.o pitltr.o pitrtr.o prtevt.o prtlim.o prtlst.o ptfun.o qcdini.o qcdint.o qcdinz.o qcdjet.o qcdt.o qcdz.o qfunc.o ranf.o ranfgt.o ranfmt.o ranfst.o ranlux.o rdbeg.o rdtape.o readin.o rejfrg.o rejjet.o remsf.o rend.o rescal.o reset.o rge157.o rgeflav.o rgens.o rgeread.o rkstp.o rotate.o rotate215.o rotatesm.o rotback.o rotback215.o rotbacksm.o rotsq.o rotsqback.o rotxxx.o rpdecy.o rpinf1.o rpinf2.o rpint1.o rpint2.o rpint3.o rpmain.o rpmoda.o rpnorm.o rprate.o rprtch.o setcon.o setdky.o seth.o sethss.o setkkg.o setnxt.o settyp.o setw.o sfmul.o shcler.o shfill.o shinit.o shplot.o shrset.o shupdt.o sig0l.o sig0r.o sig0s.o sigdy.o sigdy2.o sigee.o sigfil.o siggam.o sigh.o sigh2.o sigh3.o sighss.o sigint.o sigkkg.o sigpl.o sigpr.o sigps.o sigqcd.o sigsse.o sigssl.o sigssy.o sigssz.o sigtc.o sigtc2.o sigtc3.o sigwh.o sigwhs.o sigww.o sigww2.o smszg.o sorttf.o sortth.o sortzg.o spchck.o sphist.o spinfo.o spline.o sprgen.o spring.o sqdiag.o sqrlam.o sqsix.o ssa0.o ssalfs.o ssb0.o ssb00.o ssb1.o ssb1f.o ssbt20.o ssbt22.o ssc0.o ssd0.o ssd27.o ssdhll.o ssdint.o ssdlam.o ssf.o ssf0.o ssfel.o ssg.o ssglbf.o ssgst.o ssgt.o ssgwq1.o ssgwq2.o ssgwt1.o ssgwt2.o ssgwt3.o ssgwt4.o ssgwt5.o ssgwt6.o ssgwt7.o ssgwt8.o ssgx1.o ssgx10.o ssgx11.o ssgx2.o ssgx3.o ssgx4.o ssgx5.o ssgx6.o ssgx7.o ssgx8.o ssgx9.o ssgzg1.o ssgzg2.o ssgzg3.o ssgzt.o ssh.o ssh0.o sshcc.o sshff.o sshff1.o sshgl.o sshgm.o sshgm1.o sshhx.o sshibf.o sshnn.o sshsf.o sshww.o sshww1.o sshww2.o ssl1st.o sslpbf.o sslrt1.o ssm1lp.o ssmass.o ssme3.o ssmhc.o ssmhn.o ssmqcd.o ssmssm.o ssn1st.o ssnorm.o sspole.o ssqkbf.o ssrsgb.o ssrsgl.o ssrsgt.o sssave.o sssnws.o ssssxx.o ssstbf.o sssvme.o sssxxx.o sstest.o sstpbf.o sswibf.o sswwf1.o sswz2p.o sswz3p.o sswzbf.o sswzf1.o sswzf2.o sswzf3.o sswzf4.o sswzf5.o sswzf6.o sswzf7.o ssxint.o ssxlam.o sszhx.o sszibf.o sszwf1.o sszzf1.o sszzf2.o sszzf3.o sszzf4.o sszzf5.o sszzg1.o sszzg2.o sszzg3.o sszzg4.o st1cneu.o st3int.o st3mat.o stbwz1.o stradd.o strotate.o strotback.o struc.o strucw.o sualfe.o sualfs.o sug2bsg.o sugeff.o sugefffl.o sugfrz.o sugmas.o sugra.o sugrge.o surg06.o surg26.o sxxxxx.o symmtest.o szjj1.o szjj2.o szjj3.o szjj4.o szjj5.o szjj6.o szjj7.o tactiv.o tcsfmul.o thetaxy.o timer.o tql2.o tqleig.o tr3x3.o trace.o trdiag.o tred2.o triint.o tsfmul.o twojet.o twokin.o uoutcoup.o upmhcond.o upmhcond2.o upmzmhigh.o upmzmhigh2.o upsqm.o usmma.o vec2mat.o vgen.o visaje.o vssxxx.o vvssxx.o vvsxxx.o vvvxxx.o vxxxxx.o w3w3xx.o wgens.o whiggs.o wilson.o wpair.o wwkin.o wwss.o wwst.o wwtt.o wwwwxx.o wzss.o wzst.o wzsu.o wztu.o xerbla.o xhchck.o xhfill.o xhinit.o xhordr.o xhplot.o xhrnge.o xhscle.o xkaim.o xkare.o xwwww.o xwwzz.o xzzww.o xzzzz.o ygenj.o yukdiag.o zaxpy.o zcopy.o zdotc.o zdotu.o zdscal.o zerol.o zgebak.o zgebal.o zgeev.o zgehd2.o zgehrd.o zgemm.o zgemv.o zgerc.o zhseqr.o zjj.o zjj0.o zjj1.o zjj2.o zjj3.o zjj4.o zjj5.o zjj6.o zjj7.o zlacgv.o zlacpy.o zladiv.o zlahqr.o zlahr2.o zlange.o zlaqr0.o zlaqr1.o zlaqr2.o zlaqr3.o zlaqr4.o zlaqr5.o zlarf.o zlarfb.o zlarfg.o zlarft.o zlartg.o zlascl.o zlaset.o zlassq.o zlatrs.o zrot.o zscal.o zswap.o ztrevc.o ztrexc.o ztrmm.o ztrmv.o ztrsv.o zung2r.o zunghr.o zungqr.o zunm2r.o zunmhr.o zunmqr.o zzall.o zzstar.o
+
+#OBJ2 = aldata.o
+
+vpath %.a $(LIB)
+
+#all : libisajet.a aldata.o
+all : libisajet.a
+
+#aldata.o: aldata.f
+#	$(FF) $(FOPT) -c -o $(LIB)/aldata.o aldata.f
+
+libisajet.a: $(OBJ)
+	ar r $(LIB)/libisajet.a $(OBJ)
+	ranlib $(LIB)/libisajet.a
+
+clean:
+	rm -f *.o
+
+.f.o :
+	$(FF) $(FOPT) -c -o $*.o $*.f
+
+#sugeff.o: sugeff.f
+#	f77 -c -o sugeff.o sugeff.f
+
+#.PHONY: aldata.o

@@ -1,0 +1,37 @@
+# Makefile for ini directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemfpg.pl on Nov 04, 2011.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dsprep.h dsrncom.h dsmssm.h dsascom.h dsaccom.h dsio.h \
+dsandwcom.h dsnuclides.h dsidtag.h dsdirver.h dspbcom.h dshacom.h \
+dswacom.h
+
+vpath %.h $(DINC)
+
+SRC = dscval.f dsfval.f dsinit.f dsival.f dskillsp.f dslowcase.f \
+dslval.f dsreadnuclides.f dsreadpar.f dssetdsinstall.f dssetdsversion.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

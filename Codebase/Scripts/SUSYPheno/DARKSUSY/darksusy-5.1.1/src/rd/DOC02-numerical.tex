@@ -1,0 +1,87 @@
+%%%%% APPENDIX: Relic density - numerical details %%%%%
+
+\section{Relic density -- numerical integration of the density equation}
+\label{sec:numdens}
+
+Let us write the evolution equation for the density,
+\begin{equation} \label{eq:Boltzmann4}
+  \frac{dY}{dx} = - \sqrt{\frac{\pi}{45G}} \frac{g_{*}^{1/2}m_1}{x^2}
+  \langle \sigma_{\rm{eff}} v \rangle \left( Y^2 -
+  Y_{\rm{eq}}^2 \right) 
+\end{equation}
+as
+\begin{equation} 
+  \frac{dY}{dx} = \lambda (Y^2 - q^2),
+  \label{eq:evol}
+\end{equation}
+where $\lambda$ contains the annihilation rate and $q$ represents the
+thermal-equilibrium density.
+
+This equation is stiff and an explicit method, like Euler or Runge-Kutta, fails
+to converge. To obtain a numerical solution, we use an adaptive implicit
+trapezoidal method which we explain in the following.  Basically we discretize
+the equation first with a trapezoidal then with an Euler method, and adapt the
+step size according to the difference in the updated function values.
+
+For simplicity we denote the right hand wide of eq.~(\ref{eq:evol}) as $f(x)$.
+We further write $f_{i} = f(x_i)$ and similarly for the other functions
+$\lambda(x)$ and $q(x)$. Given $Y_{i} = Y(x_i)$ we find $Y_{i+1} = Y(x_{i+1}) $
+with $x_{i+1} = x_{i} + h$ as follows.
+
+First we discretize the evolution equation as
+\begin{equation}
+  Y_{i+1} - Y_{i} = h \frac{ f_i + f_{i+1}}{2} .
+\end{equation}
+We insert
+\begin{eqnarray}
+  f_{i} &=& \lambda_{i} \left( Y_{i}^2 - q_{i}^2 \right), \\
+  f_{i+1} &=& \lambda_{i+1} \left( Y_{i+1}^2 - q_{i+1}^2 \right) ,
+\end{eqnarray}
+and solve the resulting quadratic equation for $Y_{i+1}$ to obtain
+\begin{equation}
+  \label{eq:y_one}
+  Y_{i+1} = \frac{c}{1+\sqrt{1+uc}} ,
+\end{equation}
+where
+\begin{eqnarray}
+c &=& 2 Y_{i} + u \left[ (q^2_{i+1} + \rho q^2_{i}) - \rho Y^2_{i} \right] , \\
+u &=& h \lambda_{i+1} ,\\
+\rho &=& \lambda_i / \lambda_{i+1} .
+\end{eqnarray}
+In the expression for $c$ we have explicitly indicated the order of evaluation
+which we found avoids round-off errors. If in eq.~(\ref{eq:y_one}) $1+uc$ is
+negative, we simply reduce the step $h$ to $h/2$ and try again.
+
+
+Secondly we discretize the evolution equation as
+\begin{equation}
+  Y_{i+1} - Y_{i} = h f_{i+1} .
+\end{equation}
+We insert the expression for $f_{i+1}$ 
+and solve the quadratic equation for $Y_{i+1}$ to obtain
+\begin{equation}
+  \label{eq:y_two}
+  Y'_{i+1} = \frac{1}{2} \, \frac{c'}{1+\sqrt{1+uc'}} ,
+\end{equation}
+where
+\begin{equation}
+  c' = 4 \left( Y_{i} + u q^2_{i+1} \right) .
+\end{equation}
+Again if in eq.~(\ref{eq:y_two}) $1+uc'<0$, we reduce the step $h$ to $h/2$ and
+try again.
+
+We then adapt the step size according to the relative difference of $Y_{i+1} $
+and $Y'_{i+1}$,
+\begin{equation}
+d = \left| \frac{ Y_{i+1} - Y'_{i+1} }{ Y_{i+1} } \right| .
+\end{equation}
+If the difference is larger than a prefixed $\epsilon$, set at 0.01, we reduce
+the step size $h$ to $hs/\sqrt{\epsilon}$ but never to less than $h/10$.  $s$
+is a safety factor set to 0.9. If $d<\epsilon$, we increase the step size by a
+factor $s/\sqrt{\epsilon}$ but never by more than a factor of 5.  We do not
+allow the step size to become smaller than $h_{\rm min} = 10^{-9}$. Error code
+5 is reported if this happens.  Error code 4 occurs when $x_{i+1}$ is
+numerically equal to $x_{i}$ because of round-off. Error code 6 occurs when the
+number of steps exceeds a maximum of 100000.  Finally the initial step size is
+taken to be 0.01.
+

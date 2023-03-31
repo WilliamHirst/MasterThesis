@@ -1,0 +1,80 @@
+\documentclass[a4paper,10pt]{book}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{hyperref}
+%\usepackage[dvips, bookmarks, colorlinks=true,% 
+%pdftitle={DarkSUSY Manual}, pdfauthor={DarkSUSY team}, 
+%pdfsubject={DarkSUSY Manual},%
+%pdfkeywords={dark matter, DarkSUSY, supersymmetry, MSSM}]{hyperref}
+%\usepackage{sectsty}
+%
+% In this template files, a few keywords of the typ [KeyWord]
+% indicate to the script headers2tex.pl where to insert
+% headers, macros etc.
+%
+% This LaTeX file is automatically created by the script
+% headers2tex.pl that can be found in the scr directory in the
+% DarkSUSY distribution.
+% The script is written by Joakim Edsjo, edsjo@physto.se
+
+[Macros]
+
+% Change fonts
+%\chapterfont{\sffamily}
+%\sectionfont{\sffamily}
+%\subsectionfont{\sffamily}
+%\allsectionsfont{\sffamily}
+
+\addtolength{\textwidth}{3cm}
+\addtolength{\oddsidemargin}{-1cm}
+\addtolength{\evensidemargin}{-2cm}
+\addtolength{\textheight}{1cm}
+\addtolength{\topmargin}{-0.5cm}
+
+%\newcommand{\addtoindex}[1]{
+%\addtocontents{toc}{#1\dotfill\arabic{page}\hskip2in\break}}
+
+%\newenvironment{routine}[1]{\newpage\section*{#1}
+%\hrule\vspace*{0.3in}\bgroup\addtoindex{#1}}
+%{\egroup\vspace*{0.5in}}
+
+\newenvironment{routine}[1]{\subsection*{#1}
+\hrule\vspace*{1ex}\addcontentsline{toc}{subsection}{#1}}
+
+\pagestyle{headings}
+
+\begin{document}
+
+\centerline{\epsfig{file=fig/DarkSUSY2-400.eps,width=0.5\textwidth}}
+
+\vspace{2cm}
+
+\centerline{\LARGE \bfseries DarkSUSY [DarkSUSYVersion]}
+
+\bigskip
+\bigskip
+
+\centerline{\Huge \bfseries \sffamily [Title]}
+
+\vspace{1.5cm}
+
+\centerline{\large Created automatically by headers2tex.pl}
+\smallskip
+
+\centerline{[Date]}
+
+\bigskip
+
+\centerline{\url{http://www.darksusy.org}{}}
+
+\bigskip
+
+[HeaderFiles]
+
+\newpage
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% This is the end of the template file, below follow other files
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

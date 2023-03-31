@@ -1,0 +1,215 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Positrons from the halo -- theory}
+
+Neutralino annihilations in the halo will give rise to positrons either
+directly or from decaying mesons in hadron jets.  We thus expect to get both
+monochromatic positrons (at an energy of $m_{\chi}$) from direct annihilation
+into $e^{+}e^{-}$ and continuum positrons from the other annihilation
+channels. In general, the branching ratio for annihilation directly into $e^+
+e^-$ is rather small due to the helicity-flip suppression $\propto m_e$ for
+S-wave annihilation in the halo, but for some classes of models one can still
+obtain a large enough branching ratio for the line to be observable.
+
+The computation of the positron flux from neutralino annihilations used in \ds\
+resembles the calculation of the antiproton flux, with some important changes
+due to other mechanisms of energy loss with different energy dependence.  Due
+to the fact that energy losses for positrons are more rapid than for
+antiprotons, the computed signal is less sensitive to the global structure of
+the dark matter halo.  (On the other hand, it is more sensitive to possible
+local sources of background, such as supernova remnants etc.)
+
+The calculation of the neutralino-induced positron flux performed in \ds\
+follows the analysis in \cite{baltz}.  For continuum positrons, we have again
+simulated the decay and/or hadronization with the Lund Monte Carlo {\sc Pythia}
+as described in section \ref{sec:mcsim}.
+%For any given MSSM model, the positron spectrum is
+%\begin{equation}
+%  \frac{d\phi}{dE} =
+%  \left. \frac{d\phi}{dE} \right|_{\rm cont.} +
+%  \left. \frac{d\phi}{dE} \right|_{\rm line}
+%  = \sum_{F \neq e^{+}e^{-}} B_{F}
+%  \left. \frac{d\phi}{dE} \right|_{F} + B_{e^{+}e^{-}}\,
+%  \delta(E-m_\chi),
+%\end{equation}
+%in units of $e^{+}/{\rm annihilation}$ where $B_{F}$ is the branching ratio
+%into a given final state $F$ and $\left.d\phi/dE\right|_{F}$ is the
+%spectrum of positrons from annihilation channel $F$\@.
+We have included all two-body final states in \ds\ (except the three lightest
+quarks which are completely negligible) at tree level and the $Z\gamma$
+\cite{bub} and $gg$ \cite{lp} final states which arise at one-loop level.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Propagation and the interstellar flux}
+
+We consider a standard diffusion model, somewhat less
+sophisticated than in the case of antiprotons, for the propagation of
+positrons in the galaxy.  Charged particles move under the influence
+of the galactic magnetic field.  For the relevant energies
+  the magnetic gyroradii of the particles are quite small.
+However, the magnetic field is tangled, and even with small gyroradii,
+particles can jump to nearby field lines which will drastically alter
+their courses.  This entire process can be modeled as a random walk,
+which can be described by a diffusion equation.
+
+Positron propagation is complicated by the fact that light particles lose
+energy quickly due to inverse Compton and synchrotron processes.  Diffuse
+starlight and the Cosmic Microwave Background (CMB) both contribute appreciably
+to the energy loss rate of high energy electrons and positrons via inverse
+Compton scattering.  Electrons and positrons also lose energy by synchrotron
+radiation as they spiral around the galactic magnetic field lines.
+
+Our detailed treatment of positron diffusion employed in \ds\ is as follows.
+First define a dimensionless energy variable $\varepsilon=E/(1\;{\rm GeV})$,
+and the dimensionless mass $\mct=m_\chi/(1\;{\rm GeV})$\@.  The
+standard diffusion-loss equation for the space density of cosmic rays per unit
+energy, $dn/d\varepsilon$, is then given by
+\begin{equation}
+   \frac{\partial}{\partial t}\frac{dn}{d\varepsilon}=\vec{\nabla}\cdot
+   \left[K(\varepsilon,\vec{x})\vec{\nabla}\frac{dn}{d\varepsilon}\right]+
+   \frac{\partial}{\partial \varepsilon}\left[b(\varepsilon,\vec{x})
+   \frac{dn}{d\varepsilon}\right]+Q(\varepsilon,\vec{x}),
+   \label{eq:diffloss}
+\end{equation}
+where $K$ is the diffusion constant, $b$ is the energy loss rate and $Q$ is the
+source term.  We consider only steady state solutions, setting the left hand
+side of Eq.\ (\ref{eq:diffloss}) to zero.
+
+We assume that the diffusion constant $K$ is constant in space throughout a
+``diffusion zone'', but it may vary with energy.  At energies above a few GeV,
+we can represent the diffusion constant as a power law in energy \cite{wlg},
+\begin{equation}
+   K(\varepsilon)=K_0\varepsilon^\alpha\approx
+   3\times 10^{27}\varepsilon^{0.6}{\rm cm}^2\;{\rm s}^{-1}.
+   \label{eq:KA}
+\end{equation}
+However, at energies below about 3 GeV, there is a cutoff in the diffusion
+constant that can be modeled as
+\begin{equation}
+   K(\varepsilon)=K_0\left[C+\varepsilon^\alpha\right]\approx
+   3\times 10^{27}\left[3^{0.6}+\varepsilon^{0.6}\right]
+   {\rm cm}^2\;{\rm s}^{-1}.
+   \label{eq:KB}
+\end{equation}
+Both of these models for the diffusion constant can be used in \ds\ but the
+second expression is the default.\footnote{In fact, a third option can be
+   chosen in \ds\ as well, employing the propagation model of \cite{kamturner}.}
+The function $b(\varepsilon)$ represents the (time) rate of energy loss.  We
+allow energy loss via synchrotron emission and inverse Compton scattering.  The
+rms magnetic field in the diffusion zone is about $3~\mu$G, an energy density
+of about 0.2 eV cm$^{-3}$\@. We allow inverse Compton scattering on both the
+cosmic microwave background and diffuse starlight, which have energy densities
+of 0.3 and 0.6 eV cm$^{-3}$ respectively.  These two processes combined give an
+energy loss rate \cite{energy-loss} \def\erf{\mathop{\rm erf}}
+\begin{equation}
+   b(\varepsilon)_{e^\pm}=\frac{1}{\taue}\varepsilon^2
+   \approx 10^{-16}\varepsilon^2\;{\rm s}^{-1},
+   \label{eq:bofe}
+\end{equation}
+where we have neglected the space dependence of the energy loss rate.  Lastly,
+the function $Q$ is the source of positrons in units of cm$^{-3}$ s$^{-1}$\@.
+
+We model the diffusion zone as a slab of thickness $2L$\@.  We fix $L$ to be 3
+kpc, which fits observations of the cosmic ray flux \cite{wlg}.  We impose free
+escape boundary conditions, namely that the cosmic ray density drops to zero on
+the surfaces of the slab, which we let be the planes $z=\pm L$\@.  We neglect
+the radial boundary usually considered in diffusion models.  This is justified
+when the sources of cosmic rays are nearer than the boundary, as is usually the
+case with galactic sources.  We will see that the positron flux at Earth,
+especially at higher energies, mostly originates within a few kpc and hence
+this approximation is well justified in our case. (This is different from the
+case of antiprotons, where the flux from the Galactic center can be very
+important at the Earth's location \cite{pbar}.)
+%From \cite{baltz} we find the solution to the diffusion equation
+%\begin{equation}
+%  \frac{dn}{d\varepsilon}=\frac{\taue}{\varepsilon^2}\int
+%  ^\infty_\varepsilon d\varepsilon'\,\int d^3\vec{x}\,'\,G_{2L}
+%  \left(v(\varepsilon)-v(\varepsilon'),\vec{x}-\vec{x}\,'\right)
+%  Q(\varepsilon',\vec{x}\,').
+%  \label{eq:dnde}
+%\end{equation}
+%where the function $G_{2L}$ is the Green's function for a slab with thickness
+%$2L$, satisfying the free escape boundary conditions\@.
+%The free space Green's function is given by
+%\begin{equation}
+%G_{\rm free}(v-v',\vec{x}-\vec{x}\,')=\left(4\pi K_0\taue\deltav\right)^{-3/2}
+%\exp\left(-\frac{\left(\vec{x}-\vec{x}\,'\right)^2}{4K_0\taue\deltav}\right)
+%\theta(\deltav).
+%\end{equation}
+%With image charges $x_n=x$, $y_n=y$, $z_n=2Ln+(-1)^nz$, the full Green's
+%function is
+%\begin{equation}
+%G_{2L}(v-v',\vec{x}-\vec{x}\,')=\sum_{n=-\infty}^\infty
+%(-1)^nG_{\rm free}(v-v',\vec{x}-\vec{x}_n').
+%\end{equation}
+The spatial part of the Green's function is performed once, independently of
+the supersymmetric model, yielding an energy dependent diffusion time
+\begin{equation}
+\taud(\varepsilon,\varepsilon')=\frac{1}{4K_0\deltav}
+\sum^\infty_{n=-\infty}\sum_\pm\erf\left(\frac{(-1)^nL+2Ln\pm z}
+{\sqrt{4K_0\taue\deltav}}\right)\times\hspace{1in}
+\end{equation}
+\begin{displaymath}
+\int_0^\infty dr'\,r'f(r')
+I_0\left(\frac{2rr'}{4K_0\taue\deltav}\right)
+\exp\left(\frac{r^2+r'^2}{4K_0\taue\deltav}\right)
+\theta(\deltav),
+\end{displaymath}
+where $f(r)$ is the effective halo profile squared, and the expression is
+evaluated for $r$ and $z$ appropriate for the observer.  The function
+$v(\varepsilon)$ depends on the diffusion model: the default model has
+$v(\varepsilon)=C/\varepsilon+\varepsilon^{\alpha-1}/(1-\alpha)$.  The function
+$\taud$ is the effective diffusion time for particles emitted at energy
+$\varepsilon'$ and observed at energy $\varepsilon$.  Of course if the
+observed energy is larger than the emitted energy, $\taud=0$.  The spatial
+integrand is smooth, and is computed for a range of values, equally spaced in
+$\log(\deltav)$\@ for use in \ds.  Likewise, the series of image charges used
+in the Green's function converges rapidly, and with the range of
+$\deltav$ values we are concerned with, need not be taken past $n=\pm 10$\@.
+The total positron spectrum is now given by
+\begin{equation}
+   \frac{dn}{d\varepsilon}=n_0^2\sigv\frac{1}{\varepsilon^2}\Bigg\{B_{\rm
+   line}\taud
+   \left(\varepsilon,\mct\right)+\int_{\varepsilon}^{\mct}d\varepsilon'\,
+   \left.\frac{d\phi}{d\varepsilon}\right|_{\rm
+   cont.}\taud(\varepsilon,\varepsilon') \Bigg\},
+\label{eq:dndefinal}
+\end{equation}
+where $B_{\rm line}$ is the branching ratio directly to $e^+e^-$, and
+$d\phi/d\varepsilon|_{\rm cont.}$ is the spectrum of continuum positrons per
+annihilation.  Remembering that this is an expression for the number density of
+positrons, the flux is given by
+\begin{equation}
+   \frac{d\Phi}{d\varepsilon} = \frac{\beta c}{4 \pi} \frac{dn}{d\varepsilon}
+   \simeq \frac{c}{4 \pi} \frac{dn}{d\varepsilon},
+\end{equation}
+where $\beta c$ is the velocity of a positron of energy
+$\varepsilon$\@.  For the energies we are interested in, $\beta c
+\simeq c$ is a very well justified approximation.
+
+%The integral is performed in the variable $v$\@ (see \cite{baltz} 
+%for details).
+%Replacing the Jacobian factor $w(v)=-d\varepsilon/dv$, one finds
+%\begin{equation}
+%\frac{dn}{d\varepsilon}=n_0^2\sigv\frac{1}{\varepsilon^2}\Bigg\{B_{\rm line}
+%\taud\left(\varepsilon,\mct\right)+\int_{v(\mct)}^{v(\varepsilon)}dv'\,
+%w(v')\left.\frac{d\phi}{d\varepsilon}\right|_{\rm cont.}
+%\left(\varepsilon(v')\right)
+%\taud\left(\varepsilon,\varepsilon(v')\right)\Bigg\}.
+%\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Solar modulation}
+
+Again there is a complication in that interactions with the solar wind and
+magnetosphere, solar modulation, alter the spectrum.  This can be neglected at
+high energies, but at energies below about 10 GeV, the effects of solar
+modulation become important. However, its effects can be reduced by considering
+the positron fraction, $e^+/(e^+ + e^-)$, instead of the absolute positron
+fluxes. This is possible to obtain from \ds, since included in the package is
+an estimate of the background $e^+$ and $e^-$ flux taken from
+\cite{MoskStrong98}.
+
+
+

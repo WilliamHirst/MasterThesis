@@ -1,0 +1,41 @@
+# Makefile for an1l directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemfpg.pl on Nov 04, 2011.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dsmssm.h dsidtag.h
+
+vpath %.h $(DINC)
+
+SRC = dsanggim.f dsanggimpar.f dsanggre.f dsanggrepar.f dsanglglim.f \
+dsanglglre.f dsanzg.f dsanzgpar.f dsdilog.f dsdilogp.f dsfl1c1.f \
+dsfl1c2.f dsfl2c1.f dsfl2c2.f dsfl3c1.f dsfl3c2.f dsfl4c1.f dsfl4c2.f \
+dsi_12.f dsi_13.f dsi_14.f dsi_22.f dsi_23.f dsi_24.f dsi_32.f dsi_33.f \
+dsi_34.f dsi_41.f dsi_42.f dsilp2.f dsj_1.f dsj_2.f dsj_3.f dslp2.f \
+dspi1.f dspiw2.f dspiw2i.f dspiw3.f dspiw3i.f dsrepfbox.f dsrepgh.f \
+dsrepw.f dsslc1.f dsslc2.f dssubka.f dssubkb.f dssubkc.f dsti_214.f \
+dsti_224.f dsti_23.f dsti_33.f dsti_5.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

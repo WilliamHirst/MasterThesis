@@ -1,0 +1,18 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Initialization routines}
+
+Before \ds\ is used for some calculations, it needs to be
+initialized. This is done with a call to \codeb{dsinit}. This routine
+makes sure that all standard parameters are defined, such as standard
+model parameters and particle codes. It also calls the different
+\codeb{ds*set} routines with the argument \code{default}. E.g., the
+halo model is set to the default choice with a call to
+\codeb{dshmset}\code{('default')}. Analogously, all other routines
+with a \codeb{ds*set} routine is also called to set them up to the
+default model/parameters.
+
+This means that the call to \codeb{dsinit} should be the first call in
+any program using \ds. Any calls the user makes to other routines,
+either to calculte things or select a different model (e.g.\ a
+different halo model) should come after the call to \codeb{dsinit}.

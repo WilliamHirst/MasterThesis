@@ -1,0 +1,43 @@
+# Makefile for xgalprop directory
+# Author: Edward Baltz
+
+FF=@F77@
+FOPT=@FOPT@
+
+DS_ROOT=../../
+DINC=../../include
+LIB=$(DS_ROOT)/lib
+
+INC_DEP = dshmcom.h dsgalpropcom.h
+
+vpath %.h $(DINC)
+
+xgalprop = dsgalprop_maketable.f dsgalprop_maketable_one.f \
+	dsgalprop_gettable.f rho_darksusy.f \
+	dsgalprop_write_galdef.f dsgalprop_read_fits.f \
+	dsgalprop_run_galprop.f
+
+fast: dsgalprop_dummy.o
+	if [ `ar t $(LIB)/libdarksusy.a dsgalprop.o` ] ; then \
+	ar d $(LIB)/libdarksusy.a dsgalprop.o; \
+	fi
+	ar r $(DS_ROOT)/lib/libdarksusy.a dsgalprop_dummy.o
+	ranlib $(DS_ROOT)/lib/libdarksusy.a 
+
+full: dsgalprop.o
+	if [ `ar t $(DS_ROOT)/lib/libdarksusy.a dsgalprop_dummy.o` ] ; then \
+	ar d $(DS_ROOT)/lib/libdarksusy.a dsgalprop_dummy.o; \
+	fi
+	ar r $(LIB)/libdarksusy.a dsgalprop.o
+	ranlib $(LIB)/libdarksusy.a
+
+dsgalprop.o : $(xgalprop) $(INC_DEP) makefile
+	cat $(xgalprop) > dsgalprop.f
+	$(FF) $(FOPT) $(FCHECK) -c -I$(DINC) -o dsgalprop.o dsgalprop.f
+	rm dsgalprop.f
+
+dsgalprop_dummy.o : dsgalprop_gettable_dummy.f $(INC_DEP) makefile
+	cat dsgalprop_gettable_dummy.f > dsgalprop_dummy.f
+	$(FF) $(FOPT) $(FCHECK) -c -I$(DINC) -o dsgalprop_dummy.o \
+	dsgalprop_dummy.f
+	rm dsgalprop_dummy.f

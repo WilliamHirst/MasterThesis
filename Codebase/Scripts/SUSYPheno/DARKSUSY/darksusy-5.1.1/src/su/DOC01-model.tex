@@ -1,0 +1,554 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Supersymmetric model}
+
+We will here review the definition of the MSSM as given in \cite{dspaper}.
+
+\subsection{Parameters}
+
+In our notation, the superpotential and the soft supersymmetry-breaking scalar
+potential minimal supersymmetric standard model (MSSM) with R-parity
+conservation \cite{mssm} read respectively
+\begin{eqnarray}
+  W &=& \epsilon_{ij} \left(
+  - {\bf \hat{e}}_{R}^{*} {\bf h}_E {\bf \hat{l}}^i_{L} {\hat H}^j_1 
+  - {\bf \hat{d}}_{R}^{*} {\bf h}_D {\bf \hat{q}}^i_{L} {\hat H}^j_1 
+  + {\bf \hat{u}}_{R}^{*} {\bf h}_U {\bf \hat{q}}^i_{L} {\hat H}^j_2 
+  - \mu {\hat H}^i_1 {\hat H}^j_2 
+  \right),
+\\
+  V_{{\rm soft}} & = & 
+  \epsilon_{ij} \left(
+    -{\bf \tilde{e}}_{R}^{*} {\bf A}_E {\bf h}_E {\bf \tilde{l}}^i_{L} H^j_1 
+  - {\bf \tilde{d}}_{R}^{*} {\bf A}_D {\bf h}_D {\bf \tilde{q}}^i_{L} H^j_1 
+  + {\bf \tilde{u}}_{R}^{*} {\bf A}_U {\bf h}_U {\bf \tilde{q}}^i_{L} H^j_2
+  - B \mu H^i_1 H^j_2 
+  \right. \nonumber \\ && \phantom{\epsilon_{ij} \Bigl(} \left.
+  + {\rm h.c.} 
+  \right) \nonumber \\ &&
+  + H^{i*}_1 m_1^2 H^i_1 + H^{i*}_2 m_2^2 H^i_2
+  \nonumber \\ && +
+  {\bf \tilde{q}}_{L}^{i*} {\bf M}_{Q}^{2} {\bf \tilde{q}}^i_{L} + 
+  {\bf \tilde{l}}_{L}^{i*} {\bf M}_{L}^{2} {\bf \tilde{l}}^i_{L} + 
+  {\bf \tilde{u}}_{R}^{*} {\bf M}_{U}^{2} {\bf \tilde{u}}_{R} + 
+  {\bf \tilde{d}}_{R}^{*} {\bf M}_{D}^{2} {\bf \tilde{d}}_{R} + 
+  {\bf \tilde{e}}_{R}^{*} {\bf M}_{E}^{2} {\bf \tilde{e}}_{R} .
+\end{eqnarray}
+Here $i$ and $j$ are SU(2) indices ($\epsilon_{12} = +1$), ${\bf h}$'s, ${\bf
+  A}$'s and ${\bf M}$'s are $3\times3$ matrices in generation space,
+and the other boldface letters are vectors in generation space.
+  
+The current version of \ds\ uses only a restricted set of parameters.
+Namely the number of free parameters (a grand total of 124 \cite{dimopoulos95})
+is reduced by setting the off-diagonal elements of the ${\bf A}$'s and ${\bf
+  M}$'s to zero and imposing CP conservation (except in the CKM matrix). 
+
+\subsection{Mass spectrum}
+
+For easy reference, we now give the particle mass matrices, together with our
+convention for the mixing matrices.
+
+Concerning the Higgs sector, we choose as independent parameters $\tan\beta$
+and the mass $m_A$ of the CP-odd Higgs boson. The code provides six options
+for the calculation of the Higgs masses: 
+\ft{higloop}=0:  tree level formulas;
+\ft{higloop}=1: the effective potential approach in
+\cite{ellis91,brignole91} (correcting the sign of $\mu$ in eq.~(4) of
+\cite{brignole91}); 
+\ft{higloop}=2: the effective potential approach in \cite{drees92}
+  with addition of D-terms and correction of some signs and numerical factors;
+\ft{higloop}=3: the analytical approximations to the
+  RGE-improved effective potential in \cite{carena95};
+\ft{higloop}=4: the pole mass calculation in \cite{carena96};
+\ft{higloop}=5: FeynHiggs (requires FeynHiggs to be
+installed) \cite{feynhiggs};
+\ft{higloop}=6: FeynHiggsFast (default) \cite{feynhiggsfast}.
+
+The  masses of the Higgs bosons are obtained from
+\begin{eqnarray}
+&&  {\cal M}^2_{H} = 
+  \left( \matrix{ 
+      {m_Z^2 \cos^2\beta + m_A^2 \sin^2\beta + \Delta_{11} } &
+      {-\sin\beta\cos\beta(m_Z^2+m_A^2) + \Delta_{12} }
+      \cr
+      {-\sin\beta\cos\beta(m_Z^2+m_A^2) + \Delta_{21} } &
+      {m_Z^2 \sin^2\beta + m_A^2 \cos^2\beta + \Delta_{22} }
+      } \right) 
+  \\
+&&  m^2_{H^{\pm}} = m_{A}^2+m_W^2 + \Delta_{\pm}.
+\end{eqnarray}
+The quantities $\Delta_{ij}$ and $\Delta_{\pm}$ are the one-loop
+radiative corrections, calculated acording to the value of \ft{higloop} as
+described above. Diagonalization of $ {\cal M}^2_{H} $ gives the two CP-even
+Higgs boson masses, $ m_{H_{1,2}} $, and their mixing angle $\alpha$ ($ -\pi/2
+< \alpha < 0$). For \ft{higloop}=4, the pole masses are then obtained solving
+$ m^{2\rm pole}_{H_i} = m^2_{H_i} + \Pi_{ii}(m^{2\rm pole}_{H_i}) - \Pi_{ii}(0)
+$, where $\Pi_{ii}(p^2)$ is $H_iH_i$ the self-energy. In this case, $m_{H_3}$
+is the pole mass and $m_A$ is the running mass.
+
+\begin{table}
+\centering
+\begin{tabular}{lllll} \hline
+ & \multicolumn{4}{c}{Higgs boson} \\ \cline{2-5}
+Channel & $H_1^0$ & $H_2^0$ & $H_3^0$ & $H^+$ \\
+\code{i=} & \code{j=1} & \code{j=2} & \code{j=3} & \code{j=4} \\ \hline
+1  & $c\bar{c}$          & $c\bar{c}$          & $c\bar{c}$          & $u \bar{d}$ \\
+2  & $b \bar{b}$         & $b \bar{b}$         & $b \bar{b}$         & $u \bar{s}$ \\
+3  & $t\bar{t}$          & $t\bar{t}$          & $t\bar{t}$          & $u \bar{b}$ \\
+4  & $\tau^+ \tau^-$     & $\tau^+ \tau^-$     & $\tau^+ \tau^-$     & $c \bar{d}$ \\
+5  & $W^+W^-$            & $W^+W^-$            & --                  & $c \bar{s}$ \\ \hline
+6  & $Z^0 Z^0$           & $Z^0 Z^0$           & --                  & $c \bar{b}$ \\
+7  & --                  & $H_1^0 H_1^0$       & --                  & $t \bar{d}$ \\
+8  & $H_2^0 H_2^0$       & --                  & --                  & $t \bar{s}$ \\
+9  & $H_3^0 H_3^0$       & $H_3^0 H_3^0$       & --                  & $t \bar{b}$ \\
+10 & $H^+ H^-$           & $H^+ H^-$           & --                  & $\nu_e e^+$ \\ \hline
+11 & --                  & --                  & $Z H_1^0$           & $\nu_\mu \mu^+$ \\       
+12 & --                  & --                  & $Z H_2^0$           & $\nu_\tau\tau^+$\\
+13 & $Z H_3^0$           & $Z H_3^0$           & --                  & $W^+ H_1^0$ \\
+14 & $W^+ H^- / W^- H^+$ & $W^+ H^- / W^- H^+$ & $W^+ H^- / W^- H^+$ & $W^+ H_2^0$ \\
+15 & $\mu^+ \mu^-$       & $\mu^+ \mu^-$       & $\mu^+ \mu^-$       & $W^+ H_3^0$ \\ \hline
+16 & $s\bar{s}$          & $s\bar{s}$          & $s\bar{s}$          & --\\
+17 & $gg$                & $gg$                & $gg$                & --\\
+18 & $\gamma \gamma$     & $\gamma \gamma$     & $\gamma \gamma$     & --\\
+19 & $Z^0 \gamma$        & $Z^0 \gamma$        & $Z^0 \gamma$        & --\\
+20 & $\tilde{f} \tilde{f}'$ & $\tilde{f} \tilde{f}'$ & $\tilde{f} \tilde{f}'$ & $\tilde{f} \tilde{f}'$\\ \hline
+\end{tabular}
+\caption{Higgs partial widths \code{hdwidth(i,j)}. Index \code{i} refers to the decay channel and index \code{j} to the Higgs boson. All widths are given in GeV\@. Note that typically we have that $m_{H_2}< m_{H_3}<m_{H^+}<m_{H_1}$ so many of these decay channels are not kinematically allowed, but included for completeness. If the \code{HDECAY} interface is used, the channels where $m_{H_2}< m_{H_3}<m_{H^+}<m_{H_1}$ is not satisfied are not included. Channels 16--19 are only included if HDECAY is used.}
+\label{tab:hwidth}
+\end{table}
+
+The Higgs widths are calculated at tree level, but with QCD corrections \cite{higgsqcd}. The decays to supersymmetric particles are also included in the total width, so the sum of the partial widths in Table \ref{tab:hwidth} does not necessarily sum up to the total width given in \code{width(k)}. The loop corrections are also available via an interface to \code{HDECAY}.
+
+  
+The neutralinos $ \tilde{\chi}^0_i$ are linear combinations of the neutral
+gauginos ${\tilde B}$, ${\tilde W_3}$ and of the neutral higgsinos ${\tilde
+  H_1^0}$, ${\tilde H_2^0}$.  In this basis, we write their mass matrix as
+\begin{eqnarray}
+  {{\cal M}}_{\tilde \chi^0_{1,2,3,4}} = 
+  \left( \matrix{
+  {M_1} & 0 & -m_Z s_W c_\beta & +m_Z s_W s_\beta \cr
+  0 & {M_2} & +m_Z c_W c_\beta & -m_Z c_W s_\beta \cr
+  -m_Z s_W c_\beta & +m_Z c_W c_\beta & \delta_{33} & -\mu \cr
+  +m_Z s_W s_\beta & -m_Z c_W s_\beta & -\mu & \delta_{44} \cr
+  } \right) ,
+\end{eqnarray}
+with $c_W=\cos\theta_W$, $s_W=\sin\theta_W$, $c_\beta=\cos\beta$, and
+$s_\beta=\sin\beta$.  Here $\delta_{33}$ and $\delta_{44}$ are radiative
+corrections important when two higgsinos are close in mass. Their explicit
+expressions are from ref.~\cite{drees97}. To neglect these radiative
+corrections set \ft{neuloop}=0 instead of \ft{neuloop}=1 (default). The
+neutralino mass eigenstates are written as
+\begin{equation}
+  \tilde{\chi}^0_i = 
+  N_{i1} \tilde{B} + N_{i2} \tilde{W}^3 + 
+  N_{i3} \tilde{H}^0_1 + N_{i4} \tilde{H}^0_2 .
+\end{equation}
+The phases of $N_{ij}$ are chosen so that the neutralino masses
+$m_{\tilde{\chi}^0_i} \ge 0$.
+
+
+The charginos are linear combinations of the charged gauge bosons ${\tilde
+  W^\pm}$ and of the charged higgsinos ${\tilde H_1^-}$, ${\tilde H_2^+}$.
+Their mass matrix,
+\begin{eqnarray}
+  {\cal M}_{\tilde{\chi}^\pm} = 
+  \left( \matrix{
+  {M_2} & \sqrt{2} m_W \sin\beta \cr 
+  \sqrt{2} m_W \cos\beta & \mu 
+  } \right) ,
+\end{eqnarray}
+is diagonalized by the following linear combinations
+\begin{eqnarray}
+  \tilde{\chi}^-_i & = & U_{i1} \tilde{W}^- + U_{i2} \tilde{H}_1^- , \\
+  \tilde{\chi}^+_i & = & V_{i1} \tilde{W}^+ + V_{i2} \tilde{H}_1^+ .
+\end{eqnarray}
+We choose ${\rm det}(U)=1$ and $U^* {\cal M}_{\tilde{\chi}^\pm}
+V^\dagger = {\rm diag} ( m_{\tilde{\chi}^\pm_1},
+m_{\tilde{\chi}^\pm_2} )$ with non-negative chargino masses $
+m_{\tilde{\chi}^\pm_i} \ge 0$.
+
+When discussing the squark mass matrix including mixing, it is
+convenient to choose a basis where the squarks are rotated in the same
+way as the corresponding quarks in the standard model.  We follow the
+conventions of the particle data group \cite{pdg99} and put the mixing
+in the left-handed $d$-quark fields, so that the definition of the
+Cabibbo-Kobayashi-Maskawa matrix is $\mbox{\bf K}= \mbox{\bf V}_1
+\mbox{\bf V}_2^\dagger$, where $\mbox{\bf V}_1$ ($\mbox{\bf V}_2$)
+rotates the interaction left-handed $u$-quark ($d$-quark) fields to
+mass eigenstates.  For sleptons we choose an analogous basis, but due
+to the masslessness of neutrinos no analog of the CKM matrix appears.
+ 
+We then obtain the general $6\times6$ $\tilde{u}$- and
+$\tilde{d}$-squark mass matrices:
+\begin{equation}
+  {\cal M}_{\tilde u}^2 = \left( \matrix{
+      \mbox{\bf M}_Q^2 + \mbox{\bf m}_u^\dagger \mbox{\bf m}_u +
+      D_{LL}^{u} \mbox{\bf 1} &
+      \mbox{\bf m}_u^\dagger 
+      ( {\bf A}_U^\dagger - \mu^* \cot\beta ) \cr
+      ( {\bf A}_U - \mu \cot\beta ) \mbox{\bf m}_u &
+      \mbox{\bf M}_U^2 + \mbox{\bf m}_u \mbox{\bf m}_u^\dagger +
+      D_{RR}^{u} \mbox{\bf 1} \cr
+      } \right),
+  \label{mutilde}
+\end{equation}
+\begin{equation}
+  {\cal M}_{\tilde d}^2=\left( {\matrix{
+        {\mbox{\bf K}^\dagger \mbox{\bf M}_Q^2 \mbox{\bf K}+
+          \mbox{\bf m}_d\mbox{\bf m}_d^\dagger+D_{LL}^{d}\mbox{\bf 1}}&
+        {\mbox{\bf m}_d^\dagger ( {\bf A}_D^\dagger-\mu^*\tan\beta )}\cr
+        {( {\bf A}_D-\mu\tan\beta ) \mbox{\bf m}_d}&
+        {\mbox{\bf M}_D^2+\mbox{\bf m}_d^\dagger\mbox{\bf m}_d+
+          D_{RR}^{d}\mbox{\bf 1}}\cr
+        }} \right),
+  \label{mdtilde}
+\end{equation}
+and the general sneutrino and charged slepton mass matrices
+\begin{equation}
+  {\cal M}^2_{\tilde\nu} = \mbox{\bf M}_L^2 + D^\nu_{LL} \mbox{\bf 1}
+\end{equation}
+\begin{equation}
+  {\cal M}^2_{\tilde e} =\left( {\matrix{
+        {\mbox{\bf M}_L^2+\mbox{\bf m}_e\mbox{\bf m}_e^\dagger+
+          D_{LL}^{e}\mbox{\bf 1}}&
+        {\mbox{\bf m}_e^\dagger ( {\bf A}_E^\dagger-\mu^*\tan\beta )}\cr
+        {( {\bf A}_E-\mu\tan\beta ) \mbox{\bf m}_e}&
+        {\mbox{\bf M}_E^2+\mbox{\bf m}_e^\dagger\mbox{\bf m}_e+
+          D_{RR}^{e}\mbox{\bf 1}}\cr
+        }} \right).
+  \label{metilde}
+\end{equation}
+Here
+\begin{equation}
+  D^f_{LL}=m_Z^2\cos 2\beta(T_{3f}-e_f\sin^2\theta_w),
+\end{equation}
+\begin{equation}
+  D^f_{RR}=m_Z^2\cos 2\beta e_f\sin^2\theta_w.
+\end{equation}
+In the chosen basis, $\mbox{\bf m}_u$ = $\mbox{\rm diag} ( m_{\rm
+u}, m_{\rm c}, m_{\rm t} )$, $\mbox{\bf m}_d $ = $\mbox{\rm diag}
+(m_{\rm d}, m_{\rm s}, m_{\rm b} )$ and $\mbox{\bf m}_e $ = $
+\mbox{\rm diag} (m_e,$ $ m_\mu, m_\tau )$.
+
+The slepton and squark mass eigenstates $\tilde{f}_k$ ($\tilde{\nu}_k$
+with $k=1,2,3$ and $\tilde{e}_k$, $\tilde{u}_k$ and $\tilde{d}_k$ with
+$k=1,\dots,6$) diagonalize the previous mass matrices and are related
+to the current sfermion eigenstates ${\bf \tilde{f}}_{L}$ and ${\bf
+\tilde{f}}_{R}$ via ($a=1,2,3$)
+\begin{eqnarray}
+  \tilde{f}_{La} & = & \sum_{k=1}^6 \tilde{f}_k {\bf \Gamma}_{FL}^{*ka} , \\
+  \tilde{f}_{Ra} & = & \sum_{k=1}^6 \tilde{f}_k {\bf \Gamma}_{FR}^{*ka} .
+\end{eqnarray} 
+The squark and charged slepton mixing matrices ${\bf \Gamma}_{UL,R}$,
+${\bf \Gamma}_{DL,R}$ and ${\bf \Gamma}_{EL,R}$ have dimension
+$6\times 3$, while the sneutrino mixing matrix ${\bf \Gamma}_{\nu L}$
+has dimension $3\times3$.
+
+This version of \ds\ allows only for diagonal matrices ${\bf A}_U$,
+${\bf A}_D$, ${\bf A}_E$, ${\bf M}_Q$, ${\bf M}_U$, ${\bf M}_D$, ${\bf M}_E$,
+and ${\bf M}_L$. This ansatz, while not being the most general one, implies the
+absence of tree-level flavor changing neutral currents in all sectors of the
+model. In this case, the squark mass matrices can be diagonalized analytically.
+For example, for the top squark one has, in terms of the top squark mixing
+angle $\theta_{\tilde{t}}$,
+\begin{equation}
+  \Gamma_{UL}^{\tilde{t}_1\tilde{t}} =
+  \Gamma_{UR}^{\tilde{t}_2\tilde{t}} = \cos \theta_{\tilde{t}} ,
+  \qquad
+  \Gamma_{UL}^{\tilde{t}_2\tilde{t}} =
+  - \Gamma_{UR}^{\tilde{t}_1\tilde{t}} = \sin \theta_{\tilde{t}} .
+\end{equation}
+
+Special values of the sfermion masses can be set with the parameters {\tt
+  msquarks}, and \ft{msleptons}.  If \ft{msquarks}=\ft{msleptons}=0, the
+sfermion masses are obtained with the diagonalization described above. If {\tt
+  msquarks}$>$0 (or \ft{msleptons}$>$0), all squark masses are set to {\tt
+  msquarks} (or all slepton masses to \ft{msleptons}).  Finally, if {\tt
+  msquarks}$<$0 (or \ft{msleptons}$<$0), the squark (or slepton) masses are
+set equal to the neutralino mass but never less than $|\ft{msquarks}|$ (or
+$|\ft{msleptons}|$).  This is to provide the lightest possible sfermions
+compatible with a neutralino LSP. In all of these cases, there is no mixing
+  between sfermions.
+
+
+The particle masses are available in an array \ft{mass($p$)}, where $p$ is the
+particle code from table \ref{tab:2}. Similarly, particle decay width are
+available as \ft{width($p$)}, but currently only the width of the Higgs bosons
+are calculated, the other particles having fictitious widths of 1 or 5 GeV (for
+the sole purpose of regularizing annihilation amplitudes close to poles).
+
+\begin{table*}
+\label{tab:2}
+\caption{Particle codes (synonyms are separated by commas). }
+\begin{center}
+\begin{tabular}{| l l | l l | l l | l l |}
+\hline
+$\nu_e$ & \ft{knue,knu(1)} &
+$\gamma$ & \ft{kgamma} &
+$\tilde{\chi}^0_i$ & \ft{kn($i$)~$i=1\ldots4$} &
+$\tilde{u}_1$ & \ft{ksu(1),ksqu(1)}
+\\
+$e$ & \ft{ke,kl(1)} &
+$W^\pm$ & \ft{kw} &
+$\tilde{\chi}^\pm_k$ & \ft{kcha($k$)~$k=1,2$} &
+$\tilde{u}_2$ & \ft{ksu(2),ksqu(4)}
+\\
+$\nu_\mu$ & \ft{knumu,knu(2)} &
+$Z^0$ & \ft{kz} &
+$\tilde{g}$ & \ft{kgluin} &
+$\tilde{d}_1$ & \ft{ksd(1),ksqd(1)}
+\\
+$\mu$ & \ft{kmu,kl(2)} &
+$g$ & \ft{kgluon} &
+$\tilde{\nu}_e$ & \ft{ksnue,ksnu(1)} &
+$\tilde{d}_2$ & \ft{ksd(2),ksqd(4)}
+\\
+$\nu_\tau$ & \ft{knutau,knu(3)} &
+&&
+$\tilde{e}_1$ & \ft{kse(1),ksl(1)} & 
+$\tilde{c}_1$ &\ft{ksc(1),ksqu(2)}
+\\
+$\tau$ & \ft{ktau,kl(3)} &
+&&
+$\tilde{e}_2$ & \ft{kse(2),ksl(4)} & 
+$\tilde{c}_2$ &\ft{ksc(2),ksqu(5)}
+\\
+$u$ & \ft{ku,kqu(1)} &
+$H^0$ & \ft{kh1} &
+$\tilde{\nu}_\mu$ &\ft{ksnumu,ksnu(2)} &
+$\tilde{s}_1$ &\ft{kss(1),ksqd(2)}
+\\
+$d$ & \ft{kd,kqd(1)} & 
+$h^0$ & \ft{kh2} & 
+$\tilde{\mu}_1$ &\ft{ksmu(1),ksl(2)} &
+$\tilde{s}_2$ &\ft{kss(2),ksqd(5)}
+\\
+$c$ &\ft{kc,kqu(2)} &
+$A^0$ & \ft{kh3} &
+$\tilde{\mu}_2$ &\ft{ksmu(2),ksl(5)} &
+$\tilde{b}_1$ &\ft{ksb(1),ksqd(3)}
+\\
+$s$ &\ft{ks,kqd(2)} &
+$H^\pm$ & \ft{khc} &
+$\tilde{\nu}_\tau$ &\ft{ksnuta,ksnu(3)} &
+$\tilde{b}_2$ &\ft{ksb(2),ksqd(6)}
+\\
+$b$ &\ft{kb,kqd(3)} &
+$G^0$ & \ft{kgold0} &
+$\tilde{\tau}_1$ & \ft{kstau(1),ksl(3)} &
+$\tilde{t}_1$ & \ft{kst(1),ksqu(3)}
+\\
+$t$ &\ft{kt,kqu(3)} &
+$G^\pm$ & \ft{kgoldc} &
+$\tilde{\tau}_2$ & \ft{kstau(2),ksl(6)} &
+$\tilde{t}_2$ & \ft{kst(2),ksqu(6)}
+\\
+\hline
+\end{tabular}
+\end{center}
+\end{table*}
+
+\subsection{Three-particle vertices}
+
+We define three-particle vertices \ft{gl($i$,$j$,$k$)}$=g^L_{ijk}$ and
+\ft{gr($i$,$j$,$k$)}$=g^R_{ijk}$ as follows. We adopt the convention
+that the order of the particles in the indices is the order in which
+they appear in the corresponding lagrangian term, so the last particle
+is always entering. If there are charged particles in the vertex, they
+are both assumed positively charged, and the particle that exits the
+vertex is indexed before the particle that enters.
+\begin{itemize}
+\item Three scalar bosons:
+\begin{equation}
+{\cal L}_{\rm int} = g_{\phi_i\phi_j\phi_k} m_W \phi_i \phi_j \phi_k
+\end{equation}
+where $\phi_i$ is a Higgs or a Goldstone boson. In this case, \ft{gl}={\tt
+  gr}=$g$. Available vertices are $\phi_i\phi_j\phi_k$ = $H^0_iH^0_jH^0_k$,
+$H^0_iH^-H^+$, $H^0_iA^0A^0$, $H^0_iG^0G^0$, $H^0_iG^-G^+$, $H^0_iG^-H^+$,
+$H^0_iG^-G^+$, $A^0G^-H^+$, $A^0G^0H^0_i$, and permutations.
+
+\item Two scalar and one vector bosons:
+\begin{equation}
+{\cal L}_{\rm int} = g_{V\phi_1\phi_2} V^\mu \phi_1 i \lrpartial_\mu \phi_2 .
+\end{equation}
+Available vertices are $V\phi_1\phi_2$ = $Z^0H^0_iA^0$, $Z^0H^-H^+$, $\gamma
+H^-H^+$, $W^-H^+A^0$, $W^-H^+H^0_i$, and permutations.
+
+\item One scalar and two vector bosons:
+\begin{equation}
+{\cal L}_{\rm int} = g_{\phi V_1 V_2} m_W g_{\mu\nu} \phi V^\mu_1 V^\nu_2
+\end{equation}
+Available vertices are $\phi V_1V_2$ = $H^0_iW^-W^+$, $H^0_iZ^0Z^0$.
+
+\item Three vector bosons:
+%\begin{equation}
+%{\cal L}_{\rm int} = - g_{V_1V_2V_3} \epsilon_{abc} V_1^{\mu a} V_2^{\nu b} 
+%\partial_\mu V_{3\nu}^c \hbox{\bf to be checked!}
+%\end{equation}
+%which corresponds to the vertex
+\begin{equation}
+i g_{V_1V_2V_3} \left[ (k_1-k_3)_\nu g_{\mu\lambda} + (k_3-k_2)_\mu
+  g_{\lambda\nu} + (k_2-k_1) g_{\mu\nu} \right]
+\end{equation}
+with all momenta incoming and assigned as $V_1^\mu(k_1)$, $V_2^\nu(k_2)$ and
+$V_3^\lambda(k_3)$. 
+Available vertices are $Z^0W^-W^+$ and $\gamma W^-W^+$.
+
+\item One scalar boson and two Dirac fermions:
+\begin{equation}
+{\cal L}_{\rm int} = \phi \overline{\psi}_1 ( g^L_{\phi\psi_1\psi_2} P_L +
+g^R_{\phi\psi_1\psi_2} P_R ) \psi_2
+\end{equation}
+Available vertices are $\phi\psi_1\psi_2$ = 
+
+\item One vector boson and two Dirac fermions:
+\begin{equation}
+{\cal L}_{\rm int} = V_\mu \overline{\psi}_1 \gamma^\mu
+( g^L_{V\psi_1\psi_2} P_L + g^R_{V\psi_1\psi_2} P_R ) \psi_2
+\end{equation}
+Available vertices are $V\psi_1\psi_2$ = 
+
+\item One scalar boson, one Dirac and one Majorana fermion:
+\begin{equation}
+  {\cal L}_{\rm int} = \phi \overline{\psi} 
+  ( g^L_{\phi\psi\chi} P_L + g^R_{\phi\psi\chi} P_R ) \chi
+\end{equation}
+Available vertices are $ \phi\psi\chi$ = 
+
+\item One vector boson, one Dirac and one Majorana fermion:
+\begin{equation}
+  {\cal L}_{\rm int} = V_\mu \overline{\psi} \gamma^\mu 
+  ( g^L_{V\psi\chi} P_L + g^R_{V\psi\chi} P_R ) \chi
+\end{equation}
+Available vertices are $V\psi\chi$ = 
+
+\item One scalar boson and two Majorana fermions:
+\begin{equation}
+{\cal L}_{\rm int} = 
+\end{equation}
+Available vertices are\ldots
+
+\item One vector boson and two Majorana fermions:
+\begin{equation}
+{\cal L}_{\rm int} = 
+\end{equation}
+\end{itemize}
+
+%\begin{eqnarray}
+%{\cal L}_{\rm int} & = & 
+%V_\mu \bar{\chi} \gamma^\mu (g^L_{V\chi\psi} P_L + g^R_{V\chi\psi} P_R) \psi +
+%\phi^* \bar{\chi} (g^L_{\phi\chi\psi} P_L + g^R_{\phi\chi\psi} P_R) \psi 
+%\nonumber \\
+%&& \, + g^A_{Z\psi\psi'} Z_\mu \bar{\psi} \gamma^\mu \gamma_5 \psi'
+%+ g^P_{\phi\psi\psi'} \phi^* \bar{\psi} \gamma_5 \psi' 
+%+ {\rm h.c.} 
+%\nonumber\\
+%&&\, + {\textstyle{1\over2}}
+% g^A_{Z\chi\chi'} Z_\mu \bar{\chi}  \gamma^\mu \gamma_5 \chi' +
+%{\textstyle{1\over2}} 
+%g^P_{\phi\chi\chi'} \phi^* \bar{\chi} \gamma^\mu \gamma_5 \chi 
+%+ {\rm h.c.} 
+%\end{eqnarray}
+%Here $V_\mu$ is a vector boson, $\chi,\chi'$ are Majorana fermions,
+%$\psi,\psi'$ are Dirac fermions, and $\phi$ can be a neutral ($\phi^*=\phi$) or
+%a charged scalar.
+
+Explicit expressions for the coupling constants $g_{ijk}$ can be obtained
+in~\cite{mssm}, with radiative corrections to trilinear scalar couplings in
+\cite{haber97}. We have rederived from the superpotential all vertices we have
+implemented.
+
+Implemented vertices:  those listed above plus 
+$Z^0W^\pm W^\mp $, $Z^0H^0_iH^0_i$, $W^\pm H^\mp A^0$,
+$W^\pm H^\mp H^0_i$, $H^0_iW^\pm W^\mp $, $H^0_iZ^0Z^0$, $Z^0A^0H$,
+$H^0_iA^0A^0$, $A^0ff$, $H^0_iff$, $Z^0ff$, $Z^0\tilde{\chi}^0\tilde{\chi}^0$,
+$H^0_i\tilde{\chi}^0\tilde{\chi}^0$, $Z^0\tilde{\chi}^0\tilde{\chi}^0$,
+$W^\mp\tilde{\chi}^0\tilde{\chi}^\pm$, $H^\mp\tilde{\chi}^0\tilde{\chi}^\pm$, $
+\tilde{q}\tilde{g}q$, $\tilde{f}\tilde{\chi}^0 f$, $H^0_i\tilde{\chi}^\pm
+\tilde{\chi}^\mp$, $A^0\tilde{\chi}^\pm \tilde{\chi}^\mp$ , $W^\pm f f'$,
+$H^\pm f f'$, $\gamma W^\pm W^\mp$, $ \gamma H^\pm H^\mp$, $Z^0
+\tilde{\chi}^\pm \tilde{\chi}^\mp$, $\gamma\tilde{\chi}^\pm \tilde{\chi}^\mp$,
+$\gamma f f$, $GHH$, $GGH$, $G^\mp\tilde{\chi^0}\tilde{\chi}^\pm$.
+
+In appendix \ref{app:feyn}, most of the Feynman rules and the explicit
+expressions for the $g$'s are found.
+
+\subsection{Accelerator bounds}
+
+Accelerator bounds can be checked by a call to \ft{dsacbnd(p)}, where
+\ft{p}=0 checks all implemented bounds, \ft{p}=1 leaves out the
+bound from $b\to s\gamma$, and \ft{p}=2 checks only $b\to
+s\gamma$. The accelerator bounds implemented in version 3.10.2 (July
+1999) are listed in table \ref{tab:1}. The branching ratio ${\rm
+BR}(b\to s\gamma)$ is calculated to 1-loop using the expressions in
+ref.~\cite{bertolini91}, including or not including 1-loop QCD
+corrections according to the switch \ft{bsgqcd} (=0 without, =1 with
+[default]).
+
+\begin{table*}[h]
+\caption{Accelerator bounds implemented in version 3.10.2 (July 1999).
+\comment{NOTE: These are not up to date with the latest version of \ds.}}
+\label{tab:1}
+\begin{center}
+\begin{tabular}{|l l|}
+\hline \hfil Bound \hfill & \hfil Ref. \hfill \\ \hline $
+m_{H^\pm} > 59.5{\rm GeV} 
+$ & \cite{abbiendi99} \\ $
+m_{h} > [ 82.5 + 10.5 \sin^2(\beta-\alpha) ] {\rm GeV}
+$ & \cite{gao99} \\ \hline $
+m_{\tilde{\chi}^+_2} > 91 {\rm GeV}
+  \;\hbox{if}\; m_{\tilde{\chi}^0_1}-m_{\tilde{\chi}^+_2} > 4 {\rm GeV} 
+$ & \cite{carr98} \\ $
+m_{\tilde{\chi}^+_2} > 64 {\rm GeV} 
+    $ \hbox{if} $  m_{\tilde{\chi}^0_1} > 43 {\rm GeV}
+    $ \hbox{and} $  m_{\tilde{\chi}^+_2} > m_{\tilde{\chi}^0_2}
+$ & \cite{acciarri96} \\ $ 
+m_{\tilde{\chi}^+_2} > 47 {\rm GeV} 
+    $ \hbox{if} $  m_{\tilde{\chi}^0_1} > 41 {\rm GeV} 
+$ & \cite{decamp92} \\ $ 
+m_{\tilde{\chi}^+_1} > 99 {\rm GeV}
+$ & \cite{hidaka91} \\ \hline $
+m_{\tilde{\chi}^0_1} > 23{\rm GeV}  $ \hbox{if} $  \tan\beta>3
+$ & \cite{acciarri95} \\ $
+m_{\tilde{\chi}^0_1} > 20{\rm GeV}  $ \hbox{if} $  \tan\beta>2
+$ & \cite{acciarri95} \\ $
+m_{\tilde{\chi}^0_1} > 12.8{\rm GeV}  $ \hbox{if} $  m_{\tilde{\nu}}<200
+  {\rm GeV} 
+$ & \cite{buskulic96} \\ $
+m_{\tilde{\chi}^0_1} > 10.9{\rm GeV} 
+$ & \cite{acciarri98} \\ $
+m_{\tilde{\chi}^0_2} > 44{\rm GeV} 
+$ & \cite{abbiendi99b} \\ $
+m_{\tilde{\chi}^0_3} > 102{\rm GeV} 
+$ & \cite{abbiendi99b} \\ $
+m_{\tilde{\chi}^0_4} > 127{\rm GeV} 
+$ & \cite{acciarri95} \\ \hline $ 
+m_{\tilde{g}} > 212{\rm GeV}  $ \hbox{if} $  m_{\tilde{q}_k} <
+               m_{\tilde{g}}
+$ & \cite{abachi95} \\ $
+m_{\tilde{g}} > 162{\rm GeV}
+$ & \cite{abe97} \\ \hline $
+m_{\tilde{q}_k} > 90 {\rm GeV}  $ \hbox{if} $  m_{\tilde{g}} <410{\rm GeV}
+$ & \cite{abe92} \\ $ 
+m_{\tilde{q}_k} > 176 {\rm GeV}  $ \hbox{if} $  m_{\tilde{g}} <300{\rm GeV}
+$ & \cite{abachi95} \\ $
+m_{\tilde{q}_k} > 224 {\rm GeV}  $ \hbox{if} $  m_{\tilde{g}}>m_{\tilde{g}}
+$ & \cite{abe96} \\ $
+m_{\tilde{e}} > 78{\rm GeV}  $ \hbox{if} $  m_{\tilde{\chi}^0_1}<73{\rm
+  GeV} 
+$ & \cite{barate98} \\ $
+m_{\tilde{\mu}} > 71{\rm GeV}  $ \hbox{if} $  m_{\tilde{\chi}^0_1}<66{\rm
+  GeV} 
+$ & \cite{barate98} \\ $
+m_{\tilde{\tau}} > 65{\rm GeV}  $ \hbox{if} $  m_{\tilde{\chi}^0_1}<55{\rm
+  GeV} 
+$ & \cite{barate98} \\ $
+m_{\tilde{\nu}} > 44.4{\rm GeV}
+$ & \cite{pdg99} \\ \hline $
+1 \times 10^{-4} < {\rm BR}(b\to s\gamma) < 4 \times 10^{-4}
+$ & \cite{pdg99} \\ $
+\Gamma_Z^{\rm inv} < 502.4 {\rm MeV}
+$ & \cite{pdg99} \\ \hline
+\end{tabular}
+\end{center}
+\end{table*}
+

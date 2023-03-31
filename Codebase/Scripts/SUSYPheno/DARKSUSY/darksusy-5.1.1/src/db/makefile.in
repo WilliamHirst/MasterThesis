@@ -1,0 +1,36 @@
+# Makefile for db directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemfpg.pl on Nov 04, 2011.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dspbprivate.h dsmpconst.h dsdirver.h dspbcom.h dshmcom.h
+
+vpath %.h $(DINC)
+
+SRC = dsdbsigmavdbar.f dsdbtd15.f dsdbtd15beu.f dsdbtd15beucl.f \
+dsdbtd15beuclsp.f dsdbtd15beum.f dsdbtd15comp.f dsdbtd15point.f \
+dsdbtd15x.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

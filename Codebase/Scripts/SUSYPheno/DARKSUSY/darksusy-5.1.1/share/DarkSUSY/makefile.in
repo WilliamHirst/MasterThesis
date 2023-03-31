@@ -1,0 +1,106 @@
+# Makefile for dat directory.
+# Technical questions about this makefile should be directed to
+# Joakim Edsjo, edsjo@physto.se
+# Date: June 22, 2006
+
+# Fortran compiler and options (set by ./configure)
+FF=@F77@
+
+# Determine where to install stuff (prefix is set in configure)
+prefix=@prefix@
+# DS_INSTALL is where the library and data files will be installed
+DS_INSTALL=${prefix}
+
+# This is where the tables will be installed
+TABINSTALL=${DS_INSTALL}/share/DarkSUSY
+
+# These are tables that are just copied
+TAB_A = simdiff151.dat simdiff152.dat simdiff153.dat simdiff154.dat	\
+simdiff155.dat simdiff156.dat simdiff157.dat simdiff158.dat	\
+simdiff171.dat simdiff172.dat simdiff173.dat simint51.dat simint52.dat	\
+simint53.dat simint54.dat simint55.dat simint56.dat simint57.dat \
+simint58.dat simint71.dat simint72.dat simint73.dat
+
+# These are tables that will be converted to binary tables
+#TAB_B = simicediff101.dat.gz simicediff102.dat.gz simicediff103.dat.gz	\
+#simiceint1.dat.gz simiceint2.dat.gz simiceint3.dat.gz
+
+#TAB_B =$(wildcard we-res-may2012-fl2*.dat.gz )
+TAB_B =$(wildcard we-res-jan2013-fl2*.dat.gz )
+
+#TAB_B = we-res-b-full-fl21-f1.dat.gz \
+we-res-b-full-fl21-f2.dat.gz \
+we-res-b-full-fl21-f3.dat.gz \
+we-res-b-full-fl21-f4.dat.gz \
+we-res-b-full-fl21-f5.dat.gz \
+we-res-b-full-fl21-f6.dat.gz \
+we-res-b-full-fl21-f7.dat.gz \
+we-res-b-full-fl21-f8.dat.gz \
+we-res-b-full-fl21-f9.dat.gz \
+we-res-b-full-fl21-f10.dat.gz \
+we-res-b-full-fl21-f11.dat.gz \
+we-res-b-full-fl21-f12.dat.gz \
+we-res-b-full-fl21-f13.dat.gz \
+we-res-b-full-fl21-f14.dat.gz \
+we-res-b-full-fl21-f15.dat.gz \
+we-res-b-full-fl21-f16.dat.gz \
+we-res-b-full-fl21-f17.dat.gz \
+we-res-b-full-fl21-f18.dat.gz \
+we-res-b-full-fl21-f19.dat.gz \
+we-res-b-full-fl21-f20.dat.gz \
+we-res-b-full-fl21-f21.dat.gz \
+we-res-b-full-fl21-f22.dat.gz \
+we-res-b-full-fl21-f23.dat.gz \
+we-res-b-full-fl21-f24.dat.gz \
+we-res-b-full-fl21-f25.dat.gz \
+we-res-b-full-fl21-f26.dat.gz \
+we-res-b-full-fl22-f1.dat.gz \
+we-res-b-full-fl22-f2.dat.gz \
+we-res-b-full-fl22-f3.dat.gz \
+we-res-b-full-fl22-f4.dat.gz \
+we-res-b-full-fl22-f5.dat.gz \
+we-res-b-full-fl22-f6.dat.gz \
+we-res-b-full-fl22-f7.dat.gz \
+we-res-b-full-fl22-f8.dat.gz \
+we-res-b-full-fl22-f9.dat.gz \
+we-res-b-full-fl22-f10.dat.gz \
+we-res-b-full-fl22-f11.dat.gz \
+we-res-b-full-fl22-f12.dat.gz \
+we-res-b-full-fl22-f13.dat.gz \
+we-res-b-full-fl22-f14.dat.gz \
+we-res-b-full-fl22-f15.dat.gz \
+we-res-b-full-fl22-f16.dat.gz \
+we-res-b-full-fl22-f17.dat.gz \
+we-res-b-full-fl22-f18.dat.gz \
+we-res-b-full-fl22-f19.dat.gz \
+we-res-b-full-fl22-f20.dat.gz \
+we-res-b-full-fl22-f21.dat.gz \
+we-res-b-full-fl22-f22.dat.gz \
+we-res-b-full-fl22-f23.dat.gz \
+we-res-b-full-fl22-f24.dat.gz \
+we-res-b-full-fl22-f25.dat.gz \
+we-res-b-full-fl22-f26.dat.gz
+
+
+TAB_OUT_A = $(TAB_A:%=$(TABINSTALL)/%)
+TAB_OUT_B = $(TAB_B:%.dat.gz=$(TABINSTALL)/%.bin)
+
+all : ascii2bin $(TAB_OUT_A) $(TAB_OUT_B)
+
+# Check if DS_INSTALL is the same as DS_ROOT, in which case
+# we shouldn't copy these files
+$(TAB_OUT_A) : ascii2bin $(TAB_A)
+	if [ ! -f $(DS_INSTALL)/makefile.in ] ; then \
+		echo 'The install directory is different from DS_ROOT' ; \
+		echo 'Will install ascii tables.' ; \
+		perl tab_install.pl $(@F) $(TABINSTALL) ; \
+	fi
+
+$(TAB_OUT_B) : ascii2bin $(TAB_B)
+	perl tab_install.pl $(@F:.bin=.dat.gz) $(TABINSTALL)
+
+ascii2bin : ascii2bin.f
+	$(FF) -o ascii2bin ascii2bin.f
+
+clean :
+	rm -f tmp.dat tmp.dat.gz core

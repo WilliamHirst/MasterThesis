@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Accelerator bounds}
+
+\ds\ contains a set of routines to check if a given model is excluded by
+accelerator constraints. These routines are called \ftb{dsacbnd[number]}. The
+policy is that when we update \ds\ with new accelerator constraints, we keep
+the old routine, and add a new routine with the last number incremented by one.
+Which routine that is called is determined by calling \ftb{dsacset} with a
+tag determining which routine to call. To check the accelerator constraints, 
+then call \ftb{dsacbnd} which calls the right routine for you. Upon return,
+\ftb{dsacbnd} returns an exclusion flag, \code{excl}. If zero, the model
+is OK, if non-zero, the model is excluded. The cause for the exclusion is coded
+in the bits of \code{excl} according to table \ref{tab:acexcl}
+
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{rrrcl} \hline
+\multicolumn{3}{c}{\code{excl}} && \\ \cline{1-3}
+Bit set & Octal value & Decimal value && Reason for exclusion \\ \hline
+ 0 &             1 &            1 && Chargino mass \\
+ 1 &             2 &            2 && Gluino mass \\
+ 2 &             4 &            4 && Squark mass \\
+ 3 &            10 &            8 && Slepton mass \\
+ 4 &            20 &           16 && Invisible $Z$ width \\
+ 5 &            40 &           32 && Higgs mass \\
+ 6 &           100 &           64 && Neutralino mass \\
+ 7 &           200 &          128 && $b \rightarrow s \gamma$ \\
+ 8 &           400 &          256 && $\rho$ parameter \\ \hline
+\end{tabular}
+\caption{The bits of \code{excl} are set to indicate by which process this
+particular model is excluded. Check if a bit is set with 
+\code{btest(excl,bit)}.}
+\label{tab:acexcl}
+\end{table}
+

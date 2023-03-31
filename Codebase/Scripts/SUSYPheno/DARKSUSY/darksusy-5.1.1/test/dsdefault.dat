@@ -1,0 +1,51 @@
+!... gauge coupling constants at the Z scale
+      s2thw = 0.2319d0
+      alphem = 0.0078186083d0
+      alph3 = 0.117d0
+!... standard model masses
+      mass(kgamma) =  0.0d0
+      mass(kgluon) =  0.0d0
+      mass(kz)     = 91.187d0
+      mass(kw)     = 80.33d0
+      mass(knue)   =  0.0d0
+      mass(ke)     =  0.000510999907d0
+      mass(knumu)  =  0.0d0
+      mass(kmu)    =  0.105658389d0
+      mass(knutau) =  0.0d0
+      mass(ktau)   =  1.777d0
+      mass(ku)     =  0.0056d0
+      mass(kd)     =  0.0099d0
+      mass(kc)     =  1.35d0
+      mass(ks)     =  0.199d0
+      mass(kt)     =175.d0
+      mass(kb)     =  5.0d0
+!... standard model widths
+      width(kz) = 2.490d0
+      width(kw) = 2.07d0
+!... cabibbo-kobayashi-maskawa mixing matrix
+      ckms12=0.221d0
+      ckms23=0.040d0
+      ckms13=0.0035d0
+      ckmdelta=0.d0
+!... program switches
+      higloop = 6
+      neuloop = 1
+      bsgqcd = 1
+      msquarks = 0.d0
+      msleptons = 0.d0
+      prtlevel = 0
+!... 1-loop annihilations
+      incglue = .true.
+      incgaga = .true.
+      incgaz = .true.
+!... relic density
+      omtype = 1
+      omfast = 1
+!... defaults for modules
+      hmlabel = 'default'
+      pblabel = 'default'
+      ddsilabel = 'default'
+      ddsdlabel = 'default'
+      eplabel = 'default'
+      aclabel = 'default'
+

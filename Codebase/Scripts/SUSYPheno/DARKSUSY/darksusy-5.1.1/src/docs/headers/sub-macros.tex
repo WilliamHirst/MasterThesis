@@ -1,0 +1,55 @@
+%Redefinition footnote marker
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+%%% New environments for the subroutines
+% List of subroutines
+\newenvironment{allsubs}{\begin{list}{}{\setlength{\labelsep}{0.0 cm}
+\setlength{\labelwidth}{0.0 cm} \setlength{\leftmargin}{0.0 cm}
+\setlength{\itemsep}{0.6ex} \setlength{\topsep}{\itemsep}}}{\end{list}}
+
+% Subroutine in list
+\newenvironment{subs}{\begin{list}{}{\setlength{\labelwidth}{2.0 cm}
+\setlength{\labelsep}{0.5 cm} \setlength{\leftmargin}{3.0 cm}
+\setlength{\itemsep}{0.0 cm} \setlength{\parsep}{0.0 cm}
+\setlength{\topsep}{0.0 cm} \setlength{\parskip}{0.0 cm}}}{\end{list}}
+
+% List of subroutines with brief description only
+\newenvironment{brief-subs}{\begin{list}{}{\setlength{\labelwidth}{2.5 cm}
+\setlength{\labelsep}{0.5 cm} \setlength{\leftmargin}{3.0 cm}
+\setlength{\itemsep}{0.5 ex} \setlength{\parsep}{0.0 cm}
+\setlength{\topsep}{0.0 cm} \setlength{\parskip}{0.0 cm}}
+\bsub{\rmfamily Routine} {\bfseries Purpose}
+\raisebox{-0.5ex}{}\hrule
+}{\end{list}
+%\hrule
+}
+% Item commands
+\newcommand{\bitem}[1]{\makebox[2.5 cm][l]{\ftb{#1}}} 
+\newcommand{\bsub}[1]{\item[\bitem{#1}]}
+
+% A stand-alone subroutine
+\newenvironment{sub}[1]%
+{\begin{allsubs}\item \tw{#1\raisebox{-0.5ex}{}}\hrule\begin{subs}}
+{\end{subs}\end{allsubs}}
+
+\newcommand{\lft}[1]{\makebox[2.0 cm][l]{\em #1}}   % Left label in list subs
+\newcommand{\lfv}[1]{\makebox[1.5 cm][l]{\sffamily #1}}   % Variables in list subs
+\newcommand{\itit}[1]{\item[\lft{#1}]}
+\newcommand{\itv}[2]{\item[\lfv{#1 \hfill #2}]}
+\newcommand{\tw}[1]{\textsf{#1}}
+\newcommand{\twb}[1]{{\bfseries \sffamily #1}}
+
+% Fortran text, normal and bold
+\newcommand{\ft}[1]{\textsf{#1}}
+\newcommand{\ftb}[1]{{\bfseries \sffamily #1}}
+
+% Package environment
+\newenvironment{package}{\begin{list}{}{\setlength{\labelwidth}{2.0 cm}
+\setlength{\labelsep}{0.5 cm} \setlength{\leftmargin}{3.5 cm}
+\setlength{\itemsep}{0.0 cm} \setlength{\parsep}{0.0 cm}
+\setlength{\topsep}{0.0 cm} \setlength{\parskip}{0.0 cm}}}
+{\end{list}\vspace{1ex}}
+
+
+
+

@@ -1,0 +1,7 @@
+*.d
+*.so
+*.pcm
+*.pyc
+*~
+MC_Bayes_logfile.txt
+limits.txt

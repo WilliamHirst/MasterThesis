@@ -1,0 +1,766 @@
+ *********************************************************
+ *** Welcome to DarkSUSY version                       ***
+ *** trunk (rev 425)                                             ***
+ *********************************************************
+  
+ Initializing DarkSUSY...
+ WARNING in dspbset: using halo model nfwsm       
+ for the setup. If you change halo model, make sure
+ to call dspbset again.
+ dsntsunread: Opening file 
+ /data1/edsjo/DarkSUSY/library/trunk/share/DarkSUSY/bs05op.dat                  
+                                                                                
+                                           
+ dsntsunread: Opening file 
+ /data1/edsjo/DarkSUSY/library/trunk/share/DarkSUSY/nele_bs05op.dat             
+                                                                                
+                                           
+ dsntsunread: tabulating potential inside the Sun...
+   ...done
+ dsntsunread: tabulating column density inside the Sun...
+   ...done
+ dsreadnuclides: reading /data1/edsjo/DarkSUSY/library/trunk/share/DarkSUSY/nuclides.dat
+ 
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ~                                                        ~
+ ~          HiggsBounds 1.0 (fortran77 version)           ~
+ ~                                                        ~
+ ~     Philip Bechtle, Oliver Brein, Sven Heinemeyer,     ~
+ ~            Georg Weiglein, Karina E. Williams          ~
+ ~                                                        ~
+ ~ arXiv:0811.4169, http://www.ippp.dur.ac.uk/HiggsBounds ~
+ ~                                                        ~
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+ HiggsBounds collects together results from 
+ 
+     * the LEP collaborations and LEP Higgs Working Group
+     * the CDF and D0 Collaborations
+     * the program HDECAY (arXiv:hep-ph/9704448)
+     * TeV4LHC Higgs Working Group report
+       (see arXiv:hep-ph/0612172 and ref. therein)
+ 
+ Tevatron-Constraints: initialization of data tables
+ reading tables for channel ZH->llbb
+   CDF table with 2.4 fb^-1 (CDF note 9475)
+   CDF table with 1 fb^-1 (hep-ex/0807.4493)
+   D0 table with 2.3fb^-1 (D0 note 5570)
+ reading tables for channel ZH->nunubb
+   CDF table with 2.1 fb^-1 (CDF note 9483)
+   D0 table (D0 note 5586)
+ reading tables for channel WH->lnubb
+   D0 table (D0 note 5472)
+   CDF table with 2.7 fb^-1 (CDF note 9463)
+ reading tables for channel ppH -> WW
+   D0 table for ppH -> WW -> ll with 3.0 fb^-1 (D0 note 5757)
+   CDF table for 3.0 fb^-1 (hep-ex/0809.3930)
+ reading tables for the CDF & D0 SM combined limits (hep-ex/0712.2383)
+ reading tables for the CDF H -> tau tau SM combined limits (CDF note 9248)
+ reading tables for the CDF & D0 SM combined limits (hep-ex/0804.3423)
+ reading tables for the CDF & D0 SM combined limits (hep-ex/0808.0534)
+ reading tables for pp -> bH, H -> bb
+   CDF tanb-table (CDF note 9284)
+   D0 tanb-table (D0 note 5726)
+   D0 absolute sigma x BR table in pikobarn for 1fb^-1 (hep-ex/0805.3556)
+ reading tables for channel ppH -> tau tau (D0 hep-ex/0805.2491)
+   D0 absolute sigma x BR table in pikobarn for 1fb^-1
+   CDF absolute sigma x BR table in pikobarn for 1.8 fb^-1 (CDF note 9071)
+ reading tables for channel WH->WWW
+   D0 absolute sigma x BR table in pikobarn for 1 fb^-1 (D0 note 5485)
+   CDF with 1.9 fb^-1 (CDF note 7307)
+ reading tables for channel: ppH -> gamma gamma
+   D0 with 2.27 fb^-1 (D0 note 5737)
+   D0 absolute sigma x BR table in pikobarn for 1.1 fb^-1 (D0 hep-ex/0803.1514)
+ finished reading Tevatron tables
+ Overall mass range of Tevatron tables: [ 70.00    , 300.0    ] GeV.
+ 
+ LEP-Constraints: initialization of data tables (hep-ex/0602042)
+ reading table 14b
+ reading table 14c
+ reading tables 15, 16 and 22
+ reading tables 18, 19, 23, 24
+ reading tables 20, 21
+ finished reading LEP tables
+ 
+ Initialization of DarkSUSY complete.
+ Calculating jpsi, please be patient...
+ jpsi =   1214.45982759474     
+ Model parameters read from file dstest.mod
+  
+ ***** MODEL: JE56A_000881 *****
+ -----------------------------------------------------
+ FeynHiggs 2.6.5.1
+ built on May 22, 2009
+ T. Hahn, S. Heinemeyer, W. Hollik, H. Rzehak, G. Weiglein
+ http://www.feynhiggs.de
+ -----------------------------------------------------
+ FHHiggsCorr contains code by:
+ P. Slavich et al. (2-loop rMSSM Higgs self-energies)
+  acceptable =           0 (0=OK, -1=not OK)
+  Spectrum and vertices written to dstest1.tmp
+ ----------------------------------------------------------------------
+ DS Info: You are now using the new DarkSUSY SLHA interface.
+ Please be adviced that this interface will write SLHA2
+ files and that all possible options for how an SLHA2
+ file can look like are not in yet.
+ In particular, we have chosen some midway between dumping
+ all the details to the SLHA file instead of just the inputs.
+ This choice has been made to make our files compatible with
+ as many other codes as possible that read SLHA files.
+ If these files doesn't work for you, please let us know
+ and we will take a look at it.
+ Contact Joakim Edsjo (edsjo@physto.se) if you have questions.
+ ----------------------------------------------------------------------
+   Neutralino mass =    381.495360184376     
+   Gaugino fraction =   0.800173445153354     
+   H1 mass =     926.197718860512        2.44446196162316     
+   H2 mass =     123.022280000169       4.247072746806765E-003
+   H3 mass =     925.908860000000        2.51242915788432     
+   H+- mass =    926.122321889989        2.40145996697846     
+ Calculating omega h^2 without coannihilations, please be patient...
+ dsrdreaddof: reading /data1/edsjo/DarkSUSY/library/trunk/share/DarkSUSY/dsdofHP_B.dat
+   without coannihilations Oh2 =   0.117915340403077                0
+           0
+ Calculating omega h^2 with coannihilations, please be patient...
+   with coannihilations Oh2 =   0.106163962515139                0           0
+ Calculating scattering cross sections...
+   sigsip (pb) =   5.555221579694937E-009
+   sigsin (pb) =   5.507527327184396E-009
+   sigsdp (pb) =   4.748708972019418E-005
+   sigsdn (pb) =   3.138012948133462E-005
+  proton: sigsi (pb) =   5.555221579694937E-009  sigsd (pb) = 
+  4.748708972019418E-005
+   A=          23  Z=          11  sigsi (pb) =   1.370363208513789E-003 
+  sigsd (pb) =   2.651502388576059E-003
+  sigsi*ff(pb)=  1.326017361098733E-003  sigsd*ff(pb)=  2.529843938122127E-003
+   A=         127  Z=          53  sigsi (pb) =   0.827222243475458      
+  sigsd (pb) =   5.066183083025450E-002
+  sigsi*ff(pb)=  0.517595027455648       sigsd*ff(pb)=  2.845035544430330E-002
+   A=          73  Z=          32  sigsi (pb) =   0.111593266266466      
+  sigsd (pb) =   2.222215165051750E-002
+  sigsi*ff(pb)=  9.099068211215229E-002  sigsd*ff(pb)=  1.644656720776885E-002
+   A=           1  Z=           1  sigsi (pb) =   5.555221579694937E-009 
+  sigsd (pb) =   4.748708972019418E-005
+  sigsi*ff(pb)=  5.555221579694937E-009  sigsd*ff(pb)=  4.748708972019418E-005
+   A=           1  Z=           0  sigsi (pb) =   5.507527327184397E-009 
+  sigsd (pb) =   3.138012948133462E-005
+  sigsi*ff(pb)=  5.507527327184397E-009  sigsd*ff(pb)=  3.138012948133462E-005
+   A=           7  Z=           3  sigsi (pb) =   1.273916586432794E-005 
+  sigsd (pb) =   7.292472512386267E-004
+  sigsi*ff(pb)=  1.265988401364623E-005  sigsd*ff(pb)=  7.252217745175488E-004
+  NaI :  dRdE [counts/kg-day-keV] (SI)=  1.097955844370192E-004  (SD)=
+  7.594954634789677E-006
+ Calculating gamma ray fluxes...
+   fluxgacdiff =   1.948296701280788E-012  ph/(cm^2 s GeV)
+       fluxgac =   5.069168646018331E-010  ph/(cm^2 s)
+      fluxgaga =   5.625204403311091E-016  ph/(cm^2 s)
+       fluxgaz =   3.425974211823776E-015  ph/(cm^2 s)
+   nsigvgacont =    64659.9437788357     
+  nsigvgacdiff =    32828.8898613149       GeV^-1
+     nsigvgaga =   7.175247577297485E-002
+      nsigvgaz =   0.437001242991325     
+ Calculating antiproton fluxes...
+ dspbtd15: reading pbtd from file 
+ /data1/edsjo/DarkSUSY/library/trunk/share/DarkSUSY/pbtd-beu04-nfwsm.dat        
+                                                  
+   done.
+   solar modulated pbar flux at 0.35 GeV =   9.527117496787981E-009 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 1.76 GeV =   1.234526121613952E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 3.00 GeV =   1.016885076061772E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating antideutron fluxes...
+ dsdbtd15: reading dbtd from file 
+ /data1/edsjo/DarkSUSY/library/trunk/share/DarkSUSY/dbtd-beu04-nfwsm.dat        
+                                                  
+   done.
+   solar modulated dbar flux at 1.00 GeV =   3.049162104149369E-013 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating positron fluxes at 1 GeV...
+ dsepdiff: reading table from file 
+ /data1/edsjo/DarkSUSY/library/trunk/share/DarkSUSY/eptab-esu04-nfwsm.dat       
+                                                  
+   ...done
+   phiep=  5.487513593275234E-007  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating rates in neutrino telescopes
+ dsntctabread: Opening file 
+ /data1/edsjo/DarkSUSY/library/trunk/share/DarkSUSY/ctab-ea-sdbest.dat          
+                                                                                
+                                           
+ dsntctabread: Opening file 
+ /data1/edsjo/DarkSUSY/library/trunk/share/DarkSUSY/ctab-su-0.00-gauss.dat      
+                                                                                
+                                           
+Loading WIMP annihilation yield for kind =  1 and type =  13
+    ...done
+Loading WIMP annihilation yield for kind =  1 and type =  14
+    ...done
+   Flux from the Earth =   1.341852938857683E-005  km^-2 yr^-1
+   Flux from the Sun =      70.8654607279159       km^-2 yr^-1
+ Calculating neutrino-induced muon fluxes from the halo...
+   Muon flux from halo =   2.204302884261645E-002  km^-2 yr^-1
+ g-2 amplitude [a_mu = (g-2)/2 = ]:  -6.510537425785872E-011
+ Model parameters read from file dstest.mod
+  
+ ***** MODEL: JE56A_001672 *****
+  acceptable =           0 (0=OK, -1=not OK)
+   Neutralino mass =    151.574340068752     
+   Gaugino fraction =   0.698568966282664     
+   H1 mass =     508.421420175901        1.54696875620167     
+   H2 mass =     123.552370158704       4.678421934309161E-003
+   H3 mass =     507.782170000000        1.92234727067221     
+   H+- mass =    483.720927576156        1.21096080209497     
+ Calculating omega h^2 without coannihilations, please be patient...
+   without coannihilations Oh2 =   0.101930375508735                0
+           0
+ Calculating omega h^2 with coannihilations, please be patient...
+   with coannihilations Oh2 =   0.100002317407635                0           0
+ Calculating scattering cross sections...
+   sigsip (pb) =   1.805279322853733E-009
+   sigsin (pb) =   1.707532556702188E-009
+   sigsdp (pb) =   4.323624133639941E-004
+   sigsdn (pb) =   2.842632962496620E-004
+  proton: sigsi (pb) =   1.805279322853734E-009  sigsd (pb) = 
+  4.323624133639942E-004
+   A=          23  Z=          11  sigsi (pb) =   3.749769816280011E-004 
+  sigsd (pb) =   2.083591446378976E-002
+  sigsi*ff(pb)=  3.628424818777720E-004  sigsd*ff(pb)=  1.988017984461426E-002
+   A=         127  Z=          53  sigsi (pb) =   0.142752260621944      
+  sigsd (pb) =   0.252014001365042     
+  sigsi*ff(pb)=  8.932044663782432E-002  sigsd*ff(pb)=  0.141529534740675     
+   A=          73  Z=          32  sigsi (pb) =   2.355388068629297E-002 
+  sigsd (pb) =   0.134146484983134     
+  sigsi*ff(pb)=  1.920531356181016E-002  sigsd*ff(pb)=  9.927438542313929E-002
+   A=           1  Z=           1  sigsi (pb) =   1.805279322853734E-009 
+  sigsd (pb) =   4.323624133639942E-004
+  sigsi*ff(pb)=  1.805279322853734E-009  sigsd*ff(pb)=  4.323624133639942E-004
+   A=           1  Z=           0  sigsi (pb) =   1.707532556702187E-009 
+  sigsd (pb) =   2.842632962496620E-004
+  sigsi*ff(pb)=  1.707532556702187E-009  sigsd*ff(pb)=  2.842632962496620E-004
+   A=           7  Z=           3  sigsi (pb) =   3.861168615880468E-006 
+  sigsd (pb) =   6.360140362138334E-003
+  sigsi*ff(pb)=  3.837138738499067E-006  sigsd*ff(pb)=  6.325032109173253E-003
+  NaI :  dRdE [counts/kg-day-keV] (SI)=  8.327771579728754E-005  (SD)=
+  1.665096441243978E-004
+ Calculating gamma ray fluxes...
+   fluxgacdiff =   3.516079058667793E-012  ph/(cm^2 s GeV)
+       fluxgac =   1.433570427754155E-009  ph/(cm^2 s)
+      fluxgaga =   2.870318408871218E-014  ph/(cm^2 s)
+       fluxgaz =   1.026695518289828E-013  ph/(cm^2 s)
+   nsigvgacont =    28866.2565885887     
+  nsigvgacdiff =    17993.8273686087       GeV^-1
+     nsigvgaga =   0.577964961311515     
+      nsigvgaz =    2.06734567730569     
+ Calculating antiproton fluxes...
+   solar modulated pbar flux at 0.35 GeV =   3.930896259470634E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 1.76 GeV =   5.442529913570277E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 3.00 GeV =   4.136991656398194E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating antideutron fluxes...
+   solar modulated dbar flux at 1.00 GeV =   8.923042788583040E-013 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating positron fluxes at 1 GeV...
+   phiep=  1.700526862063015E-006  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating rates in neutrino telescopes
+   Flux from the Earth =   2.384688413689169E-005  km^-2 yr^-1
+   Flux from the Sun =      1808.70195738234       km^-2 yr^-1
+ Calculating neutrino-induced muon fluxes from the halo...
+   Muon flux from halo =   4.118018704571430E-002  km^-2 yr^-1
+ g-2 amplitude [a_mu = (g-2)/2 = ]:  -2.815840387273157E-011
+ Model parameters read from file dstest.mod
+  
+ ***** MODEL: JE56A_001820 *****
+  acceptable =           0 (0=OK, -1=not OK)
+   Neutralino mass =    165.023675469303     
+   Gaugino fraction =   0.683174819483443     
+   H1 mass =     950.725458163105        13.1128082953102     
+   H2 mass =     126.268008205438       4.638033501508640E-003
+   H3 mass =     950.741340000000        12.8943386687278     
+   H+- mass =    932.096637574427        12.3466604188675     
+ Calculating omega h^2 without coannihilations, please be patient...
+   without coannihilations Oh2 =   9.759043846220854E-002           0
+           0
+ Calculating omega h^2 with coannihilations, please be patient...
+   with coannihilations Oh2 =   9.487140252812706E-002           0           0
+ Calculating scattering cross sections...
+   sigsip (pb) =   6.247803125151665E-009
+   sigsin (pb) =   6.146964358588427E-009
+   sigsdp (pb) =   3.615153395881698E-004
+   sigsdn (pb) =   2.377439524752977E-004
+  proton: sigsi (pb) =   6.247803125151665E-009  sigsd (pb) = 
+  3.615153395881698E-004
+   A=          23  Z=          11  sigsi (pb) =   1.350208953239949E-003 
+  sigsd (pb) =   1.776044418018605E-002
+  sigsi*ff(pb)=  1.306515310673640E-003  sigsd*ff(pb)=  1.694576841488145E-002
+   A=         127  Z=          53  sigsi (pb) =   0.542998981959048      
+  sigsd (pb) =   0.226371618631655     
+  sigsi*ff(pb)=  0.339755821597199       sigsd*ff(pb)=  0.127128701924704     
+   A=          73  Z=          32  sigsi (pb) =   8.760337725375966E-002 
+  sigsd (pb) =   0.117958121873542     
+  sigsi*ff(pb)=  7.142985700063827E-002  sigsd*ff(pb)=  8.729458646377340E-002
+   A=           1  Z=           1  sigsi (pb) =   6.247803125151665E-009 
+  sigsd (pb) =   3.615153395881698E-004
+  sigsi*ff(pb)=  6.247803125151665E-009  sigsd*ff(pb)=  3.615153395881698E-004
+   A=           1  Z=           0  sigsi (pb) =   6.146964358588427E-009 
+  sigsd (pb) =   2.377439524752977E-004
+  sigsi*ff(pb)=  6.146964358588427E-009  sigsd*ff(pb)=  2.377439524752977E-004
+   A=           7  Z=           3  sigsi (pb) =   1.374330856264680E-005 
+  sigsd (pb) =   5.348601037360792E-003
+  sigsi*ff(pb)=  1.365777745731851E-005  sigsd*ff(pb)=  5.319076525709005E-003
+  NaI :  dRdE [counts/kg-day-keV] (SI)=  2.728733515123029E-004  (SD)=
+  1.287708549911138E-004
+ Calculating gamma ray fluxes...
+   fluxgacdiff =   3.548562303367436E-012  ph/(cm^2 s GeV)
+       fluxgac =   1.296498204445917E-009  ph/(cm^2 s)
+      fluxgaga =   2.720144974110198E-014  ph/(cm^2 s)
+       fluxgaz =   9.894097287150119E-014  ph/(cm^2 s)
+   nsigvgacont =    30944.5729010995     
+  nsigvgacdiff =    18484.7258801432       GeV^-1
+     nsigvgaga =   0.649239036076302     
+      nsigvgaz =    2.36150434873633     
+ Calculating antiproton fluxes...
+   solar modulated pbar flux at 0.35 GeV =   3.039878030424188E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 1.76 GeV =   4.640093888979922E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 3.00 GeV =   3.607955190350131E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating antideutron fluxes...
+   solar modulated dbar flux at 1.00 GeV =   6.878487007875789E-013 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating positron fluxes at 1 GeV...
+   phiep=  1.518686115866614E-006  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating rates in neutrino telescopes
+   Flux from the Earth =   2.394098959084404E-004  km^-2 yr^-1
+   Flux from the Sun =      1491.52369704870       km^-2 yr^-1
+ Calculating neutrino-induced muon fluxes from the halo...
+   Muon flux from halo =   4.356816592911929E-002  km^-2 yr^-1
+ g-2 amplitude [a_mu = (g-2)/2 = ]:  -6.118978024379360E-011
+ Model parameters read from file dstest.mod
+  
+ ***** MODEL: JE56A_002265 *****
+  acceptable =           0 (0=OK, -1=not OK)
+   Neutralino mass =    92.2485180871803     
+   Gaugino fraction =   0.677805709273619     
+   H1 mass =     703.115559019441        27.2379644851466     
+   H2 mass =     130.670061997804       5.455912255401331E-003
+   H3 mass =     703.417850000000        26.6692498439173     
+   H+- mass =    707.349743917497        25.3199362946062     
+ Calculating omega h^2 without coannihilations, please be patient...
+   without coannihilations Oh2 =   0.101911368567514                0
+           0
+ Calculating omega h^2 with coannihilations, please be patient...
+   with coannihilations Oh2 =   0.100779402373209                0           0
+ Calculating scattering cross sections...
+   sigsip (pb) =   2.231618299370684E-009
+   sigsin (pb) =   2.555138951975112E-009
+   sigsdp (pb) =   9.316718565423640E-004
+   sigsdn (pb) =   6.124972201263904E-004
+  proton: sigsi (pb) =   2.231618299370684E-009  sigsd (pb) = 
+  9.316718565423641E-004
+   A=          23  Z=          11  sigsi (pb) =   4.432654263016499E-004 
+  sigsd (pb) =   3.882740350417098E-002
+  sigsi*ff(pb)=  4.289210679322643E-004  sigsd*ff(pb)=  3.704641316993849E-002
+   A=         127  Z=          53  sigsi (pb) =   0.121115606669410      
+  sigsd (pb) =   0.333171503924128     
+  sigsi*ff(pb)=  7.578233812473732E-002  sigsd*ff(pb)=  0.187107178263863     
+   A=          73  Z=          32  sigsi (pb) =   2.274678610148932E-002 
+  sigsd (pb) =   0.202659253742852     
+  sigsi*ff(pb)=  1.854722648131419E-002  sigsd*ff(pb)=  0.149976759206422     
+   A=           1  Z=           1  sigsi (pb) =   2.231618299370684E-009 
+  sigsd (pb) =   9.316718565423641E-004
+  sigsi*ff(pb)=  2.231618299370684E-009  sigsd*ff(pb)=  9.316718565423641E-004
+   A=           1  Z=           0  sigsi (pb) =   2.555138951975111E-009 
+  sigsd (pb) =   6.124972201263904E-004
+  sigsi*ff(pb)=  2.555138951975111E-009  sigsd*ff(pb)=  6.124972201263904E-004
+   A=           7  Z=           3  sigsi (pb) =   5.096018687439415E-006 
+  sigsd (pb) =   1.310777124269706E-002
+  sigsi*ff(pb)=  5.064303754377738E-006  sigsd*ff(pb)=  1.303541577215799E-002
+  NaI :  dRdE [counts/kg-day-keV] (SI)=  1.761196241481520E-004  (SD)=
+  5.523668188705724E-004
+ Calculating gamma ray fluxes...
+   fluxgacdiff =   1.936921988808908E-012  ph/(cm^2 s GeV)
+       fluxgac =   1.797974050686875E-009  ph/(cm^2 s)
+      fluxgaga =   9.262782837789843E-014  ph/(cm^2 s)
+       fluxgaz =   2.157801480643811E-013  ph/(cm^2 s)
+   nsigvgacont =    13409.7992977368     
+  nsigvgacdiff =    10384.5258589513       GeV^-1
+     nsigvgaga =   0.690844557772288     
+      nsigvgaz =    1.60934941017299     
+ Calculating antiproton fluxes...
+   solar modulated pbar flux at 0.35 GeV =   9.775250538290142E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 1.76 GeV =   9.518695933321433E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 3.00 GeV =   6.768168029820596E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating antideutron fluxes...
+   solar modulated dbar flux at 1.00 GeV =   2.058990289610565E-012 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating positron fluxes at 1 GeV...
+   phiep=  2.277690599780509E-006  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating rates in neutrino telescopes
+   Flux from the Earth =   1.608546300643629E-004  km^-2 yr^-1
+   Flux from the Sun =      3998.39611935132       km^-2 yr^-1
+ Calculating neutrino-induced muon fluxes from the halo...
+   Muon flux from halo =   2.216257000618026E-002  km^-2 yr^-1
+ g-2 amplitude [a_mu = (g-2)/2 = ]:  -1.305190829019607E-010
+ Model parameters read from file dstest.mod
+  
+ ***** MODEL: JE56A_002352 *****
+[1m[34mDRbartoOS warning: DRbartoOS transition failed[0m
+[1m[34mDRbartoOS warning: DRbartoOS transition failed[0m
+  acceptable =           0 (0=OK, -1=not OK)
+   Neutralino mass =    988.444925884169     
+   Gaugino fraction =   2.014768819133345E-002
+   H1 mass =     436.510390152719        1.57540118045631     
+   H2 mass =     120.616935295099       4.909825762391394E-003
+   H3 mass =     436.522380000000        1.56321799459717     
+   H+- mass =    444.137183802160        1.20583183509421     
+ Calculating omega h^2 without coannihilations, please be patient...
+   without coannihilations Oh2 =   0.159665628398680                0
+           0
+ Calculating omega h^2 with coannihilations, please be patient...
+   with coannihilations Oh2 =   8.918307280624972E-002           0           0
+ Calculating scattering cross sections...
+   sigsip (pb) =   9.884872302843939E-009
+   sigsin (pb) =   1.006084910992775E-008
+   sigsdp (pb) =   1.866967856866540E-006
+   sigsdn (pb) =   1.229699102476942E-006
+  proton: sigsi (pb) =   9.884872302843941E-009  sigsd (pb) = 
+  1.866967856866541E-006
+   A=          23  Z=          11  sigsi (pb) =   2.633680487557259E-003 
+  sigsd (pb) =   1.110853066209556E-004
+  sigsi*ff(pb)=  2.548452868838648E-003  sigsd*ff(pb)=  1.059893472046404E-004
+   A=         127  Z=          53  sigsi (pb) =    2.03955774992018      
+  sigsd (pb) =   2.720099398311174E-003
+  sigsi*ff(pb)=   1.27615638710595       sigsd*ff(pb)=  1.527571845417465E-003
+   A=          73  Z=          32  sigsi (pb) =   0.244113486789828      
+  sigsd (pb) =   1.054501074297051E-003
+  sigsi*ff(pb)=  0.199044740053972       sigsd*ff(pb)=  7.803978368388843E-004
+   A=           1  Z=           1  sigsi (pb) =   9.884872302843941E-009 
+  sigsd (pb) =   1.866967856866541E-006
+  sigsi*ff(pb)=  9.884872302843941E-009  sigsd*ff(pb)=  1.866967856866541E-006
+   A=           1  Z=           0  sigsi (pb) =   1.006084910992775E-008 
+  sigsd (pb) =   1.229699102476942E-006
+  sigsi*ff(pb)=  1.006084910992775E-008  sigsd*ff(pb)=  1.229699102476942E-006
+   A=           7  Z=           3  sigsi (pb) =   2.342336102853783E-005 
+  sigsd (pb) =   2.918462890963460E-005
+  sigsi*ff(pb)=  2.327758638117820E-005  sigsd*ff(pb)=  2.902352848163918E-005
+  NaI :  dRdE [counts/kg-day-keV] (SI)=  7.768587876924948E-005  (SD)=
+  1.169712593642014E-007
+ Calculating gamma ray fluxes...
+   fluxgacdiff =   5.175649197636578E-013  ph/(cm^2 s GeV)
+       fluxgac =   5.810593848233177E-011  ph/(cm^2 s)
+      fluxgaga =   4.088419553257243E-015  ph/(cm^2 s)
+       fluxgaz =   6.025638042580683E-015  ph/(cm^2 s)
+   nsigvgacont =    49756.0086427365     
+  nsigvgacdiff =    12596.0852910992       GeV^-1
+     nsigvgaga =    3.50090617138651     
+      nsigvgaz =    5.15974281382289     
+ Calculating antiproton fluxes...
+   solar modulated pbar flux at 0.35 GeV =   1.677070368174723E-010 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 1.76 GeV =   3.550193859632264E-010 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 3.00 GeV =   3.587721223445002E-010 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating antideutron fluxes...
+   solar modulated dbar flux at 1.00 GeV =   3.821770210621789E-015 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating positron fluxes at 1 GeV...
+   phiep=  4.658348657520706E-008  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating rates in neutrino telescopes
+   Flux from the Earth =   1.762983520568321E-005  km^-2 yr^-1
+   Flux from the Sun =      6.23586132750587       km^-2 yr^-1
+ Calculating neutrino-induced muon fluxes from the halo...
+   Muon flux from halo =   2.484323915038904E-002  km^-2 yr^-1
+ g-2 amplitude [a_mu = (g-2)/2 = ]:   6.317839399294151E-011
+ Model parameters read from file dstest.mod
+  
+ ***** MODEL: JE56A_002681 *****
+  acceptable =           0 (0=OK, -1=not OK)
+   Neutralino mass =    73.3314691916301     
+   Gaugino fraction =   0.378263132676233     
+   H1 mass =     856.954384215807        13.7469024119054     
+   H2 mass =     125.686041000373       4.562643963725014E-003
+   H3 mass =     856.934750000000        13.5332298528623     
+   H+- mass =    834.719985046788        12.8584669817526     
+ Calculating omega h^2 without coannihilations, please be patient...
+   without coannihilations Oh2 =   0.102563235867762                0
+           0
+ Calculating omega h^2 with coannihilations, please be patient...
+   with coannihilations Oh2 =   9.812493579227541E-002           0           0
+ Calculating scattering cross sections...
+   sigsip (pb) =   6.855225538922324E-009
+   sigsin (pb) =   6.697234737458924E-009
+   sigsdp (pb) =   2.744221162717131E-003
+   sigsdn (pb) =   1.803538473138240E-003
+  proton: sigsi (pb) =   6.855225538922324E-009  sigsd (pb) = 
+  2.744221162717130E-003
+   A=          23  Z=          11  sigsi (pb) =   1.144697801302263E-003 
+  sigsd (pb) =   0.104554746461078     
+  sigsi*ff(pb)=  1.107654633682523E-003  sigsd*ff(pb)=  9.975896410287656E-002
+   A=         127  Z=          53  sigsi (pb) =   0.259856438741591      
+  sigsd (pb) =   0.752643627569760     
+  sigsi*ff(pb)=  0.162592823882366       sigsd*ff(pb)=  0.422681188962552     
+   A=          73  Z=          32  sigsi (pb) =   5.214990001360122E-002 
+  sigsd (pb) =   0.487378021708522     
+  sigsi*ff(pb)=  4.252187549549355E-002  sigsd*ff(pb)=  0.360679611914781     
+   A=           1  Z=           1  sigsi (pb) =   6.855225538922324E-009 
+  sigsd (pb) =   2.744221162717130E-003
+  sigsi*ff(pb)=  6.855225538922324E-009  sigsd*ff(pb)=  2.744221162717130E-003
+   A=           1  Z=           0  sigsi (pb) =   6.697234737458924E-009 
+  sigsd (pb) =   1.803538473138240E-003
+  sigsi*ff(pb)=  6.697234737458924E-009  sigsd*ff(pb)=  1.803538473138240E-003
+   A=           7  Z=           3  sigsi (pb) =   1.387907517351641E-005 
+  sigsd (pb) =   3.751824715086122E-002
+  sigsi*ff(pb)=  1.379269912839496E-005  sigsd*ff(pb)=  3.731114478569644E-002
+  NaI :  dRdE [counts/kg-day-keV] (SI)=  5.842321160072664E-004  (SD)=
+  1.941661066312923E-003
+ Calculating gamma ray fluxes...
+   fluxgacdiff =   8.201493409987164E-014  ph/(cm^2 s GeV)
+       fluxgac =   1.238289752032005E-010  ph/(cm^2 s)
+      fluxgaga =   2.754883542871870E-013  ph/(cm^2 s)
+       fluxgaz =   2.918223895315236E-013  ph/(cm^2 s)
+   nsigvgacont =    583.610521676561     
+  nsigvgacdiff =    465.555309459506       GeV^-1
+     nsigvgaga =    1.29838676204442     
+      nsigvgaz =    1.37536967185521     
+ Calculating antiproton fluxes...
+   solar modulated pbar flux at 0.35 GeV =   5.374783669513529E-009 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 1.76 GeV =   5.372547720929097E-009 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 3.00 GeV =   3.840816181834658E-009 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating antideutron fluxes...
+   solar modulated dbar flux at 1.00 GeV =   1.110173022556792E-013 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating positron fluxes at 1 GeV...
+   phiep=  1.590940520478102E-007  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating rates in neutrino telescopes
+   Flux from the Earth =   5.091359562138257E-005  km^-2 yr^-1
+   Flux from the Sun =      1471.67289129800       km^-2 yr^-1
+ Calculating neutrino-induced muon fluxes from the halo...
+   Muon flux from halo =   2.860605968070361E-004  km^-2 yr^-1
+ g-2 amplitude [a_mu = (g-2)/2 = ]:  -4.657118454052045E-011
+ Model parameters read from file dstest.mod
+  
+ ***** MODEL: JE56A_003392 *****
+  acceptable =           0 (0=OK, -1=not OK)
+   Neutralino mass =    78.2730444964488     
+   Gaugino fraction =   0.297396942753105     
+   H1 mass =     590.690116811877        7.34000530115020     
+   H2 mass =     124.577642763973       4.557134992593658E-003
+   H3 mass =     587.880720000000        7.51304598316020     
+   H+- mass =    590.678447403989        7.80281726007150     
+ Calculating omega h^2 without coannihilations, please be patient...
+   without coannihilations Oh2 =   0.119042625385307                0
+           0
+ Calculating omega h^2 with coannihilations, please be patient...
+   with coannihilations Oh2 =   9.425453002116738E-002           0           0
+ Calculating scattering cross sections...
+   sigsip (pb) =   6.652975651152758E-008
+   sigsin (pb) =   6.678419677618527E-008
+   sigsdp (pb) =   9.226600491384928E-004
+   sigsdn (pb) =   6.077874350935189E-004
+  proton: sigsi (pb) =   6.652975651152757E-008  sigsd (pb) = 
+  9.226600491384928E-004
+   A=          23  Z=          11  sigsi (pb) =   1.157716721708804E-002 
+  sigsd (pb) =   3.611471607624507E-002
+  sigsi*ff(pb)=  1.120252253331520E-002  sigsd*ff(pb)=  3.445796590120744E-002
+   A=         127  Z=          53  sigsi (pb) =    2.76948244983410      
+  sigsd (pb) =   0.273394725569626     
+  sigsi*ff(pb)=   1.73287209811634       sigsd*ff(pb)=  0.153534709170468     
+   A=          73  Z=          32  sigsi (pb) =   0.545668435147918      
+  sigsd (pb) =   0.174455053428507     
+  sigsi*ff(pb)=  0.444925977904637       sigsd*ff(pb)=  0.129108088416352     
+   A=           1  Z=           1  sigsi (pb) =   6.652975651152757E-008 
+  sigsd (pb) =   9.226600491384928E-004
+  sigsi*ff(pb)=  6.652975651152757E-008  sigsd*ff(pb)=  9.226600491384928E-004
+   A=           1  Z=           0  sigsi (pb) =   6.678419677618527E-008 
+  sigsd (pb) =   6.077874350935188E-004
+  sigsi*ff(pb)=  6.678419677618527E-008  sigsd*ff(pb)=  6.077874350935188E-004
+   A=           7  Z=           3  sigsi (pb) =   1.379985931066920E-004 
+  sigsd (pb) =   1.272535541827736E-002
+  sigsi*ff(pb)=  1.371397626330574E-004  sigsd*ff(pb)=  1.265511089981437E-002
+  NaI :  dRdE [counts/kg-day-keV] (SI)=  5.501384191039397E-003  (SD)=
+  6.218432616026118E-004
+ Calculating gamma ray fluxes...
+   fluxgacdiff =   1.019929495226907E-013  ph/(cm^2 s GeV)
+       fluxgac =   1.229353219209726E-010  ph/(cm^2 s)
+      fluxgaga =   6.903128347594657E-013  ph/(cm^2 s)
+       fluxgaz =   7.194464289013271E-013  ph/(cm^2 s)
+   nsigvgacont =    660.117426032795     
+  nsigvgacdiff =    517.688190178291       GeV^-1
+     nsigvgaga =    3.70672581743231     
+      nsigvgaz =    3.86316249385287     
+ Calculating antiproton fluxes...
+   solar modulated pbar flux at 0.35 GeV =   4.725194403478410E-009 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 1.76 GeV =   4.739949789672767E-009 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 3.00 GeV =   3.370448467327130E-009 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating antideutron fluxes...
+   solar modulated dbar flux at 1.00 GeV =   8.724955951110635E-014 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating positron fluxes at 1 GeV...
+   phiep=  1.568748123314645E-007  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating rates in neutrino telescopes
+   Flux from the Earth =   5.425710081724954E-003  km^-2 yr^-1
+   Flux from the Sun =      1078.90221199599       km^-2 yr^-1
+ Calculating neutrino-induced muon fluxes from the halo...
+   Muon flux from halo =   4.013151402026629E-004  km^-2 yr^-1
+ g-2 amplitude [a_mu = (g-2)/2 = ]:   2.854389513250581E-011
+ Model parameters read from file dstest.mod
+  
+ ***** MODEL: JE56A_003796 *****
+[1m[34mDRbartoOS warning: DRbartoOS transition failed[0m
+[1m[34mDRbartoOS warning: DRbartoOS transition failed[0m
+  acceptable =           0 (0=OK, -1=not OK)
+   Neutralino mass =    1016.82686274618     
+   Gaugino fraction =   5.006716311779768E-003
+   H1 mass =     753.392573874244        3.35697843319377     
+   H2 mass =     122.907527553700       4.437396964359861E-003
+   H3 mass =     753.241070000000        3.25905305578032     
+   H+- mass =    758.239141443075        3.13513104535384     
+ Calculating omega h^2 without coannihilations, please be patient...
+   without coannihilations Oh2 =   0.181504035021415                0
+           0
+ Calculating omega h^2 with coannihilations, please be patient...
+   with coannihilations Oh2 =   9.560693570268484E-002           0           0
+ Calculating scattering cross sections...
+   sigsip (pb) =   4.169026864253910E-010
+   sigsin (pb) =   4.101747338172495E-010
+   sigsdp (pb) =   5.455375752881058E-007
+   sigsdn (pb) =   3.585533507676456E-007
+  proton: sigsi (pb) =   4.169026864253911E-010  sigsd (pb) = 
+  5.455375752881058E-007
+   A=          23  Z=          11  sigsi (pb) =   1.092538518229497E-004 
+  sigsd (pb) =   3.250130447780762E-005
+  sigsi*ff(pb)=  1.057183259037284E-004  sigsd*ff(pb)=  3.101051264358281E-005
+   A=         127  Z=          53  sigsi (pb) =   8.483809947603201E-002 
+  sigsd (pb) =   7.999642525236991E-004
+  sigsi*ff(pb)=  5.308341110738587E-002  sigsd*ff(pb)=  4.492561693426670E-004
+   A=          73  Z=          32  sigsi (pb) =   1.013732833664071E-002 
+  sigsd (pb) =   3.084862470068815E-004
+  sigsi*ff(pb)=  8.265753400776430E-003  sigsd*ff(pb)=  2.282924689138209E-004
+   A=           1  Z=           1  sigsi (pb) =   4.169026864253911E-010 
+  sigsd (pb) =   5.455375752881058E-007
+  sigsi*ff(pb)=  4.169026864253911E-010  sigsd*ff(pb)=  5.455375752881058E-007
+   A=           1  Z=           0  sigsi (pb) =   4.101747338172496E-010 
+  sigsd (pb) =   3.585533507676458E-007
+  sigsi*ff(pb)=  4.101747338172495E-010  sigsd*ff(pb)=  3.585533507676458E-007
+   A=           7  Z=           3  sigsi (pb) =   9.692504384194198E-007 
+  sigsd (pb) =   8.530573587851742E-006
+  sigsi*ff(pb)=  9.632183347989523E-007  sigsd*ff(pb)=  8.483484448555004E-006
+  NaI :  dRdE [counts/kg-day-keV] (SI)=  3.123481605593323E-006  (SD)=
+  3.324838212227395E-008
+ Calculating gamma ray fluxes...
+   fluxgacdiff =   4.338492152885770E-013  ph/(cm^2 s GeV)
+       fluxgac =   4.715388527981693E-011  ph/(cm^2 s)
+      fluxgaga =   6.049506132956225E-015  ph/(cm^2 s)
+       fluxgaz =   6.208071186593678E-015  ph/(cm^2 s)
+   nsigvgacont =    42729.8695032410     
+  nsigvgacdiff =    10289.1551178016       GeV^-1
+     nsigvgaga =    5.48193655912629     
+      nsigvgaz =    5.62562491077529     
+ Calculating antiproton fluxes...
+   solar modulated pbar flux at 0.35 GeV =   1.551081609861741E-010 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 1.76 GeV =   2.576140725352613E-010 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 3.00 GeV =   2.568235637895734E-010 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating antideutron fluxes...
+   solar modulated dbar flux at 1.00 GeV =   3.785384810610607E-015 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating positron fluxes at 1 GeV...
+   phiep=  3.700690759323357E-008  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating rates in neutrino telescopes
+   Flux from the Earth =   2.860262867009418E-008  km^-2 yr^-1
+   Flux from the Sun =     0.422626142268611       km^-2 yr^-1
+ Calculating neutrino-induced muon fluxes from the halo...
+   Muon flux from halo =   2.291008185378177E-002  km^-2 yr^-1
+ g-2 amplitude [a_mu = (g-2)/2 = ]:  -2.493658507272618E-011
+ Model parameters read from file dstest.mod
+  
+ ***** MODEL: JE56A_004908 *****
+[1m[34mDRbartoOS warning: DRbartoOS transition failed[0m
+Suppressing further [1m[34mDRbartoOS warning: DRbartoOS transition failed[0m
+  acceptable =           0 (0=OK, -1=not OK)
+   Neutralino mass =    377.322841006790     
+   Gaugino fraction =   0.911088125546699     
+   H1 mass =     638.494163069796        2.95547808794262     
+   H2 mass =     116.886412352424       3.719818697343565E-003
+   H3 mass =     635.966710000000        3.80616395095303     
+   H+- mass =    641.516108607904        3.90848087690758     
+ Calculating omega h^2 without coannihilations, please be patient...
+   without coannihilations Oh2 =   0.121555854477168                0
+           0
+ Calculating omega h^2 with coannihilations, please be patient...
+   with coannihilations Oh2 =   0.121505261869895                0           0
+ Calculating scattering cross sections...
+   sigsip (pb) =   1.284495506854050E-008
+   sigsin (pb) =   1.287438904883661E-008
+   sigsdp (pb) =   5.404085826683803E-006
+   sigsdn (pb) =   3.970582615713556E-006
+  proton: sigsi (pb) =   1.284495506854050E-008  sigsd (pb) = 
+  5.404085826683803E-006
+   A=          23  Z=          11  sigsi (pb) =   3.183091637887436E-003 
+  sigsd (pb) =   2.991111689525697E-004
+  sigsi*ff(pb)=  3.080084715923303E-003  sigsd*ff(pb)=  2.853015986742179E-004
+   A=         127  Z=          53  sigsi (pb) =    1.91498748266756      
+  sigsd (pb) =   5.583662780687419E-003
+  sigsi*ff(pb)=   1.19821245921072       sigsd*ff(pb)=  3.133191918623423E-003
+   A=          73  Z=          32  sigsi (pb) =   0.258762049182958      
+  sigsd (pb) =   2.834597934153180E-003
+  sigsi*ff(pb)=  0.210988853966102       sigsd*ff(pb)=  2.100944485186774E-003
+   A=           1  Z=           1  sigsi (pb) =   1.284495506854050E-008 
+  sigsd (pb) =   5.404085826683803E-006
+  sigsi*ff(pb)=  1.284495506854050E-008  sigsd*ff(pb)=  5.404085826683803E-006
+   A=           1  Z=           0  sigsi (pb) =   1.287438904883661E-008 
+  sigsd (pb) =   3.970582615713556E-006
+  sigsi*ff(pb)=  1.287438904883661E-008  sigsd*ff(pb)=  3.970582615713556E-006
+   A=           7  Z=           3  sigsi (pb) =   2.963046668389345E-005 
+  sigsd (pb) =   8.296278633005934E-005
+  sigsi*ff(pb)=  2.944606228408578E-005  sigsd*ff(pb)=  8.250482812107030E-005
+  NaI :  dRdE [counts/kg-day-keV] (SI)=  2.582396292514138E-004  (SD)=
+  8.533917915095258E-007
+ Calculating gamma ray fluxes...
+   fluxgacdiff =   1.836990925730946E-012  ph/(cm^2 s GeV)
+       fluxgac =   5.358679843013907E-010  ph/(cm^2 s)
+      fluxgaga =   5.060234809265763E-017  ph/(cm^2 s)
+       fluxgaz =   4.475093852365667E-016  ph/(cm^2 s)
+   nsigvgacont =    66865.8029474619     
+  nsigvgacdiff =    35916.4535896240       GeV^-1
+     nsigvgaga =   6.314179490781973E-003
+      nsigvgaz =   5.584038465999919E-002
+ Calculating antiproton fluxes...
+   solar modulated pbar flux at 0.35 GeV =   1.145421705653240E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 1.76 GeV =   1.423204754345102E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 3.00 GeV =   1.139661307464254E-008 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating antideutron fluxes...
+   solar modulated dbar flux at 1.00 GeV =   4.049950126881008E-013 
+  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating positron fluxes at 1 GeV...
+   phiep=  5.925231907806179E-007  GeV^-1 cm^-2 s^-1 sr^-1
+ Calculating rates in neutrino telescopes
+   Flux from the Earth =   6.093810860374774E-005  km^-2 yr^-1
+   Flux from the Sun =      22.2436794956631       km^-2 yr^-1
+ Calculating neutrino-induced muon fluxes from the halo...
+   Muon flux from halo =   1.834501997183600E-002  km^-2 yr^-1
+ g-2 amplitude [a_mu = (g-2)/2 = ]:   5.170992703043471E-011
+ Model parameters read from file dstest.mod
+  
+ ***** MODEL: JE57A_000275 *****
+  acceptable =          -1 (0=OK, -1=not OK)
+ (JE57A_000275)  excluded by:  b->s+gamma;  

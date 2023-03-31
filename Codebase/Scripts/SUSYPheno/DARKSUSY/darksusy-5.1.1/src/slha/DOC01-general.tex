@@ -1,0 +1,17 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{SUSY Les Houches Accord}
+
+\ds\ includes routines to read and write SUSY Les Houches Accord 
+\cite{slha,slha2} files (SLHA
+files). This is done with the help of \code{SLHALIB} by T.~Hahn \cite{slhalib}.
+
+\ds\ will write SLHA2 files and expect to get SLHA2 as well. The implementation
+right now takes a middle path between dumping everything or just
+a minimal set of inputs to the SLHA2 file. This choice was made to make most
+other SLHA2-aware programs able to exchange SLHA2 files with \ds.
+
+However, we have not made a careful testing with lots of other codes, so
+if you try this out, please let us know if there are some things that don't
+work or could work better.
+

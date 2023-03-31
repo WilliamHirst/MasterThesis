@@ -1,0 +1,13 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{mSUGRA (ISASUGRA) interface to DarkSUSY}
+
+If \code{Isasugra} is available, \ds\ can use \code{Isasugra} to
+generate mSUGRA models. In \codeb{src/rge/}, routines are avaible to
+transfer the mSUGRA parameters from \ds\ to \code{Isasugra}, call
+\code{Isasugra} and then transfer back the results to \ds. The
+philosophy of this interface is that whenever a user uses
+\code{Isasugra}, we should use all the results of \code{Isasugra} also
+in \ds. That means that instead of calculating the mass spectrum from
+the low-energy parameters obtained from \code{Isasugra}, we extract
+the masses and mixings from \code{Isasugra}.

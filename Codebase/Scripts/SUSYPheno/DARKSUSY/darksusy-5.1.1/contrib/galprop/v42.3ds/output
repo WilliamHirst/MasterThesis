@@ -1,0 +1,727 @@
+ *********************************************************
+ *** Welcome to DarkSUSY version                       ***
+ *** ds-4.1.5                                          ***
+ *********************************************************
+  
+ Initializing DarkSUSY...
+ Top pole mass set to   174.3 GeV
+ for alph3 and mass(kt) =   0.  174.3
+ mtmt =   166.6
+ Charm pole mass   1.42815967 GeV
+ Bottom pole mass   4.57315775 GeV
+ WARNING in dspbset: using halo model isosm       
+ for the setup. If you change halo model, make sure
+ to call dspbset again.
+ dsntsunread: Opening file 
+ /u/ki/eabaltz/research/DarkSUSY/ds-4.1.5/dat/bp2000stdmodel.dat                                                                                                                                         
+ dsntsunread: tabulating potential inside the Sun...
+   ...done
+ dsntsunread: tabulating column density inside the Sun...
+   ...done
+ Ip =   16.3138412
+ In =   5.3184184
+ Initialization of DarkSUSY complete.
+ New Green's functions requested
+ Calling GALPROP to construct Green's functions
+>>>>galprop version 42.3ds
+2 dstest ds000001
+>>>>Configure
+Configure: galdef_directory:  ../GALDEF/
+Configure:   fits_directory:  ../FITS/
+Configure:adjunct_directory:  ../adjunct/
+<<<<Configure
+../GALDEF/
+ >>>>galdef read
+../GALDEF/galdef_42.3ds_ds000001
+iso_abundance_01_001
+iso_abundance_01_002
+iso_abundance_01_002 not found in galdef file!
+DM_int8 not found in galdef file!
+  ======= galdef: 42.3ds_ds000001
+  version  42.3ds
+  run_no   ds000001
+  n_spatial_dimensions 2
+  r_min    0
+  r_max    20
+  dr       1
+  z_min    -4
+  z_max    4
+  dz       0.2
+  p_min    1000
+  p_max    4000
+  p_factor 1.5
+  Ekin_min 1
+  Ekin_max 1e+09
+  Ekin_factor 1.58489
+  p_Ekin_grid Ekin
+  E_gamma_min   1
+  E_gamma_max   1e+08
+  E_gamma_factor2
+ nu_synch_min    1e+06
+ nu_synch_max    1e+10
+ nu_synch_factor 2
+  long_min      0.5
+  long_max      359.5
+   lat_min      -89.5
+   lat_max      89.5
+  d_long        5
+  d_lat         5
+  D0_xx       5.8e+28
+  D_rigid_br  4000
+  D_g_1       0.33
+  D_g_2       0.33
+  diff_reacc  1
+  v_Alfven    30
+  convection  0
+  v0_conv     0
+  dvdz_conv   10
+  nuc_rigid_br  9000
+  nuc_g_1       1.98
+  nuc_g_2       2.42
+  inj_spectrum_type rigidity
+  electron_rigid_br  1e+09
+  electron_g_1       2.54
+  electron_g_2       5
+  He_H_ratio        0.11
+  X_CO              1.9e+20
+  fragmentation     1
+  momentum_losses   1
+  radioactive_decay 1
+  K_capture         1
+  x_min    0
+  x_max    15
+  dx       0.2
+  y_min    0
+  y_max    15
+  dy       0.2
+  start_timestep   1e+07
+    end_timestep   100
+  timestep_factor  0.25
+  timestep_repeat  20
+  timestep_repeat2 0
+  timestep_print   10000
+  timestep_diagnostics  10000
+  control_diagnostics  0
+  network_iterations 1
+  prop_r   1
+  prop_x   1
+  prop_y   1
+  prop_z   1
+  prop_p   1
+  use_symmetry  0
+  vectorized    0
+  source_specification  0
+  source_model          1
+  source_parameters_1   0.5
+  source_parameters_2   1
+  source_parameters_3   20
+  n_cr_sources          0
+  SNR_events            0
+  SNR_interval          10000
+  SNR_livetime          10000
+  SNR_electron_sdg      0
+  SNR_nuc_sdg           0
+  SNR_electron_dgpivot  5000
+  SNR_nuc_dgpivot       5000
+  B_field_model         50100020
+    proton_norm_Ekin    100000
+    proton_norm_flux    5e-09
+  electron_norm_Ekin    34500
+  electron_norm_flux    4e-10
+  max_Z                 1
+use_Z_1 1
+isotopic abundance for (Z,A) (1,1) =1.06e+06
+  total_cross_section  0
+  cross_section_option  10
+  t_half_limit          10000
+  primary_electrons     0
+  secondary_positrons   0
+  secondary_electrons   0
+  secondary_antiprotons 0
+  tertiary_antiprotons  0
+  secondary_protons     0
+  gamma_rays            0
+  IC_anisotropic        0
+  synchrotron           0
+  DM_positrons          1
+  DM_electrons          0
+  DM_antiprotons        1
+  DM_gammas             0
+  DM_double0            2.8
+  DM_double1            0.43
+  DM_double2            10000
+  DM_double3            100
+  DM_double4            40
+  DM_double5            40
+  DM_double6            30
+  DM_double7            50
+  DM_double8            40
+  DM_double9            3e-25
+  DM_int0               9
+  DM_int1               9
+  DM_int2               1
+  DM_int3               1
+  DM_int4               1
+  DM_int5               1
+  DM_int6               1
+  DM_int7               1
+  DM_int8               0
+  DM_int9               1
+  output_gcr_full      0
+  warm_start           0
+  verbose    0
+  test_suite 0
+ <<<<galdef read
+ >>>> create_galaxy
+ Galaxy  : initializing 2D
+Distribution.init:generated 2D array of spectra 21 41 1
+Distribution.init:generated 2D array of spectra 21 41 1
+Distribution.init:generated 2D array of spectra 21 41 1
+Distribution.init:generated 2D array of spectra 21 41 1
+ >>>> read_isrf    
+ reading ISRF from ../FITS/isrf_interp_04_000015
+ NAXIS = 4
+ NAXIS1,2,3,4 = 21 201 80 3
+ CRVAL1,2,3 = 0 0 -0.886056
+ CDELT1,2,3 = 1 0.1 0.0606978
+generating galaxy.ISRF:
+Distribution.init:generated 2D array of spectra 21 41 80
+ galaxy.ISRF initialized with frequency axis dimension=80
+Distribution.init:generated 2D array of spectra 21 41 80
+ galaxy.ISRF initialized with frequency axis dimension=80
+Distribution.init:generated 2D array of spectra 21 41 80
+ galaxy.ISRF initialized with frequency axis dimension=80
+ ISRF frequency grid (Hz):
+inu galaxy.nu_ISRF[inu] 0 3.6987e+10
+inu galaxy.nu_ISRF[inu] 1 4.2535e+10
+inu galaxy.nu_ISRF[inu] 2 4.89153e+10
+inu galaxy.nu_ISRF[inu] 3 5.62526e+10
+inu galaxy.nu_ISRF[inu] 4 6.46905e+10
+inu galaxy.nu_ISRF[inu] 5 7.43941e+10
+inu galaxy.nu_ISRF[inu] 6 8.55532e+10
+inu galaxy.nu_ISRF[inu] 7 9.83861e+10
+inu galaxy.nu_ISRF[inu] 8 1.13144e+11
+inu galaxy.nu_ISRF[inu] 9 1.30116e+11
+inu galaxy.nu_ISRF[inu] 10 1.49633e+11
+inu galaxy.nu_ISRF[inu] 11 1.72078e+11
+inu galaxy.nu_ISRF[inu] 12 1.9789e+11
+inu galaxy.nu_ISRF[inu] 13 2.27573e+11
+inu galaxy.nu_ISRF[inu] 14 2.61709e+11
+inu galaxy.nu_ISRF[inu] 15 3.00965e+11
+inu galaxy.nu_ISRF[inu] 16 3.4611e+11
+inu galaxy.nu_ISRF[inu] 17 3.98027e+11
+inu galaxy.nu_ISRF[inu] 18 4.57731e+11
+inu galaxy.nu_ISRF[inu] 19 5.2639e+11
+inu galaxy.nu_ISRF[inu] 20 6.05349e+11
+inu galaxy.nu_ISRF[inu] 21 6.96151e+11
+inu galaxy.nu_ISRF[inu] 22 8.00574e+11
+inu galaxy.nu_ISRF[inu] 23 9.2066e+11
+inu galaxy.nu_ISRF[inu] 24 1.05876e+12
+inu galaxy.nu_ISRF[inu] 25 1.21757e+12
+inu galaxy.nu_ISRF[inu] 26 1.40021e+12
+inu galaxy.nu_ISRF[inu] 27 1.61024e+12
+inu galaxy.nu_ISRF[inu] 28 1.85178e+12
+inu galaxy.nu_ISRF[inu] 29 2.12954e+12
+inu galaxy.nu_ISRF[inu] 30 2.44897e+12
+inu galaxy.nu_ISRF[inu] 31 2.81632e+12
+inu galaxy.nu_ISRF[inu] 32 3.23877e+12
+inu galaxy.nu_ISRF[inu] 33 3.72458e+12
+inu galaxy.nu_ISRF[inu] 34 4.28327e+12
+inu galaxy.nu_ISRF[inu] 35 4.92576e+12
+inu galaxy.nu_ISRF[inu] 36 5.66462e+12
+inu galaxy.nu_ISRF[inu] 37 6.51432e+12
+inu galaxy.nu_ISRF[inu] 38 7.49146e+12
+inu galaxy.nu_ISRF[inu] 39 8.61518e+12
+inu galaxy.nu_ISRF[inu] 40 9.90746e+12
+inu galaxy.nu_ISRF[inu] 41 1.13936e+13
+inu galaxy.nu_ISRF[inu] 42 1.31026e+13
+inu galaxy.nu_ISRF[inu] 43 1.5068e+13
+inu galaxy.nu_ISRF[inu] 44 1.73282e+13
+inu galaxy.nu_ISRF[inu] 45 1.99274e+13
+inu galaxy.nu_ISRF[inu] 46 2.29166e+13
+inu galaxy.nu_ISRF[inu] 47 2.6354e+13
+inu galaxy.nu_ISRF[inu] 48 3.03071e+13
+inu galaxy.nu_ISRF[inu] 49 3.48532e+13
+inu galaxy.nu_ISRF[inu] 50 4.00812e+13
+inu galaxy.nu_ISRF[inu] 51 4.60934e+13
+inu galaxy.nu_ISRF[inu] 52 5.30074e+13
+inu galaxy.nu_ISRF[inu] 53 6.09585e+13
+inu galaxy.nu_ISRF[inu] 54 7.01022e+13
+inu galaxy.nu_ISRF[inu] 55 8.06176e+13
+inu galaxy.nu_ISRF[inu] 56 9.27102e+13
+inu galaxy.nu_ISRF[inu] 57 1.06617e+14
+inu galaxy.nu_ISRF[inu] 58 1.22609e+14
+inu galaxy.nu_ISRF[inu] 59 1.41001e+14
+inu galaxy.nu_ISRF[inu] 60 1.62151e+14
+inu galaxy.nu_ISRF[inu] 61 1.86473e+14
+inu galaxy.nu_ISRF[inu] 62 2.14444e+14
+inu galaxy.nu_ISRF[inu] 63 2.46611e+14
+inu galaxy.nu_ISRF[inu] 64 2.83603e+14
+inu galaxy.nu_ISRF[inu] 65 3.26143e+14
+inu galaxy.nu_ISRF[inu] 66 3.75064e+14
+inu galaxy.nu_ISRF[inu] 67 4.31324e+14
+inu galaxy.nu_ISRF[inu] 68 4.96023e+14
+inu galaxy.nu_ISRF[inu] 69 5.70426e+14
+inu galaxy.nu_ISRF[inu] 70 6.5599e+14
+inu galaxy.nu_ISRF[inu] 71 7.54389e+14
+inu galaxy.nu_ISRF[inu] 72 8.67547e+14
+inu galaxy.nu_ISRF[inu] 73 9.97679e+14
+inu galaxy.nu_ISRF[inu] 74 1.14733e+15
+inu galaxy.nu_ISRF[inu] 75 1.31943e+15
+inu galaxy.nu_ISRF[inu] 76 1.51734e+15
+inu galaxy.nu_ISRF[inu] 77 1.74495e+15
+inu galaxy.nu_ISRF[inu] 78 2.00669e+15
+inu galaxy.nu_ISRF[inu] 79 2.30769e+15
+ <<<< read_isrf    
+>>>>gen_isrf_energy_density
+generating ISRF energy density for n_spatial_dimensions=2
+Distribution.init:generated 2D array of spectra 21 41 1
+Distribution.init:generated 2D array of spectra 21 41 1
+Distribution.init:generated 2D array of spectra 21 41 1
+ <<<< gen_isrf_energy_density
+    gamma-ray, synchrotron skymap arrays: n_long,nlat=72 36
+   creating ionization rate array
+Distribution.init:generated 2D array of spectra 21 41 1
+      galaxy.print
+Galaxy: n_spatial_dimensions=2
+        n_ISRF_components   =3
+r_min=0
+r_max=20
+dr   =1
+z_min=-4
+z_max=4
+dz   =0.2
+n_rgrid=21
+n_zgrid=41
+r grid:
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+z grid:
+-4 -3.8 -3.6 -3.4 -3.2 -3 -2.8 -2.6 -2.4 -2.2 -2 -1.8 -1.6 -1.4 -1.2 -1 -0.8 -0.6 -0.4 -0.2 2.22045e-16 0.2 0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2 2.2 2.4 2.6 2.8 3 3.2 3.4 3.6 3.8 4 
+n_HI[0][0].s[0]=9.59273e-07
+ <<<< create_galaxy
+ >>>> create_gcr
+  ======= galdef: 42.3ds_ds000001
+  version  42.3ds
+  run_no   ds000001
+  n_spatial_dimensions 2
+  r_min    0
+  r_max    20
+  dr       1
+  z_min    -4
+  z_max    4
+  dz       0.2
+  p_min    1000
+  p_max    4000
+  p_factor 1.5
+  Ekin_min 1
+  Ekin_max 1e+09
+  Ekin_factor 1.58489
+  p_Ekin_grid Ekin
+  E_gamma_min   1
+  E_gamma_max   1e+08
+  E_gamma_factor2
+ nu_synch_min    1e+06
+ nu_synch_max    1e+10
+ nu_synch_factor 2
+  long_min      0.5
+  long_max      359.5
+   lat_min      -89.5
+   lat_max      89.5
+  d_long        5
+  d_lat         5
+  D0_xx       5.8e+28
+  D_rigid_br  4000
+  D_g_1       0.33
+  D_g_2       0.33
+  diff_reacc  1
+  v_Alfven    30
+  convection  0
+  v0_conv     0
+  dvdz_conv   10
+  nuc_rigid_br  9000
+  nuc_g_1       1.98
+  nuc_g_2       2.42
+  inj_spectrum_type rigidity
+  electron_rigid_br  1e+09
+  electron_g_1       2.54
+  electron_g_2       5
+  He_H_ratio        0.11
+  X_CO              1.9e+20
+  fragmentation     1
+  momentum_losses   1
+  radioactive_decay 1
+  K_capture         1
+  x_min    0
+  x_max    15
+  dx       0.2
+  y_min    0
+  y_max    15
+  dy       0.2
+  start_timestep   1e+07
+    end_timestep   100
+  timestep_factor  0.25
+  timestep_repeat  20
+  timestep_repeat2 0
+  timestep_print   10000
+  timestep_diagnostics  10000
+  control_diagnostics  0
+  network_iterations 1
+  prop_r   1
+  prop_x   1
+  prop_y   1
+  prop_z   1
+  prop_p   1
+  use_symmetry  0
+  vectorized    0
+  source_specification  0
+  source_model          1
+  source_parameters_1   0.5
+  source_parameters_2   1
+  source_parameters_3   20
+  n_cr_sources          0
+  SNR_events            0
+  SNR_interval          10000
+  SNR_livetime          10000
+  SNR_electron_sdg      0
+  SNR_nuc_sdg           0
+  SNR_electron_dgpivot  5000
+  SNR_nuc_dgpivot       5000
+  B_field_model         50100020
+    proton_norm_Ekin    100000
+    proton_norm_flux    5e-09
+  electron_norm_Ekin    34500
+  electron_norm_flux    4e-10
+  max_Z                 1
+use_Z_1 1
+isotopic abundance for (Z,A) (1,1) =1.06e+06
+  total_cross_section  0
+  cross_section_option  10
+  t_half_limit          10000
+  primary_electrons     0
+  secondary_positrons   0
+  secondary_electrons   0
+  secondary_antiprotons 0
+  tertiary_antiprotons  0
+  secondary_protons     0
+  gamma_rays            0
+  IC_anisotropic        0
+  synchrotron           0
+  DM_positrons          1
+  DM_electrons          0
+  DM_antiprotons        1
+  DM_gammas             0
+  DM_double0            2.8
+  DM_double1            0.43
+  DM_double2            10000
+  DM_double3            100
+  DM_double4            40
+  DM_double5            40
+  DM_double6            30
+  DM_double7            50
+  DM_double8            40
+  DM_double9            3e-25
+  DM_int0               9
+  DM_int1               9
+  DM_int2               1
+  DM_int3               1
+  DM_int4               1
+  DM_int5               1
+  DM_int6               1
+  DM_int7               1
+  DM_int8               0
+  DM_int9               1
+  output_gcr_full      0
+  warm_start           0
+  verbose    0
+  test_suite 0
+
+Number of species to create: n_species= 4
+
+ Particle: initializing 2D
+species electron
+Distribution.init:generated 2D array of spectra 21 41 46
+name= DM_positrons
+species = electron
+Z   = 1
+A   = 0
+K_electron = 0
+t_half=0
+primary abundance    =0
+n_spatial_dimensions =2
+r_min=0
+r_max=20
+dr   =1
+z_min=-4
+z_max=4
+dz   =0.2
+p_min=1000
+p_max=4000
+p_factor=1.5
+Ekin_min=1
+Ekin_max=1e+09
+Ekin_factor=1.58489
+n_rgrid=21
+n_zgrid=41
+n_pgrid=46
+r grid:
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+z grid:
+-4 -3.8 -3.6 -3.4 -3.2 -3 -2.8 -2.6 -2.4 -2.2 -2 -1.8 -1.6 -1.4 -1.2 -1 -0.8 -0.6 -0.4 -0.2 2.22045e-16 0.2 0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2 2.2 2.4 2.6 2.8 3 3.2 3.4 3.6 3.8 4 
+p grid:
+1.42197 2.03265 2.97938 4.46291 6.8014 10.4986 16.3519 25.6248 40.3185 63.6047 100.51 159 251.699 398.618 631.468 1000.51 1585.4 2512.4 3981.58 6310.08 10000.5 15849.4 25119.4 39811.2 63096.3 100001 158490 251189 398108 630958 1e+06 1.58489e+06 2.51189e+06 3.98107e+06 6.30957e+06 1e+07 1.58489e+07 2.51189e+07 3.98107e+07 6.30957e+07 1e+08 1.58489e+08 2.51189e+08 3.98107e+08 6.30957e+08 1e+09 
+Etot grid:
+1.511 2.09589 3.02289 4.49207 6.82057 10.511 16.3599 25.6299 40.3217 63.6067 100.511 159 251.7 398.618 631.468 1000.51 1585.4 2512.4 3981.58 6310.09 10000.5 15849.4 25119.4 39811.2 63096.3 100001 158490 251189 398108 630958 1e+06 1.58489e+06 2.51189e+06 3.98107e+06 6.30957e+06 1e+07 1.58489e+07 2.51189e+07 3.98107e+07 6.30957e+07 1e+08 1.58489e+08 2.51189e+08 3.98107e+08 6.30957e+08 1e+09 
+Ekin grid:
+1 1.58489 2.51189 3.98107 6.30957 10 15.8489 25.1189 39.8107 63.0957 100 158.489 251.189 398.107 630.957 1000 1584.89 2511.89 3981.07 6309.57 10000 15848.9 25118.9 39810.7 63095.7 100000 158489 251189 398107 630957 1e+06 1.58489e+06 2.51189e+06 3.98107e+06 6.30957e+06 1e+07 1.58489e+07 2.51189e+07 3.98107e+07 6.30957e+07 1e+08 1.58489e+08 2.51189e+08 3.98107e+08 6.30957e+08 1e+09 
+beta grid:
+0.941079 0.969823 0.985609 0.993509 0.99719 0.998818 0.999512 0.999801 0.99992 0.999968 0.999987 0.999995 0.999998 0.999999 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+gamma grid:
+2.95695 4.10155 5.91563 8.79075 13.3475 20.5695 32.0155 50.1563 78.9075 124.475 196.695 311.155 492.563 780.075 1235.75 1957.95 3102.55 4916.63 7791.75 12348.5 19570.5 31016.5 49157.3 77908.5 123476 195696 310156 491564 779076 1.23475e+06 1.95695e+06 3.10155e+06 4.91563e+06 7.79075e+06 1.23475e+07 1.95695e+07 3.10155e+07 4.91563e+07 7.79075e+07 1.23475e+08 1.95695e+08 3.10155e+08 4.91563e+08 7.79075e+08 1.23475e+09 1.95695e+09 
+rigidity grid:
+1.42197 2.03265 2.97938 4.46291 6.8014 10.4986 16.3519 25.6248 40.3185 63.6047 100.51 159 251.699 398.618 631.468 1000.51 1585.4 2512.4 3981.58 6310.08 10000.5 15849.4 25119.4 39811.2 63096.3 100001 158490 251189 398108 630958 1e+06 1.58489e+06 2.51189e+06 3.98107e+06 6.30957e+06 1e+07 1.58489e+07 2.51189e+07 3.98107e+07 6.30957e+07 1e+08 1.58489e+08 2.51189e+08 3.98107e+08 6.30957e+08 1e+09 
+cr_density[0][0].s[0]=0
+============== completed creation of DM_positrons
+
+ Particle: initializing 2D
+species nucleus
+Distribution.init:generated 2D array of spectra 21 41 46
+name= DM_antiprotons
+species = nucleus
+Z   = -1
+A   = 1
+K_electron = 0
+t_half=0
+primary abundance    =0
+n_spatial_dimensions =2
+r_min=0
+r_max=20
+dr   =1
+z_min=-4
+z_max=4
+dz   =0.2
+p_min=1000
+p_max=4000
+p_factor=1.5
+Ekin_min=1
+Ekin_max=1e+09
+Ekin_factor=1.58489
+n_rgrid=21
+n_zgrid=41
+n_pgrid=46
+r grid:
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+z grid:
+-4 -3.8 -3.6 -3.4 -3.2 -3 -2.8 -2.6 -2.4 -2.2 -2 -1.8 -1.6 -1.4 -1.2 -1 -0.8 -0.6 -0.4 -0.2 2.22045e-16 0.2 0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2 2.2 2.4 2.6 2.8 3 3.2 3.4 3.6 3.8 4 
+p grid:
+43.3244 54.5506 68.6921 86.5121 108.98 137.332 173.158 218.527 276.17 349.784 444.522 567.842 730.976 951.493 1257.69 1695.88 2342.04 3319.92 4828.81 7186.62 10897.7 16760.7 26040 40737.9 64026.9 100934 159425 252125 399044 631895 1.00094e+06 1.58583e+06 2.51282e+06 3.98201e+06 6.31051e+06 1.00009e+07 1.58499e+07 2.51198e+07 3.98117e+07 6.30967e+07 1.00001e+08 1.5849e+08 2.5119e+08 3.98108e+08 6.30958e+08 1e+09 
+Etot grid:
+939 939.585 940.512 941.981 944.31 948 953.849 963.119 977.811 1001.1 1038 1096.49 1189.19 1336.11 1568.96 1938 2522.89 3449.89 4919.07 7247.57 10938 16786.9 26056.9 40748.7 64033.7 100938 159427 252127 399045 631895 1.00094e+06 1.58583e+06 2.51282e+06 3.98201e+06 6.31051e+06 1.00009e+07 1.58499e+07 2.51198e+07 3.98117e+07 6.30967e+07 1.00001e+08 1.5849e+08 2.5119e+08 3.98108e+08 6.30958e+08 1e+09 
+Ekin grid:
+1 1.58489 2.51189 3.98107 6.30957 10 15.8489 25.1189 39.8107 63.0957 100 158.489 251.189 398.107 630.957 1000 1584.89 2511.89 3981.07 6309.57 10000 15848.9 25118.9 39810.7 63095.7 100000 158489 251189 398107 630957 1e+06 1.58489e+06 2.51189e+06 3.98107e+06 6.30957e+06 1e+07 1.58489e+07 2.51189e+07 3.98107e+07 6.30957e+07 1e+08 1.58489e+08 2.51189e+08 3.98107e+08 6.30957e+08 1e+09 
+beta grid:
+0.0461388 0.0580582 0.073037 0.0918406 0.115407 0.144865 0.181536 0.226895 0.282437 0.349401 0.428249 0.517873 0.614684 0.712138 0.801609 0.875066 0.928315 0.962327 0.981651 0.99159 0.996316 0.998438 0.999352 0.999735 0.999893 0.999957 0.999983 0.999993 0.999997 0.999999 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+gamma grid:
+1.00107 1.00169 1.00268 1.00424 1.00673 1.01066 1.0169 1.02678 1.04244 1.06727 1.10661 1.16897 1.26779 1.42442 1.67266 2.0661 2.68965 3.67792 5.24421 7.72662 11.661 17.8965 27.7792 43.4421 68.2662 107.61 169.965 268.792 425.421 673.663 1067.1 1690.65 2678.92 4245.21 6727.63 10662 16897.5 26780.2 42443.1 67267.3 106611 168966 267793 424422 672664 1.0661e+06 
+rigidity grid:
+43.3244 54.5506 68.6921 86.5121 108.98 137.332 173.158 218.527 276.17 349.784 444.522 567.842 730.976 951.493 1257.69 1695.88 2342.04 3319.92 4828.81 7186.62 10897.7 16760.7 26040 40737.9 64026.9 100934 159425 252125 399044 631895 1.00094e+06 1.58583e+06 2.51282e+06 3.98201e+06 6.31051e+06 1.00009e+07 1.58499e+07 2.51198e+07 3.98117e+07 6.30967e+07 1.00001e+08 1.5849e+08 2.5119e+08 3.98108e+08 6.30958e+08 1e+09 
+cr_density[0][0].s[0]=0
+============== completed creation of DM_antiprotons
+
+nucleus being tested Z A K_electron 1 1 1
+nucleus being tested Z A K_electron 1 1 0
+nucleus used Z A t_half 1 1 0
+ Particle: initializing 2D
+species nucleus
+Distribution.init:generated 2D array of spectra 21 41 46
+name= Hydrogen_1
+species = nucleus
+Z   = 1
+A   = 1
+K_electron = 0
+t_half=0
+primary abundance    =1.06e+06
+n_spatial_dimensions =2
+r_min=0
+r_max=20
+dr   =1
+z_min=-4
+z_max=4
+dz   =0.2
+p_min=1000
+p_max=4000
+p_factor=1.5
+Ekin_min=1
+Ekin_max=1e+09
+Ekin_factor=1.58489
+n_rgrid=21
+n_zgrid=41
+n_pgrid=46
+r grid:
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+z grid:
+-4 -3.8 -3.6 -3.4 -3.2 -3 -2.8 -2.6 -2.4 -2.2 -2 -1.8 -1.6 -1.4 -1.2 -1 -0.8 -0.6 -0.4 -0.2 2.22045e-16 0.2 0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2 2.2 2.4 2.6 2.8 3 3.2 3.4 3.6 3.8 4 
+p grid:
+43.3244 54.5506 68.6921 86.5121 108.98 137.332 173.158 218.527 276.17 349.784 444.522 567.842 730.976 951.493 1257.69 1695.88 2342.04 3319.92 4828.81 7186.62 10897.7 16760.7 26040 40737.9 64026.9 100934 159425 252125 399044 631895 1.00094e+06 1.58583e+06 2.51282e+06 3.98201e+06 6.31051e+06 1.00009e+07 1.58499e+07 2.51198e+07 3.98117e+07 6.30967e+07 1.00001e+08 1.5849e+08 2.5119e+08 3.98108e+08 6.30958e+08 1e+09 
+Etot grid:
+939 939.585 940.512 941.981 944.31 948 953.849 963.119 977.811 1001.1 1038 1096.49 1189.19 1336.11 1568.96 1938 2522.89 3449.89 4919.07 7247.57 10938 16786.9 26056.9 40748.7 64033.7 100938 159427 252127 399045 631895 1.00094e+06 1.58583e+06 2.51282e+06 3.98201e+06 6.31051e+06 1.00009e+07 1.58499e+07 2.51198e+07 3.98117e+07 6.30967e+07 1.00001e+08 1.5849e+08 2.5119e+08 3.98108e+08 6.30958e+08 1e+09 
+Ekin grid:
+1 1.58489 2.51189 3.98107 6.30957 10 15.8489 25.1189 39.8107 63.0957 100 158.489 251.189 398.107 630.957 1000 1584.89 2511.89 3981.07 6309.57 10000 15848.9 25118.9 39810.7 63095.7 100000 158489 251189 398107 630957 1e+06 1.58489e+06 2.51189e+06 3.98107e+06 6.30957e+06 1e+07 1.58489e+07 2.51189e+07 3.98107e+07 6.30957e+07 1e+08 1.58489e+08 2.51189e+08 3.98107e+08 6.30957e+08 1e+09 
+beta grid:
+0.0461388 0.0580582 0.073037 0.0918406 0.115407 0.144865 0.181536 0.226895 0.282437 0.349401 0.428249 0.517873 0.614684 0.712138 0.801609 0.875066 0.928315 0.962327 0.981651 0.99159 0.996316 0.998438 0.999352 0.999735 0.999893 0.999957 0.999983 0.999993 0.999997 0.999999 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+gamma grid:
+1.00107 1.00169 1.00268 1.00424 1.00673 1.01066 1.0169 1.02678 1.04244 1.06727 1.10661 1.16897 1.26779 1.42442 1.67266 2.0661 2.68965 3.67792 5.24421 7.72662 11.661 17.8965 27.7792 43.4421 68.2662 107.61 169.965 268.792 425.421 673.663 1067.1 1690.65 2678.92 4245.21 6727.63 10662 16897.5 26780.2 42443.1 67267.3 106611 168966 267793 424422 672664 1.0661e+06 
+rigidity grid:
+43.3244 54.5506 68.6921 86.5121 108.98 137.332 173.158 218.527 276.17 349.784 444.522 567.842 730.976 951.493 1257.69 1695.88 2342.04 3319.92 4828.81 7186.62 10897.7 16760.7 26040 40737.9 64026.9 100934 159425 252125 399044 631895 1.00094e+06 1.58583e+06 2.51282e+06 3.98201e+06 6.31051e+06 1.00009e+07 1.58499e+07 2.51198e+07 3.98117e+07 6.30967e+07 1.00001e+08 1.5849e+08 2.5119e+08 3.98108e+08 6.30958e+08 1e+09 
+cr_density[0][0].s[0]=0
+============== completed creation of Hydrogen_1
+
+nucleus being tested Z A K_electron 1 2 1
+nucleus being tested Z A K_electron 1 2 0
+nucleus used Z A t_half 1 2 0
+ Particle: initializing 2D
+species nucleus
+Distribution.init:generated 2D array of spectra 21 41 46
+name= Hydrogen_2
+species = nucleus
+Z   = 1
+A   = 2
+K_electron = 0
+t_half=0
+primary abundance    =0
+n_spatial_dimensions =2
+r_min=0
+r_max=20
+dr   =1
+z_min=-4
+z_max=4
+dz   =0.2
+p_min=1000
+p_max=4000
+p_factor=1.5
+Ekin_min=1
+Ekin_max=1e+09
+Ekin_factor=1.58489
+n_rgrid=21
+n_zgrid=41
+n_pgrid=46
+r grid:
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+z grid:
+-4 -3.8 -3.6 -3.4 -3.2 -3 -2.8 -2.6 -2.4 -2.2 -2 -1.8 -1.6 -1.4 -1.2 -1 -0.8 -0.6 -0.4 -0.2 2.22045e-16 0.2 0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2 2.2 2.4 2.6 2.8 3 3.2 3.4 3.6 3.8 4 
+p grid:
+86.6487 109.101 137.384 173.024 217.959 274.663 346.317 437.054 552.34 699.568 889.044 1135.68 1461.95 1902.99 2515.38 3391.75 4684.08 6639.84 9657.62 14373.2 21795.4 33521.4 52080 81475.8 128054 201867 318849 504250 798088 1.26379e+06 2.00188e+06 3.17166e+06 5.02565e+06 7.96402e+06 1.2621e+07 2.00019e+07 3.16997e+07 5.02396e+07 7.96233e+07 1.26193e+08 2.00002e+08 3.16981e+08 5.02379e+08 7.96216e+08 1.26192e+09 2e+09 
+Etot grid:
+1878 1879.17 1881.02 1883.96 1888.62 1896 1907.7 1926.24 1955.62 2002.19 2076 2192.98 2378.38 2672.21 3137.91 3876 5045.79 6899.77 9838.14 14495.1 21876 33573.9 52113.7 81497.4 128067 201876 318855 504253 798090 1.26379e+06 2.00188e+06 3.17166e+06 5.02565e+06 7.96402e+06 1.2621e+07 2.00019e+07 3.16997e+07 5.02396e+07 7.96233e+07 1.26193e+08 2.00002e+08 3.16981e+08 5.02379e+08 7.96216e+08 1.26192e+09 2e+09 
+Ekin grid:
+1 1.58489 2.51189 3.98107 6.30957 10 15.8489 25.1189 39.8107 63.0957 100 158.489 251.189 398.107 630.957 1000 1584.89 2511.89 3981.07 6309.57 10000 15848.9 25118.9 39810.7 63095.7 100000 158489 251189 398107 630957 1e+06 1.58489e+06 2.51189e+06 3.98107e+06 6.30957e+06 1e+07 1.58489e+07 2.51189e+07 3.98107e+07 6.30957e+07 1e+08 1.58489e+08 2.51189e+08 3.98107e+08 6.30957e+08 1e+09 
+beta grid:
+0.0461388 0.0580582 0.073037 0.0918406 0.115407 0.144865 0.181536 0.226895 0.282437 0.349401 0.428249 0.517873 0.614684 0.712138 0.801609 0.875066 0.928315 0.962327 0.981651 0.99159 0.996316 0.998438 0.999352 0.999735 0.999893 0.999957 0.999983 0.999993 0.999997 0.999999 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+gamma grid:
+1.00107 1.00169 1.00268 1.00424 1.00673 1.01066 1.0169 1.02678 1.04244 1.06727 1.10661 1.16897 1.26779 1.42442 1.67266 2.0661 2.68965 3.67792 5.24421 7.72662 11.661 17.8965 27.7792 43.4421 68.2662 107.61 169.965 268.792 425.421 673.663 1067.1 1690.65 2678.92 4245.21 6727.63 10662 16897.5 26780.2 42443.1 67267.3 106611 168966 267793 424422 672664 1.0661e+06 
+rigidity grid:
+86.6487 109.101 137.384 173.024 217.959 274.663 346.317 437.054 552.34 699.568 889.044 1135.68 1461.95 1902.99 2515.38 3391.75 4684.08 6639.84 9657.62 14373.2 21795.4 33521.4 52080 81475.8 128054 201867 318849 504250 798088 1.26379e+06 2.00188e+06 3.17166e+06 5.02565e+06 7.96402e+06 1.2621e+07 2.00019e+07 3.16997e+07 5.02396e+07 7.96233e+07 1.26193e+08 2.00002e+08 3.16981e+08 5.02379e+08 7.96216e+08 1.26192e+09 2e+09 
+cr_density[0][0].s[0]=0
+============== completed creation of Hydrogen_2
+
+nucleus being tested Z A K_electron 1 3 1
+nucleus being tested Z A K_electron 1 3 0
+ <<<< create_gcr
+>>>>propagate_particles
+   Particle = DM_positrons
+Distribution.init:generated 2D array of spectra 21 41 46
+Particle create_transport_arrays DM_positrons
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+    network iteration 1
+   Particle = Hydrogen_2
+ >>>> create_transport_arrays Hydrogen_2
+      assigning primary source function
+Hydrogen_2  rigid_br= 9000 g_1=1.98 g_2=2.42
+      assigning diffusion coefficient
+ beta at break rigidity=0.905372   rigidity_br=4000?= galdef.D_rigid_br=4000
+======== assigning fragmentation rate ======== 
+======== assigning momentum loss rate ======== 
+============== completed creation of transport arrays for Hydrogen_2
+
+ <<<< create_transport_arrays
+>>>>generating secondary source for particle 3
+ >>>>gen_secondary_source
+   Hydrogen_2 (Z,A,K_electron)=(1,2,0)
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution delete_array
+Distribution delete_array
+ <<<<gen_secondary_source
+
+ Network iteration 1 species 3 Hydrogen_2 (Z,A) = (1,2)
+>>>>propel
+       zero primary and secondary source functions: no propagation
+<<<<propel
+   Particle = Hydrogen_2
+   Particle = Hydrogen_1
+ >>>> create_transport_arrays Hydrogen_1
+      assigning primary source function
+Hydrogen_1  rigid_br= 9000 g_1=1.98 g_2=2.42
+      assigning diffusion coefficient
+ beta at break rigidity=0.973589   rigidity_br=4000?= galdef.D_rigid_br=4000
+======== assigning fragmentation rate ======== 
+======== assigning momentum loss rate ======== 
+============== completed creation of transport arrays for Hydrogen_1
+
+ <<<< create_transport_arrays
+>>>>generating secondary source for particle 2
+ >>>>gen_secondary_source
+   Hydrogen_1 (Z,A,K_electron)=(1,1,0)
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+
+(1,2)->>(1,1) direct channel found (1,1)->(1,1)
+
+decayed_cross_sections:      sigma= 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+TOTAL DECAYED SIGMA (1,2)->>(1,1): 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Distribution delete_array
+Distribution delete_array
+ <<<<gen_secondary_source
+
+ Network iteration 1 species 2 Hydrogen_1 (Z,A) = (1,1)
+>>>>propel
+ >>>>generating alpha for 2D
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+Distribution.init:generated 2D array of spectra 21 41 46
+alpha1_r:0
+alpha1_r:0.0135247
+alpha2_r:0.0540989
+alpha3_r:0.0405741
+alpha1_z:0.676236
+alpha2_z:1.35247
+alpha3_z:0.676236
+alpha1_p:27.5577
+alpha2_p:45.3046
+alpha3_p:17.6861
+ galdef_ID 42.3ds_ds000001 start timestep dt=3.15576e+14  Hydrogen_1
+12345678

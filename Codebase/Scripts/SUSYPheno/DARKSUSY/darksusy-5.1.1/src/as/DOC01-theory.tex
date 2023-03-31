@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Annihilation cross sections with sfermions -- general }
+
+In this directory, all the (co)annihilation cross sections involving
+one or more sfermions in the initial state are calculated. The code
+here is based upon the work described in \cite{sfcoann}. All the cross
+sections are calculated with \code{Form} and converted to Fortran with
+a script \codeb{form2f} \cite{form2f}. 
+
+The main routines here are
+
+\begin{brief-subs}
+\bsub{dsasdwdcossfsf}
+  Calculates the invariant annihilation rate between two sfermions in
+  the initial state.
+\bsub{dsasdwdcossfchi}
+  Calculates the invariant annihilation rate between one sfermion and
+  one fermion (neutralino or chargino) in the iniital state.
+\end{brief-subs}
+

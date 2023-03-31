@@ -1,0 +1,85 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{General remarks on notation}
+
+
+In an attempt to keep this manual reasonably easy to follow we will
+need to specify our notation.  We will use the following convention
+for fonts,
+\begin{sub}{Convention for fonts}
+  \itv{\rmfamily text}{} This font is used for normal text.
+  \itv{variable}{} This font is used for variables or other things
+  in the code that is mentioned.
+  \itv{\ftb{routine}}{} This font is used for subroutine or function
+  names or for header file names.
+  \itv{\tt dump}{} This font will be used for screen dumps of outputs.
+  \itv{\ttfamily \em input}{} This font will be used for user
+  input, i.e.\ where you are supposed to write something.
+\end{sub}
+
+Subroutines and functions will be described with the following
+structure
+\begin{sub}{subroutine \ftb{example}(in1,in2,in3,in4,in5,in6,in7,out1)}
+  \itit{Purpose:} Here the routine will be explained.
+  \itit{Inputs:}
+  \itv{in1}{i} This is an input argument, declared as \ft{integer}.
+  \itv{in2}{r} This is an input argument, declared as \ft{real}.
+  \itv{in3}{r8} This is an input argument, declared as \ft{real*8}.
+  \itv{in4}{c} This is an input argument, declared as \ft{complex}.
+  \itv{in5}{c16} This is an input argument, declared as \ft{complex*16}.
+  \itv{in6}{ch2} This is an input argument, declared as \ft{character*2}.
+  \itv{in7}{ch*} This is an input argument, declared as \ft{character*(*)}.
+  \itit{Outputs}
+  \itv{out1}{r8} This is an output argument, declared as \ft{real*8}
+\end{sub}
+where the shorthand notation for the type of the arguments is
+indicated. For functions, the type is indicated on the first line,
+\begin{sub}{function \ftb{fun}(arg) \hfill r8}
+  \itit{Purpose:} Here the function will be explained.
+  \itit{Inputs:}
+  \itv{arg}{i} This is an input argument, declared as \ft{integer}.
+\end{sub}
+i.e., in this case the function is declared as \ft{real*8}.
+
+The subroutines always reside in a file with the
+same name as the subroutine/function. Routines that belong together
+are put in separate subdirectories in the \ft{src} directory. The different
+subdirectories are
+\begin{sub}{Subdirectories in src/}
+  \itv{ac}{}     accelerator constraints
+  \itv{an}{}     driver routines for neutralino and chargino annihilation
+  \itv{an1l}{}   1-loop neutralino annihilation amplitudes
+  \itv{anstu}{}  tree-level neutralino and chargino annihilation amplitudes
+  \itv{dd}{}     direct detection and neutralino scattering
+  \itv{ep}{}     positron fluxes from the halo
+  \itv{ge}{}     general routines
+  \itv{ha}{}     yields of halo annihilation products (from Pythia
+                 simulations in vacuum)
+  \itv{hm}{}     halo models
+  \itv{hr}{}     driver routines for rates from the halo
+  \itv{ib}{}     internal bremsstrahlung
+  \itv{ini}{}    initialization routines
+  \itv{mh}{}     kinetic decoupling and microhalos
+  \itv{mu}{}     neutrino and muon yields from the neutralino
+                 annihilations in the Earth/Sun (from Pythia
+                 simulations in medium)
+  \itv{nt}{}     driver routines for rates and fluxes in neutrino telescopes
+  \itv{pb}{}     antiprotons from annihilation in the halo
+  \itv{rd}{}     relic density routines (general)
+  \itv{rn}{}     driver routines for neutralino relic density
+  \itv{su}{}     general MSSM routines, couplings, masses, etc.
+  \itv{xcern}{}  routines from CERNLIB
+  \itv{xcmlib}{} routines from CMLIB 
+\end{sub}
+
+
+Common blocks are all declared in header files in the \ft{inc}
+directory. When discussing switches and parameters in common blocks we
+will, instead of describing the common blocks in detail, 
+mention which header file they reside in. If you want to access these
+variables, you should then include the corresponding header
+file. E.g., it can look like this
+\begin{sub}{Example parameters in \ftb{headerfile.h}}
+  \itit{Purpose:} Description of this set of variables.
+  \itv{par1}{r8} Description of a \ft{real*8} parameter.
+\end{sub}
+

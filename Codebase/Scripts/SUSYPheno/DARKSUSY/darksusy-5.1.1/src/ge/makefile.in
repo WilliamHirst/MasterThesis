@@ -1,0 +1,41 @@
+# Makefile for ge directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemf.pl on Jan 31, 2013.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dsio.h dsidtag.h
+
+vpath %.h $(DINC)
+
+SRC = cosd.f dgamic.f dsabsq.f dsbessei0.f dsbessei1.f dsbessek0.f \
+dsbessek1.f dsbessek2.f dsbessjw.f dscharadd.f dsf2s.f dsf_int.f \
+dsf_int2.f dsgamma.f dshealpixave.f dshealpixint.f dshealpixpoints.f \
+dshiprecint3.f dshunt.f dsi2s.f dsi_trim.f dsidtag.f dsisnan.f \
+dslnpiln.f dslnpilnsum.f dslnpin.f dslnpinsum.f dslnpoisint.f \
+dsquartic.f dsrnd1.f dsrndlin.f dsrndlog.f dsrndsgn.f dsspline.f \
+dssplint.f dswrite.f dszarg.f erf.f erf2.f erfc.f erfsub.f lambertw.f \
+lambertw2.f lambertwln.f lngamma.f sind.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

@@ -1,0 +1,139 @@
+                          =================================
+                                      galprop
+
+                                   C++ Version 50p
+                          =================================
+
+                     A.W. Strong                     I.V. Moskalenko
+
+                     Max-Planck-Institut             HEPL/Stanford University
+                     fuer Extraterrestrische Physik  445 Via Palou
+                     Postfach 1603                   Stanford, 94305
+                     D-85740 Garching, Germany       U.S.A.
+
+                     aws@mpe.mpg.de                  imos@stanford.edu
+
+                        http://www.gamma.mpe-garching.mpg.de/~aws/aws.html
+                        http://www.stanford.edu/~imos
+
+                                  >>  September 5, 2006  <<
+
+Introduction
+============
+This is mostly the c++ version of galprop, although the code contains 
+several fortran subroutines inherited from the original version.
+
+Featuring:
+* Galactic cosmic-ray propagation in 2D and 3D
+* nuclear network & cross-sections database
+* electrons, positrons, antiprotons, gamma-rays
+* stochastic SNR source option
+* vector processing option for 3D
+* Dark Matter package
+* self-consistent particle-MHD wave interaction formalism
+* new interstellar radiation field (by T.Porter & A.Strong, astro-ph/0507119)
+* new HI and CO gas maps by Seth Digel (please, acknowledge in your papers 
+  if you use it)
+
+Documentation of the methods and the code is in: galprop.ps
+
+On-line documentation is at:
+http://galprop.stanford.edu
+http://www.gamma.mpe-garching.mpg.de/~aws/propagate.html
+
+More information can be found at xxx.lanl.gov archive "astro-ph"
+by searching for the author's names.
+
+Acknowledgements
+================
+The GALPROP code is so far an effort of two individuals (Igor V. Moskalenko & 
+Andrew W. Strong). Other people have contributed by providing the data sets
+(Seth W. Digel, Stepan G. Mashnik, Troy A. Porter, Olaf Reimer) or their own 
+nuclear cross section codes (W.R.Webber, R.Silberberg, C.H.Tsao, V.S.Barashenkov, 
+A.Polanski).
+
+The GALPROP Web-site at http://galprop.stanford.edu is supported by 
+NASA through APRA "Laboratory Astrophysics" grant, by Stanford University,
+and by GALPROP project. This is a free service to the Astrophysical community. 
+GALPROP source code can be freely copied, however, it is requested that 
+in any subsequent use of this work be given appropriate acknowledgment. 
+
+Building galprop
+================
+
+The galprop program requires the FITSIO package obtainable from
+http://heasarc.gsfc.nasa.gov/docs/software/fitsio/
+
+In the following it is assumed FITSIO is a directory (or link) where FITSIO is installed.
+
+To build the program, edit the Makefile (provided) to make sure the paths to the libraries
+and inclide files are correct, then type "make".  
+
+Directory structure
+===================
+In the delivered configuration the following directories are set:
+../GALDEF         contains the "galdef" files containing run parameters
+../FITS           contains the input and output FITS data
+
+This configuration can be changed by editing Configure.cc and recompiling it and
+ relinking galprop.
+
+Input datasets
+==============
+The following input datasets are included in the distribution in ../FITS
+Interstellar radiation field: isrf_interp_04_000015, 
+MilkyWay_DR0.5_DZ0.1_DPHI10_RMAX20_ZMAX5_galprop_format.fits
+HI skymaps: (for gamma-ray skymaps) COMPASS.COR.*
+CO skymaps: (for gamma-ray skymaps) COMPASS.HIR.*
+
+To run galprop
+==============
+
+cd to the directory where it has been built and do eg
+./galprop 599278
+
+This runs galprop with parameter file    ../GALDEF/galdef_50p_599278
+The output FITS files are in files like    ../FITS/nuclei_50p_599278
+
+Sample galdef file (e.g. 599278 for 2D) is included in the 
+distribution, and it is suggested to test first with this.
+
+This code has been successfully run under Linux, Unix, Mac.
+The authors are interested in information on portability to other platforms.
+
+Included in this distribution are a number of idl programs (*.pro) which
+are intended to illustrate how the results can be read and plotted, but
+they are exemplary only and not maintained or documented.
+
+The C++ plotting program is a part of the distribution.
+The program must be installed in ../CPLOTS directory and uses
+FITSIO library and GNUPLOT to produce postscript output file (tmp.ps).
+
+
+Notes about the dark matter (DM) package (imos 9/14/2005)
+---------------------------------------------------------------------
+The list of modified files (changes are labelled: IMOS20050912):
+
+create_galaxy.cc
+create_gcr.cc
+Galaxy.h
+Galdef.cc
+Galdef.h
+Galprop.cc
+Galprop.h
+gen_DM_skymap.cc
+gen_DM_source.cc
+gen_secondary_source.cc
+gen_synch_emiss.cc
+nuclei_normalize.cc
+store_DM_emiss.cc
+store_DM_skymap.cc
+
+Restrictions:
+The 3D version is not fully consistent. The calculation of the
+gamma-ray emission and skymap from the DM annihilation is calculated
+assuming 2D cylindrical symmetry.
+The integration over the line of sight is restricted by R=r_max,
+and z_min<=Z<=z_max (see galdef-file for the definitions).
+
+---------------------------------------------------------------------

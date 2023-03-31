@@ -1,0 +1,2 @@
+./configure CC=gcc CFLAGS=-g CXX=g++ CXXFLAGS=-g FC=gfortran FCFLAGS="-O -ffixed-line-length-none"
+

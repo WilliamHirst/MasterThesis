@@ -1,0 +1,163 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{General supersymmetry -- routines}
+
+Input parameters, options, results, etc.\ are contained in common blocks in the
+file \ft{dsmssm.h}, which the user has to include. The input parameters
+are ($a=1,2,3$) \newline\begin{tabular}{llll} \ft{ma}$=m_A$, & \ft{tanbe}$=\tan\beta$, & \ft{mu}$=\mu$, &
+  \ft{m1}$=M_1$, \\
+  \ft{m2}$=M_2$, & \ft{m3}$=M_3$, & \ft{asofte($a$)}$=A_{Eaa}$, &
+  {asoftu($a$)}$=A_{Uaa}$, \\
+  \ft{asoftd($a$)}$=A_{Daa}$, & \ft{mass2q($a$)}$=M^2_{Qaa}$, & {\tt
+    mass2l($a$)}$=M^2_{Laa}$, &
+  \ft{mass2u($a$)}$=M^2_{Uaa}$, \\
+  \ft{mass2d($a$)}$=M^2_{Daa}$, &
+  \ft{mass2e($a$)}$=M^2_{Eaa}$. & & \\
+\end{tabular}\newline
+The options are (see previous subsections for a description)
+\newline
+\ft{higloop} choice of tree-level or radiatively corrected Higgs boson
+  masses; 
+\newline 
+\ft{neuloop} choice of tree-level or radiatively corrected neutralino
+  masses; 
+\newline
+\ft{msquarks,msleptons} choice of squark and slepton masses.
+
+To initialize \ds\ for a new model, you should call
+\begin{sub}{subroutine \textbf{dssusy}(unphys,hwarning)}
+  \itit{Purpose:} To calculate the particle spectrum, widths and
+    couplings.
+  \itit{Output:} 
+  \itv{unphys}{i} non-zero if the model is unphysical
+  \itv{hwarning}{i} non-zero if the Higgs code has issued a warning.
+\end{sub}
+which calculates couplings, masses and some basic cross sections.
+
+The following subroutines specify the values of the model parameters,
+and read/write them to a file. The user should create his own versions
+by editing a copy of them. Please call them with a different name.
+
+\begin{sub}{subroutine
+  \textbf{dsgive\_model}(mu,m2,ma,tanbe,msq,atm,abm)}
+  \itit{Purpose:} Set the MSSM parameters as specified by the
+  arguments.
+  \itit{Inputs:}
+  \itv{mu}{r8} The $\mu$ parameter in GeV.
+  \itv{m2}{r8} The $M_2$ parameter in GeV.
+  \itv{ma}{r8} The mass of the CP-odd Higgs boson, $m_A$ in
+  GeV.
+  \itv{tanbe}{r8} $\tan \beta$.
+  \itv{msq}{r8} Sets ${\bf M}^Q$, etc.\ to a common mass
+  scale $m_0$ in GeV.
+  \itv{atm}{r8} Sets $A_t$ in units of $m_0$ (range: -3 --- 3).
+  \itv{abm}{r8} Sets $A_b$ in units of $m_0$ (range: -3 --- 3).
+\end{sub}
+
+\begin{sub}{subroutine \textbf{dsrndm\_model}(mftyp)}
+  \itit{Purpose:} Sets the susy parameters in a random way.
+    Parameter ranges and probability distributions are set inside.
+  \itit{Inputs:}
+  \itv{mftyp}{i}
+     =1: $M_1$ is related to $M_2$ through GUT relations.\\
+     =2: $M_1$ and $M_2$ are generated independently.
+\end{sub}
+
+\begin{sub}{function \textbf{rnduni}(iseed,a,b) \hfill r8}
+  \itit{Purpose:} To give a random number uniformly
+  distributed between \ft{a} and \ft{b}.
+  \itit{Inputs:}
+  \itv{iseed}{i} Seed for the random number generator. Must be a
+  negative number at the first call and should not be changed from
+  call to call.
+  \itv{a}{r8} Lower limit of returned number.
+  \itv{b}{r8} Upper limit of returned number.
+\end{sub}
+
+\begin{sub}{function \textbf{rndlog}(iseed,a,b)\hfill r8}
+  \itit{Purpose:} To give a random number logarithmically
+  distributed between \ft{a} and \ft{b}.
+  \itit{Inputs:}
+  \itv{iseed}{i} Seed for the random number generator. Must be a
+  negative number at the first call and should not be changed from
+  call to call.
+  \itv{a}{r8} Lower limit of returned number.
+  \itv{b}{r8} Upper limit of returned number.
+\end{sub}
+
+\begin{sub}{function \textbf{rndsgn}(iseed)\hfill r8}
+  \itit{Purpose:} Returns $\pm1$ with equal probability.
+  \itit{Inputs:}
+  \itv{iseed}{i} Seed for the random number generator. Must be a
+  negative number at the first call and should not be changed from
+  call to call.
+\end{sub}
+
+\begin{sub}{subroutine \ftb{write\_model}(lunit,mftyp)}
+  \itit{Purpose:} Writes out the model parameters
+  to the file opened as unit \ft{lunit} (formatted). 
+  \itit{Inputs:}
+  \itv{lunit}{i} Unit number to write output to.
+  \itv{mftyp}{i}
+     =1: Only $M_2$ is written since $M_1$ is related to $M_2$ through
+         GUT relations.\\ 
+     =2: Both $M_1$ and $M_2$ are written.
+\end{sub}
+
+\begin{sub}{subroutine \ftb{read\_model}(lunit,nmodel,mftyp)}
+  \itit{Purpose:} Reads in the model parameters from the file opened
+  as unit \ft{unit} (formatted).  
+  \itit{Inputs:}
+  \itv{lunit}{i} Unit number to read from.
+  \itv{nmodel}{i}
+     =0: The next model is read.\\
+     =n: Only the n:th model is read.
+  \itv{mftyp}{i}
+     =1: Only $M_2$ is read since $M_1$ is related to $M_2$ through
+         GUT relations.\\ 
+     =2: Both $M_1$ and $M_2$ are read.
+\end{sub}
+
+The following subroutines are useful in the analysis.
+
+\begin{sub}{subroutine \ftb{widtag}(unit)}
+  \itit{Purpose:} Write the model identification tag to unit \ft{unit}.
+  \itit{Inputs:}
+  \itv{unit}{i} Unit number to write to.
+\end{sub}
+
+\begin{sub}{subroutine \ftb{wspctm}(unit)}
+  \itit{Purpose:} Write the particle mass spectrum and mixing matrices
+  to unit \ft{unit}.
+  \itit{Inputs:}
+  \itv{unit}{i} Unit number to write to.
+\end{sub}
+
+\begin{sub}{subroutine \ftb{wvertx}(unit)}
+  \itit{Purpose:} Write all non-vanishing three-particle vertices to
+  unit \ft{unit}.
+  \itit{Inputs:}
+  \itv{unit}{i} Unit number to write to.
+\end{sub}
+
+\begin{sub}{subroutine \ftb{wunph}(unit)}
+  \itit{Purpose:} Write the reason for which the model is not
+  physically acceptable (tachyons, etc.) to unit \ft{unit}.
+  \itit{Inputs:}
+  \itv{unit}{i} Unit number to write to.
+\end{sub}
+
+\begin{sub}{subroutine \ftb{wexcl}(unit)}
+  \itit{Purpose:} Write the reason(s) for which the model is
+  experimentally excluded  to unit \t{unit}.
+  \itit{Inputs:}
+  \itv{unit}{i} Unit number to write to.
+\end{sub}  
+
+\begin{sub}{subroutine \ftb{dswhwar}(unit)}
+  \itit{Purpose:} Write the reason(s) for which the Higgs
+  calculation issued warnings to unit \ft{unit}.
+  \itit{Inputs:}
+  \itv{unit}{i} Unit number to write to.
+\end{sub}  
+
+

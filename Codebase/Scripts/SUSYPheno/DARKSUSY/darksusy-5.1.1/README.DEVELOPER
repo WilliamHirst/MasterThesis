@@ -1,0 +1,82 @@
+README for developers of DarkSUSY code
+======================================
+
+If you want to write your own code to enhance / change DarkSUSY
+features, here is a short guide-line on how you should proceed.
+
+In the src/ directory you will find different subdirectories for
+different DarkSUSY packages. The current list of packages is
+
+ac	Accelerator limits
+an      Neutralino/Chargino annihilation - driver routines for an1l and anstu
+an1l    Annihilation at 1-loop
+anstu   Helicity amplitudes for annihilation
+dd      Direct detection
+ep      Positron routines
+ge      General routines, like integration routines, etc.
+ha      Halo annihilation yield, like antiprotons, gamma rays, etc.
+hm      Halo models
+hr      Halo rates, driver routines for ep, pb and ha routines
+ib      Internal Bremsstrahlung routines.
+ini     Initialization routines
+mh      Kinetic decoupling and microhalos
+mu      Muon yields.
+nt      Neutrino telescope rates, driver routines for mu.
+pb      Antiproton routines.
+rd      Relic density routines.
+rn      Relic density for neutralinos, driver routines for rd.
+su      SUSY routines, vertices, couplings, masses, etc.
+xcern   Some required CERNLIB routines.
+xcmlib  Some required CMLIB routines.
+
+If you want to add you own set of routines, create a subdirectory in
+the src/ directory and add your routines there. If you have common
+blocks, they should go into a file with the suffix .h in the include/
+directory. You should then add your new directory to the list of
+objects to build in src/makefile.in. More specifically, you should change
+OBJ and OBJWDIR accordingly. And finally, you need a makefile.in in your
+new subdirectory, but that one you can automatically create. cd to the
+DarkSUSY root directory and type scr/makemf.pl <dir> where <dir> is
+the name of your subdirectory and a makefile will be created for
+you. You also have to tell autoconf to create makefiles from your new
+makefile.in in you new subdirectory in src. You do this by adding 
+src/<dir>/makefile to the list of makefiles in the block AC_CONFIG_FILES
+in configure.ac. Finally, you run 'autoconf' to create a new configure script
+from configure.ac.
+
+Then you should have DarkSUSY setup for your new directory. You then do
+
+./configure
+make
+
+as usual to configure and make DarkSUSY. If you at some point need to add files
+to a directory, you add them and run scr/makemf.pl <dir> as above to create
+a new makefile.in. Then you configure and make again.
+
+* Contributed packages
+
+As of 2010-03-05, the versions of contributed packages DarkSUSY uses is
+set in configure.ac instead of via symbolic links. If you update contributed
+packages, the permanent way of making sure DarkSUSY uses the new version is
+to modify the corresponding variable where the directory is set
+in configure.ac (e.g. where ISAJETDIR is set for isajet). Then rerun
+autoconf and run configure and make as usual.
+To temporarily test a different version of contributed packages, the
+preferred way is to run configure giving your preferred version as an
+argument, e.g.on the form
+./configure ISAJETDIR=/data1/edsjo/DarkSUSY/library/trunk/contrib/isajet778-for-darksusy
+You can also modify the makefile directly, but those changes will be
+overwritten the next time you run configure.
+
+If you make code that you feel should be included in future DarkSUSY
+releases, please contact us and we will include it if we think it is
+of enough general interest to be distributed with DarkSUSY.
+
+Joakim Edsjo            edsjo@fysik.su.se
+
+PS. If you are one of the 'official' DarkSUSY developers, you also need to take
+into account that we use subversion for version control. Hence, remember to
+add files and directories to the subversion repository, and to create branches
+for all bigger projects. Remember to also write documentation (you then need to
+add your directory to src/docs/src-dirs-to-include.txt and add your directory
+to the list in src/docs/I03-GeneralRemarks.tex).

@@ -1,0 +1,36 @@
+# Makefile for mh directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemfpg.pl on Nov 04, 2011.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dsmhcom.h dsmssm.h dsidtag.h dsdirver.h
+
+vpath %.h $(DINC)
+
+SRC = dsmhboltz.f dsmhboltz_init.f dsmhcint.f dsmhcint2.f dsmhdof.f \
+dsmhfac.f dsmhgamma.f dsmhinty.f dsmhm2.f dsmhm2simp.f dsmhmcut.f \
+dsmhreaddof.f dsmhset.f dsmhtkd.f dsmhUED.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

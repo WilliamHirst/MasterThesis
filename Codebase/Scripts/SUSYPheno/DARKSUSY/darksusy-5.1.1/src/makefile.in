@@ -1,0 +1,50 @@
+# Makefile for the DarkSUSY library
+# Technical questions about this makefile should be directed to
+# Joakim Edsjo, edsjo@physto.se
+# Date: August 29, 2000.
+
+# You shouldn't have to change anything in this file.
+# You should only change in the makefile in the DarkSUSY root directory.
+
+###############################################
+#### DO NOT CHANGE ANYTHING BELOW THIS LINE ###
+###############################################
+
+# Here we set where the library goes and where include files are.
+
+LIB=../lib
+INC=../include
+TSPACKDIR=@TSPACKDIR@
+BUILD=../build
+
+vpath %.a $(LIB)
+
+DIRS = ac bsg an an1l anstu as dd ep	\
+ge ha hm hr ib ini mh wa nt pb db rd rge rn su xcern	\
+xcmlib ep2 xdiag xfeynhiggs xhiggsbounds slha
+
+
+DOBJ = $(DIRS:%=%_obj)
+
+# Trick to call main makefile in case make is called in src directory.
+all-local : make-lib
+
+make-lib :
+	cd ..; make dslib
+
+all : libdarksusy.a
+
+libdarksusy.a : $(DOBJ)
+	ar rS $(LIB)/libdarksusy.a $(BUILD)/*.o
+	ranlib $(LIB)/libdarksusy.a
+
+$(DOBJ) : 
+	cd $(@:_obj=) ; make all
+
+.PHONY: clean distclean $(DOBJ)
+distclean : clean
+	rm $(LIB)/libdarksusy.a
+clean : 
+	rm -f */*.o 
+
+

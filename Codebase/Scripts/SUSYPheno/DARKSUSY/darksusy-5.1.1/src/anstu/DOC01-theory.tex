@@ -1,0 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Annihilation amplitudes for fermion-fermion annihilation}
+
+In this directory, all the helicity amplitudes needed for
+neutralino-neutralino, neutralino-chargino and chargino-chargino
+annihilation are calculated. The helicity amplitudes have been
+calculated with general expressions for vertices, masses etc.\ in
+\code{Reduce} and converted to Fortran files. The calculation of these
+are described in more detail in \cite{edsjo97}.
+
+Each routine here adds the contribution to the helicity amplitudes
+from one particular diagram and the sum over contributed diagrams is
+done in the routines \codeb{an/dsandwdcosnn}, \codeb{an/dsandwdcoscn}
+and \codeb{an/dsandwdcoscc}. The naming convention for the routines
+here is the following: The first part of the routine name is
+\codeb{dsan} to indicate that they deal with annihilations in \ds. The
+next character tells which kind of process it is $s$-, $t$- or
+$u$-channel and the next two caracters tell which initial state
+particles we have (\codeb{f} for fermion), the next character is the
+kind of propagating particle (\codeb{f} for fermion, \codeb{s} for
+scalar and \codeb{v} for vector boson), and finally, the last two
+characters tell the kind of final state particles. So, to take an
+example, the routine \codeb{dsansffsvv} calculates the helicity
+amplitudes for annihilation of two fermions to two vector
+bosons via $s$-channel exchange of a scalar. There are also a few
+special cases (routines ending in \codeb{ex} or \codeb{in}) for
+diagrams with clashing arrows.

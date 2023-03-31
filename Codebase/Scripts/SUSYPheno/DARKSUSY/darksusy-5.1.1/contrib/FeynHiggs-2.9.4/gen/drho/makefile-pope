@@ -1,0 +1,13 @@
+all: f/Deltarho_q.F f/Deltarho_sq.F
+
+
+f/Deltarho_q.F: drho
+	./drho q
+
+f/Deltarho_sq.F: drho
+	./drho sq
+
+
+clean:
+	rm -fr f m diags
+

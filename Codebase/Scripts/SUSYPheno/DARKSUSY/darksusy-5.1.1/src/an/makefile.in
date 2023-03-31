@@ -1,0 +1,38 @@
+# Makefile for an directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemfpg.pl on Nov 04, 2011.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dsprep.h dsmssm.h dsandiacom.h dsio.h dsandwcom.h dsidtag.h \
+dsrdcom.h dshacom.h
+
+vpath %.h $(DINC)
+
+SRC = dsanalbe.f dsanclearaa.f dsandwdcos.f dsandwdcoscc.f \
+dsandwdcoscn.f dsandwdcosd.f dsandwdcosij.f dsandwdcosnn.f dsandwdcoss.f \
+dsandwdcosy.f dsankinvar.f dsanset.f dsansumaa.f dsantucc.f dsantucn.f \
+dsantunn.f dsantures.f dsanwriteaa.f dsanwx.f dsanwxint.f dssigmav.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

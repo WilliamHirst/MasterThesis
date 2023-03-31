@@ -1,0 +1,1 @@
+Checks on fi for logged fluxes. Aren't all halo yields logged?!?

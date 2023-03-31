@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Annihilation routines - general remarks}
+
+The annihilation cross section routines is divided into several parts,
+mostly for historical reasons. The layout is roughly as follows:
+\begin{description}
+  \item{\code{src/an}} Here we keep the main routins for both neutralino-
+  neutralino annihilation cross sections and the effective annihilation
+  cross section in the relic density calculations. The steering routines
+  for neutralino and chargino coannihilations are also kept here.
+  
+\item{\code{src/anstu}} Here keep the $t-$, $u-$ and $s-$ diagram expressions
+for fermion-fermion coannihilations (i.e.\ neutralino and chargino
+coannihilations).
+
+\item{\code{src/as}} Here all the coannihilation cross sections including
+sfermions are kept.
+
+\end{description}
+
+We will here describe the \code{src/an}-routines.
+
+
+%%%%%%%%%%
+\subsection{General routines}
+
+The general routine to call for an effective annihilation cross section (to
+be used for relic density calculations) is \codeb{dsanwx}, which returns the
+invariant annihilation rate (integrated over $\cos \theta$). The actual
+cross section, differential in $\cos \theta$ is calculated by 
+\codeb{dsandwdcos} which includes all the coannihilations needed. This is set
+up in \codeb{rn/dsrdomega} which determines which coannhilating particles
+to include.
+
+For other applications where the annihilation rate is needed, e.g.\ annihilation
+in the galactic halo, one can call the specific annihilation rate routine
+directly. The main one is \codeb{dsandwdcosnn} for neutralino-neutralino
+annihilation. To simplify this task, we supply a routine \codeb{dssigmav} which
+calls \codeb{dsandwdcosnn} for neutralino-neutralino annihilation at zero
+relative velocity and returns the result, either as the total annihilation
+cross section, or the cross section for a specific channel. See the header of
+\codeb{dssigmav} for details.
+
+%%%%%%%%%%
+\subsection{Neutralino and chargino (co)annihilation cross sections}
+                                   
+The routines \codeb{dsandwdcosnn}, \codeb{dsandwdcoscn} and \codeb{dsandwdcoscc}
+calculate the annihilation cross sections (returning the invariant 
+annihilation rate) for neutralino-neutralino, neutralino-chargino and
+chargino-chargino annihilations. Which particles the cross section is
+calculated for is given by particle indices as defined in \codeb{inc/dsmssm.h}.
+
+All the annihilation routines return the invariant rate instead of the
+cross section. The invariant annihilation rate between particle $i$
+and $j$ is defined as 
+\begin{equation}
+  W_{ij} = 4 p_{ij} \sqrt{s} \sigma_{ij} = 4 \sigma_{ij} \sqrt{(p_i
+\cdot p_j)^2 - m_i^2 m_j^2} = 4 E_{i} E_{j} \sigma_{ij} v_{ij} .
+\end{equation}
+See chapter \ref{ch:src-rd} for more details.

@@ -1,0 +1,27 @@
+FF=@F77@
+FOPT=@FOPT@
+CXX = g++
+FC = $(FF)
+#FIXME: should include from system directory not cfitsio in ds package
+DINC = ../../../include
+CFITSIO = ../../cfitsio
+CPPFLAGS = -O3 -Wno-deprecated -I${CFITSIO}/
+CPPFLAGS = -g -O -Wno-deprecated -I${CFITSIO}/
+FFLAGS = -fno-second-underscore -I$(DINC)
+LIBS = -lm -lg2c
+FITSLIB = -L$(CFITSIO)/ -lcfitsio -Wl,-rpath,$(CFITSIO)/
+LDFLAGS = $(FITSLIB) $(LIBS)                     
+FOBJS := $(patsubst %.f,%.o,$(wildcard *.f))                 
+CCOBJS := $(patsubst %.cc,%.o,$(wildcard *.cc))
+galprop:  ${FOBJS} ${CCOBJS}
+	rm -f galpropmain.o
+	ar r ../../../lib/libdarksusy.a *.o
+
+galprop_standalone:	$(FOBJS) $(CCOBJS)
+	rm -f galprop_darksusy.o
+	$(CXX) *.o -o $@ ${LDFLAGS}
+
+clean:
+	rm -f *.o galpropo galpropmain galprop_standalone
+
+.PHONY: galprop

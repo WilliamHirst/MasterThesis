@@ -1,0 +1,10 @@
+ #! /bin/sh
+#configure script for HiggsBounds
+
+# this tells the fortran program where to look to read in tables of experimental data and Higgs branching ratios
+chmod u+x ./create_store_pathname.bat
+./create_store_pathname.bat > store_pathname.f90
+
+echo 'running configure_darksusy script...' 1>&2
+
+echo 'finished configure_darksusy script' 1>&2

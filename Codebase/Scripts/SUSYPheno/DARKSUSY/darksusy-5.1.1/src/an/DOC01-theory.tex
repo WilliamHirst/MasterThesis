@@ -1,0 +1,816 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Annihilation cross sections -- theory }
+
+For the relic density calculations, we need all possible
+(co)annihilation cross sections between neutralinos, charginos and
+sfermions.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Annihilation cross sections}
+\label{sec:AnnCross}
+
+We have calculated all two-body final state cross sections at tree
+level for involving netralinos, charginos, sneutrinos, sleptons and 
+squarks in the initial state. A complete list is given below.
+
+Since we have so many different diagrams contributing, we have to use 
+some method where the diagrams can be calculated efficiently. To
+achive this, we calculate the diagrams with general expressions for
+vertices, masses etc so that they can be reused for other
+processes. How we do this in practice differs a bit between different
+sets of annihilation diagrams.
+
+For neutralino-neutralino, neutralino-chargino and chargino-chargino
+annihilation, we 
+classify the diagrams according to their topology ($s$-, 
+$t$- or $u$-channel) and to the spin of the particles involved.  We 
+then compute the helicity amplitudes for each type of diagram 
+analytically with {\sc Reduce}~\cite{reduce} using general expressions 
+for the vertex couplings.  
+
+The strength of the helicity amplitude method is that the analytical
+calculation of a given type of diagram has to be performed only once
+and the sum of the contributing diagrams for each set of initial and
+final states can be done numerically afterwards.
+
+For the diagrams involving sfermions, {\sc Form}
+is used to analytically calculate the amplitudes. This output is then converted
+into Fortran with a {\sc Perl} script, \codeb{form2f} \cite{form2f}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Coannihilation diagrams}
+
+All Feynman diagrams for which we calculate the 
+annihilation cross section are listed in the coming sections.
+$s(x)$, $t(x)$ and $u(x)$ denote a
+tree-level Feynman diagram in which particle $x$ is exchanged in
+the $s$-, $t$- and $u$-channel respectively. 
+
+The convention used in this list of included coannihilation diagrams is that if a sfermion is
+denoted $\tilde{f}$, then it's antiparticle is denoted $\tilde{f}^*$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Neutralino and chargino annihilation}
+
+Indices $i,j,k$ run
+from 1 to 4, and indices $c,d,e$ from 1 to 2.  $u$, $\tilde{u}$,
+$d$, $\tilde{d}$, $\nu$, $\tilde{\nu}$, $\ell$, $\tilde{\ell}$,
+$f$ and $\tilde{f}$ are generic notations for up-type quarks,
+up-type squarks, down-type quarks, down-type squarks, neutrinos,
+sneutrinos, leptons, sleptons, fermions and sfermions.  A sum of
+diagrams over (s)fermion generation indices and over the
+neutralino and chargino indices $k$ and $e$ is understood (no sum
+over indices $i,j,c,d$).
+
+%%%%%%%%%%
+\subsubsection{Neutralino-neutralino annihilation}
+
+\begin{center}  
+\begin{tabular}{lll} \hline 
+  Initial state & Final state & Feynman diagrams \\ \hline \tabspace
+%Neutralino-neutralino annihilation
+   & $H_1 H_1$, $H_1 H_2$, $H_2 H_2$, $H_3 H_3$ &
+  $t(\chi_k^0)$, $u(\chi_k^0)$, $s(H_{1,2})$ \\
+   & $H_1 H_3$, $H_2 H_3$ &
+  $t(\chi_k^0)$, $u(\chi_k^0)$, $s(H_{3})$, $s(Z^0)$ \\
+   & $H^- H^+$ &
+  $t(\chi_e^+)$, $u(\chi_e^+)$, $s(H_{1,2})$, $s(Z^0)$ \\
+   & $Z^0 H_1$, $Z^0 H_2$ &
+  $t(\chi_k^0)$, $u(\chi_k^0)$, $s(H_{3})$, $s(Z^0)$ \\
+  $\chi_i^0 \chi_j^0$ & $Z^0 H_3$ &
+  $t(\chi_k^0)$, $u(\chi_k^0)$, $s(H_{1,2})$ \\
+   & $W^- H^+$, $W^+ H^-$ &
+  $t(\chi_e^+)$, $u(\chi_e^+)$, $s(H_{1,2,3})$ \\
+   & $Z^0 Z^0$ &
+  $t(\chi_k^0)$, $u(\chi_k^0)$, $s(H_{1,2})$ \\
+   & $W^- W^+$ &
+  $t(\chi_e^+)$, $u(\chi_e^+)$, $s(H_{1,2})$, $s(Z^0)$ \\
+   & $f \bar{f}$ &
+  $t(\tilde{f}_{L,R})$, $u(\tilde{f}_{L,R})$, $s(H_{1,2,3})$,
+  $s(Z^0)$ \\ \hline  
+\end{tabular}
+\end{center}
+
+
+%%%%%%%%%%
+\subsubsection{Neutralino-chargino annihilation}
+
+\begin{center}
+\begin{tabular}{lll} \hline 
+  Initial state & Final state & Feynman diagrams \\ \hline \tabspace
+%Chargino-neutralino annihilation
+   & $H^+ H_1$, $H^+ H_2$ &
+  $t(\chi_k^0)$, $u(\chi_e^+)$, $s(H^+)$, $s(W^+)$ \\
+   & $H^+ H_3$ &
+  $t(\chi_k^0)$, $u(\chi_e^+)$, $s(W^+)$ \\
+   & $W^+ H_1$, $W^+ H_2$ &
+  $t(\chi_k^0)$, $u(\chi_e^+)$, $s(H^+)$, $s(W^+)$ \\
+   & $W^+ H_3$ &
+  $t(\chi_k^0)$, $u(\chi_e^+)$, $s(H^+)$ \\
+  $\chi_c^+ \chi_i^0$ & $H^+ Z^0$ &
+  $t(\chi_k^0)$, $u(\chi_e^+)$, $s(H^+)$ \\
+   & $\gamma H^+$ &
+  $t(\chi_c^+)$, $s(H^+)$ \\
+   & $W^+ Z^0$ &
+  $t(\chi_k^0)$, $u(\chi_e^+)$, $s(W^+)$ \\
+   & $\gamma W^+$ &
+  $t(\chi_c^+)$, $s(W^+)$ \\
+   & $u \bar{d}$ &
+  $t(\tilde{d}_{L,R})$, $u(\tilde{u}_{L,R})$, $s(H^+)$, $s(W^+)$ \\
+   & $\nu \bar{\ell}$ &
+  $t(\tilde{\ell}_{L,R})$, $u(\tilde{\nu}_{L})$, $s(H^+)$, $s(W^+)$
+  \\ \hline
+\end{tabular}
+\end{center}
+
+
+%%%%%%%%%%
+\subsubsection{Chargino-chargino annihilation}
+
+\begin{center} 
+\begin{tabular}{lll} \hline 
+  Initial state & Final state & Feynman diagrams \\ \hline \tabspace
+% Chargino-chargino annihilation (opposite charges)
+   & $H_1 H_1$, $H_1 H_2$, $H_2 H_2$, $H_3 H_3$ &
+  $t(\chi_e^+)$, $u(\chi_e^+)$, $s(H_{1,2})$ \\
+   & $H_1 H_3$, $H_2 H_3$ &
+  $t(\chi_e^+)$, $u(\chi_e^+)$, $s(H_{3})$, $s(Z^0)$ \\
+   & $H^+ H^-$ &
+  $t(\chi_k^0)$, $s(H_{1,2})$, $s(Z^0,\gamma)$ \\
+   & $Z^0 H_1$, $Z^0 H_2$ &
+  $t(\chi_e^+)$, $u(\chi_e^+)$, $s(H_{3})$, $s(Z^0)$ \\
+   & $Z^0 H_3$ &
+  $t(\chi_e^+)$, $u(\chi_e^+)$, $s(H_{1,2})$ \\
+   & $H^+ W^-$, $W^+ H^-$ &
+  $t(\chi_k^0)$, $s(H_{1,2,3})$ \\
+  $\chi_c^+ \chi_d^-$ & $Z^0 Z^0$ &
+  $t(\chi_e^+)$, $u(\chi_e^+)$, $s(H_{1,2})$ \\
+   & $W^+ W^-$ &
+  $t(\chi_k^0)$, $s(H_{1,2})$, $s(Z^0, \gamma)$ \\
+   & $\gamma \gamma$ (only for $c=d$) &
+  $t(\chi_c^+)$, $u(\chi_c^+)$ \\
+   & $Z^0 \gamma$ &
+  $t(\chi_d^+)$, $u(\chi_c^+)$ \\
+   & $u \bar{u}$ &
+  $t(\tilde{d}_{L,R})$, $s(H_{1,2,3})$, $s(Z^0, \gamma)$ \\
+   & $\nu \bar{\nu}$ &
+  $t(\tilde{\ell}_{L,R})$, $s(Z^0)$ \\
+   & $\bar{d} d$ &
+  $t(\tilde{u}_{L,R})$, $s(H_{1,2,3})$, $s(Z^0, \gamma)$ \\
+   & $\bar{\ell} \ell$ &
+  $t(\tilde{\nu}_{L})$, $s(H_{1,2,3})$, $s(Z^0, \gamma)$ \\ \hline
+% Chargino-chargino annihilation (equal charges)
+   & $H^+ H^+$ &
+  $t(\chi_k^0)$, $u(\chi_k^0)$ \\
+  $\chi_c^+ \chi_d^+$ & $H^+ W^+$ &
+  $t(\chi_k^0)$, $u(\chi_k^0)$ \\
+   & $W^+ W^+$ &
+  $t(\chi_k^0)$, $u(\chi_k^0)$ \\ \hline
+\end{tabular}
+\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Squark-squark annihilation}
+
+{\bfseries Note: The tables below are not entirely up to date, more processes are included
+than shown in the tables.}
+
+\smallskip
+
+We will here denote squarks as $\tilde{q}^i_a$ and $\tilde{q}^j_b$ where $i$ and
+$j$ are the family indices and $a$ and $b$ are the mass eigenstate indices
+(running from 1 to 2). $k$ and $l$ will also be used as family indices for processes including more squarks. Colour indices are suppressed. $\tilde{u}^i$ is used as a
+generic notation for any up-type squark where $i$ denotes the family index. Down-type 
+squarks are denoted analogously.
+
+Note that we will not (except in rare occations) show processes for $\tilde{\nu}$
+and $\tilde{\ell}$ separately since they can easily be obtained from the squark
+processes by replacing $\tilde{u}$ with $\tilde{\nu}$ and 
+$\tilde{d}$ with $\tilde{\ell}$ (and noting that we only have one mass eigenstate
+for the $\tilde{\nu}$. Also note that the $\tilde{\nu}-\tilde{\ell}$--sector
+is assumed not to be flavour-changing.
+
+%%%%% d-squark^i_{a} d-squark^i_{b}^*
+\subsubsection{$\tilde{d}^i_{a}\tilde{d}_{b}^{i*}$ annihilation}
+
+{\small
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% gamma gamma, Z gamma
+$\tilde{d}^i_a \tilde{d}^{i*}_{b}$ & $\gamma \gamma$, $Z \gamma$ &
+$t(\tilde{d}^i_{1,2})$, $u(\tilde{d}^i_{1,2})$, $p$ \\
+% Z Z
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $Z Z$ &
+$t(\tilde{d}^i_{1,2})$, $u(\tilde{d}^i_{1,2})$, $p$, $s(H_{1},H_{2})$ \\
+% W- W+
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $W^-W^+$ &
+$p$, $s(H_{1},H_{2},Z,\gamma)$, $t(\tilde{u}^k_{1,2})$ 
+& $k=1,2,3$\\
+% Z H_{2}, Z H_{1}
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $Z H_{2}$, $Z H_{1}$ &
+$t(\tilde{d}^i_{1,2})$, $u(\tilde{d}^i_{1,2})$, $s(Z,H_3)$ \\
+% Z H_3
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $Z H_{3}$ &
+$t(\tilde{d}^i_{1,2})$, $u(\tilde{d}^i_{1,2})$, $s(H_{1},H_{2})$ \\
+% gamma H_{2}, gamma H_1, gamma H_3
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $\gamma H_{2}$, $\gamma H_{1}$, $\gamma H_{3}$ &
+$t(\tilde{d}^i_{1,2})$, $u(\tilde{d}^i_{1,2})$  \\
+% H_{2} H_{2}, H_{1} H_{1}, H_{1} H_{2}
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $H_{2} H_{2}$, $H_{1} H_{1}$, 
+$H_{1} H_{2}$ &
+$t(\tilde{d}^i_{1,2})$, $u(\tilde{d}^i_{1,2})$, $p$, $s(H_{1},H_{2})$ \\
+% H_{2} A, H_{1} A
+$\tilde{d}^i_a \tilde{d}^{i*}_b$ & $H_{2} H_{3}$, $H_{1} H_{3}$ &
+$s(Z,H_3)$, $t(\tilde{d}^i_{1,2})$, $u(\tilde{d}^i_{1,2})$ \\
+% A A
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $H_{3} H_{3}$ &
+$s(H_{1},H_{2})$, $p$, $t(\tilde{d}^i_{1,2})$, $u(\tilde{d}^i_{1,2})$ \\
+% W- H+
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $W^- H^+$ &
+$s(H_{1},H_{2},H_3)$, $t(\tilde{u}^k_{1,2})$ 
+& $k=1,2,3$\\
+% H- H+
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $H^- H^+$ &
+$s(H_{1},H_{2},Z,\gamma)$, $p$, $t(\tilde{u}^k_{1,2})$ 
+& $k=1,2,3$\\
+% f f-bar
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $f \bar{f}$ ($f \ne d^i$) &
+$s(H_{1}^\star,H_{2}^\star,H_{3}^\star,Z,\gamma^\star,g^\ddagger), t(\chi_c^+)^\dagger$ 
+& \parbox[t]{4cm}{$\dagger$) $f=u^k$ ($k=1,2,3$ ), $\star$) Not for $f=\nu$, 
+$\ddagger$) Only for squarks/quarks} \\
+% d d-bar
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $d^i \bar{d}^i$ &
+$s(H_{1},H_{2},H_{3},Z,\gamma,g^\dagger)$, $t(\tilde{\chi}_{k}^0,\tilde{g}^\dagger)$
+& $\dagger$) Only for squarks\\ 
+% Z g
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $Z g$ & $t(\tilde{d}^i_{1,2}), u(\tilde{d}^i_{1,2}), p$
+& Only for squarks\\
+% g g
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $g g$ & $t(\tilde{d}^i_{1,2}), u(\tilde{d}^i_{1,2}), s(g), p$
+& Only for squarks\\
+% g gamma
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $g \gamma$ & $t(\tilde{d}^i_{1,2}), u(\tilde{d}^i_{1,2}), p$
+& Only for squarks\\
+% g H_{1,2,3}
+$\tilde{d}^i_a\tilde{d}^{i*}_b$ & $g H_1, g H_2, g H_3$ & 
+$t(\tilde{d}^i_{1,2}), u(\tilde{d}^i_{1,2})$
+& Only for squarks\\ \hline
+\end{tabular}
+\end{center}
+}
+
+%%%%% d-squark^i_{a} d-squark^j*_{b}
+\subsubsection{$\tilde{d}^i_{a}\tilde{d}_{b}^{j*}$ annihilation ($i \ne j$)}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% W+ W-
+$\tilde{d}^i_a\tilde{d}^{j*}_b$ & $W^+W^-$ &
+$t(\tilde{u}^k_{1,2})^\dagger$ & Not included at present \\
+% W+ H-
+$\tilde{d}^i_a\tilde{d}^{j*}_b$ & $W^+ H^-$ &
+$t(\tilde{u}^k_{1,2})^\dagger$ & Not included at present \\
+% H+ H-
+$\tilde{d}^i_a\tilde{d}^{j*}_b$ & $H^+ H^-$ &
+$t(\tilde{u}^k_{1,2})^\dagger$ & Not included at present\\
+% l^i l^j-bar
+$\tilde{d}^i_a\tilde{d}^{*j}_b$ & $d^i \bar{d}^j$ &
+$t(\tilde{\chi}_{k}^0, \tilde{g}^\dagger)$ & $\dagger$) Only for squarks\\ 
+% u u-bar
+$\tilde{d}^i_a\tilde{d}^{*j}_b$ & $u^k \bar{u}^l$ &
+$t(\tilde{\chi}_{c}^+)$ & Only $k=i,l=j$ at present\\ 
+
+\hline
+\end{tabular}
+\end{center}
+
+%%%%% d-squark^i_{a} d-squark^i_{b}
+\subsubsection{$\tilde{d}^i_{a}\tilde{d}_{b}^{i}$ annihilation}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% l^i l^i
+$\tilde{d}^i_a\tilde{d}^{i}_b$ & $d^i d^i$ &
+$t(\tilde{\chi}_{k}^0,\tilde{g}^\dagger)$, $u(\tilde{\chi}_{k}^0,\tilde{g}^\dagger)$ 
+& $\dagger$) Only for squarks \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%% d-squark^i_{a} d-squark^j_{b}
+\subsubsection{$\tilde{d}^i_{a}\tilde{d}_{b}^{j}$ annihilation ($i \ne j$)}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% l^i l^j
+$\tilde{d}^i_a\tilde{d}^{j}_b$ & $d^i d^j$ &
+$t(\tilde{\chi}_{k}^0,\tilde{g}^\dagger)$
+& $\dagger$) Only for squarks \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%% u-squark^i u-squark^i*
+\subsubsection{$\tilde{u}^i_{a}\tilde{u}_{b}^{i*}$ annihilation}
+
+{\small
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% gamma gamma, Z gamma
+$\tilde{u}^i_a \tilde{u}^{i*}_{b}$ & $\gamma \gamma^\dagger$, $Z \gamma^\dagger$ &
+$t(\tilde{u}^i_{1,2})$, $u(\tilde{u}^i_{1,2})$, $p$
+& $\dagger$) Not for $\tilde{\nu}$ \\
+% Z Z
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $Z Z$ &
+$t(\tilde{u}^i_{1,2})$, $u(\tilde{u}^i_{1,2})$, $p$, $s(H_{1},H_{2})$ \\
+% W- W+
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $W^-W^+$ &
+$p$, $s(H_{1},H_{2},Z,\gamma^\dagger)$, $u(\tilde{d}^k_{1,2})$ 
+& \parbox[t]{4cm}{$k=1,2,3$, $\dagger$) Not for $\tilde{\nu}$} \\
+% Z H_{2}, Z H_{1}
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $Z H_{2}$, $Z H_{1}$ &
+$t(\tilde{u}^i_{1,2})$, $u(\tilde{u}^i_{1,2})$, $s(Z,H_3^\dagger)$
+& $\dagger$) Not for $\tilde{\nu}$ \\
+% Z H_3
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $Z H_{3}$ &
+$t(\tilde{u}^i_{1,2})^\dagger$, $u(\tilde{u}^i_{1,2})^\dagger$, $s(H_{1},H_{2})$
+& $\dagger$) Not for $\tilde{\nu}$ \\
+% gamma H_{2}, gamma H_1, gamma H_3
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $\gamma H_{2}^\dagger$, $\gamma H_{1}^\dagger$, $\gamma H_{3}^\dagger$ &
+$t(\tilde{u}^i_{1,2})$, $u(\tilde{u}^i_{1,2})$ 
+& $\dagger$) Not for $\tilde{\nu}$ \\
+% H_{2} H_{2}, H_{1} H_{1}, H_{1} H_{2}
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $H_{2} H_{2}$, $H_{1} H_{1}$, 
+$H_{1} H_{2}$ &
+$t(\tilde{u}^i_{1,2})$, $u(\tilde{u}^i_{1,2})$, $p$, $s(H_{1},H_{2})$ \\
+% H_{2} A, H_{1} A
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $H_{2} H_{3}$, $H_{1} H_{3}$ &
+$s(Z,H_3^\dagger)$, $t(\tilde{u}^i_{1,2})^\dagger$, $u(\tilde{u}^i_{1,2})^\dagger$
+& $\dagger$) Not for $\tilde{\nu}$ \\
+% A A
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $H_{3} H_{3}$ &
+$s(H_{1},H_{2})$, $p$, $t(\tilde{u}^i_{1,2})^\dagger$, $u(\tilde{u}^i_{1,2})^\dagger$
+& $\dagger$) Not for $\tilde{\nu}$ \\
+% W- H+
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $W^- H^+$ &
+$s(H_{1},H_{2},H_3^\dagger)$, $u(\tilde{d}^k_{1,2})$
+& \parbox[t]{4cm}{$k=1,2,3$, $\dagger$) Not for $\tilde{\nu}$} \\
+% H- H+
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $H^+ H^-$ &
+$s(H_{1},H_{2},Z,\gamma^\dagger)$, $p$, $t(\tilde{d}^k_{1,2})$
+& \parbox[t]{4cm}{$k=1,2,3$, $\dagger$) Not for $\tilde{\nu}$} \\
+% f f-bar
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $f \bar{f}$ ($f \ne u^i$) &
+$s(H_{1}^\times,H_{2}^\times,H_3^{\dagger\times},Z,\gamma^{\dagger\times},g^\ddagger), t({\chi^+_c})^\star$
+& \parbox[t]{4cm}{$\dagger$) Not for $\tilde{\nu}$, $\star$) If $f=d^k$ ($k=1,2,3$), $\ddagger$) Only for squarks/quarks, $\times$) Not for $\nu$} \\
+% l l-bar
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $u^i \bar{u}^i$ &
+$s(H_{1}^\times,H_{2}^\times,H_3^{\times},Z,\gamma^{\times}, g^\ddagger)$, $t(\tilde{\chi}_{k}^0,\tilde{g}^\ddagger)$
+& \parbox[t]{4cm}{$\times$) Not for $\nu$,
+$\ddagger$) Only for squarks}  \\ 
+% Z g
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $Z g$ & $t(\tilde{u}^i_{1,2}), u(\tilde{u}^i_{1,2}), p$
+& Only for squarks\\
+% g g
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $g g$ & $t(\tilde{u}^i_{1,2}), u(\tilde{u}^i_{1,2}), s(g), p$
+& Only for squarks\\
+% g gamma
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $g \gamma$ & $t(\tilde{u}^i_{1,2}), u(\tilde{u}^i_{1,2}), p$
+& Only for squarks\\
+% g H_{1,2,3}
+$\tilde{u}^i_a\tilde{u}^{i*}_b$ & $g H_1, g H_2, g H_3$ & 
+$t(\tilde{u}^i_{1,2}), u(\tilde{u}^i_{1,2})$
+& Only for squarks\\ \hline
+\end{tabular}
+\end{center}
+}
+
+%%%%% u-squark^i u-squark^j*
+\subsubsection{$\tilde{u}^i_a\tilde{u}^{j*}_b$ annihilation ($i \ne j$)}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% W+ W-
+$\tilde{u}^i_a\tilde{u}^{j*}_b$ & $W^+W^-$ &
+$t(\tilde{d}^k_{1,2})^\dagger$
+& Not included at present, $\dagger$) Not for $\tilde{\ell}$ \\
+% W+ H-
+$\tilde{u}^i_a\tilde{u}^{j*}_b$ & $W^+ H^-$ &
+$t(\tilde{d}^k_{1,2})^\dagger$
+& Not included at present, $\dagger$) Not for $\tilde{\ell}$ \\
+% H+ H-
+$\tilde{u}^i_a\tilde{u}^{j*}_b$ & $H^+ H^-$ &
+$t(\tilde{d}^k_{1,2})^\dagger$
+& Not included at present, $\dagger$) Not for $\tilde{\ell}$ \\
+% u^i u^j-bar
+$\tilde{u}^i_a \tilde{u}^{j*}_b$ & $u^i \bar{u}^j$ &
+$t(\tilde{\chi}_{k}^0,g^\dagger)$
+& $\dagger$) Only for squarks \\
+% d^k d^l-bar
+$\tilde{u}^i_a \tilde{u}^{j*}_b$ & $d^k \bar{d}^l$ &
+$t(\tilde{\chi}_{c}^+)$
+& Only $k=i,l=j$ at present \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%% u-squark^i u-squark^i
+\subsubsection{$\tilde{u}^i_a \tilde{u}^{i}_b$ annihilation}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% l^i l^i
+$\tilde{u}^i_a\tilde{u}^{i}_b$ & $u^i u^i$ &
+$t(\tilde{\chi}_{k}^0,\tilde{g}^\dagger)$, $u(\tilde{\chi}_{k}^0,\tilde{g}^\dagger)$ 
+& $\dagger$) Only for squarks \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%% u-squark^i u-squark^j
+\subsubsection{$\tilde{u}^i_a \tilde{u}^{j}_b$ annihilation ($i \ne j$)}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% l^i l^j
+$\tilde{u}^i_a \tilde{u}^{j}_b$ & $u^i u^j$ &
+$t(\tilde{\chi}_{k}^0,\tilde{g}^\dagger)$
+& $\dagger$) Only for squarks \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%% u-squark^i d-squark^i_{b}^*
+\subsubsection{$\tilde{u}^i_a \tilde{d}_{b}^{i*}$ annihilation}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% H+ H_1, H+ H_2
+$\tilde{u}^i_a \tilde{d}^{i*}_b$ & $H^+ H_1$, $H^+ H_2$ &
+$t(\tilde{d}^i_{1,2})$, $u(\tilde{u}^i_{1,2})$, $p$, $s(W^+,H^+)$  \\
+% H+ H_3
+$\tilde{u}^i_a \tilde{d}^{i*}_b$ & $H^+ H_3$ &
+$t(\tilde{d}^i_{1,2})$, $u(\tilde{u}^i_{1,2})^\dagger$, $p$, $s(W^+)$ 
+& $\dagger$) Not for $\tilde{\ell}$ \\
+% gamma H+
+$\tilde{u}^i_a \tilde{d}^{i*}_b$ & $\gamma H^+$ &
+$t(\tilde{u}^i_{1,2})^\dagger$, $u(\tilde{d}^i_{1,2})$, $s(H^+)$ 
+& $\dagger$) Not for $\tilde{\ell}$ \\
+% Z H+
+$\tilde{u}^i_a \tilde{d}^{i*}_b$ & $Z H^+$ &
+$t(\tilde{u}^i_{1,2})$, $u(\tilde{d}^i_{1,2})$, $s(H^+)$ \\
+% W+ H_1, W+ H_2
+$\tilde{u}^i_a \tilde{d}^{i*}_b$ & $W^+ H_1$, $W^+ H_2$  &
+$t(\tilde{d}^i_{1,2})$, $u(\tilde{u}^i_{1,2})$, $s(W^+,H^+)$ \\
+% W+ H_3
+$\tilde{u}^i_a \tilde{d}^{i*}_b$ & $W^+ H_3$  &
+$t(\tilde{d}^i_{1,2})$, $u(\tilde{u}^i_{1,2})^\dagger$, $s(H^+)$ 
+& $\dagger$) Not for $\tilde{\ell}$ \\
+% W+ gamma
+$\tilde{u}^i_a \tilde{d}^{i*}_b$ & $W^+ \gamma$  &
+$t(\tilde{d}^i_{1,2})$, $u(\tilde{u}^i_{1,2})^\dagger$, $s(W^+)$, $p$ 
+& $\dagger$) Not for $\tilde{\ell}$ \\
+% W+ Z
+$\tilde{u}^i_a \tilde{d}^{i*}_b$ & $W^+ Z$  &
+$t(\tilde{d}^i_{1,2})$, $u(\tilde{u}^i_{1,2})$, $s(W^+)$, $p$ \\
+% u d-bar
+$\tilde{u}^i_a \tilde{d}^{i*}_b$ & $u^k \bar{d}^l$ &
+$s(H^+,W^+)^\star$, $t(\tilde{\chi}_m^0,\tilde{g}^\dagger)\delta^{ik}\delta^{il}$ 
+& \parbox[t]{4cm}{$\dagger$) Not for $\tilde{\ell}$, $\star$) Only $k=l$ at present} \\ 
+% W+ g
+$\tilde{u}^i_a \tilde{d}^{i*}_b$ & $W^+ g$ &
+$t(\tilde{d}^i_{1,2})$, $u(\tilde{u}^i_{1,2})$, $p$
+& Only for squarks \\ 
+% g H+
+$\tilde{u}^i_a \tilde{d}^{i*}_b$ & $g H^+$ &
+$t(\tilde{u}^i_{1,2})$, $u(\tilde{d}^i_{1,2})$
+& Only for squarks \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%% u-squark^i d-squark^j_{b}^*
+\subsubsection{$\tilde{u}_a^i \tilde{d}_{b}^{j*}$ annihilation ($i \ne j$)}
+
+For squarks we can have the following processes
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% H+ H_1, H+ H_2
+$\tilde{u}^i_a \tilde{d}^{j*}_b$ & $H^+ H_1$, $H^+ H_2$ &
+$t(\tilde{d}^j_{1,2})$, $u(\tilde{u}^i_{1,2})$, $p$, $s(W^+,H^+)$
+& Not included at present \\
+% H+ H_3
+$\tilde{u}^i_a \tilde{d}^{j*}_b$ & $H^+ H_3$ &
+$t(\tilde{d}^j_{1,2})$, $u(\tilde{u}^i_{1,2})$, $p$, $s(W^+)$
+& Not included at present \\
+% H+ gamma
+$\tilde{u}^i_a \tilde{d}^{j*}_b$ & $H^+ \gamma$ &
+$t(\tilde{d}^j_{1,2})$, $u(\tilde{u}^i_{1,2})$, $s(H^+)$
+& Not included at present \\
+% H+ Z
+$\tilde{u}^i_a \tilde{d}^{j*}_b$ & $H^+ Z$ &
+$t(\tilde{d}^j_{1,2})$, $u(\tilde{u}^i_{1,2})$, $s(H^+)$
+& Not included at present \\
+% W+ H_1, W+ H_2
+$\tilde{u}^i_a \tilde{d}^{j*}_b$ & $W^+ H_1$, $W^+ H_2$  &
+$t(\tilde{d}^j_{1,2})$, $u(\tilde{u}^i_{1,2})$, $s(W^+,H^+)$
+& Not included at present \\
+% W+ H_3
+$\tilde{u}^i_a \tilde{d}^{j*}_b$ & $W^+ H_3$  &
+$t(\tilde{d}^j_{1,2})$, $u(\tilde{u}^i_{1,2})$, $s(H^+)$
+& Not included at present \\
+% W+ gamma
+$\tilde{u}^i_a \tilde{d}^{j*}_b$ & $W^+ \gamma$  &
+$t(\tilde{d}^j_{1,2})$, $u(\tilde{u}^i_{1,2})$, $s(W^+)$, $p$
+& Not included at present \\
+% W+ Z
+$\tilde{u}^i_a \tilde{d}^{j*}_b$ & $W^+ Z$  &
+$t(\tilde{d}^j_{1,2})$, $u(\tilde{u}^i_{1,2})$, $s(W^+)$, $p$
+& Not included at present \\
+% u d-bar
+$\tilde{u}^i_a \tilde{d}^{j*}_b$ & $u^k \bar{d}^l$ &
+$s(H^+,W^+)^\dagger$, $t(\tilde{\chi}_m^0,\tilde{g})\delta^{ik}\delta^{jl}$
+& $\dagger$) Not included at present \\ \hline
+\end{tabular}
+\end{center}
+
+whereas for sneutrinos and sleptons, we can only have the process
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% nu l-bar
+$\tilde{\nu}^i \tilde{\ell}^{j*}_b$ & $\nu^i \bar{\ell}^j$ &
+$t(\tilde{\chi}_k^0)$ \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%% u-squark^i d-squark^i_{b}
+\subsubsection{$\tilde{u}_a^i \tilde{d}_{b}^{i}$ annihilation}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% u d-bar
+$\tilde{u}^i_a \tilde{d}^{i}_b$ & $u^k d^l$ &
+$t(\tilde{\chi}_m^0,\tilde{g}^\dagger)\delta^{ik}\delta^{il}$, $u(\tilde{\chi}_c^+)^\star$ 
+& \parbox[t]{4cm}{$\dagger$) Only for squarks, $\star$) Only $i=k=l$ at present} \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%% u-squark^i d-squark^j_{b}
+\subsubsection{$\tilde{u}_a^i \tilde{d}_{b}^{j}$ annihilation ($i \ne j$)}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% u d-bar
+$\tilde{u}^i_a \tilde{d}^{j}_b$ & $u^k d^l$ &
+$t(\tilde{\chi}_m^0,\tilde{g}^\dagger)\delta^{ik}\delta^{jl}$, $u(\tilde{\chi}_c^+)^{\times\star}$ 
+& \parbox[t]{4cm}{$\dagger$) Only for squarks, $\times$) For $\tilde{\nu}\tilde{\ell}$ only when $i=l,j=k$,
+$\star$) Only included when $i=l,j=k$ at present} \\ \hline
+\end{tabular}
+\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Squark-neutralino annihilation}
+
+{\bfseries Note: The tables below are not entirely up to date, more processes are included
+than shown in the tables.}
+
+\smallskip
+
+
+We will here denote squarks as $\tilde{u}^i_a$ and $\tilde{d}^i_a$ where $i$ is the family index and $a$ is the mass eigenstate index (running from 1 to 2).
+
+%%%%% up-squark^i_{a} neutralino_{j}
+\subsubsection{$\tilde{u}^i_{a} \tilde{\chi}_{j}^{0}$ annihilation}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% u^i gamma
+$\tilde{u}^i_a \tilde{\chi}_{j}^0$ & $\gamma u^i$ &
+$s(u^{i})$, $t(\tilde{u}^i_{1,2})$ 
+& Only for squarks \\
+% u^i Z
+$\tilde{u}^i_a \tilde{\chi}_{j}^0$ & $Z u^i$ &
+$s(u^{i})$, $t(\tilde{u}^i_{1,2})$, $u(\tilde{\chi}_k^0)$ \\
+% u^i H_{1}, u^i H_{2}
+$\tilde{u}^i_a \tilde{\chi}_{j}^0$ & $H_{1} u^i$, $H_{2} u^i$ &
+$s(u^{i})^\dagger$, $t(\tilde{u}^i_{1,2})$, $u(\tilde{\chi}_k^0)$
+& $\dagger$) Only for squarks \\
+% u^i H_{3}
+$\tilde{u}^i_a \tilde{\chi}_{j}^0$ & $H_{3}u^i$  &
+$s(u^{i})^\dagger$, $t(\tilde{u}^i_{1,2})^\dagger$, $u(\tilde{\chi}_k^0)$
+& $\dagger$) Only for squarks  \\ 
+% d^k W+
+$\tilde{u}^i_a \tilde{\chi}_{j}^0$ & $W^+ d^k$  &
+$s(u^i)$, $t(\tilde{d}^k_{1,2})$, $u(\tilde{\chi}_c^+)$ 
+& \parbox[t]{4cm}{$k=1,2,3$, $\tilde{u}^{i*}_a \tilde{\chi}_{j}^0 \to W^- \bar{d}^k$ in the code} \\
+% d^k H+
+$\tilde{u}^i_a \tilde{\chi}_{j}^0$ & $H^+ d^k$  &
+$s(u^i)$, $t(\tilde{d}^k_{1,2})$, $u(\tilde{\chi}_c^+)$
+& \parbox[t]{4cm}{$k=1,2,3$, $\tilde{u}^{i*}_a \tilde{\chi}_{j}^0 \to H^- \bar{d}^k$ in the code} \\ 
+% g u
+$\tilde{u}^i_a \tilde{\chi}_{j}^0$ & $g u^i$  &
+$s(u^i)$, $t(\tilde{u}^i_{1,2})$ \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%% down-squark^i_{a} neutralino_{j}
+\subsubsection{$\tilde{d}^i_{a} \tilde{\chi}_{j}^{0}$ annihilation}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% d^i gamma
+$\tilde{d}^i_a \tilde{\chi}_{j}^0$ & $\gamma d^i$ &
+$s(d^{i})$, $t(\tilde{d}^i_{1,2})$  \\
+% d^i Z
+$\tilde{d}^i_a \tilde{\chi}_{j}^0$ & $Z d^i$ &
+$s(d^{i})$, $t(\tilde{d}^i_{1,2})$, $u(\tilde{\chi}_k^0)$ \\
+% d^i H_{1}, d^i H_{2}
+$\tilde{d}^i_a \tilde{\chi}_{j}^0$ & $H_{1} d^i$, $H_{2} d^i$ &
+$s(d^{i})$, $t(\tilde{d}^i_{1,2})$, $u(\tilde{\chi}_k^0)$ \\
+% d^i H_{3}
+$\tilde{d}^i_a \tilde{\chi}_{j}^0$ & $H_{3} d^i$  &
+$s(d^{i})$, $t(\tilde{d}^i_{1,2})$, $u(\tilde{\chi}_k^0)$ \\ 
+% u^i W-
+$\tilde{d}^i_a \tilde{\chi}_{j}^0$ & $W^- u^k$  &
+$s(d^{i})$, $t(\tilde{u}^k_{1,2})$, $u(\tilde{\chi}_c^+)$ 
+& $k=1,2,3$ \\
+% u^i H-
+$\tilde{d}^i_a \tilde{\chi}_{j}^0$ & $H^- u^k$  &
+$s(d^{i})$, $t(\tilde{u}^k_{1,2})$, $u(\tilde{\chi}_c^+)$ 
+& $k=1,2,3$  \\
+% g d
+$\tilde{d}^i_a \tilde{\chi}_{j}^0$ & $g d^i$  &
+$s(d^i)$, $t(\tilde{d}^i_{1,2})$ \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Squark-chargino annihilation}
+
+{\bfseries Note: The tables below are not entirely up to date, more processes are included
+than shown in the tables.}
+
+\smallskip
+
+
+We will here denote squarks as $\tilde{q}^i_a$ where $i$ is the family
+index and $a$ is the mass eigenstate index (running from 1 to 2).
+
+%%%%% up-squark^i_{a} chargino_{j}
+\subsubsection{$\tilde{u}^i_{a} \tilde{\chi}_{c}^{+}$ annihilation}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% u^i W+
+$\tilde{u}^i_a \tilde{\chi}_{c}^+$ & $W^+ u^k$ &
+$t(\tilde{d}^l_{1,2})$, $u(\tilde{\chi}_c^0)\delta^{ik}$ &
+Only $k=l=i$ at present \\
+% u^i H+
+$\tilde{u}^i_a \tilde{\chi}_{c}^+$ & $H^+ u^k$ &
+$t(\tilde{d}^l_{1,2})$, $u(\tilde{\chi}_c^0)\delta^{ik}$ 
+& Only $k=l=i$ at present \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%% up-squark^i*_{a} chargino_{j}
+\subsubsection{$\tilde{u}^{i*}_{a} \tilde{\chi}_{c}^{+}$ annihilation}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% d-bar^i Z
+$\tilde{u}^{i*}_a \tilde{\chi}_{c}^+$ & $Z \bar{d}^k$ &
+$s(\bar{d}^k)$, $t(\tilde{u}^i_{1,2})$, $u(\tilde{\chi}_c^+)$ 
+& $k=1,2,3$ \\
+% d-bar^i gamma
+$\tilde{u}^{i*}_a \tilde{\chi}_{c}^+$ & $\gamma \bar{d}^k$ &
+$s(\bar{d}^k)$, $t(\tilde{u}^i_{1,2})^\dagger$, $u(\tilde{\chi}_c^+)$ 
+& $k=1,2,3$, $\dagger$) Only for squarks \\
+% d-bar^i H_1, d-bar H_2
+$\tilde{u}^{i*}_a \tilde{\chi}_{c}^+$ & $H_1 \bar{d}^k$, $H_2 \bar{d}^k$ &
+$s(\bar{d}^k)$, $t(\tilde{u}^i_{1,2})$, $u(\tilde{\chi}_c^+)$
+& $k=1,2,3$ \\
+% d-bar^i H_3
+$\tilde{u}^{i*}_a \tilde{\chi}_{c}^+$ & $H_3 \bar{d}^k$ &
+$s(\bar{d}^k)$, $t(\tilde{u}^i_{1,2})^\dagger$, $u(\tilde{\chi}_c^+)$ 
+& $k=1,2,3$, $\dagger$) Only for squarks\\
+% u-bar^i W^+
+$\tilde{u}^{i*}_a \tilde{\chi}_{c}^+$ & $W^+ \bar{u}^k$ &
+$s(\bar{d}^l)$, $u(\tilde{\chi}_c^0)\delta^{ik}$ 
+& Only $k=l=i$ at present \\
+% u-bar^i H^+
+$\tilde{u}^{i*}_a \tilde{\chi}_{c}^+$ & $H^+ \bar{u}^k$ &
+$s(\bar{d}^l)$, $u(\tilde{\chi}_c^0)\delta^{ik}$ 
+& Only $k=l=i$ at present \\
+% g d-bar
+$\tilde{u}^{i*}_a \tilde{\chi}_{c}^+$ & $g \bar{d}^k$ &
+$s(\bar{d}^k)$, $t(\tilde{u}_a^i)$ 
+& $k=1,2,3$, only for squarks \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%% down-squark^i_{a} chargino_{j}
+\subsubsection{$\tilde{d}^{i}_{a} \tilde{\chi}_{c}^{+}$ annihilation}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% u^i Z
+$\tilde{d}^{i}_a \tilde{\chi}_{c}^+$ & $Z u^k$ &
+$s(u^k)$, $t(\tilde{d}^i_{1,2})$, $u(\tilde{\chi}_c^+)$
+& Only $k=i$ at present \\
+% u^i gamma
+$\tilde{d}^{i}_a \tilde{\chi}_{c}^+$ & $\gamma u^k$ &
+$s(u^k)^\dagger$, $t(\tilde{d}^i_{1,2})$, $u(\tilde{\chi}_c^+)$ 
+& Only $k=i$ at present, $\dagger$) Only for squarks \\
+% u^i H_1, d-bar H_2
+$\tilde{d}^{i}_a \tilde{\chi}_{c}^+$ & $H_1 u^k$, $H_2 u^k$ &
+$s(u^k)^\dagger$, $t(\tilde{d}^i_{1,2})$, $u(\tilde{\chi}_c^+)$ 
+& Only $k=i$ at present, $\dagger$) Only for squarks \\
+% u^i H_3
+$\tilde{d}^{i}_a \tilde{\chi}_{c}^+$ & $H_3 u^k$ &
+$s(u^k)^\dagger$, $t(\tilde{d}^i_{1,2})$, $u(\tilde{\chi}_c^+)$ 
+& Only $k=i$ at present, $\dagger$) Only for squarks \\
+% d^i W^+
+$\tilde{d}^{i}_a \tilde{\chi}_{c}^+$ & $W^+ d^k$ &
+$s(u^l)$, $u(\tilde{\chi}_c^0)\delta^{ik}$
+& Only $k=l=i$ at present \\
+% d^i H^+
+$\tilde{d}^{i}_a \tilde{\chi}_{c}^+$ & $H^+ d^k$ &
+$s(u^l)$, $u(\tilde{\chi}_c^0)\delta^{ik}$
+& Only $k=l=i$ at present \\
+% g
+$\tilde{d}^{i}_a \tilde{\chi}_{c}^+$ & $g u^k$ &
+$s(u^k)$, $t(\tilde{d}_a^i)$
+& Only $k=i$ at present, only for squarks \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%% down-squark^i*_{a} chargino_{j}
+\subsubsection{$\tilde{d}^{i*}_{a} \tilde{\chi}_{c}^{+}$ annihilation}
+
+\begin{center}
+\begin{tabular}{llll} \hline
+{\bfseries Initial state} & {\bfseries Final state} &
+{\bfseries Diagrams} & {\bfseries Note} \\ \hline \tabspace
+% d-bar^i W+
+$\tilde{d}^{i*}_a \tilde{\chi}_{c}^+$ & $W^+ \bar{d}^k$ &
+$t(\tilde{u}^l_{1,2})$, $u(\tilde{\chi}_c^0)\delta^{ik}$ 
+& Only $k=l=i$ at present \\
+% d-bar^i H+
+$\tilde{d}^{i*}_a \tilde{\chi}_{c}^+$ & $H^+ \bar{d}^k$ &
+$t(\tilde{u}^l_{1,2})$, $u(\tilde{\chi}_c^0)\delta^{ik}$
+& Only $k=l=i$ at present \\ \hline
+\end{tabular}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Degrees of freedom}
+
+We have to be careful with the internal degrees of freedom, $g$, of
+the particles. We can either treat e.g.\ a $\chi_i^+$ and a $\chi_i^-$ as
+two separate particles with two degrees of freedom each, or we can
+treat them as one particle $\chi_i^\pm$ with four degrees of
+freedom. The latter approach has an advantage that we
+simplify our expressions for the effective annihilation
+cross sections when coannihilations are needed. Hence, we use that
+approach here. For a more detailed discussion about this, see Section
+\ref{sec:dof}. 

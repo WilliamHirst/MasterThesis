@@ -1,0 +1,25 @@
+CDECK  ID>, SETKKG.
+      SUBROUTINE SETKKG
+C
+C          Set the standard KKG parameters in /KKGRAVI/.
+C
+      IMPLICIT NONE
+C          KKGravity common
+      COMMON/KKGRAV/NEXTRAD,MASSD,KKGSD,SURFD,UVCUT
+      INTEGER NEXTRAD
+      REAL    MASSD,KKGSD,SURFD
+      LOGICAL UVCUT
+      SAVE /KKGRAV/
+      COMMON/CONST/PI,SQRT2,ALFA,GF,UNITS
+      SAVE /CONST/
+      REAL      PI,SQRT2,ALFA,GF,UNITS
+C
+      REAL DIM2,GMMA,GAMMA
+      EXTERNAL GAMMA
+C          Calculate D-surface:
+      DIM2 = (NEXTRAD*1.0)/2.
+      GMMA = GAMMA(DIM2)
+      SURFD = (2.*PI**DIM2) / GMMA
+      KKGSD = SURFD / (MASSD**(NEXTRAD+2))
+      RETURN
+      END

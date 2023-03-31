@@ -1,0 +1,37 @@
+# Makefile for ha directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemfpg.pl on Nov 04, 2011.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dsio.h dsidtag.h dsdirver.h dshrcom.h dshacom.h
+
+vpath %.h $(DINC)
+
+SRC = dshadec.f dshadydth.f dshadys.f dshaemean.f dshaib.f dshaifind.f \
+dshainit.f dshaloyield.f dshapbyieldf.f dshawspec.f dshayield.f \
+dshayield_int.f dshayielddec.f dshayieldf.f dshayieldfth.f \
+dshayieldget.f dshayields.f dshayields2.f dshayields3.f dshayields4.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

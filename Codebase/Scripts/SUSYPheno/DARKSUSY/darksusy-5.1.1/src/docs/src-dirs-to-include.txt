@@ -1,0 +1,38 @@
+# This file includes the directories in src/, which should be searched
+# by the script headers2tex.pl. The script will look in these directories
+# for documentation tex-files and for headers in the Fortran routines.
+#
+# The format below is that each directory resides on one row with the first
+# element being the directory name and the rest being the title
+# of that chapter as it will appear in the manual. The order in which 
+# the directories appear below is the order in which the chapters will
+# appear in the manual.
+#
+ac Accelerator bounds
+an Annihilation cross sections (general, $\chi^0$ and $\chi^\pm$) 
+an1l Annihilation cross sections (1-loop)
+anstu $t$, $u$ and $s$ diagrams for $ff$-annihilation
+as Annihilation cross sections (with sfermions)
+bsg $b \rightarrow s \gamma$
+db Anti-deuteron fluxes from the halo
+dd Direct detection
+ep Positron fluxes from the halo
+ep2 Positron fluxes from the halo (alternative solution)
+ge General routines
+ha Halo annihilation yields
+hm Halo models
+hr Halo rates from annihilation
+ib Internal Bremsstrahlung
+ini Initialization routines
+mh Kinetic decoupling and microhalos
+wa Yields from WIMP annihilation in the Sun/Earth
+nt Neutrino and muon rates from annihilation in the Sun/Earth
+pb Antiproton fluxes from the halo
+rd Relic density routines (general)
+rge mSUGRA interface (Isasugra) to DarkSUSY
+rn Relic density of neutralinos (wrapper for rd routines)
+slha SUSY Les Houches Accord interface
+su General SUSY model setup: masses, vertices etc
+xcern CERN routines needed by DarkSUSY
+xcmlib CMLIB routines needed by DarkSUSY
+xfeynhiggs FeynHiggs interface to DarkSUSY

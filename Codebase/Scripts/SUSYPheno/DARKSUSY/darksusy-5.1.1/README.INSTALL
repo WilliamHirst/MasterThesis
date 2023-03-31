@@ -1,0 +1,131 @@
+Compiling and installation instructions for DarkSUSY
+====================================================
+
+The compile is handled by the makefile in the DarkSUSY root directory
+(i.e. the same directory as this README file resides in).
+
+As of June, 2006, DarkSUSY uses autoconf with a ./configure script to
+set up the makefiles. Hence, the first command you should give is
+
+    ./configure
+
+This will by default create makefiles that compile DarkSUSY with default
+fortran compiler (typically gfortran) and compiler options FCFLAGS and will
+install DarkSUSY in the same directory as you compile it in. 
+
+Note: If you don't want to use the default compiler you should tell
+configure which compiler you want to use and what options to use with it.
+For your convenience, a couple of scripts are available for this purpose:
+
+    ./conf.ifort     <- to configure for ifort compilation
+
+or
+
+    ./conf.gfortran  <- to configure for gfortran compilation
+
+Use these, if you want to force compilation with any of these compilers. 
+Note that HiggsBounds require at least version 4.2 of gfortran and hence
+this is then also the minimal requirement for DarkSUSY.
+
+There are also options that could be given, e.g.
+
+    ./configure --prefix=<install-dir>
+
+will instead install DarkSUSY in <install-dir>. This is of use if you
+want a system-wide installation or want to remove the sources after
+compilation. You can also set other options to configure before compiling,
+type ./configure --help for available options.
+
+After this, it is time to make DarkSUSY:
+      
+    make
+
+and install
+
+    make install
+
+The last step might need to be given as 'sudo make install' if you install
+in a location where you don't normally have write access.
+
+After these steps you are ready to run. (Note: If you didn't specify any
+install location with the --prefix directive to configure, you don't
+actually have to run the last 'make install'.)
+
+Note that DarkSUSY needs to find data files at run-time, hence it is
+important that you either leave DarkSUSY where you compiled it (if you ran
+./configure without resetting --prefix) or leave it where you installed
+it (if you ran DarkSUSY with the --prefix=<install-dir> flag).
+This information is passed to the
+DarkSUSY code at compile-time and is needed for DarkSUSY to find
+required data files. 
+
+Before you compile, also make sure to have about 500 MB of free hard
+disk space available. The makefile requires perl to be installed (and
+in your path) to properly update the search paths for the needed data
+files and for installing them properly.
+
+The 'make' and 'make install' will build and install libdarksusy.a.
+This is the library you should include with all your
+programs using DarkSUSY. The 'make install 'will also convert the supplied
+ascii data files (needed e.g. by the neutrino telesope routines) to binary
+files and install them. These are read automatically by DarkSUSY
+when needed. libisajet.a and aldata.o (nedded for mSUGRA calculations) are
+also compiled by default with the above make command. Make sure to include BOTH
+of these when linking if you run mSUGRA things (see the makefile in test on
+how this can be done).
+
+If you want to see how you can use DarkSUSY, you should go to the
+test directroy, where three test programs have been compiled: dstest,
+dstest-isasugra and dsmain. The first two are examples of how to
+run DarkSUSY for MSSM-7 or mSUGRA models. The third one is suitable for
+interactive running.
+
+If you need to recompile these programs, you can do so by e.g. entering
+
+    make dstest
+
+in the test directory.
+
+The test program dstest.f will show you how to use the main routines in
+DarkSUSY. It will also show you how you define an MSSM model and how
+you change default parameters. Please go through this file carefully.
+
+When you have successfully compiled dstest, you should run it and
+compare the output with that given in dstest.output. You should (up to
+small numerical differences) get the same result as in that file.
+
+In the test directory, there is also a file dstest-isasugra.f that is
+compiled with the command above. This test program does essentially the
+same thing as dstest.f, but for mSUGRA models instead of MSSM models.
+
+When you have successfully compiled both the library and the test file
+you can, if you want to save some hard disk space, clean up the
+compliation debris by typing
+
+    make clean
+
+in the DarkSUSY root directory.
+
+And finally, to uninstall DarkSUSY (i.e. delete all compiled libraries and
+files, but keep the sources), type
+
+    make uninstall
+    make distclean
+
+in the DarkSUSY root directory.
+
+Any questions?
+
+Contact any of the DarkSUSY authors by e-mail. If you have questions
+about a specific routine, the main author of that routine is usually
+given in its header. 
+
+Paolo Gondolo		paolo@physics.utah.edu
+Joakim Edsjo		edsjo@physto.se
+Lars Bergstrom		lbe@physto.se
+Piero Ullio		ullio@he.sissa.it
+Mia Schelke		schelke@physto.se
+Edward A. Baltz         eabaltz@slac.stanford.edu
+Torsten Bringmann       troms@physto.se
+Gintaras Duda           gkduda@creighton.edu
+

@@ -1,0 +1,20 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Main programs}
+
+\ds\ is primarily a library that is intended to be used with your own main programs. However, to get you started, we supply a few sample programs in the \code{test} directory. These can be used as they are, but they are also extensively commented to help you understand which routines you are supposed to call for the most typical calculations. The programs in test are
+
+\begin{description}
+
+\item{\codeb{dsmain}} A main program that asks for MSSM or mSUGRA model parameters and calculates accelerator constraints, relic density and various rates for that model. This program is good as it is for quick calculations for a small set of models. It is also a good starting point for making your own main programs. Just read through the code and its comments.
+
+\item{\codeb{dstest}} A test program that performs roughly the same things as \codeb{dsmain}, but instead reads a handful of MSSM models from a datafile. This program is mainly intended to test that your installation works as expected, however this program is also as commented as \codeb{dsmain} and can be used to learn about which \ds\ routines to call.
+
+\item{\codeb{dstest-isasugra}} Like \codeb{dstest} but for mSUGRA models.
+
+\item{\codeb{dstest-galprop}} Like \codeb{dstest}, but uses \code{galprop} for the charged cosmic ray calculations instead of the internal routines.
+
+\item{\codeb{dstest-galprop-one}} A special version of the \code{galprop} interface for machines where memory leaks (in \code{galprop}) causes \codeb{dstest-galprop} to crash before it has calculated all the Green's functions.
+
+\end{description}
+ 
+

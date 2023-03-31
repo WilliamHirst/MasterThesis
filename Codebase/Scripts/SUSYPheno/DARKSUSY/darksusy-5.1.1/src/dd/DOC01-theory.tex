@@ -1,0 +1,169 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Direct detection -- theory}
+
+{\bfseries NOTE: The description below is outdated. \ds\ now includes
+much better form factors.}
+
+If  neutralinos are indeed the CDM needed on galaxy scales and larger,
+there should be a substantial flux of these particles in the Milky
+Way halo. Since the interaction strength  is
+essentially given by the same weak couplings as, e.g., for neutrinos
+there is a non-negligible chance of detecting them in low-background
+counting experiments \cite{goodmanwitten}.
+Due to the large parameter space of MSSM, even
+with the simplifying assumptions above, there is a rather wide span of
+predictions for the event rate in detectors of various types. It is
+interesting, however, that the models giving the largest rates are
+already starting to be probed by present direct detection
+experiments \cite{bg,bottino}.
+
+
+The rate for direct detection of galactic neutralinos, integrated over
+deposited energy assuming no energy threshold, is
+\begin{equation}
+   R = \sum_i N_i n_\chi \langle \sigma_{i\chi} v \rangle ,
+\end{equation}
+where $ N_i $ is the number of nuclei of species $i$ in the detector,
+$n_\chi$ is the local galactic neutralino number density, $
+\sigma_{i\chi} $ is the neutralino-nucleus elastic cross section, and
+the angular brackets denote an average over $ v $, the neutralino
+speed relative to the detector as described in Section~\ref{sec:halo}.
+
+In \ds, the basic quantities computed are the neutralino-nucleon cross
+sections, which are free of complications related to nuclear
+structure, and various experimental details like energy threshold,
+efficiencies etc.  However, as a crude estimate of the expected rates
+in realistic detectors, the total neutralino-nucleus scattering rates
+can be obtained for $^{76}$Ge, Al$_2$O$_3$ (sapphire) and NaI.
+Usually, it is the spin-independent interaction that gives the most
+important contribution in target materials such as Na, Cs, Ge, I, or
+Xe, due to the enhancement caused by the coherence of all nucleons in
+the target nucleus.
+
+The neutralino-nucleus elastic cross section can be written as
+\begin{equation}
+   \sigma_{i\chi} = {1 \over 4 \pi v^2 } \int_{0}^{4 m^2_{i\chi} v^2}
+   \mbox{\rm d} q^2 G_{i\chi}^2(q^2) ,
+\end{equation}
+where $ m_{i\chi} $ is the neutralino-nucleus reduced mass, $q$ is the
+momentum transfer and $G_{i\chi}(q^2) $ is the effective
+neutralino-nucleus vertex. We write
+\begin{equation}
+   G^2_{i\chi}(q^2) = A_i^2 F^2_S(q^2) G_S^2 +
+   4 \Lambda_i^2 F^2_A(q^2) G_A^2 ,
+   \label{detrate1}
+\end{equation}
+which shows the coherent enhancement factor $A_i^2$ for the
+spin-independent cross section
+(often $ \Lambda_i^2 $ is written as $ \lambda^2 J(J+1) $ ). We assume
+gaussian nuclear form factors \cite{Gould87} 
+\begin{equation}
+   F_S(q^2) = F_A(q^2) =
+   \exp(-q^2R_i^2/6\hbar^2) ,
+\end{equation}
+\begin{equation}
+   R_i = ( 0.3 + 0.89 A_i^{1/3} ) {\rm fm} ,
+\end{equation}
+which should provide us with a good approximation of the integrated
+detection rate \cite{EllisFlores}, in which we are only interested.
+(To obtain the differential rate with reasonable accuracy, better
+approximations are needed \cite{engel}.)
+
+Using heavy-squark effective lagrangians
+\cite{efflagrange}, we get
+\begin{equation}
+   G_S = \sum_{q={\rm u,d,s,c,b,t}} \langle \bar{q} q \rangle
+   \left( \sum_{h=H_1,H_2} { g_{h\chi\chi} g_{hqq} \over m_h^2 } -
+   {1\over 2} \sum_{k=1}^6 { g_{L\tilde{q}_k\chi q} g_{R\tilde{q}_k\chi q} \over
+   m^2_{\tilde{q}_k} } \right)
+\label{GS}
+\end{equation}
+and
+\begin{equation}
+   G_A = \sum_{q={\rm u,d,s}} \Delta q
+    \left( { g_{Z\chi\chi} g_{Zqq} \over m_Z^2 } + {1\over 8} \sum_{k=1}^6
+   { g_{L\tilde{q}_k\chi q}^2 + g_{R\tilde{q}_k\chi q}^2 \over m^2_{\tilde{q}_k}
+   } \right) .
+\label{GA}
+\end{equation}
+The $g$'s are elementary vertices involving the particles indicated by
+the indices, and they read
+\begin{eqnarray}
+   g_{h\chi\chi} & = & \left\{  \begin{array}{ll}
+   \left( g Z_{\chi2} - g_y Z_{\chi1} \right)
+   \left( - Z_{\chi3} \cos\alpha + Z_{\chi4} \sin\alpha \right) ,
+   & {\rm for\ } H_1 , \\
+   \left( g Z_{\chi2} - g_y Z_{\chi1} \right)
+   \left( Z_{\chi3} \sin\alpha + Z_{\chi4} \cos\alpha \right) ,
+   & {\rm for\ } H_2 ,
+   \end{array} \right. \\
+   g_{hqq} & = & \left\{ \begin{array}{ll}
+   - Y_q \cos\alpha / \sqrt{2} , & {\rm for\ } H_1 , \\
+   + Y_q \sin\alpha / \sqrt{2} , & {\rm for\ } H_2 , \end{array} \right. \\
+   g_{Z\chi\chi} & = & {g \over 2 \cos\theta_W}
+   \left( Z_{\chi3}^2 - Z_{\chi4}^2 \right)\\
+   g_{Zqq} & = & - {g \over 2 \cos\theta_W} T_{3q} , \\
+   g_{L\tilde{q}_k\chi q} & = & g_{LL} \Gamma_{QL}^{kq} +
+   g_{RL} \Gamma_{QR}^{kq} , \\
+   g_{R\tilde{q}_k\chi q} & = & g_{LR} \Gamma_{QL}^{kq} +
+   g_{RR} \Gamma_{QR}^{kq} ,
+\end{eqnarray}
+with
+\begin{eqnarray}
+   g_{LL} & = & - {1\over\sqrt{2}}
+   \left( T_{3q} g Z_{\chi2} + {1\over3} g_y Z_{\chi1} \right) , \\
+   g_{RR} & = & \sqrt{2} e_q g_y Z_{\chi1} , \\
+   g_{LR} & = & g_{RL} \, = \, \left\{ \begin{array}{ll}
+   - Y_q Z_{\chi3} , & {\rm for\ } q={\rm u,c,t} , \\
+   - Y_q Z_{\chi4} , & {\rm for\ } q={\rm d,s,b} ,
+   \end{array} \right.
+\end{eqnarray}
+and
+\begin{eqnarray}
+   Y_q & = & \left\{ \begin{array}{ll}
+   m_q / v_2 , & {\rm for\ } q={\rm u,c,t}, \\
+   m_q / v_1 , & {\rm for\ } q={\rm d,s,b}.
+   \end{array} \right.
+\end{eqnarray}
+Defining ($N=n,p$)
+\beq
+f^N_{Tq}\equiv {\langle N |m_q\bar q q|N\rangle\over m_N},
+\eeq
+we take in \ds\ the numerical values \cite{Gasser}
+\begin{eqnarray}
+   & f^p_{Tu} = 0.023, \qquad f^p_{Td} = 0.034, \qquad
+    &\nonumber\\
+&f^p_{Tc} = 0.0595, \qquad f^p_{Ts} = 0.14, \qquad&\nonumber\\
+&f^p_{Tt} = 0.0595, \qquad f^p_{Tb}=0.0595 \qquad
+\end{eqnarray}
+and
+\begin{eqnarray}
+   & f^n_{Tu} = 0.019, \qquad f^n_{Td} = 0.041, \qquad
+    &\nonumber\\
+&f^n_{Tc} = 0.0592 \qquad f^n_{Ts} = 0.14, \qquad&\nonumber\\
+&f^n_{Tt} = 0.0592, \qquad f^n_{Tb} = 0.0592. \qquad
+\end{eqnarray}
+
+For the quark contributions to the nucleon spin we
+take \cite{SMC}
+\begin{equation}
+   \Delta {\rm u} = 0.77, \qquad \Delta {\rm d} = -0.40, \qquad
+   \Delta {\rm s} = -0.12 .
+\end{equation}
+However, the older set of data \cite{jaffe}
+\begin{equation}
+   \Delta {\rm u} = 0.77, \qquad \Delta {\rm d} = -0.49, \qquad
+   \Delta {\rm s} = -0.15
+\end{equation}
+can optionally be used.
+
+Moreover, we take for the $\Lambda$ factors
+\begin{equation}
+   \Lambda^2_{\rm Al} = 0.087, \qquad
+   \Lambda^2_{\rm Na} = 0.041 \quad {\rm and} \quad
+   \Lambda^2_{\rm I} = 0.007,
+   \label{detrate2}
+\end{equation}
+according to the odd-group model \cite{EngelVogel}.
+
+

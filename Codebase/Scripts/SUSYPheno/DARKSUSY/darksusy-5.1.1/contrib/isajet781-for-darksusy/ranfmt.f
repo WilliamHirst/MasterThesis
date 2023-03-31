@@ -1,0 +1,3 @@
+      SUBROUTINE RANFMT
+      RETURN
+      END

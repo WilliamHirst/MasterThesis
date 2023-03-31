@@ -1,0 +1,4 @@
+C
+      SUBROUTINE RANFGT(SEED)
+      RETURN
+      END

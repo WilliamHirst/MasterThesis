@@ -1,0 +1,30 @@
+# Makefile for TSPACK directory
+# Author: Pat Scott, patscott@physics.mcgill.ca
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+# Dependencies and libraries
+DINC=../../include
+LIB=../../lib
+
+INC_DEP = 
+
+vpath %.h $(DINC)
+
+tspack = ENDSLP.f SIGS.f SNHCSH.f STORE.f YPCOEF.f YPC1.f YPC1P.f YPC2.f YPC2P.f TSPSI.f \
+ INTRVL.f HVAL.f HPVAL.f TSINTL.f HPPVAL.f TSVAL1.f
+
+all: tspack
+
+tspack : $(tspack) makefile
+	cat $(tspack) > tspack.f
+	$(FF) $(FOPT) -c -I$(DINC) -o tspack.o tspack.f
+	rm tspack.f
+	ar rv $(LIB)/libdarksusy.a tspack.o
+	ranlib $(LIB)/libdarksusy.a
+
+clean:
+	rm -f tspack.f *.o

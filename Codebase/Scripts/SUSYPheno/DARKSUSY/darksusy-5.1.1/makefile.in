@@ -1,0 +1,261 @@
+# Main makefile for DarkSUSY.
+# Technical questions about this makefile should be directed to
+# Joakim Edsjo, edsjo@physto.se
+# Date: June 23, 2006
+# Additions for FeynHiggs by Paolo Gondolo 2002/06/14.
+
+# This file will create libdarksusy.a
+# It will also create binary tables from the supplied ascii tables
+# to speed up particle yield calculations.
+# This file is created from makefile.in by running ./configure.
+# Type 'make' to make DarkSUSY
+# Type 'make install' to install (default is in /usr/local)
+
+########################################################
+### READ THROUGH AND CHANGE THE DEFAULT VALUES BELOW ###
+### BEFORE COMPILING.                                ###
+########################################################
+
+###### Compiler and compiler options                     ######
+###### DarkSUSY root directory and Feynhiggs directories ######
+
+# DS_ROOT is the root directory of DarkSUSY.
+# DS_INSTALL is the install directory. When DarkSUSY is installed, you
+# can in principle delete the DarkSUSY root directory if you wish.
+
+# Note that, on some systems (e.g. Mac OS X), the files in 
+# src/xfeynhiggs need the option -femulate-complex, so define
+# separate compilation options for these files using the variable FOPTFH. 
+# It doesn't seem necessary to compile the full FeynHiggs package with these
+# options (the compile is extremeley slow in this case).
+
+### GNU fortran g77 ###
+# NOTE: One some systems, the -ffast-math option causes problems. If this
+# is the case, please take it away, execute 'make clobber' to clean up and
+# redo the 'make'
+FF=@F77@
+FOPT=@FOPT@
+FFLAGS=$(FOPT)
+FOPTFH = @FOPT@
+
+# Determine where to install stuff (prefix is set in configure)
+prefix=@prefix@
+# DS_INSTALL is where the library and data files will be installed
+DS_INSTALL=${prefix}
+# DS_ROOT is where the root of the distribution is
+DS_ROOT=$(PWD)
+
+#### Contributed packages #####
+# The actual versions of these contributed packages to use are set
+# in configure.ac (that is transferred to configure with autoconf).
+# To change these permanently, edit configure.ac and rerun autoconf
+# To change temporarily, the preferred way is to run configure
+# giving your preferred version as an argument, e.g.on the form
+# ./configure ISAJETDIR=/data1/edsjo/DarkSUSY/library/trunk/contrib/isajet778-for-darksusy
+# You can also modify the makefile directly, but those changes will be
+# overwritten the next time you run configure.
+FEYNHIGGSDIR=@FEYNHIGGSDIR@
+ISAJETDIR=@ISAJETDIR@
+HBDIR=@HIGGSBOUNDSDIR@
+SLHADIR=@SLHADIR@
+TSPACKDIR=@TSPACKDIR@
+
+LIB=${DS_INSTALL}/lib
+
+###############################################
+#### DO NOT CHANGE ANYTHING BELOW THIS LINE ###
+###############################################
+
+#all : feynhiggs higgsbounds darksusy libisajet galprop mains_if_loc
+all : feynhiggs higgsbounds darksusy libisajet mains_if_loc
+
+default: darksusy libisajet mains_if_loc
+
+#darksusy : darksusy_lib dsgalprop inst_tab_if_loc
+darksusy : darksusy_lib inst_tab_if_loc
+
+mains :
+	cd test; make
+
+config_paths config :
+	perl $(DS_ROOT)/scr/config2.pl $(DS_ROOT) $(DS_INSTALL)
+
+darksusy_lib dslib : tspack
+	mkdir -p lib
+	cd $(DS_ROOT)/src; make all
+
+install : install_builds install_tables
+
+# This target creates binary tables and main programs right away if 
+# install is local i.e. make install not needed afterwards in this case
+inst_tab_if_loc : 
+	if [ -f $(DS_INSTALL)/makefile.in ] ; then \
+		make install_tables ; \
+	fi
+
+mains_if_loc : 
+	if [ -f $(DS_INSTALL)/makefile.in ] ; then \
+		cd test ; make ; \
+	fi
+
+
+# Only install builds if DS_INSTALL points to some other directory
+# than DS_ROOT
+install_builds:
+	if [ ! -f $(DS_INSTALL)/makefile.in ] ; then \
+		echo 'The install directory is different from DS_ROOT' ; \
+		echo 'Will install libraries and major data files.' ; \
+		mkdir -p $(DS_INSTALL) ; \
+		tar cf - lib share include --exclude .svn | (cd $(DS_INSTALL); tar xvf -) ; \
+	fi
+
+
+dsgalprop:
+	if [ `ar t $(DS_ROOT)/lib/libdarksusy.a dsgalprop.o` ] ; then \
+	cd $(DS_ROOT)/src/xgalprop ; make full ; \
+	else \
+	cd $(DS_ROOT)/src/xgalprop ; make fast ; \
+	fi
+
+cfitsio:
+	cd $(DS_ROOT)/contrib/cfitsio ; make ; \
+	cp libcfitsio.a $(DS_INSTALL)/lib/
+
+test:
+	cd $(DS_ROOT)/test; make all
+
+really_all : all install_tables
+
+check:
+	echo "this should run the test programs"
+
+installcheck:
+	echo "this should test the installation"
+
+really_all : all install_tables
+
+install_tables :
+	mkdir -p $(DS_INSTALL)/share/DarkSUSY
+	cd $(DS_ROOT)/share/DarkSUSY; make all
+
+libisajet :
+	cd $(ISAJETDIR); make
+
+tspack:
+	cd $(TSPACKDIR); make
+
+feynhiggs :
+	cd $(FEYNHIGGSDIR); \
+	make lib ; \
+	cp -p build/libFH.a $(DS_ROOT)/lib/ ; \
+	cp -p build/include/FHCouplings.h $(DS_ROOT)/include/ ;  \
+	cp -p build/include/SLHA.h $(DS_ROOT)/include/  ; \
+	cp -p build/include/SLHADefs.h $(DS_ROOT)/include/  ; \
+	cp -p build/include/PDG.h $(DS_ROOT)/include/ 
+
+higgsbounds :
+	cd $(HBDIR); \
+	make -f makefile_darksusy libHB ; \
+	cp -p libHB.a $(DS_ROOT)/lib/
+
+# SLHA is currently not built, as feynhiggs includes slhalib
+slha :
+	cd $(SLHADIR); \
+	make ; \
+	make install ; \
+	cp -p ds/lib/libSLHA.a $(DS_ROOT)/lib/ ; \
+	cp -p ds/include/SLHA.h $(DS_ROOT)/include/ ; \
+	cp -p ds/include/SLHADefs.h $(DS_ROOT)/include/ ; \
+	cp -p ds/include/PDG.h $(DS_ROOT)/include/ 
+
+galprop:
+	cd $(DS_ROOT)/src/xgalprop ; make full
+#	cd $(DS_ROOT)/contrib/galprop/v42.3ds; make
+	cd $(DS_ROOT)/contrib/galprop/v50p; make
+	cd $(DS_ROOT); if [ -f .no_cfitsio ]; then\
+		make cfitsio; rm .no_cfitsio; fi
+
+clean :
+	cd $(DS_ROOT)/src; $(MAKE) clean
+	cd $(DS_ROOT)/share/DarkSUSY; $(MAKE) clean
+	cd $(DS_ROOT)/docs; rm -f *.aux; rm -f *.log; rm -f *.dvi
+	cd $(ISAJETDIR); $(MAKE) clean
+#	cd $(DS_ROOT)/contrib/galprop/v42.3ds; $(MAKE) clean
+	cd $(DS_ROOT)/contrib/galprop/v50p; $(MAKE) clean
+	cd $(FEYNHIGGSDIR); $(MAKE) clean ; rm -fr ds
+	cd $(SLHADIR); $(MAKE) clean ; rm -fr ds
+	cd $(HBDIR); $(MAKE) -f makefile_darksusy -i veryclean; $(MAKE) -f makefile_darksusy -i hyperclean
+	cd $(TSPACKDIR); $(MAKE) clean
+
+
+clobber distclean : clean rmmore
+
+# rmmore removes things added in the DarkSUSY root during configure
+# and build
+rmmore:
+	rm -f $(DS_ROOT)/lib/libdarksusy.a
+	rm -f $(DS_ROOT)/lib/libisajet.a
+	rm -f $(DS_ROOT)/lib/libFH.a
+	rm -f $(DS_ROOT)/lib/libSLHA.a
+	rm -f $(DS_ROOT)/lib/libHB.a
+	rm -f $(DS_ROOT)/lib/aldata.o
+	rm -f $(DS_ROOT)/lib/libcfitsio.a
+	rm -f $(DS_ROOT)/share/DarkSUSY/ascii2bin
+	rm -f $(DS_ROOT)/share/DarkSUSY/we-res*.bin
+	rm -f $(DS_ROOT)/share/DarkSUSY/sim*.bin
+	rm -f $(DS_ROOT)/include/{SLHA,SLHADefs,PDG}.h
+	find . -name '#*' -exec rm -f {} \;
+	find . -name '*~' -exec rm -f {} \;
+	find . -name '._*' -exec rm -f {} \;
+	find . -name '*.o' -exec rm -f {} \;
+	find test -perm +u=x -type f -exec rm -f {} \;
+	rm -f `find . -name makefile.in | sed s/\.in//`
+	rm -f `find . -name makefile_darksusy.in | sed s/\.in//`
+	rm -f config.log config.status
+	rm -fr autom4te.cache
+	rm -f src/ini/dsversion.h
+	rm -f src/ini/dsdir.h
+	rm -f contrib/galprop/v42.3ds/Configure.cc
+	rm -f contrib/galprop/v42.3ds/nuc_package.cc
+	rm -f contrib/galprop/v42.3ds/WNEWTR_FUNC_aws.f
+	rm -f .no_cfitsio
+	cd contrib/cfitsio; make -k distclean; cd $(DS_ROOT)
+#	find . -name '.[a-z,A-Z,#]*' -exec rm -f {} \;
+
+# uninstall removes things in the install directory
+# Note, we have to check if the install directory is the current working
+# directory, in which case some things should be kept
+# We do this by checking if makefile.in is in the install directory.
+# If it is, we know that DS_INSTALL must point to DS_ROOT.
+uninstall:
+	rm -f $(DS_INSTALL)/lib/libdarksusy.a
+	rm -f $(DS_INSTALL)/lib/aldata.o
+	if [ ! -f $(DS_INSTALL)/makefile.in ] ; then \
+		echo 'The install directory is different from DS_ROOT' ; \
+		echo 'Will clean up the install directory.' ; \
+		rm -f `find include -name '*.h' | sed s#^#${DS_INSTALL}/#` ; \
+		rm -fr $(DS_INSTALL)/share/DarkSUSY ; \
+	fi
+
+docs: pdf-manual
+
+pdf-manual pdf-Manual :
+	scr/headers2tex.pl
+	cd $(DS_ROOT)/docs; latex Manual; latex Manual; latex Manual
+	cd $(DS_ROOT)/docs; dvips -o Manual.ps Manual
+	cd $(DS_ROOT)/docs; ps2pdf Manual.ps
+
+pdf-manual-short pdf-Manual-short :
+	scr/headers2tex.pl --no-headers
+	cd $(DS_ROOT)/docs; \
+	latex Manual-short; latex Manual-short; latex Manual-short
+	cd $(DS_ROOT)/docs; dvips -o Manual-short.ps Manual-short
+	cd $(DS_ROOT)/docs; ps2pdf Manual-short.ps
+
+html-manual :
+	scr/headers2tex.pl
+	cd $(DS_ROOT)/docs; latex2html -white Manual.tex
+
+.PHONY: all config_paths darksusy_lib dslib private install_tables \
+	clean clobber uninstall rmmore libisajet pdf-manual html-manual \
+	darksusy feynhiggs higgsbounds

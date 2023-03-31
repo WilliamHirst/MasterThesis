@@ -1,0 +1,47 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{$b \rightarrow s \gamma$ -- theory}
+
+The rare decay $b \rightarrow s \gamma$ can have large contributions
+from loops of supersymmetric particles and one therefore has to check
+that a particular supersymmetric model does not violate the observed
+branching ratio for $b$ decay to $s \gamma$. In \ds\ we have several
+expressions for calculations of the $b \rightarrow s \gamma$ decay. In
+\codeb{src/ac}, some older obsolte expressions are found
+(kept only for historical reasons). In this directory, 
+\codeb{bsg/}, we have our best (and next-to-best)
+implementation of the $b \rightarrow s \gamma$ decay.
+
+Our best estimate of this process includes the
+complete next-to-leading 
+order (NLO) correction for the SM contribution and the dominant
+NLO corrections for the SUSY term.  Until 2006, the NLO QCD SM calculation
+was performed following the analysis in Ref.~\cite{bsgsm},
+modified according to~\cite{bsgmagic}, 
+and gave a branching ratio 
+$\mathrm{BR}[B\rightarrow X_s\,\gamma] =3.72\times10^{-4}$ 
+for a photon energy greater than  $m_b/20$. 
+However, there was a big shift in the
+theoretical calculation of the SM branching ratio in 2006. We thus now instead
+have implemented the new results \cite{bsg2006} which instead give a SM 
+branching ratio of $\mathrm{BR}[B\rightarrow X_s\,\gamma] =(3.15 \pm 0.23) \times10^{-4}$ 
+
+In the SUSY contribution, we 
+include the NLO contributions in the two Higgs doublet model,
+following~\cite{bsgh2}, and the corrections due to SUSY particles. The latter
+are calculated under the assumption of minimal flavour violation, with the 
+dominant LO contributions from Ref.~\cite{bsgtan}, and with the NLO QCD term
+with expressions of \cite{bsgsusy} modified in the large $\tan\beta$ regime
+according to~\cite{bsgtan}. In the mSUGRA framework
+(see, e.g., ~\cite{bsgcompare}), the largest discrepancy 
+between the LO and the NLO SUSY corrections are found for ${\rm sign}{\mu}>0$, 
+large $\tan\beta$ and low values of $m_{1/2}$: in this case the SUSY 
+contribution to the decay rate is negative, and the discrimination of models 
+based on the NLO analysis is less restrictive than the one in the LO analysis.
+
+We will assume as allowed range of branching ratios
+$2.71\times10^{-4}\leq\mathrm{BR}[B\rightarrow X_s\,\gamma] \leq4.39\times10^{-4}$,
+which is obtained adding a theoretical uncertainty of 
+$\pm 0.23 \times10^{-4}$ (both for the SM and for the SUSY calculation) to the
+experimental value quoted by \cite{Barbiero-bsg2007}.
+

@@ -1,0 +1,7 @@
+ Calculating antiproton fluxes...
+   solar modulated pbar flux at 0.35 GeV =   2.08735954E-06
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 1.76 GeV =   1.67979213E-06
+  GeV^-1 cm^-2 s^-1 sr^-1
+   solar modulated pbar flux at 3.00 GeV =   1.00323977E-06
+  GeV^-1 cm^-2 s^-1 sr^-1

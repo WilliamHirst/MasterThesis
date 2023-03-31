@@ -1,0 +1,25 @@
+/* #include "../../config.h" */
+#include <string.h>
+
+#define DSROOTNAME "@prefix@"
+
+void dsdirname(char*name)
+{
+  name[0]='\0';
+  strcpy(name,DSROOTNAME);
+  return;
+}
+
+void dsdirname_(char*name)
+{
+  name[0]='\0';
+  strcpy(name,DSROOTNAME);
+  return;
+}
+
+void dsdirname__(char*name)
+{
+  name[0]='\0';
+  strcpy(name,DSROOTNAME);
+  return;
+}

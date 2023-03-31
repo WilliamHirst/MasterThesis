@@ -1,0 +1,47 @@
+# Makefile for su directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemfpg.pl on Nov 04, 2011.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dsprep.h dsmssm.h dsio.h dsidtag.h
+
+vpath %.h $(DINC)
+
+SRC = dsb0loop.f dschasct.f dsfeynhiggsfast.f dsfindmtmt.f \
+dsfindmtmt1loop.f dsfindmtmt4loop.f dsg0loop.f dsg4set.f dsg4set12.f \
+dsg4set1234.f dsg4set13.f dsg4set23.f dsg4set34.f dsg4setc.f \
+dsg4setc12.f dsg4setc1234.f dsg4setc13.f dsg4setc23.f dsg4setc34.f \
+dsgf2s2thw.f dsgive_model.f dsgive_model13.f dsgive_model15.f dshgfu.f \
+dshigferqcd.f dshigsct.f dshigwid.f dshigwid1.f dshlf2.f dshlf3.f \
+dsmodelsetup.f dsmqpole1loop.f dsmqpole4loop.f dsmsbaralph3.f \
+dsmsbarmass.f dsneusct.f dspole.f dsprep.f dsqindx.f dsralph3.f \
+dsralph31loop.f dsralph34loop.f dsrghm.f dsrmq.f dsrmq1loop.f \
+dsrmq4loop.f dssfesct.f dsspectrum.f dsspwid.f dssuconst.f \
+dssuconst_ckm.f dssuconst_couplings.f dssuconst_higgs.f \
+dssuconst_yukawa.f dssuconst_yukawa_running.f dssusy.f dsvertx.f \
+dsvertx1.f dsvertx3.f dswhwarn.f dswspectrum.f dswunph.f dswvertx.f \
+dswwidth.f g4p.f dsgive_model25.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

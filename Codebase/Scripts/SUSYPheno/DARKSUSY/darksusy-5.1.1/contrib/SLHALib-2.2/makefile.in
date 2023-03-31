@@ -1,0 +1,101 @@
+BLD = build
+
+LIB = $(BLD)/libSLHA.a
+FCC = $(BLD)/fcc
+CSLHA = $(BLD)/CSLHA.h
+INCLUDE = $(SRC)/SLHA.h $(SRC)/SLHADefs.h $(SRC)/PDG.h $(CSLHA)
+
+
+default: $(LIB) $(FCC) $(CSLHA)
+
+install: default
+	-mkdir $(PREFIX)
+	-mkdir $(PREFIX)/lib $(PREFIX)/include $(PREFIX)/bin
+	cp -p $(LIB) $(PREFIX)/lib
+	cp -p $(INCLUDE) $(PREFIX)/include
+	cp -p $(FCC) $(PREFIX)/bin
+
+
+OBJS = \
+  $(BLD)/SLHAClear.o \
+  $(BLD)/SLHARead.o \
+  $(BLD)/SLHAWrite.o \
+  $(BLD)/SLHAInfo.o \
+  $(BLD)/SLHANewDecay.o \
+  $(BLD)/SLHAFindDecay.o \
+  $(BLD)/SLHAAddDecay.o \
+  $(BLD)/SLHAGetDecay.o \
+  $(BLD)/SLHADecayTable.o \
+  $(BLD)/SLHAExist.o \
+  $(BLD)/SLHAValid.o \
+  $(BLD)/SLHAPDGName.o \
+  $(BLD)/SLHACopyString.o
+
+TS = $(BLD)/timestamp
+
+$(BLD)/SLHAClear.o: $(SRC)/SLHAClear.F $(SRC)/SLHADefs.h $(TS)
+	$(FC) $(FFLAGS) -c -o $(BLD)/SLHAClear.o $(SRC)/SLHAClear.F
+
+$(BLD)/SLHARead.o: $(SRC)/SLHARead.F $(SRC)/SLHAReadBlocks.h \
+  $(SRC)/SLHAIntern.h $(SRC)/SLHADefs.h $(SRC)/PDG.h $(TS)
+	$(FC) $(FFLAGS) -c -o $(BLD)/SLHARead.o $(SRC)/SLHARead.F
+
+$(BLD)/SLHAWrite.o: $(SRC)/SLHAWrite.F $(SRC)/SLHAWriteBlocks.h \
+  $(SRC)/SLHAIntern.h $(SRC)/SLHADefs.h $(SRC)/PDG.h $(TS)
+	$(FC) $(FFLAGS) -c -o $(BLD)/SLHAWrite.o $(SRC)/SLHAWrite.F
+
+$(BLD)/SLHAInfo.o: $(SRC)/SLHAInfo.F $(SRC)/SLHADefs.h $(TS)
+	$(FC) $(FFLAGS) -c -o $(BLD)/SLHAInfo.o $(SRC)/SLHAInfo.F
+
+$(BLD)/SLHANewDecay.o: $(SRC)/SLHANewDecay.F $(SRC)/SLHAIntern.h \
+  $(SRC)/SLHADefs.h $(TS)
+	$(FC) $(FFLAGS) -c -o $(BLD)/SLHANewDecay.o $(SRC)/SLHANewDecay.F
+
+$(BLD)/SLHAFindDecay.o: $(SRC)/SLHAFindDecay.F $(SRC)/SLHAIntern.h \
+  $(SRC)/SLHADefs.h $(TS)
+	$(FC) $(FFLAGS) -c -o $(BLD)/SLHAFindDecay.o $(SRC)/SLHAFindDecay.F
+
+$(BLD)/SLHAAddDecay.o: $(SRC)/SLHAAddDecay.F $(SRC)/SLHAIntern.h \
+  $(SRC)/SLHADefs.h $(TS)
+	$(FC) $(FFLAGS) -c -o $(BLD)/SLHAAddDecay.o $(SRC)/SLHAAddDecay.F
+
+$(BLD)/SLHAGetDecay.o: $(SRC)/SLHAGetDecay.F $(SRC)/SLHAIntern.h \
+  $(SRC)/SLHADefs.h $(TS)
+	$(FC) $(FFLAGS) -c -o $(BLD)/SLHAGetDecay.o $(SRC)/SLHAGetDecay.F
+
+$(BLD)/SLHADecayTable.o: $(SRC)/SLHADecayTable.F $(SRC)/SLHAIntern.h \
+  $(SRC)/SLHADefs.h $(TS)
+	$(FC) $(FFLAGS) -c -o $(BLD)/SLHADecayTable.o $(SRC)/SLHADecayTable.F
+
+$(BLD)/SLHAExist.o: $(SRC)/SLHAExist.F $(SRC)/SLHADefs.h $(TS)
+	$(FC) $(FFLAGS) -c -o $(BLD)/SLHAExist.o $(SRC)/SLHAExist.F
+
+$(BLD)/SLHAValid.o: $(SRC)/SLHAValid.F $(SRC)/SLHADefs.h $(TS)
+	$(FC) $(FFLAGS) -c -o $(BLD)/SLHAValid.o $(SRC)/SLHAValid.F
+
+$(BLD)/SLHAPDGName.o: $(SRC)/SLHAPDGName.F $(SRC)/PDG.h $(TS)
+	$(FC) $(FFLAGS) -c -o $(BLD)/SLHAPDGName.o $(SRC)/SLHAPDGName.F
+
+$(BLD)/SLHACopyString.o: $(SRC)/SLHACopyString.F $(SRC)/SLHADefs.h $(TS)
+	$(FC) $(FFLAGS) -c -o $(BLD)/SLHACopyString.o $(SRC)/SLHACopyString.F
+
+$(LIB): $(OBJS)
+	ar cru $(LIB) $?
+	-ranlib $(LIB)
+
+
+$(FCC): $(SRC)/fcc.in
+	sed "s:^libs=.*:libs=\"$(LDFLAGS)\":" $(SRC)/fcc.in > $(FCC)
+	chmod 755 $(FCC)
+
+$(CSLHA): $(SRC)/CSLHA.h.in $(SRC)/ftypes.h
+	sed "s:UNDERSCORE:$(UNDERSCORE):" $(SRC)/ftypes.h $(SRC)/CSLHA.h.in > $(CSLHA)
+
+
+$(TS):
+	-mkdir $(BLD)
+	touch $(TS)
+
+clean:
+	rm -fr $(BLD)
+

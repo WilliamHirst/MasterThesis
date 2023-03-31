@@ -1,0 +1,65 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:956: checking for perl
+configure:1001: checking whether #! works in shell scripts
+
+config.pl, Release 2002-2-1 (Revision 1.49)
+Accompanies LaTeX2HTML, (C) 1999 GNU Public License.
+
+checking for old config file (cfgcache.pm)... loaded
+checking for platform... darwin (assuming unix)
+checking for /usr/bin/perl... /usr/bin/perl
+checking perl version... 5.008006
+checking if perl supports some dbm... yes
+checking if perl globbing works... yes
+checking for /usr/local/teTeX/bin/powerpc-apple-darwin-current/tex... /usr/local/teTeX/bin/powerpc-apple-darwin-current/tex
+checking for /usr/local/teTeX/bin/powerpc-apple-darwin-current/latex... /usr/local/teTeX/bin/powerpc-apple-darwin-current/latex
+checking for initex... no
+checking for /usr/local/teTeX/bin/powerpc-apple-darwin-current/kpsewhich... /usr/local/teTeX/bin/powerpc-apple-darwin-current/kpsewhich
+checking for kpsewhich syntax... ok (style=1)
+checking for TeX include path... /usr/local/teTeX/share/texmf.local/tex/latex/html
+checking for /usr/local/teTeX/bin/powerpc-apple-darwin-current/mktexlsr... /usr/local/teTeX/bin/powerpc-apple-darwin-current/mktexlsr
+checking for /usr/local/teTeX/bin/powerpc-apple-darwin-current/dvips... /usr/local/teTeX/bin/powerpc-apple-darwin-current/dvips
+checking dvips version... 5.95b
+checking if dvips supports the combination of -E and -i -S 1... yes
+checking for html4-check... no
+checking for /usr/local/bin/gs... /usr/local/bin/gs
+checking for ghostscript version... 8.54
+checking for ghostscript portable bitmap device... ppmraw
+checking for full color device for anti-aliasing... ppmraw
+checking for ghostscript library and font paths... built-in paths are correct
+checking for pnmcrop... /usr/local/bin/pnmcrop
+yes
+checking for pnmflip... /usr/local/bin/pnmflip
+checking for ppmquant... /usr/local/bin/ppmquant
+checking for pnmfile... /usr/local/bin/pnmfile
+checking for pnmcat... /usr/local/bin/pnmcat
+checking for pbmmake... /usr/local/bin/pbmmake
+checking for ppmtogif... /usr/local/bin/ppmtogif
+yes
+checking if ppmtogif can make interlaced GIFs... yes
+checking for pnmtopng... /usr/local/bin/pnmtopng
+checking for ppmtojpeg... /usr/local/bin/ppmtojpeg
+checking for pnmcut... /usr/local/bin/pnmcut
+checking for pnmpad... /usr/local/bin/pnmpad
+checking for pnmrotate... /usr/local/bin/pnmrotate
+checking for pnmscale... /usr/local/bin/pnmscale
+checking for giftopnm... /usr/local/bin/giftopnm
+checking for jpegtopnm... /usr/local/bin/jpegtopnm
+checking for pngtopnm... /usr/local/bin/pngtopnm
+checking for tifftopnm... /usr/local/bin/tifftopnm
+checking for picttoppm... /usr/local/bin/picttoppm
+checking for anytopnm... /usr/local/bin/anytopnm
+checking for bmptoppm... /usr/local/bin/bmptoppm
+checking for pcxtoppm... /usr/local/bin/pcxtoppm
+checking for sgitopnm... /usr/local/bin/sgitopnm
+checking for xbmtopbm... /usr/local/bin/xbmtopbm
+checking for xwdtopnm... /usr/local/bin/xwdtopnm
+checking if multiple pipes work... yes
+checking for temporary disk space... /tmp
+creating cfgcache.pm
+Note: Will install...
+      ... executables to   : /usr/local/bin
+      ... shared library items to : /usr/local/share/lib/latex2html
+      ... unshared library items to : /usr/local/lib/latex2html

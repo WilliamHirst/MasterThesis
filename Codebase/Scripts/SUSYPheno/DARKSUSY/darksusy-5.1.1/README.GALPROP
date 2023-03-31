@@ -1,0 +1,37 @@
+Directory src/xgalprop contains the interface to galprop, including the call to
+"galprop"
+
+To make DarkSUSY work with galprop, you just have to type
+
+make galprop
+
+after you have compiled DarkSUSY (or before, but after the ./configure step).
+
+In test, you have a 
+dstest-galprop.f that you can play with to see how to use galprop. Be aware
+that there are memory leaks in this version of galprop which causes problems
+with dstest-galprop on some machines. In that case, you need to run
+dstest-galprop-one instead to make the Greens functions. Once made, you can
+run galprop the usual way.
+
+Directory contrib/galprop contains the galprop distribution.  We build the
+galprop binary.  We then remove main.o (which only contains "main" and the
+dummy "rho_darksusy__", and put the remaining .o files in libdarksusy.a.  We
+have changed the "mass" and "delta" common blocks to "gpmass" and "gpdelta" to
+not conflict with darksusy (in particular, FeynHiggs has "mass" and "delta"
+common blocks.  Configure.cc, nuc_package.cc, and WNEWTR_aws.f are put into
+autoconfigure to set the paths.
+
+The default model "DFLT" is the diffusive reacceleration model without damping
+from Ptuskin et al. (2006), ApJ, 642, 902.
+
+Notes for v50p:
+---------------
+Configure.cc, nuc_package.cc, WNEWTR_aws.f, crn6.f are put into autoconfigure.
+
+galprop_darksusy.cc added: modeled on galprop.cc
+gen_DM_source.cc: option to use rho_darksusy__
+galprop.cc: REMOVE THIS FROM THE LIBRARY
+antiproton.f: common/mass/ -> common/gpmass/
+pp_meson.f: common/mass/ -> common/gpmass/
+bremss_spec.f: common/delta/ -> common/gpdelta/

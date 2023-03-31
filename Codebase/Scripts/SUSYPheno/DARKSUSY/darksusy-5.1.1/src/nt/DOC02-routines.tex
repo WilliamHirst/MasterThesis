@@ -1,0 +1,83 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Neutrinos from Sun and Earth --  routines}
+
+\comment{NOTE: This section is not up-to date with the current
+  \ds\ release.}
+
+This set of routines contain routines to calculate the
+neutrino-induced muon flux from the Earth and the Sun in various
+models. It also includes routines that calculate the neutrino-induced
+muon flux from other sources, like the Sun's atmosphere, the Earth's
+atmosphere \mcomment{(include these???)}.
+
+There are three different methods of calculation available (determined
+by \texttt{ntcalcmet} in \texttt{dsntcom.h}). Method 1 uses the
+approximate formulae for the capture rates in the Earth/Sun from the
+Jungman, Kamionkowski and Griest review \cite{jkg}. Method 2, uses the
+same expression for the Sun, but the full expression from Gould
+\cite{Gould321} for capture in the Earth (this is the default). Method
+3, finally, is the same as 2, but it also includes capture in the
+Earth from the Damour-Krauss population of WIMPs that have scattered
+in the outscirts of the Sun. The easiest way to select method is by
+calling \texttt{dsntset}, with the argument 'jkg' for method 1, 'gould'
+or 'default' for method 2 and 'dk' for method 3. A call to 
+\texttt{dsntset('default')} is made in \texttt{dsinit}, but can be
+changed by the user by calling \texttt{dsntset} after \texttt{dsinit}.
+
+To calculate the neutrino-induced muon flux from the Earth, you call
+
+\begin{sub}{subroutine
+\ftb{dsntrates}(emuth,thmax,rtype,rateea,ratesu,istat)}
+  \itit{Purpose:} Calculate the rate of neutrinos or neutrino-induced
+  muons in a neutrino telescope from neutralino annihilation in the
+  Earth and the Sun.
+  \itit{Input:}
+  \itv{emuth}{r8} The neutrino or muon energy threshold in GeV.
+  \itv{thmax}{r8} The half-aperture opening angle (in degrees) 
+  towards the center
+  of the Sun or the Earth (i.e.\ the flux will be summed in a cone
+  towards the center of the Sun or the Earth, where the top-angle of
+  the cone is 2*\ft{thmax}).
+  \itv{rtype}{i}Type of flux to calculate:\\
+  =1: muon neutrino-flux (neutrino and anti-neutrino summed) in units
+  of km$^{-2}$ yr$^{-1}$.\\
+  =2: neutrino-to-muon conversion rate (muons and anti-muons summed)
+  in units of km$^{-3}$ yr$^{-1}$.\\
+  =3: muon flux (muons and anti-muons summed)
+  in units of km$^{-2}$ yr$^{-1}$.
+  \itit{Output:}
+  \itv{rateea}{r8} The rate from neutralino annihilation in the Earth
+  in the above units.
+  \itv{ratesu}{r8} The rate from neutralino annihilation in the Sun
+  in the above units.
+  \itv{istat}{i} =0: Everything went OK.\\
+  $\neq0$: Some of the tables of neutrino or muon yields had to be
+  used outside their tabulated regions. Extrapolations have been used.
+\end{sub}
+
+\begin{sub}{subroutine
+\ftb{dsntdiffrates}(emu,theta,rtype,rateea,ratesu,istat)}
+  \itit{Purpose:} Calculate the differential 
+  rate of neutrinos or neutrino-induced
+  muons in a neutrino telescope from neutralino annihilation in the
+  Earth and the Sun.
+  \itit{Input:}
+  \itv{emu}{r8} The neutrino or muon energy in GeV.
+  \itv{theta}{r8} The angle (in degrees) from the center of 
+  the Sun or the Earth.
+  \itv{rtype}{i}Type of flux to calculate:\\
+  =1: muon neutrino-flux (neutrino and anti-neutrino summed) in units
+  of km$^{-2}$ yr$^{-1}$ GeV$^{-1}$ degrees$^{-1}$.\\
+  =2: neutrino-to-muon conversion rate (muons and anti-muons summed)
+  in units of km$^{-3}$ yr$^{-1}$ GeV$^{-1}$ degrees$^{-1}$.\\
+  =3: muon flux (muons and anti-muons summed)
+  in units of km$^{-2}$ yr$^{-1}$ GeV$^{-1}$ degrees$^{-1}$.
+  \itit{Output:}
+  \itv{rateea}{r8} The rate from neutralino annihilation in the Earth
+  in the above units.
+  \itv{ratesu}{r8} The rate from neutralino annihilation in the Sun
+  in the above units.
+  \itv{istat}{i} =0: Everything went OK.\\
+  $\neq0$: Some of the tables of neutrino or muon yields had to be
+  used outside their tabulated regions. Extrapolations have been used.
+\end{sub}

@@ -1,0 +1,220 @@
+                          =================================
+                                      galprop  
+
+                                   C++ Version 42.2p
+                          =================================
+
+                     A.W. Strong                     I.V. Moskalenko
+
+                     Max-Planck-Institut             NASA/Goddard Space Flight Center
+                     fuer Extraterrestrische Physik  Code 661
+                     Postfach 1603                   Greenbelt, MD 20771
+                     D-85740 Garching, Germany       U.S.A.
+
+                     aws@mpe.mpg.de                  imos@milkyway.gsfc.nasa.gov
+
+                        http://www.gamma.mpe-garching.mpg.de/~aws/aws.html
+                        http://lheawww.gsfc.nasa.gov/~imos/cv.html
+
+
+
+                                  >> 17 Sep 2002  <<
+
+Introduction
+============
+This is the C++ version of galprop.
+
+Featuring:
+Galactic cosmic-ray propagation in 2D and 3D
+nuclear network & cross-sections database
+electrons, positrons, antiprotons, gamma-rays
+Stochastic SNR source option.
+Vector processing option for 3D.
+
+Dummy files and routines in the public version:
+Kcapture_cs.cc         crn6.f
+barpol.dat             eval_iso_cs.dat
+isotope_cs.dat         p_cs_fits.dat
+
+
+Documentation of the methods and code is in: galprop.ps
+
+On-line documentation is at:
+http://www.gamma.mpe-garching.mpg.de/~aws/propagate.html
+
+More information can be found at xxx.lanl.gov archive "astro-ph"
+by searching for the author's names.
+
+Building galprop
+================
+
+The galprop program requires the FITSIO package obtainable from
+http://heasarc.gsfc.nasa.gov/docs/software/fitsio/
+
+In the following it is assumed FITSIO is a directory (or link) where FITSIO is installed.
+
+To build the program the following steps are typical (these are for Sun compiler). 
+
+
+f77 -c        -fast                    *.f
+CC  -c        -fast   -IFITSIO/include *.cc
+CC *.o  -lfsu -lsunmath -lF77 -LFITSIO/lib -lcfitsio -lsocket  -lnsl -o galprop
+
+if  f77 is not available can also do
+f90 -c -fixed -fast                    *.f
+
+Other compiler examples:
+
+PC Linux (at LHEA NASA/GSFC)/ Red Hat 7.1
+
+f77 -c *.f
+g++ -c -O5 -I/software/lheasoft/release/Linux_2.2_i686/include *.cc
+g++ *.o ../FITSIO/*.a -L/usr/lib/gcc-lib/i386-redhat-linux/2.96/collect2 -L/usr/lib/gcc-lib/i386-redhat-linux/2.96 -lg2c -lm -lgcc -lc -lgcc 
+
+PC Linux (at LHEA NASA/GSFC)/ Red Hat 6.2
+
+f77 -c *.f
+g++ -c -O5 -I/software/lheasoft/release/Linux_2.2_i686/include *.cc
+g++ *.o ../FITSIO/*.a -L/usr/lib/gcc-lib/i386-redhat-linux/egcs-2.91.66 -L/usr/i386-redhat-linux/lib -lg2c -lm -lgcc -lc
+
+DEC Alpha (at LHEA NASA/GSFC)
+
+f77 -c *.f
+g++ -c -O5 -I/software/lheasoft/release/OSF1_4.0_alpha/include *.cc
+g++ *.o ../FITSIO/*.a -lUfor -lfor -lFutil -lm -lots -lgcc -lc -lgcc
+
+
+Platform-dependent interface:
+============================
+The code contains several fortran subroutines inherited from the original version.
+Hence these routines have to be called by the C++ code.
+
+Fortran compilers append one or two underscores, "_" or "__" to the symbols for routines in the object code.
+The interface C++/fortran is handled in one source file: fort_interface1.cc
+Depending on the compiler, in this routine
+"_(" may have to be replaced everywhere with "__(" 
+
+The simplest way to find out is to try it as delivered; if the linker complains of missing routines
+like "set_sigma__" then replace "_(" by  "__(" or viceversa everywhere in fort_interface1.cc
+
+The other interface routine: fort_interface2.cc must not be changed.
+
+Directory structure
+===================
+In the delivered configuration the following directories are set:
+../GALDEF         contains the "galdef" files containing run parameters
+../FITS           contains the input and output FITS data
+
+This configuration can be changed by editing Configure.cc and recompiling it and relinking galprop.
+
+
+Input datasets
+==============
+The following input datasets are included in the distribution in ../FITS 
+Interstellar radiation field: isrf_interp_04_000015
+HI skymaps: (for gamma-ray skymaps) COMPASS.COR.*
+CO skymaps: (for gamma-ray skymaps) COMPASS.HIR.*
+
+
+ 
+
+To run galprop
+==============
+
+cd to the directory where it has been built and do eg
+galprop 900001
+
+This runs galprop with parameter file    ../GALDEF/galdef_39_900001
+The output FITS files are in files like    ../FITS/nuclei_39_900001
+
+
+Sample galdef files (e.g. 900001 for 2D and 900002 for 3D) are included in the distribution, and it is suggested to test first with these.
+
+This code has been successfull run under Sun/Solaris 6 and 8, Linux, DEC Alpha
+and with the vectorized options on NEC SX-5
+The authors are interested in information on portability to other platforms.
+
+
+Included in this distribution are a number of idl programs (*.pro) which
+are intended to illustrate how the results can be read and plotted, but
+they are exemplary only and not maintained or documented.
+
+The C++ plotting program will be added as a part of the distribution some time later.
+The program must be installed in ../CPLOTS directory and uses
+FITSIO library and GNUPLOT to produce postscript output file (tmp.ps).
+
+
+Changes compare to previous public version v41p released on 19 Sep 2001
+=======================================================================
+
+5/02/2002 changes to make galprop run on IBM supercomputer:
+fort_interface1.cc
+fort_interface2.cc
+fort_interface.h
+nuc_package.cc
+kinematic.cc
+create_transport_arrays.cc
+read_isrf.cc
+source_SNR_event.cc
+source_SNR_event_vec.cc
+Kcapture_cs.cc
+WNEWTR_FUNC.aws.f
+
+- Changes are to make c++ interfaces for fortran routines:
+wsigma, yieldx, sighad
+- Change arguments of set_sigma (put explicit filename in the fortran file)
+Minor changes in functions 
+pow(double,float) -> pow(double,double)
+fabs(int) -> fabs(double)
+
+5/01/2002
+store_bremss_skymap.cc    - minor change
+store_pi0_decay_skymap.cc - minor change
+store_IC_skymap.cc        - minor change
+
+4/29/2002
+gen_bremss_emiss.cc     -added secondaries
+gen_bremss_skymap.cc    -factor 2 added before H2 distribution, 
+                         theta & sintheta calc. removed,
+                         added HII contribution
+gen_pi0_decay_skymap.cc -factor 2 added before H2 distribution, 
+                         theta & sintheta calc. removed,
+                         added HII contribution
+gen_IC_skymap.cc        -sintheta calc. removed
+gen_synch_emiss.cc      -added secondaries,
+                         theta & sintheta calc. removed
+gen_bremss_ionized_skymap.cc-theta & sintheta calc. removed
+
+4/25/2002
+gen_IC_emiss.cc - added secondaries
+
+4/19/2002
+create_galaxy.cc - added an automatic adjustment of x,y,z_min for use_symmetry=1.      
+
+4/18/2002
+create_transport_arrays.cc - primary_source_function calculation changed.      
+
+4/17/2002
+propel.cc      - bug fixed in 3D/momentum loss section       
+
+3/25/2002
+propel.cc      - comments in 2D section removed        
+WNEWTR_082693.CDR renamed to WNEWTR_082693.CDR.dat, comments added
+WNEWTR_FUNC_aws.f  - small change IMOS20020325
+fort_interface1.cc - WNEWTR_082693.CDR changed to WNEWTR_082693.CDR.dat
+nuc_package.cc     - WNEWTR_082693.CDR changed to WNEWTR_082693.CDR.dat
+Configure.h    - #include<string.h> //IMOS20020112
+Distribution.h - #include<stdlib.h> //IMOS20020112
+                 #include<string.h> //IMOS20020112
+kinematic.cc   - #include<string.h> //IMOS20020112
+nuc_package.cc - #include<stdlib.h> //IMOS20020112
+create_transport_arrays.cc - changed spectral shape for "beta_rig" 
+nuc_package.cc  -slightly changed
+
+
+
+
+
+
+
+

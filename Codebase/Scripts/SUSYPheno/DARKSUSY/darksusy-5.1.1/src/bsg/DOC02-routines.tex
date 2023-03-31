@@ -1,0 +1,15 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{$b \rightarrow s \gamma$ -- routines}
+
+The main routines is \codeb{dsbsgammafull} which calls the latest
+routine \codeb{dsbsg2007full}. For historical reasons, the old (pre-2007)
+calculations are available in \codeb{dsbsgpre2007full}.
+
+The main routine \codeb{dsbsgammafull} returns the $b
+\rightarrow s \gamma$ branching ratio. The routine can calculate
+either only the standard model contribution or also include the SUSY
+contribution (which is of course the default when this routine is
+called from \codeb{dsacbnd}). The reaming (large) set or routines are
+the various contributions to the decay as given in the references
+listed above.

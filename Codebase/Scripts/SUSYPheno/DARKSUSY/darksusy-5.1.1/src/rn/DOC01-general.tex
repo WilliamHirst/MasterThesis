@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Relic density of neutralinos}
+
+The relic density routines in \codeb{src/rd} solve the Boltzmann
+equation for any cold dark matter particle and it is up to us to tell
+it what kind of particles that can participate in coannihilations and
+what the effective annihilation rate is. This set-up for neutralino
+dark matter is done in \codeb{dsrdomega}. This routine is therefor the
+main routine the user should call, when the relic density of
+neutralinos is wanted. 
+
+What it does internally is the following:
+\begin{itemize}
+  \item It determines which particles that can coannihilate (based on
+    their mass differences) and puts these particles into a common
+    block for the annihlation rate routines (\codeb{dsanwx}) and an
+    array for the relic density routines. The relic density routines
+    need to know their masses and internal degrees of freedom.
+  \item It checks where we have resonances and thresholds and adds
+    these to an array, which is passed to the relic density
+    routines. The relic density routines then use this knowledge to
+    make sure the tabulation of the cross section and the integrations
+    are performed correctly at these difficult points.
+  \item It then calls the relic density routines to calculate the
+    relic density.
+\end{itemize}
+
+The returned value is $\Omega_\chi h^2$.

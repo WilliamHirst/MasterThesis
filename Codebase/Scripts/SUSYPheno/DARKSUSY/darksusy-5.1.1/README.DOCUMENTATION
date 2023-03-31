@@ -1,0 +1,56 @@
+Pdf manual
+==========
+
+Documentation for DarkSUSY is available in pdf and html format. The pdf
+version is created by:
+
+1. In the DarkSUSY root directory, type  (if you have already compiled,
+   skip this step)
+
+   ./configure
+
+2. Type
+
+   make docs
+
+This requires that you have latex installed on your system. After this, you
+should have Manual.pdf in the docs/ directory. 
+
+
+HTML manual
+===========
+
+The HTML manual will be posted on http://www.physto.se/~edsjo/darksusy/manual/,
+but if you want to create a local copy, here is how to do it:
+
+To create the html manual is a bit more involved as it relies on latex2html,
+which is usually not installed on most systems. Hence, you should do the
+following:
+
+1. In the DarkSUSY root directory, type  (if you have already compiled,
+   skip this step)
+
+   ./configure
+
+2. Create latex2html by typing
+   
+   cd contrib/latex2html-2002-2-1
+   ./configure
+   make
+   sudo make install
+
+   If you don't want latex2html installed system wide or if you don't have
+   root priviliges, check out the documentation to latex2html on how to
+   configure it for your needs.
+
+3. Now create the html manual:
+
+   cd ../..
+   make html-manual
+
+4. Done!
+
+   If the above didn't work (you could e.g. get an error message that
+   it couldn't find an image), you probably also need to install
+   image conversion tools, e.g. netpbm (contains pnmcrop etc). Then restart
+   from stop 2 above.

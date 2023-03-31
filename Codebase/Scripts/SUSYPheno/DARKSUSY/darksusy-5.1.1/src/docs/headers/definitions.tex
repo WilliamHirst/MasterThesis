@@ -1,0 +1,90 @@
+%Mathematics
+%\def\lrpartial{\raise1pt\hbox{$\mathord{\stackrel{\leftrightarrow}{\partial}}$}}
+
+%New margins
+%\setlength{\oddsidemargin}{0 cm}
+%\setlength{\evensidemargin}{0 cm}
+%\setlength{\topmargin}{-1.0 cm}
+%\setlength{\textwidth}{16.0cm}
+%\setlength{\textwidth}{15.0cm}
+%\setlength{\textheight}{23.0cm}
+%\setlength{\textheight}{21.0cm}
+\setlength{\unitlength}{1cm}
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\beqa}{\begin{eqnarray}}
+\newcommand{\eeqa}{\end{eqnarray}}
+\newcommand{\app}[3]{Astropart.\ Phys.\ {\bf #1} (#2) #3}
+\newcommand{\hepex}[1]{{\tt hep-ex/#1}}
+\newcommand{\hepph}[1]{{\tt hep-ph/#1}}
+\newcommand{\astroph}[1]{{\tt astro-ph/#1}}
+\newcommand{\prep}[3]{Phys.\ Rep.\ {\bf #1} (#2) #3}
+\newcommand{\plb}[3]{Phys.\ Lett.\ {\bf B#1} (#2) #3}
+\newcommand{\npb}[3]{Nucl.\ Phys.\ {\bf B#1} (#2) #3}
+\newcommand{\ibid}[3]{{\em ibid.}\ {\bf B#1} (#2) #3}
+\newcommand{\cpc}[3]{Comm.\ Phys.\ Comm.\ {\bf #1} (#2) #3}
+\newcommand{\prl}[3]{Phys.\ Rev.\ Lett. {\bf #1} (#2) #3}
+\newcommand{\apj}[3]{Astrophys.\ J.\ {\bf #1} (#2) #3}
+\newcommand{\prd}[3]{Phys.\ Rev.\ {\bf D#1} (#2) #3}
+\newcommand{\rmp}[3]{Rev.\ Mod.\ Phys.\ {\bf #1} (#2) #3}
+%\newcommand{\href}[2]{#1}
+\newcommand{\email}[1]{\tt #1}
+\newcommand{\sigv}{\langle\sigma v\rangle_{\rm tot}}
+\newcommand{\taue}{\tau_E}
+\newcommand{\taud}{\tau_D}
+\newcommand{\deltav}{\Delta v}
+\newcommand{\mct}{{\tilde{m}_\chi}}
+\newcommand{\anl}{\\[1ex]}
+\newcommand{\tabspace}{\\[-2.5ex]}
+
+\def\rn{\noindent\parshape 2 0truecm 8.5truecm 0.3truecm 8.2truecm}
+\def\rn{}% NAME STYLE: A. E. Neumann
+\def\nn#1 #2{#2. #1}                            % Name with 1 initial
+\def\nnn#1 #2 #3{#2. #3. #1}                    % Name with 2 initials
+\def\nnnn#1 #2 #3 #4{#2. #3. #4. #1}            % Name with 3 initials
+\def\nnnnn#1 #2 #3 #4 #5{#2. #3. #4. #5. #1}    % Name with 4 initials
+% AUTHOR SEPARATION STYLE: "first and second", "first, second, and third"
+\def\dualand{ and\hbox{ }}
+\def\multiand{, and\hbox{ }}
+%\def\multiand{ and,\hbox{ }}
+% JOURNAL ARTICLE STYLE:
+\def\rf#1;#2;#3;#4;#5 {{\frenchspacing\par\rn#1, #3 {\bf #4}, #5 (#2). \par}}
+% BOOK STYLE:
+\def\rfbook#1;#2;#3;#4;#5 {{\frenchspacing\par\rn#1, {\it #3} (#5, 
+#4, #2).\par}}
+% PREPRINT STYLE:
+\def\rfprep#1;#2;#3 {{\frenchspacing\rn#1, #3 (#2);\ }}
+\def\rfprepend#1;#2;#3 {{\frenchspacing\rn#1, #3 (#2).}}
+%\def\rfprep#1;#2;#3 {{\par\frenchspacing\rn#1, Report  No. #3, #2 
+%(unpublished).\par}}
+
+%Front page
+\def\frontmatter{}
+\def\preprint#1{{\flushright #1 \endflushright}}
+\def\title#1{{\center\LARGE\bf{#1}\endcenter}}
+\def\author#1{\vskip2\baselineskip{\center\Large#1\endcenter}}
+\def\affil#1{\vskip\baselineskip{\center{\normalsize\em #1}\endcenter}}
+\def\abstract{\vskip\baselineskip\hrule\section*{Abstract}}
+\def\endabstract{\relax}
+\def\keywords{\vskip\baselineskip\noindent\emph{Key words: }}
+\def\endkeywords{}
+\def\endfrontmatter{\vskip\baselineskip\hrule}
+
+\newcounter{comnum}
+\setcounter{comnum}{1}
+\renewcommand{\thecomnum}{\arabic{comnum}}
+\newcommand{\comment}[1]{{\sffamily \bfseries COMMENT \#\thecomnum: #1
+\addtocounter{comnum}{1}}}
+\newcommand{\mcomment}[1]{\marginpar{\small \sf COMMENT \#\thecomnum:\\
+#1}\addtocounter{comnum}{1}}
+
+
+\newcommand{\code}[1]{\ft{#1}}
+\newcommand{\codeb}[1]{\ftb{#1}}
+\newcommand{\joakim}[1]{{\bfseries (#1 (JE))}}
+\newcommand{\paolo}[1]{{\bfseries (#1 (PG))}}
+
+\newcommand{\ds}{{\sffamily DarkSUSY}}

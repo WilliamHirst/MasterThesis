@@ -1,0 +1,38 @@
+# Makefile for hr directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemfpg.pl on Nov 04, 2011.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dsprep.h dsmssm.h dsmpconst.h dsidtag.h dsibcom.h dspbcom.h \
+dshrcom.h dshacom.h dshmcom.h
+
+vpath %.h $(DINC)
+
+SRC = dshaloyielddb.f dshasetup.f dshrdbardiff.f dshrdbdiff0.f \
+dshrgacdiffsusy.f dshrgacont.f dshrgacontdiff.f dshrgacsusy.f \
+dshrgaline.f dshrgalsusy.f dshrmudiff.f dshrmuhalo.f dshrpbardiff.f \
+dshrpbdiff0.f dsnsigvgacdiff.f dsnsigvgacont.f dsnsigvgaline.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

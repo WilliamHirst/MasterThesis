@@ -1,0 +1,242 @@
+!
+      SUBROUTINE DROTSQBACK(GROT,GUNROT)
+!
+!Purpose: To rotate the couplings back from the squark mass
+!         basis to the old current basis
+!
+      IMPLICIT NONE
+!
+      COMMON /SQROT/ RQTOT,RUPTOT,RDTOT,RLTOT,RETOT
+     $               ,RQSAV,RUPSAV,RDSAV,RLSAV,RESAV
+     $               ,OLDNSQ,OLDNSU,OLDNSD,OLDNSL,OLDNSE
+      DOUBLE COMPLEX RQTOT(3,3),RUPTOT(3,3),RDTOT(3,3)
+      DOUBLE COMPLEX RLTOT(3,3),RETOT(3,3)
+      DOUBLE COMPLEX RQSAV(2,3,3),RUPSAV(2,3,3),RDSAV(2,3,3)
+      DOUBLE COMPLEX RLSAV(2,3,3),RESAV(2,3,3)
+      INTEGER OLDNSQ,OLDNSU,OLDNSD,OLDNSL,OLDNSE
+      SAVE /SQROT/
+!
+      DOUBLE PRECISION GUNROT(601),GROT(601),DMATMUL
+!
+      DOUBLE PRECISION FU(3,3),FD(3,3),FE(3,3),AU(3,3),AD(3,3),AE(3,3)
+      DOUBLE PRECISION MQ(3,3),ML(3,3),MUP(3,3),MD(3,3),ME(3,3)
+      DOUBLE PRECISION FUM(3,3),FDM(3,3),FEM(3,3)
+      DOUBLE PRECISION AUM(3,3),ADM(3,3),AEM(3,3)
+      DOUBLE PRECISION MQM(3,3),MLM(3,3),MUPM(3,3),MDM(3,3),MEM(3,3)
+      DOUBLE PRECISION LU(3,3),LD(3,3),LE(3,3)
+      DOUBLE PRECISION GTPQ(3,3),GTPL(3,3),GTPU(3,3),GTPD(3,3)
+      DOUBLE PRECISION GTPE(3,3),GTQ(3,3),GTL(3,3),GTSQ(3,3)
+      DOUBLE PRECISION GTSU(3,3),GTSD(3,3),FTUQ(3,3),FTDQ(3,3)
+      DOUBLE PRECISION FTEL(3,3),FTUU(3,3),FTDD(3,3),FTEE(3,3)
+      DOUBLE PRECISION TRIU(3,3),TRID(3,3),TRIE(3,3)
+      DOUBLE PRECISION MTSFU(3,3),MTSFD(3,3),MTSFE(3,3)
+!
+      DOUBLE PRECISION FUT(3,3),FDT(3,3),FET(3,3)
+      DOUBLE PRECISION AUT(3,3),ADT(3,3),AET(3,3)
+      DOUBLE PRECISION MQT(3,3),MLT(3,3),MUPT(3,3),MDT(3,3),MET(3,3)
+      DOUBLE PRECISION FUMT(3,3),FDMT(3,3),FEMT(3,3)
+      DOUBLE PRECISION AUMT(3,3),ADMT(3,3),AEMT(3,3)
+      DOUBLE PRECISION MQMT(3,3),MLMT(3,3),MUPMT(3,3)
+      DOUBLE PRECISION MDMT(3,3),MEMT(3,3)
+      DOUBLE PRECISION LUT(3,3),LDT(3,3),LET(3,3)
+      DOUBLE PRECISION GTPQT(3,3),GTPLT(3,3),GTPUT(3,3),GTPDT(3,3)
+      DOUBLE PRECISION GTPET(3,3),GTQT(3,3),GTLT(3,3),GTSQT(3,3)
+      DOUBLE PRECISION GTSUT(3,3),GTSDT(3,3),FTUQT(3,3),FTDQT(3,3)
+      DOUBLE PRECISION FTELT(3,3),FTUUT(3,3),FTDDT(3,3),FTEET(3,3)
+      DOUBLE PRECISION TRIUT(3,3),TRIDT(3,3),TRIET(3,3)
+      DOUBLE PRECISION MTSFUT(3,3),MTSFDT(3,3),MTSFET(3,3)
+!
+      DOUBLE PRECISION DRQ(3,3),DRUP(3,3),DRD(3,3),DRL(3,3),DRE(3,3)
+      DOUBLE PRECISION RQT(3,3),RUPT(3,3),RDT(3,3),RLT(3,3),RET(3,3)
+!
+      INTEGER I,J
+!
+      DO I=1,601
+        GUNROT(I)=GROT(I)
+      END DO
+      DO I=1,3
+        DO J=1,3
+          DRQ(I,J)=DBLE(RQTOT(I,J))
+          DRUP(I,J)=DBLE(RUPTOT(I,J))
+          DRD(I,J)=DBLE(RDTOT(I,J))
+          DRL(I,J)=DBLE(RLTOT(I,J))
+          DRE(I,J)=DBLE(RETOT(I,J))
+        END DO
+      END DO
+!
+      DO I=1,3
+        DO J=1,3
+          FU(I,J)=GROT(3+(I-1)*3+J)
+          FD(I,J)=GROT(12+(I-1)*3+J)
+          FE(I,J)=GROT(21+(I-1)*3+J)
+          AU(I,J)=GROT(33+(I-1)*3+J)
+          AD(I,J)=GROT(42+(I-1)*3+J)
+          AE(I,J)=GROT(51+(I-1)*3+J)
+          MQ(I,J)=GROT(62+(I-1)*3+J)
+          ML(I,J)=GROT(71+(I-1)*3+J)
+          MUP(I,J)=GROT(80+(I-1)*3+J)
+          MD(I,J)=GROT(89+(I-1)*3+J)
+          ME(I,J)=GROT(98+(I-1)*3+J)
+!
+          FUM(I,J)=GROT(293+(I-1)*3+J)
+          FDM(I,J)=GROT(302+(I-1)*3+J)
+          FEM(I,J)=GROT(311+(I-1)*3+J)
+          AUM(I,J)=GROT(323+(I-1)*3+J)
+          ADM(I,J)=GROT(332+(I-1)*3+J)
+          AEM(I,J)=GROT(341+(I-1)*3+J)
+          MQM(I,J)=GROT(352+(I-1)*3+J)
+          MLM(I,J)=GROT(361+(I-1)*3+J)
+          MUPM(I,J)=GROT(370+(I-1)*3+J)
+          MDM(I,J)=GROT(379+(I-1)*3+J)
+          MEM(I,J)=GROT(388+(I-1)*3+J)
+!
+          LU(I,J)=GROT(111+(I-1)*3+J)
+          LD(I,J)=GROT(120+(I-1)*3+J)
+          LE(I,J)=GROT(129+(I-1)*3+J)
+!
+          GTPQ(I,J)=GROT(138+(I-1)*3+J)
+          GTPL(I,J)=GROT(147+(I-1)*3+J)
+          GTPU(I,J)=GROT(156+(I-1)*3+J)
+          GTPD(I,J)=GROT(165+(I-1)*3+J)
+          GTPE(I,J)=GROT(174+(I-1)*3+J)
+          GTQ(I,J)=GROT(185+(I-1)*3+J)
+          GTL(I,J)=GROT(194+(I-1)*3+J)
+          GTSQ(I,J)=GROT(205+(I-1)*3+J)
+          GTSU(I,J)=GROT(214+(I-1)*3+J)
+          GTSD(I,J)=GROT(223+(I-1)*3+J)
+          FTUQ(I,J)=GROT(232+(I-1)*3+J)
+          FTDQ(I,J)=GROT(241+(I-1)*3+J)
+          FTEL(I,J)=GROT(250+(I-1)*3+J)
+          FTUU(I,J)=GROT(259+(I-1)*3+J)
+          FTDD(I,J)=GROT(268+(I-1)*3+J)
+          FTEE(I,J)=GROT(277+(I-1)*3+J)
+!
+          TRIU(I,J)=GROT(399+(I-1)*3+J)
+          TRID(I,J)=GROT(408+(I-1)*3+J)
+          TRIE(I,J)=GROT(417+(I-1)*3+J)
+          MTSFU(I,J)=GROT(429+(I-1)*3+J)
+          MTSFD(I,J)=GROT(438+(I-1)*3+J)
+          MTSFE(I,J)=GROT(447+(I-1)*3+J)
+!
+          RQT(I,J)=DRQ(J,I)
+          RUPT(I,J)=DRUP(J,I)
+          RDT(I,J)=DRD(J,I)
+          RLT(I,J)=DRL(J,I)
+          RET(I,J)=DRE(J,I)
+        END DO
+      END DO
+!
+      DO I=1,3
+        DO J=1,3
+          FUT(I,J)=DMATMUL(0,FU,RUPT,I,J)
+          FDT(I,J)=DMATMUL(0,FD,RDT,I,J)
+          FET(I,J)=DMATMUL(0,FE,RET,I,J)
+          AUT(I,J)=DMATMUL(0,AU,RUPT,I,J)
+          ADT(I,J)=DMATMUL(0,AD,RDT,I,J)
+          AET(I,J)=DMATMUL(0,AE,RET,I,J)
+          MQT(I,J)=DMATMUL(2,MQ,DRQ,I,J)
+          MLT(I,J)=DMATMUL(2,ML,DRL,I,J)
+          MUPT(I,J)=DMATMUL(2,MUP,DRUP,I,J)
+          MDT(I,J)=DMATMUL(2,MD,DRD,I,J)
+          MET(I,J)=DMATMUL(2,ME,DRE,I,J)
+!
+          FUMT(I,J)=DMATMUL(0,FUM,RUPT,I,J)
+          FDMT(I,J)=DMATMUL(0,FDM,RDT,I,J)
+          FEMT(I,J)=DMATMUL(0,FEM,RET,I,J)
+          AUMT(I,J)=DMATMUL(0,AUM,RUPT,I,J)
+          ADMT(I,J)=DMATMUL(0,ADM,RDT,I,J)
+          AEMT(I,J)=DMATMUL(0,AEM,RET,I,J)
+          MQMT(I,J)=DMATMUL(2,MQM,DRQ,I,J)
+          MLMT(I,J)=DMATMUL(2,MLM,DRL,I,J)
+          MUPMT(I,J)=DMATMUL(2,MUPM,DRUP,I,J)
+          MDMT(I,J)=DMATMUL(2,MDM,DRD,I,J)
+          MEMT(I,J)=DMATMUL(2,MEM,DRE,I,J)
+!
+          LUT(I,J)=DMATMUL(0,LU,RUPT,I,J)
+          LDT(I,J)=DMATMUL(0,LD,RDT,I,J)
+          LET(I,J)=DMATMUL(0,LE,RET,I,J)
+!
+          GTPQT(I,J)=DMATMUL(2,GTPQ,DRQ,I,J)
+          GTPLT(I,J)=DMATMUL(2,GTPL,DRL,I,J)
+          GTPUT(I,J)=DMATMUL(2,GTPU,DRUP,I,J)
+          GTPDT(I,J)=DMATMUL(2,GTPD,DRD,I,J)
+          GTPET(I,J)=DMATMUL(2,GTPE,DRE,I,J)
+          GTQT(I,J)=DMATMUL(2,GTQ,DRQ,I,J)
+          GTLT(I,J)=DMATMUL(2,GTL,DRL,I,J)
+          GTSQT(I,J)=DMATMUL(2,GTSQ,DRQ,I,J)
+          GTSUT(I,J)=DMATMUL(2,GTSU,DRUP,I,J)
+          GTSDT(I,J)=DMATMUL(2,GTSD,DRD,I,J)
+          FTUQT(I,J)=DMATMUL(0,FTUQ,RUPT,I,J)
+          FTDQT(I,J)=DMATMUL(0,FTDQ,RDT,I,J)
+          FTELT(I,J)=DMATMUL(0,FTEL,RET,I,J)
+          FTUUT(I,J)=DMATMUL(0,FTUU,RUPT,I,J)
+          FTDDT(I,J)=DMATMUL(0,FTDD,RDT,I,J)
+          FTEET(I,J)=DMATMUL(0,FTEE,RET,I,J)
+!
+          TRIUT(I,J)=DMATMUL(0,TRIU,RUPT,I,J)
+          TRIDT(I,J)=DMATMUL(0,TRID,RDT,I,J)
+          TRIET(I,J)=DMATMUL(0,TRIE,RET,I,J)
+          MTSFUT(I,J)=DMATMUL(0,MTSFU,RUPT,I,J)
+          MTSFDT(I,J)=DMATMUL(0,MTSFD,RDT,I,J)
+          MTSFET(I,J)=DMATMUL(0,MTSFE,RET,I,J)
+        END DO
+      END DO
+!
+      DO I=1,3
+        DO J=1,3
+          GUNROT(3+(I-1)*3+J)=DMATMUL(1,RQT,FUT,I,J)
+          GUNROT(12+(I-1)*3+J)=DMATMUL(1,RQT,FDT,I,J)
+          GUNROT(21+(I-1)*3+J)=DMATMUL(1,RLT,FET,I,J)
+          GUNROT(33+(I-1)*3+J)=DMATMUL(1,RQT,AUT,I,J)
+          GUNROT(42+(I-1)*3+J)=DMATMUL(1,RQT,ADT,I,J)
+          GUNROT(51+(I-1)*3+J)=DMATMUL(1,RLT,AET,I,J)
+          GUNROT(62+(I-1)*3+J)=DMATMUL(0,DRQ,MQT,I,J)
+          GUNROT(71+(I-1)*3+J)=DMATMUL(0,DRL,MLT,I,J)
+          GUNROT(80+(I-1)*3+J)=DMATMUL(0,DRUP,MUPT,I,J)
+          GUNROT(89+(I-1)*3+J)=DMATMUL(0,DRD,MDT,I,J)
+          GUNROT(98+(I-1)*3+J)=DMATMUL(0,DRE,MET,I,J)
+!
+          GUNROT(293+(I-1)*3+J)=DMATMUL(1,RQT,FUMT,I,J)
+          GUNROT(302+(I-1)*3+J)=DMATMUL(1,RQT,FDMT,I,J)
+          GUNROT(311+(I-1)*3+J)=DMATMUL(1,RLT,FEMT,I,J)
+          GUNROT(323+(I-1)*3+J)=DMATMUL(1,RQT,AUMT,I,J)
+          GUNROT(332+(I-1)*3+J)=DMATMUL(1,RQT,ADMT,I,J)
+          GUNROT(341+(I-1)*3+J)=DMATMUL(1,RLT,AEMT,I,J)
+          GUNROT(352+(I-1)*3+J)=DMATMUL(0,DRQ,MQMT,I,J)
+          GUNROT(361+(I-1)*3+J)=DMATMUL(0,DRL,MLMT,I,J)
+          GUNROT(370+(I-1)*3+J)=DMATMUL(0,DRUP,MUPMT,I,J)
+          GUNROT(379+(I-1)*3+J)=DMATMUL(0,DRD,MDMT,I,J)
+          GUNROT(388+(I-1)*3+J)=DMATMUL(0,DRE,MEMT,I,J)
+!
+          GUNROT(111+(I-1)*3+J)=DMATMUL(1,RQT,LUT,I,J)
+          GUNROT(120+(I-1)*3+J)=DMATMUL(1,RQT,LDT,I,J)
+          GUNROT(129+(I-1)*3+J)=DMATMUL(1,RLT,LET,I,J)
+!
+          GUNROT(138+(I-1)*3+J)=DMATMUL(0,DRQ,GTPQT,I,J)
+          GUNROT(147+(I-1)*3+J)=DMATMUL(0,DRL,GTPLT,I,J)
+          GUNROT(156+(I-1)*3+J)=DMATMUL(0,DRUP,GTPUT,I,J)
+          GUNROT(165+(I-1)*3+J)=DMATMUL(0,DRD,GTPDT,I,J)
+          GUNROT(174+(I-1)*3+J)=DMATMUL(0,DRE,GTPET,I,J)
+          GUNROT(185+(I-1)*3+J)=DMATMUL(0,DRQ,GTQT,I,J)
+          GUNROT(194+(I-1)*3+J)=DMATMUL(0,DRL,GTLT,I,J)
+          GUNROT(205+(I-1)*3+J)=DMATMUL(0,DRQ,GTSQT,I,J)
+          GUNROT(214+(I-1)*3+J)=DMATMUL(0,DRUP,GTSUT,I,J)
+          GUNROT(223+(I-1)*3+J)=DMATMUL(0,DRD,GTSDT,I,J)
+          GUNROT(232+(I-1)*3+J)=DMATMUL(1,RQT,FTUQT,I,J)
+          GUNROT(241+(I-1)*3+J)=DMATMUL(1,RQT,FTDQT,I,J)
+          GUNROT(250+(I-1)*3+J)=DMATMUL(1,RLT,FTELT,I,J)
+          GUNROT(259+(I-1)*3+J)=DMATMUL(1,RQT,FTUUT,I,J)
+          GUNROT(268+(I-1)*3+J)=DMATMUL(1,RQT,FTDDT,I,J)
+          GUNROT(277+(I-1)*3+J)=DMATMUL(1,RLT,FTEET,I,J)
+!
+          GUNROT(399+(I-1)*3+J)=DMATMUL(1,RQT,TRIUT,I,J)
+          GUNROT(408+(I-1)*3+J)=DMATMUL(1,RQT,TRIDT,I,J)
+          GUNROT(417+(I-1)*3+J)=DMATMUL(1,RLT,TRIET,I,J)
+          GUNROT(429+(I-1)*3+J)=DMATMUL(1,RQT,MTSFUT,I,J)
+          GUNROT(438+(I-1)*3+J)=DMATMUL(1,RQT,MTSFDT,I,J)
+          GUNROT(447+(I-1)*3+J)=DMATMUL(1,RLT,MTSFET,I,J)
+        END DO
+      END DO
+!
+      RETURN
+      END

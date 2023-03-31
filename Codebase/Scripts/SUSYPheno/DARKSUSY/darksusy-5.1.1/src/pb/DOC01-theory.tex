@@ -1,0 +1,304 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Antiprotons -- theory}
+
+Neutralinos can annihilate each other in the halo producing leptons,
+quarks, gluons, gauge bosons and Higgs bosons. The quarks, gauge
+bosons and Higgs bosons will decay and/or form jets that will give
+rise to antiprotons (and antineutrons which decay shortly to
+antiprotons). Since antiprotons are not very abundant in the Universe,
+this could in principle be a good signature for supersymmetric dark
+matter. However, the cosmic rays (mainly protons) may produce
+secondary antiprotons in collisions with the interstellar medium,
+giving an important background. It was hoped that the difference in
+kinematics between such secondary antiprotons and the primary ones
+generated in neutralino annihilations would give an unambiguous
+signature at low antiproton energy. However, recent calculations
+indicate that other effects spoil this picture to a large degree
+\cite{pbar,gaisserpbar}. It still remains true, however, that present
+measurements and upper limits to the antiproton flux may be used as a
+constraint to rule out some MSSM configurations with large rates.
+
+Unfortunately, there is a larger uncertainty in
+limits thus obtained than, for example, for the signal from neutrinos
+from the Earth and Sun. This is due to the severe astrophysical
+uncertainties about the phase space structure of the dark matter
+halo, in particular the density profile towards the Galactic center.
+This uncertainty will plague all indirect detection signals from
+the halo: antiprotons, positrons and gamma-rays. Therefore, the
+limits that can be put generally involve a combination of
+MSSM and halo model parameters, and are therefore of limited use
+constraining the MSSM alone.
+
+At tree level the relevant final states for $\bar{p}$ production
+are $q \bar{q}$, $\ell \bar{\ell}$, $W^{+} W^{-}$, $Z^{0} Z^{0}$,
+$W^{+} H^{-}$, $Z H_{1}^{0}$, $Z H_{2}^{0}$, $H_{1}^{0} H_{3}^{0}$ and
+$H_{2}^{0} H_{3}^{0}$. We have included in \ds\ all the heavier quarks ($c$,
+$b$ and $t$), gauge bosons and Higgs boson final states.
+  In addition, we have included the $Z \gamma$ (\cite{ub}) and
+the 2 gluon (\cite{bua}; \cite{lp}) final states which occur at one
+loop-level.
+
+
+The hadronization and/or decay of all final states (including) gluons
+is simulated with {\sc Pythia} as described in section \ref{sec:mcsim}.
+A word of caution should be raised, however, that
+antiproton data is not very abundant, in particular not at the
+lowest antiproton lab energies which tend to dominate the signal.
+Therefore an uncertainty in normalization, probably of the order of a
+factor 2, cannot be excluded at least in the low energy region.
+
+%%%%%%%%%%%%%%%
+\subsection{The Antiproton Source Function}
+
+The source function $Q_{\bar{p}}^{\chi}$ gives the number of antiprotons
+per unit time, energy and volume element produced in annihilation
+of neutralinos locally in space. It is given by
+\begin{equation}
+   Q_{\bar{p}}^{\chi}(T,\vec{x}\,)=
+   (\sigma_{\rm ann}v)
+   \left(\frac{\rho_{\chi}(\vec{x}\,)}{m_{\chi}}\right)^{2}
+   \sum_{f}^{}\frac{dN^{f}}{dT}B^{f}
+   \label{sourcefkn}
+\end{equation}
+where $T$ is the $\bar{p}$ kinetic energy. For a given annihilation
+channel $f$, $B^{f}$ and $dN^{f} / dT$ are, respectively, the branching ratio
+and the fragmentation function, and $(\sigma_{\rm ann}v)$ is the
+annihilation rate at $v=0$ (which is very good approximation since the
+velocity of the neutralinos in the halo is so low).
+As dark matter neutralinos annihilate in pairs, the source function is
+proportional to the square of the neutralino number density
+$n_{\chi} = \rho_{\chi} / m_{\chi}$.
+Assuming that most of the dark matter in the Galaxy is made up of neutralinos
+and that these are smoothly distributed in the halo, one can directly relate
+the neutralino number density to the dark matter density profile in the
+galactic halo $\rho$.
+%
+Although what is implemented is a smooth distribution of dark
+matter particles in the halo, an extension to a clumpy distribution is
+potentially interesting as well (\cite{clumpy}; \cite{pieroclumpy}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Propagation model}
+\label{sec:prop}
+
+In the absence of a well established theory to describe the
+interactions of charged particles with the magnetic field of the
+Galaxy and the interstellar medium, the propagation of cosmic rays has
+generally been treated by postulating a semiempirical model and
+fitting the necessary set of unknown parameters to available data.  A
+common approach is to use a diffusion approximation defined by a
+transport equation and an appropriate choice of boundary
+conditions~(see e.g.\ \cite{Berezinskii}; \cite{Gaisserbook} and
+references therein).
+
+We have chosen to compute the propagation of cosmic rays in the Galaxy by
+means of a
+  transport equation of the diffusion type
+  (see \cite{Berezinskii}; \cite{Gaisserbook}).
+In the case of a stationary solution, the number density $N$ of a
+stable cosmic ray
+species whose distribution of sources is defined by the function of
+energy and space $Q(E,\vec{x})$, is given by:
+\begin{equation}
+\frac{\partial{N(E,\vec{x})}}{\partial{t}} = 0 = \nabla \cdot
+\left(D(R,\vec{x})\,\nabla N(E,\vec{x})\right)
+- \nabla \cdot \left( \vec{u}(\vec{x})\,N(E,\vec{x}) \right)
+- p(E,\vec{x})\,N(E,\vec{x}) + Q(E,\vec{x}) \;\;.
+\label{eq:diff}
+\end{equation}
+
+On the right hand side
+of Eq.~(\ref{eq:diff}) the first term implements the diffusion approximation
+for a given diffusion coefficient $D$, generally assumed to be a function of
+rigidity $R$, while the second term describes a large-scale convective
+motion of velocity $\vec{u}$. The third term is added to take into account
+losses due to to collisions with the interstellar matter.
+It is a very good approximation to include in this term only the interactions
+with interstellar hydrogen, in this case
+$p$ is given by:
+\begin{equation}
+p(E,\vec{x}) = n^H(\vec{x}) \, v(E) \, \sigma^{\rm in}_{cr\,p}(E)
+\end{equation}
+where $n^H$ is the hydrogen number density in the Galaxy, $v$ is the
+velocity of the cosmic ray particle considered `$cr$', while
+$\sigma^{\rm in}_{cr\,p}$ is the inelastic cross section for $cr$-proton
+collisions.
+
+
+The propagation region is assumed to have a cylindrical symmetry: the
+Galaxy is split into two parts, a disk of radius $R_h$ and height
+$2\cdot h_g$, where most of the interstellar gas is confined, and a
+halo of height $2\cdot h_h$ and the same radius. We assume that the
+diffusion coefficient is isotropic with possibly two different values
+in the disk and in the halo, reflecting the fact that in the disk
+there may be a larger random component of the magnetic fields.
+The spatial dependence is then:
+\begin{equation}
+D(\vec{x}) = D(z) = D_g \, \theta(h_g - |z|) + D_h \, \theta(|z| - h_g)\;\;.
+\end{equation}
+Regarding the rigidity dependence,
+we consider the same functional form as in
+\cite{Chardonnet} and \cite{bottinolast}:
+\begin{equation}
+D_l(R) = D_l^0 \left(1+\frac{R}{R_0}\right)^{0.6}
+\label{eq:diffco}
+\end{equation}
+where $l=g,h$.
+
+The convective term has been introduced in Eq.~(\ref{eq:diff}) to describe the
+effect of particle motion against the wind of cosmic rays leaving the disk,
+assuming a galactic wind of velocity
+\begin{equation}
+\vec{u}(\vec{x}) = \left(0, 0, u(z)\right)
+\end{equation}
+where
+\begin{equation}
+u(z)= {\rm sign}(z) \, u_h \, \theta(|z| - h_g)\;\;.
+\end{equation}
+An analytic solution is possible also in the case of a linearly increasing
+wind~(\cite{pieroclumpy}).
+The distribution of gas in the Galaxy is for convenience assumed
+to have the very simple $z$ dependence
+\begin{equation}
+n^H(\vec{x}) = n^H(z)
+= n_g^H \, \theta(h_g - |z|) + n_h^H \, \theta(|z| - h_g)
+\end{equation}
+where $n_h \ll n_g$ (in practice, $n_h=0$ is taken) and an average
+in the radial direction is performed.
+
+As boundary condition, it is usually assumed that cosmic rays can escape
+freely at the border of the propagation region, i.e.\
+\begin{equation}
+N(R_h,z) = N(r,h_h) = N(r,-h_h) = 0
+\label{eq:bound}
+\end{equation}
+as the density of cosmic rays is assumed to be negligibly small in the
+intergalactic space.
+
+The cylindrical symmetry and the free escape at the
+boundaries makes it possible
+to solve in \ds\
+the transport equation expanding the number density distribution $N$
+in a Fourier-Bessel series:
+\begin{equation}
+N(r,z,\theta) = \sum_{k=0}^{\infty} \,\sum_{s=1}^{\infty} \;
+J_k \left(\nu_s^k \frac{r}{R_h}\right) \cdot
+\left[ M_s^k(z) \cos(k\theta) + \tilde{M}_s^k(z) \sin(k\theta)\right] \\
+\end{equation}
+which automatically satisfies the boundary condition at $r=R_h$,
+$\nu_s^k$ being the $s$-th zero of $J_k$ (the Bessel function of the
+first kind  and of order $k$).
+In the same way the source function can be expanded as:
+\begin{equation}
+Q(r,z,\theta) = \sum_{k=0}^{\infty} \,\sum_{s=1}^{\infty} \;
+J_k \left(\nu_s^k \frac{r}{R_h}\right) \cdot
+\left[ Q_s^k(z) \cos(k\theta) + \tilde{Q}_s^k(z) \sin(k\theta)\right]
+\end{equation}
+where
+\begin{equation}
+Q_s^k(z) = \frac{2}{{R_h}^2\,{J_{k+1}}^2(\nu_s^k)}
+\int\limits_0^{R_h} dr^{\prime} \;r^{\prime}
+J_k \left(\nu_s^k \frac{r^{\prime}}{R_h}\right)
+\frac{1}{\alpha_k\,\pi}
+\int\limits_{-\pi}^{\;\pi} d\theta^{\prime} \; \cos(k\theta^{\prime})
+\,Q(r^{\prime},z,\theta^{\prime})\;\;.
+\end{equation}
+The equation relevant for the propagation in the $z$ direction is \cite{pbar}:
+\begin{equation}
+\frac{\partial}{\partial{z}} D(z) \frac{\partial}{\partial{z}} M_s^k(z)
+- D(z) \left(\frac{\nu_s^k}{R_h}\right)^2 M_s^k(z)
+- \frac{\partial}{\partial{z}} \left(u(z)\,M_s^k(z) \right)
+- p(z) M_s^k(z) + Q_s^k(z) =0 \;\;.
+\end{equation}
+For $-h_g \leq z \leq h_g$ the solution is given by:
+\begin{equation}
+M_s^k(z) = M_s^k(0) \cosh(\lambda_g^{ks} z) - \frac{1}{D_g\, \lambda_g^{ks}}
+\int\limits_{0}^{z} \;dz^{\prime}
+\sinh\left(\lambda_g^{ks} (z-z^{\prime})\right) Q_s^k(z^{\prime})
+\label{eq:zdep}
+\end{equation}
+where
+\begin{eqnarray}
+M_s^k(0) \ & = & \ \frac{1}{\cosh(\lambda_g^{ks} h_g)}
+\left\{\frac{I_H}{\sinh\left(\lambda_h^{ks} (h_h-h_g)\right)}+
+\frac{D_h\,I_{GS}}{D_g\, \lambda_g^{ks}} \,\left[\gamma_h +
+\lambda_h^{ks} \coth\left(\lambda_h^{ks} (h_h-h_g)\right)\right]
++I_{GC}\right\} \nonumber \\
+& & \times \left[D_g\,\lambda_g^{ks}\,\tanh\left(\lambda_g^{ks} h_g\right)
++ D_h\,\gamma_h + D_h\,\lambda_h^{ks}\,
+\coth\left(\lambda_h^{ks} (h_h-h_g)\right) \right]^{-1}
+\label{eq:halodiff}
+\end{eqnarray}
+with
+\begin{eqnarray}
+\lambda_g^{ks} = \sqrt{\left({\nu_s^k\over R_h}\right)^2 +
+\frac{n_g^H v \sigma^{\rm in}_{cr\,p}}{D_g}} \;,\;\;\;\;\
+\lambda_h^{ks} = \sqrt{\left({\nu_s^k\over R_h}\right)^2 +
+\frac{n_h^H v \sigma^{\rm in}_{cr\,p}}{D_h} + {\gamma_h}^2}\;,\;\;\;\; \
+\gamma_h = \frac{u_h}{2\,D_h}
+\label{eq:halodiff2}
+\end{eqnarray}
+and
+\begin{eqnarray}
+I_H & = & \int\limits_{h_g}^{h_h} \;dz^{\prime} \,
+\sinh\left(\lambda_h^{ks} (h_h-z^{\prime})\right) \,
+\exp\left(\gamma_h (h_g-z^{\prime})\right)
+\cdot \frac{Q_s^k(z^{\prime}) + Q_s^k(-z^{\prime})}{2} \nonumber \\
+I_{GS} & = & \int\limits_{0}^{h_g} \;dz^{\prime} \,
+\sinh\left(\lambda_g^{ks} (h_g-z^{\prime})\right)
+\cdot \frac{Q_s^k(z^{\prime}) + Q_s^k(-z^{\prime})}{2} \nonumber \\
+I_{GC} & = & \int\limits_{0}^{h_g} \;dz^{\prime} \,
+\cosh\left(\lambda_g^{ks} (h_g-z^{\prime})\right)
+\cdot \frac{Q_s^k(z^{\prime}) + Q_s^k(-z^{\prime})}{2} \;.
+\label{eq:int}
+\end{eqnarray}
+
+In \ds\ we have also as an option included the propagation models by
+Chardonnay et al.\ \cite{chardonnay} and Bottino et al.\
+\cite{bottinopbar}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Solar Modulation}
+
+A complication when comparing predictions of a theoretical
+model with data on cosmic rays taken at Earth is given by the solar
+modulation effect. During their propagation from the interstellar
+medium through the solar system, charged particles are affected by the
+solar wind and tend to lose energy. The net result of the modulation
+is a shift in energy between the interstellar spectrum and the
+spectrum at the Earth and a substantial depletion of particles with
+non-relativistic energies.
+
+The simplest way to describe the phenomenon is the analytical force-field
+approximation by Gleeson \& Axford \cite{GleesonAxford} for a spherically
+symmetric model. The prescription of
+this effective treatment is that, given an interstellar flux at the
+heliospheric boundary, $d\Phi_{\rm b}/dT_{\rm b}$, the flux at the Earth
+is related to this by
+\begin{equation}
+   \frac{d\Phi_{\oplus}}{dT_\oplus}(T_\oplus) = \frac{p_\oplus^2}{p_{\rm
+   b}^2} \frac{d\Phi_{\rm b}}{dT_{\rm b}} (T_{\rm b})
+\end{equation}
+where the energy at the heliospheric boundary is given by
+\begin{equation}
+   E_{\rm b} = E_\oplus + |Ze|\phi_F
+\end{equation}
+and $p_{\otimes}$ and $p_{\rm b}$ are the momenta at the Earth and
+the heliospheric boundary respectively.
+Here $e$ is the absolute value of the electron charge and $Z$ the
+particle charge in units of $e$ (e.g.\ $Z=-1$ for antiprotons).
+
+An alternative approach is to solve numerically the propagation equation
+of the spherically symmetric model~(\cite{fisk}): the solar modulation
+parameter one has to introduce with this method roughly corresponds to
+$\phi_F$ as given above. When computing solar modulated antiproton fluxes,
+the two treatments seem not to be completely equivalent in the low energy
+regime. Keeping this in mind, we have
+anyway
+implemented the force field approximation in \ds\, avoiding the
+CPU time-consuming problem of
+having to solve a partial differential equation for each
+supersymmetric model.
+
+

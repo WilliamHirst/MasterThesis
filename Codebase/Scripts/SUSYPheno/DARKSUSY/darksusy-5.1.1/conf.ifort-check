@@ -1,0 +1,1 @@
+./configure FC=ifort FCFLAGS="-O -check all -extend_source"

@@ -1,0 +1,61 @@
+# Makefile for nt directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemf.pl on Jan 31, 2013.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dsprep.h dsntIC.h dsearth.h dsmssm.h dsge.h dsio.h dsmpconst.h \
+dsdirver.h dsntcom.h dssun.h dsntcap.h dsntdkcom.h dshrcom.h dshmcom.h \
+dswacom.h
+
+vpath %.h $(DINC)
+
+SRC = dsai.f dsaip.f dsatm_mu.f dsbi.f dsbip.f dsff.f dsff2.f dsff3.f \
+dsfff2.f dsfff3.f dsgauss1.f dshiprecint.f dshiprecint2.f dshonda.f \
+dslnff.f dsntannrate.f dsntcapcom.f dsntcapearth.f dsntcapearth2.f \
+dsntcapearthfull.f dsntcapearthnum.f dsntcapearthnumi.f \
+dsntcapearthtab.f dsntcapsun.f dsntcapsunnum.f dsntcapsunnumi.f \
+dsntcapsuntab.f dsntceint.f dsntceint2.f dsntcsint.f dsntcsint2.f \
+dsntctabcreate.f dsntctabget.f dsntctabread.f dsntctabwrite.f \
+dsntdiffrates.f dsntdkannrate.f dsntdkcapea.f dsntdkcapeafull.f \
+dsntdkcapearth.f dsntdkcom.f dsntdkfbigu.f dsntdkfoveru.f dsntdkgtot10.f \
+dsntdkka.f dsntdkyf.f dsntdqagse.f dsntdqagseb.f dsntdqk21.f \
+dsntdqk21b.f dsntearthdens.f dsntearthdenscomp.f dsntearthmass.f \
+dsntearthmassint.f dsntearthne.f dsntearthpot.f dsntearthpotint.f \
+dsntearthvesc.f dsntedfunc.f dsntepfunc.f dsntfoveru.f dsntfoveruearth.f \
+dsntICanglike.f dsntICangres.f dsntICbgangpdf.f dsntICbginit.f \
+dsntICbglikeprecomp.f dsntICbgpredinit.f dsntICbgspec.f dsntICbounds.f \
+dsntICdP_SdE.f dsntICdPhi_SdE.f dsntICeainit.f dsntICedisp.f \
+dsntICedispcheckout.f dsntICedispinit.f dsntICeffarea.f \
+dsntICeventinit.f dsntICinit.f dsntICnlike.f dsntICpsf.f dsntICpval.f \
+dsntICsigintegrand.f dsntICsignal.f dsntICspecintegrand.f \
+dsntICspeclike.f dsntismbkg.f dsntismrd.f dsntlitlf_e.f dsntlitlf_s.f \
+dsntmoderf.f dsntmuonyield.f dsntnuism.f dsntnusun.f dsntrates.f \
+dsntse.f dsntsefull.f dsntset.f dsntspfunc.f dsntss.f dsntsunbkg.f \
+dsntsuncdens.f dsntsuncdensint.f dsntsuncdfunc.f dsntsundens.f \
+dsntsundenscomp.f dsntsunmass.f dsntsunmfrac.f dsntsunne.f dsntsunne2x.f \
+dsntsunpot.f dsntsunpotint.f dsntsunread.f dsntsunvesc.f dsntsunx2z.f \
+dsntsunz2x.f dswasetup.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

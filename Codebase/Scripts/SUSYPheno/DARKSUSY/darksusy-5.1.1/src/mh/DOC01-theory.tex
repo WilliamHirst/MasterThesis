@@ -1,0 +1,148 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Kinetic decoupling and microhalos (mh) -- theory}
+\label{sec:mh}
+
+Even after \emph{chemical decoupling}, which sets the DM relic density (see Section 
+\ref{sec:Boltzmann}), DM  frequently scatters with the very abundant 
+standard model particles and thereby stays in local thermal equilibrium with the 
+heat bath until the temperature has dropped by another factor of between 10 and
+ a few 1000; after \emph{kinetic decoupling}, even these scattering events cease and DM 
+no longer interacts with standard model particles. Inhomogeneities 
+in the DM density can only develop after this has happenened, and the DM particles have
+sufficiently cooled down so that free streaming becomes negligible.
+The scale of kinetic decoupling can therefore directly be translated 
+into a cutoff in the power spectrum of (dark) matter fluctuations and thus the size of the 
+smallest (at least when not taking into account primordial black holes) gravitationally 
+bound objects in the universe.
+
+
+
+\subsection{Kinetic decoupling}
+
+The process of kinetic decoupling is governed by the full Boltzmann equation for the WIMP 
+distribution function $f(\mathbf{x},\mathbf{p})$, which in 
+a flat Friedmann-Robertson Walker spacetime reads
+\begin{equation}
+  \label{eq:fullboltz}
+  E(\partial_t-H\,\mathbf{p}\cdot\nabla_\mathbf{p})\,f=C[f]\,,
+\end{equation}
+where $C[f]$ is known as the collision term.
+The Boltzmann equation quoted in Eq.~(\ref{eq:Boltzmann}) for the description of 
+the (chemical) DM freeze-out process is actually just the first moment of 
+this expression, i.e.~obtained by integrating it over $\int d^3p$ (after dividing it by $E$). 
+As was realized int \cite{Bringmann:2006mu,Bringmann:2009vf}, kinetic decoupling can be decribed to a very high precision 
+by considering, instead, the \emph{second} moment of Eq.~(\ref{eq:fullboltz}). For this purpose,
+one introduces the WIMP "temperature" $T_\chi$,
+\begin{equation}
+  \int\frac{d^3p}{(2\pi)^3}\mathbf{p}^2f(\mathbf{p})\equiv3\,m_\chi T_\chi n_\chi\,,
+\end{equation}
+as a parameter that characterizes the deviation from thermal equilibrium (for which 
+$T_\chi=T$ holds). Multiplying Eq.(\ref{eq:fullboltz}) by $\mathbf{p}^2/E$, integrating it 
+over $\mathbf{p}$ and keeping only the leading order terms in $\mathbf{p}^2/m_\chi^2$ 
+then results in \cite{Bringmann:2009vf}
+\begin{equation}
+  \label{eq:boltz2}
+  \left(\partial_t+5H\right)T_\chi=2\,m_\chi\, c(T)\left(T-T_\chi\right)\,,
+\end{equation}
+where
+\begin{equation}
+  \label{eq:cTdef}
+  c(T) =  \sum_i\frac{g_\mathrm{SM}}{6(2\pi)^3m_\chi^4T} \int dk\,k^5 \omega^{-1}\,
+        g^\pm\left(1\mp g^\pm\right)\mathop{\hspace{-11ex}
+        \overline{\left|\mathcal{M}\right|}^2_{t=0}}_{\hspace{4ex}s=m_\chi^2+
+                   2m_\chi\omega+m_i^2}\,.
+\end{equation}
+In the above expression, the sum runs over all standard model scattering partners with 
+4-momentum $(\omega,\mathbf{k})$ and (thermal) distribution $g(\omega)$ (note, however, that no 
+assumption has been made about the form of the WIMP distribution function $f$).
+
+For practical purposes, one may now further introduce
+\begin{eqnarray}
+   x &\equiv& m_\chi/T\,,\\
+   y &\equiv& m_\chi g_{\rm eff}^{-1/2} T_\chi/T^2\,,
+\end{eqnarray}
+and bring Eq.~(\ref{eq:boltz2}) into a form that can more easily be integrated numerically:
+\begin{equation}
+  \label{eq:process}
+  \frac{dy}{dx} = 2\frac{m_\chi\, c(T)}{H\tilde g^{-1/2}}\left(1-\frac{T_\chi}{T}\right)\,,
+\end{equation}
+with $\tilde g^{1/2}\equiv g_{\rm eff}^{1/2}/(1+\frac{1}{4}\frac{g_{\rm eff}'}{g_{\rm eff}}T)$. 
+This form of the equation is also very convenient in that it allows to directly read off 
+its asymptotic behaviour: 
+At large $T$, the factor in front of the right-hand side is much larger than unity, thus enforcing
+$T_\chi=T$; when $T$ becomes small, the WIMPs completely decouple from the thermal 
+bath and $y$ stays constant, i.e. $T_\chi\propto T^2 g_{\rm eff}^{1/2}\propto a^{-2}$. 
+Since this transition happens on a rather short time scale, a sensible definition of 
+the \emph{kinetic decoupling} temperature $T_{\rm kd}$ is thus given by equating these 
+two regimes (as if the decoupling process were to occur instantaneously -- 
+see \cite{Bringmann:2009vf}  for a more detailed discussion):
+\begin{equation}
+  \label{eq:tkddef}
+  x_{\rm kd}=\frac{m_\chi}{T_{\rm kd}}\equiv g_{\rm eff}(T_{\rm kd})\, \left.y\right|_{x\rightarrow\infty}\,.
+\end{equation}
+
+
+
+
+
+\subsection{The smallest protohalos}
+
+
+Before kinetic decoupling, WIMPs are tightly coupled to the heat bath, so
+any small-scale perturbations in the DM fluid would immediately be washed out.
+For temperatures $T\lesssim T_{\rm kd}$, however, this is no longer the case and perturbations
+ in the DM density start to devolop under the influence of gravity; however, the 
+remaining viscous coupling between the two fluids and, subsequently, the free-streaming 
+of the WIMPs generate an exponential cutoff in the power spectrum \cite{Green:2005fa}, 
+with a characteristic comoving damping scale $k_{\rm fs}$. The WIMP mass contained in a 
+sphere of the corresponding size is thus given by \cite{Bringmann:2009vf}
+\begin{equation}
+   M_{\rm fs}\approx\frac{4\pi}{3}\rho_\chi\left(\frac{\pi}{k_{\rm fs}}\right)^3
+=4.0\times 10^{-6}\left(\frac{1+{\rm ln}\left(g_{\rm eff}^{1/4}T_{\rm kd}/30\;{\rm MeV}\right)/18.6}{\left(m_\chi/100\; {\rm GeV}\right)^{1/2} g_{\rm eff}^{1/4}\left(T_{\rm kd}/30\;{\rm MeV}\right)^{1/2}}\right)^3M_\odot\,.
+\end{equation}
+Acoustic oscillations also have to be taken into account as a damping mechanism 
+and lead to a similar exponential cutoff in the power spectrum
+\cite{Loeb:2005pm,Bertschinger:2006nq}. In this case, the characteristic damping mass 
+ is given by the total amount of DM inside the horizon at the time of kinetic decoupling:
+\begin{equation}
+  M_{\rm ao}\approx\frac{4\pi}{3}\left.\frac{\rho_\chi}{H^3}\right|_{T=T_{\rm{kd}}}
+  =3.4\times10^{-6}\left(\frac{T_{\rm kd}g_{\rm eff}^{1/4}}{50\,{\rm MeV}}\right)^{-3}M_\odot\,.
+\end{equation}
+
+In general, the actual cutoff in the power spectrum is  given by
+$M_{\rm cut}=\max\left[M_{\rm fs},M_{\rm ao}\right]$; which of the two
+physically independent damping mechanisms is more efficient depends on the 
+particle nature of the WIMP. 
+The expected mass for the smallest gravitationally bound objects in the 
+universe is then also simply given by $M_{\rm cut}$. Numerically, the formation of 
+protohalos with masses down to the cutoff scale has been confirmed
+and their evolution could be 
+followed until a redshift of $z\sim26$ \cite{Diemand:2005vz}; the further survival 
+probabilities of these objects, however, as well as the resulting consequences for the indirect 
+detection of DM, are subject to a presently still ongoing discussion.
+
+
+
+
+\subsection{Implementation in \ds}
+
+Before using any of the routines provided in {\tt src/mh} for the first time, one has to 
+call \ftb{dsmhset} in order to choose the DM model and to make some necessary initilizations; 
+currently, both the case of neutralino DM in the general SUSY case as well as Kaluza-Klein DM 
+in minimal universal extra 
+dimensions (mUED) are implemented. However, it is straightforward to add any additional, 
+user-defined  DM model by extending the relevant routines and following the comments
+given in the correponding files.  
+For the average user, the subroutines of greatest interest will be \ftb{dsmhtkd} and 
+\ftb{dsmhmcut}, and there should be no need to call any of the other routines directly.
+
+\ftb{dsmhtkd} numerically solves the Boltzmann equation (\ref{eq:boltz2}) and returns
+$T_{\rm kd}$ as given in the definition of Eq.~(\ref{eq:tkddef}). Here, special care is taken to 
+accurately handle potential resonances in the scattering amplitude; to this end, 
+\ftb{dsmhboltz\_init} identifies the location of all relevant resonances and passes this
+information to \ftb{dsmhboltz} where the integral of Eq.~(\ref{eq:cTdef}) is perfomed.
+
+Finally, \ftb{dsmhmcut} returns the mass cutoff in the power spectrum, with an input parameter 
+determining whether it is $M_{\rm fs}$ or $M_{\rm ao}$; the default call results in 
+$M_{\rm cut}=\max\left[M_{\rm fs},M_{\rm ao}\right]$, i.e.~the mass of 
+the smallest protohalos.

@@ -1,0 +1,14 @@
+# file to improve default parameters
+Mh      125             
+la3     0.68          
+la2     0.96         
+la4     0.33         
+laS     0.07          
+laS1    0.13         
+laS2    0.25          
+laS21   0.08          
+Mdm1    50          
+Mdm2    418.5          
+sinDm   0.995          
+muppS   57.51          
+Mtop	173.2

@@ -1,0 +1,42 @@
+# Makefile for hm directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemf.pl on Jan 31, 2013.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dsidtag.h dsdirver.h dsge.h dshmcom.h
+
+vpath %.h $(DINC)
+
+SRC = dshmabgrho.f dshmaxiprob.f dshmaxirho.f dshmboerrho.f \
+dshmboerrhoaxi.f dshmburrho.f dshmdfisotr.f dshmdfisotrnum.f \
+dshmeinastorho.f dshmeinastoset.f dshmhaloprof.f dshmj.f dshmjave.f \
+dshmjavegc.f dshmjavepar1.f dshmjavepar2.f dshmjavepar3.f dshmjavepar4.f \
+dshmjavepar5.f dshmjlb.f dshmjpar1.f dshmn03rho.f dshmnumrho.f \
+dshmrescale_rho.f dshmrho.f dshmrho2cylint.f dshmset.f dshmsphrho.f \
+dshmudf.f dshmudfearth.f dshmudfearthtab.f dshmudfgauss.f \
+dshmudfgaussdd.f dshmudfiso.f dshmudfnum.f dshmudfnumc.f dshmudftab.f \
+dshmvelearth.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

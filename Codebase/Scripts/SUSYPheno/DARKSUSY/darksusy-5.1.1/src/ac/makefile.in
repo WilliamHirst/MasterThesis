@@ -1,0 +1,37 @@
+# Makefile for ac directory
+# Author: Joakim Edsjo, edsjo@physto.se
+# Changed by Paolo Gondolo (2011)
+# This file is automatically created by makemf.pl on Jan 31, 2013.
+
+# Define fortran compiler and options (set when ./configure is run
+# in the DarkSUSY root directory
+FF=@F77@
+FOPT=@FOPT@
+
+FC=$(FF)
+FFLAGS=$(FOPT) -c -I$(DINC)
+
+# Dependencies and libraries
+DINC=../../include
+DOBJ=../../build
+
+INC_DEP = dsio.h dsmssm.h dsge.h dsaccom.h
+
+vpath %.h $(DINC)
+
+SRC = dsacbnd.f dsacbnd1.f dsacbnd10.f dsacbnd2.f dsacbnd3.f dsacbnd4.f \
+dsacbnd5.f dsacbnd6.f dsacbnd7.f dsacbnd8.f dsacbnd9.f dsacset.f \
+dsbsgamma.f dsbsgf1.f dsbsgf2.f dsbsgf3.f dsbsgf4.f dsgm2muon.f \
+dswexcl.f
+
+OBJ = $(patsubst %.f,$(DOBJ)/%.o,$(SRC))
+
+OBJF = $(patsubst %.F,$(DOBJ)/%.o,$(SRC))
+
+all : $(OBJ) $(OBJF)
+
+$(DOBJ)/%.o : %.F $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@
+
+$(DOBJ)/%.o : %.f $(INC_DEP)
+	$(FC) $(FFLAGS) $< -o $@

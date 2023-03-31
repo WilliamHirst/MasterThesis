@@ -1,0 +1,31 @@
+The an1l directory contains subroutines and functions to compute
+the amplitudes of a few processes of neutralino pair annihilation
+into 2-body final states allowed at 1-loop level. 
+All processes are computed in the limit of vanishing relative 
+velocity of the neutralino pair (S-wave only).
+
+The processes are:
+
+1) annihilation into 2 photons: real and imaginary parts of the 
+amplitude are given, respectively, in anggre.f and anggim.f 
+(which in turn call anggrepar.f and anggimpar.f).
+
+2) annihilation into 2 gluons: real and imaginary parts of the 
+amplitude are given, respectively, in anglglre.f and anglglim.f.
+
+3) annihilation into 1 photon and 1 Z boson: real and imaginary parts 
+of the amplitude are given in anzg.f (which in turn calls anzgpar.f).
+
+The remaining .f files contain auxiliary functions and subroutines
+which are used as specified in the header of each file.
+
+References:
+
+L. Bergstrom & P. Ullio, Nucl. Phys. B 504 (1997) 27;
+
+P. Ullio & L. Bergstrom, Phys. Rev. D 57 (1998) 1962;
+
+L. Bergstrom, P. Ullio & J. Buckley, Astrop. Phys. 9 (1998) 137.
+
+
+

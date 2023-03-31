@@ -1,0 +1,166 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Halo models -- theory}
+\label{sec:halo}
+
+All the dark matter detection rates depend in one way or another on
+the properties of the Milky Way dark matter halo. We will here outline
+the halo model that by default is included with \ds.
+
+The mass distribution in the Milky Way and the relative importance of
+\mbox{its} three components, the bulge, the disk and the halo, are
+poorly constrained by available observational data.  Although the
+dynamics of the satellites of the galaxy clearly indicates the
+presence of a non-luminous matter component, a discrimination among
+the different radial dark matter halo profiles proposed in the
+literature is not possible at the time being ~\cite{binney}.  One
+approach is to assume that dark matter profiles are of a universal
+functional form and to infer the Milky Way dark matter distribution
+from the results of N-body simulations of hierarchical clustering in
+cold dark matter cosmologies.  The predicted profiles in these
+scenarios have been tested to a sample of dark matter dominated dwarf
+and low-surface brightness galaxies which provide the best
+opportunities to test the spatial distribution of dark matter.
+Actually this field of research is in rapid evolution and slightly
+discrepant results have recently been presented
+\cite{navarro,carlberg,kravtsov,moore}.
+
+In \ds, we include a dark matter halo profile of the form
+\beq
+   \rho(r) \propto \frac{1}{(r/a)^{\gamma}\;[1+(r/a)^{\alpha}]^
+   {(\beta-\gamma)/\alpha}}.
+\eeq
+With this family of profiles, we have a parameterization of most
+spherically symmetric profiles
+in the literature. In Table~\ref{tab:halo-profile} we list the
+corresponding values of $\alpha$, $\beta$ and $\gamma$ for some
+popular profiles.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{lll}
+{\bfseries Model} & {\bfseries $(\alpha,\beta,\gamma)$}
+& {\bfseries $a$ (kpc)} \\ \hline
+Isothermal sphere \cite{kravtsov} & $(2,2,0)$ \\
+Kravtsov et al.\ \cite{kravtsov} & $(2,3,0.2-0.4)$ \\
+Navarro, Frenk and White\ \cite{navarro} & $(1,3,1)$ \\
+Moore et al.\ \cite{moore} & $(?,?,?)$ \\ \hline
+\end{tabular}
+\caption{Different halo dark matter profiles and their corresponding
+parameters.} 
+\label{tab:halo-profile}
+\end{center}
+\end{table}
+
+One should keep in mind that some of these profiles are very steep at
+the center of the galaxy which might be in conflict with observations.
+In fact, this is a topic under rapid evolution at present.  Some
+researchers have taken the view that the steep profiles seen in
+simulations are impossible to match with observations, and therefore
+drastic modifications of the cold dark matter scenario have been
+proposed.  Examples are self-interacting \cite{self} or strongly
+self-annihilating \cite{annihil} dark matter models.  None of these
+proposals can be made to work in MSSM models, so we do not consider
+them in \ds.  It should also be noted that there could be other,
+astrophysics-related solutions to these problems, which involve the
+interplay between the baryons and the dark matter.
+
+Our galactocentric distance $R_{0}$ is not entirely known. Estimates
+for $R_{0}$ range from 7.1 kpc to 8.5 kpc \cite{oll,reid,???} and in
+\ds\ we use $R_{0}=8.5$ kpc as a default. 
+We also choose the modified isothermal distribution as
+a default, but this can be changed by the user.
+
+As a further uncertainty, it is unknown precisely how the black hole
+at the galactic center would have interacted with the halo neutralino
+distribution. In fact, there are indications that a profile more
+singular than NFW would cause a very steep cusp (a ``spike'')
+near the Galactic center, with a high enough density that even
+the flux of neutrinos from that population could be detected \cite{gs}.
+If this really exists, essentially all MSSM models may already be excluded
+through the non-detection of radio emission from electrons and
+positrons generated in the annihilations \cite{spike}. It should be
+noted though that these estimates involve many uncertainties.
+
+We only consider spherical profiles; introducing a flattening
+parameter may enhance the value of the flux but the effect is not
+expected to be dramatic for this neutralino detection method and we
+prefer not to introduce another factor of uncertainty.
+
+We also need to specify the normalization constant of the halo
+profile, which we choose as the value of the halo density $\rho_0$ at
+our galactocentric distance $R_0$, the core radius $a$ and $R_0$.  One
+should keep in mind that there is correlation between the allowed
+values of $a$ and $\rho_{0}$ and the chosen halo profile
+\cite{bub,pierothesis} due to constraints on e.g.\ the total mass of
+the galaxy within 100 pc and the dark matter contribution to the local
+rotation curve.  In Table~\ref{tab:halo-profiles} we list typical
+values of $a$ and $\rho_{0}$ that we have chosen  based on
+these constraints for the different profiles. For more details about these
+arguments, see \cite{bub,pierothesis}. The \ds\ default value for
+$\rho_{0}$ is 0.3 GeV/cm$^3$.
+
+Usually, the local galactic dark matter velocity distribution is taken
+to be a truncated gaussian, which in the detector frame moving at
+speed $v_O$ relative to the galactic halo reads
+\begin{equation}
+   f(v) = {1\over {\mathcal N}_{\rm cut}} { v^2 \over u v_O \sigma} \left\{
+   \exp\left[{-{(u-v_O)^2\over2\sigma^2}}\right] -
+   \exp\left[{-{\min(u+v_O,v_{\rm cut})^2\over2\sigma^2}}\right]
+   \right\}
+\end{equation}
+for $ v_{\rm esc} < v < \sqrt{v_{\rm esc}^2 + (v_O + v_{\rm cut} ) ^2
+} $ and zero otherwise, with $ u = \sqrt{v^2 + v_{\rm esc}^2} $ and
+\begin{equation}
+   {\mathcal N}_{\rm cut} =
+   {v_{\rm cut}\over\sigma} \exp\left( {-{v_{\rm cut}^2\over2\sigma^2}} \right)
+   -
+   \sqrt{\pi\over2} {\rm erf} \left( {v_{\rm cut}\over\sqrt{2}\sigma} \right) .
+\end{equation}
+As default, we have taken the halo line-of-sight (one-dimensional) velocity
+dispersion $\sigma = $120 km/s,\footnote{Other authors write
+   $\exp(-3v^2/2\overline{v}^2)$, in which case $\overline{v} = \sqrt{3}
+   \sigma$.}  the galactic escape speed $ v_{\rm cut} = $ 600 km/s, the relative
+Earth-halo speed $ v_O = $ 264 km/s (a yearly average) and the Earth escape
+speed $ v_{\rm esc} = $ 11.9 km/s. These parameters can be changed by
+the user. In some instances, like neutralino capture in the
+Earth, the user can specify an arbitrary velocity distribution by
+providing a subroutine.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Rescaling of the neutralino density}
+\label{sec:rescale}
+
+It is natural to assume that the neutralinos make up most of the dark
+matter in our galaxy.  One may therefore only consider MSSM models
+which are cosmologically interesting, i.e.\ where the neutralinos can
+make up a major fraction of the dark matter in the Universe without
+overclosing it.  This range is usually chosen to be $0.025 <
+\Omega_{\chi}h^{2} <1$.  However, the user may want to either enlarge
+or narrow this range.  If, as is perhaps most natural, the neutralino
+alone contributes the major fraction of non-baryonic dark matter in
+the Universe, one may want to refer to the current values of
+cosmological parameters and fix $\Omega_{\chi}h^{2}$ to be in the
+interval between, say 0.1 and 0.3.  If there are other components of
+the dark matter, one may want to tolerate smaller numbers.  If one
+makes use of the poor knowledge of how galaxy halos were formed, all
+the range down to 0.025 may be taken as acceptable.  However, if
+$\Omega_{\chi}h^{2}$ drops below 0.025, it cannot account for all the
+dark matter associated with galaxy halos.  A frequently used recipe is
+then to rescale the estimated local dark matter density $\rho_0\sim
+0.3$ GeV/cm$^3$ by $\Omega_{\chi}h^2/0.025$, giving a lower local
+density in the form of neutralinos.  Although this may seem a harmless
+procedure, one should keep in mind that it is very {\em ad hoc} and
+that it may overestimate the preponderance of models with large direct
+detection rates.  This is because of the general result that
+$\Omega_{\chi}h^{2}\sim 1/\sigma_{ann}v$, and crossing symmetry
+generally relates a large annihilation cross section to a large
+scattering cross section.  (For indirect detection in the halo, the
+effect is moderated by the fact that the rates are proportional to the
+square of the density, which thus involves the square of the rescaling
+factor.)  In \ds, the user can set the value of the local dark matter
+density (the default is $0.3$ GeV/cm$^3$) and determine whether
+rescaling is to be used or not, and in that case the lowest tolerable
+$\Omega^{\rm min}_{\chi}h^{2}$ below which rescaling should take
+place.  If rescaling is used, all output detection rates are computed
+with the rescaled value when appropriate.
+

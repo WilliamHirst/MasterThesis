@@ -1,0 +1,26 @@
+#! /bin/sh
+# script to compile C programs that are linked 
+# against Fortran libraries
+# last modified 14 Dec 06 th
+
+args=""
+ldflags=""
+libs=""
+
+for arg in "$@" ; do
+  case "$arg" in
+  -[Ll]* | -Wl* | *.a)
+    ldflags="$ldflags \"$arg\""
+    ;;
+  *.cc)
+    args="$args \"$arg\""
+    libs="-lstdc++ $libs"
+    ;;
+  *)
+    args="$args \"$arg\""
+    ;;
+  esac
+done
+
+eval "set -x ; ${REALCC:-cc} $args $ldflags $libs"
+
