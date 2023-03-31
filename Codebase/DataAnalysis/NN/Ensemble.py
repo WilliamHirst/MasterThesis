@@ -49,7 +49,7 @@ else:
     Y = y
     df = df.drop(columns = ["channel", "wgt_SG"])
     df, df_data = scaleData(df,df_data)
-    df = PCAData(df, n_components=1-1e-3)
+    df, df_data = PCAData(df, df_data, n_components=1-1e-3)
     nrFeature = nFeats(df)
 
 
@@ -96,7 +96,7 @@ model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 # model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
 if not train:
-    model.load_weights(f"models/model_{name}.h5")
+    model.load_weights(f"models/Ensembles/model_{name}.h5")
 
 
 optimizer = optimizers.Adam(learning_rate=1e-3)
@@ -123,7 +123,7 @@ with tf.device("/GPU:0"):
 
         THP(history=history, model = name ,signal = signal )
     else: 
-        HM(model, df, Y, W, C, data = None, name = f"FS/{name}Grid", metric="Sig", save = False, saveTxt=True)
+        HM(model, df, Y, W, C, data = df_data, name = f"FS/{name}Grid", metric="Sig", save = False, saveTxt=True)
     
     
 exit()

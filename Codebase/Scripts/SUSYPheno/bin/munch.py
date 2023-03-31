@@ -753,6 +753,8 @@ class munch:
             print(bkg_i, sig_i)
             sign.append(ROOT.RooStats.NumberCountingUtils.BinomialObsZ(int(bkg_i)+int(sig_i),int(bkg_i),0.2))
         s.tabledict["sign"] = sign
+        print(sign)
+        exit()
 
     # ##########
     def Plot2D(s):

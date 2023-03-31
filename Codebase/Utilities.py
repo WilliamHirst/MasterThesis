@@ -287,7 +287,6 @@ def nFeats(data):
     try:
         nF = len(data.keys())
     except:
-        print(data)
         nF = len(data[0])
     return nF
 
@@ -317,8 +316,8 @@ def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_thresho
     if y_Data is not None:
         nrB = int(np.sum(sample_weight[np.ravel(y_MC>best_threshold)]))
         nrS = len(y_Data[np.ravel(y_Data>best_threshold)]) - nrB
-        nrS *= nrS>0
-        sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
+        # nrS *= nrS>0
+        # sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
 
     print(m_b)
     print(m_s)
@@ -330,13 +329,13 @@ def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_thresho
         
 def saveToTxt(m1, m2, nbkg, nsig, method):
     from os.path import exists
-    path = f'../results/{method}Sig.txt'
+    path = f'../results/text/{method}Sig.txt'
     if not exists(path):
         f = open(path, 'w')
-        f.write(f"m1    m2    nbkg    nsig")
+        f.write(f"m1    m2    nbkg    nsig\n")
     else:
         f = open(path, 'a')
-    f.write(f"{m1}    {m2}    {nbkg}    {nsig}")
+    f.write(f"{m1}    {m2}    {nbkg}    {nsig}\n")
     
     f.close()
 
