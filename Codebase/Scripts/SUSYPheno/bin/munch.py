@@ -155,8 +155,9 @@ def SetupROOT():
 def TextsFromRaw(plottexts_raw, ROOT, VB=0):
     # Input format is:  <text>,x,y[,size[D=],color[D=1],font[D=]]:<text>,...
     plottexts = []
-    if VB>2: print('plottexts_raw: %s' %(plottexts_raw))
     for zA in plottexts_raw:
+        if VB>2: print('plottexts_raw: %s' %(plottexts_raw))
+        # for zA in plottexts_raw:
         zB = zA.split(',')
         if len(zB) < 3: sys.exit('FATAL: nonallowed -text: %s' %(zA))
         thistext = ROOT.TLatex()
@@ -750,11 +751,25 @@ class munch:
         sig = s.tabledict["nsig"]
         sign = []
         for bkg_i, sig_i in zip(bkg, sig):
-            print(bkg_i, sig_i)
-            sign.append(ROOT.RooStats.NumberCountingUtils.BinomialObsZ(int(bkg_i)+int(sig_i),int(bkg_i),0.2))
+            sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialObsZ(int(bkg_i)+int(sig_i),int(bkg_i),0.2)))
         s.tabledict["sign"] = sign
-        print(sign)
-        exit()
+    def CalcExpSig(s):
+        bkg = s.tabledict["nbkg"]
+        sig = s.tabledict["nexpsig"]
+        sign = []
+        for bkg_i, sig_i in zip(bkg, sig):
+            print(bkg_i, sig_i, abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.2)))
+            sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.2)))
+        s.tabledict["expsign"] = sign
+    def myText(s,x, y, text, tsize=0.05, color=ROOT.kBlack, angle=0) :
+        l = ROOT.TLatex()
+        l.SetTextSize(tsize)
+        l.SetNDC()
+        l.SetTextColor(color)
+        l.SetTextAngle(angle)
+        l.DrawLatex(x,y,'#bf{' + text + '}')
+        l.SetTextFont(4)
+     
 
     # ##########
     def Plot2D(s):
@@ -767,7 +782,7 @@ class munch:
         s.c1.SetTopMargin(s.dict['topmargin'])
         s.c1.SetBottomMargin(s.dict['bottommargin'])
         s.c1.SetLeftMargin(s.dict['leftmargin'])
-        s.c1.SetRightMargin(s.dict['rightmargin'])
+        s.c1.SetRightMargin(s.dict['rightmargin']*1.4)
 
         s.c1.SetTheta(s.dict['CanvasTheta'])
         s.c1.SetPhi(s.dict['CanvasPhi'])
@@ -777,35 +792,33 @@ class munch:
         if s.yrangemin == s.undefined: s.yrangemin = min(s.y) # 2D
         if s.yrangemax == s.undefined: s.yrangemax = max(s.y) # 2D
 
-        hDef = ROOT.TH2F('hDef', s.title, 1, s.xrangemin, s.xrangemax, 1, s.yrangemin, s.yrangemax)
+        s.myText(5,5,r"\tilde \chi_{1}", color=ROOT.kWhite, tsize=0.1)
+        
+        # s.plottexts.Draw()
+        hDef = ROOT.TH2F('hDef', '', 1, s.xrangemin, s.xrangemax, 1, s.yrangemin, s.yrangemax)
         s.hDef = hDef
         # hDef.SetMinimum(s.zrangemin) # No effect here, need to do for hgr below (probably also other features)
         # hDef.SetMaximum(s.zrangemax)
         
         tax = hDef.GetXaxis()
         tay = hDef.GetYaxis()
-        tax.SetTitle(r"\tilde \chi_{2}")
-        tax.SetTitleSize(0.05)
-        tax.SetLabelSize(0.035)
-        tay.SetTitle(r"\tilde \chi_{1}")
-        tay.SetTitleSize(0.05)
-        tay.SetLabelSize(0.035)
+      
+   
         # print tax.GetTitleOffset()
         # print tay.GetTitleOffset()
-        tax.SetTitleOffset(0.8)
-        tay.SetTitleOffset(1)
         # print tax.GetTickLength()
         tax.SetTickLength(s.dict['ticklengthx'])  # no effect
         tay.SetTickLength(s.dict['ticklengthy'])
 
 
         # Contours
+        s.CalcSig()
+        s.CalcExpSig()
         for cont in s.conts:
             # Local vars: x,y,nvars (do this because they can be cut with cutrange
             #ndim = len(x)
             
             contT = s.contsT[cont]
-            s.CalcSig()
             s.contval[cont] = GetPlainArray(table=s.tabledict, var=cont, arraytype='f', protection=s.dict['operationprotection'])  # should we allow this to also be scaled?
 
             # ------ hard xy-range (remove from table) [1. contours]
@@ -879,8 +892,9 @@ class munch:
 
             # 2D
             # Plot
-            hDef.SetTitle(resvarT)
-            if s.title != "": hDef.SetTitle(s.title)
+            # hDef.SetTitleAlign(1)
+            # hDef.SetTitle(r"\tilde \chi_{1}")
+            # if s.title != "": hDef.SetTitle(r"\tilde \chi_{1}")
             hDef.Draw(s.dict['drawstyle_hdef'])
             if s.dict['tickyright']: ROOT.gPad.SetTicky(s.dict['tickyright'])  # 2014-02-06 uncommented (why was it commented?)
             if s.dict['ticktop']:   ROOT.gPad.SetTickx(s.dict['ticktop'])      # ditto
@@ -1021,9 +1035,11 @@ class munch:
                 pass
 
             # Additional text on the plot
-            s.plottexts = TextsFromRaw(s.plottexts_raw, ROOT, VB=s.VB) 
-            for plottext in s.plottexts: plottext.Draw()
-
+            # s.plottexts = TextsFromRaw(s.plottexts_raw, ROOT, VB=s.VB) 
+            # for plottext in s.plottexts: plottext.Draw()
+            s.plottexts = TextsFromRaw([r"\tilde \chi_{1}, 0.055, 0.93, 0.06",r"\tilde \chi_{2}, 0.9, 0.05, 0.06"], ROOT) 
+            s.plottexts[0].Draw()
+            s.plottexts[1].Draw()
             
             # Save
             s.c1.SaveAs(fn)
@@ -1331,8 +1347,8 @@ class munch:
                 # print(zvals,zcol)
                 s.conts.append(zvar)
                 s.contsT[zvar] = zvarT
-                s.contsDef[zvar] = {'vals': zvals, 'col':zcol, 'sty':zsty, 'wid':zwid}   # might be an idea to make a class
 
+                s.contsDef[zvar] = {'vals': zvals, 'col':zcol, 'sty':zsty, 'wid':zwid}   # might be an idea to make a class
         if Arg.hasget(['-moredict','-moredicts']):
             thiswiththiss = Arg.list()  # ex -moredict dict1:dict0,dict2:dict0   # adds two more dicts to check (per scenario)
             for thiswiththis in thiswiththiss: 

@@ -294,7 +294,7 @@ def nFeats(data):
 def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_threshold = None, max_sig = None, returnNr = False):
     bkg_indx = y_label == 0
 
-    sample_weight.loc[np.ravel(np.asarray(y_label==0))] /=  sf
+    # sample_weight.loc[np.ravel(np.asarray(y_label==0))] /=  sf
 
     if max_sig is None:
         max_sig = 0.9999
@@ -314,10 +314,10 @@ def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_thresho
             m_b = nrB
     sig = max
     if y_Data is not None:
-        nrB = int(np.sum(sample_weight[np.ravel(y_MC>best_threshold)]))
-        nrS = len(y_Data[np.ravel(y_Data>best_threshold)]) - nrB
+        nrBexp = int(np.sum(sample_weight[np.ravel(y_MC>best_threshold)*np.ravel(np.asarray(y_label==0))]))
+        nrSexp = int(np.sum(sample_weight[np.ravel(y_MC>best_threshold)*np.ravel(np.asarray(y_label==1))]))
+        nrS = len(y_Data[np.ravel(y_Data>best_threshold)]) - nrBexp
         # nrS *= nrS>0
-        # sig  = np.sqrt(2*((nrS + nrB)*np.log(1+nrS/nrB)-nrS))
 
     print(m_b)
     print(m_s)
@@ -325,17 +325,19 @@ def Calc_Sig(y_MC, y_label, sample_weight, y_Data = None,sf = None, best_thresho
 
     print(f"The significance: {sig}.")
     if returnNr:
-        return sig, nrB, nrS
+        return sig, nrBexp, nrS, nrSexp
+    return sig
+
         
-def saveToTxt(m1, m2, nbkg, nsig, method):
+def saveToTxt(m1, m2, nbkg, nsig, nexpsig, method):
     from os.path import exists
     path = f'../results/text/{method}Sig.txt'
     if not exists(path):
         f = open(path, 'w')
-        f.write(f"m1    m2    nbkg    nsig\n")
+        f.write(f"m1    m2    nbkg    nsig    nexpsig\n")
     else:
         f = open(path, 'a')
-    f.write(f"{m1}    {m2}    {nbkg}    {nsig}\n")
+    f.write(f"{m1}    {m2}    {nbkg}    {nsig}    {nexpsig}\n")
     
     f.close()
 

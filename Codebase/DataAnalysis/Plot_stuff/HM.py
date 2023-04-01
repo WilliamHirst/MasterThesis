@@ -57,13 +57,13 @@ def HM(model, X, Y, W, columns, name, metric = "Auc", data = None, save = False,
      
 
         elif metric == "Sig":
-            sf = np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
-            W_i.loc[(Y_i==0).to_numpy()] *= sf
+            # sf = np.sum(W_i[(Y_i==1).to_numpy()])/np.sum(W_i[(Y_i==0).to_numpy()])
+            # W_i.loc[(Y_i==0).to_numpy()] *= sf
             if saveTxt:
-                score, nbkg, nsig  = Calc_Sig(predict_prob(X_i), Y_i, W_i, predict_prob(data),sf =sf, best_threshold=threshold,max_sig= np.max(predict_prob(X_i)), returnNr=True)
-                saveToTxt(m1, m2, nbkg, nsig, method)
+                score, nbkg, nsig, nexpsig  = Calc_Sig(predict_prob(X_i), Y_i, W_i, predict_prob(data), best_threshold=threshold,max_sig= np.max(predict_prob(X_i)), returnNr=True)
+                saveToTxt(m1, m2, nbkg, nsig, nexpsig, method)
             else:    
-                score = Calc_Sig(predict_prob(X_i), Y_i, W_i, sf =sf, best_threshold=threshold,max_sig= np.max(predict_prob(X_i)))
+                score = Calc_Sig(predict_prob(X_i), Y_i, W_i, best_threshold=threshold,max_sig= np.max(predict_prob(X_i)))
 
         if save:
             saveToJson(score, m1, m2, metric, method)
