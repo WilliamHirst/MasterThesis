@@ -1,5 +1,22 @@
 \section{Dense Neural Networks}
 \subsection{Deep vs Shallow}
+In previous sections, I have discussed the reasoning for not wanting an automated process for building network architectures (otherwise known
+as hyperparameter searches). Although, I found manually choosing the architecture for each model to be preferable in this analysis, there 
+are some downsides to that decision. When building each model I wanted to ensure that the performance of said models was representative of 
+the category of models I wanted to build. In other words, I wanted to ensure that any drawbacks were related to the type of model and not 
+a result of poorly chosen number of layers or nodes. Therefore, I wanted to relieve as much randomness in the choice of architecture as possible.
+\\
+In this section I present a comparison between the results from two dense \ac{NN}, one deep and one shallow. The deep network 
+uses the dense \ac{NN} architecture described in \ref{subsec:arch}, while the shallow network uses the same amount of hidden layers,
+but with only 20 nodes in each. The comparison represents a sample of networks I choose to compare when deciding the number of nodes and 
+hidden layers would be used in the analysis. Both networks, deep and shallow utilized the training strategy described in section 
+\ref{subsec:TrainingStrategy}. In figure \ref{fig:NNshallowGridSig}, I drew a grid displaying the achieved sensitivity for the shallow 
+network. By comparing with the results achieved by the XGBoost model in figure \ref{fig:XGBoost}, we can observe that the shallow network 
+performs very similarly to the XGBoost model. In fact, the XGBoost model seems to outperform the shallow network ever so slightly.
+\\
+In figure \ref{fig:NNGridSig}, I present the same grid as described above, but using the deep network. By comparing the results from the shallow 
+network in figure \ref{fig:NNshallowGridSig}, we can discern that the deep network outperforms the shallow network for every single mass 
+combination in the original signal set. This result motivated the choice of layers and nodes for all networks used in the sections to come.
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
