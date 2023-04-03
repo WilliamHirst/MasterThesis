@@ -1,0 +1,1 @@
+munch.py  -coord m1,m2  -resvars sign  -fn_table MaxOutPCA_FS_MLMGridSig.txt  -cont sign:Z:1:7:2:5,,expsign:Z:1.64:5:2:5       # 2023-04-01_16-12-43

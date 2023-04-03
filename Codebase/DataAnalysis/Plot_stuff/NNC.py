@@ -113,20 +113,20 @@ def draw_pie(dist,
 if __name__ == "__main__":
 
     metric = "Sig"
-    plotters = ["MaxOutGrid", "PNNGrid", "NNGrid"]
-    name = "Gen"
-    plotters = ["MaxOutPCAGrid", "PNNPCAGrid", "NNPCAGrid"]
-    name = "PCA"
-    plotters = ["HybridPCAMaxOutGrid", "HybridPCALeakyGrid", "PNNPCAGrid", "MaxOutPCAGrid"]
-    name = "Hybrid"
-    plotters = ["MaxOutPCA_FS_MLMGrid", "PNNPCA_FS_MLMGrid", "NN_FS_MLMGrid"]
-    name = "FS_MLM"
-    plotters = ["MaxOutPCA_FSGrid", "PNNPCA_FSGrid", "NN_FSGrid"]
-    name = "FS"
-    plotters = ["StochChannelOutGrid", "ChannelOutGrid", "MaxOutGrid"]
-    name = "Ensembles"
-    plotters = ["NNPCAGrid", "NNGrid"]
-    name = "NNPCA"
+    plotters = ["MaxOutGrid", "PNNGrid", "NNGrid", "XGBGrid"]
+    name = "GenPlussXGB"
+    # plotters = ["MaxOutPCAGrid", "PNNPCAGrid", "NNPCAGrid"]
+    # name = "PCA"
+    # plotters = ["HybridPCAMaxOutGrid", "HybridPCALeakyGrid", "PNNPCAGrid", "MaxOutPCAGrid"]
+    # name = "Hybrid"
+    # plotters = ["MaxOutPCA_FS_MLMGrid", "PNNPCA_FS_MLMGrid", "NN_FS_MLMGrid"]
+    # name = "FS_MLM"
+    # plotters = ["MaxOutPCA_FSGrid", "PNNPCA_FSGrid", "NN_FSGrid"]
+    # name = "FS"
+    # plotters = ["StochChannelOutGrid", "ChannelOutGrid", "MaxOutGrid"]
+    # name = "Ensembles"
+    # plotters = ["NNPCAGrid", "NNGrid"]
+    # name = "NNPCA"
     # plotters = ["MaxOutPCAGrid", "MaxOutGrid"]
     # name = "MaxOutPCA"
     # plotters = ["PNNPCAGrid", "PNNGrid"]

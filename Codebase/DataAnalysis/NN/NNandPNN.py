@@ -21,7 +21,7 @@ from Utilities import *
 myPath = "/storage/William_Sakarias/William_Data"
 
 
-name = "NNFS_MLM"
+name = "PNNPCA_FS_MLM"
 signal = "SUSY"
 train = False
 #notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0"]
@@ -35,7 +35,7 @@ notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0
 print(f"Starting test: Model = {name} -- Signal = {signal}")
 
 df, y, df_data, channels = loadDf(myPath, notInc=notInc)
-# df, df_data = AddParameters(df, y,df_data) # Only for PNN
+df, df_data = AddParameters(df, y,df_data) # Only for PNN
 
 if train:
     print("Preparing data....")
@@ -51,7 +51,7 @@ else:
     Y = y
     df = df.drop(columns = ["channel", "wgt_SG"])
     df, df_data = scaleData(df,df_data)
-    df = PCAData(df, n_components=1-1e-3)
+    df, df_data = PCAData(df, df_data, n_components=1-1e-3)
     nrFeature = nFeats(df)
 
 
@@ -64,7 +64,7 @@ model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=
 model.add(tf.keras.layers.Dense(1,   activation="sigmoid"))
 
 if not train:
-    model.load_weights(f"models/model_{name}.h5")
+    model.load_weights(f"models/PNN/model_{name}.h5")
 
 optimizer = optimizers.Adam(learning_rate=1e-3)
 model.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
@@ -92,7 +92,7 @@ with tf.device("/GPU:0"):
 
 
     else: 
-        HM(model, df, Y, W, C, data = None, name = f"FS/{name}Grid", metric="Sig", save = True)
+        HM(model, df, Y, W, C, data = df_data, name = f"FS/{name}Grid", metric="Sig", save = False, saveTxt=True)
     
     
     
