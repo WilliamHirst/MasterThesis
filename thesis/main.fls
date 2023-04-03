@@ -2665,6 +2665,11 @@ INPUT Sections/Results/MLComparison.tex
 INPUT ./Sections/Results/MLComparison.tex
 INPUT ./Sections/Results/MLComparison.tex
 INPUT Sections/Results/MLComparison.tex
+INPUT ./Figures/MLResults/NN/SUSY/Comparison/GenPlussXGBNetworkComp.pdf
+INPUT ./Figures/MLResults/NN/SUSY/Comparison/GenPlussXGBNetworkComp.pdf
+INPUT Figures/MLResults/NN/SUSY/Comparison/GenPlussXGBNetworkComp.pdf
+INPUT ./Figures/MLResults/NN/SUSY/Comparison/GenPlussXGBNetworkComp.pdf
+INPUT ./Figures/MLResults/NN/SUSY/Comparison/GenPlussXGBNetworkComp.pdf
 INPUT ./Sections/Results/PCA.tex
 INPUT ./Sections/Results/PCA.tex
 INPUT ./Sections/Results/PCA.tex

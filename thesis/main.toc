@@ -93,11 +93,11 @@
 \contentsline {subsection}{\numberline {4.4.1}Discriminating Masses}{52}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Sensitivity Result}{54}{subsection.4.4.2}%
 \contentsline {section}{\numberline {4.5}Comparing Machine Learning Models}{54}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{54}{section.4.6}%
+\contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{55}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{55}{section.4.7}%
 \contentsline {subsection}{\numberline {4.7.1}Running on Full Statics}{55}{subsection.4.7.1}%
-\contentsline {chapter}{Appendices}{61}{section*.76}%
-\contentsline {chapter}{Appendix A}{63}{appendix*.77}%
+\contentsline {chapter}{Appendices}{61}{section*.77}%
+\contentsline {chapter}{Appendix A}{63}{appendix*.78}%
 \contentsline {section}{\numberline {A.1}Sensitivity Grids}{63}{section.Alph0.1}%
 \contentsline {subsection}{\numberline {A.1.1}Ensembles}{63}{subsection.Alph0.1.1}%
 \contentsline {subsection}{\numberline {A.1.2}Increasing Sensitivity Through}{63}{subsection.Alph0.1.2}%
