@@ -141,15 +141,6 @@ def SetupROOT():
     ROOT.gStyle.SetOptStat(0)
     ROOT.gStyle.SetTitleBorderSize(0)
     ROOT.gStyle.SetPalette(60)
-    # palette = ROOT.MakeNullPointer(ROOT.Int_t)
-    # palette = 5*(ROOT.Int_t)
-    # palette[0] = 15
-    # palette[1] = 20
-    # palette[2] = 23
-    # palette[3] = 30
-    # palette[4] = 32
-    
-    # ROOT.gStyle.SetPalette(10000)
 
 # ##########
 def TextsFromRaw(plottexts_raw, ROOT, VB=0):
@@ -322,7 +313,7 @@ class munch:
         s.drawstyle_gr2D = 'zsurf2same'  # is the same as zcont4same if you also do c1.SetTheta(90); c1.SetPhi(0)
         s.dict['CanvasTheta'] = 90
         s.dict['CanvasPhi'] = 0
-        s.dict['drawstyle_cont'] = 'cont2same'
+        s.dict['drawstyle_cont'] = 'cont5same'
         #s.dict['drawstyle_cont'] = 'cont5same'  # test
 
         s.dict['practicalZERO'] = 1e-15  # useful for log plots
@@ -758,7 +749,6 @@ class munch:
         sig = s.tabledict["nexpsig"]
         sign = []
         for bkg_i, sig_i in zip(bkg, sig):
-            print(bkg_i, sig_i, abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.2)))
             sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.2)))
         s.tabledict["expsign"] = sign
     def myText(s,x, y, text, tsize=0.05, color=ROOT.kBlack, angle=0) :
@@ -786,7 +776,8 @@ class munch:
 
         s.c1.SetTheta(s.dict['CanvasTheta'])
         s.c1.SetPhi(s.dict['CanvasPhi'])
-        
+        s.legendDict = {"sign": r"1 \sigma_{obs}","expsign": r"1.64\sigma_{exp}"}
+
         if s.xrangemin == s.undefined: s.xrangemin = min(s.x)
         if s.xrangemax == s.undefined: s.xrangemax = max(s.x)
         if s.yrangemin == s.undefined: s.yrangemin = min(s.y) # 2D
@@ -794,7 +785,7 @@ class munch:
 
         s.myText(5,5,r"\tilde \chi_{1}", color=ROOT.kWhite, tsize=0.1)
         
-        # s.plottexts.Draw()
+        # s.plottexts.
         hDef = ROOT.TH2F('hDef', '', 1, s.xrangemin, s.xrangemax, 1, s.yrangemin, s.yrangemax)
         s.hDef = hDef
         # hDef.SetMinimum(s.zrangemin) # No effect here, need to do for hgr below (probably also other features)
@@ -814,6 +805,9 @@ class munch:
         # Contours
         s.CalcSig()
         s.CalcExpSig()
+        tlegcont = ROOT.TLegend(0.125,0.7, 0.3,0.875)
+        tlegcont.SetBorderSize(0)
+        tlegcont.SetFillColorAlpha(ROOT.kWhite,0.45)
         for cont in s.conts:
             # Local vars: x,y,nvars (do this because they can be cut with cutrange
             #ndim = len(x)
@@ -835,12 +829,16 @@ class munch:
             s.gr_cont.append(gr)  # needed?
             hgr_cont = gr.GetHistogram()
             #a = s.contsDef[cont]['vals']
-            #print type(list(a)), list(a)
-            hgr_cont.SetContour(len(s.contsDef[cont]['vals']), s.contsDef[cont]['vals'])
+            #print type(list(a)), list(a)¨
             hgr_cont.SetLineColor(s.contsDef[cont]['col'])
             hgr_cont.SetLineStyle(s.contsDef[cont]['sty'])
             hgr_cont.SetLineWidth(s.contsDef[cont]['wid'])
+            # hgr_cont.SetFillColorAlpha(ROOT.kCyan,1)
+            # hgr_cont.SetFillStyle(3023)
+            # s.contsDef[cont]['vals'].append(s.contsDef[cont]['vals'][0]*1.2)
+            hgr_cont.SetContour(len(s.contsDef[cont]['vals']), s.contsDef[cont]['vals'])
             s.hgr_cont[cont] = hgr_cont
+            tlegcont.AddEntry(hgr_cont,s.legendDict[cont],"lpf")
             
 
         for igr in range(len(s.resvars)):
@@ -929,11 +927,10 @@ class munch:
         
             hgr.Draw(s.drawstyle_gr2D)  # 
             # Contour plotting
-            
-            tlegcont = ROOT.TLegend(0.5,0.5, 0.8,0.8)
             for cont in s.conts:
                 hgr_cont = s.hgr_cont[cont]
                 hgr_cont.Draw(s.dict['drawstyle_cont'])
+                
                 
             # Numbers on plot (manual)
             # ----------
@@ -1030,14 +1027,14 @@ class munch:
             #print 'gridding: ', s.dict['gridx'], s.dict['gridy']  # doesn't work with SURF
 
             if s.conts:
-                #tlegcont.Draw('L')
+                tlegcont.Draw('L')
                 # WORK-IN-PROGRESS
                 pass
 
             # Additional text on the plot
             # s.plottexts = TextsFromRaw(s.plottexts_raw, ROOT, VB=s.VB) 
             # for plottext in s.plottexts: plottext.Draw()
-            s.plottexts = TextsFromRaw([r"\tilde \chi_{1}, 0.055, 0.93, 0.06",r"\tilde \chi_{2}, 0.9, 0.05, 0.06"], ROOT) 
+            s.plottexts = TextsFromRaw([r"\tilde \chi_{1}[Gev], 0.055, 0.93, 0.05",r"\tilde \chi_{2}[Gev], 0.75, 0.025, 0.05"], ROOT) 
             s.plottexts[0].Draw()
             s.plottexts[1].Draw()
             
@@ -1153,7 +1150,7 @@ class munch:
             gr = ROOT.TGraph(len(x), x, s.z)
             gr.SetName(resvarT)
 
-            #gr.SetFillStyle(0)  # Not sure why I need to specify this  # needed to because I used default sty ('lpf') (f=fill)
+            # gr.SetFillStyle(3001)  # Not sure why I need to specify this  # needed to because I used default sty ('lpf') (f=fill)
             s.gr.append(gr)
 
         # done looping over res vars: fixing arrays, creating graphs, nicify them
