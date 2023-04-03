@@ -50,10 +50,11 @@ results from an analysis which aims to test the affirmation affect.
 \\
 In figure \ref{fig:Interpolation}, I present the results from two models who have each trained on two different amounts of signal.
 The training used to produce the results aligns with the strategy described in section \ref{subsec:TrainingStrategy}.
-Figure \ref{fig:OneMass} presents the achieved sensitivity from a dense \ac{NN} which has only trained on one mass combination,
-($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV), while figure \ref{fig:SeveralMass} presents the achieved sensitivity (using the same 
-architecture) after training on a large set of mass combinations. Specifically, the latter figure shows the results after training on 
-all signals on the outer square in the figure \ref{fig:SeveralMass} and ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV).\\
+Figure \ref{fig:OneMass} presents the achieved sensitivity from a dense \ac{NN} which has only trained on one mass combination (which will 
+hence force be referred to as \ac{OMM}), ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV), while figure \ref{fig:SeveralMass} presents the 
+achieved sensitivity (using the same architecture) after training on a large set of mass combinations (which will hence force be referred 
+to as \ac{SMM}). Specifically, the latter figure shows the results after training on all signals on the outer square in the figure \ref{fig:SeveralMass} and 
+($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV).\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -77,19 +78,19 @@ all signals on the outer square in the figure \ref{fig:SeveralMass} and ($\tilde
     a model who has seen all mass combinations in the grid, but for the inner square of masses. }
     \label{fig:Interpolation}
 \end{figure}
-My initial prediction of this comparison, was that the one-mass model would outperform the several-masses model for the signal with
-($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV), while underperforming on all other data points. The expectation was that one-mass model 
-would learn the trends of the only signal it had seen, while the several-masses model would do the same but for more mass combination and 
+My initial prediction of this comparison, was that the \ac{OMM} would outperform the \ac{SMM} for the signal with
+($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV), while underperforming on all other data points. The expectation was that \ac{OMM} 
+would learn the trends of the only signal it had seen, while the \ac{SMM} would do the same but for more mass combination and 
 at the same time interpolate the results for the masses in between. By comparing figures \ref{fig:OneMass} and \ref{fig:SeveralMass} we 
 see that my prediction was not completely true. We can observe that the model which has trained on several-masses outperformed the 
-one-mass model on every single signal. At first, I believed this to be caused by the one-mass model overfitting a lot sooner than the other 
+\ac{OMM} on every single signal. At first, I believed this to be caused by the \ac{OMM} overfitting a lot sooner than the other 
 model, therefore being stopped earlier in training by the early-stopping criteria described in section \ref{subsec:TrainingStrategy}. 
 To test this theory, I drew the training history of each training session.
 \\
 In figure \ref{fig:InterpolateHistory} I drew the \ac{AUC} score made after each epoch on both the training and validation set
-for the one-mass model (\ref{fig:oneMassHist}) and the several-masses model \ref{fig:SeveralMassHist}. By comparing the two figures,
-we observe that the one-mass models performance on the validation set peaks in the first epoch, therefore stopping training after 
-10 epochs, while the several-masses model peaks after 6 epochs. This is a clear indication that training on one mass combination, leads 
+for the \ac{OMM} (\ref{fig:oneMassHist}) and the \ac{SMM} \ref{fig:SeveralMassHist}. By comparing the two figures,
+we observe that the \ac{OMM}'s performance on the validation set peaks in the first epoch, therefore stopping training after 
+10 epochs, while the \ac{SMM} peaks after 6 epochs. This is a clear indication that training on one mass combination, leads 
 to overfitting. 
 \begin{figure}
     \makebox[\linewidth][c]{%
@@ -111,11 +112,11 @@ to overfitting.
     \label{fig:InterpolateHistory}
 \end{figure}
 \\
-Given the one-mass models performance is reduced by the early-stopping criteria, I wanted to explore if it would be able to outperform the 
-several-masses model given it was allowed to train deeper. In figure \ref{fig:NNOverfitting}, I display the achieved significance
-of the one-mass model in the case where early-stopping has been removed, and the model was allowed to train for 15 epochs. By comparing figures 
-\ref{fig:SeveralMass} and \ref{fig:NNOverfitting}, we can observe that even when early-stopping is removed from the one-mass model, it is  
-still outperformed by the several-masses model. This indicates that overfitting is not the only reason for the one-mass models disappointing performance.\\
+Given the \ac{OMM}s performance is reduced by the early-stopping criteria, I wanted to explore if it would be able to outperform the 
+\ac{SMM} given it was allowed to train deeper. In figure \ref{fig:NNOverfitting}, I display the achieved significance
+of the \ac{OMM} in the case where early-stopping has been removed, and the model was allowed to train for 15 epochs. By comparing figures 
+\ref{fig:SeveralMass} and \ref{fig:NNOverfitting}, we can observe that even when early-stopping is removed from the \ac{OMM}, it is  
+still outperformed by the \ac{SMM}. This indicates that overfitting is not the only reason for the \ac{OMM}'s disappointing performance.\\
 \begin{figure}
     \centering
     \makebox[\linewidth][c]{%
@@ -129,7 +130,7 @@ still outperformed by the several-masses model. This indicates that overfitting 
     early-stopping.}
     \label{fig:NNOverfitting}
 \end{figure}
-The most probable explanation for the underwhelming performance of the one-mass model, is that nearby mass combinations (i.e. mass combination with 
+The most probable explanation for the underwhelming performance of the \ac{OMM}, is that nearby mass combinations (i.e. mass combination with 
 relatively similar masses) exhibit a lot of overlap in terms of feature trends. In other words, nearby mass combinations (in this example, mass combinations 
 differ by 100GeV) often contribute to the same type of training. This means that by including a larger range of signals, which are similar in mass, we are 
 essentially increasing the amount of data for each individual signal.

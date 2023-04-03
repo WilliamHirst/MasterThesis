@@ -176,7 +176,7 @@ section (see section \ref{subsec:Overfitting}), I presented how through maxout's
 uphold the early-stopping criteria for a larger number of epochs. The second factor is maxout's innate training memory\footnote{By training
 memory, I refer to the models' ability to tune towards several trends without reducing in performance.} which was tested in section \ref{subsec:Viz}. 
 From figure \ref{fig:MaxOutGridSig}, we are able to deduce that although the maxout model is not able to training to the same depth 
-for the lower masses, it is able to achieve a large level of generalizability through reducing overfitting and increasing training memory.
+for the lower masses, it is able to achieve a large level of generalizability through reducing overfitting and increasing training memory.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -188,7 +188,19 @@ for the lower masses, it is able to achieve a large level of generalizability th
     created by the \emph{MaxOut} network.}
     \label{fig:MaxOutGridSig}
 \end{figure}
-
+In appendix \ref{appendix:Ensembles} I have included grids displaying the achieved sensitivity for both channel-out and \ac{SCO}. Both 
+models demonstrate similar performance to the maxout layer. To compare the three methods, I created a "pie-plot". A pie-plot 
+compares the achieved sensitivity between several models and display the results for each individual mass combination.  In figure 
+\ref{fig:EnsembleComp} I present the pie-plot comparing maxout, channel-out and \ac{SCO}. Each mass combination includes a pie, where 
+the size of each "slice" represents the relative size of the significance compared to the other methods. The color surrounding each 
+pie marks which method achieved the highest sensitivity for the respective combination.
+\\
+By studying the pie-plot in figure \ref{fig:EnsembleComp}, we can deduce that maxout model outperforms the other two in most of the mass 
+combination (24/30). From the sizes of each "slice", we can observe that all three models seem relatively equal in performance, maxout only 
+outperforming the others by a small fraction. The most interesting observation from the pie-plot is the performance from the \ac{SCO}, as 
+this model was in-part created by me. Except the mass combinations where maxout was the most sensitive, \ac{SCO} outperformed 
+the rest. This is an indicator that although the method seemed not to be the most optimal ensemble method for this analysis, it does 
+indeed show great promise and should be further explored in further analysis. 
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
