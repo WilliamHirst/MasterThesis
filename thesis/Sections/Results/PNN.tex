@@ -98,7 +98,7 @@ percentage of background with a given label is equal to the percentage of the si
 the higher the amount of background will be "linked" to it. Inn the same section I also described the hope that the parameters would shift the 
 output from the initial layer in a way that motivates individualistic training. If this is true\footnote{For a network of this depth, it is very hard to explain what happens during training.
 Lack of explainability is in fact one of the biggest downsides to deep networks.} it means that masses with larger statistics, are given larger amounts of background to train with. 
-This could explain the uneven performance by the \ac{PNN}.
+This could explain the uneven performance by the \ac{PNN}. \\
 \begin{figure} 
     \makebox[\linewidth][c]{%
     \centering
@@ -110,3 +110,11 @@ This could explain the uneven performance by the \ac{PNN}.
     created by the \ac{PNN} network.}
     \label{fig:PNNGridSig}
 \end{figure}
+In this analysis I choose to follow the methodology described in the article by Baldi et al. \cite{PNN}, but other variants of the \ac{PNN} could 
+be of interest in future studies. An alternative to the current setup for distributing parameters to the background, is to distribute the parameters evenly. 
+In other words, for N different mass combinations, each set of parameters will be distributed to 1/N parts of the background. This would most likely produce 
+more consistent results. I considered using an even approach, but found that the current setup was more aligned with the rest of the analysis where a 1-1, signal-
+background ratio approach has been made\footnote{In section \ref{subsec:TraVal} I discuss how I have chosen to scale the weights such that sum of the weights of 
+the background is equal to the sum of the weights of the signal.}. The more interesting alternative would be to assign the background most similar to a given mass 
+combination, the same parameters. This would focus the training of the \ac{PNN} on the set of events which should be hardest to separate. Due to time constraints
+of this thesis, I decided not to test this approach, but would be an interesting area to explore.

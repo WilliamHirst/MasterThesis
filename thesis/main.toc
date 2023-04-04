@@ -61,6 +61,7 @@
 \contentsline {section}{\numberline {2.9}Model assessment}{26}{section.2.9}%
 \contentsline {subsection}{\numberline {2.9.1}The Rate of True-Positve - ROC Curve}{26}{subsection.2.9.1}%
 \contentsline {subsection}{\numberline {2.9.2}Sensitivity}{26}{subsection.2.9.2}%
+\contentsline {subsection}{\numberline {2.9.3}Confidence Interval}{27}{subsection.2.9.3}%
 \contentsline {chapter}{\numberline {3}Implementation of the Analysis}{29}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Tools and Data}{29}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Monte Carlo Data}{29}{subsection.3.1.1}%
@@ -92,15 +93,14 @@
 \contentsline {section}{\numberline {4.4}Parametrized Neural Network}{52}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Discriminating Masses}{52}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Sensitivity Result}{54}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}Comparing Machine Learning Models}{54}{section.4.5}%
+\contentsline {section}{\numberline {4.5}Comparing Models on Original Signal Set}{55}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{55}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{55}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Running on Full Statics}{55}{subsection.4.7.1}%
-\contentsline {chapter}{Appendices}{61}{section*.77}%
-\contentsline {chapter}{Appendix A}{63}{appendix*.78}%
+\contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{56}{section.4.7}%
+\contentsline {chapter}{Appendices}{61}{section*.72}%
+\contentsline {chapter}{Appendix A}{63}{appendix*.73}%
 \contentsline {section}{\numberline {A.1}Sensitivity Grids}{63}{section.Alph0.1}%
 \contentsline {subsection}{\numberline {A.1.1}Ensembles}{63}{subsection.Alph0.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Increasing Sensitivity Through}{63}{subsection.Alph0.1.2}%
-\contentsline {section}{\numberline {A.2}The Features}{65}{section.Alph0.2}%
+\contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{63}{subsection.Alph0.1.2}%
+\contentsline {section}{\numberline {A.2}The Features}{66}{section.Alph0.2}%
 \contentsline {subsection}{\numberline {A.2.1}The Feature Distribution}{66}{subsection.Alph0.2.1}%
 \contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{71}{section.Alph0.3}%

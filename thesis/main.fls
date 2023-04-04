@@ -2677,11 +2677,6 @@ INPUT Sections/Results/PCA.tex
 INPUT ./Sections/Results/PCA.tex
 INPUT ./Sections/Results/PCA.tex
 INPUT Sections/Results/PCA.tex
-INPUT ./Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf
-INPUT ./Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf
-INPUT Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf
-INPUT ./Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf
-INPUT ./Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf
 INPUT ./Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf
 INPUT ./Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf
 INPUT Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf
@@ -2751,6 +2746,11 @@ INPUT ./Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf
 INPUT Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf
 INPUT ./Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf
 INPUT ./Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf
+INPUT ./Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf
+INPUT ./Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf
+INPUT Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf
+INPUT ./Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf
+INPUT ./Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf
 INPUT ./Sections/Appendix/Appendix2.tex
 INPUT ./Sections/Appendix/Appendix2.tex
 INPUT ./Sections/Appendix/Appendix2.tex

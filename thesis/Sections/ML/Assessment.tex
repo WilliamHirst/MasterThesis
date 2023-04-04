@@ -29,7 +29,7 @@ an equal weighting of both signal and background.
 for a feature. In the search for new physics, features with large separation between signal and background
 are incredibly helpful, but not the end goal. The final result in the search for new physics is the discovery 
 of a significant deviation between the \ac{SM} and experiment. We measure the deviation between the measured 
-collision data and the simulated \ac{SM} data in units of significance, Z.  
+collision data and the simulated \ac{SM} data in units of significance, Z. 
 \\
 For a given signal region with $n_{obs}$ events of measured collision data and b simulated \ac{SM} data, we define
 the significance of a deviation as
@@ -43,10 +43,26 @@ as
     Z=\frac{n_{o b s}-b}{\sqrt{b}} = \frac{s}{\sqrt{b}}.
 \end{align}
 By studying equation \ref{eq:Z} we observe that the significance resembels the ration for signal and background. The 
-larger the Z, the more significant the deviation. In physics, one often deems the results a discovery if Z is larger than 5.
+larger the Z, the more significant the deviation. In physics we can 
+In physics, one often deems the results a discovery if Z is larger than 5.
 For more information on significance and discovery in physics the reader is reffered to the slides \cite{magnar}.
 \\
 In the case we are not intrested in discovering physics, but simple to measure the sensitivity of a model, we can also use 
 significance. In this case we do not have $n_{obs}$. Instead we simply define s as the number of events for the simulated signal 
 inside the signal region. This number would be spesific for each mass combination and will be a measure for how sensitive 
 the model is for that exact combination. 
+\subsection{Confidence Interval}
+By defining the signal as the deviation between the simmulated and measured data, we risk missintepreting noise in either the 
+experiment or the simmulations, as signal. If we assume that said noise is sampled from a random Gaussian distibution centered around 
+zero, the significance takes on another meaning. If start by assuming that any deviation is rooted in noise, than we can inteprate the significance
+as the measure of how likely this assumtion is to be true. The larger the significance, the more likely that the deviation is not described 
+by noise sampled from a gaussion distribution, but instead by something not random at all, new physics. Obviously the most likely deviation 
+given the noise is approximated by a Gaussian distribution, is 0. Whereas the larger deviation/signal we find, and therefore the larger the significance 
+the less likly the hypothesis of no new physics. 
+(REWRITE THISNSECTION)
+\\
+The threshold for what is deemed a sufficient significance is not clearly defined, and is instead a matter of field. In this analysis, and generally 
+in the field of physics, a significane of 1.64 is defined as a sufficient sensitivity to be able to exclude a theory. Given the assumption of Gaussian
+distributed noise, a significance of 1.64 is ecuivilant to a $90\%$ confidence interval. This means that if the experiment was repeated, then there would 
+$10\%$ probability that the result would not be repeated, and that the hypothsis still holds true.
+
