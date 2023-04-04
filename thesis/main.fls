@@ -2343,6 +2343,8 @@ INPUT ./Figures/Illustrations/True-Positive.png
 INPUT Figures/Illustrations/True-Positive.png
 INPUT ./Figures/Illustrations/True-Positive.png
 INPUT ./Figures/Illustrations/True-Positive.png
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmss12.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT ./Sections/Implementation/Axiomatic.tex
 INPUT ./Sections/Implementation/Axiomatic.tex
 INPUT ./Sections/Implementation/Axiomatic.tex
