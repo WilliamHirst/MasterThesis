@@ -1,4 +1,4 @@
-\section{Increasing Sensitivity through PCA}
+\section{Increasing Sensitivity through PCA}\label{sec:PCA}
 So far in the analysis, all features have been given an equal weighting in the beginning of training,
 But, as mentioned in section \ref{sec:MLHEP}, not all features contribute to an effective signal 
 region. In section \ref{subsec:PCA}, I explained how through the use of \ac{PCA}, we are able to 
@@ -39,7 +39,7 @@ equally. With this in mind, maxout achieves a higher sensitivity \emph{with} a \
 Similarly, the \ac{PCA} increased performance for the \ac{PNN}, but contrary to maxout it did so for every combination in the original signal set. Additionally,
 through closer study of the ratio's for each "pie", the \ac{PCA} not only increased a larger number of combinations for the \ac{PNN}, but also increased the performance
 by a larger degree. Through a similar analysis, I deemed the \ac{PCA} to decrease performance for the \ac{NN}, only improving 11/30\footnote{The pie-plot comparing the 
-dense \ac{NN} with and without a \ac{PCA} is included in the appendix \ref{appendix:PCA.}}. 
+dense \ac{NN} with and without a \ac{PCA} is included in the appendix \ref{appendix:PCA}.}. 
 \\
 To compare all three models discussed above with the \ac{PCA} included, I created a pie-plot which is displayed in figure \ref{fig:PCAComp}. By comparing 
 the pie-plots made with and without \ac{PCA} (see figure \ref{fig:GenPlussXGB}), we notice that maxout now outperforms the dense \ac{NN} in combinations 

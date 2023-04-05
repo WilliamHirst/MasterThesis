@@ -27,7 +27,7 @@ an equal weighting of both signal and background.
 \subsection{Statistical Assessment - Discovery $\&$ Exclusion}\label{subsec:Sensitivity}
 The statistical aspect of the analysis will not be of focus in this analysis, nonetheless there are 
 some expressions which would be helpful to define. Let us assume that we expect to see no new physics in the collision
-data, we can call this hypothesis the b-(background) hypothesis. To expect no new physics, is not the same as expecting no 
+data, we can call this hypothesis the b(background)-hypothesis. To expect no new physics, is not the same as expecting no 
 deviation between \ac{SM} simulations and experiment. We still assume a statistical uncertainty, or noise to effect the simulations which 
 will lead to some deviations. If these deviations are random, we can assume that the noise can be described as sampling from a Gaussian distribution 
 (which is a good approximation for large statistics), which has a mean of 0 and a standard deviation equal to $\sqrt{b}$, where b is 
@@ -60,7 +60,14 @@ distance from the mean of the Gaussian distibution which sums to an area of 0.90
 intepration (which is sufficient for this theisis), is that given the b-hypothesis is true, there is a $90\%$ probability that we will 
 measure a signal which produces a significance of less than 1.64. Therefore, there is only a $10\%$ probability that the b-hypothesis
 can explain the deviation. For more information on significance and discovery in physics the reader is reffered to the slides \cite{magnar}.
-
+\begin{figure}
+    \centering
+    \makebox[0.8\linewidth][c]{%
+    \includegraphics[width=0.45\textwidth]{Figures/Illustrations/ConfInt.png}
+    }
+    \caption{An illustration of a Gaussian distibution and the area under the curve defined by a significance equal to 1.64.}
+    \label{fig:ROC}
+\end{figure}
 % \subsection{Confidence Interval}
 % By defining the signal as the deviation between the simmulated and measured data, we risk missintepreting noise in either the 
 % experiment or the simmulations, as signal. If we assume that said noise is sampled from a random Gaussian distibution centered around 

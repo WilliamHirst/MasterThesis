@@ -6,6 +6,17 @@ In the figures to come, I have included a turquoise band around all combinations
 When comparing the results, we are not only interested in how sensitive the models are for each combination individually, but also with how many combinations 
 they were able to achieve a sensitivity of over 1.64. However, similarly to previous results, the significance does not include any uncertainty.
 \\
+I will not apply all previously tested models to the full statistics signal set. Instead, I will only apply the models I found most ideal for this analysis, based 
+on the tests performed in the previous sections. I decided to choose one model from each "type"\footnote{By network type, I am referring to either the ordinary dense network, the 
+\ac{PNN} or an ensemble. } of network. Based on the results in section \ref{sec:Ensemble}, where I compared the different ensemble methods, I found the maxout model to be 
+the top performer. Likewise, in section \ref{sec:PCA} I found that both maxout and the \ac{PNN}, preferred to utilize data with a \ac{PCA}. Therefore, I will utilize the maxout model 
+and \ac{PNN} model defined in section \ref{subsec:arch}, with the use of \ac{PCA}. Finally, I will include the ordinary dense \ac{NN} for the sake of diversity.
+\\
+In figure \ref{fig:NN_FS_MLMGridSig}, I have drawn a grid displaying the sensitivity of an ordinary dense \ac{NN}, on the full statistics signal set. Again, we observe that higher statistics
+mass combinations, result in a higher significance. Additionally, the dense \ac{NN} was able to achieve a sufficient significance for over 38 mass combinations, all between the ranges of 
+$\tilde{\chi}_1 \in [0-250]GeV$ and $\tilde{\chi}_2 \in [200-600]GeV$. What is even more interesting, is that by comparing the results on the full set with the results on the original 
+set (see figure \ref{fig:NNGridSig}), we notice that the network was able to improve its sensitivity on every single mass combination from the original signal set. This is yet another 
+indication that the deep networks are able to exploit overlapping regions in the feature space between nearby combinations.
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -14,7 +25,7 @@ they were able to achieve a sensitivity of over 1.64. However, similarly to prev
     \end{subfigure}
     }
     \caption{A grid displaying the achieved significance on the full statistics signal set, using the signal region 
-    created by the \emph{NN} network.}
+    created by the \ac{NN} network.}
     \label{fig:NN_FS_MLMGridSig}
 \end{figure}
 
