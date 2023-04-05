@@ -16,7 +16,7 @@ In figure \ref{fig:NN_FS_MLMGridSig}, I have drawn a grid displaying the sensiti
 mass combinations, result in a higher significance. Additionally, the dense \ac{NN} was able to achieve a sufficient significance for over 38 mass combinations, all between the ranges of 
 $\tilde{\chi}_1 \in [0-250]GeV$ and $\tilde{\chi}_2 \in [200-600]GeV$. What is even more interesting, is that by comparing the results on the full set with the results on the original 
 set (see figure \ref{fig:NNGridSig}), we notice that the network was able to improve its sensitivity on every single mass combination from the original signal set. This is yet another 
-indication that the deep networks are able to exploit overlapping regions in the feature space between nearby combinations.
+indication that the deep networks are able to exploit overlapping regions in the feature space between nearby combinations.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -28,7 +28,16 @@ indication that the deep networks are able to exploit overlapping regions in the
     created by the \ac{NN} network.}
     \label{fig:NN_FS_MLMGridSig}
 \end{figure}
-
+In figure \ref{fig:MaxOutPCA_FS_MLMGridSig} I display a grid presenting the sensitivity of the maxout model using the full statistics 
+signal set. The data used to train this model, has been through a \ac{PCA}, and the architecture is the same as described in section \ref{subsec:arch}.
+Similarly to the dense \ac{NN}, by including the full statistics, the maxout model improved performance on all combinations in the original set. 
+Also, the maxout model upholds the sensitivity criteria ($>1.64$) for the same mass combination. 
+Contrary to the tests performed on the original signal set however, when using the full statics, the dense network 
+outperforms the maxout model in most of the signals (74/89). A possible explanation to the shift in performance, could 
+be that the dense \ac{NN} lacked the statistics when training with the original signal set. When the full statistics is included,
+the dense \ac{NN} (which is deeper than the maxout model) is able to train much deeper, which in tern increases sensitivity.
+However, the maxout model outperforms the dense network for the low statistics combinations, again indicating the maxout layers
+ability to increase training memory\footnote{In an unbalanced data set, smaller trends can tend to be ignored due to "memory loss".}.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -40,7 +49,13 @@ indication that the deep networks are able to exploit overlapping regions in the
     created by the \emph{MaxOut} network.}
     \label{fig:MaxOutPCA_FS_MLMGridSig}
 \end{figure}
-
+Finally, I applied the \ac{PNN} to the full statistics signal set. The results are found int the grid presented in figure \ref{fig:PNNPCA_FS_MLMGridSig}.
+Similarly to the tests performed with the original signal set, the \ac{PNN} is able to achieve an incredible sensitivity for the high statistics mass combinations
+($\tilde{\chi}_2<400$). For the combinations with the highest statics ($\tilde{\chi}_2<300$), the \ac{PNN} more than doubles the achieved significance.
+For the lower statistics combinations, the \ac{PNN} drops in performance. In comparison to the ordinary dense network and the maxout model who both achieved
+sufficient sensitivity for 38/89 combinations, the \ac{PNN} only did so for 33/89. Moreover, the performance of the \ac{PNN} on the combinations with the highest 
+statistics in the original signal set ([$\tilde{\chi}_1=250$, $\tilde{\chi}_2=400$GeV] and [$\tilde{\chi}_1=200$, $\tilde{\chi}_2=450$GeV]), has decreased by more than half.
+This is an indication that the including further trends, was destructive for training. In other words, the \ac{PNN} suffered from poor training memory.
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -51,4 +66,17 @@ indication that the deep networks are able to exploit overlapping regions in the
     \caption{A grid displaying the achieved significance on the full statistics signal set, using the signal region 
     created by the \emph{PNN} network.}
     \label{fig:PNNPCA_FS_MLMGridSig}
+\end{figure}
+
+
+\begin{figure}
+    \makebox[\linewidth][c]{%
+    \centering
+    \begin{subfigure}{.85\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/FS_MLMNetworkComp.pdf}
+    \end{subfigure}
+    }
+    \caption{A grid displaying the achieved significance on the full statistics signal set, using the signal region 
+    created by the \emph{PNN} network.}
+    \label{fig:FSComp}
 \end{figure}

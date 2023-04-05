@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1680683177 "main.aux" "main.bbl" "main" 1680683646
+["bibtex main"] 1680699790 "main.aux" "main.bbl" "main" 1680699798
   "./JHEP.bst" 1635225418 19415 119cff932b2ee8773ea988cf488e8896 ""
   "bibliography.bib" 1680007076 194875 a273452885bf8520938d558a97a54f43 ""
-  "main.aux" 1680683645 90441 083c180caf3786630d4fac88a5468fe8 "pdflatex"
+  "main.aux" 1680699798 90971 95955d71d303ffed35401958e97f6c22 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1680683638 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1680683646
+["pdflatex"] 1680699790 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1680699798
   "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" 1680005482 3316 ab3cac407db2348e44fb03d191bb2565 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -468,6 +468,7 @@
   "Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf" 1678788120 23444 5bc6806ff477e09f53dd08f58c56cd5a ""
   "Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf" 1678452864 41179 6870752e549ed624ca0d84c01286314a ""
   "Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf" 1679832357 70873 19a2749628aef5ba5d5f1497998181c9 ""
+  "Figures/MLResults/NN/SUSY/Comparison/FS_MLMNetworkComp.pdf" 1679832357 172488 62665753bd01c038dea5b6106327ab55 ""
   "Figures/MLResults/NN/SUSY/Comparison/GenPlussXGBNetworkComp.pdf" 1680529346 86090 10187d601659d45bd39724ca446bb08a ""
   "Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf" 1679838521 51804 bf18a7f2f90f01ecce63743add7e1032 ""
   "Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf" 1679838521 43807 3e86d3294e2c630f77df4f73628a37cd ""
@@ -529,7 +530,7 @@
   "Sections/Results/Axiomatic.tex" 1677421388 203 93872fd4f2bb5086c5a91b1897f6568e ""
   "Sections/Results/DNN.tex" 1680521439 10004 4fcdb796147653711353680f23506c49 ""
   "Sections/Results/EnsembleMethods.tex" 1680681995 13713 3339c6b8cfcba389b90e09c969d1920d ""
-  "Sections/Results/FS.tex" 1680683638 3962 6cee5c98775bebc1692be03975890027 ""
+  "Sections/Results/FS.tex" 1680699791 6782 bdd0d0b08fc3053ae894119902db1ad5 ""
   "Sections/Results/MLComparison.tex" 1680600512 2119 05c5a7dc7827e87f23569b903cfe651c ""
   "Sections/Results/PCA.tex" 1680682072 4819 507b14b55417e6e2d83a3361d135a694 ""
   "Sections/Results/PNN.tex" 1680597138 10117 edd3ea66e2cb8e2416064124b1b8b1e5 ""
@@ -543,11 +544,11 @@
   "Sections/SM/TheForces.tex" 1677155015 3437 2cb9ba1fbfc8585b61e3d501ad15fccd ""
   "Setup/style.sty" 1679577061 8009 80c22b0eb56ed9f1a7e73d7638264046 ""
   "jheppub.sty" 1635225418 11993 cd840ce60e85e99a4eccf7d2c59baa18 ""
-  "main.aux" 1680683645 90441 083c180caf3786630d4fac88a5468fe8 "pdflatex"
-  "main.bbl" 1680683178 7270 46a90ae6515d5983428a12437630ed2d "bibtex main"
-  "main.out" 1680683646 6476 62271afc2c825314111aaa33c8d71518 "pdflatex"
+  "main.aux" 1680699798 90971 95955d71d303ffed35401958e97f6c22 "pdflatex"
+  "main.bbl" 1680699790 7270 46a90ae6515d5983428a12437630ed2d "bibtex main"
+  "main.out" 1680699798 6476 6d6f9860294cf10b8707caef21147ebc "pdflatex"
   "main.tex" 1680005482 3316 ab3cac407db2348e44fb03d191bb2565 ""
-  "main.toc" 1680683646 9013 4b394375755872deb16fd52ee12fd94f "pdflatex"
+  "main.toc" 1680699798 9013 28e2b7e08a2fa7350fe9bd529d4daf60 "pdflatex"
   "uio-fp-navn-eng.pdf" 1643568008 9896 3790f54969705c4284148bf62f780187 ""
   "uio-fp-segl.pdf" 1643566874 64936 89441810db60f45a672971bad5b14ed1 ""
   "uiomasterfp.sty" 1659081738 8559 bdb302d543dc750f296610cabe9cfc0a ""
