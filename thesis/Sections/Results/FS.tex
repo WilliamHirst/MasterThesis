@@ -55,7 +55,7 @@ Similarly to the tests performed with the original signal set, the \ac{PNN} is a
 For the lower statistics combinations, the \ac{PNN} drops in performance. In comparison to the ordinary dense network and the maxout model who both achieved
 sufficient sensitivity for 38/89 combinations, the \ac{PNN} only did so for 33/89. Moreover, the performance of the \ac{PNN} on the combinations with the highest 
 statistics in the original signal set ([$\tilde{\chi}_1=250$, $\tilde{\chi}_2=400$GeV] and [$\tilde{\chi}_1=200$, $\tilde{\chi}_2=450$GeV]), has decreased by more than half.
-This is an indication that the including further trends, was destructive for training. In other words, the \ac{PNN} suffered from poor training memory.
+This is an indication that including further trends in the data was destructive for training. In other words, the \ac{PNN} suffered from poor training memory.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -67,8 +67,11 @@ This is an indication that the including further trends, was destructive for tra
     created by the \emph{PNN} network.}
     \label{fig:PNNPCA_FS_MLMGridSig}
 \end{figure}
-
-
+To summarize the comparisons on the full statistics signal set, I created a pie-plot in figure \ref{fig:FSComp}. As shown in the figure, the ordinary dense \ac{NN}
+achieved the highest sensitivity in most of the combinations (49/89), followed by the \ac{PNN} (25/89) and the maxout model (15/89). From the tests we can conclude that 
+the \ac{PNN} network achieves the highest sensitivity, but struggles for unbalanced data sets. On the contrary the ordinary dense neural network performs best with larger amounts of 
+training data, achieving the highest sensitivity on the most amount of combinations, but never attains the same degree of sensitivity as the \ac{PNN}. The maxout layer underperforms on 
+most combinations, but exhibits impressive training memory when attaining the highest significance on the lowest statistics combinations.
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering

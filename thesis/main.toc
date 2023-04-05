@@ -95,6 +95,7 @@
 \contentsline {section}{\numberline {4.5}Comparing Models on Original Signal Set}{55}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{55}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{56}{section.4.7}%
+\contentsline {section}{\numberline {4.8}The Application of ML on Measured Data}{59}{section.4.8}%
 \contentsline {chapter}{Appendices}{61}{section*.74}%
 \contentsline {chapter}{Appendix A}{63}{appendix*.75}%
 \contentsline {section}{\numberline {A.1}Sensitivity Grids}{63}{section.Alph0.1}%
