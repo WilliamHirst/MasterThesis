@@ -35,12 +35,11 @@
 \contentsline {subsection}{\numberline {2.2.1}Gradient Descent}{14}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Adam}{14}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Cost functions}{14}{subsection.2.2.3}%
-\contentsline {subsubsection}{Mean Squared Error}{14}{section*.16}%
-\contentsline {subsubsection}{Binary Crossentropy}{14}{section*.17}%
+\contentsline {subsubsection}{Binary Crossentropy}{14}{section*.16}%
 \contentsline {section}{\numberline {2.3}Hyperparameters}{14}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Data Handling}{15}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Scaling}{15}{subsection.2.4.1}%
-\contentsline {subsubsection}{Standard Scaler}{15}{section*.18}%
+\contentsline {subsubsection}{Standard Scaler}{15}{section*.17}%
 \contentsline {subsection}{\numberline {2.4.2}Principal Component Analysis}{15}{subsection.2.4.2}%
 \contentsline {section}{\numberline {2.5}Regularization}{17}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Early stopping}{17}{subsection.2.5.1}%
@@ -96,8 +95,8 @@
 \contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{55}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{56}{section.4.7}%
 \contentsline {section}{\numberline {4.8}The Application of ML on Measured Data}{59}{section.4.8}%
-\contentsline {chapter}{Appendices}{61}{section*.73}%
-\contentsline {chapter}{Appendix A}{63}{appendix*.74}%
+\contentsline {chapter}{Appendices}{61}{section*.72}%
+\contentsline {chapter}{Appendix A}{63}{appendix*.73}%
 \contentsline {section}{\numberline {A.1}Sensitivity Grids}{63}{section.Alph0.1}%
 \contentsline {subsection}{\numberline {A.1.1}Ensembles}{63}{subsection.Alph0.1.1}%
 \contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{63}{subsection.Alph0.1.2}%

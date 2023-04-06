@@ -2145,11 +2145,11 @@ INPUT ./Figures/FDiagrams/zz.png
 INPUT Figures/FDiagrams/zz.png
 INPUT ./Figures/FDiagrams/zz.png
 INPUT ./Figures/FDiagrams/zz.png
-INPUT ./Figures/FDiagrams/WZW.png
-INPUT ./Figures/FDiagrams/WZW.png
-INPUT Figures/FDiagrams/WZW.png
-INPUT ./Figures/FDiagrams/WZW.png
-INPUT ./Figures/FDiagrams/WZW.png
+INPUT ./Figures/FDiagrams/topOther.png
+INPUT ./Figures/FDiagrams/topOther.png
+INPUT Figures/FDiagrams/topOther.png
+INPUT ./Figures/FDiagrams/topOther.png
+INPUT ./Figures/FDiagrams/topOther.png
 INPUT ./Figures/FDiagrams/singleTop.png
 INPUT ./Figures/FDiagrams/singleTop.png
 INPUT Figures/FDiagrams/singleTop.png
@@ -2163,6 +2163,7 @@ INPUT ./Figures/FDiagrams/ww.png
 INPUT ./Figures/FDiagrams/WZW.png
 INPUT ./Figures/FDiagrams/WZW.png
 INPUT Figures/FDiagrams/WZW.png
+INPUT ./Figures/FDiagrams/WZW.png
 INPUT ./Figures/FDiagrams/WZW.png
 INPUT ./Figures/FDiagrams/w_pjets.png
 INPUT ./Figures/FDiagrams/w_pjets.png
