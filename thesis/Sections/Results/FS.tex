@@ -28,14 +28,14 @@ indication that the deep networks are able to exploit overlapping regions in the
     created by the \ac{NN} network.}
     \label{fig:NN_FS_MLMGridSig}
 \end{figure}
-In figure \ref{fig:MaxOutPCA_FS_MLMGridSig} I display a grid presenting the sensitivity of the maxout model using the full statistics 
+Figure \ref{fig:MaxOutPCA_FS_MLMGridSig} displays a grid presenting the sensitivity of the maxout model using the full statistics 
 signal set. The data used to train this model, has been through a \ac{PCA}, and the architecture is the same as described in section \ref{subsec:arch}.
 Similarly to the dense \ac{NN}, by including the full statistics, the maxout model improved performance on all combinations in the original set. 
-Also, the maxout model upholds the sensitivity criteria ($>1.64$) for the same mass combination. 
+Also, the maxout model upholds the sensitivity criteria ($>1.64$) for the same mass combinations. 
 Contrary to the tests performed on the original signal set however, when using the full statics, the dense network 
 outperforms the maxout model in most of the signals (74/89). A possible explanation to the shift in performance, could 
 be that the dense \ac{NN} lacked the statistics when training with the original signal set. When the full statistics is included,
-the dense \ac{NN} (which is deeper than the maxout model) is able to train much deeper, which in tern increases sensitivity.
+the dense \ac{NN} (which is deeper than the maxout model) is able to train much deeper, which in tern increases sensitivity. 
 However, the maxout model outperforms the dense network for the low statistics combinations, again indicating the maxout layers
 ability to increase training memory\footnote{In an unbalanced data set, smaller trends can tend to be ignored due to "memory loss".}.\\
 \begin{figure}

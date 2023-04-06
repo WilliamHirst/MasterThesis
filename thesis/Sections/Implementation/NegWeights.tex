@@ -2,8 +2,9 @@
 The negative weight problem is a well known problem in the world of ML-analysis for HEP, 
 and is a consequence of higher perturbative accuracy. For the purpose of visualizing 
 distributions and training a \ac{NN}, negative weights are not a problem. But, when using 
-the weights in the training of the XGBoost classifier, the algorithm does not work. EXPLAIN
-WHY. 
+the weights in the training of the XGBoost classifier, the algorithm does not work\footnote{Upon further research 
+in the codebase of XGBoost, it seems as though negative weights are not allowed as it interfere with XGBoost's use 
+of the hessian matrix. Due to time constraints, I decided not to  pursue this further.}.  
 \\
 Before deciding how to mediate the issue, I decided to plot the distribution for 
 a small subset of features for all the events with negative weights.

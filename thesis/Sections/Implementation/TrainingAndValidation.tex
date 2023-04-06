@@ -4,8 +4,8 @@ When building a \ac{ML}-model, the usual approach is to divide your data into th
 testing. The training set is used to tune the internal parameters of the model, i.e. the weights and biases of a \ac{NN} or the cuts of a \ac{DT}.
 The validation set is used to tune the hyperparameters of the model, i.e. the architecture of the \ac{NN} or the maximum depth of the \ac{DT} etc.
 The test set should only be used when the model is finished, and is used to benchmark the models' performance. In our case, the performance we are 
-interested in, is the performance on the full \ac{MC}-bakgroundset and its comparison to the measured collision data.\footnote{See section INSERT 
-THE APPROPRIATE SECTION.}. Therefore, in this analysis only two sets of data will be used, training and validation where both are sampled from the simulated
+interested in, is the performance on the full \ac{MC}-bakgroundset and its comparison to the measured collision data.\footnote{See section \ref{sec:MLHEP}.}. 
+Therefore, in this analysis only two sets of data will be used, training and validation where both are sampled from the simulated
 \ac{MC} data set. In theory, one could even just use one data set (training) including all the data, but the second was added as a precaution to reduce 
 overfitting when applied to the measured collision data.
 \\

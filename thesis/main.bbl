@@ -117,6 +117,11 @@ T.~Chen and C.~Guestrin, \emph{{XGBoost}},  in \emph{Proceedings of the 22nd
 \bibitem{magnar}
 M.~Bugge, \emph{Discovery and exclusion in high energy physics},  2022.
 
+\bibitem{raychaudhuri_introduction_2008}
+S.~Raychaudhuri, \emph{Introduction to monte carlo simulation},  in \emph{2008
+  Winter Simulation Conference}, pp.~91--100.
+\newblock \href{http://dx.doi.org/10.1109/WSC.2008.4736059}{DOI}.
+
 \bibitem{ROOT}
 R.~Brun and F.~Rademakers, \emph{Root - an object oriented data analysis
   framework},  in \emph{AIHENP'96 Workshop, Lausane}, vol.~389, pp.~81--86,
