@@ -10,3 +10,4 @@ quark-antiquark
 channelout
 maxout
 assesing
+crossentropy

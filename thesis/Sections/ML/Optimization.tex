@@ -1,5 +1,5 @@
 \section{Optimization}\label{sec:Opti}
-For a general function $g$ dependent one a set of parameters $\boldsymbol \theta = 
+For a general function $C$ dependent one a set of parameters $\boldsymbol \theta = 
 \{\theta_0,\theta_1,...,\theta_{N_\theta}\}$, the goal of optimization is to find 
 optimal parameters as defined by a predicated goal. In our case we are interested in 
 finding the set of parameters corresponding to the minimum value of $g$. Several methods
@@ -7,25 +7,6 @@ can be applied to optimization problems, all with their own advantages and disad
 In most methods the use of the gradient of the function, $\grad_\theta (g)$ is involved in 
 one way or another. Many of the methods used in this analysis are based on one of the simplest 
 optimization methods, the \emph{gradient descent}-method.
-\subsection{Gradient Descent}
-The gradient descent method aims to obtain the optimal parameters $\tilde{\boldsymbol\theta}$ 
-through the application of the derivative of $g$ with respect to $\boldsymbol \theta$. When 
-evaluated at a given point in the parameter space $g(\boldsymbol \theta_i)$ the negative of 
-the gradient $\grad_\theta (g)$, is used to move $\boldsymbol \theta_i$ closer to $\tilde{\boldsymbol\theta}$.
-The negative is because $-\grad_\theta (g)$ corresponds to the direction for which a 
-small change $d\boldsymbol\theta$ in the parameter space will result in the biggest 
-decrease in the cost function. Finding the minimum value is an iterative process, meaning
-the steps in the direction of $-\grad_\theta (g)$ is finite. The size of the step is a
-hyperparameter decided by the user and is called the learning rate, $\eta$. The evolution 
-from a step i to $i+1$ becomes
-\begin{align}
-    \boldsymbol{\theta}_{i+1}=\boldsymbol{\theta}_i-\eta \cdot \nabla_\theta g\left(\boldsymbol{\theta}_i\right).
-\end{align}
-Choosing the $\eta$ can drastically affect the performance of the gradient descent method. 
-Too large and one risks "jumping" over the true minimum or simply never allowing for parameters
-to reach a high accuracy. Too small and one risks spending computation time beyond reason. 
-\subsection{Adam}
-
 \subsection{Cost functions}\label{subsec:Cost}
 How we define the performance of a \ac{ML} model is not only important when 
 evaluating the model, but is crucial during training. In the case of classification,
@@ -36,6 +17,60 @@ between the two. During training, we define an objective function used to guide
 the model towards optimal tuning. We call this function the \emph{cost function}. 
 \\
 \subsubsection{Binary Crossentropy}
+The \emph{binary crossentropy} function is a very popular cost function for classification problems, as it
+can be used to compare the predicted probability distributions to the true probability distributions for a set 
+of classification. It is ideal, as it heavily punishes high probabilities (high output) for wrong classification
+and heavily rewards high probabilities for correct classifications. For a set of predictions $Y$ and a set of targerts $T$,
+the binary crossentropy function is defined as
 \begin{align}
-    \mathcal{C}\left(Y, T\right) =-\sum_{i=1}^N\left[ \textbf{y}_i \log \left(\textbf{t}_i\right)+\left(1-\textbf{y}_i\right) \log \left(1-\textbf{t}_i\right)\right]
+    \mathcal{C}\left(Y, T\right) =-\sum_{i=1}^N\left[ \textbf{y}_i \log \left(\textbf{t}_i\right)+\left(1-\textbf{y}_i\right) \log \left(1-\textbf{t}_i\right)\right].
 \end{align}
+\subsection{Stochastic Gradient Descent and Mini-Batches}
+The gradient descent method aims to obtain the optimal parameters 
+through the application of the derivative of $\mathcal{C}$ with respect to $\boldsymbol \theta$. When 
+evaluated at a given point in the parameter space, the negative of 
+the gradient, $-\grad_\theta (\mathcal{C})$ is used to move closer to the optimal set of parameters.
+The negative of the gradient corresponds to the direction for which a 
+small change $d\boldsymbol\theta$ in the parameter space will result in the biggest 
+decrease in the cost function. Finding the minimum value is an iterative process, meaning
+the steps in the direction of $-\grad_\theta (\mathcal{C})$ is finite. The size of the step is a
+hyperparameter decided by the user and is called the learning rate, $\eta$. The evolution 
+from a step i to $i+1$ becomes
+\begin{align}
+    \boldsymbol{\theta}_{i+1}=\boldsymbol{\theta}_i-\eta \cdot \nabla_\theta \mathcal{C}\left(\boldsymbol{\theta}_i\right).
+\end{align}
+Choosing the $\eta$ can drastically affect the performance of the gradient descent method. 
+Too large and one risks "jumping" over the true minimum or simply never allowing for parameters
+to reach a high accuracy. Too small and one risks spending computation time beyond reason. 
+\\
+For a given data set of size N, we find the gradient $\grad_\theta (\mathcal{C})$ through the sum of the gradient for each data point 
+$\textbf{x}_i$
+\begin{align}
+    \grad_\theta (\mathcal{C}) = \sum_{i=0}^N \grad_\theta (\mathcal{C}_i(\textbf{x}_i))
+\end{align}
+The calculation of the gradient over numerous data points can be time-consuming. An alternative approach which both reduces time and 
+introduces a randomness, is the application of \emph{mini-batches}. Instead of summing the gradient over the full data set, one randomly samples 
+a predetermined number of points, B creating a subset of the data which is used to update $\theta$. The points sampled to create the subset, can be 
+sampled both with or without replacement\footnote{In this analysis the data is sampled with replacement.}. An epoch is completed after N/B iterations of updating 
+$\theta$. The added stochastic element reduces the risk of getting stuck in local minima. Gradient decent with randomly sampled mini-batches is called \ac{SGD}.
+\subsection{Memory, Adaptive Learning and ADAM}
+Although \ac{SGD} can be highly effective, it tends to be prone to oscillations. To alleviate this issue, we introduce momentum. The momentum aims to functions as a form of 
+memory, conserving some momentum from the previous update. By defining the introduced difference between $\theta_{i+1}$ and $\theta_{i}$ as 
+\begin{align}
+    v_i = \eta \cdot \nabla_\theta \mathcal{C}\left(\boldsymbol{\theta}_i\right),
+\end{align}
+we can implement momentum to the algorithm as 
+\begin{align}
+    v_i = v_{i-1} \gamma +\eta \cdot \nabla_\theta \mathcal{C}\left(\boldsymbol{\theta}_i\right),
+\end{align}
+where $\gamma \in [0-1]$ is a parameter which defines the size of the momentum.
+\\
+An additional flaw in the \ac{SGD} optimization algorithm, is that is treats all regions in the feature space equally. Ideally, we would want the algorithm to focus 
+on the most relevant areas (steep regions), while quickly moving past less relevant areas (flat regions). A solution to this is the introduction of an \emph{adaptive learning rate}.
+By updating the learning rate based on the surface of the feature space, one can assign a prioritization in the feature space which optimizes the search for optimal parameters.
+\\
+The most intuitive way to prioritize steep areas, is by introducing the second derivative of $\mathcal{C}$, but this can be quite time-consuming. The \ac{ADAM} optimizer aims to 
+create an approximation of the second derivative, through the use of momentum and an adaptive learning rate. The \ac{ADAM} optimizer introduces a set of new parameters, and includes both the 
+linear and squared derivative of $\mathcal{C}$ with memory parameters for both ($\beta_1$ and $\beta_1$ respectively). Additionally, the \ac{ADAM} optimizer holds a memory of the average of the 
+gradient and squared gradient, which is used to create faster convergence. For a thorough description of the \ac{ADAM}, the reader is referrd to the paper 
+(INSERT HERE).

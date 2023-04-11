@@ -32,34 +32,34 @@
 \contentsline {chapter}{\numberline {2}Introduction to Machine Learning and Data Analysis}{13}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Phenomenology}{13}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Optimization}{14}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Gradient Descent}{14}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Adam}{14}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Cost functions}{14}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.1}Cost functions}{14}{subsection.2.2.1}%
 \contentsline {subsubsection}{Binary Crossentropy}{14}{section*.16}%
-\contentsline {section}{\numberline {2.3}Hyperparameters}{14}{section.2.3}%
+\contentsline {subsection}{\numberline {2.2.2}Stochastic Gradient Descent and Mini-Batches}{14}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Memory, Adaptive Learning and ADAM}{15}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Hyperparameters}{15}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Data Handling}{15}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Scaling}{15}{subsection.2.4.1}%
 \contentsline {subsubsection}{Standard Scaler}{15}{section*.17}%
-\contentsline {subsection}{\numberline {2.4.2}Principal Component Analysis}{15}{subsection.2.4.2}%
-\contentsline {section}{\numberline {2.5}Regularization}{17}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Early stopping}{17}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Ensembles}{17}{subsection.2.5.2}%
-\contentsline {section}{\numberline {2.6}Neural Networks}{17}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}General structure}{17}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Feeding Forward}{18}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.4.2}Principal Component Analysis}{16}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}Regularization}{16}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Early stopping}{18}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Ensembles}{18}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}Neural Networks}{18}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}General structure}{18}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Feeding Forward}{19}{subsection.2.6.2}%
 \contentsline {subsection}{\numberline {2.6.3}Back Propagation}{19}{subsection.2.6.3}%
-\contentsline {subsection}{\numberline {2.6.4}Activation functions}{20}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.4}Activation functions}{21}{subsection.2.6.4}%
 \contentsline {subsection}{\numberline {2.6.5}Network Ensembles, dropout and LWTA networks}{21}{subsection.2.6.5}%
-\contentsline {subsection}{\numberline {2.6.6}Parametrized Neural Network}{22}{subsection.2.6.6}%
+\contentsline {subsection}{\numberline {2.6.6}Parametrized Neural Network}{23}{subsection.2.6.6}%
 \contentsline {section}{\numberline {2.7}Decision Trees and Gradient Boosting}{24}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}Decision Trees}{24}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}Gradient Boosting in Decision Trees}{24}{subsection.2.7.2}%
-\contentsline {section}{\numberline {2.8}Machine Learning Applied to a BSM Search}{25}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}The Traditional Approach}{25}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}The Machine Learning Approach}{25}{subsection.2.8.2}%
-\contentsline {section}{\numberline {2.9}Model assessment}{26}{section.2.9}%
-\contentsline {subsection}{\numberline {2.9.1}The Rate of True-Positve - ROC Curve}{26}{subsection.2.9.1}%
-\contentsline {subsection}{\numberline {2.9.2}Statistical Assessment - Discovery $\&$ Exclusion}{26}{subsection.2.9.2}%
+\contentsline {subsection}{\numberline {2.7.2}Gradient Boosting in Decision Trees}{25}{subsection.2.7.2}%
+\contentsline {section}{\numberline {2.8}Machine Learning Applied to a BSM Search}{26}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}The Traditional Approach}{26}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}The Machine Learning Approach}{26}{subsection.2.8.2}%
+\contentsline {section}{\numberline {2.9}Model assessment}{27}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}The Rate of True-Positve - ROC Curve}{27}{subsection.2.9.1}%
+\contentsline {subsection}{\numberline {2.9.2}Statistical Assessment - Discovery $\&$ Exclusion}{28}{subsection.2.9.2}%
 \contentsline {chapter}{\numberline {3}Implementation of the Analysis}{29}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Tools and Data}{29}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Monte Carlo Data}{29}{subsection.3.1.1}%
@@ -94,12 +94,12 @@
 \contentsline {section}{\numberline {4.5}Comparing Models on Original Signal Set}{55}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{55}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{56}{section.4.7}%
-\contentsline {section}{\numberline {4.8}The Application of ML on Measured Data}{59}{section.4.8}%
-\contentsline {chapter}{Appendices}{61}{section*.72}%
-\contentsline {chapter}{Appendix A}{63}{appendix*.73}%
-\contentsline {section}{\numberline {A.1}Sensitivity Grids}{63}{section.Alph0.1}%
-\contentsline {subsection}{\numberline {A.1.1}Ensembles}{63}{subsection.Alph0.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{63}{subsection.Alph0.1.2}%
-\contentsline {section}{\numberline {A.2}The Features}{66}{section.Alph0.2}%
-\contentsline {subsection}{\numberline {A.2.1}The Feature Distribution}{66}{subsection.Alph0.2.1}%
-\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{71}{section.Alph0.3}%
+\contentsline {section}{\numberline {4.8}Comparing Exclusion Limits - both between ML models and previous analysis}{59}{section.4.8}%
+\contentsline {chapter}{Appendices}{63}{section*.72}%
+\contentsline {chapter}{Appendix A}{65}{appendix*.73}%
+\contentsline {section}{\numberline {A.1}Sensitivity Grids}{65}{section.Alph0.1}%
+\contentsline {subsection}{\numberline {A.1.1}Ensembles}{65}{subsection.Alph0.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{65}{subsection.Alph0.1.2}%
+\contentsline {section}{\numberline {A.2}The Features}{68}{section.Alph0.2}%
+\contentsline {subsection}{\numberline {A.2.1}The Feature Distribution}{68}{subsection.Alph0.2.1}%
+\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{73}{section.Alph0.3}%

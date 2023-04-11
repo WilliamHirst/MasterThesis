@@ -1941,6 +1941,8 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1phv.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1phv.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -2234,6 +2236,8 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/lmmib5.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/lmbsy7.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/lmbsy5.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT ./Sections/ML/Hyperparameters.tex
 INPUT ./Sections/ML/Hyperparameters.tex
 INPUT ./Sections/ML/Hyperparameters.tex
@@ -2277,8 +2281,6 @@ INPUT ./Figures/Illustrations/Input_labels.png
 INPUT Figures/Illustrations/Input_labels.png
 INPUT ./Figures/Illustrations/Input_labels.png
 INPUT ./Figures/Illustrations/Input_labels.png
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmss.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmss.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmss.fd
