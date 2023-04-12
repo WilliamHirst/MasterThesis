@@ -318,13 +318,6 @@ class munch:
 
         s.dict['practicalZERO'] = 1e-15  # useful for log plots
 
-        """
-        s.dict['legDY'] = 0.035 # notyetinuse
-        s.dict['legX1'] = 0.12
-        s.dict['legX2'] = 0.25
-        s.dict['legY1'] = 0.60  # Not used. Is rather generated from mlegDY and number of graphs
-        s.dict['legY2'] = 0.895
-        """
 
         s.dict['autoColorStyleMode'] = '8:1,3,7:1'
         s.dict['autoColorStyleUse'] = 1
@@ -751,7 +744,7 @@ class munch:
             sig = s.tabledict[f"{method}nexpsig"]
             sign = []
             for bkg_i, sig_i in zip(bkg, sig):
-                sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.2)))
+                sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.1)))
             s.tabledict[f"{method}expsign"] = sign
 
     def myText(s,x, y, text, tsize=0.05, color=ROOT.kBlack, angle=0) :
@@ -860,22 +853,17 @@ class munch:
             tlegcont.AddEntry(hgr_cont,s.legendDict[cont],"lpf")
 
         x,y,z = s.plotATLAS()
-        grATLAS = ROOT.TGraph2D()
-        for x_i,y_i in zip(x,y):
-            grATLAS.AddPoint(x_i,y_i, 1.01)
-        # grATLAS = ROOT.TGraph(len(x), x, y)
+        grATLAS = ROOT.TGraph(len(x),x,y)
+
         grATLAS.SetName("ATLAS")
         s.gr_cont.append(grATLAS)
-        grATLAS = grATLAS.GetHistogram()
-        grATLAS.SetLineColor(0)
-        grATLAS.SetLineStyle(0)
-        grATLAS.SetLineWidth(2)
-        lim = array.array('d', [1.00])
-        grATLAS.SetContour(len(lim),lim)
+        # grATLAS.SetMarkerStyle(8)
+        # grATLAS.SetMarkerSize(5)
+        # grATLAS.SetMarkerColor(1)
+        grATLAS.SetLineStyle(1)
+        grATLAS.SetLineWidth(s.contsDef[cont]['wid']*2)
         
         tlegcont.AddEntry(grATLAS,"ATLAS","lpf")
-        s.conts.append("ATLAS")
-        s.hgr_cont["ATLAS"] = grATLAS
         
         
 
@@ -962,12 +950,11 @@ class munch:
 
             hgr.SetMinimum(s.zrangemin)
             hgr.SetMaximum(s.zrangemax)
-            hgr.Draw(s.drawstyle_gr2D)  # 
             # Contour plotting
+            grATLAS.Draw(s.dict['drawstyle_cont'])
+            hgr.Draw(s.drawstyle_gr2D)  
             for cont in s.conts:
-                print(cont)
                 hgr_cont = s.hgr_cont[cont]
-                print(hgr_cont)
                 hgr_cont.Draw(s.dict['drawstyle_cont'])
             # Numbers on plot (manual)
             # ----------
@@ -1061,7 +1048,6 @@ class munch:
             if s.dict['zLog']: s.c1.SetLogz(s.dict['zLog'])
             s.c1.SetGrid(s.dict['gridx'],s.dict['gridy'])
             #print 'gridding: ', s.dict['gridx'], s.dict['gridy']  # doesn't work with SURF
-            print("hahaha")
             if s.conts:
                 tlegcont.Draw('L')
                 # WORK-IN-PROGRESS
