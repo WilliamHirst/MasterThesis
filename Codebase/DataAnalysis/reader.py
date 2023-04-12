@@ -1,8 +1,14 @@
 import uproot
 import numpy as np
 import ROOT
-# file = uproot.open("results/ATLAS/WZ_graphs_onshell.root") 
-# print(file["Exp_0"].all_members)
+file = uproot.open("results/ATLAS/WZ_graphs_onshell.root") 
+gr = file["Exp_0"].all_members
+print(gr)
+file = open("results/text/compLimt.txt", 'w')
+
+print(gr["fX"])
+for i in zip(gr["fX"], gr["fY"]):
+    print(i)
 # print(len(file["Exp_0"].values()[0]))
 # print(len(file["Exp_0"].values()[1]))
 # gr = file["fID_gr"].all_members
@@ -23,7 +29,7 @@ import ROOT
 #  'SubGraphs/clsu1s_Contour_0_Down;1', 'SubGraphs/clsu2s_Contour_0_Down;1', 'SubGraphs/clsd1s_Contour_0_Down;1', 
 #  'SubGraphs/clsd2s_Contour_0_Down;1', 'Band_1s_0;1', 'Band_2s_0;1', 'Obs_0;1', 'Exp_0;1', 'FinalCurves;1', 'Obs_0_Up;1', 
 #  'Exp_0_Up;1', 'Obs_0_Down;1', 'Exp_0_Down;1']
-
+exit()
 file = open("results/text/compLimt.txt", 'w')
 
 PNN = open("results/text/PNNPCA_FS_MLMGridSig.txt", 'r')

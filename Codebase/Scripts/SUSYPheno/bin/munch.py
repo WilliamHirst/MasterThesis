@@ -753,7 +753,7 @@ class munch:
             for bkg_i, sig_i in zip(bkg, sig):
                 sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.2)))
             s.tabledict[f"{method}expsign"] = sign
-        print(s.tabledict)
+
     def myText(s,x, y, text, tsize=0.05, color=ROOT.kBlack, angle=0) :
         l = ROOT.TLatex()
         l.SetTextSize(tsize)
@@ -763,6 +763,26 @@ class munch:
         l.DrawLatex(x,y,'#bf{' + text + '}')
         l.SetTextFont(4)
      
+    def plotATLAS(s):
+        file = ROOT.TFile("WZ_graphs_onshell.root")
+        exp_p0 = file.Get('Exp_0')
+        X = list(exp_p0.GetX())
+        Y = list(exp_p0.GetY())
+        
+        x = []
+        y = []
+        z = []
+        for i in range(len(X)):  # iterate backwards
+                    if ( s.xrangemin <= X[i] <= s.xrangemax  and  s.yrangemin <= Y[i] <= s.yrangemax ): 
+                        x.append(X[i])
+                        y.append(Y[i])
+                        z.append(1.001)
+        x = array.array('f', list(x))
+        y = array.array('f', list(y))
+        z = array.array('f', list(z))
+        
+        return x,y,z
+
 
     # ##########
     def Plot2D(s):
@@ -817,7 +837,6 @@ class munch:
             
             contT = s.contsT[cont]
             s.contval[cont] = GetPlainArray(table=s.tabledict, var=cont, arraytype='f', protection=s.dict['operationprotection'])  # should we allow this to also be scaled?
-
             # ------ hard xy-range (remove from table) [1. contours]
             x = array.array('f', list(s.x))
             y = array.array('f', list(s.y))
@@ -829,20 +848,36 @@ class munch:
             # -----
             gr = ROOT.TGraph2D(len(x), x, y, s.contval[cont])  # needs 'f'
             gr.SetName(contT)
-            s.gr_cont.append(gr)  # needed?
+            s.gr_cont.append(gr)
+
             hgr_cont = gr.GetHistogram()
-            #a = s.contsDef[cont]['vals']
-            #print type(list(a)), list(a)¨
             hgr_cont.SetLineColor(s.contsDef[cont]['col'])
             hgr_cont.SetLineStyle(s.contsDef[cont]['sty'])
             hgr_cont.SetLineWidth(s.contsDef[cont]['wid'])
-            # hgr_cont.SetFillColorAlpha(ROOT.kCyan,1)
-            # hgr_cont.SetFillStyle(3023)
-            # s.contsDef[cont]['vals'].append(s.contsDef[cont]['vals'][0]*1.2)
             hgr_cont.SetContour(len(s.contsDef[cont]['vals']), s.contsDef[cont]['vals'])
+
             s.hgr_cont[cont] = hgr_cont
             tlegcont.AddEntry(hgr_cont,s.legendDict[cont],"lpf")
-            
+
+        x,y,z = s.plotATLAS()
+        grATLAS = ROOT.TGraph2D()
+        for x_i,y_i in zip(x,y):
+            grATLAS.AddPoint(x_i,y_i, 1.01)
+        # grATLAS = ROOT.TGraph(len(x), x, y)
+        grATLAS.SetName("ATLAS")
+        s.gr_cont.append(grATLAS)
+        grATLAS = grATLAS.GetHistogram()
+        grATLAS.SetLineColor(0)
+        grATLAS.SetLineStyle(0)
+        grATLAS.SetLineWidth(2)
+        lim = array.array('d', [1.00])
+        grATLAS.SetContour(len(lim),lim)
+        
+        tlegcont.AddEntry(grATLAS,"ATLAS","lpf")
+        s.conts.append("ATLAS")
+        s.hgr_cont["ATLAS"] = grATLAS
+        
+        
 
         for igr in range(len(s.resvars)):
             s.c1.Clear()
@@ -927,14 +962,13 @@ class munch:
 
             hgr.SetMinimum(s.zrangemin)
             hgr.SetMaximum(s.zrangemax)
-        
             hgr.Draw(s.drawstyle_gr2D)  # 
             # Contour plotting
             for cont in s.conts:
+                print(cont)
                 hgr_cont = s.hgr_cont[cont]
+                print(hgr_cont)
                 hgr_cont.Draw(s.dict['drawstyle_cont'])
-                
-                
             # Numbers on plot (manual)
             # ----------
             if s.dict['marker']: # 2014-02-07  BUT DOES NOT WORK ON TOP OF SURF.. rather plot a dot with TLatex??
@@ -1017,7 +1051,6 @@ class munch:
                     
             # ----------
                     
-            
 
             # Labels/Legends
             # ... 
@@ -1028,12 +1061,12 @@ class munch:
             if s.dict['zLog']: s.c1.SetLogz(s.dict['zLog'])
             s.c1.SetGrid(s.dict['gridx'],s.dict['gridy'])
             #print 'gridding: ', s.dict['gridx'], s.dict['gridy']  # doesn't work with SURF
-
+            print("hahaha")
             if s.conts:
                 tlegcont.Draw('L')
                 # WORK-IN-PROGRESS
                 pass
-
+            
             # Additional text on the plot
             # s.plottexts = TextsFromRaw(s.plottexts_raw, ROOT, VB=s.VB) 
             # for plottext in s.plottexts: plottext.Draw()
