@@ -745,12 +745,15 @@ class munch:
             sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialObsZ(int(bkg_i)+int(sig_i),int(bkg_i),0.2)))
         s.tabledict["sign"] = sign
     def CalcExpSig(s):
-        bkg = s.tabledict["nbkg"]
-        sig = s.tabledict["nexpsig"]
-        sign = []
-        for bkg_i, sig_i in zip(bkg, sig):
-            sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.2)))
-        s.tabledict["expsign"] = sign
+        methodList = ["PNN", "NN", "MaxOut"]
+        for method in methodList:
+            bkg = s.tabledict[f"{method}nbkg"]
+            sig = s.tabledict[f"{method}nexpsig"]
+            sign = []
+            for bkg_i, sig_i in zip(bkg, sig):
+                sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.2)))
+            s.tabledict[f"{method}expsign"] = sign
+        print(s.tabledict)
     def myText(s,x, y, text, tsize=0.05, color=ROOT.kBlack, angle=0) :
         l = ROOT.TLatex()
         l.SetTextSize(tsize)
@@ -776,7 +779,7 @@ class munch:
 
         s.c1.SetTheta(s.dict['CanvasTheta'])
         s.c1.SetPhi(s.dict['CanvasPhi'])
-        s.legendDict = {"sign": r"1 \sigma_{obs}","expsign": r"1.64\sigma_{exp}"}
+        s.legendDict = {"PNNexpsign": r"1.64 \sigma_{exp}: PNN","NNexpsign": r"1.64 \sigma_{exp}: NN","MaxOutexpsign": r"1.64 \sigma_{exp}: Maxout"}
 
         if s.xrangemin == s.undefined: s.xrangemin = min(s.x)
         if s.xrangemax == s.undefined: s.xrangemax = max(s.x)
@@ -803,9 +806,9 @@ class munch:
 
 
         # Contours
-        s.CalcSig()
+        # s.CalcSig()
         s.CalcExpSig()
-        tlegcont = ROOT.TLegend(0.125,0.7, 0.3,0.875)
+        tlegcont = ROOT.TLegend(0.125,0.65, 0.45,0.875)
         tlegcont.SetBorderSize(0)
         tlegcont.SetFillColorAlpha(ROOT.kWhite,0.45)
         for cont in s.conts:
