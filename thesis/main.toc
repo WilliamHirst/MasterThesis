@@ -94,9 +94,9 @@
 \contentsline {section}{\numberline {4.5}Comparing Models on Original Signal Set}{55}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{55}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{56}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Comparing Exclusion Limits - both between ML models and previous analysis}{59}{section.4.8}%
-\contentsline {chapter}{Appendices}{63}{section*.69}%
-\contentsline {chapter}{Appendix A}{65}{appendix*.70}%
+\contentsline {section}{\numberline {4.8}Comparing Exclusion Limits between ML Models and Previous Analysis}{59}{section.4.8}%
+\contentsline {chapter}{Appendices}{63}{section*.70}%
+\contentsline {chapter}{Appendix A}{65}{appendix*.71}%
 \contentsline {section}{\numberline {A.1}Sensitivity Grids}{65}{section.Alph0.1}%
 \contentsline {subsection}{\numberline {A.1.1}Ensembles}{65}{subsection.Alph0.1.1}%
 \contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{65}{subsection.Alph0.1.2}%
