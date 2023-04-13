@@ -17,29 +17,29 @@
 \contentsline {section}{\numberline {1.4}Proton-Proton collisions at the LHC}{7}{section.1.4}%
 \contentsline {subsection}{\numberline {1.4.1}An Introduction to Particle Accelerators and Detecors}{7}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}The Kinematics}{7}{subsection.1.4.2}%
-\contentsline {section}{\numberline {1.5}The Background Channels}{7}{section.1.5}%
+\contentsline {section}{\numberline {1.5}The Background Channels}{9}{section.1.5}%
 \contentsline {subsection}{\numberline {1.5.1}Z-jets}{9}{subsection.1.5.1}%
 \contentsline {subsection}{\numberline {1.5.2}Diboson (lll)}{9}{subsection.1.5.2}%
 \contentsline {subsection}{\numberline {1.5.3}$t\bar {t}$}{9}{subsection.1.5.3}%
 \contentsline {subsection}{\numberline {1.5.4}Diboson (llll)}{9}{subsection.1.5.4}%
 \contentsline {subsection}{\numberline {1.5.5}Top Others}{9}{subsection.1.5.5}%
-\contentsline {subsection}{\numberline {1.5.6}Single Others}{9}{subsection.1.5.6}%
-\contentsline {subsection}{\numberline {1.5.7}Diboson (ll)}{9}{subsection.1.5.7}%
-\contentsline {subsection}{\numberline {1.5.8}Others}{9}{subsection.1.5.8}%
-\contentsline {section}{\numberline {1.6}The Signal}{11}{section.1.6}%
-\contentsline {subsection}{\numberline {1.6.1}Heavy Neutral Lepton}{11}{subsection.1.6.1}%
-\contentsline {subsection}{\numberline {1.6.2}Neutralino's}{11}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.5.6}Single Top}{10}{subsection.1.5.6}%
+\contentsline {subsection}{\numberline {1.5.7}Diboson (ll)}{10}{subsection.1.5.7}%
+\contentsline {subsection}{\numberline {1.5.8}Triboson}{10}{subsection.1.5.8}%
+\contentsline {subsection}{\numberline {1.5.9}W-jets}{10}{subsection.1.5.9}%
+\contentsline {subsection}{\numberline {1.5.10}Higgs}{10}{subsection.1.5.10}%
+\contentsline {section}{\numberline {1.6}The Signal}{12}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Introduction to Machine Learning and Data Analysis}{13}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Phenomenology}{13}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Optimization}{14}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Cost functions}{14}{subsection.2.2.1}%
-\contentsline {subsubsection}{Binary Crossentropy}{14}{section*.16}%
+\contentsline {subsubsection}{Binary Crossentropy}{14}{section*.12}%
 \contentsline {subsection}{\numberline {2.2.2}Stochastic Gradient Descent and Mini-Batches}{14}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Memory, Adaptive Learning and ADAM}{15}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}Hyperparameters}{15}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Data Handling}{15}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Scaling}{15}{subsection.2.4.1}%
-\contentsline {subsubsection}{Standard Scaler}{15}{section*.17}%
+\contentsline {subsubsection}{Standard Scaler}{15}{section*.13}%
 \contentsline {subsection}{\numberline {2.4.2}Principal Component Analysis}{16}{subsection.2.4.2}%
 \contentsline {section}{\numberline {2.5}Regularization}{16}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Early stopping}{18}{subsection.2.5.1}%
@@ -95,8 +95,8 @@
 \contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{55}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{56}{section.4.7}%
 \contentsline {section}{\numberline {4.8}Comparing Exclusion Limits - both between ML models and previous analysis}{59}{section.4.8}%
-\contentsline {chapter}{Appendices}{63}{section*.72}%
-\contentsline {chapter}{Appendix A}{65}{appendix*.73}%
+\contentsline {chapter}{Appendices}{63}{section*.69}%
+\contentsline {chapter}{Appendix A}{65}{appendix*.70}%
 \contentsline {section}{\numberline {A.1}Sensitivity Grids}{65}{section.Alph0.1}%
 \contentsline {subsection}{\numberline {A.1.1}Ensembles}{65}{subsection.Alph0.1.1}%
 \contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{65}{subsection.Alph0.1.2}%

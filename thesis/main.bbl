@@ -86,6 +86,10 @@ J.~Pumplin, \emph{How to tell quark jets from gluon jets},
   \href{http://dx.doi.org/10.1103/PhysRevD.44.2025}{\emph{Phys. Rev. D} {\bf
   44} (Oct, 1991) 2025--2032}.
 
+\bibitem{kingma_adam_2017}
+D.~P. Kingma and J.~Ba, ``Adam: A method for stochastic optimization.''
+\newblock 10.48550/arXiv.1412.6980.
+
 \bibitem{StandardScaler}
 F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel
   et~al., \emph{Scikit-learn: Machine learning in {P}ython}, {\emph{Journal of

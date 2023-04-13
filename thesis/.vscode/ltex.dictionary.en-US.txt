@@ -11,3 +11,6 @@ channelout
 maxout
 assesing
 crossentropy
+triboson
+neutralions
+neutralinos
