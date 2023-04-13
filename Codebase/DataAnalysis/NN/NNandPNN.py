@@ -21,7 +21,7 @@ from Utilities import *
 myPath = "/storage/William_Sakarias/William_Data"
 
 
-name = "NN_FS_MLM"
+name = "PNNPCA_Overfitting_FS_MLM"
 signal = "SUSY"
 train = False
 #notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0"]
@@ -35,11 +35,11 @@ notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0
 print(f"Starting test: Model = {name} -- Signal = {signal}")
 
 df, y, df_data, channels = loadDf(myPath, notInc=notInc)
-# df, df_data = AddParameters(df, y,df_data) # Only for PNN
+df, df_data = AddParameters(df, y,df_data) # Only for PNN
 
 if train:
     print("Preparing data....")
-    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True)#, PCA=True, n_components=1-1e-3) #Only for PCA
+    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=True, PCA=True, n_components=1-1e-3) #Only for PCA
     print("Done.")
 
     X_train, Y_train, W_train, C_train = train
@@ -51,7 +51,7 @@ else:
     Y = y
     df = df.drop(columns = ["channel", "wgt_SG"])
     df, df_data = scaleData(df,df_data)
-    # df, df_data = PCAData(df, df_data, n_components=1-1e-3)
+    df, df_data = PCAData(df, df_data, n_components=1-1e-3)
     nrFeature = nFeats(df)
 
 
@@ -64,7 +64,7 @@ model.add(tf.keras.layers.Dense(600, activation=tf.keras.layers.LeakyReLU(alpha=
 model.add(tf.keras.layers.Dense(1,   activation="sigmoid"))
 
 if not train:
-    model.load_weights(f"models/NN/model_{name}.h5")
+    model.load_weights(f"models/PNN/model_{name}.h5")
 
 optimizer = optimizers.Adam(learning_rate=1e-3)
 model.compile(loss="binary_crossentropy", optimizer=optimizer, weighted_metrics="AUC")
@@ -75,7 +75,7 @@ with tf.device("/GPU:0"):
     if train:
         callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
                                                     patience=10, 
-                                                    restore_best_weights = True,
+                                                    restore_best_weights = False,
                                                     verbose = 1,
                                                     mode = "max")
         history = model.fit(X_train, 
@@ -87,9 +87,8 @@ with tf.device("/GPU:0"):
                             validation_data=(X_val, Y_val, W_val),
                             verbose = 1)
 
-        #model.save_weights(f"models/model_{name}.h5")
-        #THP(history=history, model = name ,signal = signal )
-
+        model.save_weights(f"models/model_{name}.h5")
+        THP(history=history, model = name ,signal = signal )
 
     else: 
         HM(model, df, Y, W, C, data = df_data, name = f"FS/{name}Grid", metric="Sig", save = False, saveTxt=True)
