@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  11 APR 2023 17:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  13 APR 2023 15:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1358,6 +1358,7 @@ Package JHEP Warning: E-mails are missing.
 \g__acro_SMM_int=\count454
 \g__acro_SGD_int=\count455
 \g__acro_ADAM_int=\count456
+\g__acro_MSSM_int=\count457
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -1456,16 +1457,16 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 ) (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count457
+\scratchcounter=\count458
 \scratchdimen=\dimen382
 \scratchbox=\box176
-\nofMPsegments=\count458
-\nofMParguments=\count459
+\nofMPsegments=\count459
+\nofMParguments=\count460
 \everyMPshowfont=\toks71
-\MPscratchCnt=\count460
+\MPscratchCnt=\count461
 \MPscratchDim=\dimen383
-\MPnumerator=\count461
-\makeMPintoPDFobject=\count462
+\MPnumerator=\count462
+\makeMPintoPDFobject=\count463
 \everyMPtoPDFconversion=\toks72
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1498,7 +1499,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count463
+\c@section@level=\count464
 )
 LaTeX Info: Redefining \ref on input line 20.
 LaTeX Info: Redefining \pageref on input line 20.
@@ -1507,7 +1508,7 @@ LaTeX Info: Redefining \nameref on input line 20.
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
-\c@lstlisting=\count464
+\c@lstlisting=\count465
 Package hyperref Info: Option `pageanchor' set `false' on input line 33.
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 33.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -1605,120 +1606,119 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 20
  (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )) (./Sections/SM/ProtonProton.tex [6]
-<Figures/Illustrations/detector.jpeg, id=402, 903.375pt x 732.7375pt>
+<Figures/Illustrations/detector.jpeg, id=405, 903.375pt x 732.7375pt>
 File: Figures/Illustrations/detector.jpeg Graphic file (type jpg)
 <use Figures/Illustrations/detector.jpeg>
 Package pdftex.def Info: Figures/Illustrations/detector.jpeg  used on input line 34.
 (pdftex.def)             Requested size: 350.56706pt x 284.35771pt.
-<Figures/Illustrations/Kinematics.png, id=407, 1445.4pt x 813.0375pt>
+<Figures/Illustrations/Kinematics.png, id=410, 1445.4pt x 813.0375pt>
 File: Figures/Illustrations/Kinematics.png Graphic file (type png)
 <use Figures/Illustrations/Kinematics.png>
 Package pdftex.def Info: Figures/Illustrations/Kinematics.png  used on input line 51.
 (pdftex.def)             Requested size: 303.82193pt x 170.89178pt.
 ) (./Sections/SM/Background.tex [7] [8 <./Figures/Illustrations/detector.jpeg> <./Figures/Illustrations/Kinematics.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 31.
-<Figures/FDiagrams/Z_pjets.png, id=442, 424.58624pt x 939.51pt>
+(Font)              <12> on input line 35.
+ [9]
+<Figures/FDiagrams/Z_pjets.png, id=472, 424.58624pt x 939.51pt>
 File: Figures/FDiagrams/Z_pjets.png Graphic file (type png)
 <use Figures/FDiagrams/Z_pjets.png>
-Package pdftex.def Info: Figures/FDiagrams/Z_pjets.png  used on input line 69.
+Package pdftex.def Info: Figures/FDiagrams/Z_pjets.png  used on input line 94.
 (pdftex.def)             Requested size: 105.1694pt x 232.71222pt.
-<Figures/FDiagrams/wz.png, id=443, 427.5975pt x 921.4425pt>
+<Figures/FDiagrams/wz.png, id=473, 427.5975pt x 921.4425pt>
 File: Figures/FDiagrams/wz.png Graphic file (type png)
 <use Figures/FDiagrams/wz.png>
-Package pdftex.def Info: Figures/FDiagrams/wz.png  used on input line 69.
+Package pdftex.def Info: Figures/FDiagrams/wz.png  used on input line 94.
 (pdftex.def)             Requested size: 105.1694pt x 226.62009pt.
-<Figures/FDiagrams/ttbar.png, id=444, 429.605pt x 936.49875pt>
+<Figures/FDiagrams/ttbar.png, id=474, 429.605pt x 936.49875pt>
 File: Figures/FDiagrams/ttbar.png Graphic file (type png)
 <use Figures/FDiagrams/ttbar.png>
-Package pdftex.def Info: Figures/FDiagrams/ttbar.png  used on input line 84.
+Package pdftex.def Info: Figures/FDiagrams/ttbar.png  used on input line 109.
 (pdftex.def)             Requested size: 105.1694pt x 229.25128pt.
-<Figures/FDiagrams/zz.png, id=445, 424.58624pt x 928.46875pt>
+<Figures/FDiagrams/zz.png, id=475, 424.58624pt x 928.46875pt>
 File: Figures/FDiagrams/zz.png Graphic file (type png)
 <use Figures/FDiagrams/zz.png>
-Package pdftex.def Info: Figures/FDiagrams/zz.png  used on input line 84.
+Package pdftex.def Info: Figures/FDiagrams/zz.png  used on input line 109.
 (pdftex.def)             Requested size: 105.1694pt x 229.97736pt.
-<Figures/FDiagrams/topOther.png, id=446, 479.7925pt x 877.2775pt>
+<Figures/FDiagrams/topOther.png, id=476, 479.7925pt x 877.2775pt>
 File: Figures/FDiagrams/topOther.png Graphic file (type png)
 <use Figures/FDiagrams/topOther.png>
-Package pdftex.def Info: Figures/FDiagrams/topOther.png  used on input line 99.
+Package pdftex.def Info: Figures/FDiagrams/topOther.png  used on input line 124.
 (pdftex.def)             Requested size: 116.85568pt x 213.6565pt.
-<Figures/FDiagrams/singleTop.png, id=447, 422.57875pt x 903.375pt>
+<Figures/FDiagrams/singleTop.png, id=477, 422.57875pt x 903.375pt>
 File: Figures/FDiagrams/singleTop.png Graphic file (type png)
 <use Figures/FDiagrams/singleTop.png>
-Package pdftex.def Info: Figures/FDiagrams/singleTop.png  used on input line 99.
+Package pdftex.def Info: Figures/FDiagrams/singleTop.png  used on input line 124.
 (pdftex.def)             Requested size: 105.1694pt x 224.82315pt.
-<Figures/FDiagrams/ww.png, id=448, 419.5675pt x 942.52126pt>
+<Figures/FDiagrams/ww.png, id=478, 419.5675pt x 942.52126pt>
 File: Figures/FDiagrams/ww.png Graphic file (type png)
 <use Figures/FDiagrams/ww.png>
-Package pdftex.def Info: Figures/FDiagrams/ww.png  used on input line 114.
+Package pdftex.def Info: Figures/FDiagrams/ww.png  used on input line 139.
 (pdftex.def)             Requested size: 105.1694pt x 236.24815pt.
 
-Overfull \hbox (2.53677pt too wide) in paragraph at lines 114--114
+Overfull \hbox (2.53677pt too wide) in paragraph at lines 139--139
 [][] 
  []
 
-<Figures/FDiagrams/WZW.png, id=449, 477.785pt x 925.4575pt>
+<Figures/FDiagrams/WZW.png, id=479, 477.785pt x 925.4575pt>
 File: Figures/FDiagrams/WZW.png Graphic file (type png)
 <use Figures/FDiagrams/WZW.png>
-Package pdftex.def Info: Figures/FDiagrams/WZW.png  used on input line 114.
+Package pdftex.def Info: Figures/FDiagrams/WZW.png  used on input line 139.
 (pdftex.def)             Requested size: 107.50879pt x 208.23308pt.
-<Figures/FDiagrams/w_pjets.png, id=450, 423.5825pt x 915.42pt>
+<Figures/FDiagrams/w_pjets.png, id=480, 423.5825pt x 915.42pt>
 File: Figures/FDiagrams/w_pjets.png Graphic file (type png)
 <use Figures/FDiagrams/w_pjets.png>
-Package pdftex.def Info: Figures/FDiagrams/w_pjets.png  used on input line 129.
+Package pdftex.def Info: Figures/FDiagrams/w_pjets.png  used on input line 154.
 (pdftex.def)             Requested size: 105.1694pt x 227.27603pt.
-<Figures/FDiagrams/h.png, id=451, 419.5675pt x 1040.88875pt>
+<Figures/FDiagrams/h.png, id=481, 419.5675pt x 1040.88875pt>
 File: Figures/FDiagrams/h.png Graphic file (type png)
 <use Figures/FDiagrams/h.png>
-Package pdftex.def Info: Figures/FDiagrams/h.png  used on input line 129.
+Package pdftex.def Info: Figures/FDiagrams/h.png  used on input line 154.
 (pdftex.def)             Requested size: 100.49417pt x 249.31015pt.
 
-Overfull \hbox (15.59877pt too wide) in paragraph at lines 129--129
+Overfull \hbox (15.59877pt too wide) in paragraph at lines 154--154
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--134
+Underfull \hbox (badness 10000) in paragraph at lines 82--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--134
+Underfull \hbox (badness 10000) in paragraph at lines 82--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--134
+Underfull \hbox (badness 10000) in paragraph at lines 82--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--134
+Underfull \hbox (badness 10000) in paragraph at lines 82--159
 
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 134.
+(Font)              <9> on input line 159.
 
-LaTeX Warning: Float too large for page by 8.41087pt on input line 136.
+LaTeX Warning: Float too large for page by 8.41087pt on input line 161.
 
-[9] [10 <./Figures/FDiagrams/Z_pjets.png> <./Figures/FDiagrams/wz.png> <./Figures/FDiagrams/ttbar.png> <./Figures/FDiagrams/zz.png> <./Figures/FDiagrams/topOther.png> <./Figures/FDiagrams/singleTop.png> <./Figures/FDiagrams/ww.png> <./Figures/FDiagrams/WZW.png> <./Figures/FDiagrams/w_pjets.png> <./Figures/FDiagrams/h.png>]) (./Sections/SM/Signal.tex
-<Figures/FDiagrams/HNLSignal.png, id=513, 439.6425pt x 931.48pt>
-File: Figures/FDiagrams/HNLSignal.png Graphic file (type png)
-<use Figures/FDiagrams/HNLSignal.png>
-Package pdftex.def Info: Figures/FDiagrams/HNLSignal.png  used on input line 7.
-(pdftex.def)             Requested size: 105.17297pt x 222.82068pt.
-<Figures/FDiagrams/WZSignal.png, id=514, 429.605pt x 826.08624pt>
+[10] [11 <./Figures/FDiagrams/Z_pjets.png> <./Figures/FDiagrams/wz.png> <./Figures/FDiagrams/ttbar.png> <./Figures/FDiagrams/zz.png> <./Figures/FDiagrams/topOther.png> <./Figures/FDiagrams/singleTop.png> <./Figures/FDiagrams/ww.png> <./Figures/FDiagrams/WZW.png> <./Figures/FDiagrams/w_pjets.png> <./Figures/FDiagrams/h.png>]) (./Sections/SM/Signal.tex
+
+LaTeX Warning: Reference `fig:signal' on page 12 undefined on input line 15.
+
+<Figures/FDiagrams/WZSignal.png, id=534, 429.605pt x 826.08624pt>
 File: Figures/FDiagrams/WZSignal.png Graphic file (type png)
 <use Figures/FDiagrams/WZSignal.png>
-Package pdftex.def Info: Figures/FDiagrams/WZSignal.png  used on input line 15.
+Package pdftex.def Info: Figures/FDiagrams/WZSignal.png  used on input line 22.
 (pdftex.def)             Requested size: 105.17297pt x 202.23534pt.
-) (./Sections/ML/Axiomatic.tex [11 <./Figures/FDiagrams/HNLSignal.png> <./Figures/FDiagrams/WZSignal.png>] [12
+) (./Sections/ML/Axiomatic.tex [12 <./Figures/FDiagrams/WZSignal.png>]
+Chapter 2.
+) (./Sections/ML/ML.tex) (./Sections/ML/Phenomenology.tex) (./Sections/ML/Optimization.tex [13
 
 ]
-Chapter 2.
-) (./Sections/ML/ML.tex) (./Sections/ML/Phenomenology.tex) (./Sections/ML/Optimization.tex [13]
 Underfull \hbox (badness 10000) in paragraph at lines 11--19
 
  []
@@ -1729,18 +1729,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--13
  []
 
 [15]
-<Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf, id=618, 534.79799pt x 534.79799pt>
+<Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf, id=633, 534.79799pt x 534.79799pt>
 File: Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf Graphic file (type pdf)
 <use Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf>
 Package pdftex.def Info: Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf  used on input line 59.
 (pdftex.def)             Requested size: 280.4565pt x 280.46304pt.
-<Figures/MLResults/DataHandling/PCA/PCAPlotLast.pdf, id=619, 534.79799pt x 534.79799pt>
+<Figures/MLResults/DataHandling/PCA/PCAPlotLast.pdf, id=634, 534.79799pt x 534.79799pt>
 File: Figures/MLResults/DataHandling/PCA/PCAPlotLast.pdf Graphic file (type pdf)
 <use Figures/MLResults/DataHandling/PCA/PCAPlotLast.pdf>
 Package pdftex.def Info: Figures/MLResults/DataHandling/PCA/PCAPlotLast.pdf  used on input line 67.
 (pdftex.def)             Requested size: 280.4565pt x 280.46304pt.
 ) (./Sections/ML/Regularization.tex [16] [17 <./Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf> <./Figures/MLResults/DataHandling/PCA/PCAPlotLast.pdf>]) (./Sections/ML/NeuralNetworks.tex
-<Figures/Illustrations/Input_labels.png, id=744, 1445.4pt x 813.0375pt>
+<Figures/Illustrations/Input_labels.png, id=758, 1445.4pt x 813.0375pt>
 File: Figures/Illustrations/Input_labels.png Graphic file (type png)
 <use Figures/Illustrations/Input_labels.png>
 Package pdftex.def Info: Figures/Illustrations/Input_labels.png  used on input line 36.
@@ -1754,7 +1754,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [18]
-<Figures/Illustrations/WeightBias.png, id=768, 668.4975pt x 499.8675pt>
+<Figures/Illustrations/WeightBias.png, id=782, 668.4975pt x 499.8675pt>
 File: Figures/Illustrations/WeightBias.png Graphic file (type png)
 <use Figures/Illustrations/WeightBias.png>
 Package pdftex.def Info: Figures/Illustrations/WeightBias.png  used on input line 83.
@@ -1770,42 +1770,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 96--115
  []
 
 [19 <./Figures/Illustrations/Input_labels.png>] [20 <./Figures/Illustrations/WeightBias.png>] [21]
-<Figures/Illustrations/Max_out.png, id=828, 976.39781pt x 742.27313pt>
+<Figures/Illustrations/Max_out.png, id=842, 976.39781pt x 742.27313pt>
 File: Figures/Illustrations/Max_out.png Graphic file (type png)
 <use Figures/Illustrations/Max_out.png>
 Package pdftex.def Info: Figures/Illustrations/Max_out.png  used on input line 247.
 (pdftex.def)             Requested size: 327.1945pt x 248.73383pt.
-<Figures/Illustrations/EnsembleComp.png, id=840, 2181.65062pt x 969.6225pt>
+<Figures/Illustrations/EnsembleComp.png, id=854, 2181.65062pt x 969.6225pt>
 File: Figures/Illustrations/EnsembleComp.png Graphic file (type png)
 <use Figures/Illustrations/EnsembleComp.png>
 Package pdftex.def Info: Figures/Illustrations/EnsembleComp.png  used on input line 269.
 (pdftex.def)             Requested size: 373.93962pt x 166.1948pt.
  [22] [23 <./Figures/Illustrations/Max_out.png> <./Figures/Illustrations/EnsembleComp.png>]
-<Figures/Illustrations/PNN.png, id=873, 1445.4pt x 813.0375pt>
+<Figures/Illustrations/PNN.png, id=887, 1445.4pt x 813.0375pt>
 File: Figures/Illustrations/PNN.png Graphic file (type png)
 <use Figures/Illustrations/PNN.png>
 Package pdftex.def Info: Figures/Illustrations/PNN.png  used on input line 304.
 (pdftex.def)             Requested size: 373.93962pt x 210.34267pt.
 ) (./Sections/ML/GBDT.tex
-<Figures/Illustrations/DT.png, id=890, 1445.4pt x 813.0375pt>
+<Figures/Illustrations/DT.png, id=904, 1445.4pt x 813.0375pt>
 File: Figures/Illustrations/DT.png Graphic file (type png)
 <use Figures/Illustrations/DT.png>
 Package pdftex.def Info: Figures/Illustrations/DT.png  used on input line 23.
 (pdftex.def)             Requested size: 280.4565pt x 157.75389pt.
  [24 <./Figures/Illustrations/PNN.png>]) (./Sections/ML/MLInHEP.tex [25 <./Figures/Illustrations/DT.png>]
-<Figures/Illustrations/CandC.png, id=936, 4330.1775pt x 2370.60657pt>
+<Figures/Illustrations/CandC.png, id=951, 4330.1775pt x 2370.60657pt>
 File: Figures/Illustrations/CandC.png Graphic file (type png)
 <use Figures/Illustrations/CandC.png>
 Package pdftex.def Info: Figures/Illustrations/CandC.png  used on input line 40.
 (pdftex.def)             Requested size: 303.82193pt x 166.32114pt.
 ) (./Sections/ML/Assessment.tex [26 <./Figures/Illustrations/CandC.png>]
-<Figures/Illustrations/True-Positive.png, id=975, 2366.8425pt x 2351.03343pt>
+<Figures/Illustrations/True-Positive.png, id=988, 2366.8425pt x 2351.03343pt>
 File: Figures/Illustrations/True-Positive.png Graphic file (type png)
 <use Figures/Illustrations/True-Positive.png>
 Package pdftex.def Info: Figures/Illustrations/True-Positive.png  used on input line 23.
 (pdftex.def)             Requested size: 210.3388pt x 208.92921pt.
  [27 <./Figures/Illustrations/True-Positive.png>]
-<Figures/Illustrations/ConfInt.png, id=995, 1477.77094pt x 814.54312pt>
+<Figures/Illustrations/ConfInt.png, id=1008, 1477.77094pt x 814.54312pt>
 File: Figures/Illustrations/ConfInt.png Graphic file (type png)
 <use Figures/Illustrations/ConfInt.png>
 Package pdftex.def Info: Figures/Illustrations/ConfInt.png  used on input line 67.
@@ -1838,12 +1838,12 @@ File: omllmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 LaTeX Font Info:    Font shape `OML/lmr/m/n' in size <8> not available
 (Font)              Font shape `OML/lmm/m/it' tried instead on input line 106.
  [30]
-<Figures/Illustrations/TaskFlow.png, id=1077, 841.64438pt x 670.00313pt>
+<Figures/Illustrations/TaskFlow.png, id=1090, 841.64438pt x 670.00313pt>
 File: Figures/Illustrations/TaskFlow.png Graphic file (type png)
 <use Figures/Illustrations/TaskFlow.png>
 Package pdftex.def Info: Figures/Illustrations/TaskFlow.png  used on input line 134.
 (pdftex.def)             Requested size: 327.1945pt x 260.47208pt.
-<Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf, id=1079, 408.36356pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf, id=1092, 408.36356pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf  used on input line 155.
@@ -1858,22 +1858,22 @@ Overfull \hbox (1.11359pt too wide) in paragraph at lines 48--48
 []$[]$ 
  []
 
-<Figures/FeaturesHistograms/MCvsData/lep1_Pt.pdf, id=1218, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/lep1_Pt.pdf, id=1231, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep1_Pt.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep1_Pt.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep1_Pt.pdf  used on input line 98.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/lep1_Eta.pdf, id=1219, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/lep1_Eta.pdf, id=1232, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep1_Eta.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep1_Eta.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep1_Eta.pdf  used on input line 98.
 (pdftex.def)             Requested size: 245.39409pt x 183.93945pt.
-<Figures/FeaturesHistograms/MCvsData/met_Et.pdf, id=1220, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/met_Et.pdf, id=1233, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/met_Et.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/met_Et.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/met_Et.pdf  used on input line 111.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/flcomp.pdf, id=1221, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/flcomp.pdf, id=1234, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/flcomp.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/flcomp.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/flcomp.pdf  used on input line 111.
@@ -1884,22 +1884,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--114
  []
 
 ) (./Sections/Implementation/NegWeights.tex [34]
-<Figures/FeaturesHistograms/lep1_Pt_Neg.pdf, id=1253, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep1_Pt_Neg.pdf, id=1266, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep1_Pt_Neg.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep1_Pt_Neg.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep1_Pt_Neg.pdf  used on input line 35.
 (pdftex.def)             Requested size: 198.6561pt x 193.75359pt.
-<Figures/FeaturesHistograms/lep1_Pt_nNeg.pdf, id=1254, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep1_Pt_nNeg.pdf, id=1267, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep1_Pt_nNeg.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep1_Pt_nNeg.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep1_Pt_nNeg.pdf  used on input line 35.
 (pdftex.def)             Requested size: 198.6561pt x 193.75359pt.
-<Figures/FeaturesHistograms/lep1_Phi_Neg.pdf, id=1255, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep1_Phi_Neg.pdf, id=1268, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep1_Phi_Neg.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep1_Phi_Neg.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep1_Phi_Neg.pdf  used on input line 51.
 (pdftex.def)             Requested size: 198.6561pt x 193.75359pt.
-<Figures/FeaturesHistograms/lep1_Phi_nNeg.pdf, id=1256, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/lep1_Phi_nNeg.pdf, id=1269, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/lep1_Phi_nNeg.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/lep1_Phi_nNeg.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/lep1_Phi_nNeg.pdf  used on input line 51.
@@ -1916,7 +1916,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--27
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 39.
 [37]
-<Figures/Illustrations/architecture.png, id=1668, 3095.565pt x 1028.34187pt>
+<Figures/Illustrations/architecture.png, id=1681, 3095.565pt x 1028.34187pt>
 File: Figures/Illustrations/architecture.png Graphic file (type png)
 <use Figures/Illustrations/architecture.png>
 Package pdftex.def Info: Figures/Illustrations/architecture.png  used on input line 146.
@@ -1926,233 +1926,236 @@ Package pdftex.def Info: Figures/Illustrations/architecture.png  used on input l
 ]
 Chapter 4.
 ) (./Sections/Results/XGBoost.tex
-<Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf, id=1768, 399.73216pt x 345.27995pt>
+<Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf, id=1781, 399.73216pt x 345.27995pt>
 File: Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf  used on input line 24.
 (pdftex.def)             Requested size: 327.1945pt x 282.63087pt.
-<Figures/MLResults/XGB/SUSY/MLDist/xgbDist.pdf, id=1776, 569.12625pt x 317.185pt>
+<Figures/MLResults/XGB/SUSY/MLDist/xgbDist.pdf, id=1789, 569.12625pt x 317.185pt>
 File: Figures/MLResults/XGB/SUSY/MLDist/xgbDist.pdf Graphic file (type pdf)
 <use Figures/MLResults/XGB/SUSY/MLDist/xgbDist.pdf>
 Package pdftex.def Info: Figures/MLResults/XGB/SUSY/MLDist/xgbDist.pdf  used on input line 60.
 (pdftex.def)             Requested size: 280.4565pt x 156.3077pt.
-<Figures/MLResults/XGB/SUSY/MLDist/xgbDist_C7.pdf, id=1777, 569.12625pt x 317.185pt>
+<Figures/MLResults/XGB/SUSY/MLDist/xgbDist_C7.pdf, id=1790, 569.12625pt x 317.185pt>
 File: Figures/MLResults/XGB/SUSY/MLDist/xgbDist_C7.pdf Graphic file (type pdf)
 <use Figures/MLResults/XGB/SUSY/MLDist/xgbDist_C7.pdf>
 Package pdftex.def Info: Figures/MLResults/XGB/SUSY/MLDist/xgbDist_C7.pdf  used on input line 60.
 (pdftex.def)             Requested size: 280.4565pt x 156.3077pt.
 ) (./Sections/Results/DNN.tex
-<Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf, id=1790, 399.73216pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf, id=1803, 399.73216pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf  used on input line 26.
 (pdftex.def)             Requested size: 303.82193pt x 262.44182pt.
-<Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf, id=1793, 399.73216pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf, id=1806, 399.73216pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf  used on input line 37.
 (pdftex.def)             Requested size: 303.82193pt x 262.44182pt.
  [43] [44 <./Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf> <./Figures/MLResults/XGB/SUSY/MLDist/xgbDist.pdf, page is rotated 90 degrees> <./Figures/MLResults/XGB/SUSY/MLDist/xgbDist_C7.pdf, page is rotated 90 degrees>]
-<Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_InterpolationGridSig.pdf, id=1931, 468.38869pt x 345.37029pt>
+<Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_InterpolationGridSig.pdf, id=1944, 468.38869pt x 345.37029pt>
 File: Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_InterpolationGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_InterpolationGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_InterpolationGridSig.pdf  used on input line 74.
 (pdftex.def)             Requested size: 280.4565pt x 206.80217pt.
-<Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_InterpolationGridSig.pdf, id=1932, 468.38869pt x 345.37029pt>
+<Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_InterpolationGridSig.pdf, id=1945, 468.38869pt x 345.37029pt>
 File: Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_InterpolationGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_InterpolationGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_InterpolationGridSig.pdf  used on input line 74.
 (pdftex.def)             Requested size: 280.4565pt x 206.80217pt.
-<Figures/MLResults/NN/SUSY/History/NN_OneMass_InterpolationHistory.pdf, id=1956, 569.25864pt x 424.46455pt>
+<Figures/MLResults/NN/SUSY/History/NN_OneMass_InterpolationHistory.pdf, id=1969, 569.25864pt x 424.46455pt>
 File: Figures/MLResults/NN/SUSY/History/NN_OneMass_InterpolationHistory.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/History/NN_OneMass_InterpolationHistory.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/History/NN_OneMass_InterpolationHistory.pdf  used on input line 108.
 (pdftex.def)             Requested size: 210.3388pt x 156.8357pt.
-<Figures/MLResults/NN/SUSY/History/NN_InterpolationHistory.pdf, id=1957, 569.07797pt x 424.46455pt>
+<Figures/MLResults/NN/SUSY/History/NN_InterpolationHistory.pdf, id=1970, 569.07797pt x 424.46455pt>
 File: Figures/MLResults/NN/SUSY/History/NN_InterpolationHistory.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/History/NN_InterpolationHistory.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/History/NN_InterpolationHistory.pdf  used on input line 108.
 (pdftex.def)             Requested size: 210.3388pt x 156.8875pt.
-<Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_Overfitting15_InterpolationGridSig.pdf, id=1973, 468.38869pt x 345.37029pt>
+<Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_Overfitting15_InterpolationGridSig.pdf, id=1986, 468.38869pt x 345.37029pt>
 File: Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_Overfitting15_InterpolationGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_Overfitting15_InterpolationGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_Overfitting15_InterpolationGridSig.pdf  used on input line 126.
 (pdftex.def)             Requested size: 280.4565pt x 206.80217pt.
 ) (./Sections/Results/EnsembleMethods.tex [45 <./Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf>]
-<Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf, id=2021, 462.52798pt x 346.89601pt>
+<Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf, id=2034, 462.52798pt x 346.89601pt>
 File: Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf  used on input line 42.
 (pdftex.def)             Requested size: 280.4565pt x 210.35176pt.
-<Figures/MLResults/NN/NetworkVis/AfterTraining.pdf, id=2022, 462.52798pt x 346.89601pt>
+<Figures/MLResults/NN/NetworkVis/AfterTraining.pdf, id=2035, 462.52798pt x 346.89601pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTraining.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTraining.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTraining.pdf  used on input line 42.
 (pdftex.def)             Requested size: 280.4565pt x 210.35176pt.
  [46 <./Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf>] [47 <./Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_InterpolationGridSig.pdf> <./Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_InterpolationGridSig.pdf> <./Figures/MLResults/NN/SUSY/History/NN_OneMass_InterpolationHistory.pdf> <./Figures/MLResults/NN/SUSY/History/NN_InterpolationHistory.pdf>]
-<Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf, id=2183, 462.52798pt x 346.89601pt>
+<Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf, id=2196, 462.52798pt x 346.89601pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf  used on input line 65.
 (pdftex.def)             Requested size: 280.4565pt x 210.35176pt.
-<Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf, id=2184, 462.52798pt x 346.89601pt>
+<Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf, id=2197, 462.52798pt x 346.89601pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf  used on input line 65.
 (pdftex.def)             Requested size: 280.4565pt x 210.35176pt.
-<Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf, id=2189, 462.52798pt x 346.89601pt>
+<Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf, id=2202, 462.52798pt x 346.89601pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf  used on input line 88.
 (pdftex.def)             Requested size: 280.4565pt x 210.35176pt.
-<Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf, id=2190, 462.52798pt x 346.89601pt>
+<Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf, id=2203, 462.52798pt x 346.89601pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf  used on input line 88.
 (pdftex.def)             Requested size: 280.4565pt x 210.35176pt.
-<Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf, id=2195, 38.66063pt x 69.9164pt>
+<Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf, id=2208, 38.66063pt x 69.9164pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf  used on input line 115.
 (pdftex.def)             Requested size: 46.74512pt x 84.5372pt.
-<Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf, id=2196, 41.74425pt x 72.31648pt>
+<Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf, id=2209, 41.74425pt x 72.31648pt>
 File: Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf  used on input line 115.
 (pdftex.def)             Requested size: 48.61378pt x 84.22041pt.
-<Figures/MLResults/NN/SUSY/History/NNHistory.pdf, id=2212, 569.07797pt x 424.46455pt>
+<Figures/MLResults/NN/SUSY/History/NNHistory.pdf, id=2225, 569.07797pt x 424.46455pt>
 File: Figures/MLResults/NN/SUSY/History/NNHistory.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/History/NNHistory.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/History/NNHistory.pdf  used on input line 152.
 (pdftex.def)             Requested size: 210.3388pt x 156.8875pt.
-<Figures/MLResults/NN/SUSY/History/MaxOutHistory.pdf, id=2213, 569.07797pt x 424.46455pt>
+<Figures/MLResults/NN/SUSY/History/MaxOutHistory.pdf, id=2226, 569.07797pt x 424.46455pt>
 File: Figures/MLResults/NN/SUSY/History/MaxOutHistory.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/History/MaxOutHistory.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/History/MaxOutHistory.pdf  used on input line 152.
 (pdftex.def)             Requested size: 210.3388pt x 156.8875pt.
  [48 <./Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_Overfitting15_InterpolationGridSig.pdf>] [49 <./Figures/MLResults/NN/NetworkVis/BeforeTraining.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTraining.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf>] [50 <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf> <./Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf>]
-<Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf, id=2348, 399.73216pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf, id=2361, 399.73216pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf  used on input line 186.
 (pdftex.def)             Requested size: 303.82193pt x 262.44182pt.
-<Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf, id=2356, 722.7pt x 578.16pt>
+<Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf, id=2369, 722.7pt x 578.16pt>
 File: Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf  used on input line 210.
 (pdftex.def)             Requested size: 350.56706pt x 280.45137pt.
  [51 <./Figures/MLResults/NN/SUSY/History/NNHistory.pdf> <./Figures/MLResults/NN/SUSY/History/MaxOutHistory.pdf>]) (./Sections/Results/PNN.tex
-<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf, id=2456, 569.12625pt x 317.185pt>
+<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf, id=2469, 569.12625pt x 317.185pt>
 File: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf  used on input line 32.
 (pdftex.def)             Requested size: 233.71138pt x 130.25479pt.
-<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf, id=2457, 569.12625pt x 317.185pt>
+<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf, id=2470, 569.12625pt x 317.185pt>
 File: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf  used on input line 32.
 (pdftex.def)             Requested size: 233.71138pt x 130.25479pt.
-<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf, id=2470, 569.12625pt x 317.185pt>
+<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf, id=2483, 569.12625pt x 317.185pt>
 File: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf  used on input line 61.
 (pdftex.def)             Requested size: 233.71138pt x 130.25479pt.
-<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf, id=2471, 569.12625pt x 317.185pt>
+<Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf, id=2484, 569.12625pt x 317.185pt>
 File: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf  used on input line 61.
 (pdftex.def)             Requested size: 233.71138pt x 130.25479pt.
  [52 <./Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf>] [53 <./Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf> <./Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist.pdf, page is rotated 90 degrees> <./Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN50250Dist_C7.pdf, page is rotated 90 degrees>]
-<Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf, id=2657, 399.73216pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf, id=2670, 399.73216pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf  used on input line 108.
 (pdftex.def)             Requested size: 303.82193pt x 262.44182pt.
 ) (./Sections/Results/MLComparison.tex [54 <./Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist.pdf, page is rotated 90 degrees> <./Figures/MLResults/NN/SUSY/MLDist/PNNDistTest/PNN200300Dist_C7.pdf, page is rotated 90 degrees>]
-<Figures/MLResults/NN/SUSY/Comparison/GenPlussXGBNetworkComp.pdf, id=2770, 722.7pt x 578.16pt>
+<Figures/MLResults/NN/SUSY/Comparison/GenPlussXGBNetworkComp.pdf, id=2783, 722.7pt x 578.16pt>
 File: Figures/MLResults/NN/SUSY/Comparison/GenPlussXGBNetworkComp.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Comparison/GenPlussXGBNetworkComp.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/GenPlussXGBNetworkComp.pdf  used on input line 19.
 (pdftex.def)             Requested size: 350.56706pt x 280.45137pt.
 ) (./Sections/Results/PCA.tex
-<Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf, id=2786, 722.7pt x 578.16pt>
+<Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf, id=2799, 722.7pt x 578.16pt>
 File: Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf  used on input line 29.
 (pdftex.def)             Requested size: 280.4565pt x 224.3611pt.
-<Figures/MLResults/NN/SUSY/Comparison/PNNPCANetworkComp.pdf, id=2787, 722.7pt x 578.16pt>
+<Figures/MLResults/NN/SUSY/Comparison/PNNPCANetworkComp.pdf, id=2800, 722.7pt x 578.16pt>
 File: Figures/MLResults/NN/SUSY/Comparison/PNNPCANetworkComp.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Comparison/PNNPCANetworkComp.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/PNNPCANetworkComp.pdf  used on input line 29.
 (pdftex.def)             Requested size: 280.4565pt x 224.3611pt.
-<Figures/MLResults/NN/SUSY/Comparison/PCANetworkComp.pdf, id=2818, 722.7pt x 578.16pt>
+<Figures/MLResults/NN/SUSY/Comparison/PCANetworkComp.pdf, id=2831, 722.7pt x 578.16pt>
 File: Figures/MLResults/NN/SUSY/Comparison/PCANetworkComp.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Comparison/PCANetworkComp.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/PCANetworkComp.pdf  used on input line 57.
 (pdftex.def)             Requested size: 303.82193pt x 243.05492pt.
 ) (./Sections/Results/FS.tex [55 <./Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf>]
-<Figures/MLResults/NN/SUSY/Grid/FS/NN_FS_MLMGridSig.pdf, id=2871, 468.38869pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/FS/NN_FS_MLMGridSig.pdf, id=2884, 468.38869pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/FS/NN_FS_MLMGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/FS/NN_FS_MLMGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/FS/NN_FS_MLMGridSig.pdf  used on input line 26.
 (pdftex.def)             Requested size: 397.3122pt x 292.88872pt.
-<Figures/MLResults/NN/SUSY/Grid/FS/MaxOutPCA_FS_MLMGridSig.pdf, id=2881, 468.38869pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/FS/MaxOutPCA_FS_MLMGridSig.pdf, id=2894, 468.38869pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/FS/MaxOutPCA_FS_MLMGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/FS/MaxOutPCA_FS_MLMGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/FS/MaxOutPCA_FS_MLMGridSig.pdf  used on input line 47.
 (pdftex.def)             Requested size: 397.3122pt x 292.88872pt.
-<Figures/MLResults/NN/SUSY/Grid/FS/PNNPCA_FS_MLMGridSig.pdf, id=2890, 468.38869pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/FS/PNNPCA_FS_MLMGridSig.pdf, id=2903, 468.38869pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/FS/PNNPCA_FS_MLMGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/FS/PNNPCA_FS_MLMGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/FS/PNNPCA_FS_MLMGridSig.pdf  used on input line 65.
 (pdftex.def)             Requested size: 397.3122pt x 292.88872pt.
-<Figures/MLResults/NN/SUSY/Comparison/FS_MLMNetworkComp.pdf, id=2896, 722.7pt x 578.16pt>
+<Figures/MLResults/NN/SUSY/Comparison/FS_MLMNetworkComp.pdf, id=2909, 722.7pt x 578.16pt>
 File: Figures/MLResults/NN/SUSY/Comparison/FS_MLMNetworkComp.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Comparison/FS_MLMNetworkComp.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/FS_MLMNetworkComp.pdf  used on input line 81.
 (pdftex.def)             Requested size: 397.3122pt x 317.84782pt.
-) (./Sections/Results/Data.tex [56 <./Figures/MLResults/NN/SUSY/Comparison/GenPlussXGBNetworkComp.pdf>] [57 <./Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf> <./Figures/MLResults/NN/SUSY/Comparison/PNNPCANetworkComp.pdf> <./Figures/MLResults/NN/SUSY/Comparison/PCANetworkComp.pdf>] [58 <./Figures/MLResults/NN/SUSY/Grid/FS/NN_FS_MLMGridSig.pdf>])
-Overfull \hbox (15.18192pt too wide) has occurred while \output is active
-\OT1/lmr/m/sl/10 4.8.  COMPARING EXCLUSION LIMITS - BOTH BETWEEN ML MODELS AND PREVIOUS ANALYSIS \OT1/lmr/m/n/10 59
- []
+) (./Sections/Results/CompLimits.tex [56 <./Figures/MLResults/NN/SUSY/Comparison/GenPlussXGBNetworkComp.pdf>] [57 <./Figures/MLResults/NN/SUSY/Comparison/MaxOutPCANetworkComp.pdf> <./Figures/MLResults/NN/SUSY/Comparison/PNNPCANetworkComp.pdf> <./Figures/MLResults/NN/SUSY/Comparison/PCANetworkComp.pdf>] [58 <./Figures/MLResults/NN/SUSY/Grid/FS/NN_FS_MLMGridSig.pdf>]
+<Figures/MLResults/NN/SUSY/Comparison/compLimitEdit.pdf, id=3096, 569.12625pt x 549.05125pt>
+File: Figures/MLResults/NN/SUSY/Comparison/compLimitEdit.pdf Graphic file (type pdf)
+<use Figures/MLResults/NN/SUSY/Comparison/compLimitEdit.pdf>
+Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/compLimitEdit.pdf  used on input line 20.
+(pdftex.def)             Requested size: 397.3122pt x 383.31116pt.
 
-[59 <./Figures/MLResults/NN/SUSY/Grid/FS/MaxOutPCA_FS_MLMGridSig.pdf>] [60 <./Figures/MLResults/NN/SUSY/Grid/FS/PNNPCA_FS_MLMGridSig.pdf> <./Figures/MLResults/NN/SUSY/Comparison/FS_MLMNetworkComp.pdf>]
-Overfull \hbox (15.18192pt too wide) has occurred while \output is active
-\OT1/lmr/m/sl/10 4.8.  COMPARING EXCLUSION LIMITS - BOTH BETWEEN ML MODELS AND PREVIOUS ANALYSIS \OT1/lmr/m/n/10 61
- []
 
-[61] [62
+LaTeX Warning: Reference `fig:compLimit' on page 59 undefined on input line 25.
 
-] [63
+File: Figures/MLResults/NN/SUSY/Comparison/compLimitEdit.pdf Graphic file (type pdf)
+<use Figures/MLResults/NN/SUSY/Comparison/compLimitEdit.pdf>
+Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/compLimitEdit.pdf  used on input line 43.
+(pdftex.def)             Requested size: 350.56706pt x 338.21326pt.
+) [59 <./Figures/MLResults/NN/SUSY/Grid/FS/MaxOutPCA_FS_MLMGridSig.pdf>] [60 <./Figures/MLResults/NN/SUSY/Grid/FS/PNNPCA_FS_MLMGridSig.pdf> <./Figures/MLResults/NN/SUSY/Comparison/FS_MLMNetworkComp.pdf>] [61 <./Figures/MLResults/NN/SUSY/Comparison/compLimitEdit.pdf, page is rotated 90 degrees>] [62] [63
+
 
 
 ] [64] (./Sections/Appendix/Appendix1.tex
-<Figures/MLResults/NN/SUSY/Grid/StochChannelOutGridSig.pdf, id=3198, 399.73216pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/StochChannelOutGridSig.pdf, id=3271, 399.73216pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/StochChannelOutGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/StochChannelOutGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/StochChannelOutGridSig.pdf  used on input line 17.
 (pdftex.def)             Requested size: 233.71138pt x 201.87994pt.
-<Figures/MLResults/NN/SUSY/Grid/ChannelOutGridSig.pdf, id=3199, 399.73216pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/ChannelOutGridSig.pdf, id=3272, 399.73216pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/ChannelOutGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/ChannelOutGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/ChannelOutGridSig.pdf  used on input line 17.
 (pdftex.def)             Requested size: 233.71138pt x 201.87994pt.
-<Figures/MLResults/NN/SUSY/Grid/NNPCAGridSig.pdf, id=3209, 399.73216pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/NNPCAGridSig.pdf, id=3282, 399.73216pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/NNPCAGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/NNPCAGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/NNPCAGridSig.pdf  used on input line 37.
 (pdftex.def)             Requested size: 233.71138pt x 201.87994pt.
-<Figures/MLResults/NN/SUSY/Grid/MaxOutPCAGridSig.pdf, id=3210, 399.73216pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/MaxOutPCAGridSig.pdf, id=3283, 399.73216pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/MaxOutPCAGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/MaxOutPCAGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/MaxOutPCAGridSig.pdf  used on input line 37.
 (pdftex.def)             Requested size: 233.71138pt x 201.87994pt.
-<Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf, id=3219, 399.73216pt x 345.27995pt>
+<Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf, id=3292, 399.73216pt x 345.27995pt>
 File: Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf  used on input line 49.
 (pdftex.def)             Requested size: 303.82193pt x 262.44182pt.
-<Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf, id=3224, 722.7pt x 578.16pt>
+<Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf, id=3297, 722.7pt x 578.16pt>
 File: Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf Graphic file (type pdf)
 <use Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf>
 Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf  used on input line 61.
@@ -2160,22 +2163,22 @@ Package pdftex.def Info: Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.p
  [65
 
 ] [66 <./Figures/MLResults/NN/SUSY/Grid/StochChannelOutGridSig.pdf> <./Figures/MLResults/NN/SUSY/Grid/ChannelOutGridSig.pdf> <./Figures/MLResults/NN/SUSY/Grid/NNPCAGridSig.pdf> <./Figures/MLResults/NN/SUSY/Grid/MaxOutPCAGridSig.pdf>] [67 <./Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf> <./Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf>]) (./Sections/Appendix/Appendix2.tex
-<Figures/FeaturesHistograms/MCvsData/lep3_Pt.pdf, id=3406, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/lep3_Pt.pdf, id=3479, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep3_Pt.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep3_Pt.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep3_Pt.pdf  used on input line 17.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/lep2_Pt.pdf, id=3407, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/lep2_Pt.pdf, id=3480, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep2_Pt.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep2_Pt.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep2_Pt.pdf  used on input line 17.
 (pdftex.def)             Requested size: 245.39409pt x 183.93945pt.
-<Figures/FeaturesHistograms/MCvsData/lep2_Eta.pdf, id=3408, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/lep2_Eta.pdf, id=3481, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep2_Eta.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep2_Eta.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep2_Eta.pdf  used on input line 30.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/lep3_Eta.pdf, id=3409, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/lep3_Eta.pdf, id=3482, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep3_Eta.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep3_Eta.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep3_Eta.pdf  used on input line 30.
@@ -2186,32 +2189,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--33
  []
 
 [68 <./Figures/FeaturesHistograms/MCvsData/lep3_Pt.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/lep2_Pt.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/lep2_Eta.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/lep3_Eta.pdf, page is rotated 90 degrees>]
-<Figures/FeaturesHistograms/MCvsData/lep1_Phi.pdf, id=3600, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/lep1_Phi.pdf, id=3674, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep1_Phi.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep1_Phi.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep1_Phi.pdf  used on input line 51.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/lep2_Phi.pdf, id=3601, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/lep2_Phi.pdf, id=3675, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep2_Phi.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep2_Phi.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep2_Phi.pdf  used on input line 51.
 (pdftex.def)             Requested size: 245.39409pt x 183.93945pt.
-<Figures/FeaturesHistograms/MCvsData/lep3_Phi.pdf, id=3602, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/lep3_Phi.pdf, id=3676, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep3_Phi.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep3_Phi.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep3_Phi.pdf  used on input line 64.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/lep1_Mt.pdf, id=3603, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/lep1_Mt.pdf, id=3677, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep1_Mt.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep1_Mt.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep1_Mt.pdf  used on input line 64.
 (pdftex.def)             Requested size: 245.39409pt x 183.93945pt.
-<Figures/FeaturesHistograms/MCvsData/lep2_Mt.pdf, id=3604, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/lep2_Mt.pdf, id=3678, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep2_Mt.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep2_Mt.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep2_Mt.pdf  used on input line 77.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/lep3_Mt.pdf, id=3605, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/lep3_Mt.pdf, id=3679, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep3_Mt.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep3_Mt.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep3_Mt.pdf  used on input line 77.
@@ -2227,32 +2230,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--80
  []
 
 [69 <./Figures/FeaturesHistograms/MCvsData/lep1_Phi.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/lep2_Phi.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/lep3_Phi.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/lep1_Mt.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/lep2_Mt.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/lep3_Mt.pdf, page is rotated 90 degrees>]
-<Figures/FeaturesHistograms/MCvsData/lep1_Charge.pdf, id=3885, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/lep1_Charge.pdf, id=3958, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep1_Charge.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep1_Charge.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep1_Charge.pdf  used on input line 97.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/lep2_Charge.pdf, id=3886, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/lep2_Charge.pdf, id=3959, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep2_Charge.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep2_Charge.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep2_Charge.pdf  used on input line 97.
 (pdftex.def)             Requested size: 245.39409pt x 183.93945pt.
-<Figures/FeaturesHistograms/MCvsData/lep3_Charge.pdf, id=3887, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/lep3_Charge.pdf, id=3960, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep3_Charge.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep3_Charge.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep3_Charge.pdf  used on input line 110.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/lep1_Flavor.pdf, id=3888, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/lep1_Flavor.pdf, id=3961, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep1_Flavor.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep1_Flavor.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep1_Flavor.pdf  used on input line 110.
 (pdftex.def)             Requested size: 245.39409pt x 183.93945pt.
-<Figures/FeaturesHistograms/MCvsData/lep2_Flavor.pdf, id=3889, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/lep2_Flavor.pdf, id=3962, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep2_Flavor.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep2_Flavor.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep2_Flavor.pdf  used on input line 123.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/lep3_Flavor.pdf, id=3890, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/lep3_Flavor.pdf, id=3963, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/lep3_Flavor.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/lep3_Flavor.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/lep3_Flavor.pdf  used on input line 123.
@@ -2268,32 +2271,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--126
  []
 
 [70 <./Figures/FeaturesHistograms/MCvsData/lep1_Charge.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/lep2_Charge.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/lep3_Charge.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/lep1_Flavor.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/lep2_Flavor.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/lep3_Flavor.pdf, page is rotated 90 degrees>]
-<Figures/FeaturesHistograms/MCvsData/deltaR.pdf, id=4168, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/deltaR.pdf, id=4241, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/deltaR.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/deltaR.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/deltaR.pdf  used on input line 143.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/met_Phi.pdf, id=4169, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/met_Phi.pdf, id=4242, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/met_Phi.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/met_Phi.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/met_Phi.pdf  used on input line 143.
 (pdftex.def)             Requested size: 245.39409pt x 183.93945pt.
-<Figures/FeaturesHistograms/MCvsData/mlll.pdf, id=4170, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/mlll.pdf, id=4243, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/mlll.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/mlll.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/mlll.pdf  used on input line 156.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/mll_OSSF.pdf, id=4171, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/mll_OSSF.pdf, id=4244, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/mll_OSSF.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/mll_OSSF.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/mll_OSSF.pdf  used on input line 156.
 (pdftex.def)             Requested size: 245.39409pt x 183.93945pt.
-<Figures/FeaturesHistograms/MCvsData/met_Sign.pdf, id=4172, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/met_Sign.pdf, id=4245, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/met_Sign.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/met_Sign.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/met_Sign.pdf  used on input line 169.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/Ht_lll.pdf, id=4173, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/Ht_lll.pdf, id=4246, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/Ht_lll.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/Ht_lll.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/Ht_lll.pdf  used on input line 169.
@@ -2309,32 +2312,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--173
  []
 
 [71 <./Figures/FeaturesHistograms/MCvsData/deltaR.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/met_Phi.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/mlll.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/mll_OSSF.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/met_Sign.pdf, page is rotated 90 degrees> <./Figures/FeaturesHistograms/MCvsData/Ht_lll.pdf, page is rotated 90 degrees>]
-<Figures/FeaturesHistograms/MCvsData/Ht_SS.pdf, id=4451, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/Ht_SS.pdf, id=4524, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/Ht_SS.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/Ht_SS.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/Ht_SS.pdf  used on input line 190.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/Ht_met_Et.pdf, id=4452, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/Ht_met_Et.pdf, id=4525, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/Ht_met_Et.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/Ht_met_Et.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/Ht_met_Et.pdf  used on input line 190.
 (pdftex.def)             Requested size: 245.39409pt x 183.93945pt.
-<Figures/FeaturesHistograms/MCvsData/njet_SG.pdf, id=4453, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/njet_SG.pdf, id=4526, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/njet_SG.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/njet_SG.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/njet_SG.pdf  used on input line 203.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/M_jj.pdf, id=4454, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/M_jj.pdf, id=4527, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/M_jj.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/M_jj.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/M_jj.pdf  used on input line 203.
 (pdftex.def)             Requested size: 245.39409pt x 183.93945pt.
-<Figures/FeaturesHistograms/MCvsData/nbjet77.pdf, id=4455, 569.12625pt x 555.07375pt>
+<Figures/FeaturesHistograms/MCvsData/nbjet77.pdf, id=4528, 569.12625pt x 555.07375pt>
 File: Figures/FeaturesHistograms/MCvsData/nbjet77.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/nbjet77.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/nbjet77.pdf  used on input line 217.
 (pdftex.def)             Requested size: 189.30563pt x 184.63168pt.
-<Figures/FeaturesHistograms/MCvsData/nbjet85.pdf, id=4456, 569.12625pt x 426.59375pt>
+<Figures/FeaturesHistograms/MCvsData/nbjet85.pdf, id=4529, 569.12625pt x 426.59375pt>
 File: Figures/FeaturesHistograms/MCvsData/nbjet85.pdf Graphic file (type pdf)
 <use Figures/FeaturesHistograms/MCvsData/nbjet85.pdf>
 Package pdftex.def Info: Figures/FeaturesHistograms/MCvsData/nbjet85.pdf  used on input line 217.
@@ -2374,7 +2377,10 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [77])
+ [77]
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <9> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 188.
+)
 \tf@thm=\write7
 \openout7 = `main.thm'.
 
@@ -2382,24 +2388,27 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 ] (./main.aux)
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 24ECD28BD4C04244F78719A764C3894D;6926.
+(rerunfilecheck)             Checksum: E441CAFAC7B2BC3A08B60A0FF219E7DD;6885.
  ) 
 Here is how much of TeX's memory you used:
- 58559 strings out of 478268
- 1322994 string characters out of 5846347
- 2183107 words of memory out of 5000000
- 74701 multiletter control sequences out of 15000+600000
- 622789 words of font info for 350 fonts, out of 8000000 for 9000
+ 58678 strings out of 478268
+ 1327614 string characters out of 5846347
+ 2186521 words of memory out of 5000000
+ 74813 multiletter control sequences out of 15000+600000
+ 623602 words of font info for 354 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,20n,103p,1565b,2688s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (88 pages, 6005855 bytes).
+ 98i,20n,103p,1660b,2688s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmro10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on main.pdf (88 pages, 6068602 bytes).
 PDF statistics:
- 5177 PDF objects out of 6186 (max. 8388607)
- 2975 compressed objects within 30 object streams
- 522 named destinations out of 1000 (max. 500000)
- 84812 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 5255 PDF objects out of 6186 (max. 8388607)
+ 3027 compressed objects within 31 object streams
+ 523 named destinations out of 1000 (max. 500000)
+ 86860 words of extra memory for PDF output out of 89155 (max. 10000000)
 

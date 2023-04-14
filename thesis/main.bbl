@@ -86,6 +86,10 @@ J.~Pumplin, \emph{How to tell quark jets from gluon jets},
   \href{http://dx.doi.org/10.1103/PhysRevD.44.2025}{\emph{Phys. Rev. D} {\bf
   44} (Oct, 1991) 2025--2032}.
 
+\bibitem{kingma_adam_2017}
+D.~P. Kingma and J.~Ba, ``Adam: A method for stochastic optimization.''
+\newblock 10.48550/arXiv.1412.6980.
+
 \bibitem{StandardScaler}
 F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel
   et~al., \emph{Scikit-learn: Machine learning in {P}ython}, {\emph{Journal of
@@ -177,5 +181,12 @@ A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
 \bibitem{ATLAS-CONF-2017-064}
 {\scshape ATLAS} collaboration, \emph{{Performance of Top Quark and W Boson
   Tagging in Run 2 with ATLAS}},  tech. rep., CERN, Geneva, 2017.
+
+\bibitem{atlas_search_2021}
+A.~Collaboration, ``Search for chargino--neutralino pair production in final
+  states with three leptons and missing transverse momentum in
+  \${\textbackslash}sqrt\{s\} = 13\$ {TeV} \$pp\$ collisions with the {ATLAS}
+  detector.''
+\newblock 10.1140/epjc/s10052-021-09749-7.
 
 \end{thebibliography}\endgroup

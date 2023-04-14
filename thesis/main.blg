@@ -26,36 +26,36 @@ Reallocated str_pool (elt_size=1) to 195000 items from 130000.
 Warning--empty year in raychaudhuri_introduction_2008
 Warning--empty author in ATLAS-CONF-2011-152
 Warning--empty author in ATLAS-CONF-2017-064
-You've used 33 entries,
+You've used 35 entries,
             2188 wiz_defined-function locations,
-            760 strings with 154682 characters,
-and the built_in function-call counts, 8174 in all, are:
-= -- 769
-> -- 414
+            771 strings with 155118 characters,
+and the built_in function-call counts, 8466 in all, are:
+= -- 796
+> -- 429
 < -- 0
-+ -- 124
-- -- 91
-* -- 625
-:= -- 1184
-add.period$ -- 36
-call.type$ -- 33
-change.case$ -- 34
++ -- 129
+- -- 94
+* -- 633
+:= -- 1221
+add.period$ -- 38
+call.type$ -- 35
+change.case$ -- 36
 chr.to.int$ -- 0
-cite$ -- 36
-duplicate$ -- 365
-empty$ -- 783
-format.name$ -- 91
-if$ -- 2058
+cite$ -- 38
+duplicate$ -- 375
+empty$ -- 823
+format.name$ -- 94
+if$ -- 2137
 int.to.chr$ -- 0
-int.to.str$ -- 33
+int.to.str$ -- 35
 missing$ -- 73
-newline$ -- 108
-num.names$ -- 31
-pop$ -- 120
+newline$ -- 116
+num.names$ -- 33
+pop$ -- 130
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 249
+skip$ -- 264
 stack$ -- 0
 substring$ -- 387
 swap$ -- 124
@@ -64,7 +64,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 67
-width$ -- 35
-write$ -- 300
+while$ -- 69
+width$ -- 37
+write$ -- 316
 (There were 6 warnings)
