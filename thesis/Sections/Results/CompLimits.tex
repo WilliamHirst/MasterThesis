@@ -14,15 +14,17 @@ compare the models with an uncertainty of $10\%$.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
-    \begin{subfigure}{.85\textwidth}
-        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/compLimitEdit.pdf}
+    \begin{subfigure}{.75\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/Limits/compLimit20.pdf}
     \end{subfigure}
     }
-    \caption{A grid displaying the achieved significance on the full statistics signal set, using the signal region 
-    created by the \emph{PNN} network.}
+    \caption{A surface plot of the significance achieved by the \ac{PNN} on the full statistics signal set. Contours are 
+    drawn around the band equal to a significance of 1.64 for the \ac{PNN} (yellow), dense \ac{NN} (cyan), maxout model (green)
+    and the ATLAS analysis (pink). The significance achieved by the \ac{ML} models were calculated with a flat uncertainty equal 
+    to $20\%$ of the background.}
     \label{fig:compLimit20}
 \end{figure}
-In figure \ref{fig:compLimit}, I have drawn the contours of the significance achieved using the \ac{PNN},
+In figure \ref{fig:compLimit20}, I have drawn the contours of the significance achieved using the \ac{PNN},
 while outlining all points corresponding to a significance of 1.64. The same outline has been made on top of the 
 contours of the \ac{PNN} for the dense \ac{NN}, maxout model and the statistical analysis made by ATLAS. The calculations
 of the significance for the output of the \ac{ML} models were made with a flat uncertainty equal to $20\%$ of the background.
@@ -35,13 +37,23 @@ a far closer comparison between all three models and the results from ATLAS. In 
 to extend the sensitivity of the \ac{PNN} for larger masses of both $\tilde{\chi}_1$ and $\tilde{\chi}_2$, but were beaten in most areas. The 
 \ac{PNN} is very close to being able to extend the sensitivity from ATLAS, for high masses of $\tilde{\chi}_2$ and low masses of $\tilde{\chi}_1$. 
 \begin{figure}
-    \makebox[\linewidth][c]{%
+    \makebox[1\linewidth][c]{%
     \centering
-    \begin{subfigure}{.75\textwidth}
-        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/compLimitEdit.pdf}
+    \begin{subfigure}{.6\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/Limits/compLimit10.pdf}
+        \vspace{-1.cm}
+        \caption{}
+        \label{fig:compLimit10}
+    \end{subfigure}
+    \begin{subfigure}{.6\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/Limits/compLimit1.pdf}
+        \vspace{-1.cm}
+        \caption{}
+        \label{fig:compLimit1}
     \end{subfigure}
     }
-    \caption{A grid displaying the achieved significance on the full statistics signal set, using the signal region 
-    created by the \emph{PNN} network.}
-    \label{fig:compLimit10}
+    \caption{Two surface plots of the significance achieved by the \ac{PNN} on the full statistics signal set. Contours are 
+    drawn around the band equal to a significance of 1.64 for the \ac{PNN} (yellow), dense \ac{NN} (cyan), maxout model (green)
+    and the ATLAS analysis (pink). The significance achieved by the \ac{ML} models were calculated with a flat uncertainty equal 
+    to $10\%$ of the background in the left figure \ref{fig:compLimit10} and less than $1\%$ in the right \ref{fig:compLimit1}.}
 \end{figure}
