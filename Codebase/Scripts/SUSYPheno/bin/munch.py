@@ -744,7 +744,7 @@ class munch:
             sig = s.tabledict[f"{method}nexpsig"]
             sign = []
             for bkg_i, sig_i in zip(bkg, sig):
-                sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.2)))
+                sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.00001)))
             s.tabledict[f"{method}expsign"] = sign
 
     def myText(s,x, y, text, tsize=0.05, color=ROOT.kBlack, angle=0) :
@@ -792,7 +792,7 @@ class munch:
 
         s.c1.SetTheta(s.dict['CanvasTheta'])
         s.c1.SetPhi(s.dict['CanvasPhi'])
-        s.legendDict = {"PNNexpsign": r"1.64 \sigma_{exp}: PNN","NNexpsign": r"1.64 \sigma_{exp}: NN","MaxOutexpsign": r"1.64 \sigma_{exp}: Maxout"}
+        s.legendDict = {"PNNexpsign": r"PNN","NNexpsign": r"NN","MaxOutexpsign": r"Maxout"}
 
         if s.xrangemin == s.undefined: s.xrangemin = min(s.x)
         if s.xrangemax == s.undefined: s.xrangemax = max(s.x)
@@ -816,9 +816,10 @@ class munch:
 
         # Contours
         s.CalcExpSig()
-        tlegcont = ROOT.TLegend(0.125,0.65, 0.4,0.875)
-        tlegcont.SetHeader("20% UNCERTAINTY")
+        tlegcont = ROOT.TLegend(0.125,0.65, 0.3,0.875)
+        tlegcont.SetHeader(r"Z_{exp}=1.64")
         tlegcont.SetBorderSize(0)
+        tlegcont.SetTextSize(0.03)
         tlegcont.SetFillColorAlpha(ROOT.kWhite,0.6)
         for cont in s.conts:
             # Local vars: x,y,nvars (do this because they can be cut with cutrange
@@ -856,7 +857,7 @@ class munch:
         grATLAS.SetLineWidth(s.contsDef[cont]['wid'])
         grATLAS.SetLineColor(6)
         
-        tlegcont.AddEntry(grATLAS,"ATLAS Limit","lpf")
+        tlegcont.AddEntry(grATLAS,"ATLAS","lpf")
 
         for igr in range(len(s.resvars)):
             s.c1.Clear()
@@ -1049,9 +1050,10 @@ class munch:
             # Additional text on the plot
             # s.plottexts = TextsFromRaw(s.plottexts_raw, ROOT, VB=s.VB) 
             # for plottext in s.plottexts: plottext.Draw()
-            s.plottexts = TextsFromRaw([r"\tilde \chi_{1}[Gev], 0.055, 0.93, 0.05",r"\tilde \chi_{2}[Gev], 0.75, 0.025, 0.05"], ROOT) 
+            s.plottexts = TextsFromRaw([r"\tilde \chi_{1}[Gev], 0.057, 0.93, 0.04",r"\tilde \chi_{2}[Gev], 0.775, 0.025, 0.04","<1% UNCERTAINTY, 0.58, 0.93, 0.04"], ROOT) 
             s.plottexts[0].Draw()
             s.plottexts[1].Draw()
+            s.plottexts[2].Draw()
             
             # Save
             s.c1.SaveAs(fn)
