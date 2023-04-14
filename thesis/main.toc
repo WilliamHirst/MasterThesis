@@ -95,11 +95,11 @@
 \contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{55}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{56}{section.4.7}%
 \contentsline {section}{\numberline {4.8}Comparing Exclusion Limits between ML Models and Previous Analysis}{59}{section.4.8}%
-\contentsline {chapter}{Appendices}{63}{section*.70}%
-\contentsline {chapter}{Appendix A}{65}{appendix*.71}%
-\contentsline {section}{\numberline {A.1}Sensitivity Grids}{65}{section.Alph0.1}%
-\contentsline {subsection}{\numberline {A.1.1}Ensembles}{65}{subsection.Alph0.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{65}{subsection.Alph0.1.2}%
-\contentsline {section}{\numberline {A.2}The Features}{68}{section.Alph0.2}%
-\contentsline {subsection}{\numberline {A.2.1}The Feature Distribution}{68}{subsection.Alph0.2.1}%
-\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{73}{section.Alph0.3}%
+\contentsline {chapter}{Appendices}{65}{section*.71}%
+\contentsline {chapter}{Appendix A}{67}{appendix*.72}%
+\contentsline {section}{\numberline {A.1}Sensitivity Grids}{67}{section.Alph0.1}%
+\contentsline {subsection}{\numberline {A.1.1}Ensembles}{67}{subsection.Alph0.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{67}{subsection.Alph0.1.2}%
+\contentsline {section}{\numberline {A.2}The Features}{70}{section.Alph0.2}%
+\contentsline {subsection}{\numberline {A.2.1}The Feature Distribution}{70}{subsection.Alph0.2.1}%
+\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{75}{section.Alph0.3}%

@@ -66,7 +66,7 @@ very closely resemble the limits from ATLAS, only being beaten by $50GeV$ for hi
 $\tilde{\chi}_1\approx250GeV$ and $\tilde{\chi}_2\approx400GeV$, the \ac{PNN} seems to ever so slightly extend the limit surpassed that produced of ATLAS.
 Although this is promising for the method, it is worth mentioning that the uncertainty is far from realistic. Finally, the size by which the limit are extended
 are so small that it could be explained by the method of interpolation between the grid of mass combinations.
-\\
+\subsection*{Final Remarks and Possible Improvements}
 To summarize the discoveries in the figures above, none of the methods were able to extend the limit passed that produced by ATLAS, at least not to a satisfactory degree.
 This is by no means to say that the methods discussed and presented in this thesis are not of interest. For starters, the matter of trying to extend the limit of sensitivity 
 passed that produced by ATLAS, was given little attention and consideration during the timespan of this thesis. Most of the time, was instead spent comparing and exploring the 
@@ -78,6 +78,11 @@ the models to show great promise. If I were to prioritize expansion of exclusion
     \item \emph{Devote additional time to studying the relationship between overfitting and significance}: The early stoppage criteria of 10 epochs applied in this analysis, was chosen 
           for convenience and was based on general practice. This rigid criteria, could be destructive for optimal performance, and by devoting additional time to studying
           the relationship between the threshold for the criteria and optimal performance could lead to better performing models.
-          
+    \item \emph{Perform a thorough hyperparameter search}: For comparison reasons, I decided not to apply a hyperparameter search for the architecture of the networks. By attempting 
+           a grid search for the different hyperparameter, it would be interesting to see if a better performance could be achieved. Additionally, attempting to combine the methods presented 
+           in this thesis, for example a \ac{PNN} with maxout layers. 
+    \item \emph{Create region specific models}: In the final analysis, I applied one model (per method) to study the full signal set. It would be interesting to explore the possibility of creating
+          different models for different regions in the feature space. In the analysis we have seen how models can both improve and worsen in performance with regard to specific masses by increasing
+          the number of mass combinations in the training set. With individual models covering specific, possibly physics motivated regions, I believe some methods would benefit.
 \end{itemize}
 
