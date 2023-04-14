@@ -744,7 +744,7 @@ class munch:
             sig = s.tabledict[f"{method}nexpsig"]
             sign = []
             for bkg_i, sig_i in zip(bkg, sig):
-                sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.000001)))
+                sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.2)))
             s.tabledict[f"{method}expsign"] = sign
 
     def myText(s,x, y, text, tsize=0.05, color=ROOT.kBlack, angle=0) :
@@ -766,7 +766,7 @@ class munch:
         y = []
         z = []
         for i in range(len(X)):  # iterate backwards
-                    if ( s.xrangemin*1.05 <= X[i] <= s.xrangemax*0.85  and  s.yrangemin <= Y[i] <= s.yrangemax ): 
+                    if ( s.xrangemin*1.05 <= X[i] <= s.xrangemax*0.85  and  s.yrangemin <= Y[i] <= s.yrangemax*0.9 ): 
                         x.append(X[i])
                         y.append(Y[i])
                         z.append(1.001)
@@ -799,7 +799,6 @@ class munch:
         if s.yrangemin == s.undefined: s.yrangemin = min(s.y) # 2D
         if s.yrangemax == s.undefined: s.yrangemax = max(s.y) # 2D
 
-        s.myText(5,5,r"\tilde \chi_{1}", color=ROOT.kWhite, tsize=0.1)
         
         # s.plottexts.
         hDef = ROOT.TH2F('hDef', '', 1, s.xrangemin, s.xrangemax, 1, s.yrangemin, s.yrangemax)
@@ -811,22 +810,18 @@ class munch:
         tay = hDef.GetYaxis()
       
    
-        # print tax.GetTitleOffset()
-        # print tay.GetTitleOffset()
-        # print tax.GetTickLength()
         tax.SetTickLength(s.dict['ticklengthx'])  # no effect
         tay.SetTickLength(s.dict['ticklengthy'])
 
 
         # Contours
-        # s.CalcSig()
         s.CalcExpSig()
-        tlegcont = ROOT.TLegend(0.125,0.65, 0.45,0.875)
+        tlegcont = ROOT.TLegend(0.125,0.65, 0.4,0.875)
+        tlegcont.SetHeader("20% UNCERTAINTY")
         tlegcont.SetBorderSize(0)
-        tlegcont.SetFillColorAlpha(ROOT.kWhite,0.45)
+        tlegcont.SetFillColorAlpha(ROOT.kWhite,0.6)
         for cont in s.conts:
             # Local vars: x,y,nvars (do this because they can be cut with cutrange
-            #ndim = len(x)
             
             contT = s.contsT[cont]
             s.contval[cont] = GetPlainArray(table=s.tabledict, var=cont, arraytype='f', protection=s.dict['operationprotection'])  # should we allow this to also be scaled?
@@ -861,9 +856,7 @@ class munch:
         grATLAS.SetLineWidth(s.contsDef[cont]['wid'])
         grATLAS.SetLineColor(6)
         
-        tlegcont.AddEntry(grATLAS,"ATLAS","lpf")
-        
-        
+        tlegcont.AddEntry(grATLAS,"ATLAS Limit","lpf")
 
         for igr in range(len(s.resvars)):
             s.c1.Clear()
