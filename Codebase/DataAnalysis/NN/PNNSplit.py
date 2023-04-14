@@ -104,9 +104,3 @@ for split, name in zip(splits,models):
 
 
         HM(model, df, Y, W, C, data = df_data, name = f"FS/{name}Grid", metric="Sig", save = False, saveTxt=True)
-    
-    
-    
-
-    
-

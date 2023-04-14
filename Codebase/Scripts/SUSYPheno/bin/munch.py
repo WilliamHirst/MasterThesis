@@ -135,7 +135,7 @@ import ROOT
 
 # ##########
 def SetupROOT():
-    ROOT.gStyle.SetCanvasColor(0)
+    ROOT.gStyle.SetCanvasColor(4000)
     ROOT.gStyle.SetTitleFillColor(0)
     ROOT.gStyle.SetOptTitle(1)
     ROOT.gStyle.SetOptStat(0)
@@ -744,7 +744,7 @@ class munch:
             sig = s.tabledict[f"{method}nexpsig"]
             sign = []
             for bkg_i, sig_i in zip(bkg, sig):
-                sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.1)))
+                sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.000001)))
             s.tabledict[f"{method}expsign"] = sign
 
     def myText(s,x, y, text, tsize=0.05, color=ROOT.kBlack, angle=0) :
@@ -766,7 +766,7 @@ class munch:
         y = []
         z = []
         for i in range(len(X)):  # iterate backwards
-                    if ( s.xrangemin <= X[i] <= s.xrangemax  and  s.yrangemin <= Y[i] <= s.yrangemax ): 
+                    if ( s.xrangemin*1.05 <= X[i] <= s.xrangemax*0.85  and  s.yrangemin <= Y[i] <= s.yrangemax ): 
                         x.append(X[i])
                         y.append(Y[i])
                         z.append(1.001)
@@ -853,15 +853,13 @@ class munch:
             tlegcont.AddEntry(hgr_cont,s.legendDict[cont],"lpf")
 
         x,y,z = s.plotATLAS()
-        grATLAS = ROOT.TGraph(len(x),x,y)
+        grATLAS = ROOT.TGraph2D(len(x),x,y,z)
 
         grATLAS.SetName("ATLAS")
         s.gr_cont.append(grATLAS)
-        # grATLAS.SetMarkerStyle(8)
-        # grATLAS.SetMarkerSize(5)
-        # grATLAS.SetMarkerColor(1)
         grATLAS.SetLineStyle(1)
-        grATLAS.SetLineWidth(s.contsDef[cont]['wid']*2)
+        grATLAS.SetLineWidth(s.contsDef[cont]['wid'])
+        grATLAS.SetLineColor(6)
         
         tlegcont.AddEntry(grATLAS,"ATLAS","lpf")
         
@@ -919,6 +917,7 @@ class munch:
             # hDef.SetTitleAlign(1)
             # hDef.SetTitle(r"\tilde \chi_{1}")
             # if s.title != "": hDef.SetTitle(r"\tilde \chi_{1}")
+            
             hDef.Draw(s.dict['drawstyle_hdef'])
             if s.dict['tickyright']: ROOT.gPad.SetTicky(s.dict['tickyright'])  # 2014-02-06 uncommented (why was it commented?)
             if s.dict['ticktop']:   ROOT.gPad.SetTickx(s.dict['ticktop'])      # ditto
@@ -951,11 +950,12 @@ class munch:
             hgr.SetMinimum(s.zrangemin)
             hgr.SetMaximum(s.zrangemax)
             # Contour plotting
-            grATLAS.Draw(s.dict['drawstyle_cont'])
             hgr.Draw(s.drawstyle_gr2D)  
+            grATLAS.Draw("same"+ "LINE")
             for cont in s.conts:
                 hgr_cont = s.hgr_cont[cont]
                 hgr_cont.Draw(s.dict['drawstyle_cont'])
+            # grATLAS.SetFillColor(4000)
             # Numbers on plot (manual)
             # ----------
             if s.dict['marker']: # 2014-02-07  BUT DOES NOT WORK ON TOP OF SURF.. rather plot a dot with TLatex??
