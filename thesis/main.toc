@@ -90,11 +90,11 @@
 \contentsline {subsection}{\numberline {4.3.3}Comparing achieved Sensitivity between Ensemble methods}{51}{subsection.4.3.3}%
 \contentsline {section}{\numberline {4.4}Parametrized Neural Network}{52}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Discriminating Masses}{52}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Sensitivity Result}{54}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}Comparing Models on Original Signal Set}{55}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{55}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{58}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Comparing Exclusion Limits between ML Models and Previous Analysis}{61}{section.4.8}%
+\contentsline {subsection}{\numberline {4.4.2}Sensitivity Result}{55}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Comparing Models on Original Signal Set}{56}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{56}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{57}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Comparing Exclusion Limits between ML Models and Previous Analysis}{60}{section.4.8}%
 \contentsline {chapter}{Appendices}{65}{section*.71}%
 \contentsline {chapter}{Appendix A}{67}{appendix*.72}%
 \contentsline {section}{\numberline {A.1}Sensitivity Grids}{67}{section.Alph0.1}%

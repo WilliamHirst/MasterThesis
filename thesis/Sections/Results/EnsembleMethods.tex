@@ -107,7 +107,7 @@ By comparing the figures, we see a small but noticeable difference in paths. Aga
 the differentiating factor. To highlight the differences, I have included a cutout, comparing the two highest nodes in the bottom unit 
 for the middle layer of both figures, \ref{fig:ATrainingSig50250Zoom} and \ref{fig:ATrainingSig200300Zoom} (in the same order).
 By studying the cutouts, we can conclude that the maxout layer not only applies a form of regularization, but also increases the long term 
-memory of the model.
+memory of the model through trend specific paths through the network.
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -144,7 +144,11 @@ The drop in performance for the validation set and increase in performance for t
 \\
 In figure \ref{fig:MaxOutHist} we observe that an ensemble method (in this case the maxout) displays a different trend. For the first 
 10 epochs the model increases in performance for both data sets. After this, the validation set does not decrease in performance, but 
-simply holds stable while the training set increases. This is a sign that the model is not experiencing overfitting.
+simply holds stable while the training set increases. This is a sign that the model is not experiencing overfitting. Furthermore, the 
+training history of the maxout model raises an interesting point. From experience, I know that the maxout model reaches a peak in performance
+on the validation set after approximately 15-20 epochs. Given that the performance after said peak is stable, it is plausible that continuing 
+training will not worsen the performance on the full said, or even lead to overfitting, but improve. This is definitely an interesting possibility
+for the \ac{LWTA} layers, but will not be studied in this thesis due to time constraints.
 \\
 In section \ref{subsec:TrainingStrategy}, I discussed the training strategy used when training all models in this analysis. I mentioned 
 the implementation of an early-stopping criteria which makes sure that the model only continues to train as long as the performance on the 
@@ -188,7 +192,7 @@ outperformed the maxout model for the high statistics combinations, the maxout m
 This result can be credited to two factors. The first being maxout's effect as a form of regularization. In the previous 
 section (see section \ref{subsec:Overfitting}), I presented how through maxout's regularization abilities, it would be able to 
 uphold the early-stopping criteria for a larger number of epochs. The second factor is maxout's innate long term memory which was studied
-in section \ref{subsec:Viz}. From figure \ref{fig:MaxOutGridSig}, we are able to deduce that although the maxout model is not able to training 
+in section \ref{subsec:Viz}. From figure \ref{fig:MaxOutGridSig}, we are able to deduce that although the maxout model is not able to tune 
 to the same depth for the lower masses, it is able to achieve a large level of generalizability through reducing overfitting and increasing long term memory.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
@@ -211,9 +215,12 @@ pie marks which method achieved the highest sensitivity for the respective combi
 By studying the pie-plot in figure \ref{fig:EnsembleComp}, we can deduce that maxout model outperforms the other two in most of the mass 
 combination (24/30). From the sizes of each "slice", we can observe that all three models seem relatively equal in performance, maxout only 
 outperforming the others by a small fraction. The most interesting observation from the pie-plot is the performance from the \ac{SCO}, as 
-this model was in-part created by me. Except the mass combinations where maxout was the most sensitive, \ac{SCO} outperformed 
-the rest. This is an indicator that although the method seemed not to be the most optimal ensemble method for this analysis, it does 
-indeed show great promise and should be further explored in further analysis. 
+this model was in-part created by me. Except the mass combinations where maxout was the most sensitive, \ac{SCO} was the highest performing model. 
+Most interestingly, it outperformed the channel-out model, which is the model most similar to \ac{SCO}, in 9/30 (see figure \ref{fig:SCOCO}). 
+In hindsight, I believe that by removing the \ac{SCO} during prediction (similar to what is done for dropout), the \ac{SCO} layer would greatly 
+approve in performance, on a count of the fact that the performance on each event is dependent on the random choice of unit for that prediction.
+Nonetheless, this analysis is an indicator that although the maxout model was the highest performing model, the \ac{SCO} layer shows 
+great promise and should be further explored in further analysis. 
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
