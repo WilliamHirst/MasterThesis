@@ -99,6 +99,11 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel
 Q.~Wang and J.~{JaJa}, ``From maxout to channel-out: Encoding information on
   sparse pathways.''
 
+\bibitem{srivastava_compete_2013}
+R.~K. Srivastava, J.~Masci, S.~Kazerounian, F.~Gomez and J.~Schmidhuber,
+  \emph{Compete to compute},  in \emph{Advances in Neural Information
+  Processing Systems}, vol.~26, Curran Associates, Inc.
+
 \bibitem{PNN}
 P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
   \emph{Parameterized machine learning for high-energy physics},
@@ -168,6 +173,12 @@ M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
 P.~Liashchynskyi and P.~Liashchynskyi, \emph{Grid search, random search,
   genetic algorithm: A big comparison for nas},  2019.
 \newblock 10.48550/ARXIV.1912.06059.
+
+\bibitem{glorot_understanding_2010}
+X.~Glorot and Y.~Bengio, \emph{Understanding the difficulty of training deep
+  feedforward neural networks},  in \emph{Proceedings of the Thirteenth
+  International Conference on Artificial Intelligence and Statistics},
+  pp.~249--256, {JMLR} Workshop and Conference Proceedings.
 
 \bibitem{8020}
 A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
