@@ -23,48 +23,50 @@ Warning--entry type for "Pandas" isn't style-file defined
 --line 182 of file bibliography.bib
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Reallocated str_pool (elt_size=1) to 195000 items from 130000.
+Warning--empty year in srivastava_compete_2013
 Warning--empty year in raychaudhuri_introduction_2008
+Warning--empty year in glorot_understanding_2010
 Warning--empty author in ATLAS-CONF-2011-152
 Warning--empty author in ATLAS-CONF-2017-064
-You've used 35 entries,
+You've used 37 entries,
             2188 wiz_defined-function locations,
-            771 strings with 155118 characters,
-and the built_in function-call counts, 8466 in all, are:
-= -- 796
-> -- 429
+            784 strings with 155636 characters,
+and the built_in function-call counts, 9091 in all, are:
+= -- 849
+> -- 461
 < -- 0
-+ -- 129
-- -- 94
-* -- 633
-:= -- 1221
-add.period$ -- 38
-call.type$ -- 35
-change.case$ -- 36
++ -- 138
+- -- 101
+* -- 678
+:= -- 1299
+add.period$ -- 40
+call.type$ -- 37
+change.case$ -- 38
 chr.to.int$ -- 0
-cite$ -- 38
-duplicate$ -- 375
-empty$ -- 823
-format.name$ -- 94
-if$ -- 2137
+cite$ -- 42
+duplicate$ -- 412
+empty$ -- 894
+format.name$ -- 101
+if$ -- 2295
 int.to.chr$ -- 0
-int.to.str$ -- 35
-missing$ -- 73
-newline$ -- 116
-num.names$ -- 33
-pop$ -- 130
+int.to.str$ -- 37
+missing$ -- 75
+newline$ -- 122
+num.names$ -- 35
+pop$ -- 148
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 264
+skip$ -- 283
 stack$ -- 0
-substring$ -- 387
-swap$ -- 124
+substring$ -- 419
+swap$ -- 134
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 3
-while$ -- 69
-width$ -- 37
-write$ -- 316
-(There were 6 warnings)
+warning$ -- 5
+while$ -- 74
+width$ -- 39
+write$ -- 334
+(There were 8 warnings)

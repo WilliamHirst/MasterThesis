@@ -45,9 +45,9 @@ during training. The weights and biases for a given connection of two nodes, def
 has on the other.
 \\
 In a traditional \ac{FFNN} the information is passed linearly (in figure \ref{fig:NN}, from left to right) 
-in a process we call \emph{forward-propogation}. Other variants can include the information taking a more 
+in a process we call \emph{forward propagation}. Other variants can include the information taking a more 
 complex route. It is often the route from input- to output-layer that categorizes the type of \ac{NN}. In 
-this report I used a simple \ac{FFNN}. 
+this report I used a set of simple \ac{FFNN}'s. 
 
 \subsection{Feeding Forward}\label{subsec:FP}
 With the structure described in the previous section, a trained model, $\mathcal{F}$ produces a prediction,
@@ -94,8 +94,8 @@ becomes
 And in the case where $l=L$, $a_j^L$ is equal to the final output. 
 \subsection{Back Propagation}\label{subsec:BP}
 The backward propagation acts as the engine that drives the training of a neural network. It has the purpose
-of tuning the weights and biases of the network to achieve maximum performance, as defined by some 
-\emph{cost function}, $\mathcal{C}$. The cost function defines to which metric we aim to optimize the network. 
+of tuning the weights and biases of the network, which are originally given random values, to achieve maximum performance,
+ as defined by some \emph{cost function}, $\mathcal{C}$. The cost function defines to which metric we aim to optimize the network. 
 When a neural network produces a prediction, $Y$ the error in the prediction
 is defined by the cost function as $\mathcal{C}\left(Y, T\right)$, where T is the target. To minimize $\mathcal{C}$, the 
 backward propagation utilizes the gradient with respect to the weights and biases in the network. Instead of a
@@ -207,12 +207,16 @@ as a bagging ensemble (see subsection \ref{subsec:Ensembles}).
 
 \subsubsection*{Channel-Out}\label{subsubsec:Channel-Out}
 Dropout-layers are not the only layers to dynamically change the architecture of a network. In this thesis I additionally 
-explored the lesser known, \emph{Channel-Out}-layer as found in the paper by Srivastava et al. \cite{wang_maxout_2013}. 
+explored the lesser known, \emph{Channel-Out}-layer as found in the paper by Wang et al. \cite{wang_maxout_2013}. 
 Channel-out, similarly to dropout creates an ensemble of networks by removing a set 
 of nodes for each round of training. Contrary to dropout, channel-out does not choose the nodes to drop at random,
 but instead creates local \emph{units} by grouping the nodes, and removes all nodes except the node with the largest
 activation in each respective unit. The goal of channel-out is to create an ensemble of networks where each network is specialized for a given 
-trend in the data. In this thesis I have implemented the layer such that upon prediction, the redimensionalization 
+trend in the data. This would create an ensemble of networks, which not only applies a form of regularization, but also improves a phenomenon
+known as \emph{long term memory} in the model. The phenomenon of long term memory is discussed in the article by Srivastava et al. \cite{srivastava_compete_2013},
+and is simply a measure of how well a model is able to retain information on a data set, A after training on an additional training set, B. This effect
+is also relevant for the two layers I will discuss in the next sections.\\
+In this thesis I have implemented the layer such that upon prediction, the redimensionalization 
 is still active. This means that for each data point, a neural network is chosen based on the specific activations in 
 each of the nodes. In other words, the channel-out layer creates something resembling a stacking ensemble (see subsection 
 \ref{subsec:Ensembles}). 

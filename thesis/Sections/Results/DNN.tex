@@ -2,21 +2,25 @@
 \subsection{Deep vs Shallow}
 In previous sections, I have discussed the reasoning for not wanting an automated process for building network architectures (otherwise known
 as hyperparameter searches). Although, I found manually choosing the architecture for each model to be preferable in this analysis, there 
-are some downsides to that decision. When building each model I wanted to ensure that the performance of said models was representative of 
+are some downsides to that decision. When building each model I wanted to ensure that the performances of said models were representative of 
 the category of models I wanted to build. In other words, I wanted to ensure that any drawbacks were related to the type of model and not 
 a result of poorly chosen number of layers or nodes. Therefore, I wanted to relieve as much randomness in the choice of architecture as possible.
 \\
-In this section I present a comparison between the results from two dense \ac{NN}, one deep and one shallow. The deep network 
+In this section I present a comparison between the results from two ordinary dense \ac{NN}, one deep and one shallow. The deep network 
 uses the dense \ac{NN} architecture described in \ref{subsec:arch}, while the shallow network uses the same amount of hidden layers,
 but with only 20 nodes in each. The comparison represents a sample of networks I choose to compare when deciding the number of nodes and 
 hidden layers would be used in the analysis. Both networks, deep and shallow utilized the training strategy described in section 
-\ref{subsec:TrainingStrategy}. In figure \ref{fig:NNshallowGridSig}, I drew a grid displaying the achieved sensitivity for the shallow 
+\ref{subsec:TrainingStrategy}.\\
+In figure \ref{fig:NNshallowGridSig}, I drew a grid displaying the achieved sensitivity for the shallow 
 network. By comparing with the results achieved by the XGBoost model in figure \ref{fig:XGBoost}, we can observe that the shallow network 
-performs very similarly to the XGBoost model. In fact, the XGBoost model seems to outperform the shallow network ever so slightly.
-\\
+performs very similarly to the XGBoost model. In fact, the XGBoost model seems to outperform (achieve a higher significance for most combinations) 
+the shallow network ever so slightly.
 In figure \ref{fig:NNGridSig}, I present the same grid as described above, but using the deep network. By comparing the results from the shallow 
 network in figure \ref{fig:NNshallowGridSig}, we can discern that the deep network outperforms the shallow network for every single mass 
-combination in the original signal set. This result motivated the choice of layers and nodes for all networks used in the sections to come.
+combination in the original signal set. The higher the number of nodes and layers, the higher the amount of parameters need tuning during training, 
+and consequently the more data is needed during training. Generally, the more complex the issue, the more parameters are needed in a model. Therefore, 
+based on the comparison between the shallow and deep networks, we can draw the conclusion that the data used in this analysis, is enough to tune a relatively 
+deep network. This result motivated the choice of layers and nodes for all networks used in the sections to come.
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -43,18 +47,19 @@ combination in the original signal set. This result motivated the choice of laye
 As I have touched upon in earlier sections, one possible solution to a diverse signal set (in my case a signal set with many 
 potential mass combination) is to implement one model for each individual signal set. Initially one might assume that although 
 this approach demands more work, it also produces the strongest performances for all mass combinations individually. I have already 
-discussed how by including different mass combinations in the same signal, we hope to reduce overfitting and potentially allow 
+discussed how by including different mass combinations in the same data set, we hope to reduce overfitting and potentially allow 
 the model to interpolate between the different mass combinations. However, I have not yet discussed how by moving from a one 
 mass combination signal set to a diverse set would affect the performance on the original signal. In this section I will present the 
-results from an analysis which aims to test the affirmation affect.
+results from an analysis which aims to study the aforementioned affect.
 \\
-In figure \ref{fig:Interpolation}, I present the results from two models who have each trained on two different amounts of signal.
-The training used to produce the results aligns with the strategy described in section \ref{subsec:TrainingStrategy}.
+In figure \ref{fig:Interpolation}, I present the results from two models who have each trained on two different sets of signal.
+The training used to produce the results aligns with the strategy described in section \ref{subsec:TrainingStrategy} and both apply
+an ordinary dense \ac{NN} architecture described in section \ref{subsec:arch}.
 Figure \ref{fig:OneMass} presents the achieved sensitivity from a dense \ac{NN} which has only trained on one mass combination (which will 
 hence force be referred to as \ac{OMM}), ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV), while figure \ref{fig:SeveralMass} presents the 
-achieved sensitivity (using the same architecture) after training on a large set of mass combinations (which will hence force be referred 
-to as \ac{SMM}). Specifically, the latter figure shows the results after training on all signals on the outer square in the figure \ref{fig:SeveralMass} and 
-($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV).\\
+achieved sensitivity after training on a large set of mass combinations (which will hence force be referred 
+to as \ac{SMM}). Specifically, the latter figure shows the results after training on all signals on the outer square\footnote{I.e. all mass combinations 
+which lay in the edges of the grid.} in the figure \ref{fig:SeveralMass} and events with masses ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV).\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -78,19 +83,19 @@ to as \ac{SMM}). Specifically, the latter figure shows the results after trainin
     a model who has seen all mass combinations in the grid, but for the inner square of masses. }
     \label{fig:Interpolation}
 \end{figure}
-My initial prediction of this comparison, was that the \ac{OMM} would outperform the \ac{SMM} for the signal with
+My initial prediction for this comparison, was that the \ac{OMM} would outperform the \ac{SMM} for the signal with
 ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV), while underperforming on all other data points. The expectation was that \ac{OMM} 
-would learn the trends of the only signal it had seen, while the \ac{SMM} would do the same but for more mass combination and 
+would learn the trends of the only signal it had seen, while the \ac{SMM} would do the same but for a larger set of mass combinations and 
 at the same time interpolate the results for the masses in between. By comparing figures \ref{fig:OneMass} and \ref{fig:SeveralMass} we 
 see that my prediction was not completely true. We can observe that the model which has trained on several-masses outperformed the 
-\ac{OMM} on every single signal. At first, I believed this to be caused by the \ac{OMM} overfitting a lot sooner than the other 
+\ac{OMM} on every single combination. At first, I believed this to be caused by the \ac{OMM} overfitting a lot sooner than the other 
 model, therefore being stopped earlier in training by the early-stopping criteria described in section \ref{subsec:TrainingStrategy}. 
 To test this theory, I drew the training history of each training session.
 \\
 In figure \ref{fig:InterpolateHistory} I drew the \ac{AUC} score made after each epoch on both the training and validation set
-for the \ac{OMM} (\ref{fig:oneMassHist}) and the \ac{SMM} \ref{fig:SeveralMassHist}. By comparing the two figures,
+for the \ac{OMM} (\ref{fig:oneMassHist}) and the \ac{SMM} (\ref{fig:SeveralMassHist}). By comparing the two figures,
 we observe that the \ac{OMM}'s performance on the validation set peaks in the first epoch, therefore stopping training after 
-10 epochs, while the \ac{SMM} peaks after 6 epochs. This is a clear indication that training on one mass combination, leads 
+10 epochs, while the \ac{SMM} peaks after 6, allowing the \ac{SMM} model to train longer. This is a clear indication that training on one mass combination, leads 
 to overfitting. 
 \begin{figure}
     \makebox[\linewidth][c]{%
@@ -113,7 +118,7 @@ to overfitting.
 \end{figure}
 \\
 Given the \ac{OMM}s performance is reduced by the early-stopping criteria, I wanted to explore if it would be able to outperform the 
-\ac{SMM} given it was allowed to train deeper. In figure \ref{fig:NNOverfitting}, I display the achieved significance
+\ac{SMM} given it was allowed to train deeper/longer. In figure \ref{fig:NNOverfitting}, I display the achieved significance
 of the \ac{OMM} in the case where early-stopping has been removed, and the model was allowed to train for 15 epochs. By comparing figures 
 \ref{fig:SeveralMass} and \ref{fig:NNOverfitting}, we can observe that even when early-stopping is removed from the \ac{OMM}, it is  
 still outperformed by the \ac{SMM}. This indicates that overfitting is not the only reason for the \ac{OMM}'s disappointing performance.\\
@@ -131,6 +136,6 @@ still outperformed by the \ac{SMM}. This indicates that overfitting is not the o
     \label{fig:NNOverfitting}
 \end{figure}
 The most probable explanation for the underwhelming performance of the \ac{OMM}, is that nearby mass combinations (i.e. mass combination with 
-relatively similar masses) exhibit a lot of overlap in terms of feature trends. In other words, nearby mass combinations (in this example, mass combinations 
-differ by 100GeV) often contribute to the same type of training. This means that by including a larger range of signals, which are similar in mass, we are 
-essentially increasing the amount of data for each individual signal.
+relatively similar masses) exhibit a lot of overlap in terms of feature trends. In other words, nearby mass combinations (in this example, mass combinations which 
+differ by 100GeV) often contribute to the same type of tuning. This means that by including a larger range of signals, which are similar in mass, we are 
+essentially increasing the amount of data for each individual signal. This gives further motivation to include diversity in the signal set.

@@ -6,12 +6,14 @@ sure that the layers worked as intended. To do this I created a small network wi
 nodes each, all applying MaxOut layers with 4, 2 and 4 groups respectively. In this section I will 
 dissect the activations of said network before and after training.
 \\
-In figure \ref{fig:BTraining}, I have plotted the activation of 100 randomly sampled collisions, 50 
+In figure \ref{fig:BTraining}, I have plotted the activation of 100 randomly sampled events, 50 
 background and 50 signal for an untrained model. Adjacent, I plotted the resulting distribution of the 
 output. From the figure we observe little to no deviation between the activation from the signal and 
 the background. This is mirrored in the distribution of the output which is centered around the middle 
-of the range. A small exception can be found for larger output values, where we observe a small distribution
-of signal values. This is due outliers in the signal data set.
+of the range. This result is as expected, given that an untrained model holds no knowledge of the data and 
+simply applies a random set of weights. A small exception from this result can be found for larger output values, 
+where we observe a small distribution of signal values. This is due to the signal having some inherit differences
+to the background (for example high $E_t^{miss}$).
 \\
 In figure \ref{fig:ATraining}, I plotted a similar plot as described above, but using a trained model.
 In this figure the output is far more separated, and we see noticeable differences in the activation 
@@ -23,8 +25,9 @@ Regardless, there are still clear trends in activation which lets us know that t
 specific paths in the network for signal and background separately. Most noticeably, the two group 
 in the middle hidden layer highlight this fact. In the case of the signal, the upper group show a clear 
 favoritism to the second bottom node. For the background this is also partly true, but with far more 
-spread in the other nods. Similarly, in the bottom group (in the same layer), the background shows large
-activation in the uppermost node, while the signal data does not. 
+spread in the other nodes. Similarly, in the bottom group (in the same layer), the background shows large
+activation in the uppermost node, while the signal data does not. To conclude, the maxout layer does in deed 
+find trend specific paths through the network which will aid in separating the output for the signal and the background.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -44,7 +47,7 @@ activation in the uppermost node, while the signal data does not.
     represents a data point where all connected nodes were the largest activation in their respective 
     group. The distribution on the far right represent the output distribution. The figure to the left
     (\ref{fig:ATrainingSig}) is the result before training and the figure to right (\ref{fig:ATrainingBkg})
-    is after.}. 
+    is after.}
 \end{figure}
 
 
@@ -93,7 +96,18 @@ activation in the uppermost node, while the signal data does not.
     ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV).}
     \label{fig:NetVisSigComp}
 \end{figure}
-
+Ideally, we would want the model to not only be able to separate the signal from the background, but do so in 
+a way which allows the network to store the different trends within the signal. In section \ref{subsubsec:Channel-Out},
+I described this ability as long term memory. One way to implement long term memory is through a high number of parameters,
+but through the \ac{LWTA} layers, we can additionally do this through specific paths. To study this effect, I have created similar 
+figures as discussed in the paragraphs above, but this time only including one mass combination in the figure. Figures
+\ref{fig:ATrainingSig50250} and \ref{fig:ATrainingSig200300} present the results for the mass combinations 
+($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) and ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) respectively.
+By comparing the figures, we see a small but noticeable difference in paths. Again the middle hidden layer seems to be 
+the differentiating factor. To highlight the differences, I have included a cutout, comparing the two highest nodes in the bottom unit 
+for the middle layer of both figures, \ref{fig:ATrainingSig50250Zoom} and \ref{fig:ATrainingSig200300Zoom} (in the same order).
+By studying the cutouts, we can conclude that the maxout layer not only applies a form of regularization, but also increases the long term 
+memory of the model through trend specific paths through the network.
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -113,7 +127,7 @@ activation in the uppermost node, while the signal data does not.
     \hfill
     \hfill
     }
-    \caption{A cut-out of the fifth and sixth neuron (counting from the top) in the second hidden layer, activated 
+    \caption{A cut-out of the fifth and sixth node (counting from the top) in the second hidden layer, activated 
     by the signal with ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) \ref{fig:ATrainingSig50250Zoom} and 
     ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) \ref{fig:ATrainingSig200300Zoom}.}
     \label{fig:NetVisZoom}
@@ -130,7 +144,11 @@ The drop in performance for the validation set and increase in performance for t
 \\
 In figure \ref{fig:MaxOutHist} we observe that an ensemble method (in this case the maxout) displays a different trend. For the first 
 10 epochs the model increases in performance for both data sets. After this, the validation set does not decrease in performance, but 
-simply holds stable while the training set increases. This is a sign that the model is not experiencing overfitting.
+simply holds stable while the training set increases. This is a sign that the model is not experiencing overfitting. Furthermore, the 
+training history of the maxout model raises an interesting point. From experience, I know that the maxout model reaches a peak in performance
+on the validation set after approximately 15-20 epochs. Given that the performance after said peak is stable, it is plausible that continuing 
+training will not worsen the performance on the full said, or even lead to overfitting, but improve. This is definitely an interesting possibility
+for the \ac{LWTA} layers, but will not be studied in this thesis due to time constraints.
 \\
 In section \ref{subsec:TrainingStrategy}, I discussed the training strategy used when training all models in this analysis. I mentioned 
 the implementation of an early-stopping criteria which makes sure that the model only continues to train as long as the performance on the 
@@ -173,10 +191,9 @@ However, the most interesting result for the maxout model, is its ability to tun
 outperformed the maxout model for the high statistics combinations, the maxout model outperformed the dense for most other combination (26/30).
 This result can be credited to two factors. The first being maxout's effect as a form of regularization. In the previous 
 section (see section \ref{subsec:Overfitting}), I presented how through maxout's regularization abilities, it would be able to 
-uphold the early-stopping criteria for a larger number of epochs. The second factor is maxout's innate training memory\footnote{By training
-memory, I refer to the models' ability to tune towards several trends without reducing in performance.} which was tested in section \ref{subsec:Viz}. 
-From figure \ref{fig:MaxOutGridSig}, we are able to deduce that although the maxout model is not able to training to the same depth 
-for the lower masses, it is able to achieve a large level of generalizability through reducing overfitting and increasing training memory.\\
+uphold the early-stopping criteria for a larger number of epochs. The second factor is maxout's innate long term memory which was studied
+in section \ref{subsec:Viz}. From figure \ref{fig:MaxOutGridSig}, we are able to deduce that although the maxout model is not able to tune 
+to the same depth for the lower masses, it is able to achieve a large level of generalizability through reducing overfitting and increasing long term memory.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -190,17 +207,21 @@ for the lower masses, it is able to achieve a large level of generalizability th
 \end{figure}
 In appendix \ref{appendix:Ensembles} I have included grids displaying the achieved sensitivity for both channel-out and \ac{SCO}. Both 
 models demonstrate similar performance to the maxout layer. To compare the three methods, I created a "pie-plot". A pie-plot 
-compares the achieved sensitivity between several models and display the results for each individual mass combination.  In figure 
+compares the achieved sensitivity between several models and displays the results for each individual mass combination.  In figure 
 \ref{fig:EnsembleComp} I present the pie-plot comparing maxout, channel-out and \ac{SCO}. Each mass combination includes a pie, where 
-the size of each "slice" represents the relative size of the significance compared to the other methods. The color surrounding each 
-pie marks which method achieved the highest sensitivity for the respective combination.
+the size of each "slice" represents the relative size of the significance compared to the other methods. For example, if a slice occupies 
+half of the pie, then the method corresponding to that slice achieved a significance equal to the sum of the significance of the other methods.
+The color surrounding each pie marks which method achieved the highest sensitivity for the respective combination.
 \\
 By studying the pie-plot in figure \ref{fig:EnsembleComp}, we can deduce that maxout model outperforms the other two in most of the mass 
-combination (24/30). From the sizes of each "slice", we can observe that all three models seem relatively equal in performance, maxout only 
+combination (24/30). From the sizes of each slice, we can deduce that all three models seem relatively equal in performance, maxout only 
 outperforming the others by a small fraction. The most interesting observation from the pie-plot is the performance from the \ac{SCO}, as 
-this model was in-part created by me. Except the mass combinations where maxout was the most sensitive, \ac{SCO} outperformed 
-the rest. This is an indicator that although the method seemed not to be the most optimal ensemble method for this analysis, it does 
-indeed show great promise and should be further explored in further analysis. 
+this model was in-part created by me. Except the mass combinations where maxout was the most sensitive, \ac{SCO} was the highest performing model. 
+Most interestingly, it outperformed the channel-out model, which is the model most similar to \ac{SCO}, in 9/30 (see figure \ref{fig:SCOCO}). 
+In hindsight, I believe that by removing the \ac{SCO} during prediction (similar to what is done for dropout), the \ac{SCO} layer would greatly 
+approve in performance, on a count of the fact that the performance on each event is dependent on the random choice of unit for that prediction.
+Nonetheless, this analysis is an indicator that although the maxout model was the highest performing model, the \ac{SCO} layer shows 
+great promise and should be further explored in further analysis. 
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering

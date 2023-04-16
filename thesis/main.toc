@@ -2,7 +2,7 @@
 \babel@toc {UKenglish}{}\relax 
 \setcounter {tocdepth}{1}
 \contentsline {chapter}{Introduction}{1}{chapter*.4}%
-\contentsline {chapter}{\numberline {1}The Standard model of elementary particles and beyond.}{3}{chapter.1}%
+\contentsline {chapter}{\numberline {1}The Standard model of elementary particles and beyond}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}The bulding blocks}{3}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}The leptons}{4}{subsection.1.1.1}%
 \contentsline {subsection}{\numberline {1.1.2}The quarks}{4}{subsection.1.1.2}%
@@ -50,16 +50,16 @@
 \contentsline {subsection}{\numberline {2.6.3}Back Propagation}{19}{subsection.2.6.3}%
 \contentsline {subsection}{\numberline {2.6.4}Activation functions}{21}{subsection.2.6.4}%
 \contentsline {subsection}{\numberline {2.6.5}Network Ensembles, dropout and LWTA networks}{21}{subsection.2.6.5}%
-\contentsline {subsection}{\numberline {2.6.6}Parametrized Neural Network}{23}{subsection.2.6.6}%
+\contentsline {subsection}{\numberline {2.6.6}Parametrized Neural Network}{24}{subsection.2.6.6}%
 \contentsline {section}{\numberline {2.7}Decision Trees and Gradient Boosting}{24}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}Decision Trees}{24}{subsection.2.7.1}%
 \contentsline {subsection}{\numberline {2.7.2}Gradient Boosting in Decision Trees}{25}{subsection.2.7.2}%
 \contentsline {section}{\numberline {2.8}Machine Learning Applied to a BSM Search}{26}{section.2.8}%
 \contentsline {subsection}{\numberline {2.8.1}The Traditional Approach}{26}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}The Machine Learning Approach}{26}{subsection.2.8.2}%
+\contentsline {subsection}{\numberline {2.8.2}The Machine Learning Approach}{27}{subsection.2.8.2}%
 \contentsline {section}{\numberline {2.9}Model assessment}{27}{section.2.9}%
 \contentsline {subsection}{\numberline {2.9.1}The Rate of True-Positve - ROC Curve}{27}{subsection.2.9.1}%
-\contentsline {subsection}{\numberline {2.9.2}Statistical Assessment - Discovery $\&$ Exclusion}{28}{subsection.2.9.2}%
+\contentsline {subsection}{\numberline {2.9.2}Statistical Assessment - Discovery $\&$ Exclusion}{27}{subsection.2.9.2}%
 \contentsline {chapter}{\numberline {3}Implementation of the Analysis}{29}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Tools and Data}{29}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Monte Carlo Data}{29}{subsection.3.1.1}%
@@ -82,24 +82,24 @@
 \contentsline {chapter}{\numberline {4}Results \& Discussion}{43}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Benchmarking the Analysis with Boosted Trees}{43}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Dense Neural Networks}{43}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Deep vs Shallow}{43}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.1}Deep vs Shallow}{45}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Parameter Specific Networks and Interpolation}{45}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Ensemble methods}{46}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Visualizing Sparse Pathways}{46}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Training History and Overfitting}{48}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.3}Ensemble methods}{48}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Visualizing Sparse Pathways}{48}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Training History and Overfitting}{50}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Comparing achieved Sensitivity between Ensemble methods}{51}{subsection.4.3.3}%
 \contentsline {section}{\numberline {4.4}Parametrized Neural Network}{52}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Discriminating Masses}{52}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Sensitivity Result}{54}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}Comparing Models on Original Signal Set}{55}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{55}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{56}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Comparing Exclusion Limits between ML Models and Previous Analysis}{59}{section.4.8}%
-\contentsline {chapter}{Appendices}{63}{section*.70}%
-\contentsline {chapter}{Appendix A}{65}{appendix*.71}%
-\contentsline {section}{\numberline {A.1}Sensitivity Grids}{65}{section.Alph0.1}%
-\contentsline {subsection}{\numberline {A.1.1}Ensembles}{65}{subsection.Alph0.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{65}{subsection.Alph0.1.2}%
-\contentsline {section}{\numberline {A.2}The Features}{68}{section.Alph0.2}%
-\contentsline {subsection}{\numberline {A.2.1}The Feature Distribution}{68}{subsection.Alph0.2.1}%
-\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{73}{section.Alph0.3}%
+\contentsline {subsection}{\numberline {4.4.2}Sensitivity Result}{55}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Remarks on Comparison between Models on Original Signal Set}{56}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{56}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{57}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Comparing Exclusion Limits between ML Models and Previous Analysis}{60}{section.4.8}%
+\contentsline {chapter}{Appendices}{65}{section*.71}%
+\contentsline {chapter}{Appendix A}{67}{appendix*.72}%
+\contentsline {section}{\numberline {A.1}Sensitivity Grids}{67}{section.Alph0.1}%
+\contentsline {subsection}{\numberline {A.1.1}Ensembles}{67}{subsection.Alph0.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{67}{subsection.Alph0.1.2}%
+\contentsline {section}{\numberline {A.2}The Features}{70}{section.Alph0.2}%
+\contentsline {subsection}{\numberline {A.2.1}The Feature Distribution}{70}{subsection.Alph0.2.1}%
+\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{75}{section.Alph0.3}%
