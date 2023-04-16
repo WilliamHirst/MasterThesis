@@ -2,19 +2,20 @@
 \subsection{Discriminating Masses}
 When introducing the \ac{PNN} in section \ref{subsec:PNN}, I mentioned that by including the masses of the introduced particles
 in the feature set, we motivate and individualistic tuning for each mass combination in the signal set. To test if this is indeed what 
-happens, I will in this section present results where I manually assign different mass combinations the same label. The hope 
+happens, I will in this section present results where I manually assign different mass combinations the same parameter. The hope 
 is that if indeed the \ac{PNN} has been able to tune individually for each mass combination, then the \ac{PNN} should perform best 
 when the events are correctly labeled compared to when they are not. 
 \\
 In figure \ref{fig:PNN50250Dist} I have drawn the distribution of the output from the trained \ac{PNN} architecture 
-(see section \ref{subsec:PNNArch}). The model was trained using the \ac{FSMLM} data set. In figure \ref{fig:PNN50250Dist},
+(see section \ref{subsec:PNNArch}). The model was trained using the full statistics signal set. In figure \ref{fig:PNN50250Dist},
 4 signals have been included; ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV), ($\tilde{\chi}_1=100$, $\tilde{\chi}_2=200$GeV), 
 ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) and ($\tilde{\chi}_1=150$, $\tilde{\chi}_2=250$GeV). All data, including 
-both signal and background were given the labels of $50$ and $250$. In figure \ref{fig:PNN50250Dist} the full output range
-is included, whereas in figure \ref{fig:PNN50250Dist_95} only the output in the range $0.975-1$ has been included. From studying  
-the figures and the corresponding legends, we can deduce that the signal which is given the correct label is also the signal which 
-has the highest percentage of conserved events when applying a simple cut off $0.975$\footnote{This is further evident when studying 
-the efficiency rates in table \ref{table:PNNSigComp}.}.\\
+both signal and background were given the labels of $50$ and $250$ (corresponding to the masses $\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV). 
+In figure \ref{fig:PNN50250Dist} the full output range is included, whereas in figure \ref{fig:PNN50250Dist_95} only the output in the 
+range $[0.975-1]$ has been included. In both figures, it is evident that all mass combinations have been effectively separated from the background,
+even for the combinations which are given the wrong parameter. Nevertheless, upon close study of the figures and the corresponding legends, we can deduce that
+the signal which is given the correct label is also the signal which has the highest percentage of conserved events when applying a simple cut off 
+$0.975$\footnote{This is further evident when studying the efficiency rates in table \ref{table:PNNSigComp}.}.\\
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
     \centering
@@ -42,8 +43,8 @@ question; did the \ac{PNN} perform better on the signal with ($\tilde{\chi}_1=50
 because this particular signal was easier to separate. To answer this question I conducted a second test. In figure \ref{fig:PNN200300DistComp} 
 I repeated the analysis described in the paragraphs above, but where all the signals were given the label ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV).
 Similarly to the previous results, I drew the output for the full output range (\ref{fig:PNN200300Dist}) and after a cutoff off $0.975$ (\ref{fig:PNN50250Dist_95}).
-Via the examination of the two figures, we can indeed see that my assumption was right. By giving events with ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) the 
-wrong label, the \ac{PNN} still achieved the highest performance when predicting on said mass combination.\\
+Via the examination of the two figures, we can indeed see that my assumption was right. Despite the fact that events with masses equal to $\tilde{\chi}_1=50$ and $\tilde{\chi}_2=250$GeV
+are given the wrong parameter, the \ac{PNN} achieves the highest efficiency when predicting on the aforementioned events. \\
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
     \centering
@@ -66,9 +67,10 @@ wrong label, the \ac{PNN} still achieved the highest performance when predicting
     and the output ranging from 0.975-1.00 (\ref{fig:PNN50250Dist_95}).}
     \label{fig:PNN200300DistComp}
 \end{figure}
-To further study this result, I created a table of the efficiencies of each mass combination after applying a simple cut of $0.975$. The results are represented in 
+To further study this result, I created a table of the efficiencies of each mass combination for both results, after applying a simple cut of $0.975$. The results are presented in 
 table \ref{table:PNNSigComp}. It is evident from table \ref{table:PNNSigComp} that the \ac{PNN} achieves the highest performance when events are given the correct label, 
-although not by much. Another interesting observation is that events with ($\tilde{\chi}_1=100$, $\tilde{\chi}_2=200$GeV) seem to prefer the label of 
+although not by much. In the events with masses $\tilde{\chi}_1=50$ and  $\tilde{\chi}_2=250$GeV, the efficiency improved by a little over $3\%$, while the event with masses 
+$\tilde{\chi}_1=200$ and $\tilde{\chi}_2=300$GeV, improved efficiency by almost $10\%$. Another interesting observation is that events with ($\tilde{\chi}_1=100$, $\tilde{\chi}_2=200$GeV) seem to prefer the label of 
 ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) over that of ($\tilde{\chi}_1=150$, $\tilde{\chi}_2=250$GeV), despite the latter mass combination being closer 
 in mass. A possible explanation is that the difference in mass ($\Delta m = |m_{\tilde{\chi}_1} - m_{\tilde{\chi}_2}|$), influences the trends in the data, similarly 
 to what we saw that size of mass does. Regardless, from \ref{table:PNNSigComp}, we can deduce that the \ac{PNN} does in fact discriminate between mass combinations 
@@ -91,14 +93,13 @@ and tune for them independently.
 \subsection{Sensitivity Result}
 In this section I will present the achieved sensitivity by the \ac{PNN} on the original signal set. In figure \ref{fig:PNNGridSig}, I present a grid displaying the sensitivity 
 of the \ac{PNN} on the original signal set. Similarly to the previous models', the figure indicates that the \ac{PNN} is able to achieve a much higher sensitivity on the lower
-masses. The most notable difference to the previous models, is the range of significance. The \ac{PNN} almost doubles the highest significance achieved by any previous model
-(from 2.44 to 4.14), and simultaneously achieves the lowest significance (now 0.30). The most probable explanation to this result is the 
-distribution of parameters for the background. In section \ref{subsec:PNN}, I described how the background is randomly assigned parameters such that the 
-percentage of background with a given label is equal to the percentage of the signal with said label. In other words, the higher the statistics for a given mass combination,
-the higher the amount of background will be "linked" to it. Inn the same section I also described the hope that the parameters would shift the 
-output from the initial layer in a way that motivates individualistic training. If this is true\footnote{For a network of this depth, it is very hard to explain what happens during training.
-Lack of explainability is in fact one of the biggest downsides to deep networks.} it means that masses with larger statistics, are given larger amounts of background to train with. 
-This could explain the uneven performance by the \ac{PNN}. \\
+masses. The most notable difference to the previous models, is the span of values for the significance. The \ac{PNN} almost doubles the highest significance achieved by any previous model
+(from 2.44 to 4.14), and simultaneously achieves the lowest significance (now 0.30). The most probable explanation to this result is the distribution of parameters for the background. 
+In section \ref{subsec:PNN}, I described how the background is randomly assigned parameters such that the percentage of background with a given parameter is equal to the percentage 
+of the signal with the same parameter. In other words, the higher the statistics for a given mass combination, the higher the amount of background will be "linked" to it. Inn the 
+same section I also described the hope that the parameters would shift the output from the initial layer in a way that motivates individualistic training. If this is 
+true\footnote{For a network of this depth, it is very hard to explain what happens during training, which explains the passive statement.} it means that masses with larger statistics, 
+are given larger amounts of background to train with. This could explain the uneven performance by the \ac{PNN}. \\
 \begin{figure} 
     \makebox[\linewidth][c]{%
     \centering
@@ -112,9 +113,11 @@ This could explain the uneven performance by the \ac{PNN}. \\
 \end{figure}
 In this analysis I choose to follow the methodology described in the article by Baldi et al. \cite{PNN}, but other variants of the \ac{PNN} could 
 be of interest in future studies. An alternative to the current setup for distributing parameters to the background, is to distribute the parameters evenly. 
-In other words, for N different mass combinations, each set of parameters will be distributed to 1/N parts of the background. This would most likely produce 
-more consistent results. I considered using an even approach, but found that the current setup was more aligned with the rest of the analysis where a 1-1, signal-
+In other words, for N different mass combinations, each set of parameters will be distributed to 1/N parts of the background. This would most likely produce a
+more balanced result. I considered using an even approach, but found that the current setup was more aligned with the rest of the analysis where a 1-1, signal-
 background ratio approach has been made\footnote{In section \ref{subsec:TraVal} I discuss how I have chosen to scale the weights such that sum of the weights of 
 the background is equal to the sum of the weights of the signal.}. The more interesting alternative would be to assign the background most similar to a given mass 
-combination, the same parameters. This would focus the training of the \ac{PNN} on the set of events which should be hardest to separate. Due to time constraints
-of this thesis, I decided not to test this approach, but would be an interesting area to explore.
+combination\footnote{By most similar, I refer to the background with the largest overlap in the feature space to the signal.}, the same parameters. This would 
+focus the training of the \ac{PNN} on the set of events which should be hardest to separate. One approach to determine which events are deemed 'most similar' to a 
+combination, is to apply a prior \ac{ML} analysis with a simple \ac{BDT} or dense \ac{NN}. Due to time constraints of this thesis, I decided not to test this 
+approach, but would be an interesting area to explore.

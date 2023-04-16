@@ -207,13 +207,14 @@ to the same depth for the lower masses, it is able to achieve a large level of g
 \end{figure}
 In appendix \ref{appendix:Ensembles} I have included grids displaying the achieved sensitivity for both channel-out and \ac{SCO}. Both 
 models demonstrate similar performance to the maxout layer. To compare the three methods, I created a "pie-plot". A pie-plot 
-compares the achieved sensitivity between several models and display the results for each individual mass combination.  In figure 
+compares the achieved sensitivity between several models and displays the results for each individual mass combination.  In figure 
 \ref{fig:EnsembleComp} I present the pie-plot comparing maxout, channel-out and \ac{SCO}. Each mass combination includes a pie, where 
-the size of each "slice" represents the relative size of the significance compared to the other methods. The color surrounding each 
-pie marks which method achieved the highest sensitivity for the respective combination.
+the size of each "slice" represents the relative size of the significance compared to the other methods. For example, if a slice occupies 
+half of the pie, then the method corresponding to that slice achieved a significance equal to the sum of the significance of the other methods.
+The color surrounding each pie marks which method achieved the highest sensitivity for the respective combination.
 \\
 By studying the pie-plot in figure \ref{fig:EnsembleComp}, we can deduce that maxout model outperforms the other two in most of the mass 
-combination (24/30). From the sizes of each "slice", we can observe that all three models seem relatively equal in performance, maxout only 
+combination (24/30). From the sizes of each slice, we can deduce that all three models seem relatively equal in performance, maxout only 
 outperforming the others by a small fraction. The most interesting observation from the pie-plot is the performance from the \ac{SCO}, as 
 this model was in-part created by me. Except the mass combinations where maxout was the most sensitive, \ac{SCO} was the highest performing model. 
 Most interestingly, it outperformed the channel-out model, which is the model most similar to \ac{SCO}, in 9/30 (see figure \ref{fig:SCOCO}). 
