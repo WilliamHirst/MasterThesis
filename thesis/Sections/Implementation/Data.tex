@@ -43,7 +43,8 @@ functionality for creating complex stacked histogram are implemented in the ROOT
 as uncertainty calculations, ordering of histograms and statistical analysis tools. 
 \\
 As for the data structure, the raw data was loaded as a ROOT-file. To easier handle the data and add
-new features, I used the RDataFrame structure \cite{RDataFrame}. RDataFrame allows for easy 
+new features, I used the RDataFrame\footnote{For full documentation on RDataFrame, see $\href{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}$ (Accessed 16.04.2023).} 
+structure implemented inside ROOT. RDataFrame allows for easy 
 addition of new columns as well as filtering of events through native functionality. As a consequence
 I used RDataFrame to calculate all higher-level features such as the stransverse mass $(M_{T2}$), 
 invariant mass of 3 leptons ($M_{lll}$) etc. An example is shown in the following section. 
@@ -56,7 +57,7 @@ pipeline (data-handling, training, validating ets.) is completed, the data is tr
 to take advantage of the plotting functionality in ROOT.
 
 \subsection{Computing features in ROOT: Example}
-In this section I will cover a simple example to highlight the steps taken in generating the dataset 
+In this section I will cover a simple example to highlight the steps taken in preparing the dataset 
 I used in the analysis. As mentioned earlier, the two main frameworks used were RDataFrame and Pandas. 
 In this example I will cover the case of a feature not already in the ROOT file, namely the trilepton
 invariant mass. All loading of data is done using the ROOT framework and is quickly transformed into a 
@@ -69,10 +70,10 @@ of computing the trilepton invariant mass, the $C{++}$-function is created like 
 In listing \ref{lst:mlll}, we see a couple of measures taken to uphold to the ROOT environment. The first is 
 the typecasting to $VecF\_t$. $VecF\_t$ is created to wrap floats in the native ROOT vector object, $RVec$. 
 The same is done in other cases such as float and integers, $VecI\_t$ and $VecB\_t$. The second measure
-was using $TLorentzVector$ \cite{TLorentzVector} to calculate the invariant mass. $TLorentzVector$ is a class
-native to ROOT with many built-in functions. In this case we use the class to create three vectors through the 
-variables, $P_t$, $\eta$, $\phi$ and M. Then, through the $TLorentzVector$ class we can simply
-add all three vector together, and extract the invariant mass of the 3 leptons. 
+was using $TLorentzVector$\footnote{For full documentation on $TLorentzVector$, see $\href{https://root.cern.ch/doc/master/classTLorentzVector.html}{https://root.cern.ch/doc/master/classTLorentzVector.html}$ (Accessed 16.04.2023).} 
+to calculate the invariant mass. $TLorentzVector$ is a class native to ROOT with many built-in functions. In 
+this case we use the class to create three vectors through the variables, $P_t$, $\eta$, $\phi$ and M. Then, 
+through the $TLorentzVector$ class we can simply add all three vector together, and extract the invariant mass of the 3 leptons. 
 \lstset{style=Cpp}
 \begin{lstlisting}[caption={$C{++}$-function for $M_{lll}$.},captionpos=b, label={lst:mlll}]
 // Compute the trilepton invariant mass 
@@ -93,8 +94,8 @@ features to a histogram. The first three lines of code both process and include 
 into the ROOT framework. Then I loop over all keys in the data frame, which in my case
 are the different channels (i.e Diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
 based on the criteria from section \ref{subsec:Cuts}. Then, I use RDataFrame's $Define$ function to calculate
-and add a new feature using our $ComputeInvariantMass$-function. Finally, I save the feature as 
-an $Histo1D$ object, which I plot later using ROOT plotting \ac{API}'s.
+and add a new feature using our $ComputeInvariantMass$-function. Finally, I save the feature as ROOT object called 
+$Histo1D$, which I later plot using ROOT plotting \ac{API}'s.
 \lstset{style=Python}
 \begin{lstlisting}[caption={Python-file for calling dataframe and calculating $M_{lll}$.},captionpos=b, label={lst:df_mlll}]
 R.gROOT.ProcessLine(".L helperFunctions.cxx+");
@@ -143,13 +144,12 @@ physics, but with different set of parameters. In figure \ref{fig:nrSignal} I ha
 searched for in this analysis. The figure shows the data set containing masses ranging from $M_{\tilde{\chi}_1}\in[0,400]$
 and $M_{\tilde{\chi}_2}\in[100,800]$. In the beginning of my analysis I only received a subset (which will be referred to as the 
 \emph{original} data set.) of the full signal set. In the figure I have marked the original data set with a white label in the top 
-right corner of the box. Inn the first data set I received (which will be referred to as the \emph{original} data set.) there are a 
-total of 30 different mass combinations in the range from $M_{\tilde{\chi}_1}\in[0,400]$ and $M_{\tilde{\chi}_2}\in[400,800]$. In the 
-full signal data set there are a total of 90 different mass combinations.
+right corner of the box. The orignal signal set contains a total of 30 different mass combinations in the range from 
+$M_{\tilde{\chi}_1}\in[0,400]$ and $M_{\tilde{\chi}_2}\in[400,800]$. In the full signal data set there are a total of 90 different mass combinations.
 \\
 Given that I received the original signal data set many months before receiving the full set, most of my results were found using the 
 original set. Therefore, I choose to use the original data set to compare the models in performance, then finally use the full set 
-when aiming to either exclude or discover new physics.
+when studying the models and finally comparing limits.
 \begin{figure}
   \centering
   \includegraphics[width=0.85\textwidth]{Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf}

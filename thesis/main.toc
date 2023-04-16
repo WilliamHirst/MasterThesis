@@ -69,11 +69,11 @@
 \contentsline {section}{\numberline {3.2}Features}{32}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Cuts and triggers}{32}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Lepton Variables}{33}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Jet Variables}{33}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.3}Jet Variables}{34}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Validation}{34}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}Negative Weights}{35}{subsection.3.2.5}%
-\contentsline {section}{\numberline {3.3}The Machine Learning Models}{37}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Model selection}{37}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.3}The Machine Learning Models}{36}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Model selection}{36}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Creating custom layers}{37}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}Model Architecture}{38}{subsection.3.3.3}%
 \contentsline {section}{\numberline {3.4}Model Training and Validation}{40}{section.3.4}%

@@ -15,12 +15,6 @@ Reallocated ex_buf (elt_size=1) to 60000 items from 40000.
 Reallocated out_buf (elt_size=1) to 60000 items from 40000.
 Reallocated name_tok (elt_size=4) to 60000 items from 40000.
 Reallocated name_sep_char (elt_size=1) to 60000 items from 40000.
-Warning--entry type for "RDataFrame" isn't style-file defined
---line 168 of file bibliography.bib
-Warning--entry type for "TLorentzVector" isn't style-file defined
---line 175 of file bibliography.bib
-Warning--entry type for "Pandas" isn't style-file defined
---line 182 of file bibliography.bib
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Reallocated str_pool (elt_size=1) to 195000 items from 130000.
 Warning--empty year in srivastava_compete_2013
@@ -28,45 +22,45 @@ Warning--empty year in raychaudhuri_introduction_2008
 Warning--empty year in glorot_understanding_2010
 Warning--empty author in ATLAS-CONF-2011-152
 Warning--empty author in ATLAS-CONF-2017-064
-You've used 37 entries,
+You've used 35 entries,
             2188 wiz_defined-function locations,
-            784 strings with 155636 characters,
-and the built_in function-call counts, 9091 in all, are:
-= -- 849
+            780 strings with 155654 characters,
+and the built_in function-call counts, 9090 in all, are:
+= -- 855
 > -- 461
 < -- 0
-+ -- 138
++ -- 136
 - -- 101
-* -- 678
-:= -- 1299
-add.period$ -- 40
-call.type$ -- 37
-change.case$ -- 38
+* -- 689
+:= -- 1298
+add.period$ -- 39
+call.type$ -- 35
+change.case$ -- 36
 chr.to.int$ -- 0
-cite$ -- 42
-duplicate$ -- 412
-empty$ -- 894
+cite$ -- 40
+duplicate$ -- 420
+empty$ -- 877
 format.name$ -- 101
 if$ -- 2295
 int.to.chr$ -- 0
-int.to.str$ -- 37
-missing$ -- 75
-newline$ -- 122
+int.to.str$ -- 35
+missing$ -- 76
+newline$ -- 115
 num.names$ -- 35
-pop$ -- 148
+pop$ -- 138
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 283
+skip$ -- 278
 stack$ -- 0
-substring$ -- 419
-swap$ -- 134
+substring$ -- 447
+swap$ -- 143
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 5
-while$ -- 74
-width$ -- 39
-write$ -- 334
-(There were 8 warnings)
+while$ -- 75
+width$ -- 37
+write$ -- 322
+(There were 5 warnings)

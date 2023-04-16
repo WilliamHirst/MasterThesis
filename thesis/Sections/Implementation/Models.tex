@@ -1,16 +1,17 @@
 \section{The Machine Learning Models}
 \subsection{Model selection}
 In this analysis I have chosen to compare 4 different "types" of \ac{ML}-models, ordinary dense \acf{NN}, \acf{PNN},
-ensemble and \acf{BDT}. The first three methods are all types of \ac{NN}. I have deliberately 
+ensemble (\ac{LWTA} and dropout) and \acf{BDT}. The first three methods are all variations of \ac{NN}. I have deliberately 
 chosen to focus on \ac{NN} given that there is far more freedom in the design of the architecture
 of a \ac{NN}, than compared to a XGboost. Additionally, this was motivated by the selfish reason
 being that I found the networks more interesting to study and dissect. Therefore, most of the 
 analysis, comparisons and discussion is focused on the networks, while XGBoost is included 
 as a loose benchmark. 
 \\
-The choice of the three network architectures is motivated in wanting to compare a simple 
-deep network, a network ensemble and a \ac{PNN}. I would assume that the optimal architecture
-would be a network which combines elements from each, but for the purpose of discussion
+The choice of the three network architectures is motivated in wanting to compare three relatively different approaches.
+Especially in how they perform with a diverse data set. The \ac{LWTA} models apply trend specific paths, the \ac{PNN} inlcudes 
+the parameter of each mass combination, and dense \ac{NN} relies on a deep set of weights and biases to uphold long term memory.
+I would assume that the optimal architecture would be a network which combines elements from each, but for the purpose of discussion
 and research I have chosen to keep them somewhat separate. 
 \subsection{Creating custom layers}\label{subsec:CustomLayer}
 The field of \ac{ML} is one of the most dynamic and fastest growing fields of research

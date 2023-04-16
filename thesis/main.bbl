@@ -136,15 +136,10 @@ R.~Brun and F.~Rademakers, \emph{Root - an object oriented data analysis
   framework},  in \emph{AIHENP'96 Workshop, Lausane}, vol.~389, pp.~81--86,
   1996.
 
-\bibitem{RDataFrame}
-{The Root team}, ``Rdataframe.''
-
 \bibitem{Pandas}
-T.~pandas~development team, \emph{pandas-dev/pandas: Pandas},  Feb., 2020.
-\newblock 10.5281/zenodo.3509134.
-
-\bibitem{TLorentzVector}
-{The Root team}, ``Tlorentzvector.''
+W.~McKinney, \emph{Data structures for statistical computing in python},  in
+  \emph{Proceedings of the 9th Python in Science Conference} (S.~van~der Walt
+  and J.~Millman, eds.), pp.~51 -- 56, 2010.
 
 \bibitem{franchini_search_2019}
 M.~Franchini, K.~H. Mankinen, G.~Carratta, F.~Scutti, A.~Gorisek, E.~Lytken
