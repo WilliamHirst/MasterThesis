@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.legend_handler import HandlerTuple
 from scipy.spatial import ConvexHull
 from scipy import interpolate
+
 import numpy as np
 
 
@@ -13,15 +14,15 @@ import numpy as np
 
 def plotPCA():
     myPath = "/storage/William_Sakarias/William_Data"
-    df, y, df_data, channels = loadDf(myPath,notInc=["LRS", "filtch", "HNL"])
+    df, y, df_data, channels = loadDf(myPath,notInc=["LRS", "filtch", "HNL", "MGPy8EGA"])
     channels = df["channel"]
     channelsU = channels.unique() 
     df = df.drop(columns=["wgt_SG", "channel"])
     df = scaleData(df)
     dfPCA = PCAData(df)
-    colors = ["khaki", "chocolate", "indigo", "pink", "chocolate"]
     alphas = np.linspace(1.0, .2, len(channelsU))
     skip = False
+    skip2 = False
     
     fig, axs = plt.subplots(
             2,
@@ -38,24 +39,32 @@ def plotPCA():
     ax4 = axs[1,1]
     plotters = []
     legends = []
-    for i in range(len(channelsU)):
+    i = -1
+    for _ in range(len(channelsU)):
+        i += 1
         channel = channelsU[i]
         if "Z" in channel and "jets" in channel: 
+            print(channel, "Z")
             if skip:
                 continue
             index = np.asarray(channels == "Zmmjets") + np.asarray(channels == "Zeejets") + np.asarray(channels == "Zttjets")
             skip = True
             channel = "Zjets"
+        elif "diboson" in channel:
+            print(channel, "Di")
+            if skip2:
+                continue
+            index = np.asarray(channels == "diboson2L") + np.asarray(channels == "diboson3L") + np.asarray(channels == "diboson4L")
+            skip2 = True
+            channel = "Diboson"
         else:
+            print(channel, "None")
             index = channels==channel
 
         dfPCA_0i = dfPCA[index,0]
         dfPCA_1i = dfPCA[index,1]
         print(channel)
-        try:
-            color = plt.rcParams["axes.prop_cycle"].by_key()["color"][i]
-        except:
-            color = colors[i-10]
+        color = color_cycle[int(i*len(color_cycle)/len(channelsU))]
         print(color)
         m_1, m_2 = np.mean(dfPCA_0i), np.mean(dfPCA_1i)
         s_1, s_2 = np.std(dfPCA_0i), np.std(dfPCA_1i)
@@ -69,10 +78,9 @@ def plotPCA():
         points = np.c_[p_1[:100],p_2[:100]]
         interp_x, interp_y = getCurve(points)
         ax3.fill(interp_x, interp_y, '--', c=color, alpha=alphas[i])
-        points = np.c_[p_1[:400],p_2[:400]]
+        points = np.c_[p_1[:300],p_2[:300]]
         interp_x, interp_y = getCurve(points)
         ax4.fill(interp_x, interp_y, '--', c=color, alpha=alphas[i])
-        
         
         plotters.append((s1,f2))
         legends.append(channel)
@@ -85,7 +93,9 @@ def plotPCA():
     ax2.grid(False)
     ax3.grid(False)
     ax4.grid(False)
-    ax2.legend(plotters, legends, handler_map={tuple: HandlerTuple(ndivide=None)})
+    ax4.set_xlabel("PCA Feature 1", loc =  'right',fontsize =20)
+    ax1.set_ylabel("PCA Feature 2", loc =  'top',fontsize =20)
+    # ax2.legend(plotters, legends, handler_map={tuple: HandlerTuple(ndivide=None)})
     plt.tight_layout()
     plt.savefig("PCAPlotFirst.pdf")
     plt.show()
