@@ -14,7 +14,7 @@ import numpy as np
 
 def plotPCA():
     myPath = "/storage/William_Sakarias/William_Data"
-    df, y, df_data, channels = loadDf(myPath,notInc=["LRS", "filtch", "HNL", "MGPy8EGA"])
+    df, _, _, channels = loadDf(myPath,notInc=["LRS", "filtch", "HNL", "MGPy8EGA"])
     channels = df["channel"]
     channelsU = channels.unique() 
     df = df.drop(columns=["wgt_SG", "channel"])
@@ -39,33 +39,27 @@ def plotPCA():
     ax4 = axs[1,1]
     plotters = []
     legends = []
-    i = -1
-    for _ in range(len(channelsU)):
-        i += 1
+    j = -1
+    for i in range(len(channelsU)):
         channel = channelsU[i]
         if "Z" in channel and "jets" in channel: 
-            print(channel, "Z")
             if skip:
                 continue
             index = np.asarray(channels == "Zmmjets") + np.asarray(channels == "Zeejets") + np.asarray(channels == "Zttjets")
             skip = True
             channel = "Zjets"
         elif "diboson" in channel:
-            print(channel, "Di")
             if skip2:
                 continue
             index = np.asarray(channels == "diboson2L") + np.asarray(channels == "diboson3L") + np.asarray(channels == "diboson4L")
             skip2 = True
             channel = "Diboson"
         else:
-            print(channel, "None")
             index = channels==channel
-
-        dfPCA_0i = dfPCA[index,0]
-        dfPCA_1i = dfPCA[index,1]
-        print(channel)
-        color = color_cycle[int(i*len(color_cycle)/len(channelsU))]
-        print(color)
+        j += 1
+        dfPCA_0i = dfPCA[index,-2]
+        dfPCA_1i = dfPCA[index,-1]
+        color = color_cycle[int(j*len(color_cycle)/8)]
         m_1, m_2 = np.mean(dfPCA_0i), np.mean(dfPCA_1i)
         s_1, s_2 = np.std(dfPCA_0i), np.std(dfPCA_1i)
         p_1 = dfPCA_0i[np.abs(dfPCA_0i - m_1) < 0.5*s_1 ]
@@ -74,16 +68,15 @@ def plotPCA():
         s1= ax1.scatter(points[:,0], points[:,1], color = color)
 
         interp_x, interp_y = getCurve(points)
-        f2, = ax2.fill(interp_x, interp_y, '--', c=color, alpha=alphas[i], label = channel)
+        f2, = ax2.fill(interp_x, interp_y, '--', c=color, alpha=alphas[j], label = channel)
         points = np.c_[p_1[:100],p_2[:100]]
         interp_x, interp_y = getCurve(points)
-        ax3.fill(interp_x, interp_y, '--', c=color, alpha=alphas[i])
+        ax3.fill(interp_x, interp_y, '--', c=color, alpha=alphas[j])
         points = np.c_[p_1[:300],p_2[:300]]
         interp_x, interp_y = getCurve(points)
-        ax4.fill(interp_x, interp_y, '--', c=color, alpha=alphas[i])
+        ax4.fill(interp_x, interp_y, '--', c=color, alpha=alphas[j])
         
         plotters.append((s1,f2))
-        legends.append(channel)
 
     ax2.set_yticks([])
     ax4.set_yticks([])
@@ -93,11 +86,10 @@ def plotPCA():
     ax2.grid(False)
     ax3.grid(False)
     ax4.grid(False)
-    ax4.set_xlabel("PCA Feature 1", loc =  'right',fontsize =20)
-    ax1.set_ylabel("PCA Feature 2", loc =  'top',fontsize =20)
-    # ax2.legend(plotters, legends, handler_map={tuple: HandlerTuple(ndivide=None)})
+    ax4.set_xlabel("PCA Feature Second Last", loc =  'right',fontsize =20, labelpad = 15)
+    ax1.set_ylabel("PCA Feature Last", loc =  'top',fontsize =20)
     plt.tight_layout()
-    plt.savefig("PCAPlotFirst.pdf")
+    plt.savefig("PCAPlotLast.pdf")
     plt.show()
 
 
