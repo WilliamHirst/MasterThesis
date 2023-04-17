@@ -13,12 +13,18 @@ complete my analysis. Large amounts of details and explanations will not be cove
 Instead, this section will highlight which tools were used and some motivation
 for choosing them. Additionally, I will cover some details regarding the data
 being used, both \ac{MC}-sumulations and real collision data.
-\subsection{Monte Carlo Data}
+\subsection{The Structure of the Data Set - Ntuples}
+Both data sets analyzed in this thesis, the measured and simulated are originally (pre processing) stored in ROOT, in the format of Ntuples. 
+NTuples are ROOT objects, designed to store large amounts of data in a tabular form. They allow for non-symmetrical entries, meaning 
+rows with different number of columns. The simulated and measured collision data are both stored in Ntuples, with a matrix like structure where the columns represent 
+the variables/features, and the columns represent each event. Hence, allowing non-symmetrical entries is essential for the purpose of storing data on particle collisions, 
+given that not all variables are relevant for all events. For example the $P_t$ of the 3 lepton in an event with 2 lepton final state, does not make sense. 
+\subsection{Monte Carlo Simulated Data}
 Up to this point in the thesis, I have discussed two data sets: the measured collision data and the simulated data. 
 As far as my relation to the latter data set, I have only used it directly in my analysis and have not been involved in 
 production. The simulations applied in the creation of our simulated data set are all based on \acf{MC} simulations\footnote{For 
 more information on \ac{MC} simulation, the reader is referred to \cite{raychaudhuri_introduction_2008}.}, produced 
-by the popular framework INSERT WHICH ONE. Through simulation, we 
+by the popular frameworks like, \emph{$MadGraph5\_aMC@NLO$} and \emph{$Pythia 8.2$} \cite{alwall_automated_2014, sjostrand_introduction_2015}. Through simulation, we 
 are able to (among other things): test our understanding of the detector, model the expected \ac{SM} background events in different 
 regions or model new \ac{BSM} physics. The pipeline for producing simulated events, closely mimic the pipeline from real collision 
 to data set. The pipeline for simulating collision events can be summarized in the following steps
@@ -28,7 +34,8 @@ to data set. The pipeline for simulating collision events can be summarized in t
   \item \textbf{Digitization}: Translate the interaction between the events and the detector to real signals
   \item \textbf{Reconstruct events}: Go through the same steps applied to real collisions to reconstruct particles from signals
 \end{itemize}
-\subsection{ROOT, RDataframe and Pandas}
+\subsection{ROOT}
+In many aspects of my analysis, ranging from statistical analysis to plotting, I utilize the ROOT framework.
 ROOT \cite{ROOT} is at its core a large $C{++}$ library and data structure made specifically for big data
 analysis and computing, as well as data visualization. Today, all ATLAS data is stored as a ROOT-file along
 with more than 1 exabyte ($10^{12}$) of data worldwide. ROOT has many \ac{HPC} qualities which makes it ideal for particle
@@ -42,20 +49,29 @@ comparison between data through an advanced graphical user interface. Additional
 functionality for creating complex stacked histogram are implemented in the ROOT \ac{API}, such
 as uncertainty calculations, ordering of histograms and statistical analysis tools. 
 \\
-As for the data structure, the raw data was loaded as a ROOT-file. To easier handle the data and add
-new features, I used the RDataFrame\footnote{For full documentation on RDataFrame, see $\href{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}$ (Accessed 16.04.2023).} 
-structure implemented inside ROOT. RDataFrame allows for easy 
-addition of new columns as well as filtering of events through native functionality. As a consequence
-I used RDataFrame to calculate all higher-level features such as the stransverse mass $(M_{T2}$), 
+Finally, in most calculations of the significance I use equations \ref{eq:Z1}. This equation does not include any 
+uncertainty, which is why any results using said equation is only for comparison reasons between the different \ac{ML}
+models. In the final sections of the thesis, I am interested in including uncertainty in the results. To do this I utilize 
+a function in ROOT, the \emph{RooStats.NumberCountingUtils.BinomialExpZ}.
+\subsection{Data Structure and Frameworks}
+Both data sets analyzed in this thesis, the measured and simulated are originally (pre processing) stored in ROOT, in the format of Ntuples. 
+NTuples are ROOT objects, designed to store large amounts of data in a tabular form. They allow for non-symmetrical entries, meaning 
+rows with different number of columns. The simulated and measured collision data are both stored in Ntuples, with a matrix like structure where the columns represent 
+the variables/features, and the columns represent each event. Hence, allowing non-symmetrical entries is essential for the purpose of storing data on particle collisions, 
+given that not all variables are relevant for all events. For example the $P_t$ of the 3 lepton in an event with 2 lepton final state, does not make sense.
+\\
+When starting preprocessing, I load the NTuples into another ROOT data structure called RDataFrame\footnote{For full 
+documentation on RDataFrame, see $\href{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}$ (Accessed 16.04.2023).}. 
+RDataFrame allows for easy addition of new columns as well as filtering of events through native functionality. As 
+a consequence I used RDataFrame to calculate all higher-level features such as the stransverse mass $(M_{T2}$), 
 invariant mass of 3 leptons ($M_{lll}$) etc. An example is shown in the following section. 
 \\
 After all data handling was complete, I used ROOT's $AsNumpy$ function to translate the data frame as 
-a numpy object, which then allowed me to transform it to a Pandas-data frame \cite{Pandas}. This is done
+a Numpy object, which then allowed me to transform it to a Pandas-data frame \cite{Pandas}. This is done
 because Pandas, like most \ac{ML}-tools work in a strict Python environment. Pandas, similarly to RDataFrame
 includes many deep computational libraries, and is optimal for analysis of big data. When the full \ac{ML} 
-pipeline (data-handling, training, validating ets.) is completed, the data is transformed back to RDataFrame, 
+pipeline (data-handling, training, validating etc.) is completed, the data is transformed back to RDataFrame, 
 to take advantage of the plotting functionality in ROOT.
-
 \subsection{Computing features in ROOT: Example}
 In this section I will cover a simple example to highlight the steps taken in preparing the dataset 
 I used in the analysis. As mentioned earlier, the two main frameworks used were RDataFrame and Pandas. 
