@@ -10,7 +10,9 @@ parameters (see section \ref{subsec:XGBoost}) are often the best.
 I choose to perform a sensitivity analysis for the original signal data set using a XGBoost model. The results
 will act as a benchmark when performing further testing with \ac{NN}-variants. In figure \ref{fig:XGBoost} 
 I have presented a grid displaying the achieved significance (see section \ref{subsec:Sensitivity}) for each 
-mass combination in the original signal data set. In the figure we can observe that the XGBoost model performs
+mass combination in the original signal data set. The significance presented in the grid (and will be in the next results to come) 
+was calculated with equation \ref{eq:Z1}, without the inclusion of uncertainty, as to keep the analysis in a strictly Python (non-ROOT) 
+environment. In the figure we can observe that the XGBoost model performs
 better for smaller masses. This results can be somewhat counterintuitive, due to signal with smaller masses 
 having a larger resemblance to background than signal with large masses. The explanation is simply that there are
 far more events with smaller masses than there are with larger mass. By studying figure \ref{fig:nrSignal} we know that 
