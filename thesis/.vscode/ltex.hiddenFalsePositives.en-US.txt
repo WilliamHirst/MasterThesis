@@ -1,3 +1,4 @@
 {"rule":"THE_PUNCT","sentence":"^\\QThe \"final-piece\" of the puzzle came in 1956 when we discovered the, at that time thought of as massless neutrino.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QIn the case where \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q is equal to the final output.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QSee https://xgboost.readthedocs.io/en/stable/parameter.html https://xgboost.readthedocs.io/en/stable/parameter.html for a complete overview of default parameters.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe neutralino is the lightest sparticle introduced by \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, and is therefore stable, as it ca not decay into a lighter sparticle particle.\\E$"}

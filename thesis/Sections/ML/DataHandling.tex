@@ -24,16 +24,20 @@ the mean and standard deviation respectively for each feature.
 
 \subsection{Principal Component Analysis}\label{subsec:PCA}
 \ac{PCA} is a popular dimensionality reduction technique used in many analyses. The goal of
-\ac{PCA} is to reduce a high-dimensional dataset while at the same time conserve as much of the 
-variance in the data as possible. The motivation behind dimensionality reduction is rooted in 
-two (main) reasons. The first being noise reduction. Some features could not only be non-contributing 
+\ac{PCA} is to reduce the dimensions of a high-dimensional dataset while at the same time conserve as 
+much of the variance (or value spread) in the data as possible. The motivation behind dimensionality reduction 
+is (mainly) rooted in two points. The first being noise reduction. Some features could not only be non-contributing 
 during training, but could even introduce noise. The second reason is lack of convergence. In a large 
 data set with many features and different classifications (in our case channels), a \ac{ML} could struggle
 to identify the most important trends. By reducing the dimensionality in the data, the hope is that this 
 would be easier. 
 \\
-In simple terms, \ac{PCA} finds the direction in the feature space along which the data has the largest 
-variance. It does this in 4 steps:
+In short, a \ac{PCA} finds the direction in the feature space along which the data has the largest 
+variance (called principal components), using a linear combination of the original features, and projects the
+data upon it, creating a new data set. The principal components are ordered such that the first captures the most variation,
+the second captures the most variation orthogonal to the first and so on. Before applying the \ac{PCA}, it is essential to 
+scale the data, to ensure a realistic representation of the variance in each feature.  We can summarize the algorithm of the \ac{PCA} in 
+the following 6 steps:
 \begin{itemize}
     \item $\textbf{First}$: Center the data around 0 by subtracting the mean from each feature.
     \item $\textbf{Second}$: Calculate the covariance matrix to find the covariance 
@@ -46,11 +50,15 @@ variance. It does this in 4 steps:
     \item $\textbf{Sixth}$: Remove the features with the least variance according to some threshold
                             defined by the user.                      
 \end{itemize}
-In figures \ref{fig:PCA1} and \ref{fig:PCA2} I have plotted the distribution of 10, 100 and 500 samples 
+The threshold mentioned in the final point, is decided by the user, and defines how much of the variance from the original data 
+set should be included. I.e. if the threshold is set to $70\%$, x number of the last features will be removed which correspond to 
+the closest to $30\%$, but not more.
+\\
+In figures \ref{fig:PCA1} and \ref{fig:PCA2} I have plotted the distribution of 10, 100 and 300 samples 
 for the features with the most and second most variance (\ref{fig:PCA1}), and least and second least 
 variance (\ref{fig:PCA2}) after applying \ac{PCA} to our data set. In this \ac{PCA} I am yet to remove features, 
 so all four features are taken from a data set where all the variance is still conserved. With this in 
-mind, the different scales on the y- and x-axis ($10^0$ for figure \ref{fig:PCA1} and $10^{-7}$ for figure 
+mind, the different scales on the y- and x-axis ($10^0$ for figure \ref{fig:PCA1} and $10^{-8}$ for figure 
 \ref{fig:PCA2}) show why we are able to justify removing the features. In figure \ref{fig:PCA2} we observe 
 that all channels exhibit the same trends and are practically identical. In other words, these features 
 would not contribute in training a model to distinguish the different channels.
@@ -58,7 +66,7 @@ would not contribute in training a model to distinguish the different channels.
     \centering
     \includegraphics[width=0.6\textwidth]{Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf}
     \caption{The distribution of the two PCA-features containing most variation for (left to right, 
-    up to down) 10, 10, 100 and 500 samples from each channel. Each sample filling the requirement 
+    up to down) 10, 10, 100 and 300 samples from each channel. Each sample filling the requirement 
     with being less than one standard deviation from the mean of both features, respectively.}
     \label{fig:PCA1}
 \end{figure}
@@ -66,7 +74,7 @@ would not contribute in training a model to distinguish the different channels.
     \centering
     \includegraphics[width=0.6\textwidth]{Figures/MLResults/DataHandling/PCA/PCAPlotLast.pdf}
     \caption{The distribution of the two PCA-features containing the least amount of variation for (left to right, 
-    up to down) 10, 10, 100 and 500 samples from each channel. Each sample filling the requirement 
+    up to down) 10, 10, 100 and 300 samples from each channel. Each sample filling the requirement 
     with being less than one standard deviation from the mean of both features, respectively.}
     \label{fig:PCA2}
 \end{figure}
