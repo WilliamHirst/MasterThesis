@@ -176,6 +176,11 @@ M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
   Lett.} {\bf 129} (2022) 061803}, [\href{http://arxiv.org/abs/2201.13045}{{\tt
   2201.13045}}].
 
+\bibitem{tensorflow}
+M.~Abadi, A.~Agarwal, P.~Barham, E.~Brevdo, Z.~Chen, C.~Citro et~al.,
+  \emph{{TensorFlow}: Large-scale machine learning on heterogeneous systems},
+  2015.
+
 \bibitem{GS}
 P.~Liashchynskyi and P.~Liashchynskyi, \emph{Grid search, random search,
   genetic algorithm: A big comparison for nas},  2019.

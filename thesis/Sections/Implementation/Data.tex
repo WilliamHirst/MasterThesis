@@ -18,10 +18,10 @@ Up to this point in the thesis, I have discussed two data sets: the measured col
 As far as my relation to the latter data set, I have only used it directly in my analysis and have not been involved in 
 production. The simulations applied in the creation of our simulated data set are all based on \acf{MC} simulations\footnote{For 
 more information on \ac{MC} simulation, the reader is referred to \cite{raychaudhuri_introduction_2008}.}, produced 
-by the popular frameworks like, \emph{$MadGraph5\_aMC@NLO$} and \emph{$Pythia 8.2$} \cite{alwall_automated_2014, sjostrand_introduction_2015}. Through simulation, we 
-are able to (among other things): test our understanding of the detector, model the expected \ac{SM} background events in different 
-regions or model new \ac{BSM} physics. The pipeline for producing simulated events, closely mimic the pipeline from real collision 
-to data set. The pipeline for simulating collision events can be summarized in the following steps
+by the popular frameworks like, \emph{$MadGraph5\_aMC@NLO$} and \emph{$Pythia 8.2$} \cite{alwall_automated_2014, sjostrand_introduction_2015}. 
+Through simulation, we are able to (among other things): test our understanding of the detector, model the expected \ac{SM} background 
+events in different regions or model new \ac{BSM} physics. The pipeline for producing simulated events, closely mimic the pipeline 
+from real collision to data set. The pipeline for simulating collision events can be summarized in the following steps
 \begin{itemize}
   \item \textbf{Generate events}: Simulate each event in the collision, marking each event with the corresponding process (see section \ref{sec:bkg})
   \item \textbf{Simulate detection of events}: Simulate the detection of each event in the different layers of the detector described in section \ref{subsec:Detector}
@@ -32,11 +32,12 @@ to data set. The pipeline for simulating collision events can be summarized in t
 As I have mentioned in previous sections I will be searching for a large range of signals, all related to the same
 physics, but with different set of parameters. In figure \ref{fig:nrSignal} I have drawn a grid showing the different mass combinations 
 searched for in this analysis. The figure shows the data set containing masses ranging from $m({\tilde{\chi}_1})\in[0,400]$
-and $m({\tilde{\chi}_2})\in[100,800]$.\footnote{The chargino, $\tilde{\chi}^{\pm}_1$ and $\tilde{\chi}_2$ are mass degenerate, meaning they 
-share the same mass.} In the beginning of my analysis I only received a subset (which will be referred to as the 
+and $m({\tilde{\chi}_2})\in[100,800]$.\footnote{The chargino, $\tilde{\chi}^{\pm}_1$ and $\tilde{\chi}_2$ are mass degenerate, 
+meaning they share the same mass.} In the beginning of my analysis I only received a subset (which will be referred to as the 
 \emph{original} data set.) of the full signal set. In the figure I have marked the original data set with a white label in the top 
 right corner of the box. The orignal signal set contains a total of 30 different mass combinations in the range from 
-$m({\tilde{\chi}_1})\in[0,400]$ and $m({\tilde{\chi}_2})\in[400,800]$. In the full signal data set there are a total of 90 different mass combinations.
+$m({\tilde{\chi}_1})\in[0,400]$ and $m({\tilde{\chi}_2})\in[400,800]$. In the full signal data set there are a total of 90 different 
+mass combinations.
 \\
 Given that I received the original signal data set many months before receiving the full set, most of my results were found using the 
 original set. Therefore, I choose to use the original data set to compare the models in performance, then finally use the full set 
@@ -84,7 +85,16 @@ a Numpy object, which then allowed me to transform it to a Pandas-data frame \ci
 because Pandas, like most \ac{ML}-tools work in a strict Python environment. Pandas, similarly to RDataFrame
 includes many deep computational libraries, and is optimal for analysis of big data. When the full \ac{ML} 
 pipeline (data-handling, training, validating etc.) is completed, the data is transformed back to RDataFrame, 
-to take advantage of the plotting functionality in ROOT.
+to take advantage of the plotting functionality in ROOT. The workflow of the method is visualized in figure 
+\ref{fig:WF}.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{Figures/Illustrations/TaskFlow.png}
+  \vspace{-1cm}
+  \caption{A visual summary of the workflow and framework use for the 
+  computational analysis. }
+  \label{fig:WF}
+\end{figure}
 \subsection{Computing features in ROOT: Example}
 In this section I will cover a simple example to highlight the steps taken in preparing the dataset 
 I used in the analysis. As mentioned earlier, the two main frameworks used were RDataFrame and Pandas. 
@@ -124,7 +134,8 @@ into the ROOT framework. Then I loop over all keys in the data frame, which in m
 are the different channels (i.e Diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
 based on the criteria from section \ref{subsec:Cuts}. Then, I use RDataFrame's $Define$ function to calculate
 and add a new feature using our $ComputeInvariantMass$-function. Finally, I save the feature as ROOT object called 
-$Histo1D$, which I later plot using ROOT plotting \ac{API}'s.
+$Histo1D$, which I later plot using ROOT plotting \ac{API}'s. In this example I chose the trilepton invariant mass, 
+but in the analysis all high-level features were calculated using a similar method. 
 \lstset{style=Python}
 \begin{lstlisting}[caption={Python-file for calling dataframe and calculating $M_{lll}$.},captionpos=b, label={lst:df_mlll}]
 R.gROOT.ProcessLine(".L helperFunctions.cxx+");
@@ -155,16 +166,6 @@ for k in df.keys():
                                         "mlll",
                                         "wgt_SG")     
 \end{lstlisting}
-In this example I chose the trilepton invariant mass, but in the analysis all high-level features were
-calculated using a similar method. The workflow of the method is visualized in figure \ref{fig:WF}. We
-load data in ROOT format, data handling and plot feature distrobution  in RDataFrame, perform \ac{ML}-
-analysis in Pandas and plot results in RDataFrame.
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{Figures/Illustrations/TaskFlow.png}
-    \vspace{-1cm}
-    \caption{A visual summary of the workflow and framework use for the 
-    computational analysis. }
-    \label{fig:WF}
-\end{figure}
+
+
 

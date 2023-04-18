@@ -71,14 +71,14 @@
 \contentsline {subsection}{\numberline {3.2.1}Lepton Variables}{35}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Jet Variables}{35}{subsection.3.2.2}%
 \contentsline {section}{\numberline {3.3}Data Preprocessing}{35}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Negative Weights}{37}{section.3.4}%
-\contentsline {section}{\numberline {3.5}The Machine Learning Models}{37}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Model selection}{37}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Creating custom layers}{40}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Model Architecture}{41}{subsection.3.5.3}%
-\contentsline {section}{\numberline {3.6}Model Training and Validation}{43}{section.3.6}%
+\contentsline {section}{\numberline {3.4}Negative Weights}{38}{section.3.4}%
+\contentsline {section}{\numberline {3.5}The Machine Learning Models}{39}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Model selection}{39}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Creating custom layers}{39}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Model Architecture}{40}{subsection.3.5.3}%
+\contentsline {section}{\numberline {3.6}Model Training and Validation}{42}{section.3.6}%
 \contentsline {subsection}{\numberline {3.6.1}Training and Validating data}{43}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Training Strategy}{44}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.2}Training Strategy}{43}{subsection.3.6.2}%
 \contentsline {chapter}{\numberline {4}Results \& Discussion from the Analysis}{45}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Benchmarking the Analysis with Boosted Trees}{45}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Dense Neural Networks}{47}{section.4.2}%
@@ -94,12 +94,13 @@
 \contentsline {section}{\numberline {4.5}Remarks on Comparison between Models on Original Signal Set}{57}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{58}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{59}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Comparing Exclusion Limits between ML Models and Previous Analysis}{63}{section.4.8}%
-\contentsline {chapter}{Appendices}{67}{section*.72}%
-\contentsline {chapter}{Appendix A}{69}{appendix*.73}%
-\contentsline {section}{\numberline {A.1}Sensitivity Grids}{69}{section.Alph0.1}%
-\contentsline {subsection}{\numberline {A.1.1}Ensembles}{69}{subsection.Alph0.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{69}{subsection.Alph0.1.2}%
-\contentsline {section}{\numberline {A.2}The Features}{72}{section.Alph0.2}%
-\contentsline {subsection}{\numberline {A.2.1}The Feature Distribution}{72}{subsection.Alph0.2.1}%
-\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{77}{section.Alph0.3}%
+\contentsline {section}{\numberline {4.8}Comparing Exclusion Limits between Models and Previous Analysis}{63}{section.4.8}%
+\contentsline {chapter}{Conclusion $\&$ Outlook}{67}{chapter*.71}%
+\contentsline {chapter}{Appendices}{69}{section*.72}%
+\contentsline {chapter}{Appendix A}{71}{appendix*.73}%
+\contentsline {section}{\numberline {A.1}Sensitivity Grids}{71}{section.Alph0.1}%
+\contentsline {subsection}{\numberline {A.1.1}Ensembles}{71}{subsection.Alph0.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{71}{subsection.Alph0.1.2}%
+\contentsline {section}{\numberline {A.2}The Features}{74}{section.Alph0.2}%
+\contentsline {subsection}{\numberline {A.2.1}The Feature Distribution}{74}{subsection.Alph0.2.1}%
+\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{79}{section.Alph0.3}%
