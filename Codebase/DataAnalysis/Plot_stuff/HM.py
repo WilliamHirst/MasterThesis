@@ -91,10 +91,10 @@ def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10, addExlusi
         m2_i =elem["m2"]
         if score >cut_off:
             scoreString = f"{score:.0f}"
-            fontsize = 'medium'
+            fontsize = 'small'
             scale = np.NAN
         else:
-            scoreString = f"{score:.2f}"
+            scoreString = f"{score:.0f}"
             fontsize = 'medium'
             scale = 1
         if metric == "NrEvents":
@@ -127,11 +127,6 @@ def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10, addExlusi
     cmap.set_bad('white',1.)
     cmap.set_under(color= "#eeeeee")
     cmap = plt.pcolormesh(np.arange(len(M1)+1), np.arange(len(M2)+1), colorBar(Z), cmap = cmap,vmin=0.0000001, edgecolors = "whitesmoke", linewidth = .5)
-    # cbar = fig.colorbar(cmap)
-    # cbar.ax.tick_params(size=0)
-    # cbar.set_ticks([])
-    # cbar.remove()
-
     # Set ticks in center of cells
     ax.set_xticks(np.arange(len(M1)) + 0.5, minor=False)
     ax.set_yticks(np.arange(len(M2)) + 0.5, minor=False)
@@ -186,10 +181,11 @@ if __name__ == "__main__":
     from plot_set import *
     # gridPlotter(mlType = "XGB", name =f"XGBGrid", metric = "Sig")
     # cmap.set_under(color='black')
-    # gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
+    gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
+    exit()
     # gridPlotter(mlType = "NN", name =f"NrSignal", metric = "Events", file_name="NrEvents")
     #gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
-    names = ["ChannelOutGrid", "HybridPCALeakyGrid", "HybridPCAMaxOutGrid", "MaxOutGrid", "MaxOutPCAGrid", "NNGrid", "NNPCAGrid", "NNshallowGrid", "PNNGrid", "PNNPCAGrid", "StochChannelOutGrid"]
+    # names = ["ChannelOutGrid", "HybridPCALeakyGrid", "HybridPCAMaxOutGrid", "MaxOutGrid", "MaxOutPCAGrid", "NNGrid", "NNPCAGrid", "NNshallowGrid", "PNNGrid", "PNNPCAGrid", "StochChannelOutGrid"]
     # names = ["MaxOutPCA_FS_MLMGrid", "MaxOutPCA_FSGrid", "NN_FS_MLMGrid", "NN_FSGrid", "PNNPCA_FS_MLMGrid", "PNNPCA_FSGrid"]
     # names = ["MaxOut_InterpolationGrid", "NN_InterpolationGrid", "NN_OneMass_InterpolationGrid", "NN_OneMass_Overfitting_InterpolationGrid", "NN_OneMass_Overfitting8_InterpolationGrid", "NN_OneMass_Overfitting10_InterpolationGrid", "NN_OneMass_Overfitting15_InterpolationGrid"]
 
