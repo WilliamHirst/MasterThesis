@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1681822487 "main.aux" "main.bbl" "main" 1681822495
+["bibtex main"] 1681822977 "main.aux" "main.bbl" "main" 1681824324
   "./JHEP.bst" 1635225418 19415 119cff932b2ee8773ea988cf488e8896 ""
   "bibliography.bib" 1681735820 207619 08207446955478603da008f06c48f8be ""
-  "main.aux" 1681822495 95228 7d76f918eccac375214aa17dba2f7548 "pdflatex"
+  "main.aux" 1681824324 95069 48829812d6037c7f4534032f152b8c65 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1681822487 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1681822495
+["pdflatex"] 1681824316 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1681824324
   "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" 1681822399 3399 5459eea9814dcb1b43ce3a242b59a10f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -492,7 +492,7 @@
   "Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf" 1680083417 52553 c8eda49135a7c01eb8ccccb87de71a70 ""
   "Figures/MLResults/NN/SUSY/Grid/NNPCAGridSig.pdf" 1680083417 52858 d9c0578ee91c10c30ea5c1e4334c3b23 ""
   "Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf" 1680083417 53256 e6daa8e6affad350f76a06de2dbc94a5 ""
-  "Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf" 1678961494 97144 4cf7f16f689f31d4cc294c7dd98b7ca6 ""
+  "Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf" 1681824315 88168 5f9e27f989d729c94239515e278e5d27 ""
   "Figures/MLResults/NN/SUSY/Grid/PNNGridSig.pdf" 1680083417 53973 9731ad9a2a2cdbe9b43873c03eb759e7 ""
   "Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf" 1680083417 56439 f2a8667926fc478cbc6a1b1aa6771a76 ""
   "Figures/MLResults/NN/SUSY/Grid/StochChannelOutGridSig.pdf" 1680083417 53283 96273e4c900b5bf574b6ed62f80cc307 ""
@@ -535,7 +535,7 @@
   "Sections/ML/Phenomenology.tex" 1681804551 3121 764748b6991c63b20a177dc2c5ba0192 ""
   "Sections/ML/Regularization.tex" 1679839032 3200 3f6a0271fe35f0c158460957686f95a5 ""
   "Sections/Results/Axiomatic.tex" 1681716841 221 fec927cc3089769aec3a2923fa3e2e04 ""
-  "Sections/Results/CompLimits.tex" 1681822478 8991 a273b63c9f3c1c1eaaa63b4739507b02 ""
+  "Sections/Results/CompLimits.tex" 1681822831 8991 a273b63c9f3c1c1eaaa63b4739507b02 ""
   "Sections/Results/DNN.tex" 1681560626 10800 5864279946e82c09273d52fe221b1406 ""
   "Sections/Results/EnsembleMethods.tex" 1681822203 16531 9961ece1ad7515ead954d73c732d6ffb ""
   "Sections/Results/FS.tex" 1681645773 7767 ba684466ba3783172a916c2f07e550fb ""
@@ -544,7 +544,7 @@
   "Sections/Results/PNN.tex" 1681644109 10955 181d46304db2bf7d4817b4e453ecf439 ""
   "Sections/Results/XGBoost.tex" 1681811598 5158 12f627dc4fbfb52c46e32ea8fbdf27f3 ""
   "Sections/SM/Axiomatic.tex" 1681548130 831 50bf99d3ea4b282c8aee1ff6f8c87c1f ""
-  "Sections/SM/BSM.tex" 1681719533 6384 d57783068103e3cceae51f15955496c1 ""
+  "Sections/SM/BSM.tex" 1681824323 6436 584a659f4e25b17febbb7a85413d5639 ""
   "Sections/SM/Background.tex" 1681378172 10184 0200702c962e86adee1761deee8f6931 ""
   "Sections/SM/BuildingBlocks.tex" 1677148654 8237 31811b713580378f7a55c34c91c42352 ""
   "Sections/SM/ProtonProton.tex" 1681719987 5216 4c1e49c4e99b230fe23c9b3528b74492 ""
@@ -552,11 +552,11 @@
   "Sections/SM/TheForces.tex" 1677155015 3437 2cb9ba1fbfc8585b61e3d501ad15fccd ""
   "Setup/style.sty" 1679577061 8009 80c22b0eb56ed9f1a7e73d7638264046 ""
   "jheppub.sty" 1635225418 11993 cd840ce60e85e99a4eccf7d2c59baa18 ""
-  "main.aux" 1681822495 95228 7d76f918eccac375214aa17dba2f7548 "pdflatex"
-  "main.bbl" 1681822487 9209 d05099a424b4bd6ea6eac1a0cd93d83d "bibtex main"
-  "main.out" 1681822495 7564 ba5caedaa465afed717d366938b9f3cf "pdflatex"
+  "main.aux" 1681824324 95069 48829812d6037c7f4534032f152b8c65 "pdflatex"
+  "main.bbl" 1681822977 9209 d05099a424b4bd6ea6eac1a0cd93d83d "bibtex main"
+  "main.out" 1681824324 7564 ba5caedaa465afed717d366938b9f3cf "pdflatex"
   "main.tex" 1681822399 3399 5459eea9814dcb1b43ce3a242b59a10f ""
-  "main.toc" 1681822495 9212 72da32cb809d33638df135dfc83e1e7c "pdflatex"
+  "main.toc" 1681824324 9115 5c5601dec2def935a4afb777aed63a35 "pdflatex"
   "uio-fp-navn-eng.pdf" 1643568008 9896 3790f54969705c4284148bf62f780187 ""
   "uio-fp-segl.pdf" 1643566874 64936 89441810db60f45a672971bad5b14ed1 ""
   "uiomasterfp.sty" 1659081738 8559 bdb302d543dc750f296610cabe9cfc0a ""
