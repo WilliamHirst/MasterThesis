@@ -114,7 +114,7 @@ to calculate the invariant mass. $TLorentzVector$ is a class native to ROOT with
 this case we use the class to create three vectors through the variables, $P_t$, $\eta$, $\phi$ and M. Then, 
 through the $TLorentzVector$ class we can simply add all three vector together, and extract the invariant mass of the 3 leptons. 
 \lstset{style=Cpp}
-\begin{lstlisting}[caption={$C{++}$-function for $M_{lll}$.},captionpos=b, label={lst:mlll}]
+\begin{lstlisting}[caption={$C{++}$-function which implementes the calculation of $M_{lll}$.},captionpos=b, label={lst:mlll}]
 // Compute the trilepton invariant mass 
 float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
   TLorentzVector p1;

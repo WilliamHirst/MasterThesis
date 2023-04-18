@@ -12,7 +12,7 @@ data with the \ac{SM} simulations, we are essentially comparing what is predicte
 to what is measured by experiment. If the two differ in ways not explained by simulation error 
 or other non physics related errors, one could interpret the deviation as a new physics.
 \\
-To summarize, a search for new physics, is a search for deviation between simulation and 
+In short, a search for new physics, is a search for deviation between simulation and 
 experiment. At first thought, this might seem like a simple task. And if said deviation 
 was large, it would be easy. In reality, any new physics which predicts large contributions 
 in the data currently measured by \ac{ATLAS} has been excluded a long time ago. Today, any
@@ -55,7 +55,7 @@ are greatly different, and this variable would allow for a much more effective s
 \\
 The goal of introducing \ac{ML}, is to create a new feature in the data set where background and signal
 exhibit as little overlap as possible. This is very similar to how we introduce physics motivated high-level
-features like $H_t(ll)$ or $M_lll$, but instead of using an analytical function grounded in physics, 
+features like $H_t(ll)$ or $M_{lll}$, but instead of using an analytical function grounded in physics, 
 we apply the output of a trained \ac{ML} model. Then, once the \ac{ML}-variable is created, 
 we apply a cut (similar to \ac{CC}) which will define an effective search region. 
 \\
@@ -65,6 +65,5 @@ then hope that said overfitting is reflected when a new process is introduced. A
 would be incredibly beneficial, as it would be totally model independent. In other words, the same model could be applied 
 to all signal. As mentioned in earlier sections (see section \ref{sec:MLPhen}), the focus of this thesis will not be on 
 unsupervised \ac{ML}, but supervised. The largest difference between the two is the introduction of an additional data set,
-the signal. By simulating and training on what we expect the new physics to look like, we are able to achieve a much more 
-effective output, but the output would tailered to the signal it's been exposed to and not much else\footnote{Except for 
-overlapping signals or models which are able to interpolate between regions.}.
+the signal (target). By simulating and training on what we expect the new physics to look like, we are able to achieve a much more 
+effective output which is tailored to what we expect the new physics to look like.
