@@ -1,28 +1,32 @@
 \section{The Machine Learning Models}
 \subsection{Model selection}
 In this analysis I have chosen to compare 4 different "types" of \ac{ML}-models, ordinary dense \acf{NN}, \acf{PNN},
-ensemble and \acf{BDT}. The first three methods are all types of \ac{NN}. I have deliberately 
+ensemble (\ac{LWTA} and dropout) and \acf{BDT}. The first three methods are all variations of \ac{NN}. I have deliberately 
 chosen to focus on \ac{NN} given that there is far more freedom in the design of the architecture
-of a \ac{NN}, than compared to a XGboost. Additionally, this was motivated by the selfish reason
+of a \ac{NN}, than compared to a XGBoost. Additionally, this was motivated by the selfish reason
 being that I found the networks more interesting to study and dissect. Therefore, most of the 
 analysis, comparisons and discussion is focused on the networks, while XGBoost is included 
 as a loose benchmark. 
 \\
-The choice of the three network architectures is motivated in wanting to compare a simple 
-deep network, a network ensemble and a \ac{PNN}. I would assume that the optimal architecture
-would be a network which combines elements from each, but for the purpose of discussion
+The choice of the three network architectures is motivated in wanting to compare three relatively different approaches.
+Especially in how they perform with a diverse data set. The \ac{LWTA} models apply trend specific paths, the \ac{PNN} includes 
+the parameter of each mass combination, and dense \ac{NN} relies on a deep set of weights and biases to uphold long term memory.
+I would assume that the optimal architecture would be a network which combines elements from each, but for the purpose of discussion
 and research I have chosen to keep them somewhat separate. 
+\\
+All \ac{NN} variants implemented in this analysis were created, trained and deployed using the TensorFlow framework \cite{tensorflow}.
+This choice was rooted in several factors, for example that TensorFlow has an intuitive \ac{API}, it has very effective
+\ac{HPC} attributes, and it includes a large diversity in functionality, which allows for experimentation.
 \subsection{Creating custom layers}\label{subsec:CustomLayer}
 The field of \ac{ML} is one of the most dynamic and fastest growing fields of research
-today. This means, that regardless of the brave attempt made by voluntary contributors and
-the people at Google\footnote{The developers of TensorFlow}, there will always be 
-new and exciting \ac{ML} tools and algorithm, not yet implemented in their library. This was 
+today. This means, that regardless of the brave attempt made by voluntary contributors and many large companies,
+there will always be new and exciting \ac{ML} tools and algorithm, not yet implemented in their library. This was 
 certainly the case in this thesis. For several of the non-dense layers I was forced
 to dive into the world of \ac{ML} development and create my own implementation. 
 \\
 All ensemble methods described in section \ref{subsec:LWTA} (except for dropout), channel-out, 
-\ac{SCO} and maxout, resemble a layer already implemented by Tensorflow. This layer is called MaxPooling1D
-\footnote{For more information on MaxPoolind1D, the reader is referred to the documentation 
+\ac{SCO} and maxout, resemble a layer already implemented by TensorFlow. This layer is called 
+MaxPooling1D\footnote{For more information on MaxPoolind1D, the reader is referred to the documentation 
 ($\href{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}$,
 accessed 24.03.2023).}. But, to allow for experimentation I decided to not use MaxPooling1D, but instead 
 implement my own custom layers. All custom layers were implemented by creating new functions inside 
@@ -165,13 +169,13 @@ The architecture is illustrated in figure \ref{fig:arch}, with the label PNN. Th
 structure to the dense-\ac{NN}, with the only difference being in the input-layer. As was discussed in section \ref{subsec:PNN},
 the \ac{PNN} includes the new physics signal free parameters\footnote{In our case, the masses of the \ac{BSM}-particles.} alongside the features
 in the input layer.
-\subsection*{MaxOut, Channel-Out and \ac{SCO}}
+\subsection*{MaxOut, Channel-Out and SCO}
 The ensemble methods are slightly more complex than both the dense \ac{NN} and \ac{PNN} in terms of architecture. To limit the complexity for comparison reasons
 I choose to build an identical architecture for maxout, channel-Out and \ac{SCO}, with the only difference being which of the three layers is used.  
 In figure \ref{fig:arch} I have illustrated the MaxOut architecture, with the label MaxOut. The figure shows a network with 6 hidden layers, 
 3 MaxOut and 3 dropout. The network alternates between drop out and MaxOut, starting with dropout and finishing with MaxOut. The MaxOut layers 
-have 600 nodes each which reduce down to the 200 nodes with the largest activation in their respective groups. Each dropout layer has a dropout 
-rate of 0.15. Channel-out and \ac{SCO} have the same architecture to maxout, but replacing maxout with each of the two respectively. 
+have 600 nodes each which reduce down to the 200 nodes with the largest activation in their respective units. Each dropout layer has a dropout 
+rate of 0.15. Channel-out and \ac{SCO} have the same architecture to maxout, but replacing maxout with each of the two respectively.  
 
 \subsection*{XGBoost}\label{subsec:XGBoost}
 The main motivation to apply XGBoost is simply to benchmark my analysis, and therefore not a lot of effort has been put into the design of the 
@@ -182,6 +186,7 @@ for a complete overview of default parameters.} of XGBoost have been used. The m
     \item $\eta$ (learning-rate) = 0.3
     \item Max depth = 6
     \item Maximum number of trees = 100
+    \item Objective = 'binary:logistic'
 \end{itemize}
 
 

@@ -14,3 +14,7 @@ crossentropy
 triboson
 neutralions
 neutralinos
+sparticle
+sparticles
+neutralino
+scaler

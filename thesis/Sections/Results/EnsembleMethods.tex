@@ -3,7 +3,7 @@
 As mentioned in section \ref{subsec:CustomLayer}, the channel-out, \ac{SCO} and maxout layers applied in this 
 analysis were created by me using the TensorFlow \ac{API}'s. As such, I found it imperative to make
 sure that the layers worked as intended. To do this I created a small network with three layers, with 8 
-nodes each, all applying MaxOut layers with 4, 2 and 4 groups respectively. In this section I will 
+nodes each, all applying MaxOut layers with 4, 2 and 4 units respectively. In this section I will 
 dissect the activations of said network before and after training.
 \\
 In figure \ref{fig:BTraining}, I have plotted the activation of 100 randomly sampled events, 50 
@@ -22,10 +22,10 @@ of nodes. To highlight the difference in activation, I drew two new figures wher
 In the two figures we notice that there is still a noticeable variation in the activation for
 both signal and background. This is due to outliers in the data, but also the variation of trend.
 Regardless, there are still clear trends in activation which lets us know that the model has found 
-specific paths in the network for signal and background separately. Most noticeably, the two group 
-in the middle hidden layer highlight this fact. In the case of the signal, the upper group show a clear 
+specific paths in the network for signal and background separately. Most noticeably, the two unit 
+in the middle hidden layer highlight this fact. In the case of the signal, the upper unit show a clear 
 favoritism to the second bottom node. For the background this is also partly true, but with far more 
-spread in the other nodes. Similarly, in the bottom group (in the same layer), the background shows large
+spread in the other nodes. Similarly, in the bottom unit (in the same layer), the background shows large
 activation in the uppermost node, while the signal data does not. To conclude, the maxout layer does in deed 
 find trend specific paths through the network which will aid in separating the output for the signal and the background.\\
 \begin{figure}
@@ -45,7 +45,7 @@ find trend specific paths through the network which will aid in separating the o
     }
     \caption{A calculated visualization of a 3 layer MaxOut network. Each path 
     represents a data point where all connected nodes were the largest activation in their respective 
-    group. The distribution on the far right represent the output distribution. The figure to the left
+    unit. The distribution on the far right represent the output distribution. The figure to the left
     (\ref{fig:ATrainingSig}) is the result before training and the figure to right (\ref{fig:ATrainingBkg})
     is after.}
 \end{figure}
@@ -68,7 +68,7 @@ find trend specific paths through the network which will aid in separating the o
     }
     \caption{A calculated visualization of a 3 layer MaxOut network. Each path 
     represents a data point where all connected nodes were the largest activation in their respective 
-    group. The distribution on the far right represent the output distribution and the figure with blue 
+    unit. The distribution on the far right represent the output distribution and the figure with blue 
     paths \ref{fig:ATrainingSig} is the result of signal and the figure pink \ref{fig:ATrainingBkg}.
     } 
     \label{fig:NetDist1}
@@ -91,7 +91,7 @@ find trend specific paths through the network which will aid in separating the o
     }
     \caption{A calculated visualization of a trained MaxOut network with 3 hidden layers. Each path 
     represents a data point where all connected nodes were the largest activation in their respective 
-    group. The figure to the left (\ref{fig:ATrainingSig50250}) is a result of signal with 
+    unit. The figure to the left (\ref{fig:ATrainingSig50250}) is a result of signal with 
     ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) and the right (\ref{fig:ATrainingSig200300}) 
     ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV).}
     \label{fig:NetVisSigComp}

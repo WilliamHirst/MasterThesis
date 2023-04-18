@@ -38,11 +38,11 @@ define the hypothesis as rejected.
 We measure the deviation between the observed collision data and the simulated \ac{SM} data in units of significance, Z. 
 For a given signal region with $n_{obs}$ events of measured collision data and b simulated \ac{SM} data, we define
 the significance of a deviation as
-\begin{align}
+\begin{align}\label{eq:Z1}
 Z=\sqrt{2\left[n_{\text {obs }} \ln \frac{n_{\text {obs }}}{b}-n_{\mathrm{obs}}+b\right]} \text { or } 
 Z=\sqrt{2\left[(s+b) \ln \left(1+\frac{s}{b}\right)-s\right]}, 
 \end{align}
-where we have defined the signal, s as $s = n_{obs} - b$. In the case of large statistics ($b>>s$), we can write Z 
+where we have defined the signal as $s = n_{obs} - b$. In the case of large statistics ($b>>s$), we can write Z 
 as 
 \begin{align}\label{eq:Z}
     Z=\frac{n_{o b s}-b}{\sqrt{b}} = \frac{s}{\sqrt{b}}.
@@ -68,7 +68,6 @@ can explain the deviation. For more information on significance and discovery in
     \caption{An illustration of a Gaussian distibution and the area under the curve defined by a significance equal to 1.64.}
     \label{fig:ConfInt}
 \end{figure}
-ADD SECTION ON UNCERTAINTY AND THE FORMULA ROOT USES
 % \subsection{Confidence Interval}
 % By defining the signal as the deviation between the simmulated and measured data, we risk missintepreting noise in either the 
 % experiment or the simmulations, as signal. If we assume that said noise is sampled from a random Gaussian distibution centered around 
