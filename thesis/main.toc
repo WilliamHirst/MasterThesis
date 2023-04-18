@@ -67,19 +67,18 @@
 \contentsline {subsection}{\numberline {3.1.3}ROOT}{32}{subsection.3.1.3}%
 \contentsline {subsection}{\numberline {3.1.4}Data Structure and Frameworks}{32}{subsection.3.1.4}%
 \contentsline {subsection}{\numberline {3.1.5}Computing features in ROOT: Example}{33}{subsection.3.1.5}%
-\contentsline {section}{\numberline {3.2}Features - Selection and Preprocessing}{34}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Cuts and triggers}{35}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Lepton Variables}{35}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Jet Variables}{36}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Validation}{36}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Negative Weights}{37}{subsection.3.2.5}%
-\contentsline {section}{\numberline {3.3}The Machine Learning Models}{37}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Model selection}{37}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Creating custom layers}{40}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Model Architecture}{41}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Model Training and Validation}{43}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Training and Validating data}{43}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Training Strategy}{44}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.2}Features Selection}{34}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Lepton Variables}{35}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Jet Variables}{35}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Data Preprocessing}{35}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Negative Weights}{37}{section.3.4}%
+\contentsline {section}{\numberline {3.5}The Machine Learning Models}{37}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Model selection}{37}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Creating custom layers}{40}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Model Architecture}{41}{subsection.3.5.3}%
+\contentsline {section}{\numberline {3.6}Model Training and Validation}{43}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Training and Validating data}{43}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Training Strategy}{44}{subsection.3.6.2}%
 \contentsline {chapter}{\numberline {4}Results \& Discussion from the Analysis}{45}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Benchmarking the Analysis with Boosted Trees}{45}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Dense Neural Networks}{47}{section.4.2}%
@@ -96,8 +95,8 @@
 \contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{58}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{59}{section.4.7}%
 \contentsline {section}{\numberline {4.8}Comparing Exclusion Limits between ML Models and Previous Analysis}{63}{section.4.8}%
-\contentsline {chapter}{Appendices}{67}{section*.71}%
-\contentsline {chapter}{Appendix A}{69}{appendix*.72}%
+\contentsline {chapter}{Appendices}{67}{section*.72}%
+\contentsline {chapter}{Appendix A}{69}{appendix*.73}%
 \contentsline {section}{\numberline {A.1}Sensitivity Grids}{69}{section.Alph0.1}%
 \contentsline {subsection}{\numberline {A.1.1}Ensembles}{69}{subsection.Alph0.1.1}%
 \contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{69}{subsection.Alph0.1.2}%

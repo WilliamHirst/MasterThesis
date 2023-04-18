@@ -2408,13 +2408,6 @@ INPUT Sections/Implementation/Features.tex
 INPUT ./Sections/Implementation/Features.tex
 INPUT ./Sections/Implementation/Features.tex
 INPUT Sections/Implementation/Features.tex
-INPUT ./Sections/Implementation/Cuts.tex
-INPUT ./Sections/Implementation/Cuts.tex
-INPUT ./Sections/Implementation/Cuts.tex
-INPUT Sections/Implementation/Cuts.tex
-INPUT ./Sections/Implementation/Cuts.tex
-INPUT ./Sections/Implementation/Cuts.tex
-INPUT Sections/Implementation/Cuts.tex
 INPUT ./Sections/Implementation/Selection.tex
 INPUT ./Sections/Implementation/Selection.tex
 INPUT ./Sections/Implementation/Selection.tex
@@ -2422,6 +2415,13 @@ INPUT Sections/Implementation/Selection.tex
 INPUT ./Sections/Implementation/Selection.tex
 INPUT ./Sections/Implementation/Selection.tex
 INPUT Sections/Implementation/Selection.tex
+INPUT ./Sections/Implementation/Cuts.tex
+INPUT ./Sections/Implementation/Cuts.tex
+INPUT ./Sections/Implementation/Cuts.tex
+INPUT Sections/Implementation/Cuts.tex
+INPUT ./Sections/Implementation/Cuts.tex
+INPUT ./Sections/Implementation/Cuts.tex
+INPUT Sections/Implementation/Cuts.tex
 INPUT ./Sections/Implementation/Validation.tex
 INPUT ./Sections/Implementation/Validation.tex
 INPUT ./Sections/Implementation/Validation.tex
