@@ -17,3 +17,4 @@ neutralinos
 sparticle
 sparticles
 neutralino
+scaler

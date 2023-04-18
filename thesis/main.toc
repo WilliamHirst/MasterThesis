@@ -38,10 +38,10 @@
 \contentsline {subsection}{\numberline {2.2.3}Memory, Adaptive Learning and ADAM}{15}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}Hyperparameters}{15}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Data Handling}{15}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Scaling}{15}{subsection.2.4.1}%
-\contentsline {subsubsection}{Standard Scaler}{15}{section*.13}%
+\contentsline {subsection}{\numberline {2.4.1}Scaling}{16}{subsection.2.4.1}%
+\contentsline {subsubsection}{Standard Scaler}{16}{section*.13}%
 \contentsline {subsection}{\numberline {2.4.2}Principal Component Analysis}{16}{subsection.2.4.2}%
-\contentsline {section}{\numberline {2.5}Regularization}{16}{section.2.5}%
+\contentsline {section}{\numberline {2.5}Regularization}{18}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Early stopping}{18}{subsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.5.2}Ensembles}{18}{subsection.2.5.2}%
 \contentsline {section}{\numberline {2.6}Neural Networks}{18}{section.2.6}%
@@ -49,9 +49,9 @@
 \contentsline {subsection}{\numberline {2.6.2}Feeding Forward}{19}{subsection.2.6.2}%
 \contentsline {subsection}{\numberline {2.6.3}Back Propagation}{20}{subsection.2.6.3}%
 \contentsline {subsection}{\numberline {2.6.4}Activation functions}{21}{subsection.2.6.4}%
-\contentsline {subsection}{\numberline {2.6.5}Network Ensembles, dropout and LWTA networks}{21}{subsection.2.6.5}%
+\contentsline {subsection}{\numberline {2.6.5}Network Ensembles, dropout and LWTA networks}{22}{subsection.2.6.5}%
 \contentsline {subsection}{\numberline {2.6.6}Parametrized Neural Network}{23}{subsection.2.6.6}%
-\contentsline {section}{\numberline {2.7}Decision Trees and Gradient Boosting}{24}{section.2.7}%
+\contentsline {section}{\numberline {2.7}Decision Trees and Gradient Boosting}{25}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}Decision Trees}{25}{subsection.2.7.1}%
 \contentsline {subsection}{\numberline {2.7.2}Gradient Boosting in Decision Trees}{25}{subsection.2.7.2}%
 \contentsline {section}{\numberline {2.8}Machine Learning Applied to a BSM Search}{26}{section.2.8}%
@@ -59,23 +59,22 @@
 \contentsline {subsection}{\numberline {2.8.2}The Machine Learning Approach}{26}{subsection.2.8.2}%
 \contentsline {section}{\numberline {2.9}Model assessment}{27}{section.2.9}%
 \contentsline {subsection}{\numberline {2.9.1}The Rate of True-Positve - ROC Curve}{27}{subsection.2.9.1}%
-\contentsline {subsection}{\numberline {2.9.2}Statistical Assessment - Discovery $\&$ Exclusion}{27}{subsection.2.9.2}%
+\contentsline {subsection}{\numberline {2.9.2}Statistical Assessment - Discovery $\&$ Exclusion}{28}{subsection.2.9.2}%
 \contentsline {chapter}{\numberline {3}Implementation of the Analysis}{31}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Tools and Data}{31}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}The Structure of the Data Set - Ntuples}{31}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Monte Carlo Simulated Data}{31}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.1}Monte Carlo Simulated Data}{31}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}The Signal}{31}{subsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.1.3}ROOT}{32}{subsection.3.1.3}%
 \contentsline {subsection}{\numberline {3.1.4}Data Structure and Frameworks}{32}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}Computing features in ROOT: Example}{32}{subsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.1.6}The Signal}{33}{subsection.3.1.6}%
-\contentsline {section}{\numberline {3.2}Features}{34}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Cuts and triggers}{34}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Lepton Variables}{36}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.1.5}Computing features in ROOT: Example}{33}{subsection.3.1.5}%
+\contentsline {section}{\numberline {3.2}Features - Selection and Preprocessing}{34}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Cuts and triggers}{35}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Lepton Variables}{35}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Jet Variables}{36}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Validation}{36}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}Negative Weights}{37}{subsection.3.2.5}%
-\contentsline {section}{\numberline {3.3}The Machine Learning Models}{40}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Model selection}{40}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.3}The Machine Learning Models}{37}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Model selection}{37}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Creating custom layers}{40}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}Model Architecture}{41}{subsection.3.3.3}%
 \contentsline {section}{\numberline {3.4}Model Training and Validation}{43}{section.3.4}%

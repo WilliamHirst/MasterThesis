@@ -18,9 +18,10 @@ The overarching strategy is summarized in the following points:
           on both sets.
 \end{itemize}
 The first step ensures an equal distribution of processes in both data sets. The $80-20\%$ is a popular practice in \ac{ML} (see \cite{8020}) and was chosen 
-here for convenience. The third step is done to ensure an equal prioritization for background classification and signal classification. In other words, if there 
-was a large imbalance between signal and background, the model would be motivated to tune more towards one trend than another. The final step is motivated in the
-section regarding data handling \ref{subsubsec:StandardScalar}. 
+here for convenience. The third step refers to the sample-weights introduced in section \ref{subsec:SGD}. The sample-weights are only included in the simulated data
+(and therefore training data), to scale each simulated event based on the (among other things) probability of the collision. The scaling of the weights is done to 
+ensure an equal prioritization for background classification and signal classification. In other words, if there was a large imbalance between signal and background, 
+the model would be motivated to tune more towards one trend than another. The final step is motivated in the section regarding data handling \ref{subsubsec:StandardScalar}. 
 
 \subsection{Training Strategy}\label{subsec:TrainingStrategy}
 To best compare the different \ac{ML}-models, I decide to apply the same training strategy to all (including the \ac{BDT}). The strategy is simply to train the model 

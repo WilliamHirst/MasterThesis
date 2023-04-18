@@ -1,10 +1,12 @@
 \section{Optimization}\label{sec:Opti}
-For a general function $C$ dependent one a set of parameters $\boldsymbol \theta = 
+For a general function $\mathcal{C}$ dependent on a set of parameters $\boldsymbol \theta = 
 \{\theta_0,\theta_1,...,\theta_{N_\theta}\}$, the goal of optimization is to find 
-optimal parameters as defined by a predicated goal. In our case we are interested in 
-finding the set of parameters corresponding to the minimum value of $g$. Several methods
+optimal parameters as defined by a predicated goal. In the case of \ac{ML}, the parameters are what 
+define the model and the function is some metric which defines the error of the prediction. This 
+means that in our case, the optimization problem corresponds to
+finding the set of parameters corresponding to the minimum value of $\mathcal{C}$. Several methods
 can be applied to optimization problems, all with their own advantages and disadvantages.
-In most methods the use of the gradient of the function, $\grad_\theta (g)$ is involved in 
+In most methods the use of the gradient of the function, $\grad_\theta (\mathcal{C})$ is involved in 
 one way or another. Many of the methods used in this analysis are based on one of the simplest 
 optimization methods, the \emph{gradient descent}-method.
 \subsection{Cost functions}\label{subsec:Cost}
@@ -25,8 +27,8 @@ the binary crossentropy function is defined as
 \begin{align}
     \mathcal{C}\left(Y, T\right) =-\sum_{i=1}^N\left[ \textbf{y}_i \log \left(\textbf{t}_i\right)+\left(1-\textbf{y}_i\right) \log \left(1-\textbf{t}_i\right)\right].
 \end{align}
-\subsection{Stochastic Gradient Descent and Mini-Batches}
-The gradient descent method aims to obtain the optimal parameters 
+\subsection{Stochastic Gradient Descent and Mini-Batches}\label{subsec:SGD}
+The gradient descent method aims to obtain the optimal parameters of a model
 through the application of the derivative of $\mathcal{C}$ with respect to $\boldsymbol \theta$. When 
 evaluated at a given point in the parameter space, the negative of 
 the gradient, $-\grad_\theta (\mathcal{C})$ is used to move closer to the optimal set of parameters.
@@ -45,9 +47,13 @@ to reach a high accuracy. Too small and one risks spending computation time beyo
 \\
 For a given data set of size N, we find the gradient $\grad_\theta (\mathcal{C})$ through the sum of the gradient for each data point 
 $\textbf{x}_i$
-\begin{align}
-    \grad_\theta (\mathcal{C}) = \sum_{i=0}^N \grad_\theta (\mathcal{C}_i(\textbf{x}_i))
+\begin{align}\label{eq:dC}
+    \grad_\theta (\mathcal{C}) = \sum_{i=0}^N \grad_\theta (\mathcal{C}_i(\textbf{x}_i)).
 \end{align}
+Note, that in the equation above, each data point, $\textbf{x}_i$ is given an equal weighting in the sum. This does not necessarily have to be the case. 
+In the scenario that the points in the data set should be prioritized differently during training, a simple weight $w_i$ can be multiplied in the sum of 
+equation \ref{eq:dC}. We call these weights, \emph{sample-weights}.
+\\
 The calculation of the gradient over numerous data points can be time-consuming. An alternative approach which both reduces time and 
 introduces a randomness, is the application of \emph{mini-batches}. Instead of summing the gradient over the full data set, one randomly samples 
 a predetermined number of points, B creating a subset of the data which is used to update $\theta$. The points sampled to create the subset, can be 
@@ -55,13 +61,17 @@ sampled both with or without replacement\footnote{In this analysis the data is s
 $\theta$. The added stochastic element reduces the risk of getting stuck in local minima. Gradient decent with randomly sampled mini-batches is called \ac{SGD}.
 \subsection{Memory, Adaptive Learning and ADAM}
 Although \ac{SGD} can be highly effective, it tends to be prone to oscillations. To alleviate this issue, we introduce momentum. The momentum aims to functions as a form of 
-memory, conserving some momentum from the previous update. By defining the introduced difference between $\theta_{i+1}$ and $\theta_{i}$ as 
+memory, conserving some momentum from the previous update. By defining the new step between $\theta_{i+1}$ and $\theta_{i}$ as 
 \begin{align}
-    v_i = \eta \cdot \nabla_\theta \mathcal{C}\left(\boldsymbol{\theta}_i\right),
+    \textbf{v}_i = \eta \cdot \nabla_\theta \mathcal{C}\left(\boldsymbol{\theta}_i\right),
 \end{align}
 we can implement momentum to the algorithm as 
 \begin{align}
-    v_i = v_{i-1} \gamma +\eta \cdot \nabla_\theta \mathcal{C}\left(\boldsymbol{\theta}_i\right),
+    \textbf{v}_i = \textbf{v}_{i-1} \gamma +\eta \cdot \nabla_\theta \mathcal{C}\left(\boldsymbol{\theta}_i\right),
+\end{align}
+making our new parameter iteration equal to
+\begin{align}
+    \boldsymbol{\theta}_{i+1}=\boldsymbol{\theta}_i-\textbf{v}_i,
 \end{align}
 where $\gamma \in [0-1]$ is a parameter which defines the size of the momentum.
 \\

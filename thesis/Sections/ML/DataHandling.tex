@@ -1,17 +1,21 @@
 \section{Data Handling}\label{subsec:Scaling}
+As previously mentioned, the data used in \ac{ML} is as, if not more important than the model itself. 
+As a consequence, there are several steps taken to ensure that the data set is in a good state before 
+we apply it to the \ac{ML} model. In this section I will discuss some of these aforementioned steps, both 
+what they do and what each step hopes to achive.
 \subsection{Scaling}
 The range of values for the different data features can vary immensely, and for most 
 cost functions, this is a problem. For some features, a deviation on the magnitude 
 of $10^3$ can be a good approximation, whereas for others it can be a vast 
 overestimation. When a model is to define which direction it wants to tune, it is 
-crucial that the errors across all features are weighted equally. Scaling aims levitate 
-this problem by transforming all features to have a relatively equal range of values while
+crucial that the errors across all features are weighted equally. Scaling, aims levitate 
+this issue by transforming all features to have a relatively equal range of values while
 simultaneously preserving all information regarding each feature. The choice of how one 
 chooses to scale the data will heavily affect the performance of the model and is therefore
-a part of the model. 
-\\
+in it of itself a hyperparameter of the model. 
 \subsubsection{Standard Scaler}\label{subsubsec:StandardScalar}
-The \emph{Standrad Scaler} implemented in this rapport uses Scikit-learns's \emph{StandardScaler}
+In this analysis, I decided to use the highly popular scaling method, the \emph{standard scaler}. 
+The standard scaler implemented in this rapport uses Scikit-learns's \emph{StandardScaler}
 \cite{StandardScaler}. The standard scaler function scales each feature individually by subtracting 
 the mean and dividing by the standard deviation. In doing so the resulting scaled data has a mean 
 of 0 and a standard deviation of 1. Mathematically the standard scaler, $\mathcal{S}$ transforms 
@@ -21,7 +25,6 @@ a data set, $X$ as
 \end{align}
 where $\boldsymbol{\mu} _x$ and $\boldsymbol{\sigma}_x$ are vectors with the elements being 
 the mean and standard deviation respectively for each feature.
-
 \subsection{Principal Component Analysis}\label{subsec:PCA}
 \ac{PCA} is a popular dimensionality reduction technique used in many analyses. The goal of
 \ac{PCA} is to reduce the dimensions of a high-dimensional dataset while at the same time conserve as 

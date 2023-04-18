@@ -2365,6 +2365,11 @@ INPUT ./Sections/Implementation/Data.tex
 INPUT Sections/Implementation/Data.tex
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmri7.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmri7.tfm
+INPUT ./Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
+INPUT ./Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
+INPUT Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
+INPUT ./Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
+INPUT ./Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -2396,11 +2401,6 @@ INPUT ./Figures/Illustrations/TaskFlow.png
 INPUT Figures/Illustrations/TaskFlow.png
 INPUT ./Figures/Illustrations/TaskFlow.png
 INPUT ./Figures/Illustrations/TaskFlow.png
-INPUT ./Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
-INPUT ./Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
-INPUT Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
-INPUT ./Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
-INPUT ./Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf
 INPUT ./Sections/Implementation/Features.tex
 INPUT ./Sections/Implementation/Features.tex
 INPUT ./Sections/Implementation/Features.tex
