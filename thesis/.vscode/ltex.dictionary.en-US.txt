@@ -18,3 +18,4 @@ sparticle
 sparticles
 neutralino
 scaler
+azimuthal
