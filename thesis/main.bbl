@@ -5,11 +5,12 @@ J.~Pequenao, ``{Event Cross Section in a computer generated image of the ATLAS
   detector.}.'' 2008.
 
 \bibitem{Aad_2012}
-G.~Aad, T.~Abajyan, B.~Abbott, J.~Abdallah, S.~A. Khalek, A.~Abdelalim et~al.,
-  \emph{Observation of a new particle in the search for the standard model
-  higgs boson with the {ATLAS} detector at the {LHC}},
-  \href{http://dx.doi.org/10.1016/j.physletb.2012.08.020}{\emph{Physics Letters
-  B} {\bf 716} (sep, 2012) 1--29}.
+{\scshape ATLAS} collaboration, G.~Aad et~al., \emph{{Observation of a new
+  particle in the search for the Standard Model Higgs boson with the ATLAS
+  detector at the LHC}},
+  \href{http://dx.doi.org/10.1016/j.physletb.2012.08.020}{\emph{Phys. Lett. B}
+  {\bf 716} (2012) 1--29}, [\href{http://arxiv.org/abs/1207.7214}{{\tt
+  1207.7214}}].
 
 \bibitem{JJ}
 J.~J. T.~M. F.R.S., \emph{Xlviii. the relation between the atom and the charge
@@ -106,9 +107,9 @@ R.~K. Srivastava, J.~Masci, S.~Kazerounian, F.~Gomez and J.~Schmidhuber,
 
 \bibitem{PNN}
 P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
-  \emph{Parameterized machine learning for high-energy physics},
-  \href{http://arxiv.org/abs/1601.07913 [hep-ex, physics:hep-ph]}{{\tt
-  1601.07913 [hep-ex, physics:hep-ph]}}.
+  \emph{Parameterized neural networks for high-energy physics},
+  \href{http://dx.doi.org/10.1140/epjc/s10052-016-4099-4}{\emph{The European
+  Physical Journal C} {\bf 76} (2016) 235}.
 
 \bibitem{XGB}
 T.~Chen and C.~Guestrin, \emph{{XGBoost}: A scalable tree boosting system},  in
@@ -135,13 +136,12 @@ S.~Raychaudhuri, \emph{Introduction to monte carlo simulation},  in \emph{2008
 J.~Alwall, R.~Frederix, S.~Frixione, V.~Hirschi, F.~Maltoni, O.~Mattelaer
   et~al., \emph{The automated computation of tree-level and next-to-leading
   order differential cross sections, and their matching to parton shower
-  simulations},  \href{http://arxiv.org/abs/1405.0301 [hep-ph]}{{\tt 1405.0301
-  [hep-ph]}}.
+  simulations},  \href{http://arxiv.org/abs/1405.0301}{{\tt 1405.0301}}.
 
 \bibitem{sjostrand_introduction_2015}
 T.~Sjöstrand, S.~Ask, J.~R. Christiansen, R.~Corke, N.~Desai, P.~Ilten et~al.,
-  \emph{An introduction to {PYTHIA} 8.2},  \href{http://arxiv.org/abs/1410.3012
-  [hep-ph]}{{\tt 1410.3012 [hep-ph]}}.
+  \emph{An introduction to {PYTHIA} 8.2},
+  \href{http://arxiv.org/abs/1410.3012}{{\tt 1410.3012}}.
 
 \bibitem{ROOT}
 R.~Brun and F.~Rademakers, \emph{Root - an object oriented data analysis
