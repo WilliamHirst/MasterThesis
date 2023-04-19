@@ -43,7 +43,8 @@ find trend specific paths through the network which will aid in separating the o
         \label{fig:ATraining}
     \end{subfigure}
     }
-    \caption{A calculated visualization of a 3 layer MaxOut network. Each path 
+    \caption[A calculated visualization of the activation of a 3 layer MaxOut network, before and after training.]{
+    A calculated visualization of a 3 layer MaxOut network. Each path 
     represents a data point where all connected nodes were the largest activation in their respective 
     unit. The distribution on the far right represent the output distribution. The figure to the left
     (\ref{fig:ATrainingSig}) is the result before training and the figure to right (\ref{fig:ATrainingBkg})
@@ -66,7 +67,8 @@ find trend specific paths through the network which will aid in separating the o
         \label{fig:ATrainingBkg}
     \end{subfigure}
     }
-    \caption{A calculated visualization of a 3 layer MaxOut network. Each path 
+    \caption[A calculated visualization of the activation of a 3 layer MaxOut network, after training and displaying the
+    signal and background separately.]{A calculated visualization of a 3 layer MaxOut network. Each path 
     represents a data point where all connected nodes were the largest activation in their respective 
     unit. The distribution on the far right represent the output distribution and the figure with blue 
     paths \ref{fig:ATrainingSig} is the result of signal and the figure pink \ref{fig:ATrainingBkg}.
@@ -89,8 +91,9 @@ find trend specific paths through the network which will aid in separating the o
         \label{fig:ATrainingSig200300}
     \end{subfigure}
     }
-    \caption{A calculated visualization of a trained MaxOut network with 3 hidden layers. Each path 
-    represents a data point where all connected nodes were the largest activation in their respective 
+    \caption[A calculated visualization of the activation of a 3 layer MaxOut network, after training and displaying the
+    the results for two signal with each their own mass combination.]{A calculated visualization of a trained MaxOut network 
+    with 3 hidden layers. Each path represents a data point where all connected nodes were the largest activation in their respective 
     unit. The figure to the left (\ref{fig:ATrainingSig50250}) is a result of signal with 
     ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) and the right (\ref{fig:ATrainingSig200300}) 
     ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV).}
@@ -127,7 +130,9 @@ memory of the model through trend specific paths through the network.
     \hfill
     \hfill
     }
-    \caption{A cut-out of the fifth and sixth node (counting from the top) in the second hidden layer, activated 
+    \caption[A calculated visualization of the activation of a 3 layer MaxOut network, after training and displaying the
+    the results for two signal with each their own mass combination, highlighting the difference between two spesific nodes.]{
+    A cut-out of the fifth and sixth node (counting from the top) in the second hidden layer, activated 
     by the signal with ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) \ref{fig:ATrainingSig50250Zoom} and 
     ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) \ref{fig:ATrainingSig200300Zoom}.}
     \label{fig:NetVisZoom}
@@ -168,7 +173,8 @@ be able to avoid overfitting, but will as a consequence be allowed to train much
         \label{fig:MaxOutHist}
     \end{subfigure}
     }
-    \caption{A plot displaying the \ac{AUC} score made after each epoch on both the training and validation set. 
+    \caption[A plot comparing the \ac{AUC} score made after each epoch on both the training and validation set, between a dense \ac{NN} 
+    and maxout model.]{A plot displaying the \ac{AUC} score made after each epoch on both the training and validation set. 
     Figure \ref{fig:NNHist} shows the results from the dense \ac{NN} and figure \ref{fig:MaxOutHist} shows
     the results from a maxout network.}
     \label{fig:History}
@@ -229,7 +235,8 @@ great promise and should be further explored in further analysis.
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf}
     \end{subfigure}
     }
-    \caption{A sensitivity comparison between the ensemble methods (maxout, \ac{SCO}, channel-Out) on the original 
+    \caption[A sensitivity comparison between the ensemble networks (maxout, \ac{SCO}, channel-Out) on the original 
+    signal data.]{A sensitivity comparison between the ensemble networks (maxout, \ac{SCO}, channel-Out) on the original 
     signal data. The size of the "pie" represents the relative size of the significance and the color around each 
     point displays the method with the largest sensitivity for the respective combination.}
     \label{fig:EnsembleComp}

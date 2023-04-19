@@ -77,10 +77,11 @@ which lay in the edges of the grid.} in the figure \ref{fig:SeveralMass} and eve
         \label{fig:SeveralMass}
     \end{subfigure}
     }
-    \caption{Two grids displaying the achieved significance on a subset of the full signal set, using the signal region 
-    created by the \ac{NN}. Figure \ref{fig:OneMass} presents the results from a model who has only seen one mass combination 
-    during training, ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV). Figure \ref{fig:SeveralMass} presents the results from 
-    a model who has seen all mass combinations in the grid, but for the inner square of masses. }
+    \caption[Two grids displaying the achieved significance on a subset of the full signal set, using the signal region 
+    created by two dense \ac{NN}'s, each training on different amounts of signal.]{Two grids displaying the achieved significance 
+    on a subset of the full signal set, using the signal region created by the \ac{NN}. Figure \ref{fig:OneMass} presents the results 
+    from a model who has only seen one mass combination during training, ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV). Figure 
+    \ref{fig:SeveralMass} presents the results from a model who has seen all mass combinations in the grid, but for the inner square of masses. }
     \label{fig:Interpolation}
 \end{figure}
 My initial prediction for this comparison, was that the \ac{OMM} would outperform the \ac{SMM} for the signal with
@@ -111,7 +112,8 @@ to overfitting.
         \label{fig:SeveralMassHist}
     \end{subfigure}
     }
-    \caption{A plot displaying the \ac{AUC} score made after each epoch on both the training and validation set. 
+    \caption[The comparison of the training history of two \ac{NN}'s, each training on different amounts of signal.]{
+    A plot displaying the \ac{AUC} score made after each epoch on both the training and validation set. 
     Figure \ref{fig:oneMassHist} shows the results from the one-mass model and figure \ref{fig:SeveralMassHist} shows
     the results from the several-masses model.}
     \label{fig:InterpolateHistory}
@@ -129,7 +131,9 @@ still outperformed by the \ac{SMM}. This indicates that overfitting is not the o
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_Overfitting15_InterpolationGridSig.pdf}
     \end{subfigure}
     }
-    \caption{A grid displaying the achieved significance on a subset of the full signal set, using the signal region 
+    \caption[A grid displaying the achieved significance on a subset of the full signal set, using the signal region 
+    created by a dense \ac{NN} which has trained on one mass, and has been allowed to train for 16 epochs.]{
+    A grid displaying the achieved significance on a subset of the full signal set, using the signal region 
     created by the \ac{NN}. The figure presents the results from a model who has only seen one mass combination 
     during training, ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV) and was allowed to train for 15 epochs without 
     early-stopping.}
