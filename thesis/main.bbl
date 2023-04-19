@@ -1,5 +1,13 @@
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
+\bibitem{PDetector}
+J.~Pequenao, ``{Event Cross Section in a computer generated image of the ATLAS
+  detector.}.'' 2008.
+
+\bibitem{gramstad_searches_nodate}
+E.~Gramstad, \emph{Searches for supersymmetry in di-lepton final states with
+  the {ATLAS} detectorat {$\sqrt s$ = 7 TeV}}, .
+
 \bibitem{Aad_2012}
 G.~Aad, T.~Abajyan, B.~Abbott, J.~Abdallah, S.~A. Khalek, A.~Abdelalim et~al.,
   \emph{Observation of a new particle in the search for the standard model
@@ -66,14 +74,6 @@ D.~Chung, L.~Everett, G.~Kane, S.~King, J.~Lykken and L.-T. Wang, \emph{The
   soft supersymmetry-breaking lagrangian: theory and applications},
   \href{http://dx.doi.org/https://doi.org/10.1016/j.physrep.2004.08.032}{\emph{Physics
   Reports} {\bf 407} (2005) 1--203}.
-
-\bibitem{PDetector}
-J.~Pequenao, ``{Event Cross Section in a computer generated image of the ATLAS
-  detector.}.'' 2008.
-
-\bibitem{gramstad_searches_nodate}
-E.~Gramstad, \emph{Searches for supersymmetry in di-lepton final states with
-  the {ATLAS} detectorat {$\sqrt s$ = 7 TeV}}, .
 
 \bibitem{Guest_2016}
 D.~Guest, J.~Collado, P.~Baldi, S.-C. Hsu, G.~Urban and D.~Whiteson, \emph{Jet
