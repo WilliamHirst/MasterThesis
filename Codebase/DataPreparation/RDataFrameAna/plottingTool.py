@@ -54,7 +54,7 @@ class Plot:
       p.plotLeg = plotLeg
       p.noData = noData
       p.Neg = False
-      if "Neg" in hname:
+      if "_Neg" in hname:
         p.Neg = True
 
 
@@ -159,20 +159,14 @@ class Plot:
         if not p.isEff:
           p.pad1.Draw()
           p.pad1.cd()
-          if p.Neg:
-            p.customise_gPad(top=0.08, bot=0.25, left=gpLeft, right=gpRight)
-          elif p.noData:
+          if p.Neg or p.noData:
             p.customise_gPad(top=0.08, bot=0.15, left=gpLeft, right=gpRight)
           else:
             p.customise_gPad(top=0.08, bot=0.04, left=gpLeft, right=gpRight)
 
         # Legend
         if not p.isEff:
-          if p.Neg:
-            p.leg = R.TLegend(0.60,0.71,0.91,0.90)
-            p.leg.SetTextSize(0.015)
-            p.leg.SetNColumns(2)
-          elif p.noData:
+          if p.noData or p.Neg:
             p.leg = R.TLegend(0.75,0.5,1,0.9)
             p.leg.SetTextSize(0.03)
             p.leg.SetNColumns(1)
@@ -252,7 +246,7 @@ class Plot:
 
         if not p.isEff and p.plotLeg:
           p.leg.Draw()
-          if p.noData:
+          if p.noData or p.Neg:
             myText(0.815, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.03, R.kBlack)
           else:
             myText(0.77, 0.47, 'N(Bkg) = %.0f'%(p.nTotBkg), 0.04, R.kBlack)
@@ -491,15 +485,7 @@ class Plot:
             xax.SetTitleOffset(2.0)
             xax.SetTickSize(0.04)
         # Bottom panel
-        elif p.Neg:
-            xax.SetLabelSize(text_size - 7)
-            xax.SetLabelOffset(0.03)
-            if p.Neg:
-              xax.SetTitleOffset(1.5)
-            else:
-              xax.SetTitleOffset(3.5)
-            xax.SetTickSize(0.08)
-        elif p.noData:
+        elif p.noData or p.Neg:
           xax.SetLabelSize(text_size - 7)
           xax.SetLabelOffset(0.03)
           xax.SetTitleOffset(1.2)

@@ -91,10 +91,10 @@ def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10, addExlusi
         m2_i =elem["m2"]
         if score >cut_off:
             scoreString = f"{score:.0f}"
-            fontsize = 'small'
+            fontsize = 'medium'
             scale = np.NAN
         else:
-            scoreString = f"{score:.0f}"
+            scoreString = f"{score:.2f}"
             fontsize = 'medium'
             scale = 1
         if metric == "NrEvents":
