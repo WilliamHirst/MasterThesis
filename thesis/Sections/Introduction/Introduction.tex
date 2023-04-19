@@ -1,12 +1,37 @@
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction} 
-The \ac{SM} is perhaps one of the most successful scientific theories ever created. It accurately explains the interactions of leptons and quarks as well as the force carrying particles which mediate said interactions. In 2012 the \ac{SM} achieved one of its crowning achievements when we discovered the Higgs boson. Much of the accolade was rightfully given to the theoretical work on the \ac{SM}, but another aspect of the discovery was equally important. Data analysis was and is a crucial part of any new discovery in physics. One of the most important and exiting tools is \ac{ML}.
+The \ac{SM} is perhaps one of the most successful scientific theories ever created. It accurately explains the interactions of leptons and quarks 
+as well as the force carrying particles which mediate said interactions. In 2012 the \ac{SM} achieved one of its crowning achievements when we 
+discovered the Higgs boson. Much of the accolade was rightfully given to the theoretical work on the \ac{SM}, but another aspect of the discovery 
+was equally important. Data analysis was and is a crucial part of any new discovery in physics. One of the most important and exiting tools is \ac{ML}.
 
 
 
 
 \subsubsection*{Outline of the Thesis}
-
+This thesis is divided into 4 chapters; the first two introducing relevant theory and background for the analysis, the third presenting 
+details on the implementation of the analysis, and the fourth presenting and discussing the results. At the end of the analysis I will summarize 
+the findings in my analysis in the \emph{Conclusion $\&$ Outlook} section, as well as include some additional figures and tables 
+in the appendix. 
+\\
+The \emph{first} chapter will give an introduction of the \ac{SM} as well as discuss the new physics I will be searching for. This chapter will 
+introduce relevant phenomenology surrounding particle physics, give a quick description of proton-proton collisions at the \ac{LHC} and discuss 
+the physics behind the data set utilized in the analysis. 
+\\
+The \emph{second} chapter cover the necessary background in regard to \ac{ML} and data analysis in general. This chapter will introduce relevant phenomenology
+surrounding data analysis topics such as optimization, regularization and hyperparameters. It will explain the algorithms underlying the \ac{NN} and 
+\ac{BDT}'s, as well as introduce methods to elevate the aforementioned methods. In the final parts of the chapter, I will discuss how \ac{ML} relates to 
+a \ac{BSM} search and how one assess the results.
+\\
+The \emph{third} chapter dives into the details of the implementations of the analysis. This will include discussing the relevant frameworks, data formats and 
+other tools, as well as diving a little further into the data set. Additionally, this chapter will present the preselection cuts and other preprocessing steps
+used to generate the final data sets, both simulated and measured collision data and present the comparison between the two. Finally, this chapter will present the 
+models I studied in the analysis, displaying the architectures, and explaining the general strategy utilized for training and validating the models.
+\\
+In the \emph{fourth} and final chapter, I present and discuss the results from the analysis. In the first 4 sections, I study four different categorize of \ac{ML} modes in how they 
+perform on a subset of the data, as well as different attributes of each model. The 5'th section compares the performance of the 4 aforementioned models, then compare 
+their results with and without a \ac{PCA} in the 6'th section. Finally, I compare the three best models I found when testing on a subset of the data on how well they perform 
+on the full statistics, then compare all three to a previous analysis made by ATLAS.
 
 
 

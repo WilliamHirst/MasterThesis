@@ -118,12 +118,6 @@ T.~Chen and C.~Guestrin, \emph{{XGBoost}: A scalable tree boosting system},  in
   pp.~785--794, ACM, 2016.
 \newblock \href{http://dx.doi.org/10.1145/2939672.2939785}{DOI}.
 
-\bibitem{Chen_2016}
-T.~Chen and C.~Guestrin, \emph{{XGBoost}},  in \emph{Proceedings of the 22nd
-  {ACM} {SIGKDD} International Conference on Knowledge Discovery and Data
-  Mining}, {ACM}, aug, 2016.
-\newblock \href{http://dx.doi.org/10.1145/2939672.2939785}{DOI}.
-
 \bibitem{magnar}
 M.~Bugge, \emph{Discovery and exclusion in high energy physics},  2022.
 

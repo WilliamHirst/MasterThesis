@@ -10,7 +10,7 @@ category is specified for their own set of problems. In this section I will intr
 some fundamental definitions in regard to \ac{NN}, as well go through the underlying 
 algorithm of the back- and forward propagation.
 
-\subsection{General structure}
+\subsection{General Structure}
 There are often drawn comparisons between the structure of the neural network, 
 and the way the human mind operates, hence neural. Similarly to the human mind, a \ac{NN} is 
 composed of different neurons communicating information backwards and forwards in different 
@@ -158,7 +158,7 @@ This expression, similarly to equation \ref{eq:delta} is dependent on the choice
 the activation functions. Now that equation \ref{eq:deltaL} is defined, we can see that the
 gradient of the parameters in all other layers can be calculated. 
 
-\subsection{Activation functions}\label{subsec:activation}
+\subsection{Activation Functions}\label{subsec:activation}
 As mentioned in previous sections, activation functions define how the nodes in the previous layer 
 sum to define the value of the node in the current. There are many types of activation functions, 
 where all have advantages and disadvantages. The choice of activation function for each layer is defined
@@ -183,7 +183,7 @@ before training, making it a hyperparameter. The activation functions applied an
 \end{center}
 where $z$ is an inactivated node which is activated to define $a$, the activation.
 
-\subsection{Network Ensembles, dropout and LWTA networks}\label{subsec:LWTA}
+\subsection{Network Ensembles, Dropout and LWTA Networks}\label{subsec:LWTA}
 So far in the thesis, I have only covered dense layers, meaning that every node in the layer before it is 
 connected to its own nodes and likewise all its nodes are connected to the nodes in the layer that follows. 
 This definition covers many, but not all hidden layer. Some layers do not function to pass value to and 

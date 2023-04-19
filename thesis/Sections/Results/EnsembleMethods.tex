@@ -156,7 +156,7 @@ training will not worsen the performance on the full said, or even lead to overf
 for the \ac{LWTA} layers, but will not be studied in this thesis due to time constraints.
 \\
 In section \ref{subsec:TrainingStrategy}, I discussed the training strategy used when training all models in this analysis. I mentioned 
-the implementation of an early-stopping criteria which makes sure that the model only continues to train as long as the performance on the 
+the implementation of an early stopping criterion which makes sure that the model only continues to train as long as the performance on the 
 validation data set increases. By studying the subfigures in figure \ref{fig:History}, we can deduce that the ensemble methods will not only 
 be able to avoid overfitting, but will as a consequence be allowed to train much longer than the other models.
 \begin{figure}
@@ -179,7 +179,7 @@ be able to avoid overfitting, but will as a consequence be allowed to train much
     the results from a maxout network.}
     \label{fig:History}
 \end{figure}
-\subsection{Comparing achieved Sensitivity between Ensemble methods}
+\subsection{Comparing Achieved Sensitivity between Ensemble Methods}
 In this section I will present and discuss the performance of the three different networks discussed in section 
 \ref{subsec:Ensembles}, channel-out, \ac{SCO} and maxout. The results presented in this section were made using the
 original signal set (see section \ref{subsec:signal}), the training strategy described in section \ref{subsec:TrainingStrategy}
@@ -197,7 +197,7 @@ However, the most interesting result for the maxout model, is its ability to tun
 outperformed the maxout model for the high statistics combinations, the maxout model outperformed the dense for most other combination (26/30).
 This result can be credited to two factors. The first being maxout's effect as a form of regularization. In the previous 
 section (see section \ref{subsec:Overfitting}), I presented how through maxout's regularization abilities, it would be able to 
-uphold the early-stopping criteria for a larger number of epochs. The second factor is maxout's innate long term memory which was studied
+uphold the early stopping criteria for a larger number of epochs. The second factor is maxout's innate long term memory which was studied
 in section \ref{subsec:Viz}. From figure \ref{fig:MaxOutGridSig}, we are able to deduce that although the maxout model is not able to tune 
 to the same depth for the lower masses, it is able to achieve a large level of generalizability through reducing overfitting and increasing long term memory.\\
 \begin{figure}

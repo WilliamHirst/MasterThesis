@@ -1,5 +1,5 @@
 \section{The Machine Learning Models}
-\subsection{Model selection}
+\subsection{Model Selection}
 In this analysis I have chosen to compare 4 different "types" of \ac{ML}-models, ordinary dense \acf{NN}, \acf{PNN},
 ensemble (\ac{LWTA} and dropout) and \acf{BDT}. The first three methods are all variations of \ac{NN}. I have deliberately 
 chosen to focus on \ac{NN} given that there is far more freedom in the design of the architecture
@@ -17,7 +17,7 @@ and research I have chosen to keep them somewhat separate.
 All \ac{NN} variants implemented in this analysis were created, trained and deployed using the TensorFlow framework \cite{tensorflow}.
 This choice was rooted in several factors, for example that TensorFlow has an intuitive \ac{API}, it has very effective
 \ac{HPC} attributes, and it includes a large diversity in functionality, which allows for experimentation.
-\subsection{Creating custom layers}\label{subsec:CustomLayer}
+\subsection{Creating Custom Layers}\label{subsec:CustomLayer}
 The field of \ac{ML} is one of the most dynamic and fastest growing fields of research
 today. This means, that regardless of the brave attempt made by voluntary contributors and many large companies,
 there will always be new and exciting \ac{ML} tools and algorithm, not yet implemented in their library. This was 
@@ -32,7 +32,7 @@ accessed 24.03.2023).}. But, to allow for experimentation I decided to not use M
 implement my own custom layers. All custom layers were implemented by creating new functions inside 
 TensorFlow's dense layer, which are called when the network makes a prediction. In the following sections 
 I will describe the algorithms underlying the implementation of each layer.
-\subsubsection*{Channel-out}
+\subsubsection*{Channel-Out}
 In algorithm \ref{alg:channel-out} I summarized the implementation of channel-out used in this analysis. For each 
 input which is to be passed through a forward-pass, the function first passes it through the weights and biases 
 as described in section \ref{subsec:FP}. This is true for all the other layers as well. In line 7 I reshape the input 
@@ -104,7 +104,7 @@ $Output$ and returned.
     \State \ \ \ \ $\textbf{return}\ NewOutput$
     \end{algorithmic}
 \end{algorithm}
-\subsubsection*{Max-out}
+\subsubsection*{Max-Out}
 In algorithm \ref{alg:maxout} I have summarized the algorithm behind the implementation of the maxout layer.
 Off the three layers (channel-out, \ac{SCO} and maxout), maxout was the simplest to implement. After passing 
 the input through the weights and biases and reshaped to form the units, the input is reduced to only include 
