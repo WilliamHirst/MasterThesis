@@ -7,7 +7,7 @@ from Utilities import saveLoad
 
 
 
-name = "PNN150300"
+name = "PNN50250"
 signal = "SUSY"
 
 channels = saveLoad(f"../results/PNNDistTest/channels_{name}.npy")
@@ -23,7 +23,7 @@ PlotRootHisto(predict_sorted,
               weights_sorted, 
               channels, 
               title = f"NN/SUSY/MLDist/PNNDistTest/{name}Dist", 
-              xlabel = f"PNN(150,300)-Output", 
+              xlabel = f"PNN(50,250)-Output", 
               sigdic=sigdic,
               bins = 30,
               noData = True)
@@ -31,7 +31,7 @@ PlotRootHisto(predict_sorted,
               weights_sorted, 
               channels, 
               title = f"NN/SUSY/MLDist/PNNDistTest/{name}Dist_C7", 
-              xlabel = f"PNN(150,300)-Output", 
+              xlabel = f"PNN(50,250)-Output", 
               bins = 30,
               sigdic=sigdic,
               CutOff = 0.975,
