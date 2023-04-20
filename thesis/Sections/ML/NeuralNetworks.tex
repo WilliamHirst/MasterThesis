@@ -185,8 +185,9 @@ where $z$ is an inactivated node which is activated to define $a$, the activatio
 So far in the thesis, I have only covered dense layers, meaning that every node in the layer before it is 
 connected to its own nodes and likewise all its nodes are connected to the nodes in the layer that follows. 
 This definition covers many, but not all hidden layer. Some layers do not function to pass value to and 
-fro between nodes but instead functions by dynamically changing the architecture of the \ac{NN}. The most popular 
-type of layer that fits this definition, is the \emph{dropout}-layer. 
+fro between nodes but instead functions by dynamically changing the architecture of the \ac{NN}. In this analysis, 
+I have implemented both the popular \emph{dropout}-layer, and also a group of layers fitting of the definition 
+introduced in the paper \cite{srivastava_compete_2013}, as \ac{LWTA}.
 \subsubsection*{Dropout}\label{subsubsec:Dropout}
 The dropout-layer functions by assigning a predetermined probability to each neuron in a given layer. Based on the 
 probability, a number of neurons (dependent on the probability) is dropped in each forward pass. By doing this the 
@@ -199,7 +200,7 @@ co-adaptation happens when a neuron becomes overly dominant such that neighborin
 to the dominant neuron) and therefore lack the motivation to tune. When this happens, networks become fragile and overly 
 specialized to the training data. By randomly dropping neurons, the neighboring neurons are no longer allowed to be passive 
 and are forced to tune to compensate. During evaluation, the dropout layers no longer take action. Instead, the dropout rate 
-(fraction of neurons to drop in the layer) $r$ is used to scale the weights by a factor $1-r$. The prediction made by the resulting 
+(probability of drop) $r$ is used to scale the weights by a factor $1-r$. The prediction made by the resulting 
 model can therefore be seen as the average of all the smaller networks. In other words, a neural network containing dropout-layers 
 as a bagging ensemble (see subsection \ref{subsec:Ensembles}). 
 
@@ -209,11 +210,13 @@ explored the lesser known, \emph{Channel-Out}-layer as found in the paper by Wan
 Channel-out, similarly to dropout creates an ensemble of networks by removing a set 
 of nodes for each round of training. Contrary to dropout, channel-out does not choose the nodes to drop at random,
 but instead creates local \emph{units} by grouping the nodes, and removes all nodes except the node with the largest
-activation in each respective unit. The goal of channel-out is to create an ensemble of networks where each network is specialized for a given 
-trend in the data. This would create an ensemble of networks, which not only applies a form of regularization, but also improves a phenomenon
-known as \emph{long term memory} in the model. The phenomenon of long term memory is discussed in the article by Srivastava et al. \cite{srivastava_compete_2013},
-and is simply a measure of how well a model is able to retain information on a data set, A after training on an additional training set, B. This effect
-is also relevant for the two layers I will discuss in the next sections.\\
+activation in each respective unit. The 'removed nodes' are multiplied by 0, as to remove any contributions to the next layer.
+The goal of channel-out is to create an ensemble of networks through \emph{trend specific paths},
+where each network is specialized for a given trend in the data. This would create an ensemble of networks, which not only applies a form of 
+regularization, but also improves a phenomenon known as \emph{long term memory} in the model. The phenomenon of long term memory is discussed in 
+the article by Srivastava et al. \cite{srivastava_compete_2013}, and is simply a measure of how well a model is able to retain information on a data set, A after 
+training on an additional training set, B. This effect is also relevant for the two layers I will discuss in the next sections.
+\\
 In this thesis I have implemented the layer such that upon prediction, the redimensionalization 
 is still active. This means that for each data point, a neural network is chosen based on the specific activations in 
 each of the nodes. In other words, the channel-out layer creates something resembling a stacking ensemble (see subsection 
@@ -241,8 +244,8 @@ In the dropout layer, nodes are dropped by neglecting all contributions from sai
 by all dropped nodes by zero. This is replicated in both the channel-out layer and the \ac{SCO} layer. In doing so, all nodes, activated 
 and dropped alike, possesses their own set of weights and biases. This is not the case for the maxout layer.
 In the maxout layer, each unit possesses just one set of weights and biases. For each forward pass in the network, the largest activated 
-node will contribute to the nodes in the following layer using the same weights and biases as the rest of the nodes in the units. However, not 
-that the nodes only share parameters connected to the layer in front, not behind. This allows for the maxout layer to have fewer parameters to 
+node will contribute to the nodes in the following layer using the same weights and biases as the rest of the nodes in the units. However, 
+the nodes only share parameters connected to the layer in front, not behind. This allows for the maxout layer to have fewer parameters to 
 tune, while at the same time building trend specific pathways similar to channel-out and \ac{SCO}. \\
 \begin{figure}
     \centering
@@ -259,7 +262,7 @@ second layer the maxout creates two units with 4 nodes each. The resulting outpu
 4 nodes with the highest activation in their respected unit, likewise the second layers output is 2 nodes.
 To the right of the network in figure \ref{fig:Max_out}, I have illustrated how the different configuration of 
 paths through the network creates an ensemble of networks with their own architecture. Note in the figure how, as described in the 
-previous section, each node possesses its own connections to the previous layer, while sharing the connections with the 
+previous paragraph, each node possesses its own connections to the previous layer, while sharing the connections with the 
 rest of the unit, to the next. In figure \ref{fig:NetEnsembleComp} I have drawn a separate illustration to show how 
 this differs from both channel-out and \ac{SCO} in this regard. Figure \ref{fig:NetEnsembleComp} illustrates how 
 all three layers redimensionalize the network, how channelout and \ac{SCO} differ from maxout in regard to the relationship 
@@ -292,8 +295,8 @@ three reasons:
 When the data set is dependent on a set of free parameters, $\theta = [\theta_0,\theta_1,\theta_2,...,\theta_N]$,
 we can write $X(\theta)$. For a single neural network trained on a set of parameters, we define the model as 
 $\mathcal{F}(X(\theta))$. In the case we build one model for each choice of parameter, we get a set of models
-defined as $\{ \mathcal{F}_j(X(\theta_j))$, $\mathcal{F}_k(X(\theta_k))$, ...,$\mathcal{F}_l(X(\theta_l))\}$, where
-j, k and l are indices which correspond to individual choices of parameters respectively. 
+defined as $\{ \mathcal{F}_a(X(\theta_a))$, $\mathcal{F}_b(X(\theta_b))$, ...,$\mathcal{F}_c(X(\theta_c))\}$, where
+a, b and c are indices which correspond to individual choices of parameters respectively. 
 \\
 In the paper by Baldi et al. \cite{PNN}, they propose a separate solution to the problem than the one proposed above, the \ac{PNN}. 
 By simply including the parameters as additional features, we can write $\mathcal{F}(X, \theta)$. In doing so, 

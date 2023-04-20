@@ -96,20 +96,24 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel
   et~al., \emph{Scikit-learn: Machine learning in {P}ython}, {\emph{Journal of
   Machine Learning Research} {\bf 12} (2011) 2825--2830}.
 
-\bibitem{wang_maxout_2013}
-Q.~Wang and J.~{JaJa}, ``From maxout to channel-out: Encoding information on
-  sparse pathways.''
-
 \bibitem{srivastava_compete_2013}
 R.~K. Srivastava, J.~Masci, S.~Kazerounian, F.~Gomez and J.~Schmidhuber,
   \emph{Compete to compute},  in \emph{Advances in Neural Information
   Processing Systems}, vol.~26, Curran Associates, Inc.
+
+\bibitem{wang_maxout_2013}
+Q.~Wang and J.~{JaJa}, ``From maxout to channel-out: Encoding information on
+  sparse pathways.''
 
 \bibitem{PNN}
 P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
   \emph{Parameterized neural networks for high-energy physics},
   \href{http://dx.doi.org/10.1140/epjc/s10052-016-4099-4}{\emph{The European
   Physical Journal C} {\bf 76} (2016) 235}.
+
+\bibitem{huang_introduction_2014}
+G.~James and D.~W. Trevor~Hastie, Robert~Tibshirani, \emph{An introduction to
+  statistical learning: With applications in {R}}, .
 
 \bibitem{XGB}
 T.~Chen and C.~Guestrin, \emph{{XGBoost}: A scalable tree boosting system},  in
