@@ -1,12 +1,6 @@
 \section{The implementation of Channel-Out, \ac{SCO} and Maxout}
 
 \subsubsection*{Channel-out}
-For the activation function defined to create the channel-out layer, I again grouped
-the nodes similarly as I did for max-out. Instead of returning the largest value from each 
-unit, I used TensorFlow's function, $tf.greater\_equal$ to create a tensor with booleans. The 
-booleans are chosen by comparing each unit to the largest value in that unit. By multiplying 
-this tensor to the original input, I am left with the desired result of a tensor containing 
-the largest activated nodes along with the rest whom are now set to zero. 
 \lstset{style=Python}
 \begin{lstlisting}[caption={Python implementation for the custom activation function used to define the channel-out layer.},captionpos=b, label={lst:channel_out}]
 def call(self, inputs: tf.Tensor,mask: tf.Tensor = None) -> tf.Tensor:

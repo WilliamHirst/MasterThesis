@@ -157,6 +157,12 @@ M.~Franchini, K.~H. Mankinen, G.~Carratta, F.~Scutti, A.~Gorisek, E.~Lytken
   states in $pp$ collisions at {$\sqrt{s}$} = 13 {TeV} with the {ATLAS}
   detector}, .
 
+\bibitem{atlas_search_2021}
+A.~Collaboration, \emph{Search for chargino--neutralino pair production in
+  final states with three leptons and missing transverse momentum in
+  {$\sqrt{s}$} = 13 {TeV} pp collisions with the {ATLAS} detector},
+  \href{http://arxiv.org/abs/2106.01676}{{\tt 2106.01676}}.
+
 \bibitem{Aaboud_2019}
 M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
   reconstruction and identification in the {ATLAS} experiment using the 2015
@@ -202,11 +208,5 @@ A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
 \bibitem{ATLAS-CONF-2017-064}
 {\scshape ATLAS} collaboration, \emph{{Performance of Top Quark and W Boson
   Tagging in Run 2 with ATLAS}},  tech. rep., CERN, Geneva, 2017.
-
-\bibitem{atlas_search_2021}
-A.~Collaboration, \emph{Search for chargino--neutralino pair production in
-  final states with three leptons and missing transverse momentum in
-  {$\sqrt{s}$} = 13 {TeV} pp collisions with the {ATLAS} detector},
-  \href{http://arxiv.org/abs/2106.01676}{{\tt 2106.01676}}.
 
 \end{thebibliography}\endgroup
