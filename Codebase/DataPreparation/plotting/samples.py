@@ -160,7 +160,7 @@ def configure_samples():
     'MGPy8EG_A14N23LO_C1N2_WZ_800p0p0_150p0p0_3L_2L7' :{'type':'sig', 'leg':'SUSY', 'f_color':kCyan, 'l_color':kCyan,  'path':'MGPy8EG_A14N23LO_C1N2_WZ_800p0p0_150p0p0_3L_2L7'+bkg_suffix},
     'MGPy8EGA14N23LOC1N2WZ800p0p050p0p03L2L7' :{'type':'sig', 'leg':'SUSY(50-800Gev)', 'f_color':kCyan, 'l_color':38,  'path':'MGPy8EGA14N23LOC1N2WZ800p0p050p0p03L2L7'+bkg_suffix},
     'MGPy8EGA14N23LOC1N2WZ750p0p0200p0p03L2L7' :{'type':'sig', 'leg':'SUSY', 'f_color':kCyan, 'l_color':kCyan,  'path':'MGPy8EGA14N23LOC1N2WZ750p0p0200p0p03L2L7'+bkg_suffix},
-    'MGPy8EGA14N23LOC1N2WZ400p0p0250p0p03L2L7' :{'type':'sig', 'leg':'SUSY(200-400Gev)', 'f_color':kCyan, 'l_color':2,  'path':'MGPy8EGA14N23LOC1N2WZ400p0p0250p0p03L2L7'+bkg_suffix},
+    'MGPy8EGA14N23LOC1N2WZ400p0p0250p0p03L2L7' :{'type':'sig', 'leg':'SUSY(250-400Gev)', 'f_color':kCyan, 'l_color':2,  'path':'MGPy8EGA14N23LOC1N2WZ400p0p0250p0p03L2L7'+bkg_suffix},
     'MGPy8EGA14N23LOC1N2WZ750p0p0150p0p03L2L7' :{'type':'sig', 'leg':'SUSY', 'f_color':kCyan, 'l_color':kCyan,  'path':'MGPy8EGA14N23LOC1N2WZ750p0p0150p0p03L2L7'+bkg_suffix},
     'MGPy8EGA14N23LOC1N2WZ450p0p0200p0p03L2L7' :{'type':'sig', 'leg':'SUSY', 'f_color':kCyan, 'l_color':kCyan,  'path':'MGPy8EGA14N23LOC1N2WZ450p0p0200p0p03L2L7'+bkg_suffix},
     'MGPy8EGA14N23LOC1N2WZ750p0p0250p0p03L2L7' :{'type':'sig', 'leg':'SUSY', 'f_color':kCyan, 'l_color':kCyan,  'path':'MGPy8EGA14N23LOC1N2WZ750p0p0250p0p03L2L7'+bkg_suffix},
