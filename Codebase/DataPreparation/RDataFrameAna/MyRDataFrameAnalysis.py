@@ -276,9 +276,9 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                         var = v
                     bins_dic = featdic["lep%i_%s"%(i+1,var)]
                     df[k] = df[k].Define("lep%i_%s"%(i+1,var),"getVar(lep%s[isGoodLepton],%i)"%(var,i))
-                    # histo["lep%i_%s_%s"%(i+1,var,k)] = df[k].Histo1D(("lep%i_%s_%s"%(i+1,var,k),
-                    #       "lep%i_%s_%s;Feature;Entries"%(i+1,var,k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),
-                    #       "lep%i_%s"%(i+1,var),"wgt_SG")
+                    histo["lep%i_%s_%s"%(i+1,var,k)] = df[k].Histo1D(("lep%i_%s_%s"%(i+1,var,k),
+                          "lep%i_%s_%s;Feature;Entries"%(i+1,var,k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),
+                          "lep%i_%s"%(i+1,var),"wgt_SG")
 
 
             # Stransverse mass       

@@ -219,8 +219,8 @@ class Plot:
         text_size = 0.045
 
 
-        myText(0.22, 0.8, '#bf{#it{ATLAS}} ' + ATL_status, text_size*1.2, R.kBlack)
-        myText(0.22, 0.75, '#bf{#it{139 fb^{-1}}} ', text_size*1.2, R.kBlack)
+        # myText(0.22, 0.8, '#bf{#it{ATLAS}} ' + ATL_status, text_size*1.2, R.kBlack)
+        myText(0.22, 0.75, '#bf{#it{13TeV, 139 fb^{-1}}} ', text_size*1.2, R.kBlack)
 
        
 
