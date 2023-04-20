@@ -51,7 +51,7 @@ this report I used a set of simple \ac{FFNN}'s.
 
 \subsection{Feeding Forward}\label{subsec:FP}
 With the structure described in the previous section, a trained model, $\mathcal{F}$ produces a prediction,
-$Y$ for a data set, $X$ by passing information from input-layer, through all hidden-layers then to output-layer, 
+$Y$ for a data set, $X$ by passing information from input-layer, through all hidden-layers, followed by to output-layer, 
 which we call forward-propagation. In this section I aim to explain the underlying algorithm and math used by the 
 \ac{NN} to map input to output. 
 \\
@@ -60,9 +60,9 @@ case for when $l=1$ which will be addressed in the next paragraphs.} and $L$ is 
 number of hidden layers. The value of a node in layer $l$, is defined as $a^l_j$ (as indicated by figure \ref{fig:NN}), 
 where $j\in \{0,1,...,N_l\}$ and $N_l$ is equal to the number of nodes in $l$. The value of $a_j^l$ is defined as 
 the \emph{activated} sum of all nodes in the previous layer, $a_j^{l-1}$ where the sum is weighted by a parameter $\bf{w} \sf _j^l$ 
-and scaled by the bias, $b^l_j$ for $j\in \{0,1,..., N_{l-1} \}$. The activated value of a node j in layer l is defined as 
+and shifted by the bias, $b^l_j$ for $j\in \{0,1,..., N_{l-1} \}$. The activated value of a node j in layer l is defined as 
 \begin{align}\label{eq:activated}
-    z_j^l = \sum_{k=1} ^ {N_{l-1}} w_{kj}^la_k^{l-1} + b^l_k,
+    z_j^l = \sum_{k=1} ^ {N_{l-1}} w_{kj}^la_k^{l-1} + b^l_j,
 \end{align}
 where $w_{kj}^l$ corresponds to the weight in $\bf{w} \sf _k^l$ specific for the connection between node k and j.
 \\
@@ -71,7 +71,7 @@ is a generally non-linear function used to control the limit or expand the value
 function is general for all nodes in a given layer, but can vary in between layers. Therefore,
 we find $a_j^l$ by the equation
 \begin{align}\label{eq:ajl}
-    a_j^l = \sigma \left (\sum_{k=1} ^ {N_{l-1}} w_{kj}^la_k^{l-1} + b^l_k\right ) = \sigma^l(z_j^l).
+    a_j^l = \sigma \left (\sum_{k=1} ^ {N_{l-1}} w_{kj}^la_k^{l-1} + b^l_j\right ) = \sigma^l(z_j^l).
 \end{align}
 A more detailed illustration of the information pass from one layer to a node in the next is displayed 
 in figure \ref{fig:WB}. In figure \ref{fig:WB}, we see all steps described in the process; \emph{(1)} all nodes in 
@@ -89,75 +89,73 @@ In this case we simply replace the activated term, $a_k^{l-1}$ in equation \ref{
 $x_i$ for $i\in\{0,1,...,N\}$, where N is equal to the number of features for the data. In the case $l=1$, \ref{eq:ajl} 
 becomes
 \begin{align}
-    a_j^1 = \sigma \left (\sum_{k=1} ^ {N} w_{kj}^1x_k + b^1_k\right ) = \sigma(z_j^1).
+    a_j^1 = \sigma \left (\sum_{k=1} ^ {N} w_{kj}^1x_k + b^1_j\right ) = \sigma(z_j^1).
 \end{align}
 And in the case where $l=L$, $a_j^L$ is equal to the final output. 
 \subsection{Back Propagation}\label{subsec:BP}
 The backward propagation acts as the engine that drives the training of a neural network. It has the purpose
 of tuning the weights and biases of the network, which are originally given random values, to achieve maximum performance,
- as defined by some \emph{cost function}, $\mathcal{C}$. The cost function defines to which metric we aim to optimize the network. 
+as defined by some \emph{cost function}, $\mathcal{C}$. The cost function defines to which metric we aim to optimize the network. 
 When a neural network produces a prediction, $Y$ the error in the prediction
 is defined by the cost function as $\mathcal{C}\left(Y, T\right)$, where T is the target. To minimize $\mathcal{C}$, the 
-backward propagation utilizes the gradient with respect to the weights and biases in the network. Instead of a
-direct calculation of the gradient, which is very computationally heavy, the backward propagation 
-aims to calculate the gradient through a recursive algorithm which traces the error backwards through the network. It is 
-this algorithm I will describe in this section.
+backward propagation utilizes the gradient with respect to the weights and biases in the network, as described in the section 
+regarding optimization \ref{sec:Opti}. Instead of a direct calculation of the gradient, which is very computationally heavy, 
+the backward propagation aims to calculate the gradient through a recursive algorithm which traces the error backwards through 
+the network. It is this algorithm I will describe in this section.
 \\
-\newline
 When minimizing the error defined by $\mathcal{C}$, we can apply several optimization algorithms described in 
 section \ref{sec:Opti}. Common for the algorithms is the use of the gradient of the cost function with regard to 
-the tunable parameters. In our case these parameters are the weights and biases, $w_{k,j}^l$ and $b^l_k$. The goal of 
-the backwards propagation is therefore to calculate the gradients $\partial \mathcal{C}/\partial w_{k,j}^l$ and
-$\partial \mathcal{C}/\partial b^l_k$. 
+the tunable parameters. In our case these parameters are the weights and biases, $w_{i,j}^l$ and $b^l_j$. The goal of 
+the backwards propagation is therefore to calculate the gradients $\partial \mathcal{C}/\partial w_{i,j}^l$ and
+$\partial \mathcal{C}/\partial b^l_j$. 
 \\
-\newline
-To begin with we can derive an expression for $\partial \mathcal{C}/\partial w_{k,j}^l$. We use the chain-rule to define 
+To begin with we can derive an expression for $\partial \mathcal{C}/\partial w_{i,j}^l$. We use the chain-rule to define 
 \begin{align*}
-    \frac{\partial \mathcal{C}}{\partial w_{k,j}^l} = \frac{\partial \mathcal{C}}{\partial z^l_k} \frac{\partial z^l_k}{\partial w_{k,j}^l},
+    \frac{\partial \mathcal{C}}{\partial w_{i,j}^l} = \frac{\partial \mathcal{C}}{\partial z^l_j} \frac{\partial z^l_j}{\partial w_{i,j}^l},
 \end{align*}
 which we can simplify further by using equation \ref{eq:activated} to calculate the second term, which becomes
 \begin{align*}
-    \frac{\partial \mathcal{C}}{\partial w_{k,j}^l} = \frac{\partial \mathcal{C}}{\partial z^l_k} a^{l-1}_j.
+    \frac{\partial \mathcal{C}}{\partial w_{i,j}^l} = \frac{\partial \mathcal{C}}{\partial z^l_j} a^{l-1}_i.
 \end{align*}
 We can redefine the first term in the equation above as $\delta_j^l$ and write
 \begin{align*}
-    \delta_k^l = \frac{\partial \mathcal{C}}{\partial z^l_k}
-               = \sum_j \frac{\partial \mathcal{C}}{\partial z^{l+1}_j}\frac{\partial z_j^{l+1}}{\partial z^l_k}  
-               = \sum_j \delta_k^{l+1}\frac{\partial z_j^{l+1}}{\partial z^l_k},
+    \delta_j^l \equiv \frac{\partial \mathcal{C}}{\partial z^l_j}
+               = \sum_k \frac{\partial \mathcal{C}}{\partial z^{l+1}_k}\frac{\partial z_k^{l+1}}{\partial z^l_j}  
+               = \sum_k \delta_k^{l+1}\frac{\partial z_k^{l+1}}{\partial z^l_j},
 \end{align*}
 where we have again used the chain rule for all contributing nodes.
 \\
 To calculate the final partial derivative we write
 \begin{align*}
-    \frac{\partial z_j^{l+1}}{\partial z^l_k} = \frac{\partial z_j^{l+1}}{\partial a^l_j}\frac{\partial a^l_j}{\partial z^l_k}
-                                              = w_{jk}^{l+1}(\sigma^l(z_j^l))'.
+    \frac{\partial z_k^{l+1}}{\partial z^l_j} = \frac{\partial z_k^{l+1}}{\partial a^l_j}\frac{\partial a^l_j}{\partial z^l_j}
+                                              = w_{jk}^{l+1}(\sigma^l(z_j^l))',
 \end{align*}
+where we have again used equation \ref{eq:activated}.
 This gives the expression for $\delta_k^l$
 \begin{align}\label{eq:delta}
-    \delta_k^l  = \sum_j \delta_k^{l+1}w_{jk}^{l+1}(\sigma^l(z_j^l))'  
+    \delta_j^l  = \sum_k \delta_k^{l+1}w_{jk}^{l+1}(\sigma^l(z_j^l))'  
 \end{align}
 Finally this gives us the expression
 \begin{align}\label{eq:dw}
-    \frac{\partial \mathcal{C}}{\partial w_{k,j}^l} = \delta_k^{l} a_j^{l-1}.
+    \frac{\partial \mathcal{C}}{\partial w_{i,j}^l} = \delta_j^{l} a_j^{l-1}.
 \end{align}
 Next we want to derive $\partial \mathcal{C}/\partial b^l_k$. We simply use the chain rule and derive
 \begin{align*}
-    \frac{\partial \mathcal{C}}{\partial b^l_k} = \frac{\partial \mathcal{C}}{\partial z^l_k}\frac{\partial z_k^l}{\partial b^l_k},
+    \frac{\partial \mathcal{C}}{\partial b^l_j} = \frac{\partial \mathcal{C}}{\partial z^l_j}\frac{\partial z_j^l}{\partial b^l_j},
 \end{align*}
 which from equations \ref{eq:delta} and \ref{eq:dw} is simply
 \begin{align}\label{eq:db}
-    \frac{\partial \mathcal{C}}{\partial b^l_k} = \delta_k^{l} \cdot 1 = \delta_k^{l},
+    \frac{\partial \mathcal{C}}{\partial b^l_j} = \delta_k^{l} \cdot 1 = \delta_j^{l},
 \end{align}
 From all three derived expressions, equations \ref{eq:delta}, \ref{eq:dw} and \ref{eq:db} we see that 
 to calculate for all $l\in\{0,1,..,N_l\}$ we must first calculate $\delta_k^L$ and apply a recursive propagation.
 To calculate $\delta_k^L = \partial \mathcal{C}/\partial z^L_k$ we simply multiply by $\delta_k^L = \partial a_k^L/\partial a_k^L$, and we find
 \begin{align}\label{eq:deltaL}
-    \delta_k^L = \frac{\partial \mathcal{C}}{\partial a^L_k}\left(\sigma^L(z_k^L)\right)'
+    \delta_k^L = \frac{\partial \mathcal{C}}{\partial a^L_j}\left(\sigma^L(z_j^L)\right)'
 \end{align}
 This expression, similarly to equation \ref{eq:delta} is dependent on the choice of $\mathcal{C}$ and 
 the activation functions. Now that equation \ref{eq:deltaL} is defined, we can see that the
 gradient of the parameters in all other layers can be calculated. 
-
 \subsection{Activation Functions}\label{subsec:activation}
 As mentioned in previous sections, activation functions define how the nodes in the previous layer 
 sum to define the value of the node in the current. There are many types of activation functions, 
