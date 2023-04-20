@@ -19,3 +19,4 @@ sparticles
 neutralino
 scaler
 azimuthal
+chargino

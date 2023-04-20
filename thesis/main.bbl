@@ -204,9 +204,9 @@ A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
   Tagging in Run 2 with ATLAS}},  tech. rep., CERN, Geneva, 2017.
 
 \bibitem{atlas_search_2021}
-A.~Collaboration, ``Search for chargino--neutralino pair production in final
-  states with three leptons and missing transverse momentum in {$\sqrt{s}$} =
-  13 {TeV} pp collisions with the {ATLAS} detector.''
-\newblock 10.1140/epjc/s10052-021-09749-7.
+A.~Collaboration, \emph{Search for chargino--neutralino pair production in
+  final states with three leptons and missing transverse momentum in
+  {$\sqrt{s}$} = 13 {TeV} pp collisions with the {ATLAS} detector},
+  \href{http://arxiv.org/abs/2106.01676}{{\tt 2106.01676}}.
 
 \end{thebibliography}\endgroup

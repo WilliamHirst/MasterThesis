@@ -46,9 +46,9 @@ that allows for deeper learning. As is the case for most gradient-boosting
 techniques, the collecting of weak classifiers is an iterative process.
 \\
 We define an imperfect model $\mathcal{F}_m$, which is a collection of m number of weak 
-classifiers, estimators. A prediction for the model on a given data-points, $x_i$ is 
-defined as $\mathcal{F}_m(\textbf{x}_i)$, and the observed value for the aforementioned data is 
-defined as $y_i$. The goal of the iterative process is to minimize some cost-function 
+classifiers, estimators. A prediction for the model on a given data-points, $\textbf{x}_i$ is 
+defined as $\mathcal{F}_m(\textbf{x}_i)$, and the target for the aforementioned data is 
+defined as $t_i$. The goal of the iterative process is to minimize some cost-function 
 $\mathcal{C}$ by introducing a new estimator $h_m$ to compensate for any error, 
 $\mathcal{C}(\mathcal{F}_m(\textbf{x}_i), y_i)$. In other words we define the new estimator as:
 \begin{align}
