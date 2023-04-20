@@ -4,16 +4,13 @@
 J.~Pequenao, ``{Event Cross Section in a computer generated image of the ATLAS
   detector.}.'' 2008.
 
-\bibitem{gramstad_searches_nodate}
-E.~Gramstad, \emph{Searches for supersymmetry in di-lepton final states with
-  the {ATLAS} detectorat {$\sqrt s$ = 7 TeV}}, .
-
 \bibitem{Aad_2012}
-G.~Aad, T.~Abajyan, B.~Abbott, J.~Abdallah, S.~A. Khalek, A.~Abdelalim et~al.,
-  \emph{Observation of a new particle in the search for the standard model
-  higgs boson with the {ATLAS} detector at the {LHC}},
-  \href{http://dx.doi.org/10.1016/j.physletb.2012.08.020}{\emph{Physics Letters
-  B} {\bf 716} (sep, 2012) 1--29}.
+{\scshape ATLAS} collaboration, G.~Aad et~al., \emph{{Observation of a new
+  particle in the search for the Standard Model Higgs boson with the ATLAS
+  detector at the LHC}},
+  \href{http://dx.doi.org/10.1016/j.physletb.2012.08.020}{\emph{Phys. Lett. B}
+  {\bf 716} (2012) 1--29}, [\href{http://arxiv.org/abs/1207.7214}{{\tt
+  1207.7214}}].
 
 \bibitem{JJ}
 J.~J. T.~M. F.R.S., \emph{Xlviii. the relation between the atom and the charge
@@ -75,6 +72,10 @@ D.~Chung, L.~Everett, G.~Kane, S.~King, J.~Lykken and L.-T. Wang, \emph{The
   \href{http://dx.doi.org/https://doi.org/10.1016/j.physrep.2004.08.032}{\emph{Physics
   Reports} {\bf 407} (2005) 1--203}.
 
+\bibitem{gramstad_searches_nodate}
+E.~Gramstad, \emph{Searches for supersymmetry in di-lepton final states with
+  the {ATLAS} detectorat {$\sqrt s$ = 7 TeV}}, .
+
 \bibitem{Guest_2016}
 D.~Guest, J.~Collado, P.~Baldi, S.-C. Hsu, G.~Urban and D.~Whiteson, \emph{Jet
   flavor classification in high-energy physics with deep neural networks},
@@ -95,32 +96,30 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel
   et~al., \emph{Scikit-learn: Machine learning in {P}ython}, {\emph{Journal of
   Machine Learning Research} {\bf 12} (2011) 2825--2830}.
 
-\bibitem{wang_maxout_2013}
-Q.~Wang and J.~{JaJa}, ``From maxout to channel-out: Encoding information on
-  sparse pathways.''
-
 \bibitem{srivastava_compete_2013}
 R.~K. Srivastava, J.~Masci, S.~Kazerounian, F.~Gomez and J.~Schmidhuber,
   \emph{Compete to compute},  in \emph{Advances in Neural Information
   Processing Systems}, vol.~26, Curran Associates, Inc.
 
+\bibitem{wang_maxout_2013}
+Q.~Wang and J.~{JaJa}, ``From maxout to channel-out: Encoding information on
+  sparse pathways.''
+
 \bibitem{PNN}
 P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
-  \emph{Parameterized machine learning for high-energy physics},
-  \href{http://arxiv.org/abs/1601.07913 [hep-ex, physics:hep-ph]}{{\tt
-  1601.07913 [hep-ex, physics:hep-ph]}}.
+  \emph{Parameterized neural networks for high-energy physics},
+  \href{http://dx.doi.org/10.1140/epjc/s10052-016-4099-4}{\emph{The European
+  Physical Journal C} {\bf 76} (2016) 235}.
+
+\bibitem{huang_introduction_2014}
+G.~James and D.~W. Trevor~Hastie, Robert~Tibshirani, \emph{An introduction to
+  statistical learning: With applications in {R}}, .
 
 \bibitem{XGB}
 T.~Chen and C.~Guestrin, \emph{{XGBoost}: A scalable tree boosting system},  in
   \emph{Proceedings of the 22nd ACM SIGKDD International Conference on
   Knowledge Discovery and Data Mining}, KDD '16, (New York, NY, USA),
   pp.~785--794, ACM, 2016.
-\newblock \href{http://dx.doi.org/10.1145/2939672.2939785}{DOI}.
-
-\bibitem{Chen_2016}
-T.~Chen and C.~Guestrin, \emph{{XGBoost}},  in \emph{Proceedings of the 22nd
-  {ACM} {SIGKDD} International Conference on Knowledge Discovery and Data
-  Mining}, {ACM}, aug, 2016.
 \newblock \href{http://dx.doi.org/10.1145/2939672.2939785}{DOI}.
 
 \bibitem{magnar}
@@ -135,13 +134,12 @@ S.~Raychaudhuri, \emph{Introduction to monte carlo simulation},  in \emph{2008
 J.~Alwall, R.~Frederix, S.~Frixione, V.~Hirschi, F.~Maltoni, O.~Mattelaer
   et~al., \emph{The automated computation of tree-level and next-to-leading
   order differential cross sections, and their matching to parton shower
-  simulations},  \href{http://arxiv.org/abs/1405.0301 [hep-ph]}{{\tt 1405.0301
-  [hep-ph]}}.
+  simulations},  \href{http://arxiv.org/abs/1405.0301}{{\tt 1405.0301}}.
 
 \bibitem{sjostrand_introduction_2015}
 T.~Sjöstrand, S.~Ask, J.~R. Christiansen, R.~Corke, N.~Desai, P.~Ilten et~al.,
-  \emph{An introduction to {PYTHIA} 8.2},  \href{http://arxiv.org/abs/1410.3012
-  [hep-ph]}{{\tt 1410.3012 [hep-ph]}}.
+  \emph{An introduction to {PYTHIA} 8.2},
+  \href{http://arxiv.org/abs/1410.3012}{{\tt 1410.3012}}.
 
 \bibitem{ROOT}
 R.~Brun and F.~Rademakers, \emph{Root - an object oriented data analysis
@@ -206,9 +204,9 @@ A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
   Tagging in Run 2 with ATLAS}},  tech. rep., CERN, Geneva, 2017.
 
 \bibitem{atlas_search_2021}
-A.~Collaboration, ``Search for chargino--neutralino pair production in final
-  states with three leptons and missing transverse momentum in {$\sqrt{s}$} =
-  13 {TeV} pp collisions with the {ATLAS} detector.''
-\newblock 10.1140/epjc/s10052-021-09749-7.
+A.~Collaboration, \emph{Search for chargino--neutralino pair production in
+  final states with three leptons and missing transverse momentum in
+  {$\sqrt{s}$} = 13 {TeV} pp collisions with the {ATLAS} detector},
+  \href{http://arxiv.org/abs/2106.01676}{{\tt 2106.01676}}.
 
 \end{thebibliography}\endgroup

@@ -1,5 +1,5 @@
 \section{Negative Weights}\label{subsec:negWeights}
-The negative weight problem is a well known problem in the world of ML-analysis for HEP, 
+The negative weight problem is a well known problem in the world of \ac{ML}-analysis for \ac{HEP}, 
 and is a consequence of higher perturbative accuracy. For the purpose of visualizing 
 distributions and training a \ac{NN}, negative weights are not a problem. But, when using 
 the weights in the training of the XGBoost classifier, the algorithm does not work\footnote{Upon further research 
@@ -17,39 +17,38 @@ studying the background as a whole, the two sets exhibit the same trend across a
 This means that the negative weights essentially scale the background uniformly over the full feature 
 space, which motivates treating the negative weight problem uniformly over the full feature space.
 \begin{figure}
-    \makebox[0.85\linewidth][c]{%
+    \makebox[0.95\linewidth][c]{%
     \centering
-    \begin{subfigure}{.425\textwidth}
+    \begin{subfigure}{.525\textwidth}
         \includegraphics[width=\textwidth]{Figures/FeaturesHistograms/lep1_Pt_Neg.pdf}
-        \vspace{-1.5cm}
+        \vspace{-.75cm}
         \caption{}
         \label{fig:lep1_Pt_Neg}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}{.425\textwidth}
+    \begin{subfigure}{.525\textwidth}
         \includegraphics[width=\textwidth]{Figures/FeaturesHistograms/lep1_Pt_nNeg.pdf}
-        \vspace{-1.5cm}
+        \vspace{-.75cm}
         \caption{}
         \label{fig:lep1_Pt_nNeg}
     \end{subfigure}
     }
-    \makebox[0.85\linewidth][c]{%
+    \makebox[0.95\linewidth][c]{%
     \centering
-    \begin{subfigure}{.425\textwidth}
+    \begin{subfigure}{.525\textwidth}
         \includegraphics[width=\textwidth]{Figures/FeaturesHistograms/lep1_Phi_Neg.pdf}
-        \vspace{-1.5cm}
+        \vspace{-.75cm}
         \caption{}
         \label{fig:lep1_Phi_Neg}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}{.425\textwidth}
+    \begin{subfigure}{.525\textwidth}
         \includegraphics[width=\textwidth]{Figures/FeaturesHistograms/lep1_Phi_nNeg.pdf}
-        \vspace{-1.5cm}
+        \vspace{-.75cm}
         \caption{}
         \label{fig:lep1_Phi_nNeg}
     \end{subfigure}
     }
-    \caption{The event distributions of the leading lepton for the features $P_t$ and $\phi$. 
+    \caption[The event distributions of the leading lepton for the features $P_t$ and $\phi$, for events with negative 
+    weights and all events.]{The event distributions of the leading lepton for the features $P_t$ and $\phi$. 
     Figures \ref{fig:lep1_Pt_Neg} and \ref{fig:lep1_Phi_Neg} display only the events with 
     negative weights (for $P_t$ and $\phi$ respectively) whereas \ref{fig:lep1_Pt_nNeg} 
     and \ref{fig:lep1_Phi_nNeg} show the full data set.}
@@ -58,9 +57,9 @@ How one chooses to deal with this problem can heavily effect results and many so
 are suggested as a consequence. Given the main focus of this rapport, the 
 simplest solution was chosen. The solution was motivated by the internal notes of 
 the ATLAS article \cite{Aad:2800889}, who introduced the solution when faced with the same 
-problem. The solution is to take the absolute value\footnote{Thereby removing all negative weights.} 
-and normalize all the weights, conserving the total sum of the weights and at the same time changing all 
-negative signs. The simple procedure is shown bellow in equation \ref{eq:negw},
+problem. The solution is to take the absolute value and normalize all the weights, conserving 
+the total sum of the weights and at the same time changing all negative signs. The simple procedure 
+is shown bellow in equation \ref{eq:negw},
 \begin{align}\label{eq:negw}
     w_i & = P \mid w_i \mid\,  \\
     P  & =  \sum_{j=0}^{N-1}\frac{ w_j}{\mid w_j \mid},

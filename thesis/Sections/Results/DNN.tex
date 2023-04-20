@@ -1,4 +1,4 @@
-\section{Dense Neural Networks}
+\section{Dense Ordinary Neural Networks}
 \subsection{Deep vs Shallow}
 In previous sections, I have discussed the reasoning for not wanting an automated process for building network architectures (otherwise known
 as hyperparameter searches). Although, I found manually choosing the architecture for each model to be preferable in this analysis, there 
@@ -77,10 +77,11 @@ which lay in the edges of the grid.} in the figure \ref{fig:SeveralMass} and eve
         \label{fig:SeveralMass}
     \end{subfigure}
     }
-    \caption{Two grids displaying the achieved significance on a subset of the full signal set, using the signal region 
-    created by the \ac{NN}. Figure \ref{fig:OneMass} presents the results from a model who has only seen one mass combination 
-    during training, ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV). Figure \ref{fig:SeveralMass} presents the results from 
-    a model who has seen all mass combinations in the grid, but for the inner square of masses. }
+    \caption[Two grids displaying the achieved significance on a subset of the full signal set, using the signal region 
+    created by two dense \ac{NN}'s, each training on different amounts of signal.]{Two grids displaying the achieved significance 
+    on a subset of the full signal set, using the signal region created by the \ac{NN}. Figure \ref{fig:OneMass} presents the results 
+    from a model who has only seen one mass combination during training, ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV). Figure 
+    \ref{fig:SeveralMass} presents the results from a model who has seen all mass combinations in the grid, but for the inner square of masses. }
     \label{fig:Interpolation}
 \end{figure}
 My initial prediction for this comparison, was that the \ac{OMM} would outperform the \ac{SMM} for the signal with
@@ -89,7 +90,7 @@ would learn the trends of the only signal it had seen, while the \ac{SMM} would 
 at the same time interpolate the results for the masses in between. By comparing figures \ref{fig:OneMass} and \ref{fig:SeveralMass} we 
 see that my prediction was not completely true. We can observe that the model which has trained on several-masses outperformed the 
 \ac{OMM} on every single combination. At first, I believed this to be caused by the \ac{OMM} overfitting a lot sooner than the other 
-model, therefore being stopped earlier in training by the early-stopping criteria described in section \ref{subsec:TrainingStrategy}. 
+model, therefore being stopped earlier in training by the early stopping criteria described in section \ref{subsec:TrainingStrategy}. 
 To test this theory, I drew the training history of each training session.
 \\
 In figure \ref{fig:InterpolateHistory} I drew the \ac{AUC} score made after each epoch on both the training and validation set
@@ -111,16 +112,17 @@ to overfitting.
         \label{fig:SeveralMassHist}
     \end{subfigure}
     }
-    \caption{A plot displaying the \ac{AUC} score made after each epoch on both the training and validation set. 
+    \caption[The comparison of the training history of two \ac{NN}'s, each training on different amounts of signal.]{
+    A plot displaying the \ac{AUC} score made after each epoch on both the training and validation set. 
     Figure \ref{fig:oneMassHist} shows the results from the one-mass model and figure \ref{fig:SeveralMassHist} shows
     the results from the several-masses model.}
     \label{fig:InterpolateHistory}
 \end{figure}
 \\
-Given the \ac{OMM}s performance is reduced by the early-stopping criteria, I wanted to explore if it would be able to outperform the 
+Given the \ac{OMM}s performance is reduced by the early stopping criteria, I wanted to explore if it would be able to outperform the 
 \ac{SMM} given it was allowed to train deeper/longer. In figure \ref{fig:NNOverfitting}, I display the achieved significance
-of the \ac{OMM} in the case where early-stopping has been removed, and the model was allowed to train for 15 epochs. By comparing figures 
-\ref{fig:SeveralMass} and \ref{fig:NNOverfitting}, we can observe that even when early-stopping is removed from the \ac{OMM}, it is  
+of the \ac{OMM} in the case where early stopping has been removed, and the model was allowed to train for 15 epochs. By comparing figures 
+\ref{fig:SeveralMass} and \ref{fig:NNOverfitting}, we can observe that even when early stopping is removed from the \ac{OMM}, it is  
 still outperformed by the \ac{SMM}. This indicates that overfitting is not the only reason for the \ac{OMM}'s disappointing performance.\\
 \begin{figure}
     \centering
@@ -129,10 +131,12 @@ still outperformed by the \ac{SMM}. This indicates that overfitting is not the o
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/Interpolation/NN_OneMass_Overfitting15_InterpolationGridSig.pdf}
     \end{subfigure}
     }
-    \caption{A grid displaying the achieved significance on a subset of the full signal set, using the signal region 
+    \caption[A grid displaying the achieved significance on a subset of the full signal set, using the signal region 
+    created by a dense \ac{NN} which has trained on one mass, and has been allowed to train for 16 epochs.]{
+    A grid displaying the achieved significance on a subset of the full signal set, using the signal region 
     created by the \ac{NN}. The figure presents the results from a model who has only seen one mass combination 
     during training, ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV) and was allowed to train for 15 epochs without 
-    early-stopping.}
+    early stopping.}
     \label{fig:NNOverfitting}
 \end{figure}
 The most probable explanation for the underwhelming performance of the \ac{OMM}, is that nearby mass combinations (i.e. mass combination with 
