@@ -34,6 +34,11 @@ J.~Pumplin, \emph{How to tell quark jets from gluon jets},
   \href{http://dx.doi.org/10.1103/PhysRevD.44.2025}{\emph{Phys. Rev. D} {\bf
   44} (Oct, 1991) 2025--2032}.
 
+\bibitem{baldi_searching_2014}
+P.~Baldi, P.~Sadowski and D.~Whiteson, \emph{Searching for exotic particles in
+  high-energy physics with deep learning},
+  \href{http://arxiv.org/abs/1402.4735}{{\tt 1402.4735}}.
+
 \bibitem{PNN}
 P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
   \emph{Parameterized neural networks for high-energy physics},
