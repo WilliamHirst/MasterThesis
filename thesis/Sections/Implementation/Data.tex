@@ -1,8 +1,8 @@
 \section{Tools and Data}
 Every year technology for generating and measuring particle collisions is improving. 
-As a consequence, the amount of data increases drastically. The ATLAS experiment
+As a consequence, the amount of data increases drastically. The \ac{ATLAS} experiment
 is one of the largest particle detector experiments currently operating at the 
-CERN laboratory near Geneva. ATLAS alone generates approximately 1 petabyte of raw
+CERN laboratory near Geneva. \ac{ATLAS} alone generates approximately 1 petabyte of raw
 data every second from proton-proton collisions at the \ac{LHC}. In this analysis I will 
 be studying data produced by \ac{ATLAS}, with a luminosity of $139.0fb^{-1}$. This means
 the detector is measuring an experiment in which $10^{15}$ events are colliding per 
@@ -53,7 +53,7 @@ when studying the models and finally comparing limits.
 \subsection{ROOT}
 In many aspects of my analysis, ranging from statistical analysis to plotting, I utilize the ROOT framework.
 ROOT \cite{ROOT} is at its core a large $C{++}$ library and data structure made specifically for big data
-analysis and computing, as well as data visualization. Today, all ATLAS data is stored as a ROOT-file along
+analysis and computing, as well as data visualization. Today, all \ac{ATLAS} data is stored as a ROOT-file along
 with more than 1 exabyte ($10^{12}$) of data worldwide. ROOT has many \ac{HPC} qualities which makes it ideal for particle
 physics analysis which demands heavy computations. Additionally, many particle physics-specific packages
 have been developed to make it an even better tool. Any function not already in library,
@@ -79,7 +79,7 @@ given that not all variables are relevant for all events. For example the $P_t$ 
 When starting preprocessing, I load the NTuples into another ROOT data structure called RDataFrame\footnote{For full 
 documentation on RDataFrame, see $\href{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}$ (Accessed 16.04.2023).}. 
 RDataFrame allows for easy addition of new columns as well as filtering of events through native functionality. As 
-a consequence I used RDataFrame to calculate all higher-level features such as the stransverse mass $(M_{T2}$), 
+a consequence I used RDataFrame to calculate all higher-level features such as the sum of $P_t$ ($H_t$), 
 invariant mass of 3 leptons ($M_{lll}$) etc. An example is shown in the following section. 
 \\
 After all data handling was complete, I used ROOT's $AsNumpy$ function to translate the data frame as 

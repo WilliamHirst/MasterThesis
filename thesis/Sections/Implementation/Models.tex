@@ -19,12 +19,12 @@ This choice was rooted in several factors, for example that TensorFlow has an in
 \ac{HPC} attributes, and it includes a large diversity in functionality, which allows for experimentation.
 \subsection{Creating Custom Layers}\label{subsec:CustomLayer}
 The field of \ac{ML} is one of the most dynamic and fastest growing fields of research
-today. This means, that regardless of the brave attempt made by voluntary contributors and many large companies,
+today. This means, that regardless of the brave attempt made by voluntary contributors and many large tech companies,
 there will always be new and exciting \ac{ML} tools and algorithm, not yet implemented in their library. This was 
 certainly the case in this thesis. For several of the non-dense layers I was forced
 to dive into the world of \ac{ML} development and create my own implementation. 
 \\
-All ensemble methods described in section \ref{subsec:LWTA} (except for dropout), channel-out, 
+All \ac{LWTA} methods described in section \ref{subsec:LWTA}, channel-out, 
 \ac{SCO} and maxout, resemble a layer already implemented by TensorFlow. This layer is called 
 MaxPooling1D\footnote{For more information on MaxPoolind1D, the reader is referred to the documentation 
 ($\href{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}$,
@@ -43,28 +43,28 @@ the output to the original shape and return the output.
     \caption{The pseudocode for implementing the channel-out layer in TensorFlow}\label{alg:channel-out}
     \begin{algorithmic}[1]
     \State def \textbf{Channel-out}(Input): 
-    \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms.
+    \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms
     \State \ \ \ \ $Input \gets Input \times Weights$
     \State \ \ \ \ $Input \gets Input + Bias$
     \\
     \State \ \ \ \ $\%$ Reshape input into units
     \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Nr\ Units,\ Size \ of \ Units))$
     \\
-    \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit.
+    \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit
     \State \ \ \ \ $Output \gets \textbf{Max}(Input)$
     \\
-    \State \ \ \ \ $\%$ Set original activation where activation is largest and 0 where it's not.
+    \State \ \ \ \ $\%$ Set original activation where activation is largest and 0 where it's not
     \State \ \ \ \ $Output \gets \textbf{Where}(Input == Output, Input,0)$
     \\
-    \State \ \ \ \ $\%$ Reshape to original size.
+    \State \ \ \ \ $\%$ Reshape to original size
     \State \ \ \ \ $Output \gets \textbf{Reshape}(Output,(Input's \ Original \ Shape))$
     \State \ \ \ \ $\textbf{return}\ Output$
     \end{algorithmic}
 \end{algorithm}
 \subsubsection*{SCO}
 In section \ref{subsubsec:stochchannelout} I described how \ac{SCO} is an extension of channel-out. This is certainly
-also the case for the algorithms explaining the implementation. In algorithm \ref{alg:SCO} I have described 
-algorithm used in the implementation of \ac{SCO} in this analysis. Similar to channel-out, the algorithm begins by 
+also the case for the algorithms explaining the implementation. In algorithm \ref{alg:SCO} I have described the
+algorithm used in the implementation of \ac{SCO}. Similar to channel-out, the algorithm begins by 
 passing input through weights and biases. Then, contrary to channel-out the nodes of the input are shuffled. This 
 is to ensure that when the input is reshaped (in line 10), the units are made differently for each pass through 
 the function. Again the maximum activation is found to create a new variable, this time called $OutputShuffle$. 
@@ -76,7 +76,7 @@ $Output$ and returned.
     \caption{The pseudocode for implementing the SCO layer in TensorFlow}\label{alg:SCO}
     \begin{algorithmic}[1]
     \State def \textbf{SCO}(Input): 
-    \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms.
+    \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms
     \State \ \ \ \ $Input \gets Input \times Weights$
     \State \ \ \ \ $Input \gets Input + Bias$
     \\
@@ -86,19 +86,19 @@ $Output$ and returned.
     \State \ \ \ \ $\%$ Reshape input into units
     \State \ \ \ \ $InputShuflle \gets \textbf{Reshape}(InputShuflle,(Nr\ Units,\ Size \ of \ Units))$
     \\
-    \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit.
+    \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit
     \State \ \ \ \ $OutputShuffle \gets \textbf{Max}(InputShuflle)$
     \\
-    \State \ \ \ \ $\%$ Set 1 where activation is largest and 0 where not.
+    \State \ \ \ \ $\%$ Set 1 where activation is largest and 0 where not
     \State \ \ \ \ $OutputShuffle \gets \textbf{Where}(InputShuflle == OutputShuffle, 1,0)$
     \\
     \State \ \ \ \ $\%$ Un-shuffle all the values
     \State \ \ \ \ $Output \gets \textbf{UnShuffle}(OutputShuffle)$
     \\
-    \State \ \ \ \ $\%$ Reshape to original size.
+    \State \ \ \ \ $\%$ Reshape to original size
     \State \ \ \ \ $Output \gets \textbf{Reshape}(Output,(Input's \ Original \ Shape))$
     \\
-    \State \ \ \ \ $\%$ Multiply input with output to set all input that are not the largest, to zero.
+    \State \ \ \ \ $\%$ Multiply input with output to set all input that are not the largest, to zero
     \State \ \ \ \ $NewOutput \gets Input \times Output$
     \\
     \State \ \ \ \ $\textbf{return}\ NewOutput$
@@ -108,7 +108,7 @@ $Output$ and returned.
 In algorithm \ref{alg:maxout} I have summarized the algorithm behind the implementation of the maxout layer.
 Off the three layers (channel-out, \ac{SCO} and maxout), maxout was the simplest to implement. After passing 
 the input through the weights and biases and reshaped to form the units, the input is reduced to only include 
-the largest activation in each layer. Finally, the output is reshaped to the original shape and returned.
+the largest activation in each layer. Finally, the output is reshaped to the size equal to the number of units.
 \begin{algorithm}
     \caption{The pseudocode for implementing the maxout layer in TensorFlow}\label{alg:maxout}
     \begin{algorithmic}[1]
@@ -123,7 +123,7 @@ the largest activation in each layer. Finally, the output is reshaped to the ori
     \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit
     \State \ \ \ \ $Output \gets \textbf{Max}(Input)$
     \\
-    \State \ \ \ \ $\%$ Reshape to size equal the number of units.
+    \State \ \ \ \ $\%$ Reshape to size equal the number of units
     \State \ \ \ \ $Output \gets \textbf{Reshape}(Input,(Nr \ Units))$
     \State \ \ \ \ $\textbf{return}\ Input$
     \end{algorithmic}
@@ -139,7 +139,8 @@ of mysticism. The second is the size of the data set. The larger the data set, t
 would be needed to adequately perform tests for each combination of parameters. Not only is this time-consuming,
 but trying to mediate this issue could lead to poor performance. The third and most important reason is that 
 I wanted to experiment with the architectures. By manually tuning the parameters, I was able to achieve a far 
-better understanding of the final architecture. 
+better understanding of the final architecture. In the following sections I will describe the architecture of all the 
+variations of networks and \ac{BDT} used in this analysis.
 \begin{figure}
     \makebox[0.9\linewidth][c]{%
     \centering

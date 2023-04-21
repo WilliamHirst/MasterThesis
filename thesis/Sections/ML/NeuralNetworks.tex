@@ -148,14 +148,16 @@ which from equations \ref{eq:delta} and \ref{eq:dw} is simply
     \frac{\partial \mathcal{C}}{\partial b^l_j} = \delta_k^{l} \cdot 1 = \delta_j^{l},
 \end{align}
 From all three derived expressions, equations \ref{eq:delta}, \ref{eq:dw} and \ref{eq:db} we see that 
-to calculate for all $l\in\{0,1,..,N_l\}$ we must first calculate $\delta_k^L$ and apply a recursive propagation.
-To calculate $\delta_k^L = \partial \mathcal{C}/\partial z^L_k$ we simply multiply by $\delta_k^L = \partial a_k^L/\partial a_k^L$, and we find
+to calculate for all $l\in\{0,1,..,N_l\}$ we must first calculate $\delta_j^L$ and apply a recursive propagation.
+To calculate $\delta_j^L = \partial \mathcal{C}/\partial z^L_j$ we simply multiply by $\delta_j^L = \partial a_j^L/\partial a_j^L$, and we find
 \begin{align}\label{eq:deltaL}
-    \delta_k^L = \frac{\partial \mathcal{C}}{\partial a^L_j}\left(\sigma^L(z_j^L)\right)'
+    \delta_j^L = \frac{\partial \mathcal{C}}{\partial a^L_j}\left(\sigma^L(z_j^L)\right)'
 \end{align}
 This expression, similarly to equation \ref{eq:delta} is dependent on the choice of $\mathcal{C}$ and 
 the activation functions. Now that equation \ref{eq:deltaL} is defined, we can see that the
-gradient of the parameters in all other layers can be calculated. 
+gradient of the parameters in all other layers can be calculated. A full \emph{epoch} is defined as 
+a forwards propagation which creates a prediction, followed by a backward propagation which tunes the parameters 
+in an attempt to correct the errors in the prediction.
 \subsection{Activation Functions}\label{subsec:activation}
 As mentioned in previous sections, activation functions define how the nodes in the previous layer 
 sum to define the value of the node in the current. There are many types of activation functions, 
@@ -166,7 +168,7 @@ before training, making it a hyperparameter. The activation functions applied an
     \item  \emph{Sigmoid}\\  
     \begin{align*}
          \sigma{(z)} = \frac{1}{1+e^{-z}} = a \in [0,1]
-    \end{align*},
+    \end{align*}
     \item \emph{Leaky ReLU}
     \begin{align*}
         \sigma{(z)} = \left(
