@@ -3,3 +3,4 @@
 {"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QSee https://xgboost.readthedocs.io/en/stable/parameter.html https://xgboost.readthedocs.io/en/stable/parameter.html for a complete overview of default parameters.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe neutralino is the lightest sparticle introduced by \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, and is therefore stable, as it ca not decay into a lighter sparticle particle.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe neutralino is the lightest sparticle introduced by \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, and is therefore stable, as it can not decay into a lighter sparticle.\\E$"}
+{"rule":"THE_PUNCT","sentence":"^\\QThere are many attempts to expand the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q to accommodate for the, up until now failures of the\\E$"}

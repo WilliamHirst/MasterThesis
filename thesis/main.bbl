@@ -12,6 +12,38 @@ J.~Pequenao, ``{Event Cross Section in a computer generated image of the ATLAS
   {\bf 716} (2012) 1--29}, [\href{http://arxiv.org/abs/1207.7214}{{\tt
   1207.7214}}].
 
+\bibitem{SUSY}
+D.~Chung, L.~Everett, G.~Kane, S.~King, J.~Lykken and L.-T. Wang, \emph{The
+  soft supersymmetry-breaking lagrangian: theory and applications},
+  \href{http://dx.doi.org/https://doi.org/10.1016/j.physrep.2004.08.032}{\emph{Physics
+  Reports} {\bf 407} (2005) 1--203}.
+
+\bibitem{cole_probing_2021}
+A.~Cole, S.~Krippendorf, A.~Schachner and G.~Shiu, ``Probing the structure of
+  string theory vacua with genetic algorithms and reinforcement learning.''
+\newblock 10.48550/arXiv.2111.11466.
+
+\bibitem{Guest_2016}
+D.~Guest, J.~Collado, P.~Baldi, S.-C. Hsu, G.~Urban and D.~Whiteson, \emph{Jet
+  flavor classification in high-energy physics with deep neural networks},
+  \href{http://dx.doi.org/10.1103/physrevd.94.112002}{\emph{Physical Review D}
+  {\bf 94} (dec, 2016) }.
+
+\bibitem{PhysRevD.44.2025}
+J.~Pumplin, \emph{How to tell quark jets from gluon jets},
+  \href{http://dx.doi.org/10.1103/PhysRevD.44.2025}{\emph{Phys. Rev. D} {\bf
+  44} (Oct, 1991) 2025--2032}.
+
+\bibitem{PNN}
+P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
+  \emph{Parameterized neural networks for high-energy physics},
+  \href{http://dx.doi.org/10.1140/epjc/s10052-016-4099-4}{\emph{The European
+  Physical Journal C} {\bf 76} (2016) 235}.
+
+\bibitem{wang_maxout_2013}
+Q.~Wang and J.~{JaJa}, ``From maxout to channel-out: Encoding information on
+  sparse pathways.''
+
 \bibitem{JJ}
 J.~J. T.~M. F.R.S., \emph{Xlviii. the relation between the atom and the charge
   of electricity carried by it},
@@ -66,26 +98,9 @@ O.~Antipin, D.~Atwood and A.~Soni, \emph{Search for rs gravitons via wlwl
 E.~Oks, \emph{Brief review of recent advances in understanding dark matter and
   dark energy}, .
 
-\bibitem{SUSY}
-D.~Chung, L.~Everett, G.~Kane, S.~King, J.~Lykken and L.-T. Wang, \emph{The
-  soft supersymmetry-breaking lagrangian: theory and applications},
-  \href{http://dx.doi.org/https://doi.org/10.1016/j.physrep.2004.08.032}{\emph{Physics
-  Reports} {\bf 407} (2005) 1--203}.
-
 \bibitem{gramstad_searches_nodate}
 E.~Gramstad, \emph{Searches for supersymmetry in di-lepton final states with
   the {ATLAS} detectorat {$\sqrt s$ = 7 TeV}}, .
-
-\bibitem{Guest_2016}
-D.~Guest, J.~Collado, P.~Baldi, S.-C. Hsu, G.~Urban and D.~Whiteson, \emph{Jet
-  flavor classification in high-energy physics with deep neural networks},
-  \href{http://dx.doi.org/10.1103/physrevd.94.112002}{\emph{Physical Review D}
-  {\bf 94} (dec, 2016) }.
-
-\bibitem{PhysRevD.44.2025}
-J.~Pumplin, \emph{How to tell quark jets from gluon jets},
-  \href{http://dx.doi.org/10.1103/PhysRevD.44.2025}{\emph{Phys. Rev. D} {\bf
-  44} (Oct, 1991) 2025--2032}.
 
 \bibitem{kingma_adam_2017}
 D.~P. Kingma and J.~Ba, ``Adam: A method for stochastic optimization.''
@@ -100,16 +115,6 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel
 R.~K. Srivastava, J.~Masci, S.~Kazerounian, F.~Gomez and J.~Schmidhuber,
   \emph{Compete to compute},  in \emph{Advances in Neural Information
   Processing Systems}, vol.~26, Curran Associates, Inc.
-
-\bibitem{wang_maxout_2013}
-Q.~Wang and J.~{JaJa}, ``From maxout to channel-out: Encoding information on
-  sparse pathways.''
-
-\bibitem{PNN}
-P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
-  \emph{Parameterized neural networks for high-energy physics},
-  \href{http://dx.doi.org/10.1140/epjc/s10052-016-4099-4}{\emph{The European
-  Physical Journal C} {\bf 76} (2016) 235}.
 
 \bibitem{huang_introduction_2014}
 G.~James and D.~W. Trevor~Hastie, Robert~Tibshirani, \emph{An introduction to

@@ -37,7 +37,7 @@ searched for in this analysis. The figure shows the data set containing masses r
 and $m({\tilde{\chi}_2})\in[100,800]$.\footnote{The chargino, $\tilde{\chi}^{\pm}_1$ and $\tilde{\chi}_2$ are mass degenerate, 
 meaning they share the same mass.} In the beginning of my analysis I only received a subset (which will be referred to as the 
 \emph{original} data set.) of the full signal set. In the figure I have marked the original data set with a white label in the top 
-right corner of the box. The orignal signal set contains a total of 30 different mass combinations in the range from 
+right corner of the box. The original signal set contains a total of 30 different mass combinations in the range from 
 $m({\tilde{\chi}_1})\in[0,400]$ and $m({\tilde{\chi}_2})\in[400,800]$. In the full signal data set there are a total of 90 different 
 mass combinations.
 \\
@@ -133,7 +133,7 @@ for calculation and plotting. In the code written in listing \ref{lst:df_mlll}, 
 of loading new $C{++}$-functions, filtering out bad events, calculating new features and adding said 
 features to a histogram. The first three lines of code both process and include the helperfunctions 
 into the ROOT framework. Then I loop over all keys in the data frame, which in my case
-are the different channels (i.e Diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
+are the different channels (i.e diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
 based on the criteria from section \ref{subsec:Cuts}. Then, I use RDataFrame's $Define$ function to calculate
 and add a new feature using our $ComputeInvariantMass$-function. Finally, I save the feature as ROOT object called 
 $Histo1D$, which I later plot using ROOT plotting \ac{API}'s. In this example I chose the trilepton invariant mass, 
