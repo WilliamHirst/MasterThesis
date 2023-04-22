@@ -39,6 +39,13 @@ P.~Baldi, P.~Sadowski and D.~Whiteson, \emph{Searching for exotic particles in
   high-energy physics with deep learning},
   \href{http://arxiv.org/abs/1402.4735}{{\tt 1402.4735}}.
 
+\bibitem{XGB}
+T.~Chen and C.~Guestrin, \emph{{XGBoost}: A scalable tree boosting system},  in
+  \emph{Proceedings of the 22nd ACM SIGKDD International Conference on
+  Knowledge Discovery and Data Mining}, KDD '16, (New York, NY, USA),
+  pp.~785--794, ACM, 2016.
+\newblock \href{http://dx.doi.org/10.1145/2939672.2939785}{DOI}.
+
 \bibitem{PNN}
 P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
   \emph{Parameterized neural networks for high-energy physics},
@@ -125,13 +132,6 @@ R.~K. Srivastava, J.~Masci, S.~Kazerounian, F.~Gomez and J.~Schmidhuber,
 G.~James and D.~W. Trevor~Hastie, Robert~Tibshirani, \emph{An introduction to
   statistical learning: With applications in {R}}, .
 
-\bibitem{XGB}
-T.~Chen and C.~Guestrin, \emph{{XGBoost}: A scalable tree boosting system},  in
-  \emph{Proceedings of the 22nd ACM SIGKDD International Conference on
-  Knowledge Discovery and Data Mining}, KDD '16, (New York, NY, USA),
-  pp.~785--794, ACM, 2016.
-\newblock \href{http://dx.doi.org/10.1145/2939672.2939785}{DOI}.
-
 \bibitem{magnar}
 M.~Bugge, \emph{Discovery and exclusion in high energy physics},  2022.
 
@@ -162,10 +162,9 @@ W.~McKinney, \emph{Data structures for statistical computing in python},  in
   and J.~Millman, eds.), pp.~51 -- 56, 2010.
 
 \bibitem{franchini_search_2019}
-M.~Franchini, K.~H. Mankinen, G.~Carratta, F.~Scutti, A.~Gorisek, E.~Lytken
-  et~al., \emph{Search for type-{III} seesaw heavy leptons in dilepton final
-  states in $pp$ collisions at {$\sqrt{s}$} = 13 {TeV} with the {ATLAS}
-  detector}, .
+A.~Collaboration, \emph{Search for type-{III} seesaw heavy leptons in dilepton
+  final states in pp collisions at {$\sqrt s$ = 13 TeV} with the {ATLAS}
+  detector},  \href{http://arxiv.org/abs/2008.07949}{{\tt 2008.07949}}.
 
 \bibitem{atlas_search_2021}
 A.~Collaboration, \emph{Search for chargino--neutralino pair production in
@@ -197,8 +196,8 @@ M.~Abadi, A.~Agarwal, P.~Barham, E.~Brevdo, Z.~Chen, C.~Citro et~al.,
 
 \bibitem{GS}
 P.~Liashchynskyi and P.~Liashchynskyi, \emph{Grid search, random search,
-  genetic algorithm: A big comparison for nas},  2019.
-\newblock 10.48550/ARXIV.1912.06059.
+  genetic algorithm: A big comparison for {NAS}},
+  \href{http://arxiv.org/abs/1912.06059}{{\tt 1912.06059}}.
 
 \bibitem{glorot_understanding_2010}
 X.~Glorot and Y.~Bengio, \emph{Understanding the difficulty of training deep
