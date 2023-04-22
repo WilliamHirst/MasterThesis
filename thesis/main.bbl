@@ -61,18 +61,14 @@ J.~J. T.~M. F.R.S., \emph{Xlviii. the relation between the atom and the charge
   of electricity carried by it},
   \href{http://dx.doi.org/10.1080/14786449508620801}{\emph{The London,
   Edinburgh, and Dublin Philosophical Magazine and Journal of Science} {\bf 40}
-  (1895) 511--544},
-  [\href{http://arxiv.org/abs/https://doi.org/10.1080/14786449508620801}{{\tt
-  https://doi.org/10.1080/14786449508620801}}].
+  (1895) 511--544}.
 
 \bibitem{Rutherfoord}
 P.~E.~R. F.R.S., \emph{Lxxix. the scattering of $\alpha$ and $\beta$ particles
   by matter and the structure of the atom},
   \href{http://dx.doi.org/10.1080/14786440508637080}{\emph{The London,
   Edinburgh, and Dublin Philosophical Magazine and Journal of Science} {\bf 21}
-  (1911) 669--688},
-  [\href{http://arxiv.org/abs/https://doi.org/10.1080/14786440508637080}{{\tt
-  https://doi.org/10.1080/14786440508637080}}].
+  (1911) 669--688}.
 
 \bibitem{Reines}
 F.~Reines and C.~L. Cowan, \emph{{The neutrino}},
@@ -83,7 +79,7 @@ F.~Reines and C.~L. Cowan, \emph{{The neutrino}},
 J.~Bernstein, \emph{Spontaneous symmetry breaking, gauge theories, the higgs
   mechanism and all that},
   \href{http://dx.doi.org/10.1103/RevModPhys.46.7}{\emph{Rev. Mod. Phys.} {\bf
-  46} (Jan, 1974) 7--48}.
+  46} (Jan, 1974) 7--GS}.
 
 \bibitem{NeutrinoMass}
 {\scshape Super-Kamiokande Collaboration} collaboration, Y.~Fukuda,
@@ -184,10 +180,7 @@ M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
   K.~Abeling, D.~Abhayasinghe et~al., \emph{{Observation of $WWW$ production in
   $pp$ collisions at {$\sqrt{s}$} = 13 TeV with the ATLAS detector. Observation
   of WWW Production in pp Collisions at {$\sqrt{s}$} = 13eV with the ATLAS
-  Detector}},
-  \href{http://dx.doi.org/10.1103/PhysRevLett.129.061803}{\emph{Phys. Rev.
-  Lett.} {\bf 129} (2022) 061803}, [\href{http://arxiv.org/abs/2201.13045}{{\tt
-  2201.13045}}].
+  Detector}},  \href{http://arxiv.org/abs/2201.13045}{{\tt 2201.13045}}.
 
 \bibitem{tensorflow}
 M.~Abadi, A.~Agarwal, P.~Barham, E.~Brevdo, Z.~Chen, C.~Citro et~al.,
