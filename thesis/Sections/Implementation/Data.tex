@@ -4,9 +4,8 @@ As a consequence, the amount of data increases drastically. The \ac{ATLAS} exper
 is one of the largest particle detector experiments currently operating at the 
 CERN laboratory near Geneva. \ac{ATLAS} alone generates approximately 1 petabyte of raw
 data every second from proton-proton collisions at the \ac{LHC}. In this analysis I will 
-be studying data produced by \ac{ATLAS}, with a luminosity of $139.0fb^{-1}$. This means
-the detector is measuring an experiment in which $139\times10^{15}$ events are colliding per 
-$1.0fb^{-1}(10^{-39}m^2)$ of area. With amounts of data this large, data handling and 
+be studying proton-proton collisions produced by \ac{ATLAS} between 2015-2018, with a luminosity of 
+$139.0fb^{-1}$ and center of mass energy of 13TeV. With amounts of data this large, data handling and 
 storing is a big challenge. Therefore, taking advantage of sophisticated numerical tools 
 and data frameworks is pivotal if scientific development is to keep up with technological development.
 \\
@@ -20,15 +19,15 @@ Up to this point in the thesis, I have discussed two data sets: the measured col
 As far as my relation to the latter data set, I have only used it directly in my analysis and have not been involved in 
 production. The simulations applied in the creation of our simulated data set are all based on \acf{MC} simulations\footnote{For 
 more information on \ac{MC} simulation, the reader is referred to \cite{raychaudhuri_introduction_2008}.}, produced 
-by the popular frameworks like, \emph{$MadGraph5\_aMC@NLO$} and \emph{$Pythia 8.2$} \cite{alwall_automated_2014, sjostrand_introduction_2015}. 
-Through simulation, we are able to (among other things): test our understanding of the detector, model the expected \ac{SM} background 
+by the popular frameworks like, \emph{$MadGraph5\_aMC@NLO$} and \emph{$Pythia\ 8.2$} \cite{alwall_automated_2014, sjostrand_introduction_2015}. 
+Through simulation, we are able to (among other things); test our understanding of the detector, model the expected \ac{SM} background 
 events in different regions or model new \ac{BSM} physics. The pipeline for producing simulated events, closely mimic the pipeline 
 from real collision to data set. The pipeline for simulating collision events can be summarized in the following steps
 \begin{itemize}
-  \item \textbf{Generate events}: Simulate each event in the collision, marking each event with the corresponding process (see section \ref{sec:bkg})
-  \item \textbf{Simulate detection of events}: Simulate the detection of each event in the different layers of the detector described in section \ref{subsec:Detector}
-  \item \textbf{Digitization}: Translate the interaction between the events and the detector to real signals
-  \item \textbf{Reconstruct events}: Go through the same steps applied to real collisions to reconstruct particles from signals
+  \item \emph{Generate events}: Simulate each event in the collision, marking each event with the corresponding process (see section \ref{sec:bkg})
+  \item \emph{Simulate detection of events}: Simulate the detection of each event in the different layers of the detector described in section \ref{subsec:Detector}
+  \item \emph{Digitization}: Translate the interaction between the events and the detector to real signals
+  \item \emph{Reconstruct events}: Go through the same steps applied to real collisions to reconstruct particles from signals
 \end{itemize}
 \subsection{The Simulated Signal}\label{subsec:signal}
 As I have mentioned in previous sections I will be searching for a large range of signals, all related to the same

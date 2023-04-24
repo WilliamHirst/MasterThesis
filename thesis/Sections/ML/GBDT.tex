@@ -8,7 +8,7 @@ of \ac{DT} as applied to a supervised classification problem.
 The goal of decision trees are to create a flowchart-like tree structure from input to output. 
 Similarly to the traditional cut-and-count method used in particle physics, a \ac{DT} 
 places \emph{rectangular-cuts} on a data set. It does so to create a collection of thresholds 
-$\bf{\mathcal{C}} \sf =\{c_1, c_2,...,c_{N_c}\}$, which when applied to a new data set and target, 
+$\{c_1, c_2,...,c_{N_c}\}$, which when applied to a new data set and target, 
 will sort each data point to the corresponding target. 
 \\
 In figure \ref{fig:DT}, I have illustrated a simple \ac{DT} classifying a 4-dimensional 
@@ -31,7 +31,7 @@ its choice of \emph{Deepness} and \emph{Optimization}. When provided with a data
 a \ac{DT} can in theory create as many cuts needed to map each individual data point, $\textbf{x}_i$ to the 
 corresponding target, $t_i$. Doing so would not only be very computationally heavy, but would almost 
 certainly lead to overfitting if applied to any new data. Instead, when building a \ac{DT} one defines 
-a maximum deepness. This means that we must define a limit to the length of $\bf \mathcal{C}$, which 
+a maximum deepness. This means that we must define a limit to the number of cuts, which 
 subsequently leads to the need for a prioritization of cuts. 
 \\
 Building a \ac{DT} and choosing which cuts to apply at what point, is the equivalent of training a 
