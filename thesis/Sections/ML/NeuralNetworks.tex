@@ -35,7 +35,7 @@ how a \ac{NN} aims to map from data to a prediction.
     \vspace*{-12.5mm} 
     \includegraphics[width=0.9\textwidth]{Figures/Illustrations/Input_labels.png}
     \vspace*{-12.5mm} 
-    \caption{An illustration of a \ac{NN} with two hidden layers.}
+    \caption{An illustration of the architecture of a \ac{NN} with two hidden layers.}
     \label{fig:NN}
 \end{figure}
 In figure \ref{fig:NN} we can see how all the different nodes are connected, illustrated by 
@@ -81,7 +81,7 @@ sum through $\sigma^l$.
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{Figures/Illustrations/WeightBias.png}
-    \caption{An illustration information pass for one layer to another.}
+    \caption{An illustration of a forward propagation from one layer to a node in the next.}
     \label{fig:WB}
 \end{figure}
 This method is used for information pass between all layers, except between the first and the second. 
@@ -253,15 +253,15 @@ tune, while at the same time building trend specific pathways similar to channel
     \centering
     \includegraphics[width=0.7\textwidth]{Figures/Illustrations/Max_out.png}
     \caption[An illustration of a Neural network with two hidden layers using the maxout layer.]{An illustration of a Neural network with two hidden layers, each with 8 neurons.
-    The first hidden layer has a maxout activation layer with 4 units, the second has 2.
-    The figure also illustrates  the resulting ensemble of smaller neural networks as a consequence
+    The first and second hidden layers have a maxout activation layer with four and two units respectively.
+    The figure also illustrates the resulting ensemble of smaller neural networks as a consequence
     of the maxout activation layers. }
     \label{fig:Max_out}
 \end{figure}
 In figure \ref{fig:Max_out} I have illustrated a maxout network. The figure shows a \ac{NN} with two hidden layers
-with 8 nodes each. In the first hidden layer the maxout layer creates 4 units, each containing two nodes and in the 
-second layer the maxout creates two units with 4 nodes each. The resulting output from the first layer is the 
-4 nodes with the highest activation in their respected unit, likewise the second layers output is 2 nodes.
+with eight nodes each. In the first hidden layer the maxout layer creates four units, each containing two nodes and in the 
+second layer the maxout creates two units with four nodes each. The resulting output from the first layer is the 
+four nodes with the highest activation in their respected unit, likewise the second layers output is two nodes.
 To the right of the network in figure \ref{fig:Max_out}, I have illustrated how the different configuration of 
 paths through the network creates an ensemble of networks with their own architecture. Note in the figure how, as described in the 
 previous paragraph, each node possesses its own connections to the previous layer, while sharing the connections with the 

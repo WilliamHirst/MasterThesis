@@ -84,7 +84,7 @@ To further study the sensitivity of the models, I produced two additional figure
 $10\%$ (\ref{fig:compLimit10}) and less than $1\%$ (\ref{fig:compLimit1}) of the background. As expected, the limits converge close towards the limits 
 observed in section \ref{sec:FS} for smaller uncertainties. In figure \ref{fig:compLimit10}, we even discern that the limits set by the dense \ac{NN}
 and maxout model extend past the \ac{PNN}, for high masses ($\tilde{\chi}_1>175$ and $\tilde{\chi}_2>400GeV$), although they are outperformed for most other combinations.
-In figure \ref{fig:compLimit1}, I used an uncertainty close to 0. As depicted in this figure, we discern that the dense \ac{NN} and maxout model 
+In figure \ref{fig:compLimit1}, I used an uncertainty close to $0\%$. As depicted in this figure, we discern that the dense \ac{NN} and maxout model 
 very closely resemble the limits from \ac{ATLAS}, only being beaten by $50GeV$ for high masses $\tilde{\chi}_2$. For events in the mass region of
 $\tilde{\chi}_1\approx250GeV$ and $\tilde{\chi}_2\approx400GeV$, the \ac{PNN} seems to ever so slightly extend the limit surpassed that produced of \ac{ATLAS}.
 Although this is promising for the method, it is worth mentioning that the uncertainty is far from realistic. Finally, the size by which the limit are extended
@@ -98,11 +98,11 @@ the models to show great promise. If I were to prioritize expansion of exclusion
 \begin{itemize}
     \item \emph{A more advanced analysis of the signal region}: In my analysis, I chose to define the signal regions from each model's output using a brute force approach. 
           A more advanced approach, applying optimization technics to find the maximum possible significance from each output, would most likely produce a higher sensitivity.
-    \item \emph{Devote additional time to studying the relationship between overfitting and significance}: The early stoppage criteria of 10 epochs applied in this analysis, was chosen 
+    \item \emph{Devote additional time to studying the relationship between overfitting and significance}: The early stoppage criteria of ten epochs applied in this analysis, was chosen 
           for convenience and simplicity. This rigid criteria, could be destructive for optimal performance, and by devoting additional time to studying
           the relationship between the threshold for the criteria and optimal performance could lead to better performing models.
     \item \emph{Perform a thorough hyperparameter search}: For comparison reasons, I decided not to apply a hyperparameter search for the architecture of the networks. By attempting 
-           a grid search for the different hyperparameter, it would be interesting to see if a better performance could be achieved. Additionally, attempting to combine the methods presented 
+           a grid search for the different hyperparameter, one might be able to find more sensitive models. Additionally, it would be interesting to atempt to combine the methods presented 
            in this thesis, for example a \ac{PNN} with maxout layers. 
     \item \emph{Create region specific models}: In the final analysis, I applied one model (per method) to study the full signal set. It would be interesting to explore the possibility of creating
           different models for different regions in the feature space. In the analysis we have seen how models can both improve and worsen in performance with regard to specific masses by increasing

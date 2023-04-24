@@ -40,7 +40,7 @@
 \contentsline {subsection}{\numberline {2.6.4}Activation Functions}{21}{subsection.2.6.4}%
 \contentsline {subsection}{\numberline {2.6.5}Network Ensembles, Dropout and LWTA Networks}{21}{subsection.2.6.5}%
 \contentsline {subsection}{\numberline {2.6.6}Parametrized Neural Network}{23}{subsection.2.6.6}%
-\contentsline {section}{\numberline {2.7}Decision Trees and Gradient Boosting}{24}{section.2.7}%
+\contentsline {section}{\numberline {2.7}Decision Trees and Gradient Boosting}{25}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}Decision Trees}{25}{subsection.2.7.1}%
 \contentsline {subsection}{\numberline {2.7.2}Gradient Boosting in Decision Trees}{25}{subsection.2.7.2}%
 \contentsline {section}{\numberline {2.8}Machine Learning Applied to a BSM Search}{26}{section.2.8}%
@@ -88,8 +88,9 @@
 \contentsline {chapter}{Appendices}{69}{section*.83}%
 \contentsline {chapter}{Appendix A}{71}{appendix*.84}%
 \contentsline {section}{\numberline {A.1}Sensitivity Grids}{71}{section.Alph0.1}%
-\contentsline {subsection}{\numberline {A.1.1}Ensembles}{71}{subsection.Alph0.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{71}{subsection.Alph0.1.2}%
+\contentsline {subsection}{\numberline {A.1.1}The Remaining \ac {LWTA} Models - Channel-Out and \ac {SCO}}{71}{subsection.Alph0.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Results from the \ac {PCA}}{72}{subsection.Alph0.1.2}%
 \contentsline {section}{\numberline {A.2}The Features}{74}{section.Alph0.2}%
 \contentsline {subsection}{\numberline {A.2.1}The Feature Distribution}{74}{subsection.Alph0.2.1}%
-\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{79}{section.Alph0.3}%
+\contentsline {subsection}{\numberline {A.2.2}The Selection of Feature}{79}{subsection.Alph0.2.2}%
+\contentsline {section}{\numberline {A.3}The implementation of Channel-Out, \ac {SCO} and Maxout}{80}{section.Alph0.3}%

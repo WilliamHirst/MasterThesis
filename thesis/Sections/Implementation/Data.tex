@@ -5,8 +5,8 @@ is one of the largest particle detector experiments currently operating at the
 CERN laboratory near Geneva. \ac{ATLAS} alone generates approximately 1 petabyte of raw
 data every second from proton-proton collisions at the \ac{LHC}. In this analysis I will 
 be studying data produced by \ac{ATLAS}, with a luminosity of $139.0fb^{-1}$. This means
-the detector is measuring an experiment in which $10^{15}$ events are colliding per 
-$139.0fb^{-1}(10^{-39}m^2)$ of area. With amounts of data this large, data handling and 
+the detector is measuring an experiment in which $139\times10^{15}$ events are colliding per 
+$1.0fb^{-1}(10^{-39}m^2)$ of area. With amounts of data this large, data handling and 
 storing is a big challenge. Therefore, taking advantage of sophisticated numerical tools 
 and data frameworks is pivotal if scientific development is to keep up with technological development.
 \\
@@ -47,7 +47,8 @@ when studying the models and finally comparing limits.
 \begin{figure}
   \centering
   \includegraphics[width=0.85\textwidth]{Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf}
-  \caption{A depiction of all mass combinations and their respective event count in the full signal data set.}
+  \caption{A depiction of all mass combinations and their respective event count in the full signal data set.
+  Additionally, a white corner has been added to all combinations which define the original signal set.}
   \label{fig:nrSignal}
 \end{figure}
 \subsection{ROOT}
@@ -93,7 +94,7 @@ to take advantage of the plotting functionality in ROOT. The workflow of the met
   \centering
   \includegraphics[width=0.7\textwidth]{Figures/Illustrations/TaskFlow.png}
   \vspace{-1cm}
-  \caption{A visual summary of the workflow and framework use for the 
+  \caption{A visual summary of the workflow and frameworks used in the 
   computational analysis. }
   \label{fig:WF}
 \end{figure}

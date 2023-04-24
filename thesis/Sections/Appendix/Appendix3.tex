@@ -1,5 +1,4 @@
-\section{The implementation of Channel-Out, \ac{SCO} and Maxout}
-
+\section{The implementation of Channel-Out, \ac{SCO} and Maxout}\label{sec:TFImp}
 \subsubsection*{Channel-out}
 \lstset{style=Python}
 \begin{lstlisting}[caption={Python implementation for the custom activation function used to define the channel-out layer.},captionpos=b, label={lst:channel_out}]
@@ -23,7 +22,9 @@ def call(self, inputs: tf.Tensor,mask: tf.Tensor = None) -> tf.Tensor:
     # Reshaping outputs to original input shape
     outputs = tf.reshape(outputs, [num_inputs, self.units])
 
+    #Count the activate nodes. This variable is used when plotting the activations.
     self.counter = outputs
+
     return outputs 
 \end{lstlisting}
 
@@ -60,12 +61,13 @@ def call(self, inputs: tf.Tensor,mask: tf.Tensor = None) -> tf.Tensor:
 
     outputs = tf.gather(outputs, unshuffle_index, axis = 1) 
     outputs = tf.multiply(inputs, outputs)
+    #Count the activate nodes. This variable is used when plotting the activations.
     self.counter = outputs
     return outputs 
 \end{lstlisting}
-
+\newpage
 \lstset{style=Python}
-\begin{lstlisting}[caption={Python implementation for the custom activation function used to define the max-out layer.},captionpos=b, label={lst:max_out}]
+\begin{lstlisting}[caption={Python implementation for the custom activation function used to define the maxout layer.},captionpos=b, label={lst:max_out}]
 def call(self, inputs: tf.Tensor) -> tf.Tensor:
     # Passing input through weight kernel and adding bias terms
     inputs = gen_math_ops.MatMul(a=inputs, b=self.kernel)
@@ -83,9 +85,13 @@ def call(self, inputs: tf.Tensor) -> tf.Tensor:
     outputs = tf.math.reduce_max(inputs, axis=-1,keepdims=True)
 
     counter = tf.where(tf.equal(inputs, outputs), outputs, 0.)
+    
     # Reshaping outputs to original input shape
+    outputs = tf.reshape(outputs,[num_inputs, self.num_groups])   
+
+    #Count the activate nodes. This variable is used when plotting the activations.
     self.counter = tf.reshape(counter, [num_inputs, self.units])
 
-    return tf.reshape(outputs,[num_inputs, self.num_groups])   
+    return outputs
 \end{lstlisting}
 \newpage

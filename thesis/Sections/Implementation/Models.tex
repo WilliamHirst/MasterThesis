@@ -31,7 +31,8 @@ MaxPooling1D\footnote{For more information on MaxPoolind1D, the reader is referr
 accessed 24.03.2023).}. But, to allow for experimentation I decided to not use MaxPooling1D, but instead 
 implement my own custom layers. All custom layers were implemented by creating new functions inside 
 TensorFlow's dense layer, which are called when the network makes a prediction. In the following sections 
-I will describe the algorithms underlying the implementation of each layer.
+I will describe the algorithms underlying the implementation of each layer. For the actual python/TensorFlow implementation,
+see the appendix \ref{sec:TFImp}.
 \subsubsection*{Channel-Out}
 In algorithm \ref{alg:channel-out} I summarized the implementation of channel-out used in this analysis. For each 
 input which is to be passed through a forward-pass, the function first passes it through the weights and biases 
@@ -149,8 +150,8 @@ variations of networks and \ac{BDT} used in this analysis.
         \includegraphics[width=\textwidth]{Figures/Illustrations/architecture.png}
     \end{subfigure}
     }
-    \caption{A visual summary of the network architectures used in this analysis, for the ordinary dense \ac{NN}, the \ac{PNN}
-    and the maxout model.}
+    \caption{A visual summary of the network architectures used in this analysis, for the ordinary dense \ac{NN}(top), the \ac{PNN}(middel)
+    and the maxout model(bottom).}
     \label{fig:arch}
 \end{figure}
 \subsection*{Dense Neural Network and PNN}\label{subsec:PNNArch}

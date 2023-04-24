@@ -43,8 +43,8 @@ find trend specific paths through the network which will aid in separating the o
         \label{fig:ATraining}
     \end{subfigure}
     }
-    \caption[A calculated visualization of the activation of a 3 layer MaxOut network, before and after training.]{
-    A calculated visualization of a 3 layer MaxOut network. Each path 
+    \caption[A calculated visualization of the activation of a three layer MaxOut network, before and after training.]{
+    A calculated visualization of a three layer MaxOut network. Each path 
     represents a data point where all connected nodes were the largest activation in their respective 
     unit. The distribution on the far right represent the output distribution. The figure to the left
     (\ref{fig:ATrainingSig}) is the result before training and the figure to right (\ref{fig:ATrainingBkg})
@@ -67,12 +67,12 @@ find trend specific paths through the network which will aid in separating the o
         \label{fig:ATrainingBkg}
     \end{subfigure}
     }
-    \caption[A calculated visualization of the activation of a 3 layer MaxOut network, after training and displaying the
-    signal and background separately.]{A calculated visualization of a 3 layer MaxOut network. Each path 
+    \caption[A calculated visualization of the activation of a three layer MaxOut network, after training and displaying the
+    signal and background separately.]{A calculated visualization of a three layer MaxOut network. Each path 
     represents a data point where all connected nodes were the largest activation in their respective 
     unit. The distribution on the far right represent the output distribution and the figure with blue 
-    paths \ref{fig:ATrainingSig} is the result of signal and the figure pink \ref{fig:ATrainingBkg}.
-    } 
+    paths (left) \ref{fig:ATrainingSig} is the result of signal, and the pink paths (right) is a result from background 
+    \ref{fig:ATrainingBkg}.} 
     \label{fig:NetDist1}
 \end{figure}
 
@@ -91,9 +91,9 @@ find trend specific paths through the network which will aid in separating the o
         \label{fig:ATrainingSig200300}
     \end{subfigure}
     }
-    \caption[A calculated visualization of the activation of a 3 layer MaxOut network, after training and displaying the
+    \caption[A calculated visualization of the activation of a three layer MaxOut network, after training and displaying the
     the results for two signal with each their own mass combination.]{A calculated visualization of a trained MaxOut network 
-    with 3 hidden layers. Each path represents a data point where all connected nodes were the largest activation in their respective 
+    with three hidden layers. Each path represents a data point where all connected nodes were the largest activation in their respective 
     unit. The figure to the left (\ref{fig:ATrainingSig50250}) is a result of signal with 
     ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) and the right (\ref{fig:ATrainingSig200300}) 
     ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV).}
@@ -130,8 +130,8 @@ memory of the model through trend specific paths through the network.
     \hfill
     \hfill
     }
-    \caption[A calculated visualization of the activation of a 3 layer MaxOut network, after training and displaying the
-    the results for two signal with each their own mass combination, highlighting the difference between two spesific nodes.]{
+    \caption[A calculated visualization of the activation of a three layer MaxOut network, after training and displaying the
+    the results for two signal with each their own mass combination, highlighting the difference between two specific nodes.]{
     A cut-out of the fifth and sixth node (counting from the top) in the second hidden layer, activated 
     by the signal with ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) \ref{fig:ATrainingSig50250Zoom} and 
     ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) \ref{fig:ATrainingSig200300Zoom}.}
@@ -208,7 +208,7 @@ to the same depth for the lower masses, it is able to achieve a large level of g
     \end{subfigure}
     }
     \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
-    created by the \emph{MaxOut} network.}
+    created by the maxout network.}
     \label{fig:MaxOutGridSig}
 \end{figure}
 In appendix \ref{appendix:Ensembles} I have included grids displaying the achieved sensitivity for both channel-out and \ac{SCO}. Both 

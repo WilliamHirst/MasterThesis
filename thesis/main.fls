@@ -2322,6 +2322,8 @@ INPUT ./Figures/Illustrations/DT.png
 INPUT Figures/Illustrations/DT.png
 INPUT ./Figures/Illustrations/DT.png
 INPUT ./Figures/Illustrations/DT.png
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmss9.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
 INPUT ./Sections/ML/MLInHEP.tex
 INPUT ./Sections/ML/MLInHEP.tex
 INPUT ./Sections/ML/MLInHEP.tex
@@ -2395,8 +2397,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmr.fd
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmss9.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
