@@ -29,8 +29,8 @@ the binary crossentropy function is defined as
 \end{align}
 \subsection{Stochastic Gradient Descent and Mini-Batches}\label{subsec:SGD}
 The gradient descent method aims to obtain the optimal parameters of a model
-through the application of the derivative of $\mathcal{C}$ with respect to $\boldsymbol \theta$. When 
-evaluated at a given point in the parameter space, the negative of 
+through the application of the derivative of the cost-function, $\mathcal{C}$ with respect to the parameters in the model, 
+$\boldsymbol \theta$. When evaluated at a given point in the parameter space, the negative of 
 the gradient, $-\grad_\theta (\mathcal{C})$ is used to move closer to the optimal set of parameters.
 The negative of the gradient corresponds to the direction for which a 
 small change $d\boldsymbol\theta$ in the parameter space will result in the biggest 
@@ -55,11 +55,11 @@ In the scenario that the points in the data set should be prioritized differentl
 equation \ref{eq:dC}. We call these weights, \emph{sample-weights}.
 \\
 The calculation of the gradient over numerous data points can be time-consuming. An alternative approach which both reduces time and 
-introduces a randomness, is the application of \emph{mini-batches}. Instead of summing the gradient over the full data set, one randomly samples 
+introduces randomness, is the application of \emph{mini-batches}. Instead of summing the gradient over the full data set, one randomly samples 
 a predetermined number of points, B creating a subset of the data which is used to update $\theta$. The points sampled to create the subset, can be 
 sampled both with or without replacement\footnote{In this analysis the data is sampled with replacement.}. An epoch is completed after N/B iterations of updating 
 $\theta$. The added stochastic element reduces the risk of getting stuck in local minima. Gradient decent with randomly sampled mini-batches is called \ac{SGD}.
-\subsection{Memory, Adaptive Learning and ADAM}
+\subsection{Memory, Adaptive Learning and ADAM}\label{subsec:ADAM}
 Although \ac{SGD} can be highly effective, it tends to be prone to oscillations. To alleviate this issue, we introduce momentum. The momentum aims to functions as a form of 
 memory, conserving some momentum from the previous update. By defining the new step between $\theta_{i+1}$ and $\theta_{i}$ as 
 \begin{align}

@@ -164,7 +164,9 @@ using the so-called \emph{Glorot Uniform Initializer} (see the article by Glorot
 The general structure of the network is summarized in figure \ref{fig:arch}, with the network label \ac{NN}. The figure shows a dense \ac{NN} with 
 three hidden layers, all with 600 nodes each. All hidden layers utilize the $LeakyReLU$ activation (see section \ref{subsec:activation})
 with an $\alpha$ = 0.01. The architecture is designed to perform deep-training, and the cost-function of the dense \ac{NN} (and all the network variants used 
-in this analysis) is chosen to be the binary crossentropy function introduced in section \ref{subsec:Cost}. 
+in this analysis) is chosen to be the binary crossentropy function introduced in section \ref{subsec:Cost}. The \ac{NN}, and all other networks in this analysis 
+utilize the \ac{ADAM} optimizer (see section \ref{subsec:ADAM}) implemented in TensorFlow\footnote{See $\href{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}$
+(Accessed:24.04.2023) for the full default parameters.}.  
 \\
 The \ac{PNN} architecture is like the name suggests, included to represent the model proposed by the article by Baldi et al. \cite{PNN}.
 The architecture is illustrated in figure \ref{fig:arch}, with the label PNN. The figure shows a practically identical 
