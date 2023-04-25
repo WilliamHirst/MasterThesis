@@ -38,7 +38,7 @@ outperforms the maxout model in most of the signals (74/89). A possible explanat
 be that the dense \ac{NN} lacked the statistics when training with the original signal set. When the full statistics is included,
 the dense \ac{NN} (which is deeper than the maxout model) is able to train much deeper, which in tern increases sensitivity. 
 However, the maxout model outperforms the dense network for the low statistics combinations, again indicating the maxout layers
-ability to increase long term memory.\\
+ability to increase long-term memory.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -56,7 +56,7 @@ Similarly to the tests performed with the original signal set, the \ac{PNN} is a
 to methods. For the lower statistics combinations, the \ac{PNN} drops in performance. Moreover, the performance of the \ac{PNN} on the combinations with the highest 
 statistics in the original signal set ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=400$GeV and $\tilde{\chi}_1=200$, $\tilde{\chi}_2=450$GeV), has decreased by more than half.
 This is an indication that including further trends in the data was destructive for training. In other words, although the \ac{PNN} achieves impressive sensitivity towards high 
-statistics mass combinations, it suffers from the lack of long term memory which allows the maxout model to uphold performance for lower statics combinations. 
+statistics mass combinations, it suffers from the lack of long-term memory which allows the maxout model to uphold performance for lower statics combinations. 
 Finally, in comparison to the ordinary dense network and the maxout model who both achieved sufficient sensitivity for 38/89 combinations, the \ac{PNN} only did so for 33/89.\\
 \begin{figure}
     \makebox[\linewidth][c]{%

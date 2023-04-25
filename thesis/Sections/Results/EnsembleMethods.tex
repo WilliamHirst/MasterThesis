@@ -2,8 +2,8 @@
 \subsection{Visualizing Sparse Pathways}\label{subsec:Viz}
 As mentioned in section \ref{subsec:CustomLayer}, the channel-out, \ac{SCO} and maxout layers applied in this 
 analysis were created by me using the TensorFlow \ac{API}'s. As such, I found it imperative to make
-sure that the layers worked as intended. To do this I created a small network with three layers, with 8 
-nodes each, all applying MaxOut layers with 4, 2 and 4 units respectively. In this section I will 
+sure that the layers worked as intended. To do this I created a small network with three layers, with eight 
+nodes each, all applying MaxOut layers with four, two and four units respectively. In this section I will 
 dissect the activations of said network before and after training.
 \\
 In figure \ref{fig:BTraining}, I have plotted the activation of 100 randomly sampled events, 50 
@@ -101,7 +101,7 @@ find trend specific paths through the network which will aid in separating the o
 \end{figure}
 Ideally, we would want the model to not only be able to separate the signal from the background, but do so in 
 a way which allows the network to store the different trends within the signal. In section \ref{subsubsec:Channel-Out},
-I described this ability as long term memory. One way to implement long term memory is through a high number of parameters,
+I described this ability as long-term memory. One way to implement long-term memory is through a high number of parameters,
 but through the \ac{LWTA} layers, we can additionally do this through specific paths. To study this effect, I have created similar 
 figures as discussed in the paragraphs above, but this time only including one mass combination in the figure. Figures
 \ref{fig:ATrainingSig50250} and \ref{fig:ATrainingSig200300} present the results for the mass combinations 
@@ -109,7 +109,7 @@ figures as discussed in the paragraphs above, but this time only including one m
 By comparing the figures, we see a small but noticeable difference in paths. Again the middle hidden layer seems to be 
 the differentiating factor. To highlight the differences, I have included a cutout, comparing the two highest nodes in the bottom unit 
 for the middle layer of both figures, \ref{fig:ATrainingSig50250Zoom} and \ref{fig:ATrainingSig200300Zoom} (in the same order).
-By studying the cutouts, we can conclude that the maxout layer not only applies a form of regularization, but also increases the long term 
+By studying the cutouts, we can conclude that the maxout layer not only applies a form of regularization, but also increases the long-term 
 memory of the model through trend specific paths through the network.
 \begin{figure}
     \makebox[\linewidth][c]{%
@@ -197,9 +197,9 @@ However, the most interesting result for the maxout model, is its ability to tun
 outperformed the maxout model for the high statistics combinations, the maxout model outperformed the dense for most other combination (26/30).
 This result can be credited to two factors. The first being maxout's effect as a form of regularization. In the previous 
 section (see section \ref{subsec:Overfitting}), I presented how through maxout's regularization abilities, it would be able to 
-uphold the early stopping criteria for a larger number of epochs. The second factor is maxout's innate long term memory which was studied
+uphold the early stopping criteria for a larger number of epochs. The second factor is maxout's innate long-term memory which was studied
 in section \ref{subsec:Viz}. From figure \ref{fig:MaxOutGridSig}, we are able to deduce that although the maxout model is not able to tune 
-to the same depth for the lower masses, it is able to achieve a large level of generalizability through reducing overfitting and increasing long term memory.\\
+to the same depth for the lower masses, it is able to achieve a large level of generalizability through reducing overfitting and increasing long-term memory.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering

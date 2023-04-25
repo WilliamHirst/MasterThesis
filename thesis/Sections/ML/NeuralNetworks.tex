@@ -149,9 +149,10 @@ which from equations \ref{eq:delta} and \ref{eq:dw} is simply
 \end{align}
 From all three derived expressions, equations \ref{eq:delta}, \ref{eq:dw} and \ref{eq:db} we see that 
 to calculate for all $l\in\{0,1,..,N_l\}$ we must first calculate $\delta_j^L$ and apply a recursive propagation.
-To calculate $\delta_j^L = \partial \mathcal{C}/\partial z^L_j$ we simply multiply by $\delta_j^L = \partial a_j^L/\partial a_j^L$, and we find
+To calculate $\delta_j^L = \partial \mathcal{C}/\partial z^L_j$ we again apply the chain rule with the assumption of the activated 
+node in the cost-function, and we find
 \begin{align}\label{eq:deltaL}
-    \delta_j^L = \frac{\partial \mathcal{C}}{\partial a^L_j}\left(\sigma^L(z_j^L)\right)'
+    \delta_j^L = \frac{\partial \mathcal{C}}{\partial a^L_j}\left(\sigma^L(z_j^L)\right)'.
 \end{align}
 This expression, similarly to equation \ref{eq:delta} is dependent on the choice of $\mathcal{C}$ and 
 the activation functions. Now that equation \ref{eq:deltaL} is defined, we can see that the
@@ -202,7 +203,7 @@ co-adaptation happens when a neuron becomes overly dominant such that neighborin
 to the dominant neuron) and therefore lack the motivation to tune. When this happens, networks become fragile and overly 
 specialized to the training data. By randomly dropping neurons, the neighboring neurons are no longer allowed to be passive 
 and are forced to tune to compensate. During evaluation, the dropout layers no longer take action. Instead, the dropout rate 
-(probability of drop) $r$ is used to scale the weights by a factor $1-r$. The prediction made by the resulting 
+(frequency of drop) $r$ is used to scale the weights by a factor $1-r$. The prediction made by the resulting 
 model can therefore be seen as the average of all the smaller networks. In other words, a neural network containing dropout-layers 
 as a bagging ensemble (see subsection \ref{subsec:Ensembles}). 
 
@@ -215,7 +216,7 @@ but instead creates local \emph{units} by grouping the nodes, and removes all no
 activation in each respective unit. The 'removed nodes' are multiplied by 0, as to remove any contributions to the next layer.
 The goal of channel-out is to create an ensemble of networks through \emph{trend specific paths},
 where each network is specialized for a given trend in the data. This would create an ensemble of networks, which not only applies a form of 
-regularization, but also improves a phenomenon known as \emph{long term memory} in the model. The phenomenon of long term memory is discussed in 
+regularization, but also improves a phenomenon known as \emph{long-term memory} in the model. The phenomenon of long-term memory is discussed in 
 the article by Srivastava et al. \cite{srivastava_compete_2013}, and is simply a measure of how well a model is able to retain information on a data set, A after 
 training on an additional training set, B. This effect is also relevant for the two layers I will discuss in the next sections.
 \\
