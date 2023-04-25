@@ -21,36 +21,36 @@ Warning--empty year in raychaudhuri_introduction_2008
 Warning--empty year in glorot_understanding_2010
 Warning--empty author in ATLAS-CONF-2011-152
 Warning--empty author in ATLAS-CONF-2017-064
-You've used 40 entries,
+You've used 41 entries,
             2188 wiz_defined-function locations,
-            807 strings with 110706 characters,
-and the built_in function-call counts, 9655 in all, are:
-= -- 889
-> -- 538
+            813 strings with 110990 characters,
+and the built_in function-call counts, 9804 in all, are:
+= -- 900
+> -- 548
 < -- 0
-+ -- 158
-- -- 118
-* -- 741
-:= -- 1418
-add.period$ -- 42
-call.type$ -- 40
-change.case$ -- 41
++ -- 161
+- -- 120
+* -- 747
+:= -- 1438
+add.period$ -- 43
+call.type$ -- 41
+change.case$ -- 42
 chr.to.int$ -- 0
-cite$ -- 45
-duplicate$ -- 423
-empty$ -- 899
-format.name$ -- 118
-if$ -- 2417
+cite$ -- 46
+duplicate$ -- 428
+empty$ -- 919
+format.name$ -- 120
+if$ -- 2456
 int.to.chr$ -- 0
-int.to.str$ -- 40
+int.to.str$ -- 41
 missing$ -- 93
-newline$ -- 128
-num.names$ -- 40
-pop$ -- 139
+newline$ -- 131
+num.names$ -- 41
+pop$ -- 148
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 273
+skip$ -- 277
 stack$ -- 0
 substring$ -- 441
 swap$ -- 136
@@ -59,7 +59,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 5
-while$ -- 80
-width$ -- 42
-write$ -- 350
+while$ -- 81
+width$ -- 43
+write$ -- 357
 (There were 5 warnings)

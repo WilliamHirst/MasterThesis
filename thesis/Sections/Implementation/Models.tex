@@ -155,7 +155,7 @@ variations of networks and \ac{BDT} used in this analysis.
     \label{fig:arch}
 \end{figure}
 \subsection*{Dense Neural Network and PNN}\label{subsec:PNNArch}
-The purpose of the simple dense \ac{NN}, is to compare the more complex networks to what is usually considered an ordinary dense \ac{NN}\footnote{Note 
+The purpose of the dense \ac{NN}, is to compare the more complex networks to what is usually considered an ordinary dense \ac{NN}\footnote{Note 
 that for the remaining part of this thesis, I will refer to this architecture as a 'dense \ac{NN}', 'ordinary dense \ac{NN}' and in some plots, just 
 \ac{NN}}.
 All layers are dense layers, meaning that all nodes in the previous layer are connected to the current layer, and likewise
@@ -163,21 +163,21 @@ the current layer is connected to the next. As is the default setting of the den
 using the so-called \emph{Glorot Uniform Initializer} (see the article by Glorot \cite{glorot_understanding_2010}, for more information). 
 The general structure of the network is summarized in figure \ref{fig:arch}, with the network label \ac{NN}. The figure shows a dense \ac{NN} with 
 three hidden layers, all with 600 nodes each. All hidden layers utilize the $LeakyReLU$ activation (see section \ref{subsec:activation})
-with an $\alpha$ = 0.01. The architecture is designed to perform deep-training, and the cost-function of the dense \ac{NN} (and all the network variants used 
+with $\alpha$ = 0.01, and the output layer utilizes the sigmoid function. The architecture is designed to perform deep-training, and the cost-function of the dense \ac{NN} (and all the network variants used 
 in this analysis) is chosen to be the binary crossentropy function introduced in section \ref{subsec:Cost}. The \ac{NN}, and all other networks in this analysis 
 utilize the \ac{ADAM} optimizer (see section \ref{subsec:ADAM}) implemented in TensorFlow\footnote{See $\href{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}$
-(Accessed:24.04.2023) for the full default parameters.}.  
+(Accessed:24.04.2023) for the full default parameters.} with the default settings.  
 \\
 The \ac{PNN} architecture is like the name suggests, included to represent the model proposed by the article by Baldi et al. \cite{PNN}.
 The architecture is illustrated in figure \ref{fig:arch}, with the label PNN. The figure shows a practically identical 
 structure to the dense-\ac{NN}, with the only difference being in the input-layer. As was discussed in section \ref{subsec:PNN},
-the \ac{PNN} includes the new physics signal free parameters\footnote{In our case, the masses of the \ac{BSM}-particles.} alongside the features
+the \ac{PNN} includes the new physics signal free parameters\footnote{In our case, the masses of the chargino and neutralino.} alongside the features
 in the input layer.
 \subsection*{MaxOut, Channel-Out and SCO}
-The ensemble methods are slightly more complex than both the dense \ac{NN} and \ac{PNN} in terms of architecture. To limit the complexity for comparison reasons
+The ensemble models are slightly more complex than both the dense \ac{NN} and \ac{PNN} in terms of architecture. To limit the complexity for comparison reasons
 I choose to build an identical architecture for maxout, channel-Out and \ac{SCO}, with the only difference being which of the three layers is used.  
-In figure \ref{fig:arch} I have illustrated the MaxOut architecture, with the label MaxOut. The figure shows a network with 6 hidden layers, 
-3 MaxOut and 3 dropout. The network alternates between drop out and MaxOut, starting with dropout and finishing with MaxOut. The MaxOut layers 
+In figure \ref{fig:arch} I have illustrated the MaxOut architecture, with the label MaxOut. The figure shows a network with six hidden layers, 
+three maxout and three dropout. The network alternates between dropout and maxout, starting with dropout and finishing with MaxOut. The MaxOut layers 
 have 600 nodes each which reduce down to the 200 nodes with the largest activation in their respective units. Each dropout layer has a dropout 
 rate of 0.15. Channel-out and \ac{SCO} have the same architecture to maxout, but replacing maxout with each of the two respectively.  
 

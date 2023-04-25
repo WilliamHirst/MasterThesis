@@ -128,6 +128,11 @@ R.~K. Srivastava, J.~Masci, S.~Kazerounian, F.~Gomez and J.~Schmidhuber,
 G.~James and D.~W. Trevor~Hastie, Robert~Tibshirani, \emph{An introduction to
   statistical learning: With applications in {R}}, .
 
+\bibitem{HirstFretteML}
+S.~Frette and W.~O. Hirst, ``Searching for the higgs through supervised and
+  unsupervised machine learning algorithms.''
+  \url{https://github.com/WilliamHirst/Advanced-Machine-Learning/blob/main/article/Project_1.pdf}.
+
 \bibitem{magnar}
 M.~Bugge, \emph{Discovery and exclusion in high energy physics},  2022.
 

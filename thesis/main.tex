@@ -102,18 +102,14 @@
 
 \backmatter{}
 %%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{appendices}
-  \numberwithin{equation}{section}
-  
-  \appendix
-  \chapter{Appendix A}
-  \renewcommand{\thechapter}{A}
-  \renewcommand{\theequation}{\thechapter.\arabic{equation}}
-  \input{Sections/Appendix/Appendix1}
-  \input{Sections/Appendix/Appendix2}
-  \input{Sections/Appendix/Appendix3}
-\end{appendices}
+\appendix
+\chapter*{Appendices}
+\addcontentsline{toc}{chapter}{Appendices}
+\renewcommand{\thesection}{\Alph{section}}
+\newpage
+\input{Sections/Appendix/Appendix1}
+\input{Sections/Appendix/Appendix2}
+\input{Sections/Appendix/Appendix3}
 
 \twocolumn{
 \printacronyms
