@@ -111,8 +111,8 @@ E.~Gramstad, \emph{Searches for supersymmetry in di-lepton final states with
   the {ATLAS} detectorat {$\sqrt s$ = 7 TeV}}, .
 
 \bibitem{kingma_adam_2017}
-D.~P. Kingma and J.~Ba, ``Adam: A method for stochastic optimization.''
-\newblock 10.48550/arXiv.1412.6980.
+D.~P. Kingma and J.~Ba, \emph{Adam: A method for stochastic optimization},
+  \href{http://arxiv.org/abs/1412.6980}{{\tt 1412.6980}}.
 
 \bibitem{StandardScaler}
 F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel

@@ -1,6 +1,6 @@
-\subsection{Negative Weights}\label{subsec:negWeights}
+\section{Handling Negative Weights in a BDT}\label{subsec:negWeights}
 In section \ref{subsec:TraVal}, I mentioned the inclusion of sample weights in the training. 
-Most weights contain small positive values, but some sample weights are negative.
+Most weights are in the range of $w_i \in [0,1]$, but some sample weights are negative.
 The negative weight problem is a well known problem in the world of \ac{ML}-analysis for \ac{HEP}, 
 and is a consequence of higher perturbative accuracy. For the purpose of visualizing 
 distributions and training a \ac{NN}, negative weights are not a problem. But, when using 
@@ -12,11 +12,11 @@ Before deciding how to mediate the issue, I decided to plot the distribution for
 a small subset of features for all the events with negative weights.
 In figure \ref{fig:lep1_Pt_Neg} and \ref{fig:lep1_Phi_Neg} I plotted the distribution of the leading 
 lepton for the features $P_t$ and $\phi$, but only including events with negative weights.
-Additionally, I drew the distribution for the full data set for the same features. By comparing the 
-distributions, we can observe that the full data set and the negative weights' subset are very 
-similar. There are differences in distributions when comparing the \ac{SM} individually, but when 
-studying the background as a whole, the two sets exhibit the same trend across all regions. 
-This means that the negative weights essentially scale the background uniformly over the full feature 
+Additionally, I drew the distribution for the full data set for the same features in figures \ref{fig:lep1_Pt_nNeg}
+and \ref{fig:lep1_Phi_nNeg}. By comparing the distributions, we can observe that the full data set and the 
+negative weights' subset are very similar. There are differences in distributions when comparing the \ac{SM} 
+individually, but when studying the background as a whole, the two sets exhibit the same trend across all 
+regions. This means that the negative weights essentially scale the background uniformly over the full feature 
 space, which motivates treating the negative weight problem uniformly over the full feature space.
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
