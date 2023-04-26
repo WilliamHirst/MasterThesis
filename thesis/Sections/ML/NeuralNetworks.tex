@@ -16,10 +16,10 @@ and the way the human mind operates, hence neural. Similarly to the human mind, 
 composed of different neurons communicating information backwards and forwards in different 
 regions. In the case of a neural network we call these regions layers. All layers
 are composed of a specified number of neurons. A \ac{NN} has three types of layers;
-\emph{input-layer}, \emph{hidden-layer} and \emph{output-layer}. There is only one input layer, and it has
+\emph{input layer}, \emph{hidden layer} and \emph{output layer}. There is only one input layer, and it has
 the same number of nodes equal to the number of features for each data point. 
-There can be an arbitrary number of hidden layers, with each hidden-layer containing
-an arbitrary number of nodes. Finally, the \ac{NN} has an output layer. The output-layer
+There can be an arbitrary number of hidden layers, with each hidden layer containing
+an arbitrary number of nodes. Finally, the \ac{NN} has an output layer. The output layer
 contains a number of nodes equal to the number of features for the target.
 \\
 The neural network functions by passing information in between the different layers through 
@@ -27,8 +27,8 @@ nodes. The nodes are simply pockets of information, each containing a value.
 All the nodes in the input layer are (in most cases) connected to all nodes in the nearest hidden layer,
 and likewise said hidden layer is connected to the next hidden layer. This structure continues
 until we reach the final layer, the output layer. The structure is illustrated in figure
-\ref{fig:NN}. The figure shows a simple \ac{NN} with a 2 dimensional data set (2 nodes in input-layer),
-2 hidden layers with three nodes each and a 1 dimensional target value. It also illustrates 
+\ref{fig:NN}. The figure shows a simple \ac{NN} with a two-dimensional data set (two nodes in input layer),
+two hidden layers with three nodes each and a one-dimensional target value. It also illustrates 
 how a \ac{NN} aims to map from data to a prediction.
 \begin{figure}
     \centering
@@ -46,16 +46,16 @@ has on the other.
 \\
 In a traditional \ac{FFNN} the information is passed linearly (in figure \ref{fig:NN}, from left to right) 
 in a process we call \emph{forward propagation}. Other variants can include the information taking a more 
-complex route. It is often the route from input- to output-layer that categorizes the type of \ac{NN}. In 
+complex route. It is often the route from input- to output layer that categorizes the type of \ac{NN}. In 
 this report I used a set of simple \ac{FFNN}'s. 
 
 \subsection{Feeding Forward}\label{subsec:FP}
 With the structure described in the previous section, a trained model, $\mathcal{F}$ produces a prediction,
-$Y$ for a data set, $X$ by passing information from input-layer, through all hidden-layers, followed by to output-layer, 
+$Y$ for a data set, $X$ by passing information from input layer, through all hidden layers, followed by to output layer, 
 which we call forward-propagation. In this section I aim to explain the underlying algorithm and math used by the 
 \ac{NN} to map input to output. 
 \\
-We imagine the passing from hidden-layer $l-1$ to $l$, where $l \in \{2,...,L \}$\footnote{There is a special
+We imagine the passing from hidden layer $l-1$ to $l$, where $l \in \{2,...,L \}$\footnote{There is a special
 case for when $l=1$ which will be addressed in the next paragraphs.} and $L$ is equal to the
 number of hidden layers. The value of a node in layer $l$, is defined as $a^l_j$ (as indicated by figure \ref{fig:NN}), 
 where $j\in \{0,1,...,N_l\}$ and $N_l$ is equal to the number of nodes in $l$. The value of $a_j^l$ is defined as 
@@ -307,7 +307,7 @@ we can utilize all the statistics at the same time, while also aiding the $\ac{N
 trends for all signal. In practice, it is aiding the \ac{NN} by adding a shift to the total output from the initial layer according to 
 the discrete distribution of the parameters. The hope is that each discrete shift will motivate a separate individualistic tuning
 for each choice of parameter. 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Figures/Illustrations/PNN.png}
     \vspace{-.8cm}

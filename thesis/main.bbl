@@ -180,13 +180,6 @@ M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
   {TeV}}, \href{http://dx.doi.org/10.1140/epjc/s10052-019-7140-6}{\emph{The
   European Physical Journal C} {\bf 79} (aug, 2019) }.
 
-\bibitem{Aad:2800889}
-{\scshape ATLAS} collaboration, G.~Aad, B.~Abbott, D.~Abbott, A.~Abed~Abud,
-  K.~Abeling, D.~Abhayasinghe et~al., \emph{{Observation of $WWW$ production in
-  $pp$ collisions at {$\sqrt{s}$} = 13 TeV with the ATLAS detector. Observation
-  of WWW Production in pp Collisions at {$\sqrt{s}$} = 13eV with the ATLAS
-  Detector}},  \href{http://arxiv.org/abs/2201.13045}{{\tt 2201.13045}}.
-
 \bibitem{tensorflow}
 M.~Abadi, A.~Agarwal, P.~Barham, E.~Brevdo, Z.~Chen, C.~Citro et~al.,
   \emph{{TensorFlow}: Large-scale machine learning on heterogeneous systems},
@@ -206,6 +199,13 @@ X.~Glorot and Y.~Bengio, \emph{Understanding the difficulty of training deep
 \bibitem{8020}
 A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
   between training and testing sets: A pedagogical explanation}, .
+
+\bibitem{Aad:2800889}
+{\scshape ATLAS} collaboration, G.~Aad, B.~Abbott, D.~Abbott, A.~Abed~Abud,
+  K.~Abeling, D.~Abhayasinghe et~al., \emph{{Observation of $WWW$ production in
+  $pp$ collisions at {$\sqrt{s}$} = 13 TeV with the ATLAS detector. Observation
+  of WWW Production in pp Collisions at {$\sqrt{s}$} = 13eV with the ATLAS
+  Detector}},  \href{http://arxiv.org/abs/2201.13045}{{\tt 2201.13045}}.
 
 \bibitem{ATLAS-CONF-2011-152}
 {\scshape ATLAS} collaboration, \emph{{Performance of the Reconstruction and
