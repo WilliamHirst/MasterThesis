@@ -1,8 +1,8 @@
-\section{Model assessment}\label{subsec:Cost}
+\section{Model Assessment}\label{subsec:Cost}
 \subsection{The Rate of True-Positve - ROC Curve}\label{subsec:AUC}
 A \ac{ROC} curve is a tool used to measure and visualize a binary classifiers' ability 
 to predict trends. In figure \ref{fig:ROC} I have plotted an illustration of a \ac{ROC} curve.
-The curve is plotted on an x-, y-axis where the x-axis represents 
+The curve is plotted on a xy-axis where the x-axis represents 
 false-positive rates and the y-axis represents true-positive. The different values 
 for the curve are the rate of true positives with different thresholds, i.e. 
 the value deciding whether an event is 1 or 0, signal or background. If a classifier 
@@ -16,12 +16,15 @@ separates two categories, is the \ac{AUC}. The higher the area, the larger the s
 An ideal classifier which perfectly separates two categories will achieve a \ac{AUC} of 1.
 A classifier which simply guesses, will achieve an \ac{AUC} of 0.5. Both this cases assume 
 an equal weighting of both signal and background. 
+\\
+This present section was taken from some of my previous work, and can be found in the following 
+rapport \cite{HirstFretteML}.
 \begin{figure}
     \centering
     \makebox[0.75\linewidth][c]{%
     \includegraphics[width=0.45\textwidth]{Figures/Illustrations/True-Positive.png}
     }
-    \caption{An illustration of a ROC curve.}
+    \caption{An illustration of a \ac{ROC} curve and how a random, good and perfect classifier would differ.}
     \label{fig:ROC}
 \end{figure}
 \subsection{Statistical Assessment - Discovery $\&$ Exclusion}\label{subsec:Sensitivity}
@@ -48,9 +51,16 @@ as
     Z=\frac{n_{o b s}-b}{\sqrt{b}} = \frac{s}{\sqrt{b}}.
 \end{align}
 By studying equation \ref{eq:Z} we observe that the significance of a deviation, is simply the signal measured in units of standard
-deviation of the Gaussian distribution. In physics, one often deems the results a discovery, or the b-hypothesis as rejected if Z is 
-larger than 5. 
+deviation of the Gaussian distribution. In physics, one often deems the results a discovery, or the b-hypothesis as rejected if $Z>5$. 
 \\
+\begin{figure}[H]
+    \centering
+    \makebox[0.8\linewidth][c]{%
+    \includegraphics[width=0.45\textwidth]{Figures/Illustrations/ConfInt.png}
+    }
+    \caption{An illustration of a Gaussian distibution and the area under the curve defined by a significance equal to 1.64.}
+    \label{fig:ConfInt}
+\end{figure}
 In the case we are not intrested in discovering physics, but simple to measure the sensitivity of a model, we can also use 
 significance. In this case we do not have $n_{obs}$. Instead we simply define s as the number of events for the simulated signal 
 inside the signal region. This number would be spesific for each mass combination and will be a measure for how sensitive 
@@ -60,14 +70,6 @@ distance from the mean of the Gaussian distibution which sums to an area of 0.95
 intepration (which is sufficient for this theisis), is that given the b-hypothesis is true, there is a $95\%$ probability that we will 
 measure a signal which produces a significance of less than 1.64. Therefore, there is only a $10\%$ probability that the b-hypothesis
 can explain the deviation. For more information on significance and discovery in physics the reader is reffered to the slides \cite{magnar}.
-\begin{figure}
-    \centering
-    \makebox[0.8\linewidth][c]{%
-    \includegraphics[width=0.45\textwidth]{Figures/Illustrations/ConfInt.png}
-    }
-    \caption{An illustration of a Gaussian distibution and the area under the curve defined by a significance equal to 1.64.}
-    \label{fig:ConfInt}
-\end{figure}
 % \subsection{Confidence Interval}
 % By defining the signal as the deviation between the simmulated and measured data, we risk missintepreting noise in either the 
 % experiment or the simmulations, as signal. If we assume that said noise is sampled from a random Gaussian distibution centered around 

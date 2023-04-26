@@ -10,7 +10,8 @@ I will not apply all previously tested models to the full statistics signal set.
 on the tests performed in the previous sections. I decided to choose one model from each "type"\footnote{By network type, I am referring to either the ordinary dense network, the 
 \ac{PNN} or a \ac{LWTA} model. } of network. Based on the results in section \ref{sec:Ensemble}, where I compared the different ensemble methods, I found the maxout model to be 
 the top performer. Likewise, in section \ref{sec:PCA} I found that both maxout and the \ac{PNN}, preferred to utilize data with a \ac{PCA}. Therefore, I will utilize the maxout model 
-and \ac{PNN} model defined in section \ref{subsec:arch}, with the use of \ac{PCA}. Finally, I will include the ordinary dense \ac{NN} for the sake of diversity.
+and \ac{PNN} model defined in section \ref{subsec:arch}, with the use of \ac{PCA}. Finally, I will include the ordinary dense \ac{NN} for the sake of diversity, but without a \ac{PCA} 
+as this was found to be preferred.
 \\
 In figure \ref{fig:NN_FS_MLMGridSig}, I have drawn a grid displaying the sensitivity of an ordinary dense \ac{NN}, on the full statistics signal set. Again, we observe that higher statistics
 mass combinations, result in a higher significance. Additionally, the dense \ac{NN} was able to achieve a sufficient significance for over 38 mass combinations, all between the ranges of 
@@ -25,7 +26,7 @@ indication that the deep networks are able to exploit overlapping regions in the
     \end{subfigure}
     }
     \caption{A grid displaying the achieved significance on the full statistics signal set, using the signal region 
-    created by the \ac{NN} network.}
+    created by the \ac{NN} network. A band around each cell with a significance over 1.64 has been included.}
     \label{fig:NN_FS_MLMGridSig}
 \end{figure}
 Figure \ref{fig:MaxOutPCA_FS_MLMGridSig} displays a grid presenting the sensitivity of the maxout model using the full statistics 
@@ -37,7 +38,7 @@ outperforms the maxout model in most of the signals (74/89). A possible explanat
 be that the dense \ac{NN} lacked the statistics when training with the original signal set. When the full statistics is included,
 the dense \ac{NN} (which is deeper than the maxout model) is able to train much deeper, which in tern increases sensitivity. 
 However, the maxout model outperforms the dense network for the low statistics combinations, again indicating the maxout layers
-ability to increase long term memory.\\
+ability to increase long-term memory.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -46,16 +47,16 @@ ability to increase long term memory.\\
     \end{subfigure}
     }
     \caption{A grid displaying the achieved significance on the full statistics signal set, using the signal region 
-    created by the \emph{MaxOut} network.}
+    created by the maxout network. A band around each cell with a significance over 1.64 has been included.}
     \label{fig:MaxOutPCA_FS_MLMGridSig}
 \end{figure}
 Finally, I applied the \ac{PNN} to the full statistics signal set. The results are found in the grid presented in figure \ref{fig:PNNPCA_FS_MLMGridSig}.
 Similarly to the tests performed with the original signal set, the \ac{PNN} is able to achieve an incredible sensitivity for the high statistics mass combinations
 ($\tilde{\chi}_2<400$). For the combinations with the highest statics ($\tilde{\chi}_2<300$), the \ac{PNN} more than doubles the achieved significance of the previous 
 to methods. For the lower statistics combinations, the \ac{PNN} drops in performance. Moreover, the performance of the \ac{PNN} on the combinations with the highest 
-statistics in the original signal set ([$\tilde{\chi}_1=250$, $\tilde{\chi}_2=400$GeV] and [$\tilde{\chi}_1=200$, $\tilde{\chi}_2=450$GeV]), has decreased by more than half.
+statistics in the original signal set ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=400$GeV and $\tilde{\chi}_1=200$, $\tilde{\chi}_2=450$GeV), has decreased by more than half.
 This is an indication that including further trends in the data was destructive for training. In other words, although the \ac{PNN} achieves impressive sensitivity towards high 
-statistics mass combinations, it suffers from the lack of long term memory which allows the maxout model to uphold performance for lower statics combinations. 
+statistics mass combinations, it suffers from the lack of long-term memory which allows the maxout model to uphold performance for lower statics combinations. 
 Finally, in comparison to the ordinary dense network and the maxout model who both achieved sufficient sensitivity for 38/89 combinations, the \ac{PNN} only did so for 33/89.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
@@ -65,14 +66,14 @@ Finally, in comparison to the ordinary dense network and the maxout model who bo
     \end{subfigure}
     }
     \caption{A grid displaying the achieved significance on the full statistics signal set, using the signal region 
-    created by the \emph{PNN} network.}
+    created by the \ac{PNN} network. A band around each cell with a significance over 1.64 has been included.}
     \label{fig:PNNPCA_FS_MLMGridSig}
 \end{figure}
 To summarize the comparisons on the full statistics signal set, I created a pie-plot in figure \ref{fig:FSComp}. As shown in the figure, the ordinary dense \ac{NN}
 achieved the highest sensitivity in most of the combinations (49/89), followed by the \ac{PNN} (25/89) and the maxout model (15/89). From the tests we can conclude that 
 the \ac{PNN} network achieves the highest sensitivity, but struggles for unbalanced data sets. On the contrary the ordinary dense neural network performs best with larger amounts of 
 training data, achieving the highest sensitivity on the most amount of combinations, but never attains the same degree of sensitivity as the \ac{PNN}. The maxout layer underperforms on 
-most combinations, but exhibits impressive training memory when attaining the highest significance on the lowest statistics combinations.
+most combinations, but exhibits impressive training memory, attaining the most balanced performance on all combinations.
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -84,7 +85,7 @@ most combinations, but exhibits impressive training memory when attaining the hi
     signal data. A \ac{PCA} analysis has been applied to the data being utilized by the latter two models.]{
     A sensitivity comparison between a dense \ac{NN}, \ac{PNN} and maxout on the full statistics 
     signal data. A \ac{PCA} analysis has been applied to the data being utilized by the latter two models.
-    The size of the "pie" represents the relative size of the significance and the color around each point 
+    The size of each "slice" represents the relative size of the significance and the color around each point 
     displays the method with the largest sensitivity for the respective combination.}
     \label{fig:FSComp}
 \end{figure}

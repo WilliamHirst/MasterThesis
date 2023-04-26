@@ -12,23 +12,63 @@ J.~Pequenao, ``{Event Cross Section in a computer generated image of the ATLAS
   {\bf 716} (2012) 1--29}, [\href{http://arxiv.org/abs/1207.7214}{{\tt
   1207.7214}}].
 
+\bibitem{SUSY}
+D.~Chung, L.~Everett, G.~Kane, S.~King, J.~Lykken and L.-T. Wang, \emph{The
+  soft supersymmetry-breaking lagrangian: theory and applications},
+  \href{http://dx.doi.org/https://doi.org/10.1016/j.physrep.2004.08.032}{\emph{Physics
+  Reports} {\bf 407} (2005) 1--203}.
+
+\bibitem{cole_probing_2021}
+A.~Cole, S.~Krippendorf, A.~Schachner and G.~Shiu, ``Probing the structure of
+  string theory vacua with genetic algorithms and reinforcement learning.''
+\newblock 10.48550/arXiv.2111.11466.
+
+\bibitem{Guest_2016}
+D.~Guest, J.~Collado, P.~Baldi, S.-C. Hsu, G.~Urban and D.~Whiteson, \emph{Jet
+  flavor classification in high-energy physics with deep neural networks},
+  \href{http://dx.doi.org/10.1103/physrevd.94.112002}{\emph{Physical Review D}
+  {\bf 94} (dec, 2016) }.
+
+\bibitem{PhysRevD.44.2025}
+J.~Pumplin, \emph{How to tell quark jets from gluon jets},
+  \href{http://dx.doi.org/10.1103/PhysRevD.44.2025}{\emph{Phys. Rev. D} {\bf
+  44} (Oct, 1991) 2025--2032}.
+
+\bibitem{baldi_searching_2014}
+P.~Baldi, P.~Sadowski and D.~Whiteson, \emph{Searching for exotic particles in
+  high-energy physics with deep learning},
+  \href{http://arxiv.org/abs/1402.4735}{{\tt 1402.4735}}.
+
+\bibitem{XGB}
+T.~Chen and C.~Guestrin, \emph{{XGBoost}: A scalable tree boosting system},  in
+  \emph{Proceedings of the 22nd ACM SIGKDD International Conference on
+  Knowledge Discovery and Data Mining}, KDD '16, (New York, NY, USA),
+  pp.~785--794, ACM, 2016.
+\newblock \href{http://dx.doi.org/10.1145/2939672.2939785}{DOI}.
+
+\bibitem{PNN}
+P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
+  \emph{Parameterized neural networks for high-energy physics},
+  \href{http://dx.doi.org/10.1140/epjc/s10052-016-4099-4}{\emph{The European
+  Physical Journal C} {\bf 76} (2016) 235}.
+
+\bibitem{wang_maxout_2013}
+Q.~Wang and J.~{JaJa}, ``From maxout to channel-out: Encoding information on
+  sparse pathways.''
+
 \bibitem{JJ}
 J.~J. T.~M. F.R.S., \emph{Xlviii. the relation between the atom and the charge
   of electricity carried by it},
   \href{http://dx.doi.org/10.1080/14786449508620801}{\emph{The London,
   Edinburgh, and Dublin Philosophical Magazine and Journal of Science} {\bf 40}
-  (1895) 511--544},
-  [\href{http://arxiv.org/abs/https://doi.org/10.1080/14786449508620801}{{\tt
-  https://doi.org/10.1080/14786449508620801}}].
+  (1895) 511--544}.
 
 \bibitem{Rutherfoord}
 P.~E.~R. F.R.S., \emph{Lxxix. the scattering of $\alpha$ and $\beta$ particles
   by matter and the structure of the atom},
   \href{http://dx.doi.org/10.1080/14786440508637080}{\emph{The London,
   Edinburgh, and Dublin Philosophical Magazine and Journal of Science} {\bf 21}
-  (1911) 669--688},
-  [\href{http://arxiv.org/abs/https://doi.org/10.1080/14786440508637080}{{\tt
-  https://doi.org/10.1080/14786440508637080}}].
+  (1911) 669--688}.
 
 \bibitem{Reines}
 F.~Reines and C.~L. Cowan, \emph{{The neutrino}},
@@ -39,7 +79,7 @@ F.~Reines and C.~L. Cowan, \emph{{The neutrino}},
 J.~Bernstein, \emph{Spontaneous symmetry breaking, gauge theories, the higgs
   mechanism and all that},
   \href{http://dx.doi.org/10.1103/RevModPhys.46.7}{\emph{Rev. Mod. Phys.} {\bf
-  46} (Jan, 1974) 7--48}.
+  46} (Jan, 1974) 7--GS}.
 
 \bibitem{NeutrinoMass}
 {\scshape Super-Kamiokande Collaboration} collaboration, Y.~Fukuda,
@@ -66,26 +106,9 @@ O.~Antipin, D.~Atwood and A.~Soni, \emph{Search for rs gravitons via wlwl
 E.~Oks, \emph{Brief review of recent advances in understanding dark matter and
   dark energy}, .
 
-\bibitem{SUSY}
-D.~Chung, L.~Everett, G.~Kane, S.~King, J.~Lykken and L.-T. Wang, \emph{The
-  soft supersymmetry-breaking lagrangian: theory and applications},
-  \href{http://dx.doi.org/https://doi.org/10.1016/j.physrep.2004.08.032}{\emph{Physics
-  Reports} {\bf 407} (2005) 1--203}.
-
 \bibitem{gramstad_searches_nodate}
 E.~Gramstad, \emph{Searches for supersymmetry in di-lepton final states with
   the {ATLAS} detectorat {$\sqrt s$ = 7 TeV}}, .
-
-\bibitem{Guest_2016}
-D.~Guest, J.~Collado, P.~Baldi, S.-C. Hsu, G.~Urban and D.~Whiteson, \emph{Jet
-  flavor classification in high-energy physics with deep neural networks},
-  \href{http://dx.doi.org/10.1103/physrevd.94.112002}{\emph{Physical Review D}
-  {\bf 94} (dec, 2016) }.
-
-\bibitem{PhysRevD.44.2025}
-J.~Pumplin, \emph{How to tell quark jets from gluon jets},
-  \href{http://dx.doi.org/10.1103/PhysRevD.44.2025}{\emph{Phys. Rev. D} {\bf
-  44} (Oct, 1991) 2025--2032}.
 
 \bibitem{kingma_adam_2017}
 D.~P. Kingma and J.~Ba, ``Adam: A method for stochastic optimization.''
@@ -101,26 +124,14 @@ R.~K. Srivastava, J.~Masci, S.~Kazerounian, F.~Gomez and J.~Schmidhuber,
   \emph{Compete to compute},  in \emph{Advances in Neural Information
   Processing Systems}, vol.~26, Curran Associates, Inc.
 
-\bibitem{wang_maxout_2013}
-Q.~Wang and J.~{JaJa}, ``From maxout to channel-out: Encoding information on
-  sparse pathways.''
-
-\bibitem{PNN}
-P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
-  \emph{Parameterized neural networks for high-energy physics},
-  \href{http://dx.doi.org/10.1140/epjc/s10052-016-4099-4}{\emph{The European
-  Physical Journal C} {\bf 76} (2016) 235}.
-
 \bibitem{huang_introduction_2014}
 G.~James and D.~W. Trevor~Hastie, Robert~Tibshirani, \emph{An introduction to
   statistical learning: With applications in {R}}, .
 
-\bibitem{XGB}
-T.~Chen and C.~Guestrin, \emph{{XGBoost}: A scalable tree boosting system},  in
-  \emph{Proceedings of the 22nd ACM SIGKDD International Conference on
-  Knowledge Discovery and Data Mining}, KDD '16, (New York, NY, USA),
-  pp.~785--794, ACM, 2016.
-\newblock \href{http://dx.doi.org/10.1145/2939672.2939785}{DOI}.
+\bibitem{HirstFretteML}
+S.~Frette and W.~O. Hirst, ``Searching for the higgs through supervised and
+  unsupervised machine learning algorithms.''
+  \url{https://github.com/WilliamHirst/Advanced-Machine-Learning/blob/main/article/Project_1.pdf}.
 
 \bibitem{magnar}
 M.~Bugge, \emph{Discovery and exclusion in high energy physics},  2022.
@@ -152,10 +163,15 @@ W.~McKinney, \emph{Data structures for statistical computing in python},  in
   and J.~Millman, eds.), pp.~51 -- 56, 2010.
 
 \bibitem{franchini_search_2019}
-M.~Franchini, K.~H. Mankinen, G.~Carratta, F.~Scutti, A.~Gorisek, E.~Lytken
-  et~al., \emph{Search for type-{III} seesaw heavy leptons in dilepton final
-  states in $pp$ collisions at {$\sqrt{s}$} = 13 {TeV} with the {ATLAS}
-  detector}, .
+A.~Collaboration, \emph{Search for type-{III} seesaw heavy leptons in dilepton
+  final states in pp collisions at {$\sqrt s$ = 13 TeV} with the {ATLAS}
+  detector},  \href{http://arxiv.org/abs/2008.07949}{{\tt 2008.07949}}.
+
+\bibitem{atlas_search_2021}
+A.~Collaboration, \emph{Search for chargino--neutralino pair production in
+  final states with three leptons and missing transverse momentum in
+  {$\sqrt{s}$} = 13 {TeV} pp collisions with the {ATLAS} detector},
+  \href{http://arxiv.org/abs/2106.01676}{{\tt 2106.01676}}.
 
 \bibitem{Aaboud_2019}
 M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
@@ -169,10 +185,7 @@ M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
   K.~Abeling, D.~Abhayasinghe et~al., \emph{{Observation of $WWW$ production in
   $pp$ collisions at {$\sqrt{s}$} = 13 TeV with the ATLAS detector. Observation
   of WWW Production in pp Collisions at {$\sqrt{s}$} = 13eV with the ATLAS
-  Detector}},
-  \href{http://dx.doi.org/10.1103/PhysRevLett.129.061803}{\emph{Phys. Rev.
-  Lett.} {\bf 129} (2022) 061803}, [\href{http://arxiv.org/abs/2201.13045}{{\tt
-  2201.13045}}].
+  Detector}},  \href{http://arxiv.org/abs/2201.13045}{{\tt 2201.13045}}.
 
 \bibitem{tensorflow}
 M.~Abadi, A.~Agarwal, P.~Barham, E.~Brevdo, Z.~Chen, C.~Citro et~al.,
@@ -181,8 +194,8 @@ M.~Abadi, A.~Agarwal, P.~Barham, E.~Brevdo, Z.~Chen, C.~Citro et~al.,
 
 \bibitem{GS}
 P.~Liashchynskyi and P.~Liashchynskyi, \emph{Grid search, random search,
-  genetic algorithm: A big comparison for nas},  2019.
-\newblock 10.48550/ARXIV.1912.06059.
+  genetic algorithm: A big comparison for {NAS}},
+  \href{http://arxiv.org/abs/1912.06059}{{\tt 1912.06059}}.
 
 \bibitem{glorot_understanding_2010}
 X.~Glorot and Y.~Bengio, \emph{Understanding the difficulty of training deep
@@ -202,11 +215,5 @@ A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
 \bibitem{ATLAS-CONF-2017-064}
 {\scshape ATLAS} collaboration, \emph{{Performance of Top Quark and W Boson
   Tagging in Run 2 with ATLAS}},  tech. rep., CERN, Geneva, 2017.
-
-\bibitem{atlas_search_2021}
-A.~Collaboration, \emph{Search for chargino--neutralino pair production in
-  final states with three leptons and missing transverse momentum in
-  {$\sqrt{s}$} = 13 {TeV} pp collisions with the {ATLAS} detector},
-  \href{http://arxiv.org/abs/2106.01676}{{\tt 2106.01676}}.
 
 \end{thebibliography}\endgroup

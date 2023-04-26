@@ -1,12 +1,13 @@
 \section{Tools and Data}
 Every year technology for generating and measuring particle collisions is improving. 
-As a consequence, the amount of data increases drastically. The ATLAS experiment
+As a consequence, the amount of data increases drastically. The \ac{ATLAS} experiment
 is one of the largest particle detector experiments currently operating at the 
-CERN laboratory near Geneva. ATLAS alone generates approximately 1 petabyte of raw
-data every second from proton-proton collisions at the \ac{LHC}. 
-With amounts of data this large, data handling and storing is a big challenge. 
-Therefore, taking advantage of sophisticated numerical tools and data frameworks is
-pivotal if scientific development is to keep up with technological development.
+CERN laboratory near Geneva. \ac{ATLAS} alone generates approximately 1 petabyte of raw
+data every second from proton-proton collisions at the \ac{LHC}. In this analysis I will 
+be studying proton-proton collisions produced by \ac{ATLAS} between 2015-2018, with a luminosity of 
+$139.0fb^{-1}$ and center of mass energy of 13TeV. With amounts of data this large, data handling and 
+storing is a big challenge. Therefore, taking advantage of sophisticated numerical tools 
+and data frameworks is pivotal if scientific development is to keep up with technological development.
 \\
 In this section I will cover some tools and frameworks I have used to 
 complete my analysis. Large amounts of details and explanations will not be covered. 
@@ -18,15 +19,15 @@ Up to this point in the thesis, I have discussed two data sets: the measured col
 As far as my relation to the latter data set, I have only used it directly in my analysis and have not been involved in 
 production. The simulations applied in the creation of our simulated data set are all based on \acf{MC} simulations\footnote{For 
 more information on \ac{MC} simulation, the reader is referred to \cite{raychaudhuri_introduction_2008}.}, produced 
-by the popular frameworks like, \emph{$MadGraph5\_aMC@NLO$} and \emph{$Pythia 8.2$} \cite{alwall_automated_2014, sjostrand_introduction_2015}. 
-Through simulation, we are able to (among other things): test our understanding of the detector, model the expected \ac{SM} background 
+by the popular frameworks like, \emph{$MadGraph5\_aMC@NLO$} and \emph{$Pythia\ 8.2$} \cite{alwall_automated_2014, sjostrand_introduction_2015}. 
+Through simulation, we are able to (among other things); test our understanding of the detector, model the expected \ac{SM} background 
 events in different regions or model new \ac{BSM} physics. The pipeline for producing simulated events, closely mimic the pipeline 
 from real collision to data set. The pipeline for simulating collision events can be summarized in the following steps
 \begin{itemize}
-  \item \textbf{Generate events}: Simulate each event in the collision, marking each event with the corresponding process (see section \ref{sec:bkg})
-  \item \textbf{Simulate detection of events}: Simulate the detection of each event in the different layers of the detector described in section \ref{subsec:Detector}
-  \item \textbf{Digitization}: Translate the interaction between the events and the detector to real signals
-  \item \textbf{Reconstruct events}: Go through the same steps applied to real collisions to reconstruct particles from signals
+  \item \emph{Generate events}: Simulate each event in the collision, marking each event with the corresponding process (see section \ref{sec:bkg})
+  \item \emph{Simulate detection of events}: Simulate the detection of each event in the different layers of the detector described in section \ref{subsec:Detector}
+  \item \emph{Digitization}: Translate the interaction between the events and the detector to real signals
+  \item \emph{Reconstruct events}: Go through the same steps applied to real collisions to reconstruct particles from signals
 \end{itemize}
 \subsection{The Simulated Signal}\label{subsec:signal}
 As I have mentioned in previous sections I will be searching for a large range of signals, all related to the same
@@ -35,7 +36,7 @@ searched for in this analysis. The figure shows the data set containing masses r
 and $m({\tilde{\chi}_2})\in[100,800]$.\footnote{The chargino, $\tilde{\chi}^{\pm}_1$ and $\tilde{\chi}_2$ are mass degenerate, 
 meaning they share the same mass.} In the beginning of my analysis I only received a subset (which will be referred to as the 
 \emph{original} data set.) of the full signal set. In the figure I have marked the original data set with a white label in the top 
-right corner of the box. The orignal signal set contains a total of 30 different mass combinations in the range from 
+right corner of the box. The original signal set contains a total of 30 different mass combinations in the range from 
 $m({\tilde{\chi}_1})\in[0,400]$ and $m({\tilde{\chi}_2})\in[400,800]$. In the full signal data set there are a total of 90 different 
 mass combinations.
 \\
@@ -45,13 +46,14 @@ when studying the models and finally comparing limits.
 \begin{figure}
   \centering
   \includegraphics[width=0.85\textwidth]{Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf}
-  \caption{A depiction of all mass combinations and their respective event count in the full signal data set.}
+  \caption{A depiction of all mass combinations and their respective event count in the full signal data set.
+  Additionally, a white corner has been added to all combinations which define the original signal set.}
   \label{fig:nrSignal}
 \end{figure}
 \subsection{ROOT}
 In many aspects of my analysis, ranging from statistical analysis to plotting, I utilize the ROOT framework.
 ROOT \cite{ROOT} is at its core a large $C{++}$ library and data structure made specifically for big data
-analysis and computing, as well as data visualization. Today, all ATLAS data is stored as a ROOT-file along
+analysis and computing, as well as data visualization. Today, all \ac{ATLAS} data is stored as a ROOT-file along
 with more than 1 exabyte ($10^{12}$) of data worldwide. ROOT has many \ac{HPC} qualities which makes it ideal for particle
 physics analysis which demands heavy computations. Additionally, many particle physics-specific packages
 have been developed to make it an even better tool. Any function not already in library,
@@ -77,7 +79,7 @@ given that not all variables are relevant for all events. For example the $P_t$ 
 When starting preprocessing, I load the NTuples into another ROOT data structure called RDataFrame\footnote{For full 
 documentation on RDataFrame, see $\href{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}$ (Accessed 16.04.2023).}. 
 RDataFrame allows for easy addition of new columns as well as filtering of events through native functionality. As 
-a consequence I used RDataFrame to calculate all higher-level features such as the stransverse mass $(M_{T2}$), 
+a consequence I used RDataFrame to calculate all higher-level features such as the sum of $P_t$ ($H_t$), 
 invariant mass of 3 leptons ($M_{lll}$) etc. An example is shown in the following section. 
 \\
 After all data handling was complete, I used ROOT's $AsNumpy$ function to translate the data frame as 
@@ -91,7 +93,7 @@ to take advantage of the plotting functionality in ROOT. The workflow of the met
   \centering
   \includegraphics[width=0.7\textwidth]{Figures/Illustrations/TaskFlow.png}
   \vspace{-1cm}
-  \caption{A visual summary of the workflow and framework use for the 
+  \caption{A visual summary of the workflow and frameworks used in the 
   computational analysis. }
   \label{fig:WF}
 \end{figure}
@@ -131,7 +133,7 @@ for calculation and plotting. In the code written in listing \ref{lst:df_mlll}, 
 of loading new $C{++}$-functions, filtering out bad events, calculating new features and adding said 
 features to a histogram. The first three lines of code both process and include the helperfunctions 
 into the ROOT framework. Then I loop over all keys in the data frame, which in my case
-are the different channels (i.e Diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
+are the different channels (i.e diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
 based on the criteria from section \ref{subsec:Cuts}. Then, I use RDataFrame's $Define$ function to calculate
 and add a new feature using our $ComputeInvariantMass$-function. Finally, I save the feature as ROOT object called 
 $Histo1D$, which I later plot using ROOT plotting \ac{API}'s. In this example I chose the trilepton invariant mass, 

@@ -42,15 +42,15 @@ the second captures the most variation orthogonal to the first and so on. Before
 scale the data, to ensure a realistic representation of the variance in each feature.  We can summarize the algorithm of the 
 \ac{PCA} in the following 6 steps:
 \begin{itemize}
-    \item $\textbf{First}$: Center the data around 0 by subtracting the mean from each feature.
-    \item $\textbf{Second}$: Calculate the covariance matrix to find the covariance 
+    \item $\emph{First}$: Center the data around 0 by subtracting the mean from each feature.
+    \item $\emph{Second}$: Calculate the covariance matrix to find the covariance 
                              of each feature pair.
-    \item $\textbf{Third}$: Calculate the eigenvalue and eigenvectors of the covariance matrix.
-    \item $\textbf{Fourth}$: Order the eigenvector by size of the eigenvalues to define the directions 
+    \item $\emph{Third}$: Calculate the eigenvalue and eigenvectors of the covariance matrix.
+    \item $\emph{Fourth}$: Order the eigenvector by size of the eigenvalues to define the directions 
                              in the feature space with the largest variance.
-    \item $\textbf{Fifth}$: Cast the data along these directions to form a new data set with 
+    \item $\emph{Fifth}$: Cast the data along these directions to form a new data set with 
                              the new features ranked from largest to lowest variance.
-    \item $\textbf{Sixth}$: Remove the features with the least variance according to some threshold
+    \item $\emph{Sixth}$: Remove the features with the least variance according to some threshold
                             defined by the user.                      
 \end{itemize}
 The threshold mentioned in the final point, is decided by the user, and defines how much of the variance from the original data 

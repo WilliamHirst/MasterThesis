@@ -7,8 +7,8 @@ the category of models I wanted to build. In other words, I wanted to ensure tha
 a result of poorly chosen number of layers or nodes. Therefore, I wanted to relieve as much randomness in the choice of architecture as possible.
 \\
 In this section I present a comparison between the results from two ordinary dense \ac{NN}, one deep and one shallow. The deep network 
-uses the dense \ac{NN} architecture described in \ref{subsec:arch}, while the shallow network uses the same amount of hidden layers,
-but with only 20 nodes in each. The comparison represents a sample of networks I choose to compare when deciding the number of nodes and 
+uses the dense \ac{NN} architecture described in \ref{subsec:arch}, while the shallow network uses the same activation functions and amount of hidden layers,
+but with only 20 nodes in each layer. The comparison represents a sample of networks I choose to compare when deciding the number of nodes and 
 hidden layers would be used in the analysis. Both networks, deep and shallow utilized the training strategy described in section 
 \ref{subsec:TrainingStrategy}.\\
 In figure \ref{fig:NNshallowGridSig}, I drew a grid displaying the achieved sensitivity for the shallow 
@@ -79,7 +79,7 @@ which lay in the edges of the grid.} in the figure \ref{fig:SeveralMass} and eve
     }
     \caption[Two grids displaying the achieved significance on a subset of the full signal set, using the signal region 
     created by two dense \ac{NN}'s, each training on different amounts of signal.]{Two grids displaying the achieved significance 
-    on a subset of the full signal set, using the signal region created by the \ac{NN}. Figure \ref{fig:OneMass} presents the results 
+    on a subset of the full signal set, using the signal region created by two dense \ac{NN}'s. Figure \ref{fig:OneMass} presents the results 
     from a model who has only seen one mass combination during training, ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV). Figure 
     \ref{fig:SeveralMass} presents the results from a model who has seen all mass combinations in the grid, but for the inner square of masses. }
     \label{fig:Interpolation}
@@ -114,8 +114,8 @@ to overfitting.
     }
     \caption[The comparison of the training history of two \ac{NN}'s, each training on different amounts of signal.]{
     A plot displaying the \ac{AUC} score made after each epoch on both the training and validation set. 
-    Figure \ref{fig:oneMassHist} shows the results from the one-mass model and figure \ref{fig:SeveralMassHist} shows
-    the results from the several-masses model.}
+    Figure \ref{fig:oneMassHist} shows the results from the \ac{OMM} and figure \ref{fig:SeveralMassHist} shows
+    the results from the \ac{SMM}.}
     \label{fig:InterpolateHistory}
 \end{figure}
 \\

@@ -38,9 +38,12 @@
 \frontmatter{}
 \input{Sections/Abstract/Abstract}
 \input{Sections/Acknow}
+\begingroup
+\pagestyle{plain}
 \tableofcontents{}
 \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 \listoffigures
+\endgroup
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mainmatter{}
@@ -51,8 +54,8 @@
 \input{Sections/SM/TheForces}
 \input{Sections/SM/BSM}
 \input{Sections/SM/ProtonProton}
-\input{Sections/SM/Background}
 \input{Sections/SM/Signal}
+\input{Sections/SM/Background}
 
 
 
@@ -99,18 +102,14 @@
 
 \backmatter{}
 %%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{appendices}
-  \numberwithin{equation}{section}
-  
-  \appendix
-  \chapter{Appendix A}
-  \renewcommand{\thechapter}{A}
-  \renewcommand{\theequation}{\thechapter.\arabic{equation}}
-  \input{Sections/Appendix/Appendix1}
-  \input{Sections/Appendix/Appendix2}
-  \input{Sections/Appendix/Appendix3}
-\end{appendices}
+\appendix
+\chapter*{Appendices}
+\addcontentsline{toc}{chapter}{Appendices}
+\renewcommand{\thesection}{\Alph{section}}
+\newpage
+\input{Sections/Appendix/Appendix1}
+\input{Sections/Appendix/Appendix2}
+\input{Sections/Appendix/Appendix3}
 
 \twocolumn{
 \printacronyms

@@ -10,7 +10,7 @@ as a loose benchmark.
 \\
 The choice of the three network architectures is motivated in wanting to compare three relatively different approaches.
 Especially in how they perform with a diverse data set. The \ac{LWTA} models apply trend specific paths, the \ac{PNN} includes 
-the parameter of each mass combination, and dense \ac{NN} relies on a deep set of weights and biases to uphold long term memory.
+the parameter of each mass combination, and dense \ac{NN} relies on a deep set of weights and biases to uphold long-term memory.
 I would assume that the optimal architecture would be a network which combines elements from each, but for the purpose of discussion
 and research I have chosen to keep them somewhat separate. 
 \\
@@ -19,19 +19,20 @@ This choice was rooted in several factors, for example that TensorFlow has an in
 \ac{HPC} attributes, and it includes a large diversity in functionality, which allows for experimentation.
 \subsection{Creating Custom Layers}\label{subsec:CustomLayer}
 The field of \ac{ML} is one of the most dynamic and fastest growing fields of research
-today. This means, that regardless of the brave attempt made by voluntary contributors and many large companies,
+today. This means, that regardless of the brave attempt made by voluntary contributors and many large tech companies,
 there will always be new and exciting \ac{ML} tools and algorithm, not yet implemented in their library. This was 
 certainly the case in this thesis. For several of the non-dense layers I was forced
 to dive into the world of \ac{ML} development and create my own implementation. 
 \\
-All ensemble methods described in section \ref{subsec:LWTA} (except for dropout), channel-out, 
+All \ac{LWTA} methods described in section \ref{subsec:LWTA}, channel-out, 
 \ac{SCO} and maxout, resemble a layer already implemented by TensorFlow. This layer is called 
 MaxPooling1D\footnote{For more information on MaxPoolind1D, the reader is referred to the documentation 
 ($\href{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}$,
 accessed 24.03.2023).}. But, to allow for experimentation I decided to not use MaxPooling1D, but instead 
 implement my own custom layers. All custom layers were implemented by creating new functions inside 
 TensorFlow's dense layer, which are called when the network makes a prediction. In the following sections 
-I will describe the algorithms underlying the implementation of each layer.
+I will describe the algorithms underlying the implementation of each layer. For the actual python/TensorFlow implementation,
+see the appendix \ref{sec:TFImp}.
 \subsubsection*{Channel-Out}
 In algorithm \ref{alg:channel-out} I summarized the implementation of channel-out used in this analysis. For each 
 input which is to be passed through a forward-pass, the function first passes it through the weights and biases 
@@ -43,28 +44,28 @@ the output to the original shape and return the output.
     \caption{The pseudocode for implementing the channel-out layer in TensorFlow}\label{alg:channel-out}
     \begin{algorithmic}[1]
     \State def \textbf{Channel-out}(Input): 
-    \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms.
+    \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms
     \State \ \ \ \ $Input \gets Input \times Weights$
     \State \ \ \ \ $Input \gets Input + Bias$
     \\
     \State \ \ \ \ $\%$ Reshape input into units
     \State \ \ \ \ $Input \gets \textbf{Reshape}(Input,(Nr\ Units,\ Size \ of \ Units))$
     \\
-    \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit.
+    \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit
     \State \ \ \ \ $Output \gets \textbf{Max}(Input)$
     \\
-    \State \ \ \ \ $\%$ Set original activation where activation is largest and 0 where it's not.
+    \State \ \ \ \ $\%$ Set original activation where activation is largest and 0 where it's not
     \State \ \ \ \ $Output \gets \textbf{Where}(Input == Output, Input,0)$
     \\
-    \State \ \ \ \ $\%$ Reshape to original size.
+    \State \ \ \ \ $\%$ Reshape to original size
     \State \ \ \ \ $Output \gets \textbf{Reshape}(Output,(Input's \ Original \ Shape))$
     \State \ \ \ \ $\textbf{return}\ Output$
     \end{algorithmic}
 \end{algorithm}
 \subsubsection*{SCO}
 In section \ref{subsubsec:stochchannelout} I described how \ac{SCO} is an extension of channel-out. This is certainly
-also the case for the algorithms explaining the implementation. In algorithm \ref{alg:SCO} I have described 
-algorithm used in the implementation of \ac{SCO} in this analysis. Similar to channel-out, the algorithm begins by 
+also the case for the algorithms explaining the implementation. In algorithm \ref{alg:SCO} I have described the
+algorithm used in the implementation of \ac{SCO}. Similar to channel-out, the algorithm begins by 
 passing input through weights and biases. Then, contrary to channel-out the nodes of the input are shuffled. This 
 is to ensure that when the input is reshaped (in line 10), the units are made differently for each pass through 
 the function. Again the maximum activation is found to create a new variable, this time called $OutputShuffle$. 
@@ -76,7 +77,7 @@ $Output$ and returned.
     \caption{The pseudocode for implementing the SCO layer in TensorFlow}\label{alg:SCO}
     \begin{algorithmic}[1]
     \State def \textbf{SCO}(Input): 
-    \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms.
+    \State \ \ \ \ $\%$ Pass input through weight kernel and adding bias terms
     \State \ \ \ \ $Input \gets Input \times Weights$
     \State \ \ \ \ $Input \gets Input + Bias$
     \\
@@ -86,19 +87,19 @@ $Output$ and returned.
     \State \ \ \ \ $\%$ Reshape input into units
     \State \ \ \ \ $InputShuflle \gets \textbf{Reshape}(InputShuflle,(Nr\ Units,\ Size \ of \ Units))$
     \\
-    \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit.
+    \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit
     \State \ \ \ \ $OutputShuffle \gets \textbf{Max}(InputShuflle)$
     \\
-    \State \ \ \ \ $\%$ Set 1 where activation is largest and 0 where not.
+    \State \ \ \ \ $\%$ Set 1 where activation is largest and 0 where not
     \State \ \ \ \ $OutputShuffle \gets \textbf{Where}(InputShuflle == OutputShuffle, 1,0)$
     \\
     \State \ \ \ \ $\%$ Un-shuffle all the values
     \State \ \ \ \ $Output \gets \textbf{UnShuffle}(OutputShuffle)$
     \\
-    \State \ \ \ \ $\%$ Reshape to original size.
+    \State \ \ \ \ $\%$ Reshape to original size
     \State \ \ \ \ $Output \gets \textbf{Reshape}(Output,(Input's \ Original \ Shape))$
     \\
-    \State \ \ \ \ $\%$ Multiply input with output to set all input that are not the largest, to zero.
+    \State \ \ \ \ $\%$ Multiply input with output to set all input that are not the largest, to zero
     \State \ \ \ \ $NewOutput \gets Input \times Output$
     \\
     \State \ \ \ \ $\textbf{return}\ NewOutput$
@@ -108,7 +109,7 @@ $Output$ and returned.
 In algorithm \ref{alg:maxout} I have summarized the algorithm behind the implementation of the maxout layer.
 Off the three layers (channel-out, \ac{SCO} and maxout), maxout was the simplest to implement. After passing 
 the input through the weights and biases and reshaped to form the units, the input is reduced to only include 
-the largest activation in each layer. Finally, the output is reshaped to the original shape and returned.
+the largest activation in each layer. Finally, the output is reshaped to the size equal to the number of units.
 \begin{algorithm}
     \caption{The pseudocode for implementing the maxout layer in TensorFlow}\label{alg:maxout}
     \begin{algorithmic}[1]
@@ -123,7 +124,7 @@ the largest activation in each layer. Finally, the output is reshaped to the ori
     \State \ \ \ \ $\%$ Reduce input to the largest activation in each unit
     \State \ \ \ \ $Output \gets \textbf{Max}(Input)$
     \\
-    \State \ \ \ \ $\%$ Reshape to size equal the number of units.
+    \State \ \ \ \ $\%$ Reshape to size equal the number of units
     \State \ \ \ \ $Output \gets \textbf{Reshape}(Input,(Nr \ Units))$
     \State \ \ \ \ $\textbf{return}\ Input$
     \end{algorithmic}
@@ -139,7 +140,8 @@ of mysticism. The second is the size of the data set. The larger the data set, t
 would be needed to adequately perform tests for each combination of parameters. Not only is this time-consuming,
 but trying to mediate this issue could lead to poor performance. The third and most important reason is that 
 I wanted to experiment with the architectures. By manually tuning the parameters, I was able to achieve a far 
-better understanding of the final architecture. 
+better understanding of the final architecture. In the following sections I will describe the architecture of all the 
+variations of networks and \ac{BDT} used in this analysis.
 \begin{figure}
     \makebox[0.9\linewidth][c]{%
     \centering
@@ -148,12 +150,12 @@ better understanding of the final architecture.
         \includegraphics[width=\textwidth]{Figures/Illustrations/architecture.png}
     \end{subfigure}
     }
-    \caption{A visual summary of the network architectures used in this analysis, for the ordinary dense \ac{NN}, the \ac{PNN}
-    and the maxout model.}
+    \caption{A visual summary of the network architectures used in this analysis, for the ordinary dense \ac{NN}(top), the \ac{PNN}(middel)
+    and the maxout model(bottom).}
     \label{fig:arch}
 \end{figure}
 \subsection*{Dense Neural Network and PNN}\label{subsec:PNNArch}
-The purpose of the simple dense \ac{NN}, is to compare the more complex networks to what is usually considered an ordinary dense \ac{NN}\footnote{Note 
+The purpose of the dense \ac{NN}, is to compare the more complex networks to what is usually considered an ordinary dense \ac{NN}\footnote{Note 
 that for the remaining part of this thesis, I will refer to this architecture as a 'dense \ac{NN}', 'ordinary dense \ac{NN}' and in some plots, just 
 \ac{NN}}.
 All layers are dense layers, meaning that all nodes in the previous layer are connected to the current layer, and likewise
@@ -161,19 +163,21 @@ the current layer is connected to the next. As is the default setting of the den
 using the so-called \emph{Glorot Uniform Initializer} (see the article by Glorot \cite{glorot_understanding_2010}, for more information). 
 The general structure of the network is summarized in figure \ref{fig:arch}, with the network label \ac{NN}. The figure shows a dense \ac{NN} with 
 three hidden layers, all with 600 nodes each. All hidden layers utilize the $LeakyReLU$ activation (see section \ref{subsec:activation})
-with an $\alpha$ = 0.01. The architecture is designed to perform deep-training, and the cost-function of the dense \ac{NN} (and all the network variants used 
-in this analysis) is chosen to be the binary crossentropy function introduced in section \ref{subsec:Cost}. 
+with $\alpha$ = 0.01, and the output layer utilizes the sigmoid function. The architecture is designed to perform deep-training, and the cost-function of the dense \ac{NN} (and all the network variants used 
+in this analysis) is chosen to be the binary crossentropy function introduced in section \ref{subsec:Cost}. The \ac{NN}, and all other networks in this analysis 
+utilize the \ac{ADAM} optimizer (see section \ref{subsec:ADAM}) implemented in TensorFlow\footnote{See $\href{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}$
+(Accessed:24.04.2023) for the full default parameters.} with the default settings.  
 \\
 The \ac{PNN} architecture is like the name suggests, included to represent the model proposed by the article by Baldi et al. \cite{PNN}.
 The architecture is illustrated in figure \ref{fig:arch}, with the label PNN. The figure shows a practically identical 
 structure to the dense-\ac{NN}, with the only difference being in the input-layer. As was discussed in section \ref{subsec:PNN},
-the \ac{PNN} includes the new physics signal free parameters\footnote{In our case, the masses of the \ac{BSM}-particles.} alongside the features
+the \ac{PNN} includes the new physics signal free parameters\footnote{In our case, the masses of the chargino and neutralino.} alongside the features
 in the input layer.
 \subsection*{MaxOut, Channel-Out and SCO}
-The ensemble methods are slightly more complex than both the dense \ac{NN} and \ac{PNN} in terms of architecture. To limit the complexity for comparison reasons
+The ensemble models are slightly more complex than both the dense \ac{NN} and \ac{PNN} in terms of architecture. To limit the complexity for comparison reasons
 I choose to build an identical architecture for maxout, channel-Out and \ac{SCO}, with the only difference being which of the three layers is used.  
-In figure \ref{fig:arch} I have illustrated the MaxOut architecture, with the label MaxOut. The figure shows a network with 6 hidden layers, 
-3 MaxOut and 3 dropout. The network alternates between drop out and MaxOut, starting with dropout and finishing with MaxOut. The MaxOut layers 
+In figure \ref{fig:arch} I have illustrated the MaxOut architecture, with the label MaxOut. The figure shows a network with six hidden layers, 
+three maxout and three dropout. The network alternates between dropout and maxout, starting with dropout and finishing with MaxOut. The MaxOut layers 
 have 600 nodes each which reduce down to the 200 nodes with the largest activation in their respective units. Each dropout layer has a dropout 
 rate of 0.15. Channel-out and \ac{SCO} have the same architecture to maxout, but replacing maxout with each of the two respectively.  
 

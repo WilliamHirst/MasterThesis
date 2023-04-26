@@ -7,7 +7,7 @@ the dimensionality of the data set, while at the same time preserving most of th
 section I will present the results of training on a data set which has gone through such a \ac{PCA}.
 \\
 In this analysis I performed a \ac{PCA} on the data set, and demanded that $99.99\%$ of the variance 
-should be preserved. In doing so, 5 features were removed. Inn appendix \ref{appendix:PCA}, I have included 
+should be preserved. In doing so, five features were removed. Inn appendix \ref{appendix:PCA}, I have included 
 the grids displaying the new sensitivity for the original signal set, using data which has gone through a \ac{PCA}. 
 In figure \ref{fig:PCAComp2}, I have included two pie-plots comparing the sensitivity of the maxout (\ref{fig:MaxOutPCAComp})
 and the (\ref{fig:PNNPCAComp}) with and without a \ac{PCA}.\\
@@ -30,7 +30,7 @@ and the (\ref{fig:PNNPCAComp}) with and without a \ac{PCA}.\\
     \caption[Two pie-plots comparing the sensitivity on the original signal set, where each figure shows the comparison between a model (maxout and \ac{PNN}) training on data 
     with and without a \ac{PCA}.]{Two pie-plots comparing sensitivity on the original signal set, where each figure shows the comparison between a model training on data 
     with and without a \ac{PCA}. Figure \ref{fig:MaxOutPCAComp} displays the comparison for the maxout model, and likewise figure \ref{fig:PNNPCAComp} 
-    for the \ac{PNN}. The size of the "pie" represents the relative size of the significance and the color around each 
+    for the \ac{PNN}. The size of each "slice" represents the relative size of the significance and the color around each 
     point displays the method with the largest sensitivity for the respective combination.}
     \label{fig:PCAComp2}
 \end{figure}
@@ -59,8 +59,8 @@ could be a better approach.
     \caption[A sensitivity comparison between a dense \ac{NN}, \ac{PNN} and maxout  on the original 
     signal data. A \ac{PCA} analysis has been applied to the data being utilized in this result.]{A sensitivity 
     comparison between a dense \ac{NN}, \ac{PNN} and maxout on the original 
-    signal data. A \ac{PCA} analysis has been applied to the data being utilized in this result. The size of the 
-    "pie" represents the relative size of the significance and the color around each point displays the method with 
+    signal data. A \ac{PCA} analysis has been applied to the data being utilized in this result. The size of each "slice" 
+    represents the relative size of the significance and the color around each point displays the method with 
     the largest sensitivity for the respective combination.}
     \label{fig:PCAComp}
 \end{figure}
