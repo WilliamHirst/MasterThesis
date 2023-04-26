@@ -1104,3 +1104,10 @@ munch.py  -coord m1,m2  -resvars PNNexpsign  -fn_table compLimit.txt  -cont PNNe
 munch.py  -coord m1,m2  -resvars PNNexpsign  -fn_table compLimit.txt  -cont PNNexpsign:PNN:1.64:5:2:5,,NNexpsign:NN:1.64:7:2:5,,MaxOutexpsign:MO:1.64:3:2:5       # 2023-04-14_11-29-15
 munch.py  -coord m1,m2  -resvars PNNexpsign  -fn_table compLimit.txt  -cont PNNexpsign:PNN:1.64:5:2:5,,NNexpsign:NN:1.64:7:2:5,,MaxOutexpsign:MO:1.64:3:2:5       # 2023-04-14_11-50-28
 munch.py  -coord m1,m2  -resvars PNNexpsign  -fn_table compLimit.txt  -cont PNNexpsign:PNN:1.64:5:2:5,,NNexpsign:NN:1.64:7:2:5,,MaxOutexpsign:MO:1.64:3:2:5       # 2023-04-14_11-50-38
+munch.py  -coord m1,m2  -resvars NNexpsign  -fn_table compLimit.txt  -cont NNexpsign:NN:1.64:7:2:5       # 2023-04-26_10-25-20
+munch.py  -coord m1,m2  -resvars NNexpsign  -fn_table compLimit.txt  -cont NNexpsign:NN:1.64:7:2:5       # 2023-04-26_10-28-06
+munch.py  -coord m1,m2  -resvars NNexpsign  -fn_table compLimit.txt  -cont NNexpsign:NN:1.64:7:2:5       # 2023-04-26_10-28-39
+munch.py  -coord m1,m2  -resvars NNexpsign  -fn_table compLimit.txt  -cont NNexpsign:NN:1.64:7:2:5       # 2023-04-26_10-29-20
+munch.py  -coord m1,m2  -resvars MaxOutexpsign  -fn_table compLimit.txt  -cont MaxOutexpsign:MO:1.64:7:2:5       # 2023-04-26_10-31-28
+munch.py  -coord m1,m2  -resvars MaxOutexpsign  -fn_table compLimit.txt  -cont MaxOutexpsign:MO:1.64:7:2:5       # 2023-04-26_10-32-00
+munch.py  -coord m1,m2  -resvars MaxOutexpsign  -fn_table compLimit.txt  -cont MaxOutexpsign:MO:1.64:7:2:5       # 2023-04-26_10-32-32

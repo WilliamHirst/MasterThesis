@@ -541,7 +541,7 @@ class Plot:
                       ymin = 0.05
                       ymax = 1e6
                     elif p.noData:
-                      ymin = 1e-2
+                      ymin = 5
                       ymax = 1e6
                     else:
                       ymin = 5

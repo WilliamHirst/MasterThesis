@@ -744,7 +744,7 @@ class munch:
             sig = s.tabledict[f"{method}nexpsig"]
             sign = []
             for bkg_i, sig_i in zip(bkg, sig):
-                sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.00001)))
+                sign.append(abs(ROOT.RooStats.NumberCountingUtils.BinomialExpZ(int(sig_i),int(bkg_i),0.2)))
             s.tabledict[f"{method}expsign"] = sign
 
     def myText(s,x, y, text, tsize=0.05, color=ROOT.kBlack, angle=0) :
@@ -1050,7 +1050,7 @@ class munch:
             # Additional text on the plot
             # s.plottexts = TextsFromRaw(s.plottexts_raw, ROOT, VB=s.VB) 
             # for plottext in s.plottexts: plottext.Draw()
-            s.plottexts = TextsFromRaw([r"\tilde \chi_{1}[Gev], 0.057, 0.93, 0.04",r"\tilde \chi_{2}[Gev], 0.775, 0.025, 0.04","<1% UNCERTAINTY, 0.58, 0.93, 0.04"], ROOT) 
+            s.plottexts = TextsFromRaw([r"\tilde \chi_{1}[Gev], 0.057, 0.93, 0.04",r"\tilde \chi_{2}[Gev], 0.775, 0.025, 0.04","20% UNCERTAINTY, 0.58, 0.93, 0.04"], ROOT) 
             s.plottexts[0].Draw()
             s.plottexts[1].Draw()
             s.plottexts[2].Draw()
