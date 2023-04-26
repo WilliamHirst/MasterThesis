@@ -1,9 +1,5 @@
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
-\bibitem{PDetector}
-J.~Pequenao, ``{Event Cross Section in a computer generated image of the ATLAS
-  detector.}.'' 2008.
-
 \bibitem{Aad_2012}
 {\scshape ATLAS} collaboration, G.~Aad et~al., \emph{{Observation of a new
   particle in the search for the Standard Model Higgs boson with the ATLAS
@@ -105,6 +101,10 @@ O.~Antipin, D.~Atwood and A.~Soni, \emph{Search for rs gravitons via wlwl
 \bibitem{DarkME}
 E.~Oks, \emph{Brief review of recent advances in understanding dark matter and
   dark energy}, .
+
+\bibitem{PDetector}
+J.~Pequenao, ``{Event Cross Section in a computer generated image of the ATLAS
+  detector.}.'' 2008.
 
 \bibitem{gramstad_searches_nodate}
 E.~Gramstad, \emph{Searches for supersymmetry in di-lepton final states with

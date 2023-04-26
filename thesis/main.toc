@@ -93,3 +93,4 @@
 \contentsline {subsection}{\numberline {B.1}The Feature Distribution}{72}{subsection.Alph0.2.1}%
 \contentsline {subsection}{\numberline {B.2}The Selection of Feature}{77}{subsection.Alph0.2.2}%
 \contentsline {section}{\numberline {C}The implementation of Channel-Out, \ac {SCO} and Maxout}{78}{section.Alph0.3}%
+\contentsline {section}{\numberline {D}Contour Plots for the Calculated Significance with a Flat Uncertainty}{81}{section.Alph0.4}%
