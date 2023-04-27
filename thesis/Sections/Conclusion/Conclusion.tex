@@ -12,30 +12,31 @@ The simulated signal set included and studied in the analysis consisted of a set
 and neutralino ($\tilde{\chi}_1$). In my analysis I tested two approaches for dealing with a diverse signal set; training one model per variant, and training one model on a larger set 
 of variants. Comparing the two, I found the latter to achieve a higher sensitivity as a consequence of a couple of factors. By including an assortment of variations of new physics, 
 the \ac{ML} models were able to avoid overfitting longer, which allowed for deeper learning. Furthermore, I found that the models were able to exploit overlapping feature trends between 
-the variations, which resulted in more training data for all combinations.  
+the variations, which resulted in more training data for all mass combinations.  
 \\
 I studied three variants of \ac{LWTA} layers; channel-out, maxout, and \ac{SCO}. The first two were taken from the paper by Wang et al. \cite{wang_maxout_2013}, and the third layer was introduced
 in this present thesis. Each layer, reduces the number of nodes during a forward propagation, similarly to the dropout layer, but does so by comparing activation with other nodes in the layer, and 
 dropping all but the largest node. To study the implementation and effect of these layers, I constructed a set of figures which visualize the activation and dropping of nodes, before and after training. 
 When dissecting the figures, I observed that the \ac{LWTA} layers (especially the maxout layer) were able to build an ensemble of networks by means of trend specific paths. In other words, after training 
-the model the data chose different paths through the network dependent on if it was background or signal. Moreover, by comparing two sets of signal with different mass combinations, I found that the model 
-was also able to differentiate between different variations of signal. 
+the model, the data chose different paths through the network dependent on if it was background or signal. Moreover, by comparing two sets of signal with different mass combinations, I found that the model 
+was also able to differentiate between different variations of signal. This indicates a strong long-term memory, which allows the model to target a larger set of signal and is an important attribute
+in the \ac{LWTA} layers.
 \\
-The \ac{PNN} applied in the thesis was inspired by the network introduced in the paper by  Baldi et al. \ac{PNN}. The purpose of the \ac{PNN} was to motivate the model to differentiate between the mass combination 
-in the signal set, through including the parameters in the future set. To study the effect of the \ac{PNN}, I drew the distribution of a subset of mass combinations, where all the events were given the same parameters.
-The idea was that the events which were given the correct parameters would outperform those which were not. By repeating this test, but assigning the signal another set of parameters I found that \ac{PNN} did in fact 
-perform best when predicting on data which were assigned the correctly, although not by much. For example, events with masses equal to $\tilde{\chi}_1=50$ and  $\tilde{\chi}_2=250$GeV, improved effectiveness by $3\%$ when 
-applying a rigid cut on the output of 0.975. This indicates that the \ac{PNN} was able to discriminate between different variations of signal, even if only by a small degree.
+The \ac{PNN} applied in the thesis was inspired by the network introduced in the paper by Baldi et al. \cite{PNN}. The purpose of the \ac{PNN} was to motivate the model to differentiate between the mass combination 
+in the signal set, through including the parameters as a feature. To study the effect of the \ac{PNN}, I drew the distribution of a subset of mass combinations, where all the events were given the same parameters.
+The idea was that the events which were given the correct parameters would outperform those which were not. By repeating this test, but assigning the data another set of parameters I found that \ac{PNN} did in fact 
+perform best when predicting on data which were assigned the correctly, although not by much. For example, compared to when the events were given the wrong parameters, signal events with masses equal to $\tilde{\chi}_1=50$ 
+and $\tilde{\chi}_2=250$GeV, improved effectiveness by $3\%$ when applying a rigid cut on the output of 0.975. This indicates that the \ac{PNN} was able to discriminate between different variations of signal, even if only by a small degree.
 \\
 When studying and comparing the performance of the \ac{ML} models, two sets of the signal were used, original ($\tilde{\chi}_1\in[0-400]GeV$ and  $\tilde{\chi}_2\in[400-800]GeV$) and full statistics ($\tilde{\chi}_1\in[0-400]GeV$ 
 and  $\tilde{\chi}_2\in[200-800]GeV$), where the first was a subset of the second. When comparing the achieved sensitivity, or significance of the models on each mass combination in the original signal set, I found that the 
 maxout model outperformed all other \ac{LWTA} models, achieving a higher significance in (24/30) combinations. Although, the introduced \ac{SCO} layer did not outperform maxout model, it did achieve a higher significance in 6 
-combinations. Most likely, by modifying the \ac{SCO} layer during prediction to pick a more educated path, the layer would perform a better.
+combinations. Most likely, by modifying the \ac{SCO} layer during prediction, the performance of the layer would improve.
 \\
 Four models were chosen when comparing performance on the original signal set; ordinary dense \ac{NN}, maxout model, \ac{PNN} and a \ac{BDT} implemented using the default settings of XGBoost \cite{XGB}. In the comparison I found that 
 all three network variants were able to outperform the \ac{BDT}, although I believe this to be the cause of little attention towards the architecture of the \ac{BDT}. Out of the three network variants, the maxout model was able to achieve 
 the highest significance for most mass combinations (24/30), but mostly in the higher mass range ($\tilde{\chi}_2>600GeV$). In the events with lower masses and higher statistics ($\tilde{\chi}_2<600GeV$), the \ac{PNN} outperformed all others, 
-almost doubling significance achieved by the maxout model.
+almost doubling significance achieved by the maxout model. Shared among all models was the fact that they all found processes with high amounts of missing energy difficult to separate from the signal, i.e. $Diboson(lll)$, $t\bar{t}$ and $top other$.
 \\
 Before applying the models to the full statics of the signal data, I applied a \ac{PCA} to study if it could improve performance. When requiring the conservation of $99.99\%$ of the variation from the original feature set, 5 features were removed.
 Training the dense \ac{NN}, maxout model and \ac{PNN} with this new data set, I found it to improve the sensitivity of the two latter models. The comparison was made with the decision to weight the importance of all mass combinations equally.
@@ -43,7 +44,7 @@ Training the dense \ac{NN}, maxout model and \ac{PNN} with this new data set, I 
 Finally, in my analysis I compared the performance of my three best performing models (maxout model and \ac{PNN} with a \ac{PCA}, and dense \ac{NN}) on the full statistics signal set. Additionally, I compared the results to the expected exclusion 
 limits ($Z>1.64$) set by \ac{ATLAS} in 2021 \cite{atlas_search_2021}. The calculated significance for the models were done using a flat uncertainty of $20\%$, $10\%$ and $<1\%$. Based on the comparison I found that none of the \ac{ML} models were 
 able to extend the limits set by \ac{ATLAS}, with the exception of the \ac{PNN} when utilizing $<1\%$ uncertainty. For an uncertainty of $20\%$, the \ac{PNN} was able to achieve a limit which mirrors \ac{ATLAS} for smaller masses ($\tilde{\chi}_2<250GeV$)
-and set a limit past that achieved by the other networks, for both the chargino and neutralino mass. When decreasing the uncertainty, the maxout model and dense \ac{NN} were able to extend the limit past that achieved by the \ac{PNN} for higher masses, but never 
-surpassing the limit by \ac{ATLAS}. From my analysis I believe that were the \ac{PNN} exhibits bias towards higher statistic signal, the ordinary dense \ac{NN} and maxout model are able to achieve a more balanced sensitivity. Especially the maxout model, 
-with an impressive long-term memory is able to uphold a strong performance for lower statistics signal and smaller differences in significance ($\Delta Z \approx 10$).
+and set a limit past that achieved by the other networks, for both the chargino and neutralino mass. When decreasing the uncertainty, the maxout model and dense \ac{NN} were able to extend the limit past that achieved by the \ac{PNN} for higher masses, 
+but never surpassing the limit by \ac{ATLAS}. From my analysis I believe that were the \ac{PNN} exhibits bias towards higher statistic signal, the ordinary dense \ac{NN} and maxout model are able to achieve a more balanced sensitivity. Especially the 
+maxout model, with an impressive long-term memory is able to uphold a strong performance for lower statistics signal and smaller differences in significance ($\Delta Z \approx 10$).
 

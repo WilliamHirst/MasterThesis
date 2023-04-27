@@ -64,11 +64,6 @@ effective \ac{API} for data comparison and visualization. ROOT allows for quick 
 comparison between data through an advanced graphical user interface. Additionally, a lot of
 functionality for creating complex stacked histogram are implemented in the ROOT \ac{API}, such
 as uncertainty calculations, ordering of histograms and statistical analysis tools. 
-\\
-Finally, in most calculations of the significance I use equations \ref{eq:Z1}. This equation does not include any 
-uncertainty, which is why any results using said equation is only for comparison reasons between the different \ac{ML}
-models. In the final sections of the thesis, I am interested in including uncertainty in the results. To do this I utilize 
-a function in ROOT, the \emph{RooStats.NumberCountingUtils.BinomialExpZ}.
 \subsection{Data Structure and Frameworks}
 Both data sets analyzed in this thesis, the measured and simulated are originally (pre-processing) stored in ROOT, in the format of Ntuples. 
 NTuples are ROOT objects, designed to store large amounts of data in a tabular form. They allow for non-symmetrical entries, meaning 
