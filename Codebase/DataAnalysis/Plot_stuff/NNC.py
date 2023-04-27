@@ -131,5 +131,7 @@ if __name__ == "__main__":
     # name = "MaxOutPCA"
     # plotters = ["PNNPCAGrid", "PNNGrid"]
     # name = "PNNPCA"
+    # plotters = ["MaxOutPCAGrid", "MaxOutPCA_FS_MLMGrid"]
+    # name = "BigVsLittleSetMaxOut"
     plotComp(metric, plotters = plotters, name = name, leg_loc = "lower")
     
