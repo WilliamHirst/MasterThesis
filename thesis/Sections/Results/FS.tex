@@ -52,12 +52,15 @@ ability to increase long-term memory.\\
 \end{figure}
 Finally, I applied the \ac{PNN} to the full statistics signal set. The results are found in the grid presented in figure \ref{fig:PNNPCA_FS_MLMGridSig}.
 Similarly to the tests performed with the original signal set, the \ac{PNN} is able to achieve an incredible sensitivity for the high statistics mass combinations
-($\tilde{\chi}_2<400$). For the combinations with the highest statics ($\tilde{\chi}_2<300$), the \ac{PNN} more than doubles the achieved significance of the previous 
+($\tilde{\chi}_2<400GeV$). For the combinations with the highest statics ($\tilde{\chi}_2<300GeV$), the \ac{PNN} more than doubles the achieved significance of the previous 
 to methods. For the lower statistics combinations, the \ac{PNN} drops in performance. Moreover, the performance of the \ac{PNN} on the combinations with the highest 
 statistics in the original signal set ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=400$GeV and $\tilde{\chi}_1=200$, $\tilde{\chi}_2=450$GeV), has decreased by more than half.
 This is an indication that including further trends in the data was destructive for training. In other words, although the \ac{PNN} achieves impressive sensitivity towards high 
-statistics mass combinations, it suffers from the lack of long-term memory which allows the maxout model to uphold performance for lower statics combinations. 
-Finally, in comparison to the ordinary dense network and the maxout model who both achieved sufficient sensitivity for 38/89 combinations, the \ac{PNN} only did so for 33/89.\\
+statistics mass combinations, it suffers from the lack of long-term memory which allows the maxout model to uphold performance for lower statics combinations. In the appendix 
+I have included two pie-plots comparing the performance of the maxout model HERE and \ac{PNN} on the original signal set using models trained on the original and full statistics
+set respectively. The pie-plots further exemplify how the maxout model is able to exploit the full statistics to improve on most mass combinations (17/30), compared to the \ac{PNN} 
+where the performance drops for most combinations (28/30). Finally, in comparison to the ordinary dense network and the maxout model who both achieved sufficient sensitivity 
+for 38/89 combinations, the \ac{PNN} only did so for 33/89.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering

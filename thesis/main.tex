@@ -104,10 +104,11 @@
 \endgroup
 
 %%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain} 
 \begingroup
 \titleformat{\chapter}{}{}{0em}{\bf\Huge\centering}
 \appendix
-\chapter{Appendices}
+\chapter*{Appendices}
 \addcontentsline{toc}{chapter}{Appendices}
 \renewcommand{\thesection}{\Alph{section}}
 \newpage
@@ -118,9 +119,9 @@
 \endgroup
 
 \twocolumn{
+    
     \printacronyms
 }
-\pagestyle{plain}    
 \bibliography{bibliography.bib}
     
 \end{document}
