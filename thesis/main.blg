@@ -1,0 +1,65 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: JHEP.bst
+Database file #1: bibliography.bib
+Reallocated buffer (elt_size=1) to 40000 items from 20000.
+Reallocated sv_buffer (elt_size=1) to 40000 items from 20000.
+Reallocated ex_buf (elt_size=1) to 40000 items from 20000.
+Reallocated out_buf (elt_size=1) to 40000 items from 20000.
+Reallocated name_tok (elt_size=4) to 40000 items from 20000.
+Reallocated name_sep_char (elt_size=1) to 40000 items from 20000.
+Reallocated buffer (elt_size=1) to 60000 items from 40000.
+Reallocated sv_buffer (elt_size=1) to 60000 items from 40000.
+Reallocated ex_buf (elt_size=1) to 60000 items from 40000.
+Reallocated out_buf (elt_size=1) to 60000 items from 40000.
+Reallocated name_tok (elt_size=4) to 60000 items from 40000.
+Reallocated name_sep_char (elt_size=1) to 60000 items from 40000.
+Reallocated str_pool (elt_size=1) to 130000 items from 65000.
+Warning--empty year in srivastava_compete_2013
+Warning--empty year in raychaudhuri_introduction_2008
+Warning--empty year in glorot_understanding_2010
+Warning--empty author in ATLAS-CONF-2011-152
+Warning--empty author in ATLAS-CONF-2017-064
+You've used 41 entries,
+            2188 wiz_defined-function locations,
+            812 strings with 110961 characters,
+and the built_in function-call counts, 9778 in all, are:
+= -- 897
+> -- 548
+< -- 0
++ -- 161
+- -- 120
+* -- 753
+:= -- 1440
+add.period$ -- 43
+call.type$ -- 41
+change.case$ -- 42
+chr.to.int$ -- 0
+cite$ -- 46
+duplicate$ -- 427
+empty$ -- 909
+format.name$ -- 120
+if$ -- 2445
+int.to.chr$ -- 0
+int.to.str$ -- 41
+missing$ -- 96
+newline$ -- 130
+num.names$ -- 41
+pop$ -- 144
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 271
+stack$ -- 0
+substring$ -- 441
+swap$ -- 136
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 5
+while$ -- 81
+width$ -- 43
+write$ -- 356
+(There were 5 warnings)

@@ -97,13 +97,17 @@
 
 
 %%%%%%%%%%%%% Conclusion %%%%%%%%%%%%%%%%%%%%
+\begingroup
+\pagestyle{plain}
 \input{Sections/Conclusion/Conclusion.tex}
-
-
 \backmatter{}
+\endgroup
+
 %%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%
+\begingroup
+\titleformat{\chapter}{}{}{0em}{\bf\Huge\centering}
 \appendix
-\chapter*{Appendices}
+\chapter{Appendices}
 \addcontentsline{toc}{chapter}{Appendices}
 \renewcommand{\thesection}{\Alph{section}}
 \newpage
@@ -111,11 +115,12 @@
 \input{Sections/Appendix/Appendix2}
 \input{Sections/Appendix/Appendix3}
 \input{Sections/Appendix/Appendix4}
+\endgroup
 
 \twocolumn{
-\printacronyms
+    \printacronyms
 }
-
+\pagestyle{plain}    
 \bibliography{bibliography.bib}
-
+    
 \end{document}
