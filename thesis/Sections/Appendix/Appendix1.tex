@@ -1,4 +1,4 @@
-\section{Sensitivity Grids}\label{sec: Sensitivity}
+\section{Calculated Significance}\label{sec: Sensitivity}
 \subsection{The \ac{LWTA} Models Applied to the Original Signal Set}\label{appendix:Ensembles}
 \begin{figure}[H]
     \makebox[\linewidth][c]{%
@@ -60,8 +60,40 @@
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/NNPCANetworkComp.pdf}
     \end{subfigure}
     }
-    \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
-    created by the \ac{NN} network. A \ac{PCA} analysis has been applied to the data being utilized in this result.}
+    \caption[Pie-plot comparing sensitivity on the original signal set, where the figure shows the comparison between a model training on data 
+    with and without a \acs{PCA}.]{Pie-plot comparing sensitivity on the original signal set, where the figure shows the comparison between a model trained on data 
+    with and without a \ac{PCA}. The size of each "slice" represents the relative size of the significance and the color around each 
+    point displays the method with the largest sensitivity for the respective combination.}
     \label{fig:NNPCAComp}
+\end{figure}
+
+\subsection{Comparing Models Trained on Original and Full Statistics Signal}\label{appendix:BigVsSmall}
+\begin{figure}[H]
+    \makebox[\linewidth][c]{%
+    \centering
+    \begin{subfigure}{.65\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/BigVsLittleSetMaxOutNetworkComp.pdf}
+    \end{subfigure}
+    }
+    \caption[Pie-plot comparing sensitivity achieved by the maxout model on the original signal set, where the figure shows the comparison between a model trained 
+    on the original signal set, and full statistics set.]{Pie-plot comparing sensitivity achieved by the maxout model on the original signal set, where the figure 
+    shows the comparison between a model trained on the original signal set, and full statistics set. A \ac{PCA} analysis has been applied to the data being utilized 
+    in this result. The size of each "slice" represents the relative size of the significance and the color around each 
+    point displays the method with the largest sensitivity for the respective combination.}
+    \label{fig:BigVsLittleSetMaxOut}
+\end{figure}
+\begin{figure}[H]
+    \makebox[\linewidth][c]{%
+    \centering
+    \begin{subfigure}{.65\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/BigVsLittleSetPNNNetworkComp.pdf}
+    \end{subfigure}
+    }
+    \caption[Pie-plot comparing sensitivity achieved by the \acs{PNN} model on the original signal set, where the figure shows the comparison between a model trained 
+    on the original signal set, and full statistics set.]{Pie-plot comparing sensitivity achieved by the \acs{PNN} model on the original signal set, where the figure 
+    shows the comparison between a model trained on the original signal set, and full statistics set. A \ac{PCA} analysis has been applied to the data being utilized 
+    in this result. The size of each "slice" represents the relative size of the significance and the color around each 
+    point displays the method with the largest sensitivity for the respective combination.}
+    \label{fig:BigVsLittleSetPNN}
 \end{figure}
 \newpage
