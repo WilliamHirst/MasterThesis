@@ -1,9 +1,5 @@
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
-\bibitem{PDetector}
-J.~Pequenao, ``{Event Cross Section in a computer generated image of the ATLAS
-  detector.}.'' 2008.
-
 \bibitem{Aad_2012}
 {\scshape ATLAS} collaboration, G.~Aad et~al., \emph{{Observation of a new
   particle in the search for the Standard Model Higgs boson with the ATLAS
@@ -106,13 +102,17 @@ O.~Antipin, D.~Atwood and A.~Soni, \emph{Search for rs gravitons via wlwl
 E.~Oks, \emph{Brief review of recent advances in understanding dark matter and
   dark energy}, .
 
+\bibitem{PDetector}
+J.~Pequenao, ``{Event Cross Section in a computer generated image of the ATLAS
+  detector.}.'' 2008.
+
 \bibitem{gramstad_searches_nodate}
 E.~Gramstad, \emph{Searches for supersymmetry in di-lepton final states with
   the {ATLAS} detectorat {$\sqrt s$ = 7 TeV}}, .
 
 \bibitem{kingma_adam_2017}
-D.~P. Kingma and J.~Ba, ``Adam: A method for stochastic optimization.''
-\newblock 10.48550/arXiv.1412.6980.
+D.~P. Kingma and J.~Ba, \emph{Adam: A method for stochastic optimization},
+  \href{http://arxiv.org/abs/1412.6980}{{\tt 1412.6980}}.
 
 \bibitem{StandardScaler}
 F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel
@@ -180,13 +180,6 @@ M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
   {TeV}}, \href{http://dx.doi.org/10.1140/epjc/s10052-019-7140-6}{\emph{The
   European Physical Journal C} {\bf 79} (aug, 2019) }.
 
-\bibitem{Aad:2800889}
-{\scshape ATLAS} collaboration, G.~Aad, B.~Abbott, D.~Abbott, A.~Abed~Abud,
-  K.~Abeling, D.~Abhayasinghe et~al., \emph{{Observation of $WWW$ production in
-  $pp$ collisions at {$\sqrt{s}$} = 13 TeV with the ATLAS detector. Observation
-  of WWW Production in pp Collisions at {$\sqrt{s}$} = 13eV with the ATLAS
-  Detector}},  \href{http://arxiv.org/abs/2201.13045}{{\tt 2201.13045}}.
-
 \bibitem{tensorflow}
 M.~Abadi, A.~Agarwal, P.~Barham, E.~Brevdo, Z.~Chen, C.~Citro et~al.,
   \emph{{TensorFlow}: Large-scale machine learning on heterogeneous systems},
@@ -206,6 +199,13 @@ X.~Glorot and Y.~Bengio, \emph{Understanding the difficulty of training deep
 \bibitem{8020}
 A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
   between training and testing sets: A pedagogical explanation}, .
+
+\bibitem{Aad:2800889}
+{\scshape ATLAS} collaboration, G.~Aad, B.~Abbott, D.~Abbott, A.~Abed~Abud,
+  K.~Abeling, D.~Abhayasinghe et~al., \emph{{Observation of $WWW$ production in
+  $pp$ collisions at {$\sqrt{s}$} = 13 TeV with the ATLAS detector. Observation
+  of WWW Production in pp Collisions at {$\sqrt{s}$} = 13eV with the ATLAS
+  Detector}},  \href{http://arxiv.org/abs/2201.13045}{{\tt 2201.13045}}.
 
 \bibitem{ATLAS-CONF-2011-152}
 {\scshape ATLAS} collaboration, \emph{{Performance of the Reconstruction and

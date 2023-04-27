@@ -191,6 +191,7 @@
 
 %--------- Quotes -----------
 
+\usepackage{titlesec}
 
 %--------- CODE -----------
 \usepackage{listings}
@@ -264,3 +265,8 @@
     }
 \makeatother
 %-------------------- end style ---------------------------
+\fancypagestyle{plain}{%
+\fancyhf{}%
+\fancyhead[RO,LE]{\thepage}%
+\renewcommand{\headrulewidth}{0pt}%
+}
