@@ -35,7 +35,7 @@ how a \ac{NN} aims to map from data to a prediction.
     \vspace*{-12.5mm} 
     \includegraphics[width=0.9\textwidth]{Figures/Illustrations/Input_labels.png}
     \vspace*{-12.5mm} 
-    \caption{An illustration of the architecture of a \ac{NN} with two hidden layers.}
+    \caption{An illustration of the architecture of a \acs{NN} with two hidden layers.}
     \label{fig:NN}
 \end{figure}
 In figure \ref{fig:NN} we can see how all the different nodes are connected, illustrated by 
@@ -231,7 +231,7 @@ a possible solution to the issue, the dropout layer. Although dropout and channe
 with this issue similarly. Where the dropout layer will force dormant nodes to contribute in the training by allowing for dominant
 nodes to be dropped, the channel-out would instead allow for dominant nodes to take further control inside their respective unit.
 \\
-To remedy this issue, I proposed a new layer, the \ac{SCO}. \ac{SCO} functions similarly to channel-out, with the exeption of 
+To remedy this issue, I proposed a new layer, the \acf{SCO}. \ac{SCO} functions similarly to channel-out, with the exception of 
 the units. Where the channel-out utilizes static local units\footnote{I.e. the nodes are placed in local units in the beginning of training 
 and held constant throughout.} throughout training, the \ac{SCO} instead utilizes dynamic units which changes for each data point. In other words, 
 for each data point, each node would potentially have a new group of nodes to compare with when finding the larges activation.
@@ -275,7 +275,7 @@ represents a unit.}
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{Figures/Illustrations/EnsembleComp.png}
-    \caption[An illustration of three different layers, channelout, \ac{SCO} and maxout.]{An illustration of three different layers, channelout, \ac{SCO} and maxout. The figure shows how each layer 
+    \caption[An illustration of three different layers, channelout, \acs{SCO} and maxout.]{An illustration of three different layers, channelout, \ac{SCO} and maxout. The figure shows how each layer 
     redimensionalize the network and how channelout and \ac{SCO} differ from maxout in regard to the relationship 
     between units and parameters.}
     \label{fig:NetEnsembleComp}
@@ -312,7 +312,7 @@ for each choice of parameter.
     \includegraphics[width=0.8\textwidth]{Figures/Illustrations/PNN.png}
     \vspace{-.8cm}
     \caption{An illustration of a comparison between the parameter individualistic network 
-    approach and the \ac{PNN}.}
+    approach and the \acs{PNN}.}
     \label{fig:PNN}
 \end{figure}
 For the \ac{SM} background, adding a parameter representing the mass of a \ac{BSM} particle is meaningless. 

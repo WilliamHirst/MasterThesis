@@ -30,19 +30,20 @@ def call(self, inputs: tf.Tensor,mask: tf.Tensor = None) -> tf.Tensor:
 
 \lstset{style=Python}
 \begin{lstlisting}[caption={Python implementation for the custom activation function used to define the \ac{SCO} layer.},captionpos=b, label={lst:channel_out}]
-    def call(self, inputs: tf.Tensor, mask: tf.Tensor = None) -> tf.Tensor:
+def call(self, inputs: tf.Tensor, mask: tf.Tensor = None) -> tf.Tensor:
     inputs = gen_math_ops.MatMul(a=inputs, b=self.kernel)
     inputs = nn_ops.bias_add(inputs, self.bias)
-    #tf.print(inputs)
     num_inputs = inputs.shape[0]
 
     if num_inputs is None:
     num_inputs = -1
-
+    # Create the indices to shuffle and unshuffle nodes
     shuffle_index = tf.random.shuffle(self.index)
     unshuffle_index = tf.tensor_scatter_nd_update(tensor = self.zeros , 
-                                                indices = tf.reshape(shuffle_index, 
-                                                                    [inputs.shape[1],1]), 
+                                                indices = tf.reshape(
+                                                    shuffle_index, 
+                                                    [inputs.shape[1],1]
+                                                    ), 
                                                 updates = self.index)
     inputs_s = tf.gather(inputs, shuffle_index, axis = 1)
 
@@ -61,7 +62,7 @@ def call(self, inputs: tf.Tensor,mask: tf.Tensor = None) -> tf.Tensor:
 
     outputs = tf.gather(outputs, unshuffle_index, axis = 1) 
     outputs = tf.multiply(inputs, outputs)
-    #Count the activate nodes. This variable is used when plotting the activations.
+    #Count the activate nodes. This variable is used when plotting the activations
     self.counter = outputs
     return outputs 
 \end{lstlisting}

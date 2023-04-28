@@ -43,8 +43,8 @@ find trend specific paths through the network which will aid in separating the o
         \label{fig:ATraining}
     \end{subfigure}
     }
-    \caption[A calculated visualization of the activation of a three layer MaxOut network, before and after training.]{
-    A calculated visualization of a three layer MaxOut network. Each path 
+    \caption[A calculated visualization of the activation of a three layer maxout network, before and after training.]{
+    A calculated visualization of a three layer maxout network. Each path 
     represents a data point where all connected nodes were the largest activation in their respective 
     unit. The distribution on the far right represent the output distribution. The figure to the left
     (\ref{fig:ATrainingSig}) is the result before training and the figure to right (\ref{fig:ATrainingBkg})
@@ -67,8 +67,8 @@ find trend specific paths through the network which will aid in separating the o
         \label{fig:ATrainingBkg}
     \end{subfigure}
     }
-    \caption[A calculated visualization of the activation of a three layer MaxOut network, after training and displaying the
-    signal and background separately.]{A calculated visualization of a three layer MaxOut network. Each path 
+    \caption[A calculated visualization of the activation of a three layer maxout network, after training and displaying the
+    signal and background separately.]{A calculated visualization of a three layer maxout network. Each path 
     represents a data point where all connected nodes were the largest activation in their respective 
     unit. The distribution on the far right represent the output distribution and the figure with blue 
     paths (left) \ref{fig:ATrainingSig} is the result of signal, and the pink paths (right) is a result from background 
@@ -91,8 +91,8 @@ find trend specific paths through the network which will aid in separating the o
         \label{fig:ATrainingSig200300}
     \end{subfigure}
     }
-    \caption[A calculated visualization of the activation of a three layer MaxOut network, after training and displaying the
-    the results for two signal with each their own mass combination.]{A calculated visualization of a trained MaxOut network 
+    \caption[A calculated visualization of the activation of a three layer maxout network, after training and displaying the
+    the results for two signal with each their own mass combination.]{A calculated visualization of a trained maxout network 
     with three hidden layers. Each path represents a data point where all connected nodes were the largest activation in their respective 
     unit. The figure to the left (\ref{fig:ATrainingSig50250}) is a result of signal with 
     ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) and the right (\ref{fig:ATrainingSig200300}) 
@@ -140,7 +140,10 @@ memory of the model through trend specific paths through the network.\\
 Finally, I wanted to compare the activations of the maxout model, to the activation of the \ac{SCO} model. In section \ref{subsubsec:stochchannelout},
 I stated that the inspiration behind the \ac{SCO} was to elevate the channel-out method in a way which reduced complex co-adaptation among neighboring
 nodes. In figure \ref{fig:NetDistSCO}, I included a visualization of the activation of a three layer \ac{SCO} network before (\ref{fig:BTrainingSCO}) 
-and after (\ref{fig:ATrainingSCO}) training. 
+and after (\ref{fig:ATrainingSCO}) training. By comparing the activations from the \ac{SCO} layers to maxout, we can discern that the \ac{SCO} behaves
+exactly as intended. In the figures visualizing the maxout layer (\ref{fig:NetDist1}), we can observe that several of the nodes which are not activated 
+before training, are left dormant even after training. In comparison, the \ac{SCO} layer display a far more balanced activation, and exhibits no signs 
+of complex co-adaptation. 
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -163,6 +166,7 @@ and after (\ref{fig:ATrainingSCO}) training.
     is after.} 
     \label{fig:NetDistSCO}
 \end{figure}
+\newpage
 \subsection{Training History and Overfitting}\label{subsec:Overfitting}
 In section \ref{sec:Regularization} I described how creating ensembles of networks is a form of regularization. Therefore,
 it is of interest to study the relationship between performance on the training set and the validation set for our ensemble 
@@ -185,7 +189,7 @@ In section \ref{subsec:TrainingStrategy}, I discussed the training strategy used
 the implementation of an early stopping criterion which makes sure that the model only continues to train as long as the performance on the 
 validation data set increases. By studying the subfigures in figure \ref{fig:History}, we can deduce that the ensemble methods will not only 
 be able to avoid overfitting, but will as a consequence be allowed to train much longer than the other models.
-\begin{figure}
+\begin{figure}[H]
     \makebox[\linewidth][c]{%
     \centering
     \begin{subfigure}{.45\textwidth}
@@ -199,8 +203,8 @@ be able to avoid overfitting, but will as a consequence be allowed to train much
         \label{fig:MaxOutHist}
     \end{subfigure}
     }
-    \caption[A plot comparing the \acs{AUC} score made after each epoch on both the training and validation set, between a dense \ac{NN} 
-    and maxout model.]{A plot displaying the \ac{AUC} score made after each epoch on both the training and validation set. 
+    \caption[A plot comparing the \acs{AUC} score made after each epoch on both the training and validation set, between a dense \acs{NN} 
+    and maxout model.]{A plot displaying the \acs{AUC} score made after each epoch on both the training and validation set. 
     Figure \ref{fig:NNHist} shows the results from the dense \ac{NN} and figure \ref{fig:MaxOutHist} shows
     the results from a maxout network.}
     \label{fig:History}
@@ -225,7 +229,8 @@ This result can be credited to two factors. The first being maxout's effect as a
 section (see section \ref{subsec:Overfitting}), I presented how through maxout's regularization abilities, it would be able to 
 uphold the early stopping criteria for a larger number of epochs. The second factor is maxout's innate long-term memory which was studied
 in section \ref{subsec:Viz}. From figure \ref{fig:MaxOutGridSig}, we are able to deduce that although the maxout model is not able to tune 
-to the same depth for the lower masses, it is able to achieve a large level of generalizability through reducing overfitting and increasing long-term memory.\\
+to the same depth for the lower masses, it is able to achieve a large level of generalizability through reducing overfitting and increasing 
+long-term memory.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -238,10 +243,10 @@ to the same depth for the lower masses, it is able to achieve a large level of g
     \label{fig:MaxOutGridSig}
 \end{figure}
 In appendix \ref{appendix:Ensembles} I have included grids displaying the achieved sensitivity for both channel-out and \ac{SCO}. Both 
-models demonstrate similar performance to the maxout layer. To compare the three methods, I created a "pie-plot". A pie-plot 
+models demonstrate similar performance to the maxout layer. To compare the three methods, I created a 'pie-plot'. A pie-plot 
 compares the achieved sensitivity between several models and displays the results for each individual mass combination.  In figure 
 \ref{fig:EnsembleComp} I present the pie-plot comparing maxout, channel-out and \ac{SCO}. Each mass combination includes a pie, where 
-the size of each "slice" represents the relative size of the significance compared to the other methods. For example, if a slice occupies 
+the size of each 'slice' represents the relative size of the significance compared to the other methods. For example, if a slice occupies 
 half of the pie, then the method corresponding to that slice achieved a significance equal to the sum of the significance of the other methods.
 The color surrounding each pie marks which method achieved the highest sensitivity for the respective combination.
 \\
@@ -261,9 +266,9 @@ great promise and should be further explored in further analysis.
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf}
     \end{subfigure}
     }
-    \caption[A sensitivity comparison between the ensemble networks (maxout, \ac{SCO}, channel-Out) on the original 
-    signal data.]{A sensitivity comparison between the ensemble networks (maxout, \ac{SCO}, channel-Out) on the original 
-    signal data. The size of the "pie" represents the relative size of the significance and the color around each 
+    \caption[A sensitivity comparison between the ensemble networks (maxout, \acs{SCO}, channel-Out) on the original 
+    signal data.]{A sensitivity comparison between the ensemble networks (maxout, \acs{SCO}, channel-Out) on the original 
+    signal data. The size of each slice represents the relative size of the significance and the color around each 
     point displays the method with the largest sensitivity for the respective combination.}
     \label{fig:EnsembleComp}
 \end{figure}
