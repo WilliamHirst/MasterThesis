@@ -110,7 +110,7 @@ By comparing the figures, we see a small but noticeable difference in paths. Aga
 the differentiating factor. To highlight the differences, I have included a cutout, comparing the two highest nodes in the bottom unit 
 for the middle layer of both figures, \ref{fig:ATrainingSig50250Zoom} and \ref{fig:ATrainingSig200300Zoom} (in the same order).
 By studying the cutouts, we can conclude that the maxout layer not only applies a form of regularization, but also increases the long-term 
-memory of the model through trend specific paths through the network.
+memory of the model through trend specific paths through the network.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -130,12 +130,38 @@ memory of the model through trend specific paths through the network.
     \hfill
     \hfill
     }
-    \caption[A calculated visualization of the activation of a three layer MaxOut network, after training and displaying the
+    \caption[A calculated visualization of the activation of a three layer maxout network, after training and displaying the
     the results for two signal with each their own mass combination, highlighting the difference between two specific nodes.]{
     A cut-out of the fifth and sixth node (counting from the top) in the second hidden layer, activated 
     by the signal with ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) \ref{fig:ATrainingSig50250Zoom} and 
     ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) \ref{fig:ATrainingSig200300Zoom}.}
     \label{fig:NetVisZoom}
+\end{figure}
+Finally, I wanted to compare the activations of the maxout model, to the activation of the \ac{SCO} model. In section \ref{subsubsec:stochchannelout},
+I stated that the inspiration behind the \ac{SCO} was to elevate the channel-out method in a way which reduced complex co-adaptation among neighboring
+nodes. In figure \ref{fig:NetDistSCO}, I included a visualization of the activation of a three layer \ac{SCO} network before (\ref{fig:BTrainingSCO}) 
+and after (\ref{fig:ATrainingSCO}) training. 
+\begin{figure}
+    \makebox[\linewidth][c]{%
+    \centering
+    \begin{subfigure}{.6\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/SCO/BeforeTraining.pdf}
+        \caption{}
+        \label{fig:BTrainingSCO}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.6\textwidth}
+        \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/SCO/AfterTraining.pdf}
+        \caption{}
+        \label{fig:ATrainingSCO}
+    \end{subfigure}
+    }
+    \caption[A calculated visualization of the activation of a three layer \acs{SCO} network, after training and displaying the
+    signal and background separately.]{A calculated visualization of a three layer \acs{SCO} network. Each path 
+    represents a data point where all connected nodes were the largest activation in their respective 
+    unit. The figure to the left (\ref{fig:BTrainingSCO}) is the result before training and the figure to right (\ref{fig:ATrainingSCO})
+    is after.} 
+    \label{fig:NetDistSCO}
 \end{figure}
 \subsection{Training History and Overfitting}\label{subsec:Overfitting}
 In section \ref{sec:Regularization} I described how creating ensembles of networks is a form of regularization. Therefore,
