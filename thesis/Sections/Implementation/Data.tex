@@ -5,7 +5,7 @@ is one of the largest particle detector experiments currently operating at the
 CERN laboratory near Geneva. \ac{ATLAS} alone generates approximately 1 petabyte of raw
 data every second from proton-proton collisions at the \ac{LHC}. In this analysis I will 
 be studying proton-proton collisions produced by \ac{ATLAS} between 2015-2018, with a luminosity of 
-$139.0fb^{-1}$ and center of mass energy of 13TeV. With amounts of data this large, data handling and 
+$139.0fb^{-1}$ and center of mass energy of $\sqrt{s} = 13TeV$. With amounts of data this large, data handling and 
 storing is a big challenge. Therefore, taking advantage of sophisticated numerical tools 
 and data frameworks is pivotal if scientific development is to keep up with technological development.
 \\
@@ -32,12 +32,12 @@ from real collision to data set. The pipeline for simulating collision events ca
 \subsection{The Simulated Signal}\label{subsec:signal}
 As I have mentioned in previous sections I will be searching for a large range of signals, all related to the same
 physics, but with different set of parameters. In figure \ref{fig:nrSignal} I have drawn a grid showing the different mass combinations 
-searched for in this analysis. The figure shows the data set containing masses ranging from $m({\tilde{\chi}_1})\in[0,400]$
-and $m({\tilde{\chi}_2})\in[100,800]$.\footnote{The chargino, $\tilde{\chi}^{\pm}_1$ and $\tilde{\chi}_2$ are mass degenerate, 
+searched for in this analysis. The figure shows the data set containing masses ranging from ${\tilde{\chi}_1}\in[0,400]$
+and ${\tilde{\chi}_2}\in[100,800]$.\footnote{The chargino, $\tilde{\chi}^{\pm}_1$ and $\tilde{\chi}_2$ are mass degenerate, 
 meaning they share the same mass.} In the beginning of my analysis I only received a subset (which will be referred to as the 
 \emph{original} data set.) of the full signal set. In the figure I have marked the original data set with a white label in the top 
-right corner of the box. The original signal set contains a total of 30 different mass combinations in the range from 
-$m({\tilde{\chi}_1})\in[0,400]$ and $m({\tilde{\chi}_2})\in[400,800]$. In the full signal data set there are a total of 90 different 
+right corner of the box. The original signal set contains a total of 30 different mass combinations in the ranges 
+${\tilde{\chi}_1}\in[0,400]$ and ${\tilde{\chi}_2}\in[400,800]$. In the full signal data set there are a total of 90 different 
 mass combinations.
 \\
 Given that I received the original signal data set many months before receiving the full set, most of my results were found using the 
@@ -67,9 +67,10 @@ as uncertainty calculations, ordering of histograms and statistical analysis too
 \subsection{Data Structure and Frameworks}
 Both data sets analyzed in this thesis, the measured and simulated are originally (pre-processing) stored in ROOT, in the format of Ntuples. 
 NTuples are ROOT objects, designed to store large amounts of data in a tabular form. They allow for non-symmetrical entries, meaning 
-rows with different number of columns. The simulated and measured collision data are both stored in Ntuples, with a matrix like structure where the columns represent 
-the variables/features, and the columns represent each event. Hence, allowing non-symmetrical entries is essential for the purpose of storing data on particle collisions, 
-given that not all variables are relevant for all events. For example the $P_t$ of the 3 lepton in an event with 2 lepton final state, does not make sense.
+rows with different number of columns. The simulated and measured collision data are both stored in Ntuples, with a matrix like structure 
+where the columns represent the variables/features, and the columns represent each event. Hence, allowing non-symmetrical entries is essential 
+for the purpose of storing data on particle collisions, given that not all variables are relevant for all events. For example the $P_t$ of the 
+3 lepton in an event with 2 lepton final state, does not make sense.
 \\
 When starting preprocessing, I load the NTuples into another ROOT data structure called RDataFrame\footnote{For full 
 documentation on RDataFrame, see $\href{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}$ (Accessed 16.04.2023).}. 

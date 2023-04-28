@@ -18,13 +18,6 @@ cut, the data split into what we call \emph{branches}. Each branch represents a 
 The final subset, after a sufficient amount of cuts ends in what we call \emph{leaves}. The leaves are 
 the label we assign the subset of data contained in this branch.
 \\  
-\begin{figure}
-    \centering
-    \includegraphics[width=0.6\textwidth]{Figures/Illustrations/DT.png}
-    \caption{An illustration of a simple \ac{DT}, mapping a four dimensional input ($x_1,x_2,x_3,x_4$) 
-    to one of three values in the target space ($y_1,y_2,y_3$).}
-    \label{fig:DT}
-\end{figure}
 Just like most \ac{ML}-methods, there are many kinds of \ac{DT} each with their own 
 architecture and benefits. In the case of \ac{DT} the defining qualities can be summarized in
 its choice of \emph{Deepness} and \emph{Optimization}. When provided with a data set,
@@ -38,6 +31,13 @@ Building a \ac{DT} and choosing which cuts to apply at what point, is the equiva
 network. How to decide by what standard one chooses to building the hierarchy of cuts is again the 
 equivalent of choosing an optimizer. For more information on \ac{DT}'s, the reader is referred to the 
 book by Hastie et al. \cite{huang_introduction_2014}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figures/Illustrations/DT.png}
+    \caption{An illustration of a simple \ac{DT}, mapping a four dimensional input ($x_1,x_2,x_3,x_4$) 
+    to one of three values in the target space ($y_1,y_2,y_3$).}
+    \label{fig:DT}
+\end{figure}
 \subsection{Gradient Boosting in Decision Trees}
 Gradient-boosting is an algorithm which uses a collective of "weak" 
 classifiers in order to create one strong classifier. In the case of gradient-boosted 
