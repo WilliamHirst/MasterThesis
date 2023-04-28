@@ -8,7 +8,7 @@ import pandas as pd
 
 import context
 import plot_utils
-from layers import MaxOut, ChannelOut
+from layers import MaxOut, ChannelOut, StochChannelOut
 
 
 def get_layer_names(network: tf.keras.Model) -> list:
@@ -71,7 +71,7 @@ def get_all_activations(network: tf.keras.Model, input) -> list:
     """
     activations = list()
     for layer in network.layers:
-        if isinstance(layer, (MaxOut, ChannelOut)):
+        if isinstance(layer, (MaxOut, ChannelOut, StochChannelOut)):
             activations.append(get_layer_activations(network, layer, input))
 
     return activations
@@ -120,12 +120,12 @@ def plot_nodes(layers: list, ax=None):
         ax.set_yticks([])
 
     for x, layer in enumerate(layers):
-        if isinstance(layer, (MaxOut, ChannelOut)):
+        if isinstance(layer, (MaxOut, ChannelOut,StochChannelOut)):
             nodes = layer.units
             for node in np.arange(-nodes/2, nodes/2):
                 ax.scatter([x], [node], color=plot_utils.colors[0], zorder = 150)
 
-            if isinstance(layer, (MaxOut, ChannelOut)):
+            if isinstance(layer, (MaxOut, ChannelOut,StochChannelOut)):
                 group_nodes(x, nodes, layer.num_groups, ax=ax)
 
     return ax
@@ -156,7 +156,7 @@ def plot_active_nodes(layers: list, isactive: list, ax=None):
         for node, color in zip(np.arange(-nodes/2, nodes/2), colors):
             ax.scatter([x], [node], c=color)
 
-        if isinstance(layer, (MaxOut, ChannelOut)):
+        if isinstance(layer, (MaxOut, ChannelOut,StochChannelOut)):
             group_nodes(x, nodes, layer.num_groups, ax=ax)
 
     return ax
@@ -218,7 +218,11 @@ def plot_value_line(layers: list, isactive: list, pred: float, ax=None, **plot_k
     last_nodes = np.where(isactive[-1],
                             np.arange(-nodes/2, nodes/2),
                             np.nan)
-    val = layers[-1](pred[-1][pred[-1] != 0].reshape(1, -1))*10
+    if isinstance(layers[1], (MaxOut)):
+        val = layers[-1](pred[-1][pred[-1] != 0].reshape(1, -1))*10
+    elif isinstance(layers[1], (ChannelOut,StochChannelOut)):
+        val = layers[-1](pred[-1].reshape(1, -1))*10
+
     val = int(np.round(val.numpy()))/10
     
     val = val*(nodes-1)-nodes/2

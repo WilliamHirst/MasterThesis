@@ -66,23 +66,23 @@ if __name__ == "__main__":
     import pandas as pd
 
     sys.path.insert(1, "../")
-    from layers import MaxOut,StochChannelOut
+    from layers import MaxOut,StochChannelOut, ChannelOut
 
 
     myPath = "/storage/William_Sakarias/William_Data"
 
     signal = "SUSY"
 
-    # print(f"Starting test: {signal}")
-    # IncludeRange = [250, 300, 50, 200] 
+    print(f"Starting test: {signal}")
+    IncludeRange = [250, 300, 50, 200] 
 
-    # df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"], IncludeRange=IncludeRange)
+    df, y, df_data, channels = loadDf(myPath, notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75"], IncludeRange=IncludeRange)
 
-    # print("Preparing data....")
-    # train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=False)
-    # print("Done.")
+    print("Preparing data....")
+    train, val = splitAndPrepData(df, y, scale = True, ret_scaleFactor=False)
+    print("Done.")
 
-    train, val = loadSamples(ex_path = "../")
+    # train, val = loadSamples(ex_path = "../")
 
     X_train, Y_train, W_train, C_train = train
     X_val, Y_val, W_val, C_val = val
@@ -92,11 +92,11 @@ if __name__ == "__main__":
 
     model = tf.keras.Sequential()
     model.add(tf.keras.layers.InputLayer(input_shape=(nrFeature,)))
-    model.add(MaxOut(units=8, num_inputs=nrFeature, num_groups=4))
+    model.add(StochChannelOut(units=8, num_inputs=nrFeature, num_groups=4))
     # model.add(tf.keras.layers.Dropout(0.2))
-    model.add(MaxOut(units=8, num_inputs=4, num_groups=2))
+    model.add(StochChannelOut(units=8, num_inputs=8, num_groups=2))
     # # model.add(tf.keras.layers.Dropout(0.2))
-    model.add(MaxOut(units=8, num_inputs=2, num_groups=4))
+    model.add(StochChannelOut(units=8, num_inputs=8, num_groups=4))
     model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
     optimizer = optimizers.Adam(learning_rate=1e-3)
@@ -115,7 +115,6 @@ if __name__ == "__main__":
                                  Y_viz.values,
                                  )
     fig.savefig("BeforeTraining.pdf")
-
     with tf.device("/GPU:0"):
         callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
                                                     patience=10, 

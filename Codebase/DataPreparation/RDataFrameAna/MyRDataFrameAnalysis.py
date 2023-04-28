@@ -276,69 +276,69 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
                         var = v
                     bins_dic = featdic["lep%i_%s"%(i+1,var)]
                     df[k] = df[k].Define("lep%i_%s"%(i+1,var),"getVar(lep%s[isGoodLepton],%i)"%(var,i))
-                    # histo["lep%i_%s_%s"%(i+1,var,k)] = df[k].Histo1D(("lep%i_%s_%s"%(i+1,var,k),
-                    #       "lep%i_%s_%s;Feature;Entries"%(i+1,var,k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),
-                    #       "lep%i_%s"%(i+1,var),"wgt_SG")
+                    histo["lep%i_%s_%s"%(i+1,var,k)] = df[k].Histo1D(("lep%i_%s_%s"%(i+1,var,k),
+                          "lep%i_%s_%s;Feature;Entries"%(i+1,var,k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),
+                          "lep%i_%s"%(i+1,var),"wgt_SG")
 
 
-            # # Stransverse mass       
-            # df[k] = df[k].Define("MT2_12","calcMT2(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], met_Et, met_Phi, 0, 1)")
-            # df[k] = df[k].Define("MT2_13","calcMT2(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], met_Et, met_Phi, 0, 2)")
-            # df[k] = df[k].Define("MT2_23","calcMT2(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], met_Et, met_Phi, 1, 2)")
+            # Stransverse mass       
+            df[k] = df[k].Define("MT2_12","calcMT2(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], met_Et, met_Phi, 0, 1)")
+            df[k] = df[k].Define("MT2_13","calcMT2(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], met_Et, met_Phi, 0, 2)")
+            df[k] = df[k].Define("MT2_23","calcMT2(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], met_Et, met_Phi, 1, 2)")
             
-            # # Energy
-            # df[k] = df[k].Define("lep1_E", "getE(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], 0)")
-            # df[k] = df[k].Define("lep2_E", "getE(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], 1)")
-            # df[k] = df[k].Define("lep3_E", "getE(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], 2)")
+            # Energy
+            df[k] = df[k].Define("lep1_E", "getE(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], 0)")
+            df[k] = df[k].Define("lep2_E", "getE(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], 1)")
+            df[k] = df[k].Define("lep3_E", "getE(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], 2)")
             
-            # # Transverse Mass
-            # df[k] = df[k].Define("lep1_Mt", "getMt(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], 0)")
-            # df[k] = df[k].Define("lep2_Mt", "getMt(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], 1)")
-            # df[k] = df[k].Define("lep3_Mt", "getMt(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], 2)")
+            # Transverse Mass
+            df[k] = df[k].Define("lep1_Mt", "getMt(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], 0)")
+            df[k] = df[k].Define("lep2_Mt", "getMt(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], 1)")
+            df[k] = df[k].Define("lep3_Mt", "getMt(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], 2)")
                 
-            # # Jets
-            # isGoodJet = "jet_BL && (jetPt > 60 || (jetPt <=60 && jetJVT <= 0.91 && jetJVT >= -0.91))"
-            # df[k] = df[k].Define("jet_BL","jetPt >= 20 && (jetEta <= 2.8 && jetEta >= -2.8)")
-            # df[k] = df[k].Define("jet_SG","jet_BL && (jetPt > 60 || (jetPt <=60 && jetJVT <= 0.91 && jetJVT >= -0.91))")
-            # df[k] = df[k].Define("isGoodJet",isGoodJet)
+            # Jets
+            isGoodJet = "jet_BL && (jetPt > 60 || (jetPt <=60 && jetJVT <= 0.91 && jetJVT >= -0.91))"
+            df[k] = df[k].Define("jet_BL","jetPt >= 20 && (jetEta <= 2.8 && jetEta >= -2.8)")
+            df[k] = df[k].Define("jet_SG","jet_BL && (jetPt > 60 || (jetPt <=60 && jetJVT <= 0.91 && jetJVT >= -0.91))")
+            df[k] = df[k].Define("isGoodJet",isGoodJet)
             
-            # df[k] = df[k].Define("bjet85","isGoodJet && jetdl1r>=0.665")
-            # df[k] = df[k].Define("bjet77","isGoodJet && jetdl1r>=2.195")
+            df[k] = df[k].Define("bjet85","isGoodJet && jetdl1r>=0.665")
+            df[k] = df[k].Define("bjet77","isGoodJet && jetdl1r>=2.195")
             
-            # df[k] = df[k].Define("jet_SG_pT","jetPt[isGoodJet]")
-            # df[k] = df[k].Define("jet_SG_eta","jetEta[isGoodJet]")
-            # df[k] = df[k].Define("njet_SG","ROOT::VecOps::Sum(jet_SG)")
+            df[k] = df[k].Define("jet_SG_pT","jetPt[isGoodJet]")
+            df[k] = df[k].Define("jet_SG_eta","jetEta[isGoodJet]")
+            df[k] = df[k].Define("njet_SG","ROOT::VecOps::Sum(jet_SG)")
             
-            # # Delta R
-            # df[k] = df[k].Define("deltaR","deltaR(lepEta[isGoodLepton], lepPhi[isGoodLepton], 0, 1)")
+            # Delta R
+            df[k] = df[k].Define("deltaR","deltaR(lepEta[isGoodLepton], lepPhi[isGoodLepton], 0, 1)")
             
-            # # Invariant Mass (lll)
-            # df[k] = df[k].Define("mlll","ComputeInvariantMass(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton])")
+            # Invariant Mass (lll)
+            df[k] = df[k].Define("mlll","ComputeInvariantMass(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton])")
             
-            # # Invariant Mass (ll-OSSF)
-            # df[k] = df[k].Define("mll_OSSF","OSSFInvariantMass(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], lepCharge[isGoodLepton], lepFlavor[isGoodLepton])")
+            # Invariant Mass (ll-OSSF)
+            df[k] = df[k].Define("mll_OSSF","OSSFInvariantMass(lepPt[isGoodLepton], lepEta[isGoodLepton], lepPhi[isGoodLepton], lepM[isGoodLepton], lepCharge[isGoodLepton], lepFlavor[isGoodLepton])")
             
-            # # Ht(lll)
-            # df[k] = df[k].Define("Ht_lll","ROOT::VecOps::Sum(lepPt[isGoodLepton])")
+            # Ht(lll)
+            df[k] = df[k].Define("Ht_lll","ROOT::VecOps::Sum(lepPt[isGoodLepton])")
             
-            # # Ht (SS)
-            # df[k] = df[k].Define("Ht_SS","SSHt(lepPt[isGoodLepton], lepCharge[isGoodLepton])")
+            # Ht (SS)
+            df[k] = df[k].Define("Ht_SS","SSHt(lepPt[isGoodLepton], lepCharge[isGoodLepton])")
             
-            # # Ht(lll) + Energy of missing transverse momentum
-            # df[k] = df[k].Define("Ht_met_Et","Ht_lll + met_Et")
+            # Ht(lll) + Energy of missing transverse momentum
+            df[k] = df[k].Define("Ht_met_Et","Ht_lll + met_Et")
             
-            # # Invariant mass of leading jet-pair.
-            # df[k] = df[k].Define("M_jj","getMjj(jetPt[isGoodJet], jetEta[isGoodJet], jetPhi[isGoodJet], jetM[isGoodJet], njet_SG)")
+            # Invariant mass of leading jet-pair.
+            df[k] = df[k].Define("M_jj","getMjj(jetPt[isGoodJet], jetEta[isGoodJet], jetPhi[isGoodJet], jetM[isGoodJet], njet_SG)")
 
-            # # nBjets
-            # df[k] = df[k].Define("nbjet85","ROOT::VecOps::Sum(bjet85)")
-            # df[k] = df[k].Define("nbjet77","ROOT::VecOps::Sum(bjet77)")
+            # nBjets
+            df[k] = df[k].Define("nbjet85","ROOT::VecOps::Sum(bjet85)")
+            df[k] = df[k].Define("nbjet77","ROOT::VecOps::Sum(bjet77)")
 
          
-            # # Flavour combo
-            # df[k] = df[k].Define("flcomp","flavourComp3L(lepFlavor[ele_BL || muo_BL])")
+            # Flavour combo
+            df[k] = df[k].Define("flcomp","flavourComp3L(lepFlavor[ele_BL || muo_BL])")
 
-            # Negative Weights
+            #Negative Weights
             df_Neg = df[k].Filter("wgt_SG < 0")
 
             df_Neg = df_Neg.Define("lep1_Pt_Neg",  "lep1_Pt")
@@ -348,38 +348,38 @@ def runANA(mypath_mc, mypath_data, everyN, fldic, histo, allhisto, nEvents = 0):
             df_Neg = df_Neg.Define("wgt_SG_Abs", "abs(wgt_SG)")
 
             
-            # # HISTOGRAMS
-            # histo["flcomp_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("flcomp",k),"h_%s_%s"%("flcomp",k),len(fldic.keys()),0,len(fldic.keys())),"flcomp","wgt_SG")
+            # HISTOGRAMS
+            histo["flcomp_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("flcomp",k),"h_%s_%s"%("flcomp",k),len(fldic.keys()),0,len(fldic.keys())),"flcomp","wgt_SG")
 
-            # bins_dic = featdic["lep1_Mt"]
-            # histo["lep1_Mt_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep1_Mt",k),"h_%s_%s;Mt(l1) [GeV];Entries"%("lep1_Mt",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep1_Mt","wgt_SG")
-            # histo["lep2_Mt_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep2_Mt",k),"h_%s_%s;Mt(l2) [GeV];Entries"%("lep2_Mt",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep2_Mt","wgt_SG")
-            # histo["lep3_Mt_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep3_Mt",k),"h_%s_%s;Mt(l3) [GeV];Entries"%("lep3_Mt",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep3_Mt","wgt_SG")
+            bins_dic = featdic["lep1_Mt"]
+            histo["lep1_Mt_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep1_Mt",k),"h_%s_%s;Mt(l1) [GeV];Entries"%("lep1_Mt",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep1_Mt","wgt_SG")
+            histo["lep2_Mt_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep2_Mt",k),"h_%s_%s;Mt(l2) [GeV];Entries"%("lep2_Mt",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep2_Mt","wgt_SG")
+            histo["lep3_Mt_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("lep3_Mt",k),"h_%s_%s;Mt(l3) [GeV];Entries"%("lep3_Mt",k),bins_dic["nr_bins"],bins_dic["min"],bins_dic["max"]),"lep3_Mt","wgt_SG")
             
-            # histo["nbjet85_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("nbjet85",k),"h_%s_%s"%("nbjet85",k),5,0,4),"nbjet85","wgt_SG")        
-            # histo["nbjet77_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("nbjet77",k),"h_%s_%s"%("nbjet77",k),4,0,3),"nbjet77","wgt_SG")
+            histo["nbjet85_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("nbjet85",k),"h_%s_%s"%("nbjet85",k),5,0,4),"nbjet85","wgt_SG")        
+            histo["nbjet77_%s"%(k)] = df[k].Histo1D(("h_%s_%s"%("nbjet77",k),"h_%s_%s"%("nbjet77",k),4,0,3),"nbjet77","wgt_SG")
             
-            # histo["met_Phi_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Phi",k),"h_%s_%s; Phi of missing transvere momentum;Entries"%("met_Phi",k),20,-3.5,3.5),"met_Phi","wgt_SG")
+            histo["met_Phi_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Phi",k),"h_%s_%s; Phi of missing transvere momentum;Entries"%("met_Phi",k),20,-3.5,3.5),"met_Phi","wgt_SG")
 
-            # histo["met_Et_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Et",k),"h_%s_%s; Energy of missing transverse momentum [GeV];Entries"%("met_Et",k),40,25,350),"met_Et","wgt_SG")
+            histo["met_Et_%s"%k] = df[k].Histo1D(("h_%s_%s"%("met_Et",k),"h_%s_%s; Energy of missing transverse momentum [GeV];Entries"%("met_Et",k),40,25,350),"met_Et","wgt_SG")
                         
-            # histo["njet_SG_%s"%k] = df[k].Histo1D(("njet_SG_%s"%k,"njet_SG_%s"%k,10,0,10),"njet_SG","wgt_SG")
+            histo["njet_SG_%s"%k] = df[k].Histo1D(("njet_SG_%s"%k,"njet_SG_%s"%k,10,0,10),"njet_SG","wgt_SG")
 
-            # histo["deltaR_%s"%k] = df[k].Histo1D(("deltaR_%s"%k,"deltaR_%s"%k,20,0,6),"deltaR","wgt_SG")
+            histo["deltaR_%s"%k] = df[k].Histo1D(("deltaR_%s"%k,"deltaR_%s"%k,20,0,6),"deltaR","wgt_SG")
 
-            # histo["mlll_%s"%k] = df[k].Histo1D(("mlll_%s"%k,"mlll_%s"%k,40,50,500),"mlll","wgt_SG")
+            histo["mlll_%s"%k] = df[k].Histo1D(("mlll_%s"%k,"mlll_%s"%k,40,50,500),"mlll","wgt_SG")
 
-            # histo["mll_OSSF_%s"%k] = df[k].Histo1D(("mll_OSSF_%s"%k,"mll_OSSF_%s"%k,40,0,400),"mll_OSSF","wgt_SG")
+            histo["mll_OSSF_%s"%k] = df[k].Histo1D(("mll_OSSF_%s"%k,"mll_OSSF_%s"%k,40,0,400),"mll_OSSF","wgt_SG")
 
-            # histo["Ht_lll_%s"%k] = df[k].Histo1D(("Ht_lll_%s"%k,"Ht_lll_%s"%k,25,40,500),"Ht_lll","wgt_SG")
+            histo["Ht_lll_%s"%k] = df[k].Histo1D(("Ht_lll_%s"%k,"Ht_lll_%s"%k,25,40,500),"Ht_lll","wgt_SG")
 
-            # histo["Ht_SS_%s"%k] = df[k].Histo1D(("Ht_SS_%s"%k,"Ht_SS_%s"%k,40,20,400),"Ht_SS","wgt_SG")
+            histo["Ht_SS_%s"%k] = df[k].Histo1D(("Ht_SS_%s"%k,"Ht_SS_%s"%k,40,20,400),"Ht_SS","wgt_SG")
 
-            # histo["Ht_met_Et_%s"%k] = df[k].Histo1D(("Ht_met_Et_%s"%k,"Ht_met_Et_%s"%k,40,40,600),"Ht_met_Et","wgt_SG")
+            histo["Ht_met_Et_%s"%k] = df[k].Histo1D(("Ht_met_Et_%s"%k,"Ht_met_Et_%s"%k,40,40,600),"Ht_met_Et","wgt_SG")
             
-            # histo["M_jj_%s"%k] = df[k].Histo1D(("M_jj_%s"%k,"M_jj_%s"%k,25,0,800),"M_jj","wgt_SG")
+            histo["M_jj_%s"%k] = df[k].Histo1D(("M_jj_%s"%k,"M_jj_%s"%k,25,0,800),"M_jj","wgt_SG")
             
-            # histo["met_Sign_%s"%k] = df[k].Histo1D(("met_Sign_%s"%k,"met_Sign_%s"%k,20,0,20),"met_Sign","wgt_SG")
+            histo["met_Sign_%s"%k] = df[k].Histo1D(("met_Sign_%s"%k,"met_Sign_%s"%k,20,0,20),"met_Sign","wgt_SG")
 
 
             bins_dic = featdic["lep1_Pt"]

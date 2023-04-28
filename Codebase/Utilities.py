@@ -164,8 +164,6 @@ def splitAndPrepData(X,
     X_val.index = np.arange(len(X_val))
     Y_train.index = np.arange(len(Y_train))
     Y_val.index = np.arange(len(Y_val))
-
-    print("Anna er kul")
     
     if scale:
         X_train, X_val = scaleData(X_train, X_val, scaler = "Standard")

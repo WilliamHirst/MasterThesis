@@ -27,8 +27,9 @@ def make_figs_path(filename):
 signal  = sns.color_palette('husl')[-2]
 bkg = 'mediumorchid'
 boxes = sns.color_palette('dark')[-1]
+nodes = sns.color_palette('husl')[-3]
 colors = [
-    boxes,
+    nodes,
     bkg,
     signal,
     'mediumorchid',
