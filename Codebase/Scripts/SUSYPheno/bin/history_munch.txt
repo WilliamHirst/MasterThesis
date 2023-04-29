@@ -1111,3 +1111,11 @@ munch.py  -coord m1,m2  -resvars NNexpsign  -fn_table compLimit.txt  -cont NNexp
 munch.py  -coord m1,m2  -resvars MaxOutexpsign  -fn_table compLimit.txt  -cont MaxOutexpsign:MO:1.64:7:2:5       # 2023-04-26_10-31-28
 munch.py  -coord m1,m2  -resvars MaxOutexpsign  -fn_table compLimit.txt  -cont MaxOutexpsign:MO:1.64:7:2:5       # 2023-04-26_10-32-00
 munch.py  -coord m1,m2  -resvars MaxOutexpsign  -fn_table compLimit.txt  -cont MaxOutexpsign:MO:1.64:7:2:5       # 2023-04-26_10-32-32
+munch.py  -coord m1,m2  -resvars nexpsig  -fn_table PNNPCA_FS_MLM_MixGridSig.txt  -cont nexpsig:MO:1.64:7:2:5       # 2023-04-29_17-05-43
+munch.py  -coord m1,m2  -resvars nexpsig  -fn_table PNNPCA_FS_MLM_MixGridSig.txt  -cont nexpsig:MO:1.64:7:2:5       # 2023-04-29_17-06-00
+munch.py  -coord m1,m2  -resvars PNNnexpsig  -fn_table PNNPCA_FS_MLM_MixGridSig.txt  -cont PNNnexpsig:MO:1.64:7:2:5       # 2023-04-29_17-06-21
+munch.py  -coord m1,m2  -resvars PNNnexpsig  -fn_table PNNPCA_FS_MLM_MixGridSig.txt  -cont PNNnexpsig:MO:1.64:7:2:5       # 2023-04-29_17-08-38
+munch.py  -coord m1,m2  -resvars PNNexpsign  -fn_table compLimitMix.txt  -cont PNNexpsign:MO:1.64:7:2:5       # 2023-04-29_17-11-08
+munch.py  -coord m1,m2  -resvars PNNexpsign  -fn_table compLimitMix.txt  -cont PNNexpsign:MO:1.64:7:2:5       # 2023-04-29_17-11-46
+munch.py  -coord m1,m2  -resvars PNNexpsign  -fn_table compLimitMix.txt  -cont PNNexpsign:MO:1.64:7:2:5       # 2023-04-29_17-12-01
+munch.py  -coord m1,m2  -resvars PNNexpsign  -fn_table compLimitMix.txt  -cont PNNexpsign:MO:1.64:7:2:5       # 2023-04-29_17-12-16

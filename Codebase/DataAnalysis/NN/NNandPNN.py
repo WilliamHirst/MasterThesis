@@ -21,10 +21,10 @@ from Utilities import *
 myPath = "/storage/William_Sakarias/William_Data"
 
 
-name = "PNNPCA_Overfitting_FS_MLM"
+name = "PNNPCA_FS_MLM"
 signal = "SUSY"
 train = False
-#notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0"]
+notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0"]
 notInc=["ttbarHNLfull","LRS", "filtch", "LepMLm15","LepMLp15","LepMLm75", "p01p0", "WZ100p0p0","WZ150p0p050p0", "WZ150p0p00p0p", "WZ200p0p00p0", "WZ200p0p050p0"] #FS_MLM
 
 # IncludeRange = [400, 800, 0, 400] 
@@ -75,7 +75,7 @@ with tf.device("/GPU:0"):
     if train:
         callback = tf.keras.callbacks.EarlyStopping(monitor='val_auc', 
                                                     patience=10, 
-                                                    restore_best_weights = False,
+                                                    restore_best_weights = True,
                                                     verbose = 1,
                                                     mode = "max")
         history = model.fit(X_train, 
