@@ -7,7 +7,7 @@ When comparing the results, we are not only interested in how sensitive the mode
 they were able to achieve a sensitivity of over 1.64. However, similarly to previous results, the significance does not include any uncertainty.
 \\
 I will not apply all previously tested models to the full statistics signal set. Instead, I will only apply the models I found most ideal for this analysis, based 
-on the tests performed in the previous sections. I decided to choose one model from each "type"\footnote{By network type, I am referring to either the ordinary dense network, the 
+on the tests performed in the previous sections. I decided to choose one model from each 'type'\footnote{By network type, I am referring to either the ordinary dense network, the 
 \ac{PNN} or a \ac{LWTA} model. } of network. Based on the results in section \ref{sec:Ensemble}, where I compared the different ensemble methods, I found the maxout model to be 
 the top performer. Likewise, in section \ref{sec:PCA} I found that both maxout and the \ac{PNN}, preferred to utilize data with a \ac{PCA}. Therefore, I will utilize the maxout model 
 and \ac{PNN} model defined in section \ref{subsec:arch}, with the use of \ac{PCA}. Finally, I will include the ordinary dense \ac{NN} for the sake of diversity, but without a \ac{PCA} 
@@ -26,7 +26,7 @@ indication that the deep networks are able to exploit overlapping regions in the
     \end{subfigure}
     }
     \caption{A grid displaying the achieved significance on the full statistics signal set, using the signal region 
-    created by the \ac{NN} network. A band around each cell with a significance over 1.64 has been included.}
+    created by the \acs{NN} network. A band around each cell with a significance over 1.64 has been included.}
     \label{fig:NN_FS_MLMGridSig}
 \end{figure}
 Figure \ref{fig:MaxOutPCA_FS_MLMGridSig} displays a grid presenting the sensitivity of the maxout model using the full statistics 
@@ -69,7 +69,7 @@ dense network and the maxout model who both achieved sufficient sensitivity for 
     \end{subfigure}
     }
     \caption{A grid displaying the achieved significance on the full statistics signal set, using the signal region 
-    created by the \ac{PNN} network. A band around each cell with a significance over 1.64 has been included.}
+    created by the \acs{PNN} network. A band around each cell with a significance over 1.64 has been included.}
     \label{fig:PNNPCA_FS_MLMGridSig}
 \end{figure}
 To summarize the comparisons on the full statistics signal set, I created a pie-plot in figure \ref{fig:FSComp}. As shown in the figure, the ordinary dense \ac{NN}
@@ -84,11 +84,11 @@ most combinations, but exhibits impressive training memory, attaining the most b
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/FS_MLMNetworkComp.pdf}
     \end{subfigure}
     }
-    \caption[A sensitivity comparison between a dense \ac{NN}, \ac{PNN} and maxout on the full statistics 
-    signal data. A \ac{PCA} analysis has been applied to the data being utilized by the latter two models.]{
+    \caption[A sensitivity comparison between a dense \acs{NN}, \acs{PNN} and maxout on the full statistics 
+    signal data. A \acs{PCA} analysis has been applied to the data being utilized by the latter two models.]{
     A sensitivity comparison between a dense \ac{NN}, \ac{PNN} and maxout on the full statistics 
     signal data. A \ac{PCA} analysis has been applied to the data being utilized by the latter two models.
-    The size of each "slice" represents the relative size of the significance and the color around each point 
+    The size of each 'slice' represents the relative size of the significance and the color around each point 
     displays the method with the largest sensitivity for the respective combination.}
     \label{fig:FSComp}
 \end{figure}

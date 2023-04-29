@@ -29,7 +29,7 @@ deep network. This result motivated the choice of layers and nodes for all netwo
     \end{subfigure}
     }
     \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
-    created by the shallow \ac{NN}.}
+    created by the shallow \acs{NN}.}
     \label{fig:NNshallowGridSig}
 \end{figure}
 \begin{figure}
@@ -40,7 +40,7 @@ deep network. This result motivated the choice of layers and nodes for all netwo
     \end{subfigure}
     }
     \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
-    created by the dense \ac{NN}.}
+    created by the dense \acs{NN}.}
     \label{fig:NNGridSig}
 \end{figure}
 \subsection{Parameter Specific Networks and Interpolation}
@@ -59,7 +59,7 @@ Figure \ref{fig:OneMass} presents the achieved sensitivity from a dense \ac{NN} 
 hence force be referred to as \ac{OMM}), ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV), while figure \ref{fig:SeveralMass} presents the 
 achieved sensitivity after training on a large set of mass combinations (which will hence force be referred 
 to as \ac{SMM}). Specifically, the latter figure shows the results after training on all signals on the outer square\footnote{I.e. all mass combinations 
-which lay in the edges of the grid.} in the figure \ref{fig:SeveralMass} and events with masses ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV).\\
+which lie on the edges of the grid.} in the figure \ref{fig:SeveralMass} and events with masses ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV).\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -78,7 +78,7 @@ which lay in the edges of the grid.} in the figure \ref{fig:SeveralMass} and eve
     \end{subfigure}
     }
     \caption[Two grids displaying the achieved significance on a subset of the full signal set, using the signal region 
-    created by two dense \ac{NN}'s, each training on different amounts of signal.]{Two grids displaying the achieved significance 
+    created by two dense \acs{NN}'s, each training on different amounts of signal.]{Two grids displaying the achieved significance 
     on a subset of the full signal set, using the signal region created by two dense \ac{NN}'s. Figure \ref{fig:OneMass} presents the results 
     from a model who has only seen one mass combination during training, ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV). Figure 
     \ref{fig:SeveralMass} presents the results from a model who has seen all mass combinations in the grid, but for the inner square of masses. }
@@ -112,14 +112,14 @@ to overfitting.
         \label{fig:SeveralMassHist}
     \end{subfigure}
     }
-    \caption[The comparison of the training history of two \ac{NN}'s, each training on different amounts of signal.]{
-    A plot displaying the \ac{AUC} score made after each epoch on both the training and validation set. 
+    \caption[The comparison of the training history of two \acs{NN}'s, each training on different amounts of signal.]{
+    A plot displaying the \acs{AUC} score made after each epoch on both the training and validation set. 
     Figure \ref{fig:oneMassHist} shows the results from the \ac{OMM} and figure \ref{fig:SeveralMassHist} shows
     the results from the \ac{SMM}.}
     \label{fig:InterpolateHistory}
 \end{figure}
 \\
-Given the \ac{OMM}s performance is reduced by the early stopping criteria, I wanted to explore if it would be able to outperform the 
+Given that the \ac{OMM}'s performance is reduced by the early stopping criteria, I wanted to explore if it would be able to outperform the 
 \ac{SMM} given it was allowed to train deeper/longer. In figure \ref{fig:NNOverfitting}, I display the achieved significance
 of the \ac{OMM} in the case where early stopping has been removed, and the model was allowed to train for 15 epochs. By comparing figures 
 \ref{fig:SeveralMass} and \ref{fig:NNOverfitting}, we can observe that even when early stopping is removed from the \ac{OMM}, it is  
@@ -132,7 +132,7 @@ still outperformed by the \ac{SMM}. This indicates that overfitting is not the o
     \end{subfigure}
     }
     \caption[A grid displaying the achieved significance on a subset of the full signal set, using the signal region 
-    created by a dense \ac{NN} which has trained on one mass, and has been allowed to train for 16 epochs.]{
+    created by a dense \acs{NN} which has trained on one mass, and has been allowed to train for 16 epochs.]{
     A grid displaying the achieved significance on a subset of the full signal set, using the signal region 
     created by the \ac{NN}. The figure presents the results from a model who has only seen one mass combination 
     during training, ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV) and was allowed to train for 15 epochs without 
