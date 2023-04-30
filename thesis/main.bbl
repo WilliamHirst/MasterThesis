@@ -49,8 +49,8 @@ P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
   Physical Journal C} {\bf 76} (2016) 235}.
 
 \bibitem{wang_maxout_2013}
-Q.~Wang and J.~{JaJa}, ``From maxout to channel-out: Encoding information on
-  sparse pathways.''
+Q.~Wang and J.~{JaJa}, \emph{From maxout to channel-out: Encoding information
+  on sparse pathways},  \href{http://arxiv.org/abs/1312.1909}{{\tt 1312.1909}}.
 
 \bibitem{JJ}
 J.~J. T.~M. F.R.S., \emph{Xlviii. the relation between the atom and the charge

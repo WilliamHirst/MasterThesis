@@ -23,34 +23,34 @@ Warning--empty author in ATLAS-CONF-2011-152
 Warning--empty author in ATLAS-CONF-2017-064
 You've used 41 entries,
             2188 wiz_defined-function locations,
-            812 strings with 110961 characters,
-and the built_in function-call counts, 9778 in all, are:
-= -- 897
+            813 strings with 111041 characters,
+and the built_in function-call counts, 9766 in all, are:
+= -- 899
 > -- 548
 < -- 0
 + -- 161
 - -- 120
-* -- 753
-:= -- 1440
-add.period$ -- 43
+* -- 759
+:= -- 1444
+add.period$ -- 44
 call.type$ -- 41
 change.case$ -- 42
 chr.to.int$ -- 0
 cite$ -- 46
-duplicate$ -- 427
-empty$ -- 909
+duplicate$ -- 426
+empty$ -- 899
 format.name$ -- 120
-if$ -- 2445
+if$ -- 2439
 int.to.chr$ -- 0
 int.to.str$ -- 41
-missing$ -- 96
+missing$ -- 99
 newline$ -- 130
 num.names$ -- 41
-pop$ -- 144
+pop$ -- 139
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 271
+skip$ -- 264
 stack$ -- 0
 substring$ -- 441
 swap$ -- 136
@@ -61,5 +61,5 @@ type$ -- 0
 warning$ -- 5
 while$ -- 81
 width$ -- 43
-write$ -- 356
+write$ -- 357
 (There were 5 warnings)

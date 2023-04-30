@@ -6,7 +6,7 @@ they are capable of solving a large range of complex problems. In this section I
 of \ac{DT} as applied to a supervised classification problem.
 \\
 The goal of decision trees are to create a flowchart-like tree structure from input to output. 
-Similarly to the traditional cut-and-count method used in particle physics, a \ac{DT} 
+Similarly to the traditional \ac{CC} method used in particle physics, a \ac{DT} 
 places \emph{rectangular-cuts} on a data set. It does so to create a collection of thresholds 
 $\{c_1, c_2,...,c_{N_c}\}$, which when applied to a new data set and target, 
 will sort each data point to the corresponding target. 
@@ -15,8 +15,8 @@ In figure \ref{fig:DT}, I have illustrated a simple \ac{DT} classifying a 4-dime
 input data to one of three classifications. As is visualized in figure \ref{fig:DT}, the \ac{DT} 
 applies a set of thresholds on the data to find the route applicable to a target. For each applied 
 cut, the data split into what we call \emph{branches}. Each branch represents a subset of the data.
-The final subset, after a sufficient amount of cuts ends in what we call \emph{leaves}. The leaves are 
-the label we assign the subset of data contained in this branch.
+The final subset, after a sufficient amount of cuts ends in what we call \emph{leafs}. Each leaf contains
+a label which is assigned to the subset of data of which it contains.
 \\  
 Just like most \ac{ML}-methods, there are many kinds of \ac{DT} each with their own 
 architecture and benefits. In the case of \ac{DT} the defining qualities can be summarized in

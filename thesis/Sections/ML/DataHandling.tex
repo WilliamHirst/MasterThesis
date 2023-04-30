@@ -8,7 +8,7 @@ The range of values for the different data features can vary immensely, and for 
 cost functions, this is a problem. For some features, a deviation on the magnitude 
 of $10^3$ can be a good approximation, whereas for others it can be a vast 
 overestimation. When a model is to define which direction it wants to tune, it is 
-crucial that the errors across all features are weighted equally. Scaling, aims levitate 
+crucial that the errors across all features are weighted equally. Scaling, aims to levitate 
 this issue by transforming all features to have a relatively equal range of values while
 simultaneously preserving all information regarding each feature. The choice of how one 
 chooses to scale the data will heavily affect the performance of the model and is therefore
@@ -27,7 +27,7 @@ where $\boldsymbol{\mu} _x$ and $\boldsymbol{\sigma}_x$ are vectors with the ele
 the mean and standard deviation respectively for each feature.
 \subsection{Principal Component Analysis}\label{subsec:PCA}
 \ac{PCA} is a popular dimensionality reduction technique used in many analyses. The goal of
-\ac{PCA} is to reduce the dimensions of a high-dimensional dataset while at the same time conserve as 
+\ac{PCA} is to reduce the dimensions of a high-dimensional data set while at the same time conserve as 
 much of the variance (or value spread) in the data as possible. The motivation behind dimensionality reduction 
 is (mainly) rooted in two points. The first being noise reduction. Some features could not only be non-contributing 
 during training, but could even introduce noise. The second reason is lack of convergence. In a large 
@@ -54,17 +54,19 @@ scale the data, to ensure a realistic representation of the variance in each fea
                             defined by the user.                      
 \end{itemize}
 The threshold mentioned in the final point, is decided by the user, and defines how much of the variance from the original data 
-set should be included. I.e. if the threshold is set to $70\%$, $X$ number of the last features will be removed which correspond to 
-the closest to $30\%$, but not more.
+set should be included. I.e. if the threshold is set to $70\%$, $X$ number of the last features will be removed such 
+that at least $70\%$ of the variance is preserved.
 \\
 In figures \ref{fig:PCA1} and \ref{fig:PCA2} I have plotted the distribution of 10, 100 and 300 samples 
 for the features with the most and second most variance (\ref{fig:PCA1}), and least and second least 
 variance (\ref{fig:PCA2}) after applying \ac{PCA} to our data set. In this \ac{PCA} I am yet to remove features, 
-so all four features are taken from a data set where all the variance is still conserved. With this in 
+so all four features are taken from a data set where all the variance is still conserved. Each color in the figures 
+represent different categorize of collisions, i.e. $t\bar{t}$ or diboson. With this in 
 mind, the different scales on the y- and x-axis ($10^0$ for figure \ref{fig:PCA1} and $10^{-8}$ for figure 
-\ref{fig:PCA2}) show why we are able to justify removing the features. In figure \ref{fig:PCA2} we observe 
+\ref{fig:PCA2}) exhibit why we are able to justify removing the features. In figure \ref{fig:PCA2} we observe 
 that all channels exhibit the same trends and are practically identical. In other words, these features 
-would not contribute in training a model to distinguish the different channels.
+would not contribute in training a model to distinguish the different channels. Inn comparison, figure 
+\ref{fig:PCA1} displays large variance and individual trends among the different processes.
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf}
