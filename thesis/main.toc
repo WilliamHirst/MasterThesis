@@ -20,14 +20,14 @@
 \contentsline {section}{\numberline {1.6}The Background Channels}{8}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Introduction to Machine Learning and Data Analysis}{13}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Phenomenology}{13}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Optimization}{13}{section.2.2}%
+\contentsline {section}{\numberline {2.2}Optimization}{14}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Cost functions}{14}{subsection.2.2.1}%
 \contentsline {subsubsection}{Binary Crossentropy}{14}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Stochastic Gradient Descent and Mini-Batches}{14}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Memory, Adaptive Learning and ADAM}{15}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}Hyperparameters}{15}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Data Handling}{15}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Scaling}{15}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.1}Scaling}{16}{subsection.2.4.1}%
 \contentsline {subsubsection}{Standard Scaler}{16}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Principal Component Analysis}{16}{subsection.2.4.2}%
 \contentsline {section}{\numberline {2.5}Regularization}{18}{section.2.5}%

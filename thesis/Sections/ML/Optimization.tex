@@ -42,8 +42,8 @@ from a step i to $i+1$ becomes
     \boldsymbol{\theta}_{i+1}=\boldsymbol{\theta}_i-\eta \cdot \nabla_\theta \mathcal{C}\left(\boldsymbol{\theta}_i\right).
 \end{align}
 Choosing the $\eta$ can drastically affect the performance of the gradient descent method. 
-Too large and one risks 'jumping' over the true minimum or simply never allowing for parameters
-to reach a high accuracy. Too small and one risks spending computation time beyond reason. 
+Having a too large $\eta$ and one risks 'jumping' over the true minimum or simply never allowing for parameters
+to reach a high accuracy. Too small $\eta$ and may result in spending computation time beyond reason. 
 \\
 For a given data set of size N, we find the gradient $\grad_\theta (\mathcal{C})$ through the sum of the gradient for each data point 
 $\textbf{x}_i$
@@ -56,11 +56,13 @@ equation \ref{eq:dC}. We call these weights, \emph{sample-weights}.
 \\
 The calculation of the gradient over numerous data points can be time-consuming. An alternative approach which both reduces time and 
 introduces randomness, is the application of \emph{mini-batches}. Instead of summing the gradient over the full data set, one randomly samples 
-a predetermined number of points, B creating a subset of the data which is used to update $\theta$. The points sampled to create the subset, can be 
-sampled both with or without replacement\footnote{In this analysis the data is sampled with replacement.}. An epoch is completed after N/B iterations of updating 
-$\theta$. The added stochastic element reduces the risk of getting stuck in local minima. Gradient decent with randomly sampled mini-batches is called \ac{SGD}.
+a predetermined number of points, B, creating a subset of the data which is used to update $\theta$. The points sampled to create the subset, can be 
+sampled both with or without replacement\footnote{In this analysis the data is sampled with replacement.}, meaning allowing the same data points to be sampled 
+several times or not. An epoch is completed after N/B iterations of updating 
+$\theta$. The added stochastic element reduces the risk of getting stuck in local minima. Gradient descent with randomly sampled mini-batches is called \ac{SGD}.
 \subsection{Memory, Adaptive Learning and ADAM}\label{subsec:ADAM}
-Although \ac{SGD} can be highly effective, it tends to be prone to oscillations. To alleviate this issue, we introduce momentum. The momentum aims to functions as a form of 
+Although \ac{SGD} can be highly effective, it tends to be prone to oscillations between to points in the parameter space. In other words jumping back and forth between 
+the same to sets of parameters, without ever converging closer to the minima. To alleviate this issue, we introduce momentum. The momentum aims to act as a form of 
 memory, conserving some momentum from the previous update. By defining the new step between $\theta_{i+1}$ and $\theta_{i}$ as 
 \begin{align}
     \textbf{v}_i = \eta \cdot \nabla_\theta \mathcal{C}\left(\boldsymbol{\theta}_i\right),
@@ -75,11 +77,11 @@ making our new parameter iteration equal to
 \end{align}
 where $\gamma \in [0-1]$ is a parameter which defines the size of the momentum.
 \\
-An additional flaw in the \ac{SGD} optimization algorithm, is that is treats all regions in the feature space equally. Ideally, we would want the algorithm to focus 
+An additional flaw in the \ac{SGD} optimization algorithm, is that it treats all regions in the feature space equally. Ideally, we would want the algorithm to focus 
 on the most relevant areas (steep regions), while quickly moving past less relevant areas (flat regions). A solution to this is the introduction of an \emph{adaptive learning rate}.
 By updating the learning rate based on the surface of the feature space, one can assign a prioritization in the feature space which optimizes the search for optimal parameters.
 \\
 The most intuitive way to prioritize steep areas, is by introducing the second derivative of $\mathcal{C}$, but this can be quite time-consuming. The \ac{ADAM} optimizer aims to 
 create an approximation of the second derivative, through the use of momentum and an adaptive learning rate. The \ac{ADAM} optimizer introduces a set of new parameters, and includes both the 
-linear and squared derivative of $\mathcal{C}$ with memory parameters for both ($\beta_1$ and $\beta_1$ respectively). Additionally, the \ac{ADAM} optimizer holds a memory of the average of the 
+linear and squared term of the derivative of $\mathcal{C}$ (i.e. $\nabla_\theta \mathcal{C}$ and $(\nabla_\theta \mathcal{C})^2$) with memory parameters for both ($\beta_1$ and $\beta_1$ respectively). Additionally, the \ac{ADAM} optimizer holds a memory of the average of the 
 gradient and squared gradient, which is used to create faster convergence. For a thorough description of the \ac{ADAM}, the reader is referred to the paper by Kingma et al.  \cite{kingma_adam_2017}.
