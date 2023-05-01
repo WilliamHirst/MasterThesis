@@ -19,6 +19,7 @@ The files inside the NN folder require the requirmentsTF.txt software, and the f
 
 ## Plotting Figures
 Most of the code used to create the plots in my thesis can be found in the following folder:
+
 https://github.com/WilliamHirst/MasterThesis/tree/main/Codebase/DataAnalysis/Plot_stuff
 
 All files which install ROOT, requires the requirmentsROOT.txt software, otherwise use requirmentsTF.txt.
