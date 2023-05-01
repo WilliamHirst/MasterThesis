@@ -1,4 +1,4 @@
-# MasterThesis
+# William Hirst - Master Thesis
 
 ## PDF of Thesis
 Link to the thesis-pdf: https://github.com/WilliamHirst/MasterThesis/blob/main/thesis/main.pdf.
