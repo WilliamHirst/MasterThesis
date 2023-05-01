@@ -1,10 +1,9 @@
 \subsection{Lepton Variables}\label{subsec:LepSel}
-Now we will have a look at lepton variables that were included in the analysis. All low level information on the
-momentum of the leptons were added into the data set: i.e. the transverse momentum $P_t$, the pseudo rapidity $\eta$ and the azimuth
-angle $\phi$. All momentum features were represented individually for each lepton. For example $P_t$ was added as three columns, $P_t(l_1)$,
-$P_t(l_2)$ and $P_t(l_3)$, where the ordering of the leptons were based on the momentum from highest ($l_1$) to lowest ($l_3$).
-Similarly, I added information regarding the charge ($\pm$) and flavor (electron, muon) of each lepton. Based on the momentum variables
-the transverse mass $m_t$ of each lepton was calculated and included along with the energy $E_t^{miss}$ and azimuth angle $\phi^{miss}$ 
+Information regarding the kinematics of the leptons were added into the data set: i.e. the transverse momentum, $P_t$, the pseudo 
+rapidity $\eta$ and the azimuth angle $\phi$. All kinematic features were represented individually for each lepton. For example $P_t$
+was added as three columns, $P_t(l_1)$, $P_t(l_2)$ and $P_t(l_3)$, where the ordering of the leptons were based on the momentum from highest ($l_1$) to lowest ($l_3$).
+Similarly, I added information regarding the charge ($\pm$) and flavor (electron, muon) of each lepton. Based on the kinematic variables
+the transverse mass $m_t$ of each lepton was calculated, $\Delta R$ and the energy, $E_t^{miss}$, and azimuth angle, $\phi^{miss}$,
 of the missing transverse momentum.
 \\
 The variables described in the section above are often considered as low-level features. These are very useful in many (if not all)
@@ -13,15 +12,15 @@ one can allow one self to add physics motivated higher-level features. The highe
 were inspired by several publications of \ac{ATLAS} I read in preparation of the analysis \cite{franchini_search_2019, atlas_search_2021}. 
 \\
 Firstly I added different mass variables, namely $m_{lll}$ and $m_{ll}(OSSF)$ (\ac{OSSF}). The first being the trilepton invariant mass 
-and the latter being the dilepton invariant mass of the pair with \ac{OSSF}. In the case of more than one possible OSSF-pair,
+and the latter being the dilepton invariant mass of the pair with \ac{OSSF}. In the case of more than one possible \ac{OSSF}-pair,
 the pair with the highest invariant mass was chosen. Secondly I added variables composed of the sum of different set of momenta.
-These variables are the sum of all three leptons $H_t(lll)$, of the pair with \ac{SS} $H_t(SS)$ and the sum of the momentum
+These variables are the sum of all three leptons $H_t(lll)$, of the pair with same sign $H_t(SS)$ and the sum of the momentum
 for all three leptons added with the missing transverse energy $H_t(lll) + E_t^{miss}$. Finally, I added the significance of the
 $E_t^{miss}$, $S(E_t^{miss})$.
 \subsection{Jet Variables}\label{subsec:JetSel}
 Now we can have a look at the jet-features. Given the final state of interest should be independent of jets, there are not many
 features added with jet information. But, given the risk of miss identification and errors in reconstruction, some features were 
-added. The first features were the number of jets, both all signal jets and number of b-jets.
+added. The first features added were the number of jets, both all signal\footnote{See section \ref{subsec:Cuts}.} jets and number of b-jets.
 The latter information was divided in two columns based on the efficiency of a multivariate analysis used to separate jet-flavors.
 The efficiencies used for b-tagging are $77\%$ and $85\%$. The last information added for the jets were the mass of the leading pair 
 (based on $p_t$) di-jet mass, $m_{jj}$.

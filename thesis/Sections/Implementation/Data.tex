@@ -1,25 +1,10 @@
-\section{Tools and Data}
-Every year technology for generating and measuring particle collisions is improving. 
-As a consequence, the amount of data increases drastically. The \ac{ATLAS} experiment
-is one of the largest particle detector experiments currently operating at the 
-CERN laboratory near Geneva. \ac{ATLAS} alone generates approximately 1 petabyte of raw
-data every second from proton-proton collisions at the \ac{LHC}. In this analysis I will 
-be studying proton-proton collisions produced by \ac{ATLAS} between 2015-2018, with a luminosity of 
-$139.0fb^{-1}$ and center of mass energy of $\sqrt{s} = 13TeV$. With amounts of data this large, data handling and 
-storing is a big challenge. Therefore, taking advantage of sophisticated numerical tools 
-and data frameworks is pivotal if scientific development is to keep up with technological development.
-\\
-In this section I will cover some tools and frameworks I have used to 
-complete my analysis. Large amounts of details and explanations will not be covered. 
-Instead, this section will highlight which tools were used and some motivation
-for choosing them. Additionally, I will cover some details regarding the data
-being used, both \ac{MC}-sumulations and real collision data.
+\section{The Simulated Data}
 \subsection{Monte Carlo Simulated Data}
 Up to this point in the thesis, I have discussed two data sets: the measured collision data and the simulated data. 
 As far as my relation to the latter data set, I have only used it directly in my analysis and have not been involved in 
 production. The simulations applied in the creation of our simulated data set are all based on \acf{MC} simulations\footnote{For 
 more information on \ac{MC} simulation, the reader is referred to \cite{raychaudhuri_introduction_2008}.}, produced 
-by the popular frameworks like, \emph{$MadGraph5\_aMC@NLO$} and \emph{$Pythia\ 8.2$} \cite{alwall_automated_2014, sjostrand_introduction_2015}. 
+by the popular frameworks like \emph{$MadGraph5\_aMC@NLO$}, \emph{$Pythia\ 8.2$} and \emph{Sherpa 2.2.1} \cite{alwall_automated_2014, sjostrand_introduction_2015,Sherpa}. 
 Through simulation, we are able to (among other things); test our understanding of the detector, model the expected \ac{SM} background 
 events in different regions or model new \ac{BSM} physics. The pipeline for producing simulated events, closely mimic the pipeline 
 from real collision to data set. The pipeline for simulating collision events can be summarized in the following steps
@@ -32,8 +17,8 @@ from real collision to data set. The pipeline for simulating collision events ca
 \subsection{The Simulated Signal}\label{subsec:signal}
 As I have mentioned in previous sections I will be searching for a large range of signals, all related to the same
 physics, but with different set of parameters, i.e. choice for mass of the chargino and neutralino. In figure \ref{fig:nrSignal} I have drawn a 
-grid showing the different mass combinations searched for in this analysis. The figure shows the data set containing masses ranging from ${\tilde{\chi}_1}\in[0,400]$
-and ${\tilde{\chi}_2}\in[100,800]$\footnote{The chargino, $\tilde{\chi}^{\pm}_1$ and second neutralino, $\tilde{\chi}_2$ are mass degenerate, 
+grid displaying the different mass combinations searched for in this analysis. The masses range from ${\tilde{\chi}_1}\in[0,400]GeV$
+and ${\tilde{\chi}_2}\in[200,800]GeV$\footnote{The chargino, $\tilde{\chi}^{\pm}_1$, and second neutralino, $\tilde{\chi}_2$, are mass degenerate, 
 meaning they share the same mass. As a consequence, I will refer to the mass of each particle interchangeably throughout the thesis.}. In the beginning of my analysis I only received a subset (which will be referred to as the 
 \emph{original} data set.) of the full signal set. In the figure I have marked the original data set with a white label in the top 
 right corner of the box. The original signal set contains a total of 30 different mass combinations in the ranges 
@@ -50,6 +35,16 @@ when comparing the models to previous analysis.
   Additionally, a white corner has been added to all combinations which define the original signal set.}
   \label{fig:nrSignal}
 \end{figure}
+\section{The Tools}
+Every year technology for generating and measuring particle collisions is improving. 
+As a consequence, the amount of data increases drastically. The \ac{ATLAS} experiment
+is one of the largest particle detector experiments currently operating at the 
+CERN laboratory near Geneva. \ac{ATLAS} alone generates approximately 1 petabyte of raw
+data every second from proton-proton collisions at the \ac{LHC}. In this analysis I will 
+be studying proton-proton collisions produced by \ac{ATLAS} between 2015-2018, with a luminosity of 
+$139.0fb^{-1}$ and center of mass energy of $\sqrt{s} = 13TeV$. With amounts of data this large, data handling and 
+storing is a big challenge. Therefore, taking advantage of sophisticated numerical tools 
+and data frameworks is pivotal if scientific development is to keep up with technological development.
 \subsection{ROOT}
 In many aspects of my analysis, ranging from statistical analysis to plotting, I utilize the ROOT framework.
 ROOT \cite{ROOT} is at its core a large $C{++}$ library and data structure made specifically for big data
@@ -59,29 +54,29 @@ physics analysis which demands heavy computations. Additionally, many particle p
 have been developed to make it an even better tool. Any function not already in library,
 can easily be added in a \ac{HPC}-effective manner through $C{++}$.
 \\
-All distribution plots made for this thesis were created using ROOT. ROOT has implemented a highly intuitive and
+All distribution plots/histograms presented in the present thesis were created using ROOT. ROOT has implemented a highly intuitive and
 effective \ac{API} for data comparison and visualization. ROOT allows for quick and direct 
 comparison between data through an advanced graphical user interface. Additionally, a lot of
 functionality for creating complex stacked histogram are implemented in the ROOT \ac{API}, such
 as uncertainty calculations, ordering of histograms and statistical analysis tools. 
 \subsection{Data Structure and Frameworks}
-Both data sets analyzed in this thesis, the measured and simulated are originally (pre-processing) stored in ROOT, in the format of Ntuples. 
+Both data sets analyzed in this thesis, the measured and simulated were originally (pre-processing) stored in ROOT, in the format of Ntuples. 
 NTuples are ROOT objects, designed to store large amounts of data in a tabular form. They allow for non-symmetrical entries, meaning 
 rows with different number of columns. The simulated and measured collision data are both stored in Ntuples, with a matrix like structure 
-where the columns represent the variables/features, and the columns represent each event. Hence, allowing non-symmetrical entries is essential 
+where the columns represent the variables/features, and the rows represent each event. Hence, allowing non-symmetrical entries is essential 
 for the purpose of storing data on particle collisions, given that not all variables are relevant for all events. For example the $P_t$ of the 
-3 lepton in an event with 2 lepton final state, does not make sense.
+third lepton in an event with two lepton final state, does not make sense.
 \\
 When starting preprocessing, I load the NTuples into another ROOT data structure called RDataFrame\footnote{For full 
 documentation on RDataFrame, see $\href{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}$ (Accessed 16.04.2023).}. 
 RDataFrame allows for easy addition of new columns as well as filtering of events through native functionality. As 
-a consequence I used RDataFrame to calculate all higher-level features such as the sum of $P_t$ ($H_t$), 
-invariant mass of 3 leptons ($M_{lll}$) etc. An example is shown in the following section. 
+a consequence I used RDataFrame to calculate all features not already in the data set, such as the sum of $P_t$ (or $H_t$), 
+invariant mass of three leptons ($M_{lll}$) etc. An example is shown in the following section. 
 \\
-After all data handling was complete, I used ROOT's $AsNumpy$ function to translate the data frame as 
-a Numpy object, which then allowed me to transform it to a Pandas-data frame \cite{Pandas}. This is done
+After pre-processing was completed, I used ROOT's $AsNumpy$ function to translate the data frame as 
+a Numpy object, which then allowed me to transform it to a Pandas data frame \cite{Pandas}. This is done
 because Pandas, like most \ac{ML}-tools work in a strict Python environment. Pandas, similarly to RDataFrame
-includes many deep computational libraries, and is optimal for analysis of big data. When the full \ac{ML} 
+includes a deep computational library, and is optimal for analysis of big data. When the full \ac{ML} 
 pipeline (data-handling, training, validating etc.) is completed, the data is transformed back to RDataFrame, 
 to take advantage of the plotting functionality in ROOT. The workflow of the method is visualized in figure 
 \ref{fig:WF}.
@@ -93,77 +88,77 @@ to take advantage of the plotting functionality in ROOT. The workflow of the met
   computational analysis. }
   \label{fig:WF}
 \end{figure}
-\subsection{Computing Features in ROOT: Example}
-In this section I will cover a simple example to highlight the steps taken in preparing the data set 
-I used in the analysis. As mentioned earlier, the two main frameworks used were RDataFrame and Pandas. 
-In this example I will cover the case of a feature not already in the ROOT file, namely the trilepton
-invariant mass. All loading of data is done using the ROOT framework and is quickly transformed into a 
-RDataFrame. To effectively generate new features, we want to stay in ROOT and RDataFrame. Therefore,
-we create our $C{++}$-file, \emph{helperfunction}. The helperfunction contains all additional 
-ROOT functions that are used in the analysis and are not already native to ROOT. In the case 
-of computing the trilepton invariant mass, the $C{++}$-function is created like shown in listing 
-\ref{lst:mlll}.
-\\
-In listing \ref{lst:mlll}, we see a couple of measures taken to uphold to the ROOT environment. The first is 
-the typecasting to $VecF\_t$. $VecF\_t$ is created to wrap floats in the native ROOT vector object, $RVec$. 
-The same is done in other cases such as float and integers, $VecI\_t$ and $VecB\_t$. The second measure
-was using $TLorentzVector$\footnote{For full documentation on $TLorentzVector$, see $\href{https://root.cern.ch/doc/master/classTLorentzVector.html}{https://root.cern.ch/doc/master/classTLorentzVector.html}$ (Accessed 16.04.2023).} 
-to calculate the invariant mass. $TLorentzVector$ is a class native to ROOT with many built-in functions. In 
-this case we use the class to create three vectors through the variables, $P_t$, $\eta$, $\phi$ and M. Then, 
-through the $TLorentzVector$ class we can simply add all three vector together, and extract the invariant mass of the 3 leptons. 
-\lstset{style=Cpp}
-\begin{lstlisting}[caption={$C{++}$-function which implementes the calculation of $M_{lll}$.},captionpos=b, label={lst:mlll}]
-// Compute the trilepton invariant mass 
-float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
-  TLorentzVector p1;
-  TLorentzVector p2;
-  TLorentzVector p3;
-  p1.SetPtEtaPhiM(pt[0], eta[0], phi[0], m[0]);
-  p2.SetPtEtaPhiM(pt[1], eta[1], phi[1], m[1]);
-  p3.SetPtEtaPhiM(pt[2], eta[2], phi[2], m[2]);
-  return (p1 + p2 + p3).M();
-}
-\end{lstlisting}
-With a helper function created in $C{++}$ we can move over to a Python and RDataFrame environment
-for calculation and plotting. In the code written in listing \ref{lst:df_mlll}, I have shown a simple example 
-of loading new $C{++}$-functions, filtering out bad events, calculating new features and adding said 
-features to a histogram. The first three lines of code both process and include the helperfunctions 
-into the ROOT framework. Then I loop over all keys in the data frame, which in my case
-are the different channels (i.e diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
-based on the criteria from section \ref{subsec:Cuts}. Then, I use RDataFrame's $Define$ function to calculate
-and add a new feature using our $ComputeInvariantMass$-function. Finally, I save the feature as ROOT object called 
-$Histo1D$, which I later plot using ROOT plotting \ac{API}'s. In this example I chose the trilepton invariant mass, 
-but in the analysis all high-level features were calculated using a similar method. 
-\lstset{style=Python}
-\begin{lstlisting}[caption={Python-file for calling dataframe and calculating $M_{lll}$.},captionpos=b, label={lst:df_mlll}]
-R.gROOT.ProcessLine(".L helperFunctions.cxx+");
-R.gInterpreter.Declare('#include "helperFunctions.h"') 
-R.gSystem.Load("helperFunctions_cxx.so")
+% \subsection{Computing Features in ROOT: Example}
+% In this section I will cover a simple example to highlight the steps taken in preparing the data set 
+% I used in the analysis. As mentioned earlier, the two main frameworks used were RDataFrame and Pandas. 
+% In this example I will cover the case of a feature not already in the ROOT file, namely the trilepton
+% invariant mass. All loading of data is done using the ROOT framework and is quickly transformed into a 
+% RDataFrame. To effectively generate new features, we want to stay in ROOT and RDataFrame. Therefore,
+% we create a $C{++}$ file, \emph{helperfunction}. The helperfunction contains all additional 
+% ROOT functions that are used in the analysis and are not already native to ROOT. In the case 
+% of computing the trilepton invariant mass, the $C{++}$ function is created like shown in listing 
+% \ref{lst:mlll}.
+% \\
+% In listing \ref{lst:mlll}, we see a couple of measures taken to uphold to the ROOT environment. The first is 
+% the typecasting to $VecF\_t$. $VecF\_t$ is created to wrap floats in the native ROOT vector object, $RVec$. 
+% The same is done in other cases such as float and integers, $VecI\_t$ and $VecB\_t$. The second measure
+% was using $TLorentzVector$\footnote{For full documentation on $TLorentzVector$, see $\href{https://root.cern.ch/doc/master/classTLorentzVector.html}{https://root.cern.ch/doc/master/classTLorentzVector.html}$ (Accessed 16.04.2023).} 
+% to calculate the invariant mass. $TLorentzVector$ is a class native to ROOT with many built-in functions. In 
+% this case we use the class to create three vectors through the variables, $P_t$, $\eta$, $\phi$ and M. Then, 
+% through the $TLorentzVector$ class we can simply add all three vector together, and extract the invariant mass of the 3 leptons. 
+% \lstset{style=Cpp}
+% \begin{lstlisting}[caption={$C{++}$-function which implementes the calculation of $M_{lll}$.},captionpos=b, label={lst:mlll}]
+% // Compute the trilepton invariant mass 
+% float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
+%   TLorentzVector p1;
+%   TLorentzVector p2;
+%   TLorentzVector p3;
+%   p1.SetPtEtaPhiM(pt[0], eta[0], phi[0], m[0]);
+%   p2.SetPtEtaPhiM(pt[1], eta[1], phi[1], m[1]);
+%   p3.SetPtEtaPhiM(pt[2], eta[2], phi[2], m[2]);
+%   return (p1 + p2 + p3).M();
+% }
+% \end{lstlisting}
+% With a helper function created in $C{++}$ we can move over to a Python and RDataFrame environment
+% for calculation and plotting. In the code written in listing \ref{lst:df_mlll}, I have shown a simple example 
+% of loading new $C{++}$-functions, filtering out bad events, calculating new features and adding said 
+% features to a histogram. The first three lines of code both process and include the helperfunctions 
+% into the ROOT framework. Then I loop over all keys in the data frame, which in my case
+% are the different channels (i.e diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
+% based on the criteria from section \ref{subsec:Cuts}. Then, I use RDataFrame's $Define$ function to calculate
+% and add a new feature using our $ComputeInvariantMass$-function. Finally, I save the feature as ROOT object called 
+% $Histo1D$, which I later plot using ROOT \ac{API}. In this example I chose the trilepton invariant mass, 
+% but in the analysis all additional features were calculated using a similar method. 
+% \lstset{style=Python}
+% \begin{lstlisting}[caption={Python-file for calling dataframe and calculating $M_{lll}$.},captionpos=b, label={lst:df_mlll}]
+% R.gROOT.ProcessLine(".L helperFunctions.cxx+");
+% R.gInterpreter.Declare('#include "helperFunctions.h"') 
+% R.gSystem.Load("helperFunctions_cxx.so")
 
-for k in df.keys():
-    # Define good leptons
-    isGoodLepton = "feature1 < cut1 && feature2 >= cut2"
+% for k in df.keys():
+%     # Define good leptons
+%     isGoodLepton = "feature1 < cut1 && feature2 >= cut2"
 
-    # Define good leptons in dataframe
-    df[k] = df[k].Define("isGoodLepton",isGoodLepton)
+%     # Define good leptons in dataframe
+%     df[k] = df[k].Define("isGoodLepton",isGoodLepton)
 
-    # Define number of good leptons
-    df[k] = df[k].Define("nGoodLeptons","ROOT::VecOps::Sum(isGoodLepton)")
+%     # Define number of good leptons
+%     df[k] = df[k].Define("nGoodLeptons","ROOT::VecOps::Sum(isGoodLepton)")
 
-    # Demand 3 good leptons 
-    df[k] = df[k].Filter("nGoodLeptons == 3")
+%     # Demand 3 good leptons 
+%     df[k] = df[k].Filter("nGoodLeptons == 3")
 
-    # Define Invariant Mass (lll)
-    df[k] = df[k].Define("mlll","ComputeInvariantMass(lepPt[isGoodLepton], 
-                                                      lepEta[isGoodLepton], 
-                                                      lepPhi[isGoodLepton], 
-                                                      lepM[isGoodLepton])")
-    # Add to histogram
-    histo["mlll_%s"%k] = df[k].Histo1D(("mlll_%s"%k,
-                                        "mlll_%s"%k,40,50,500),
-                                        "mlll",
-                                        "wgt_SG")     
-\end{lstlisting}
+%     # Define Invariant Mass (lll)
+%     df[k] = df[k].Define("mlll","ComputeInvariantMass(lepPt[isGoodLepton], 
+%                                                       lepEta[isGoodLepton], 
+%                                                       lepPhi[isGoodLepton], 
+%                                                       lepM[isGoodLepton])")
+%     # Add to histogram
+%     histo["mlll_%s"%k] = df[k].Histo1D(("mlll_%s"%k,
+%                                         "mlll_%s"%k,40,50,500),
+%                                         "mlll",
+%                                         "wgt_SG")     
+% \end{lstlisting}
 
 
 

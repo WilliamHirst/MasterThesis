@@ -152,6 +152,12 @@ T.~Sjöstrand, S.~Ask, J.~R. Christiansen, R.~Corke, N.~Desai, P.~Ilten et~al.,
   \emph{An introduction to {PYTHIA} 8.2},
   \href{http://arxiv.org/abs/1410.3012}{{\tt 1410.3012}}.
 
+\bibitem{Sherpa}
+E.~Bothmann, G.~S. Chahal, S.~Höche, J.~Krause, F.~Krauss, S.~Kuttimalai
+  et~al., \emph{{Event generation with Sherpa 2.2}},
+  \href{http://dx.doi.org/10.21468/SciPostPhys.7.3.034}{\emph{SciPost Phys.}
+  {\bf 7} (2019) 034}.
+
 \bibitem{ROOT}
 R.~Brun and F.~Rademakers, \emph{Root - an object oriented data analysis
   framework},  in \emph{AIHENP'96 Workshop, Lausane}, vol.~389, pp.~81--86,
