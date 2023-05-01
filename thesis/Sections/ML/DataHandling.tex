@@ -63,10 +63,11 @@ variance (\ref{fig:PCA2}) after applying \ac{PCA} to our data set. In this \ac{P
 so all four features are taken from a data set where all the variance is still conserved. Each color in the figures 
 represent different categorize of collisions, i.e. $t\bar{t}$ or diboson. With this in 
 mind, the different scales on the y- and x-axis ($10^0$ for figure \ref{fig:PCA1} and $10^{-8}$ for figure 
-\ref{fig:PCA2}) exhibit why we are able to justify removing the features. In figure \ref{fig:PCA2} we observe 
-that all channels exhibit the same trends and are practically identical. In other words, these features 
-would not contribute in training a model to distinguish the different channels. Inn comparison, figure 
-\ref{fig:PCA1} displays large variance and individual trends among the different processes.
+\ref{fig:PCA2}) exhibit how the \ac{PCA} creates new features where there is a vast difference in variance 
+(and therefore value to the analysis), and justifies how one can remove features while preserving most of the variance. 
+In figure \ref{fig:PCA2} we observe that all channels exhibit the same trends and are practically identical. 
+In other words, these features would not contribute in training a model to distinguish the different channels. 
+Inn comparison, figure \ref{fig:PCA1} displays large variance and individual trends among the different processes.
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf}
