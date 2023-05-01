@@ -7,7 +7,7 @@
 \contentsline {figure}{\numberline {1.4}{\ignorespaces Feynman diagrams of background processes.}}{11}{figure.caption.11}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces The value distribution of the two leading \acs {PCA}-features.}}{17}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces The value distribution of the two last \acs {PCA}-features.}}{17}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces The value distribution of the two last \acs {PCA}-features.}}{18}{figure.caption.13}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces An illustration of the architecture of a \acs {NN} with two hidden layers.\relax }}{19}{figure.caption.14}%
 \contentsline {figure}{\numberline {2.4}{\ignorespaces An illustration of a forward propagation from one layer to a node in the next.\relax }}{20}{figure.caption.15}%
 \contentsline {figure}{\numberline {2.5}{\ignorespaces An illustration of a Neural network with two hidden layers using the maxout layer.}}{23}{figure.caption.16}%

@@ -4,10 +4,10 @@ of the most popular and successful \ac{ML} methods. The key to its popularity st
 its versatility, achieving high performance in a large range of both regression 
 and classification problems. One of the defining qualities in a \ac{NN} is the 
 possibility of diverse architecture, meaning that there are many
-categorize of \ac{NN}, where each category has an even deeper selection of
+categories of \ac{NN}, where each category has an even deeper selection of
 networks. Categories ranging from \ac{CNN}, \ac{RNN} to simple \ac{FFNN}, where each
 category is specified for their own set of problems. In this section I will introduce 
-some fundamental definitions in regard to \ac{NN}, as well go through the underlying 
+some fundamental definitions in regard to \ac{NN}, and go through the underlying 
 algorithm of the back- and forward propagation.
 
 \subsection{General Structure}
@@ -50,8 +50,8 @@ complex route. It is often the route from input- to output layer that categorize
 this report I used a set of simple \ac{FFNN}'s. 
 
 \subsection{Feeding Forward}\label{subsec:FP}
-With the structure described in the previous section, a trained model, $\mathcal{F}$ produces a prediction,
-$Y$ for a data set, $X$ by passing information from input layer, through all hidden layers, followed by to output layer, 
+With the structure described in the previous section, a trained model, $\mathcal{F}$, produces a prediction,
+$Y$, for a data set, $X$, by passing information from input layer, through all hidden layers, to the output layer, 
 which we call forward-propagation. In this section I aim to explain the underlying algorithm and math used by the 
 \ac{NN} to map input to output. 
 \\
@@ -73,7 +73,7 @@ we find $a_j^l$ by the equation
 \begin{align}\label{eq:ajl}
     a_j^l = \sigma \left (\sum_{k=1} ^ {N_{l-1}} w_{kj}^la_k^{l-1} + b^l_j\right ) = \sigma^l(z_j^l).
 \end{align}
-A more detailed illustration of the information pass from one layer to a node in the next is displayed 
+A more detailed illustration of the information passed from one layer to a node in the next layer is displayed 
 in figure \ref{fig:WB}. In figure \ref{fig:WB}, we see all steps described in the process; \emph{(1)} all nodes in 
 l-1 are summed with a corresponding weight, \emph{(2)} the sum is shifted by a constant term (bias), \emph{(3)} the 
 scaled and weighted sum defines the inactivated value $z_j^l$, \emph{(4)} we define $a^l_j$ by passing the 
@@ -84,7 +84,7 @@ sum through $\sigma^l$.
     \caption{An illustration of a forward propagation from one layer to a node in the next.}
     \label{fig:WB}
 \end{figure}
-This method is used for information pass between all layers, except between the first and the second. 
+This method is used to pass information between all layers, except between the first and the second. 
 In this case we simply replace the activated term, $a_k^{l-1}$ in equation \ref{eq:ajl}, by the input data,
 $x_i$ for $i\in\{0,1,...,N\}$, where N is equal to the number of features for the data. In the case $l=1$, \ref{eq:ajl} 
 becomes
@@ -96,7 +96,7 @@ And in the case where $l=L$, $a_j^L$ is equal to the final output.
 The backward propagation acts as the engine that drives the training of a neural network. It has the purpose
 of tuning the weights and biases of the network, which are originally given random values, to achieve maximum performance,
 as defined by some \emph{cost function}, $\mathcal{C}$. The cost function defines to which metric we aim to optimize the network. 
-When a neural network produces a prediction, $Y$ the error in the prediction
+When a neural network produces a prediction, $Y$, the error in the prediction
 is defined by the cost function as $\mathcal{C}\left(Y, T\right)$, where T is the target. To minimize $\mathcal{C}$, the 
 backward propagation utilizes the gradient with respect to the weights and biases in the network, as described in the section 
 regarding optimization \ref{sec:Opti}. Instead of a direct calculation of the gradient, which is very computationally heavy, 
@@ -106,7 +106,7 @@ the network. It is this algorithm I will describe in this section.
 When minimizing the error defined by $\mathcal{C}$, we can apply several optimization algorithms described in 
 section \ref{sec:Opti}. Common for the algorithms is the use of the gradient of the cost function with regard to 
 the tunable parameters. In our case these parameters are the weights and biases, $w_{i,j}^l$ and $b^l_j$. The goal of 
-the backwards propagation is therefore to calculate the gradients $\partial \mathcal{C}/\partial w_{i,j}^l$ and
+the backward propagation is therefore to calculate the gradients $\partial \mathcal{C}/\partial w_{i,j}^l$ and
 $\partial \mathcal{C}/\partial b^l_j$. 
 \\
 To begin with we can derive an expression for $\partial \mathcal{C}/\partial w_{i,j}^l$. We use the chain-rule to define 
@@ -123,15 +123,12 @@ We can redefine the first term in the equation above as $\delta_j^l$ and write
                = \sum_k \frac{\partial \mathcal{C}}{\partial z^{l+1}_k}\frac{\partial z_k^{l+1}}{\partial z^l_j}  
                = \sum_k \delta_k^{l+1}\frac{\partial z_k^{l+1}}{\partial z^l_j},
 \end{align*}
-where we have again used the chain rule for all contributing nodes.
-\\
-To calculate the final partial derivative we write
+where we have again used the chain rule for all contributing nodes. To calculate the final partial derivative we write
 \begin{align*}
     \frac{\partial z_k^{l+1}}{\partial z^l_j} = \frac{\partial z_k^{l+1}}{\partial a^l_j}\frac{\partial a^l_j}{\partial z^l_j}
                                               = w_{jk}^{l+1}(\sigma^l(z_j^l))',
 \end{align*}
-where we have again used equation \ref{eq:activated}.
-This gives the expression for $\delta_j^l$
+where we have again used equation \ref{eq:activated}. This gives the expression for $\delta_j^l$
 \begin{align}\label{eq:delta}
     \delta_j^l  = \sum_k \delta_k^{l+1}w_{jk}^{l+1}(\sigma^l(z_j^l))'  
 \end{align}
@@ -154,10 +151,10 @@ node in the cost-function, and we find
 \begin{align}\label{eq:deltaL}
     \delta_j^L = \frac{\partial \mathcal{C}}{\partial a^L_j}\left(\sigma^L(z_j^L)\right)'.
 \end{align}
-This expression, similarly to equation \ref{eq:delta} is dependent on the choice of $\mathcal{C}$ and 
+This expression, similarly to equation \ref{eq:delta}, is dependent on the choice of $\mathcal{C}$ and 
 the activation functions. Now that equation \ref{eq:deltaL} is defined, we can see that the
 gradient of the parameters in all other layers can be calculated. A full \emph{epoch} is defined as 
-a forwards propagation which creates a prediction, followed by a backward propagation which tunes the parameters 
+a forward propagation which creates a prediction, followed by a backward propagation which tunes the parameters 
 in an attempt to correct the errors in the prediction.
 \subsection{Activation Functions}\label{subsec:activation}
 As mentioned in previous sections, activation functions define how the nodes in the previous layer 
@@ -187,9 +184,9 @@ where $z$ is an inactivated node which is activated to define $a$, the activatio
 \subsection{Network Ensembles, Dropout and LWTA Networks}\label{subsec:LWTA}
 So far in the thesis, I have only covered dense layers, meaning that every node in a layer 
 is connected to the nodes in the previous and following layer. 
-This definition covers many, but not all hidden layer. Some layers do not function to pass value to and 
-fro between nodes but instead functions by dynamically changing the architecture of the \ac{NN}. In this analysis, 
-I have implemented both the popular \emph{dropout}-layer, and also a group of layers fitting of the definition 
+This definition covers many, but not all hidden layers. Some layers do not function to pass values back and forth between 
+nodes but instead functions by dynamically changing the architecture of the \ac{NN}. In this analysis, 
+I have implemented both the popular \emph{dropout}-layer, and also a group of layers fitting the definition 
 introduced in the paper \cite{srivastava_compete_2013}, as \ac{LWTA}.
 \subsubsection*{Dropout}\label{subsubsec:Dropout}
 The dropout layer functions by assigning a predetermined probability to each neuron in a given layer. Based on the 
