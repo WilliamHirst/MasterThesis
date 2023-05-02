@@ -75,17 +75,17 @@
 \contentsline {section}{\numberline {4.2}Dense Ordinary Neural Networks}{47}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}A Study of the Number of Parameters in a Network}{47}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Parameter Specific Networks and Interpolation}{47}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Ensemble methods}{50}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Visualizing Sparse Pathways}{50}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Training History and Overfitting}{54}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Comparing Achieved Sensitivity between Ensemble Methods}{54}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Parametrized Neural Network}{55}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Discriminating Masses}{56}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Sensitivity Result}{58}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}Remarks on Comparison between Models on Original Signal Set}{58}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{59}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{61}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Comparing Exclusion Limits between Models and Previous Analysis}{63}{section.4.8}%
+\contentsline {section}{\numberline {4.3}Ensemble methods}{49}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Visualizing Sparse Pathways}{49}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Training History and Overfitting}{53}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Comparing Achieved Sensitivity between Ensemble Methods}{53}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Parametrized Neural Network}{54}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Discriminating Masses}{55}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Sensitivity Result}{57}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Remarks on Comparison between Models on Original Signal Set}{57}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Increasing Sensitivity through PCA}{58}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Comparing Models on Full Statistics Signal}{60}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Comparing Exclusion Limits between Models and Previous Analysis}{62}{section.4.8}%
 \contentsline {chapter}{Conclusion $\&$ Outlook}{69}{chapter*.57}%
 \contentsline {chapter}{Appendices}{71}{appendix*.58}%
 \contentsline {section}{\numberline {A}Calculated Significance}{72}{section.Alph0.1}%
