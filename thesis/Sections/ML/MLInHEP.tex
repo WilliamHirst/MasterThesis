@@ -10,27 +10,27 @@ will not be covered in great detail in this thesis, but it is worth mentioning t
 the simulations are based on \ac{SM} theory. In other words, by comparing the measured collision 
 data with the \ac{SM} simulations, we are essentially comparing what is predicted by the \ac{SM} 
 to what is measured by experiment. If the two differ in ways not explained by simulation error 
-or other non physics related errors, one could interpret the deviation as a new physics.
+or other non physics related errors, one could interpret the deviation as new physics.
 \\
-In short, a search for new physics, is a search for deviation between simulation and 
-experiment. At first thought, this might seem like a simple task. And if said deviation 
-was large, it would be easy. In reality, any new physics which predicts large contributions 
+In short, a search for new physics, is a search for deviations in the comparisons of simulations 
+to experimental data. At first thought, this might seem like a simple task. Given that the deviations 
+would be large, it would be easy. In reality, any new physics predicting large contributions 
 in the data currently measured by \ac{ATLAS} has been excluded a long time ago. Today, any
-promising extension of the \ac{SM} predicts to contribute rarely in any detector. As will 
-be presented in later section, some theories that will be searched for in this thesis, only 
+promising extension of the \ac{SM} predicts to contribute rarely in any collision. As will 
+be presented in later sections some theories that will be searched for in this thesis only 
 contribute to a total of 6 collisions in a data set consisting of more than $3800000$ events 
 ($<0.002\%$). Not only would such a deviation be incredibly hard to detect, but it would 
 be close to impossible to determine if such a deviation is rooted in new physics or simply 
 noise. 
 \\
-The traditional approach to this problem, is to study the data in physics motivated regions. 
+The traditional approach to this problem is to study the data in physics motivated regions. 
 For example, in section \ref{sec:signal} I presented the Feynman diagrams of the signals I 
 searched for in this thesis. As mentioned, this type of final state is expected to exhibit 
-large amounts of missing transverse energy\footnote{Due to the neutralions being both heavy 
-and neutral.}. The traditional approach is to neglect all the data with small amounts of missing 
-energy, and only consider events of interest. By applying these kinds of constraints on the data, 
-you are creating a region where you expect to find as much of the signal as possible and as little 
-of the background. After applying a sufficient amount of demands (or cuts), you would count the 
+large amounts of missing transverse energy\footnote{Due to the neutralions being both heavy, neutral 
+and interacting only weakly with ordinary matter.}. The traditional approach is to neglect all the data 
+with small amounts of missing energy, and only consider events of interest. By applying these kinds of 
+constraints on the data, you are creating a region where you expect to find as much of the signal and as little 
+of the background as possible. After applying a sufficient amount of demands (or cuts), you would count the 
 remaining data in your \emph{search region} and check for deviation. This approach is called \ac{CC}.
 \\
 \begin{figure} 
@@ -38,8 +38,10 @@ remaining data in your \emph{search region} and check for deviation. This approa
     \makebox[0.75\linewidth][c]{%
     \includegraphics[width=0.65\textwidth]{Figures/Illustrations/CandC.png}
     }
-    \caption{An illustration of a traditional \acs{CC} approach and how non-overlapping features lead to effective
-    signal regions.}
+    \caption{An illustration of a traditional \acf{CC} approach and how non-overlapping features lead to effective
+    signal regions. In the first figure (left) the distributions of signal and background are relatively similar, and 
+    the signal region contains large amounts of background. In the second (right), the distributions of signal and 
+    background are greatly different, and this variable would allow for a much more effective signal region. }
     \label{fig:overlap}
 \end{figure}
 \subsection{The Machine Learning Approach}
@@ -55,12 +57,12 @@ are greatly different, and this variable would allow for a much more effective s
 \\
 The goal of introducing \ac{ML}, is to create a new feature in the data set where background and signal
 exhibit as little overlap as possible. This is very similar to how we introduce physics motivated high-level
-features like $H_t(ll)$ or $M_{lll}$, but instead of using an analytical function grounded in physics, 
+features like invariant mass, but instead of using an analytical function grounded in physics, 
 we apply the output of a trained \ac{ML} model. Then, once the \ac{ML}-variable is created, 
 we apply a cut (similar to \ac{CC}) which will define an effective search region. 
 \\
 How we create the \ac{ML}-variable can vary depending on the type of \ac{ML}. In the case of unsupervised 
-\ac{ML}, one aims to perform a type anomaly detection. One unsupervised approach is to overfit on the background,
+\ac{ML}, one aims to perform a type of anomaly detection. One unsupervised approach is to overfit on the background,
 then hope that said overfitting is reflected when a new process is introduced. An effective unsupervised approach
 would be incredibly beneficial, as it would be totally model independent. In other words, the same model could be applied 
 to all signal. As mentioned in earlier sections (see section \ref{sec:MLPhen}), the focus of this thesis will not be on 

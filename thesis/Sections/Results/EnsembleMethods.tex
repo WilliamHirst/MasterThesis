@@ -3,7 +3,7 @@
 As mentioned in section \ref{subsec:CustomLayer}, the channel-out, \ac{SCO} and maxout layers applied in this 
 analysis were created by me using the TensorFlow \ac{API}'s. As such, I found it imperative to make
 sure that the layers worked as intended. To do this I created a small network with three layers, with eight 
-nodes each, all applying MaxOut layers with four, two and four units respectively. In this section I will 
+nodes each, all applying maxout layers with four, two and four units respectively. In this section I will 
 dissect the activations of said network before and after training.
 \\
 In figure \ref{fig:BTraining}, I have plotted the activation of 100 randomly sampled events, 50 
@@ -109,8 +109,9 @@ figures as discussed in the paragraphs above, but this time only including one m
 By comparing the figures, we see a small but noticeable difference in paths. Again the middle hidden layer seems to be 
 the differentiating factor. To highlight the differences, I have included a cutout, comparing the two highest nodes in the bottom unit 
 for the middle layer of both figures, \ref{fig:ATrainingSig50250Zoom} and \ref{fig:ATrainingSig200300Zoom} (in the same order).
-By studying the cutouts, we can conclude that the maxout layer not only applies a form of regularization, but also increases the long-term 
-memory of the model through trend specific paths through the network.\\
+By studying the cutouts, we can discern that the maxout layer allows the model to discriminate both background from signal, 
+and different variations of the signal through an increase in long-term memory. We can conclude that the maxout layer not only 
+applies a form of regularization, but also increases the long-term memory of the model through trend specific paths through the network.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -144,7 +145,7 @@ and after (\ref{fig:ATrainingSCO}) training. By comparing the activations from t
 exactly as intended. In the figures visualizing the maxout layer (\ref{fig:NetDist1}), we can observe that several of the nodes which are not activated 
 before training, are left dormant even after training. In comparison, the \ac{SCO} layer display a far more balanced activation, and exhibits no signs 
 of complex co-adaptation. 
-\begin{figure}
+\begin{figure}[H]
     \makebox[\linewidth][c]{%
     \centering
     \begin{subfigure}{.6\textwidth}
@@ -257,6 +258,7 @@ this model was in-part created by me. Except the mass combinations where maxout 
 Most interestingly, it outperformed the channel-out model, which is the model most similar to \ac{SCO}, in 9/30 (see figure \ref{fig:SCOCO}). 
 In hindsight, I believe that by removing the \ac{SCO} during prediction (similar to what is done for dropout), the \ac{SCO} layer would greatly 
 approve in performance, on a count of the fact that the performance on each event is dependent on the random choice of unit for that prediction.
+This means it is possible that upon prediction, a data point is sent through a path which has never been chosen during training. 
 Nonetheless, this analysis is an indicator that although the maxout model was the highest performing model, the \ac{SCO} layer shows 
 great promise and should be further explored in further analysis. 
 \begin{figure}

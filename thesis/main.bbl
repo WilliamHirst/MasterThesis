@@ -49,8 +49,8 @@ P.~Baldi, K.~Cranmer, T.~Faucett, P.~Sadowski and D.~Whiteson,
   Physical Journal C} {\bf 76} (2016) 235}.
 
 \bibitem{wang_maxout_2013}
-Q.~Wang and J.~{JaJa}, ``From maxout to channel-out: Encoding information on
-  sparse pathways.''
+Q.~Wang and J.~{JaJa}, \emph{From maxout to channel-out: Encoding information
+  on sparse pathways},  \href{http://arxiv.org/abs/1312.1909}{{\tt 1312.1909}}.
 
 \bibitem{JJ}
 J.~J. T.~M. F.R.S., \emph{Xlviii. the relation between the atom and the charge
@@ -151,6 +151,12 @@ J.~Alwall, R.~Frederix, S.~Frixione, V.~Hirschi, F.~Maltoni, O.~Mattelaer
 T.~Sjöstrand, S.~Ask, J.~R. Christiansen, R.~Corke, N.~Desai, P.~Ilten et~al.,
   \emph{An introduction to {PYTHIA} 8.2},
   \href{http://arxiv.org/abs/1410.3012}{{\tt 1410.3012}}.
+
+\bibitem{Sherpa}
+E.~Bothmann, G.~S. Chahal, S.~Höche, J.~Krause, F.~Krauss, S.~Kuttimalai
+  et~al., \emph{{Event generation with Sherpa 2.2}},
+  \href{http://dx.doi.org/10.21468/SciPostPhys.7.3.034}{\emph{SciPost Phys.}
+  {\bf 7} (2019) 034}.
 
 \bibitem{ROOT}
 R.~Brun and F.~Rademakers, \emph{Root - an object oriented data analysis

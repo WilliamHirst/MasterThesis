@@ -1,22 +1,23 @@
+\newpage
 \section{Model Training and Validation}
 \subsection{Training and Validating Data}\label{subsec:TraVal}
 When building a \ac{ML}-model, the usual approach is to divide your data into three sets; training, validation and 
 testing. The training set is used to tune the internal parameters of the model, i.e. the weights and biases of a \ac{NN} or the cuts of a \ac{DT}.
 The validation set is used to tune the hyperparameters of the model, i.e. the architecture of the \ac{NN} or the maximum depth of the \ac{DT} etc.
 The test set should only be used when the model is finished, and is used to benchmark the models' performance. In our case, the performance we are 
-interested in, is the performance on the full \ac{MC}-bakground set and its comparison to the measured collision data\footnote{See section \ref{sec:MLHEP}.}. 
+interested in, is the performance on the full \ac{MC}-bakground set and its comparison to the measured collision data. 
 Therefore, in this analysis only two sets of data will be used, training and validation where both are sampled from the simulated
 \ac{MC} data set. In theory, one could even just use one data set (training) including all the data, but the second was added as a precaution to reduce 
 overfitting when applied to the measured collision data.
 \\
-The overarching strategy is summarized in the following points:
-\begin{itemize}
+The overarching strategy in creating the training and validation set is summarized in the following steps:
+\begin{enumerate}
     \item Shuffle the data set. 
     \item Split the data set in two, training ($80\%$) and validation ($20\%$)
     \item Scale the two data set such that the sum of the weights of the background is equal to the sum of the weights of the signal in each data set.
     \item Scale both data sets using the Standard Scalar approach (see section \ref{subsubsec:StandardScalar}) using the parameters (the mean and standard deviation) 
     of the training set on both sets.
-\end{itemize}
+\end{enumerate}
 The first step ensures an equal distribution of processes in both data sets. The $80-20\%$ is a popular practice in \ac{ML} (see \cite{8020}) and was chosen 
 here for convenience. The third step refers to the sample-weights introduced in section \ref{subsec:SGD}. The sample-weights are only included in the simulated data
 (and therefore training data), to scale each simulated event based on the (among other things) probability of the collision. The scaling of the weights is done to 
