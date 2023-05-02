@@ -24,24 +24,22 @@ deep network. This result motivated the choice of layers and nodes for all netwo
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
-    \begin{subfigure}{.65\textwidth}
+    \begin{subfigure}{.6\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/NNshallowGridSig.pdf}
+        \vspace{-1.cm}
+        \caption{}
+        \label{fig:NNshallowGridSig}
     \end{subfigure}
-    }
-    \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
-    created by the shallow \acs{NN}.}
-    \label{fig:NNshallowGridSig}
-\end{figure}
-\begin{figure}
-    \makebox[\linewidth][c]{%
-    \centering
-    \begin{subfigure}{.65\textwidth}
+    \hfill
+    \begin{subfigure}{.6\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/NNGridSig.pdf}
+        \vspace{-1.cm}
+        \caption{}
+        \label{fig:NNGridSig}
     \end{subfigure}
     }
-    \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
-    created by the dense \acs{NN}.}
-    \label{fig:NNGridSig}
+    \caption{Two grids displaying the expected significance on the original signal set, using the signal region 
+    created by twp dense \acs{NN}, one with 20 nodes per hidden layer \ref{fig:NNshallowGridSig} and one with 600 \ref{fig:NNGridSig}.}
 \end{figure}
 \subsection{Parameter Specific Networks and Interpolation}
 As I have touched upon in earlier sections, one possible solution to a diverse signal set (in my case a signal set with many 

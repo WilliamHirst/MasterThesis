@@ -1,6 +1,6 @@
 \section{The Simulated Data}
 \subsection{Monte Carlo Simulated Data}
-Up to this point in the thesis, I have discussed two data sets: the measured collision data and the simulated data. 
+Up to this point in the thesis, I have discussed two data sets: the measured collision data and the simulated \ac{MC} data. 
 As far as my relation to the latter data set, I have only used it directly in my analysis and have not been involved in 
 production. The simulations applied in the creation of our simulated data set are all based on \acf{MC} simulations\footnote{For 
 more information on \ac{MC} simulation, the reader is referred to \cite{raychaudhuri_introduction_2008}.}, produced 
@@ -88,77 +88,78 @@ to take advantage of the plotting functionality in ROOT. The workflow of the met
   computational analysis. }
   \label{fig:WF}
 \end{figure}
-% \subsection{Computing Features in ROOT: Example}
-% In this section I will cover a simple example to highlight the steps taken in preparing the data set 
-% I used in the analysis. As mentioned earlier, the two main frameworks used were RDataFrame and Pandas. 
-% In this example I will cover the case of a feature not already in the ROOT file, namely the trilepton
-% invariant mass. All loading of data is done using the ROOT framework and is quickly transformed into a 
-% RDataFrame. To effectively generate new features, we want to stay in ROOT and RDataFrame. Therefore,
-% we create a $C{++}$ file, \emph{helperfunction}. The helperfunction contains all additional 
-% ROOT functions that are used in the analysis and are not already native to ROOT. In the case 
-% of computing the trilepton invariant mass, the $C{++}$ function is created like shown in listing 
-% \ref{lst:mlll}.
-% \\
-% In listing \ref{lst:mlll}, we see a couple of measures taken to uphold to the ROOT environment. The first is 
-% the typecasting to $VecF\_t$. $VecF\_t$ is created to wrap floats in the native ROOT vector object, $RVec$. 
-% The same is done in other cases such as float and integers, $VecI\_t$ and $VecB\_t$. The second measure
-% was using $TLorentzVector$\footnote{For full documentation on $TLorentzVector$, see $\href{https://root.cern.ch/doc/master/classTLorentzVector.html}{https://root.cern.ch/doc/master/classTLorentzVector.html}$ (Accessed 16.04.2023).} 
-% to calculate the invariant mass. $TLorentzVector$ is a class native to ROOT with many built-in functions. In 
-% this case we use the class to create three vectors through the variables, $P_t$, $\eta$, $\phi$ and M. Then, 
-% through the $TLorentzVector$ class we can simply add all three vector together, and extract the invariant mass of the 3 leptons. 
-% \lstset{style=Cpp}
-% \begin{lstlisting}[caption={$C{++}$-function which implementes the calculation of $M_{lll}$.},captionpos=b, label={lst:mlll}]
-% // Compute the trilepton invariant mass 
-% float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
-%   TLorentzVector p1;
-%   TLorentzVector p2;
-%   TLorentzVector p3;
-%   p1.SetPtEtaPhiM(pt[0], eta[0], phi[0], m[0]);
-%   p2.SetPtEtaPhiM(pt[1], eta[1], phi[1], m[1]);
-%   p3.SetPtEtaPhiM(pt[2], eta[2], phi[2], m[2]);
-%   return (p1 + p2 + p3).M();
-% }
-% \end{lstlisting}
-% With a helper function created in $C{++}$ we can move over to a Python and RDataFrame environment
-% for calculation and plotting. In the code written in listing \ref{lst:df_mlll}, I have shown a simple example 
-% of loading new $C{++}$-functions, filtering out bad events, calculating new features and adding said 
-% features to a histogram. The first three lines of code both process and include the helperfunctions 
-% into the ROOT framework. Then I loop over all keys in the data frame, which in my case
-% are the different channels (i.e diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
-% based on the criteria from section \ref{subsec:Cuts}. Then, I use RDataFrame's $Define$ function to calculate
-% and add a new feature using our $ComputeInvariantMass$-function. Finally, I save the feature as ROOT object called 
-% $Histo1D$, which I later plot using ROOT \ac{API}. In this example I chose the trilepton invariant mass, 
-% but in the analysis all additional features were calculated using a similar method. 
-% \lstset{style=Python}
-% \begin{lstlisting}[caption={Python-file for calling dataframe and calculating $M_{lll}$.},captionpos=b, label={lst:df_mlll}]
-% R.gROOT.ProcessLine(".L helperFunctions.cxx+");
-% R.gInterpreter.Declare('#include "helperFunctions.h"') 
-% R.gSystem.Load("helperFunctions_cxx.so")
+\subsection{Computing Features in ROOT: Example}
+In this section I will cover a simple example to highlight the steps taken in preparing the data set 
+I used in the analysis. As mentioned earlier, the two main frameworks used were RDataFrame and Pandas. 
+In this example I will cover the case of a feature not already in the ROOT file, namely the trilepton
+invariant mass. All loading of data is done using the ROOT framework and is quickly transformed into a 
+RDataFrame. To effectively generate new features, we want to stay in ROOT environment. Therefore,
+we create a $C{++}$ file, \emph{helperfunction}. The helperfunction contains all additional 
+ROOT functions that are used in the analysis and are not already native to ROOT. In the case 
+of computing the trilepton invariant mass, the $C{++}$ function is created like shown in listing 
+\ref{lst:mlll}.
+\\
+In listing \ref{lst:mlll}, we see a couple of measures taken to uphold to the ROOT environment. The first measure is 
+the typecasting to $VecF\_t$. $VecF\_t$ is created to wrap floats in the native ROOT vector object, $RVec$. 
+The same is done in other cases such as float and integers, $VecI\_t$ and $VecB\_t$. The second measure
+was using $TLorentzVector$\footnote{For full documentation on $TLorentzVector$, see $\href{https://root.cern.ch/doc/master/classTLorentzVector.html}{https://root.cern.ch/doc/master/classTLorentzVector.html}$ (Accessed 16.04.2023).} 
+to calculate the invariant mass. $TLorentzVector$ is a class native to ROOT with many built-in functions. In 
+this case we use the class to create three vectors through the kinematic variables, $P_t$, $\eta$, $\phi$ and m\footnote{These features
+will be described in the next section \ref{sec:Feats}.}. Then, through the $TLorentzVector$ class we can simply add all three vector 
+together, and extract the invariant mass of the three leptons. 
+\lstset{style=Cpp}
+\begin{lstlisting}[caption={$C{++}$-function which implementes the calculation of $M_{lll}$.},captionpos=b, label={lst:mlll}]
+// Compute the trilepton invariant mass 
+float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
+  TLorentzVector p1;
+  TLorentzVector p2;
+  TLorentzVector p3;
+  p1.SetPtEtaPhiM(pt[0], eta[0], phi[0], m[0]);
+  p2.SetPtEtaPhiM(pt[1], eta[1], phi[1], m[1]);
+  p3.SetPtEtaPhiM(pt[2], eta[2], phi[2], m[2]);
+  return (p1 + p2 + p3).M();
+}
+\end{lstlisting}
+With a helper function created in $C{++}$ we can move over to a Python and RDataFrame environment
+for calculation and plotting. In the code written in listing \ref{lst:df_mlll}, I have shown a simple example 
+of loading new $C{++}$ functions, filtering out events, calculating new features and adding said 
+features to a histogram. The first three lines of code both process and include the helperfunctions 
+into the ROOT framework. Then I loop over all keys in the data frame, which in my case
+are the different channels (i.e diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
+based on the criteria I will present in section \ref{subsec:Cuts}. Then, I use RDataFrame's $Define$ function to calculate
+and add a new feature using our $ComputeInvariantMass$-function. Finally, I save the feature as ROOT object called 
+$Histo1D$, which I later plot using ROOT \ac{API}. In this example I chose the trilepton invariant mass, 
+but in the analysis all additional features were calculated using a similar method. 
+\lstset{style=Python}
+\begin{lstlisting}[caption={Python-file for calling dataframe and calculating $M_{lll}$.},captionpos=b, label={lst:df_mlll}]
+R.gROOT.ProcessLine(".L helperFunctions.cxx+");
+R.gInterpreter.Declare('#include "helperFunctions.h"') 
+R.gSystem.Load("helperFunctions_cxx.so")
 
-% for k in df.keys():
-%     # Define good leptons
-%     isGoodLepton = "feature1 < cut1 && feature2 >= cut2"
+for k in df.keys():
+    # Define good leptons
+    isGoodLepton = "feature1 < cut1 && feature2 >= cut2"
 
-%     # Define good leptons in dataframe
-%     df[k] = df[k].Define("isGoodLepton",isGoodLepton)
+    # Define good leptons in dataframe
+    df[k] = df[k].Define("isGoodLepton",isGoodLepton)
 
-%     # Define number of good leptons
-%     df[k] = df[k].Define("nGoodLeptons","ROOT::VecOps::Sum(isGoodLepton)")
+    # Define number of good leptons
+    df[k] = df[k].Define("nGoodLeptons","ROOT::VecOps::Sum(isGoodLepton)")
 
-%     # Demand 3 good leptons 
-%     df[k] = df[k].Filter("nGoodLeptons == 3")
+    # Demand 3 good leptons 
+    df[k] = df[k].Filter("nGoodLeptons == 3")
 
-%     # Define Invariant Mass (lll)
-%     df[k] = df[k].Define("mlll","ComputeInvariantMass(lepPt[isGoodLepton], 
-%                                                       lepEta[isGoodLepton], 
-%                                                       lepPhi[isGoodLepton], 
-%                                                       lepM[isGoodLepton])")
-%     # Add to histogram
-%     histo["mlll_%s"%k] = df[k].Histo1D(("mlll_%s"%k,
-%                                         "mlll_%s"%k,40,50,500),
-%                                         "mlll",
-%                                         "wgt_SG")     
-% \end{lstlisting}
+    # Define Invariant Mass (lll)
+    df[k] = df[k].Define("mlll","ComputeInvariantMass(lepPt[isGoodLepton], 
+                                                      lepEta[isGoodLepton], 
+                                                      lepPhi[isGoodLepton], 
+                                                      lepM[isGoodLepton])")
+    # Add to histogram
+    histo["mlll_%s"%k] = df[k].Histo1D(("mlll_%s"%k,
+                                        "mlll_%s"%k,40,50,500),
+                                        "mlll",
+                                        "wgt_SG")     
+\end{lstlisting}
 
 
 
