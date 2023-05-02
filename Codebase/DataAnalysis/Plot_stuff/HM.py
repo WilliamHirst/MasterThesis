@@ -99,7 +99,7 @@ def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10, addExlusi
             scale = 1
         if includeCorner:
             if elem["isSubset"]:
-                polygon = plt.Polygon([(map1[f"{m1_i}"]+0.65,map2[f"{m2_i}"]+1), (map1[f"{m1_i}"]+1,map2[f"{m2_i}"]+1), (map1[f"{m1_i}"]+1,map2[f"{m2_i}"]+0.675),], zorder = 10, color = "white", lw = 0)
+                polygon = plt.Polygon([(map1[f"{m1_i}"]+0.65,map2[f"{m2_i}"]+1), (map1[f"{m1_i}"]+1,map2[f"{m2_i}"]+1), (map1[f"{m1_i}"]+1,map2[f"{m2_i}"]+0.675),], zorder = 10, color = "lightgreen", lw = 0)
                 ax.add_patch(polygon) 
         plt.text(map1[f"{m1_i}"]+0.5,map2[f"{m2_i}"]+0.5, scoreString, ha='center', va='center', color = "white", fontsize = fontsize, path_effects=[pe.withStroke(linewidth=1, foreground="black")]) 
         Z[map2[f"{m2_i}"], map1[f"{m1_i}"]] = score*scale
