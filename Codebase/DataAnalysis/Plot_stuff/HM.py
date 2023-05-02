@@ -69,7 +69,7 @@ def HM(model, X, Y, W, columns, name, metric = "Auc", data = None, save = False,
             saveToJson(score, m1, m2, metric, method)
         
 
-def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10, addExlusion = False):
+def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10, addExlusion = False, includeCorner = False):
     import matplotlib
     method = name.split('/')[-1]
     with open(f'../results/{file_name}.json', 'r') as openfile:
@@ -97,9 +97,8 @@ def gridPlotter(mlType, name, metric, file_name = "SIG", cut_off = 10, addExlusi
             scoreString = f"{score:.2f}"
             fontsize = 'medium'
             scale = 1
-        if metric == "NrEvents":
+        if includeCorner:
             if elem["isSubset"]:
-                # ax.add_patch(plt.Rectangle((map1[f"{m1_i}"]+0.05,map2[f"{m2_i}"]+0.05), .9, .9, fc='none', ec='white', lw=3, clip_on=False, zorder = 10))
                 polygon = plt.Polygon([(map1[f"{m1_i}"]+0.65,map2[f"{m2_i}"]+1), (map1[f"{m1_i}"]+1,map2[f"{m2_i}"]+1), (map1[f"{m1_i}"]+1,map2[f"{m2_i}"]+0.675),], zorder = 10, color = "white", lw = 0)
                 ax.add_patch(polygon) 
         plt.text(map1[f"{m1_i}"]+0.5,map2[f"{m2_i}"]+0.5, scoreString, ha='center', va='center', color = "white", fontsize = fontsize, path_effects=[pe.withStroke(linewidth=1, foreground="black")]) 
@@ -181,14 +180,14 @@ if __name__ == "__main__":
     from plot_set import *
     # gridPlotter(mlType = "XGB", name =f"XGBGrid", metric = "Sig")
     # cmap.set_under(color='black')
-    gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
-    exit()
+    # gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
+    # exit()
     # gridPlotter(mlType = "NN", name =f"NrSignal", metric = "Events", file_name="NrEvents")
     #gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
     # names = ["ChannelOutGrid", "HybridPCALeakyGrid", "HybridPCAMaxOutGrid", "MaxOutGrid", "MaxOutPCAGrid", "NNGrid", "NNPCAGrid", "NNshallowGrid", "PNNGrid", "PNNPCAGrid", "StochChannelOutGrid"]
     # names = ["MaxOutPCA_FS_MLMGrid", "MaxOutPCA_FSGrid", "NN_FS_MLMGrid", "NN_FSGrid", "PNNPCA_FS_MLMGrid", "PNNPCA_FSGrid"]
-    # names = ["MaxOut_InterpolationGrid", "NN_InterpolationGrid", "NN_OneMass_InterpolationGrid", "NN_OneMass_Overfitting_InterpolationGrid", "NN_OneMass_Overfitting8_InterpolationGrid", "NN_OneMass_Overfitting10_InterpolationGrid", "NN_OneMass_Overfitting15_InterpolationGrid"]
+    names = ["NN_InterpolationGrid", "NN_OneMass_InterpolationGrid", "NN_OneMass_Overfitting15_InterpolationGrid"]
 
     for name in names:
-        gridPlotter(mlType = "NN", name =f"{name}", metric = "Sig", addExlusion=False)
+        gridPlotter(mlType = "NN", name =f"{name}", metric = "Sig", addExlusion=False, includeCorner=True)
     #HM(0, 0, 0, 0, 0,0)
