@@ -42,12 +42,12 @@
 \contentsline {subsection}{\numberline {2.6.6}Parametrized Neural Network}{23}{subsection.2.6.6}%
 \contentsline {section}{\numberline {2.7}Decision Trees and Gradient Boosting}{24}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}Decision Trees}{24}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}Gradient Boosting in Decision Trees}{25}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.2}Gradient Boosting in Decision Trees}{26}{subsection.2.7.2}%
 \contentsline {section}{\numberline {2.8}Machine Learning Applied to a BSM Search}{26}{section.2.8}%
 \contentsline {subsection}{\numberline {2.8.1}The Traditional Approach}{26}{subsection.2.8.1}%
 \contentsline {subsection}{\numberline {2.8.2}The Machine Learning Approach}{27}{subsection.2.8.2}%
 \contentsline {section}{\numberline {2.9}Model Assessment}{27}{section.2.9}%
-\contentsline {subsection}{\numberline {2.9.1}The Rate of True-Positve - ROC Curve}{27}{subsection.2.9.1}%
+\contentsline {subsection}{\numberline {2.9.1}The Rate of True-Positve - ROC Curve}{28}{subsection.2.9.1}%
 \contentsline {subsection}{\numberline {2.9.2}Statistical Assessment - Discovery $\&$ Exclusion}{28}{subsection.2.9.2}%
 \contentsline {chapter}{\numberline {3}Implementation $\&$ Preliminary Work of the Analysis}{31}{chapter.3}%
 \contentsline {section}{\numberline {3.1}The Simulated Data}{31}{section.3.1}%
@@ -56,7 +56,7 @@
 \contentsline {section}{\numberline {3.2}The Tools}{32}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}ROOT}{32}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Data Structure and Frameworks}{33}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Features Selection}{33}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Selection Feature for the Analysis}{33}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Lepton Variables}{34}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Jet Variables}{34}{subsection.3.3.2}%
 \contentsline {section}{\numberline {3.4}Data Preprocessing and Preselection Cuts}{34}{section.3.4}%
