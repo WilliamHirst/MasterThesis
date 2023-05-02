@@ -1,10 +1,11 @@
 \section{Comparing Exclusion Limits between Models and Previous Analysis}
 In the previous section I compared the achieved significance between 
-the three optimal models for the full statistics signal set. In this section 
-I will do the same, but with the introduction of a flat uncertainty in the background.
+the three optimal models for the complete signal grid. In this section 
+I will do the same, but with the introduction of a flat uncertainty on the background.
 Additionally, I will compare the achieved exclusion limits (the mass combinations with an achieved 
 significance of over 1.64) by the models created in this thesis, with the limit set in the paper by \ac{ATLAS} 
-in 2021 \cite{atlas_search_2021}.
+from 2021 \cite{atlas_search_2021}, \emph{Search for chargino--neutralino pair production in final states with 
+three leptons and missing transverse momentum in} $\sqrt{s}=13$ \emph{TeV pp collisions with the ATLAS detector}.
 \\
 In the analysis by \ac{ATLAS}, they have not assumed a flat uncertainty. Instead, an analysis has been made on the simulated data 
 over individual regions and collision processes. Due to time constraints, a flat uncertainty has been made for comparison 
@@ -25,18 +26,18 @@ the uncertainty will be in the region of $20\%$ of the \ac{SM} background.\\
     }
     \caption[A surface plot of the significance comparing sensitivity limits set by \acs{PNN}, dense \acs{NN}, maxout model
     and the \acs{ATLAS} analysis, where the models have assumed a flat uncertainty of $20\%$.]{A surface plot of the significance achieved 
-    by the \acs{PNN} on the full statistics signal set. Contours are drawn around the band equal to a significance of 1.64 for the \acs{PNN} 
+    by the \acs{PNN} on the complete signal grid. Contours are drawn around the band equal to a significance of 1.64 for the \acs{PNN} 
     (yellow), dense \acs{NN} (cyan), maxout model (green) and the \acs{ATLAS} analysis \cite{atlas_search_2021} (pink). The significance achieved 
     by the \acs{ML} models were calculated with a flat uncertainty equal to $20\%$ of the background.}
     \label{fig:compLimit20}
 \end{figure}
-In figure \ref{fig:compLimit20}, I have drawn the contours of the significance achieved using the \ac{PNN},
+In figure \ref{fig:compLimit20}, I have drawn the contours of the significance using the \ac{PNN},
 while outlining all points corresponding to a significance of 1.64. The same outline has been made on top of the 
 contours of the \ac{PNN} for the dense \ac{NN}, maxout model and the statistical analysis made by \ac{ATLAS}. The calculations
 of the significance for the output of the \ac{ML} models were made with a flat uncertainty equal to $20\%$ of the background.
 The figure shows that none of the models are able to extend the sensitivity achieved by \ac{ATLAS}, although the \ac{PNN} was able to equal
-the \ac{ATLAS} analysis for smaller masses. Furthermore, it is evident from the figure that the \ac{NN} and maxout model, were not able to 
-extend the limit as far as the \ac{PNN}. In section \ref{sec:FS} I presented the achieved significance, calculated without uncertainty. In these
+the \ac{ATLAS} analysis for smaller masses. Furthermore, it is evident from the figure that the \ac{NN} and maxout model are not able to 
+extend the limit as far as the \ac{PNN}. In section \ref{sec:FS} I presented the significance, calculated without uncertainty. In these
 calculations the dense \ac{NN} and maxout model were able to extend the limit past that achieved by the \ac{PNN} (in certain areas). 
 This contradiction can be explained by the fact that \ac{PNN} achieved a much higher sensitivity for smaller masses, in some cases even 
 doubling the sensitivity to that of the dense \ac{NN} and maxout model. When introducing uncertainty, the \ac{NN} and maxout model are 
@@ -75,7 +76,7 @@ is less of a difference when comparing the limit with and without uncertainty.\\
     }
     \caption[Two surface plots of the significance comparing sensitivity limits set by \acs{PNN}, dense \acs{NN}, maxout model
     and the \acs{ATLAS} analysis, where the models have assumed a flat uncertainty of $10\%$ and $<1\%$ respectively.]{Two surface plots 
-    of the significance achieved by the \acs{PNN} on the full statistics signal set. Contours are drawn around the band equal to a 
+    of the significance achieved by the \acs{PNN} on the complete signal grid. Contours are drawn around the band equal to a 
     significance of 1.64 for the \acs{PNN} (yellow), dense \acs{NN} (cyan), maxout model (green) and the \acs{ATLAS} analysis \cite{atlas_search_2021} (pink). The 
     significance achieved by the \acs{ML} models were calculated with a flat uncertainty equal to $10\%$ of the background in the left 
     figure \ref{fig:compLimit10} and less than $1\%$ in the right \ref{fig:compLimit1}.}
@@ -83,46 +84,45 @@ is less of a difference when comparing the limit with and without uncertainty.\\
 To further study the sensitivity of the models, I produced two additional figures similar to the one above. In these figure I applied an uncertainty of 
 $10\%$ (\ref{fig:compLimit10}) and less than $1\%$ (\ref{fig:compLimit1}) of the background. As expected, the limits converge close towards the limits 
 observed in section \ref{sec:FS} for smaller uncertainties. In figure \ref{fig:compLimit10}, we even discern that the limits set by the dense \acs{NN}
-and maxout model extend past the \ac{PNN}, for high masses ($\tilde{\chi}_1>175$ and $\tilde{\chi}_2>400GeV$), although they are outperformed for most other combinations.
+and maxout model extend past the \ac{PNN}, for high masses ($\tilde{\chi}_1>175$ and $\tilde{\chi}_2>400$GeV), although they are outperformed for most other combinations.
 In figure \ref{fig:compLimit1}, I used an uncertainty close to $0\%$. As depicted in this figure, we discern that the dense \ac{NN} and maxout model 
-very closely resemble the limits from \ac{ATLAS}, only being beaten by $50GeV$ for high mass $\tilde{\chi}_2$. For events in the mass region of
-$\tilde{\chi}_1\approx250GeV$ and $\tilde{\chi}_2\approx400GeV$, the \ac{PNN} seems to ever so slightly extend the limit surpassed that produced of \ac{ATLAS}.
-Although this is promising for the method, it is worth mentioning that the uncertainty is far from realistic. Finally, the size by which the limit are extended
+very closely resemble the limits from \ac{ATLAS}, only being beaten by $50$GeV for high mass $\tilde{\chi}_2$. For events in the mass region of
+$\tilde{\chi}_1\approx250$GeV and $\tilde{\chi}_2\approx400$GeV, the \ac{PNN} seems to ever so slightly extend the limit produced by \ac{ATLAS}.
+Although this is promising for the method, it is worth mentioning that the uncertainty is far from realistic. Finally, the size by which the limits are extended
 are so small that it could be explained by the method of interpolation between the grid of mass combinations.
 \\
-A final observation is that the dense \ac{NN} and maxout model, although did not perform equally to the \ac{PNN} for realistic uncertainties ($20\%$), did achieve the highest performance in 
-the areas which are not yet excluded ($\tilde{\chi}_1\gtrsim300$ and $\tilde{\chi}_2\gtrsim700GeV$). This is further exemplified in the contour plots for the dense \ac{NN} and maxout model, which 
+A final observation is that the dense \ac{NN} and maxout model, although not performing equally to the \ac{PNN} for realistic uncertainties ($20\%$), did achieve the highest performance in 
+the areas which are not yet excluded ($\tilde{\chi}_1\gtrsim300$ and $\tilde{\chi}_2\gtrsim700$GeV). This is further exemplified in the contour plots for the dense \ac{NN} and maxout model, which 
 can be found in the appendix \ref{sec:Contours}. Especially the maxout model, which achieved the highest sensitivity for the largest 
 masses of $\tilde{\chi}_2$, utilized an impressive long-term memory to draw benefits from the large statistics of the lower mass combinations, while preserving a relatively balanced performance on 
 lower statistics performance. Compared to the \ac{PNN}, which achieved difference in sensitivity of $max(Z)-min(Z) = 24.79$ in the case of zero uncertainty, the maxout model achieved a difference 
 of only $max(Z)-min(Z) = 10.91$. When attempting to explore further regions in the parameter space of the chargino-neutralino pair, balanced performance and the ability to exploit the full statistics in the 
-signal data, are critical attributes. Therefore, I believe, the generalizability and memory of the maxout model, makes it an interesting candidate for further study.
+signal data, are critical attributes. Therefore, I believe, the generalizability and memory of the maxout model, makes it an interesting candidate for further studies.
 \newpage
 \subsection*{Final Remarks and Possible Improvements}
-To summarize the discoveries in the figures above, none of the methods were able to extend the limit passed that produced by \ac{ATLAS}, at least not to a satisfactory degree.
+To summarize the discoveries in the figures above, none of the methods were able to extend the limits beyond those by \ac{ATLAS}, at least not to a satisfactory degree.
 This is by no means to say that the methods discussed and presented in this thesis are not of interest. For starters, the matter of trying to extend the limit of sensitivity 
-passed that produced by \ac{ATLAS}, was given little attention and consideration during the timespan of this thesis. Most of the time, was instead spent comparing and exploring the 
+beyond that produced by \ac{ATLAS}, was given little attention and consideration during the timespan of this thesis. Most of the time was instead spent comparing and exploring the 
 different models. In contrast, the limit set by \ac{ATLAS} is the result of a large team of focused scientist all attempting to push the limit as far as they can. This considered, I believe 
-the models to show great promise. If I were to prioritize expansion of exclusion limits, there are several aspects of the analysis in this thesis I would improve.
+the models show great promise. If I were to prioritize expansion of exclusion limits, there are several aspects of the analysis in this thesis I would improve.
 \begin{itemize}
-    \item \emph{A more advanced analysis of the signal region}: In my analysis, I chose to define the signal regions from each model's output using a brute force approach. 
+    \item \emph{A more advanced analysis of the signal region}: In my analysis I chose to define the signal regions from each model's output using a brute force approach. 
           A more advanced approach, applying optimization technics to find the maximum possible significance from each output, would most likely produce a higher sensitivity.
     \item \emph{Implement multiple orthogonal signal regions}: In the analysis made by \ac{ATLAS} \cite{atlas_search_2021}, several signal regions were implemented and studied,
            with the final sensitivity equalling the combination of all the regions. This approach is far more complex, and can lead to a higher sensitivity. I believe that with the same 
            treatment on the \ac{ML} output presented in this thesis, a much higher significance would be achieved. 
-    \item \emph{Devote additional time to studying the relationship between overfitting and significance}: The early stoppage criteria of ten epochs applied in this analysis, was chosen 
-          for convenience and simplicity. This rigid criteria, could be destructive for optimal performance, and by devoting additional time to studying
+    \item \emph{Devote additional time to studying the relationship between overfitting and significance}: The early stoppage criteria of ten epochs applied in this analysis was chosen 
+          for convenience and simplicity. This rigid criteria could be destructive for optimal performance, and by devoting additional time to study
           the relationship between the threshold for the criteria and optimal performance could lead to better performing models.
-    \item \emph{Perform a thorough hyperparameter search}: For comparison reasons, I decided not to apply a hyperparameter search for the architecture of the networks. By attempting 
-           a grid search for the different hyperparameter, one might be able to find more sensitive models. Additionally, it would be interesting to attempt to combine the methods presented 
+    \item \emph{Perform a thorough hyperparameter search}: For comparison reasons I decided not to apply a hyperparameter search for the architecture of the networks. By attempting 
+           a grid search for the different hyperparameters, one might be able to find more sensitive models. Additionally, it would be interesting to attempt to combine the methods presented 
            in this thesis, for example a \ac{PNN} with \ac{LWTA} layers. 
-    \item \emph{Create region specific models}: In the final analysis, I applied one model (per method) to study the full signal set. It would be interesting to explore the possibility of creating
+    \item \emph{Create region specific models}: In the final analysis I applied one model (per method) to study the full signal set. It would be interesting to explore the possibility of creating
           different models for different regions in the parameter (mass) space. In the analysis we have seen how models can both improve and worsen in performance with regard to specific masses by increasing
           the number of mass combinations in the training set. With individual models covering specific, possibly physics motivated regions, I believe some methods would benefit.
     \item \emph{Focus on relevant regions}: In this analysis I have treated the performance of a model on all mass combinations equally. This was a choice I made to easier compare methods, but 
           given the goal of extending the limits, it would most likely be beneficial to prioritize the regions closest to the existing limits, in hopes of achieving a higher sensitivity in these 
           regions\footnote{See the final paragraph in section \ref{sec:PCA}}.  
     \item \emph{Further study of features}: In the beginning of the analysis, the signal was yet undecided. As a consequence, the variables used in the analysis are not tailored to the \ac{SUSY} 
-          signal. In retrospect, other variables could be relevant for my analysis. For example, the Z-veto ($|m_{lll}-m_z|$) which was used in the analysis of \ac{ATLAS} in 2021 \cite{atlas_search_2021}. 
+          signal. In retrospect, other variables could be relevant for my analysis. For example the Z-veto ($|m_{lll}-m_z|$), which was used in the analysis of \ac{ATLAS} in 2021 \cite{atlas_search_2021}. 
 \end{itemize}
-
