@@ -68,10 +68,10 @@ for the purpose of storing data on particle collisions, given that not all varia
 third lepton in an event with two lepton final state, does not make sense.
 \\
 When starting preprocessing, I load the NTuples into another ROOT data structure called RDataFrame\footnote{For full 
-documentation on RDataFrame, see $\href{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}$ (Accessed 16.04.2023).}. 
-RDataFrame allows for easy addition of new columns as well as filtering of events through native functionality. As 
-a consequence I used RDataFrame to calculate all features not already in the data set, such as the sum of $P_t$ (or $H_t$), 
-invariant mass of three leptons ($M_{lll}$) etc. An example is shown in the following section. 
+documentation on RDataFrame, see $\href{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}$ 
+(Accessed 16.04.2023).}. RDataFrame allows for easy addition of new columns as well as filtering of events through native functionality. 
+As a consequence I used RDataFrame to calculate all features not already in the data set, such as the sum of transverse momentum, 
+or the invariant mass of the three leptons. 
 \\
 After pre-processing was completed, I used ROOT's $AsNumpy$ function to translate the data frame as 
 a Numpy object, which then allowed me to transform it to a Pandas data frame \cite{Pandas}. This is done

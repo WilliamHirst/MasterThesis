@@ -1,25 +1,25 @@
 \section{Dense Ordinary Neural Networks}
-\subsection{Deep vs Shallow}
+\subsection{A Study of the Number of Parameters in a Network}
 In previous sections, I have discussed the reasoning for not wanting an automated process for building network architectures (otherwise known
 as hyperparameter searches). Although, I found manually choosing the architecture for each model to be preferable in this analysis, there 
 are some downsides to that decision. When building each model I wanted to ensure that the performances of said models were representative of 
 the category of models I wanted to build. In other words, I wanted to ensure that any drawbacks were related to the type of model and not 
 a result of poorly chosen number of layers or nodes. Therefore, I wanted to relieve as much randomness in the choice of architecture as possible.
 \\
-In this section I present a comparison between the results from two ordinary dense \ac{NN}, one deep and one shallow. The deep network 
-uses the dense \ac{NN} architecture described in \ref{subsec:arch}, while the shallow network uses the same activation functions and amount of hidden layers,
+In this section I present a comparison between the results from two ordinary dense \ac{NN} with different amount of nodes. The first network 
+uses the dense \ac{NN} architecture described in \ref{subsec:arch}, while the second network uses the same activation functions and amount of hidden layers,
 but with only 20 nodes in each layer. The comparison represents a sample of networks I choose to compare when deciding the number of nodes and 
-hidden layers would be used in the analysis. Both networks, deep and shallow utilized the training strategy described in section 
-\ref{subsec:TrainingStrategy}.\\
-In figure \ref{fig:NNshallowGridSig}, I drew a grid displaying the achieved sensitivity for the shallow 
-network. By comparing with the results achieved by the XGBoost model in figure \ref{fig:XGBoost}, we can observe that the shallow network 
-performs very similarly to the XGBoost model. In fact, the XGBoost model seems to outperform (achieve a higher significance for most combinations) 
-the shallow network ever so slightly.
-In figure \ref{fig:NNGridSig}, I present the same grid as described above, but using the deep network. By comparing the results from the shallow 
-network in figure \ref{fig:NNshallowGridSig}, we can discern that the deep network outperforms the shallow network for every single mass 
+hidden layers would be used in the analysis. Both networks apply the training strategy described in section \ref{subsec:TrainingStrategy}.
+\\
+In figure \ref{fig:NNshallowGridSig}, I drew a grid displaying the achieved sensitivity for the smaller network (20 nodes). By comparing with the 
+results achieved by the XGBoost model in figure \ref{fig:XGBoost}, we can observe that the shallow network performs very similarly to the XGBoost model. 
+In fact, the XGBoost model seems to outperform (achieve a higher significance for most combinations) the network ever so slightly.
+\\
+In figure \ref{fig:NNGridSig}, I present the same grid as described above, but using the larger network. By comparing the results from the smaller 
+network in figure \ref{fig:NNshallowGridSig}, we can discern that the larger network outperforms the smaller network for every single mass 
 combination in the original signal set. The higher the number of nodes and layers, the higher the amount of parameters need tuning during training, 
 and consequently the more data is needed during training. Generally, the more complex the issue, the more parameters are needed in a model. Therefore, 
-based on the comparison between the shallow and deep networks, we can draw the conclusion that the data used in this analysis, is enough to tune a relatively 
+based on the comparison between the two networks, we can draw the conclusion that the data used in this analysis, is enough to tune a relatively 
 deep network. This result motivated the choice of layers and nodes for all networks used in the sections to come.
 \begin{figure}
     \makebox[\linewidth][c]{%
