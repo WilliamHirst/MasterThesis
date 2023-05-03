@@ -64,7 +64,7 @@ Both data sets used as input to the analysis in this thesis, the measured and si
 \verb!NTuples! are \verb!ROOT! objects designed to store large amounts of data. They allow for non-symmetrical entries, meaning 
 rows with different number of columns. The simulated and measured collision data are both stored in \verb!NTuples!, with a matrix like structure 
 where the columns represent the variables/features, and the rows represent each event. Hence, allowing non-symmetrical entries is essential 
-for the purpose of storing data on particle collisions, given that not all variables are relevant for all events. For example the $P_t$ of the 
+for the purpose of storing data on particle collisions, given that not all variables are relevant for all events. For example the $p_T$ of the 
 third lepton in an event in a two lepton final state, does not make sense.
 \\
 When starting preprocessing I load the \verb!NTuples! using a \verb!ROOT! interface called \verb!RDataFrame!\footnote{For full 
