@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {1.3.2}Supersymmetry, the Chargino and the Neutralino}{6}{subsection.1.3.2}%
 \contentsline {section}{\numberline {1.4}Proton-Proton collisions at the LHC}{6}{section.1.4}%
 \contentsline {subsection}{\numberline {1.4.1}An Introduction to Particle Accelerators and Detectors}{6}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}The Kinematics}{7}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.2}Kinematics}{7}{subsection.1.4.2}%
 \contentsline {section}{\numberline {1.5}The Signal}{8}{section.1.5}%
 \contentsline {section}{\numberline {1.6}The Background Channels}{8}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Introduction to Machine Learning and Data Analysis}{13}{chapter.2}%
