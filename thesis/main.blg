@@ -18,48 +18,50 @@ Reallocated name_sep_char (elt_size=1) to 60000 items from 40000.
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
 Warning--empty year in srivastava_compete_2013
 Warning--empty year in raychaudhuri_introduction_2008
+Warning--empty publisher in bird_update_2014
+Warning--empty year in bird_update_2014
 Warning--empty year in glorot_understanding_2010
 Warning--empty author in ATLAS-CONF-2011-152
 Warning--empty author in ATLAS-CONF-2017-064
-You've used 42 entries,
+You've used 40 entries,
             2188 wiz_defined-function locations,
-            821 strings with 111381 characters,
-and the built_in function-call counts, 10107 in all, are:
-= -- 927
-> -- 578
+            803 strings with 110671 characters,
+and the built_in function-call counts, 9610 in all, are:
+= -- 892
+> -- 518
 < -- 0
-+ -- 169
-- -- 127
-* -- 788
-:= -- 1500
-add.period$ -- 45
-call.type$ -- 42
-change.case$ -- 43
++ -- 153
+- -- 113
+* -- 741
+:= -- 1406
+add.period$ -- 44
+call.type$ -- 40
+change.case$ -- 40
 chr.to.int$ -- 0
 cite$ -- 47
-duplicate$ -- 441
-empty$ -- 922
-format.name$ -- 127
-if$ -- 2525
+duplicate$ -- 427
+empty$ -- 900
+format.name$ -- 113
+if$ -- 2407
 int.to.chr$ -- 0
-int.to.str$ -- 42
-missing$ -- 103
-newline$ -- 133
-num.names$ -- 42
-pop$ -- 142
+int.to.str$ -- 40
+missing$ -- 95
+newline$ -- 128
+num.names$ -- 40
+pop$ -- 144
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 274
+skip$ -- 263
 stack$ -- 0
-substring$ -- 447
-swap$ -- 143
+substring$ -- 441
+swap$ -- 137
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 5
-while$ -- 83
-width$ -- 44
-write$ -- 367
-(There were 5 warnings)
+warning$ -- 7
+while$ -- 80
+width$ -- 42
+write$ -- 351
+(There were 7 warnings)

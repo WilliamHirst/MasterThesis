@@ -141,27 +141,16 @@ S.~Raychaudhuri, \emph{Introduction to monte carlo simulation},  in \emph{2008
   Winter Simulation Conference}, pp.~91--100.
 \newblock \href{http://dx.doi.org/10.1109/WSC.2008.4736059}{DOI}.
 
-\bibitem{alwall_automated_2014}
-J.~Alwall, R.~Frederix, S.~Frixione, V.~Hirschi, F.~Maltoni, O.~Mattelaer
-  et~al., \emph{The automated computation of tree-level and next-to-leading
-  order differential cross sections, and their matching to parton shower
-  simulations},  \href{http://arxiv.org/abs/1405.0301}{{\tt 1405.0301}}.
-
-\bibitem{sjostrand_introduction_2015}
-T.~Sjöstrand, S.~Ask, J.~R. Christiansen, R.~Corke, N.~Desai, P.~Ilten et~al.,
-  \emph{An introduction to {PYTHIA} 8.2},
-  \href{http://arxiv.org/abs/1410.3012}{{\tt 1410.3012}}.
-
-\bibitem{Sherpa}
-E.~Bothmann, G.~S. Chahal, S.~Höche, J.~Krause, F.~Krauss, S.~Kuttimalai
-  et~al., \emph{{Event generation with Sherpa 2.2}},
-  \href{http://dx.doi.org/10.21468/SciPostPhys.7.3.034}{\emph{SciPost Phys.}
-  {\bf 7} (2019) 034}.
-
 \bibitem{ROOT}
 R.~Brun and F.~Rademakers, \emph{Root - an object oriented data analysis
   framework},  in \emph{AIHENP'96 Workshop, Lausane}, vol.~389, pp.~81--86,
   1996.
+
+\bibitem{bird_update_2014}
+I.~Bird, P.~Buncic, F.~Carminati, M.~Cattaneo, P.~Clarke, I.~Fisk et~al.,
+  \emph{Update of the Computing Models of the {WLCG} and the {LHC}
+  Experiments}.
+\newblock No.~2 in Technical design report. {LCG}.
 
 \bibitem{Pandas}
 W.~McKinney, \emph{Data structures for statistical computing in python},  in

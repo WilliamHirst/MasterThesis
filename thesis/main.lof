@@ -22,8 +22,8 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces A visual summary of the workflow and frameworks used in the computational analysis. \relax }}{33}{figure.caption.24}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Two tables displaying the baseline \ref {table:BL} and signal \ref {table:SG} requirements applied to the data as part of the preprocessing.\relax }}{36}{figure.caption.25}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces References to figures for all lepton (\ref {table:Ref3L}) and event (\ref {table:RefGen}) specific feature distribution.\relax }}{36}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces \acs {MC} simulated and measured data comparison and event distribution for each channel for the $P_t$ and $\eta $ of the leading lepton as well as the $E_T^{miss}$ and flavor combination from each event.}}{38}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces A visual summary of the network architectures used in this analysis, for the ordinary dense \acs {NN}(top), the \acs {PNN}(middle) and the maxout model(bottom).\relax }}{39}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces \acs {MC} simulated and measured data comparison and event distribution for each channel for the $P_t$ and $\eta $ of the leading lepton as well as the $E_T^{miss}$ and flavor combination from each event.}}{37}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces A visual summary of the network architectures used in this analysis, for the ordinary dense \acs {NN}(top), the \acs {PNN}(middle) and the maxout model(bottom).\relax }}{38}{figure.caption.28}%
 \contentsline {figure}{\numberline {3.7}{\ignorespaces The event distributions of the leading lepton for the features $P_t$ and $\phi $, for events with negative weights and all events.}}{43}{figure.caption.29}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces A grid displaying the expected significance on the original signal set, using the signal region created by the \emph {XGBoost} network.\relax }}{46}{figure.caption.30}%
