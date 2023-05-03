@@ -1,17 +1,17 @@
 \section{Benchmarking the Analysis with Boosted Trees}\label{sec:XGBoost}
 Boosted trees have been an essential part of \acf{HEP} analysis for many years (see 
-\cite{ATLAS-CONF-2011-152,ATLAS-CONF-2017-064}). The XGBoost framework has likewise 
+\cite{ATLAS-CONF-2011-152,ATLAS-CONF-2017-064}). The \verb!XGBoost! framework has likewise 
 been used as the benchmark for many \ac{ML} analysis, often chosen for its performance in sensitivity and 
 extreme \acf{HPC} capabilities. Another reason for its popularity is the incredibly simple \acf{API}, allowing 
 to create and predict a model in two lines of code. Additionally, its incredible boosting capabilities means 
 that it is little affected by variations in its structure. This leads many to the conclusion that the default 
 parameters (see section \ref{subsec:XGBoost}) are often the best. 
 \\
-I choose to perform a sensitivity analysis for the original signal data set using an XGBoost model. The results
+I choose to perform a sensitivity analysis for the original signal data set using an \verb!XGBoost! model. The results
 will act as a benchmark when performing further testing with \ac{NN}-variants. In figure \ref{fig:XGBoost} 
 I have presented a grid displaying the expected significance (see section \ref{subsec:Sensitivity}) for each 
 mass combination in the original signal data set. The significance presented in the grid (and will be in the next results to come) 
-was calculated with equation \ref{eq:Z1}. In the figure we can observe that the XGBoost model performs
+was calculated with equation \ref{eq:Z1}. In the figure we can observe that the \verb!XGBoost! model performs
 better for smaller masses. This results can be somewhat counterintuitive, due to signal with smaller masses 
 having a larger resemblance to background than signal with large masses. The explanation is simply that there are
 far more events with smaller masses than there are with larger masses. By studying figure \ref{fig:nrSignal} we know that 
@@ -26,9 +26,9 @@ far more of the large mass signal to achieve a high significance.\\
     created by the \emph{XGBoost} network.}
     \label{fig:XGBoost}
 \end{figure}
-To further investigate the performance of the XGBoost model, I have drawn the distribution of the output for the 
+To further investigate the performance of the \verb!XGBoost! model, I have drawn the distribution of the output for the 
 entire background data set as well as for signal with 4 different mass combinations. The result is found in figure 
-\ref{fig:XGBDistComp}. The figure shows the output of the XGBoost model with the full output range \ref{fig:XGBDist}
+\ref{fig:XGBDistComp}. The figure shows the output of the \verb!XGBoost! model with the full output range \ref{fig:XGBDist}
 and the output ranging from [0.975-1.00]\footnote{This interval was chosen to study the higher output region.} (\ref{fig:XGBDist_95}). 
 From the figure we observe a clear separation between 
 signal and background, where most of the signal is given a high output ($>0.9$) and most of the background is given small

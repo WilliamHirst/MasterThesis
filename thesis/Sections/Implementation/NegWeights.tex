@@ -4,7 +4,7 @@ of the \ac{ML} models. Most weights are in the range of $w_i \in [0,1]$, but som
 The negative weight problem is a well known problem in the world of \ac{ML}-analysis for \ac{HEP}, 
 and is a consequence of higher perturbative accuracy. For the purpose of visualizing 
 distributions and training a \ac{NN}, negative weights are not a problem. But, when using 
-the weights in the training of the XGBoost classifier, the algorithm does not work\footnote{Upon further research 
+the weights in the training of the \verb!XGBoost! classifier, the algorithm does not work\footnote{Upon further research 
 in the codebase of XGBoost, it seems as though negative weights are not allowed as it interfere with XGBoost's use 
 of the hessian matrix. Due to time constraints, I decided not to  pursue this further.}.  
 \\
@@ -78,5 +78,5 @@ corresponding to the largest significance, is used to define the final signal re
 In most calculations of the significance I use equations \ref{eq:Z1}. This equation does not include any 
 uncertainty, which is why any results using said equation is only for comparison reasons between the different \ac{ML}
 models. In the final sections of the thesis, I am interested in including uncertainty in the results. To do this I utilize 
-a function in ROOT, the \emph{RooStats.NumberCountingUtils.BinomialExpZ}, which takes the number of expected signal and background, 
+a function in \verb!ROOT!, the \texttt{RooStats.NumberCountingUtils.BinomialExpZ}, which takes the number of expected signal and background, 
 as well as the systematic uncertainty of the background.

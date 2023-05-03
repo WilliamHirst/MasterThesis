@@ -1,33 +1,32 @@
 \section{The Simulated Data}
 \subsection{Monte Carlo Simulated Data}
-Up to this point in the thesis, I have discussed two data sets: the measured collision data and the simulated \ac{MC} data. 
-As far as my relation to the latter data set, I have only used it directly in my analysis and have not been involved in 
+Up to this point in the thesis I have discussed two data sets: the measured collision data and the simulated \ac{MC} data. 
+As far as my relation to the latter data set I have only used it directly in my analysis and have not been involved in 
 production. The simulations applied in the creation of our simulated data set are all based on \acf{MC} simulations\footnote{For 
-more information on \ac{MC} simulation, the reader is referred to \cite{raychaudhuri_introduction_2008}.}, produced 
-by the popular frameworks like \emph{$MadGraph5\_aMC@NLO$}, \emph{$Pythia\ 8.2$} and \emph{Sherpa 2.2.1} \cite{alwall_automated_2014, sjostrand_introduction_2015,Sherpa}. 
-Through simulation, we are able to (among other things); test our understanding of the detector, model the expected \ac{SM} background 
+more information on \ac{MC} simulation, the reader is referred to \cite{raychaudhuri_introduction_2008}.}.
+Through simulations, we are able to (among other things); test our understanding of the detector, model the expected \ac{SM} background 
 events in different regions or model new \ac{BSM} physics. The pipeline for producing simulated events, closely mimic the pipeline 
 from real collision to data set. The pipeline for simulating collision events can be summarized in the following steps
 \begin{itemize}
   \item \emph{Generate events}: Simulate each event in the collision, marking each event with the corresponding process (see section \ref{sec:bkg})
   \item \emph{Simulate detection of events}: Simulate the detection of each event in the different layers of the detector described in section \ref{subsec:Detector}
-  \item \emph{Digitization}: Translate the interaction between the events and the detector to real signals
-  \item \emph{Reconstruct events}: Go through the same steps applied to real collisions to reconstruct particles from signals
+  \item \emph{Digitization}: Translate the interaction between the particles in the events and the detector to real signals
+  \item \emph{Reconstruct events}: Go through the same steps applied to real collisions to reconstruct particles from the detector output.
 \end{itemize}
 \subsection{The Simulated Signal}\label{subsec:signal}
 As I have mentioned in previous sections I will be searching for a large range of signals, all related to the same
-physics, but with different set of parameters, i.e. choice for mass of the chargino and neutralino. In figure \ref{fig:nrSignal} I have drawn a 
-grid displaying the different mass combinations searched for in this analysis. The masses range from ${\tilde{\chi}_1}\in[0,400]GeV$
-and ${\tilde{\chi}_2}\in[200,800]GeV$\footnote{The chargino, $\tilde{\chi}^{\pm}_1$, and second neutralino, $\tilde{\chi}_2$, are mass degenerate, 
-meaning they share the same mass. As a consequence, I will refer to the mass of each particle interchangeably throughout the thesis.}. In the beginning of my analysis I only received a subset (which will be referred to as the 
-\emph{original} data set.) of the full signal set. In the figure I have marked the original data set with a white label in the top 
+physics, but with different set of parameters, i.e. choices for the masses of the charginos and neutralino. In figure \ref{fig:nrSignal} I have drawn a 
+grid displaying the different mass combinations searched for in this analysis. The masses range from ${\tilde{\chi}_1}\in[0,400]$GeV
+and ${\tilde{\chi}_2}\in[200,800]$GeV\footnote{The chargino, $\tilde{\chi}^{\pm}_1$, and second neutralino, $\tilde{\chi}_2$, are mass degenerate, 
+meaning they share the same mass. As a consequence, I will refer to the mass of each particle interchangeably throughout the thesis.}. In the beginning 
+of my analysis I only received a subset (which will be referred to as the \emph{original} data set.) of the full signal set. In the figure I have marked the original data set with a white label in the top 
 right corner of the box. The original signal set contains a total of 30 different mass combinations in the ranges 
 ${\tilde{\chi}_1}\in[0,400]$ and ${\tilde{\chi}_2}\in[400,800]$. In the full signal data set there are a total of 90 different 
 mass combinations.
 \\
-Given that I received the original signal data set many months before receiving the full set, most of my results were found using the 
-original set. Therefore, I choose to use the original data set to compare the models in performance, then finally use the full set 
-when comparing the models to previous analysis.
+Given that I received the original signal data set many months before receiving the full set, most of my results were carried out using the 
+original set. Therefore, I choose to use the original data set to compare the performance of the models, then finally use the full set 
+when comparing the results to previous analysis.
 \begin{figure}
   \centering
   \includegraphics[width=0.85\textwidth]{Figures/MLResults/NN/SUSY/Grid/NrSignalEvents.pdf}
@@ -41,44 +40,45 @@ As a consequence, the amount of data increases drastically. The \ac{ATLAS} exper
 is one of the largest particle detector experiments currently operating at the 
 CERN laboratory near Geneva. \ac{ATLAS} alone generates approximately 1 petabyte of raw
 data every second from proton-proton collisions at the \ac{LHC}. In this analysis I will 
-be studying proton-proton collisions produced by \ac{ATLAS} between 2015-2018, with a luminosity of 
-$139.0fb^{-1}$ and center of mass energy of $\sqrt{s} = 13TeV$. With amounts of data this large, data handling and 
-storing is a big challenge. Therefore, taking advantage of sophisticated numerical tools 
+be studying proton-proton collisions at a center of mass energy $\sqrt(s) = 13$TeV recorded by \ac{ATLAS} detector 
+between 2015-2018, corresponding to an integrated luminosity of $139.0fb^{-1}$. With amounts of data this large, 
+data handling and storing is a big challenge. Therefore, taking advantage of sophisticated numerical tools 
 and data frameworks is pivotal if scientific development is to keep up with technological development.
 \subsection{ROOT}
-In many aspects of my analysis, ranging from statistical analysis to plotting, I utilize the ROOT framework.
-ROOT \cite{ROOT} is at its core a large $C{++}$ library and data structure made specifically for big data
-analysis and computing, as well as data visualization. Today, all \ac{ATLAS} data is stored as a ROOT-file along
-with more than 1 exabyte ($10^{12}$) of data worldwide. ROOT has many \ac{HPC} qualities which makes it ideal for particle
-physics analysis which demands heavy computations. Additionally, many particle physics-specific packages
-have been developed to make it an even better tool. Any function not already in library,
-can easily be added in a \ac{HPC}-effective manner through $C{++}$.
+In many aspects of my analysis, ranging from statistical analysis to plotting I utilize the \verb!ROOT! framework.
+\verb!ROOT! \cite{ROOT} is at its core a large $\verb!C++!$ library and data structure made specifically for big data
+analysis and computing, as well as data visualization. Today, all \ac{ATLAS} data is stored as ROOT-files, 
+summing up to more than 1 exabyte ($10^{12}$) distributed worldwide through the World \ac{LHC} Computing Grid (WLCG)\cite{bird_update_2014}. 
+\verb!ROOT! has many \ac{HPC} qualities which makes it ideal for particle physics analysis which demands heavy computations. Additionally, 
+many particle physics-specific packages have been developed to make it an even better tool. Any function not already in library,
+can easily be added in a \ac{HPC}-effective manner through $\verb!C++!$.
 \\
-All distribution plots/histograms presented in the present thesis were created using ROOT. ROOT has implemented a highly intuitive and
-effective \ac{API} for data comparison and visualization. ROOT allows for quick and direct 
-comparison between data through an advanced graphical user interface. Additionally, a lot of
-functionality for creating complex stacked histogram are implemented in the ROOT \ac{API}, such
-as uncertainty calculations, ordering of histograms and statistical analysis tools. 
+Many of the plots presented in the present thesis were created using \verb!ROOT!. \verb!ROOT! has implemented a highly intuitive and
+effective \ac{API} for data comparison and visualization. \verb!ROOT! allows for quick and direct 
+comparison between data through an advanced graphical user interface. Furthermore, a lot of
+functionality for creating complex stacked histograms are implemented in the \verb!ROOT! \ac{API}, such
+as uncertainty calculations, ordering of histograms and statistical analysis tools. A final and important benefit of 
+\verb!ROOT! is its impressive handling of memory which makes it ideal to handle large amounts of data.
 \subsection{Data Structure and Frameworks}
-Both data sets analyzed in this thesis, the measured and simulated were originally (pre-processing) stored in ROOT, in the format of Ntuples. 
-NTuples are ROOT objects, designed to store large amounts of data in a tabular form. They allow for non-symmetrical entries, meaning 
-rows with different number of columns. The simulated and measured collision data are both stored in Ntuples, with a matrix like structure 
+Both data sets used as input to the analysis in this thesis, the measured and simulated, were stored in \verb!ROOT!, in the format of \verb!NTuples!. 
+\verb!NTuples! are \verb!ROOT! objects designed to store large amounts of data. They allow for non-symmetrical entries, meaning 
+rows with different number of columns. The simulated and measured collision data are both stored in \verb!NTuples!, with a matrix like structure 
 where the columns represent the variables/features, and the rows represent each event. Hence, allowing non-symmetrical entries is essential 
 for the purpose of storing data on particle collisions, given that not all variables are relevant for all events. For example the $P_t$ of the 
-third lepton in an event with two lepton final state, does not make sense.
+third lepton in an event in a two lepton final state, does not make sense.
 \\
-When starting preprocessing, I load the NTuples into another ROOT data structure called RDataFrame\footnote{For full 
+When starting preprocessing I load the \verb!NTuples! using a \verb!ROOT! interface called \verb!RDataFrame!\footnote{For full 
 documentation on RDataFrame, see $\href{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}$ 
-(Accessed 16.04.2023).}. RDataFrame allows for easy addition of new columns as well as filtering of events through native functionality. 
-As a consequence I used RDataFrame to calculate all features not already in the data set, such as the sum of transverse momentum, 
+(Accessed 16.04.2023).}. \verb!RDataFrame! allows for easy addition of new columns as well as filtering of events through native functionality. 
+As a consequence I used \verb!RDataFrame! to calculate all features not already in the data set, such as the sum of transverse momentum, 
 or the invariant mass of the three leptons. 
 \\
-After pre-processing was completed, I used ROOT's $AsNumpy$ function to translate the data frame as 
-a Numpy object, which then allowed me to transform it to a Pandas data frame \cite{Pandas}. This is done
-because Pandas, like most \ac{ML}-tools work in a strict Python environment. Pandas, similarly to RDataFrame
+After pre-processing was completed, I used \verb!RDataFrame!'s \emph{AsNumpy} function to translate the data frame into 
+\verb!Numpy! objects, which then allowed me to transform it to a \verb!Pandas! data frame \cite{Pandas}. This is done
+because \verb!Pandas!, like most \ac{ML}-tools, work in a strict \verb!Python! environment. \verb!Pandas!, similarly to \verb!RDataFrame!,
 includes a deep computational library, and is optimal for analysis of big data. When the full \ac{ML} 
-pipeline (data-handling, training, validating etc.) is completed, the data is transformed back to RDataFrame, 
-to take advantage of the plotting functionality in ROOT. The workflow of the method is visualized in figure 
+pipeline (data-handling, training, validation etc.) is completed the data is transformed back to \verb!NTuples!, 
+to take advantage of the plotting functionality in \verb!ROOT!. The workflow of the data pre-processing is visualized in figure 
 \ref{fig:WF}.
 \begin{figure}
   \centering
@@ -90,23 +90,23 @@ to take advantage of the plotting functionality in ROOT. The workflow of the met
 \end{figure}
 \subsection{Computing Features in ROOT: Example}
 In this section I will cover a simple example to highlight the steps taken in preparing the data set 
-I used in the analysis. As mentioned earlier, the two main frameworks used were RDataFrame and Pandas. 
-In this example I will cover the case of a feature not already in the ROOT file, namely the trilepton
-invariant mass. All loading of data is done using the ROOT framework and is quickly transformed into a 
-RDataFrame. To effectively generate new features, we want to stay in ROOT environment. Therefore,
-we create a $C{++}$ file, \emph{helperfunction}. The helperfunction contains all additional 
-ROOT functions that are used in the analysis and are not already native to ROOT. In the case 
-of computing the trilepton invariant mass, the $C{++}$ function is created like shown in listing 
+used in the analysis. As mentioned earlier, the two main frameworks used were \verb!RDataFrame! and \verb!Pandas!. 
+In this example I will cover the case of a feature not already in the \verb!ROOT! file, namely the trilepton
+invariant mass. All loading of data is done using the \verb!ROOT! framework and is easily read using the
+\verb!RDataFrame! interface. To effectively generate new features we want to stay in \verb!ROOT! environment. Therefore,
+we create a \verb!C++! file, \texttt{helperfunction}. The \texttt{helperfunction} contains additional 
+\verb!ROOT! functions which are used in the analysis and are not already native to \verb!ROOT!. In the case 
+of computing the trilepton invariant mass, the \verb!C++! function is created like shown in listing 
 \ref{lst:mlll}.
 \\
-In listing \ref{lst:mlll}, we see a couple of measures taken to uphold to the ROOT environment. The first measure is 
-the typecasting to $VecF\_t$. $VecF\_t$ is created to wrap floats in the native ROOT vector object, $RVec$. 
+In listing \ref{lst:mlll}, we see a couple of measures taken to uphold to the \verb!ROOT! environment. The first measure is 
+the typecasting to $VecF\_t$. $VecF\_t$ is created to wrap floats in the native \verb!ROOT! vector object, $RVec$. 
 The same is done in other cases such as float and integers, $VecI\_t$ and $VecB\_t$. The second measure
-was using $TLorentzVector$\footnote{For full documentation on $TLorentzVector$, see $\href{https://root.cern.ch/doc/master/classTLorentzVector.html}{https://root.cern.ch/doc/master/classTLorentzVector.html}$ (Accessed 16.04.2023).} 
-to calculate the invariant mass. $TLorentzVector$ is a class native to ROOT with many built-in functions. In 
-this case we use the class to create three vectors through the kinematic variables, $P_t$, $\eta$, $\phi$ and m\footnote{These features
-will be described in the next section \ref{sec:Feats}.}. Then, through the $TLorentzVector$ class we can simply add all three vector 
-together, and extract the invariant mass of the three leptons. 
+was using \verb!TLorentzVector! \footnote{For full documentation on TLorentzVector, see $\href{https://root.cern.ch/doc/master/classTLorentzVector.html}{https://root.cern.ch/doc/master/classTLorentzVector.html}$ (Accessed 16.04.2023).} 
+to calculate the invariant mass. \verb!TLorentzVector! is a class native to \verb!ROOT! with many built-in functions. In 
+this case we use the class to create four-vectors through the kinematic variables, $P_t$, $\eta$, $\phi$ and mass\footnote{These features
+will be described in the next section \ref{sec:Feats}.}. Then, through the \verb!TLorentzVector! class we can simply add, through vector sums, 
+together and extract the invariant mass of the three-lepton system. 
 \lstset{style=Cpp}
 \begin{lstlisting}[caption={$C{++}$-function which implementes the calculation of $M_{lll}$.},captionpos=b, label={lst:mlll}]
 // Compute the trilepton invariant mass 
@@ -120,15 +120,19 @@ float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
   return (p1 + p2 + p3).M();
 }
 \end{lstlisting}
-With a helper function created in $C{++}$ we can move over to a Python and RDataFrame environment
-for calculation and plotting. In the code written in listing \ref{lst:df_mlll}, I have shown a simple example 
-of loading new $C{++}$ functions, filtering out events, calculating new features and adding said 
-features to a histogram. The first three lines of code both process and include the helperfunctions 
-into the ROOT framework. Then I loop over all keys in the data frame, which in my case
+The functions implemented in the \verb!C++! library (\texttt{helperfunction}) off-loads, from \verb!Python!, all the time, consuming work to \verb!C++!,
+which significantly speeds up the computation. The \verb!C++! library is compiled prior to the execution of the main \verb!Python!-code, which 
+will be presented in the following. The main code, doing the selections, calculations and plotting, uses the \verb!RDataFrame! interface in a \verb!Python! 
+environment. Whenever heavy calculations are needed the \verb!RDataFrame! interface calls on function in the \verb!C++! library described above. 
+\\
+In the code written in listing \ref{lst:df_mlll}, I show a simple example 
+of loading new \verb!C++! functions, filtering out events, calculating new features and adding said 
+features to a histogram. The first three lines of code both compiles and include the \texttt{helperfunction} 
+into the \verb!ROOT! framework. Then I loop over all keys in the data frame, which in my case
 are the different channels (i.e diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
-based on the criteria I will present in section \ref{subsec:Cuts}. Then, I use RDataFrame's $Define$ function to calculate
-and add a new feature using our $ComputeInvariantMass$-function. Finally, I save the feature as ROOT object called 
-$Histo1D$, which I later plot using ROOT \ac{API}. In this example I chose the trilepton invariant mass, 
+based on the criteria I will present in section \ref{subsec:Cuts}. Then I use \verb!RDataFrame!'s \texttt{Define} function to calculate
+and add a new feature using the \texttt{ComputeInvariantMass}-function. Finally, I save the feature as \verb!ROOT! object called 
+\texttt{Histo1D}, which I later plot using \verb!ROOT! \ac{API}. In this example I chose the trilepton invariant mass, 
 but in the analysis all additional features were calculated using a similar method. 
 \lstset{style=Python}
 \begin{lstlisting}[caption={Python-file for calling dataframe and calculating $M_{lll}$.},captionpos=b, label={lst:df_mlll}]

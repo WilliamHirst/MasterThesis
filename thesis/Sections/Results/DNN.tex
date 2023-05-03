@@ -12,8 +12,8 @@ functions and amount of hidden layers, but with only 20 nodes in each layer. The
 compare when deciding the number of nodes and hidden layers to be used in the analysis. Both networks apply the training strategy described in section \ref{subsec:TrainingStrategy}.
 \\
 Figure \ref{fig:NNshallowGridSig} displays the expected sensitivity for the smaller network (20 nodes). By comparing with the 
-results achieved by the XGBoost model in figure \ref{fig:XGBoost}, we can observe that the shallow network performs very similarly to the XGBoost model. 
-In fact, the XGBoost model seems to outperform (achieve a higher significance for most combinations) the network ever so slightly.
+results achieved by the \verb!XGBoost! model in figure \ref{fig:XGBoost}, we can observe that the shallow network performs very similarly to the \verb!XGBoost! model. 
+In fact, the \verb!XGBoost! model seems to outperform (achieve a higher significance for most combinations) the network ever so slightly.
 \\
 In figure \ref{fig:NNGridSig}, I present the same grid as described above, but using the larger network. By comparing the results from the smaller 
 network in figure \ref{fig:NNshallowGridSig}, we can discern that the larger network outperforms the smaller network for every single mass 
@@ -51,13 +51,14 @@ mass combination signal set to a diverse set would affect the performance on the
 results from an analysis which aims to study this.
 \\
 In figure \ref{fig:Interpolation} I present the results from two models for which each is trained on two different sets of signals.
+Each figure displays which combinations were used during training with the addition of a green corner. 
 The training used to produce the results aligns with the strategy described in section \ref{subsec:TrainingStrategy} and both apply
-an ordinary dense \ac{NN} architecture described in section \ref{subsec:arch}.
-Figure \ref{fig:OneMass} presents the achieved sensitivity from a dense \ac{NN} which has only trained on one mass combination (which will 
-hence force be referred to as \ac{OMM}), $\tilde{\chi}_1=250$ and $\tilde{\chi}_2=550$GeV, while figure \ref{fig:SeveralMass} presents the 
-achieved sensitivity after training on a large set of mass combinations (which will hence force be referred 
-to as \ac{SMM}). Specifically, the latter figure shows the results after training on all signals on the outer square\footnote{I.e. all mass combinations 
-which lie on the edges of the grid.} in the figure \ref{fig:SeveralMass} as well as the point in the middle, $\tilde{\chi}_1=250$ and $\tilde{\chi}_2=550$GeV.\\
+an ordinary dense \ac{NN} architecture described in section \ref{subsec:arch}. Figure \ref{fig:OneMass} presents the achieved sensitivity 
+from a dense \ac{NN} which has only trained on one mass combination (which will hence force be referred to as \ac{OMM}), $\tilde{\chi}_1=250$ 
+and $\tilde{\chi}_2=550$GeV, while figure \ref{fig:SeveralMass} presents the achieved sensitivity after training on a large set of mass combinations 
+(which will hence force be referred to as \ac{SMM}). Specifically, the latter figure shows the results after training on all signals on the outer 
+square\footnote{I.e. all mass combinations which lie on the edges of the grid.} in the figure \ref{fig:SeveralMass} as well as the point in the 
+middle, $\tilde{\chi}_1=250$ and $\tilde{\chi}_2=550$GeV.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -78,8 +79,9 @@ which lie on the edges of the grid.} in the figure \ref{fig:SeveralMass} as well
     \caption[Two grids displaying the expected significance on a subset of the full signal set, using the signal region 
     created by two dense \acs{NN}'s, each training on different amounts of signal.]{Two grids displaying the expected significance 
     on a subset of the full signal set, using the signal region created by two dense \ac{NN}'s. Figure \ref{fig:OneMass} presents the results 
-    from a model who has only seen one mass combination during training, ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV). Figure 
-    \ref{fig:SeveralMass} presents the results from a model who has seen all mass combinations in the grid, but for the inner square of masses. }
+    from a model which has only seen one mass combination during training, $\tilde{\chi}_1=250$ and $\tilde{\chi}_2=550$GeV. Figure 
+    \ref{fig:SeveralMass} presents the results from a model which has seen all mass combinations in the grid, but for the inner square of masses
+    around the 250, 555 point. Each figure displays which combinations were used during training with the addition of a green corner.}
     \label{fig:Interpolation}
 \end{figure}
 My initial prediction for this comparison was that the \ac{OMM} would outperform the \ac{SMM} for the signal with
@@ -89,12 +91,12 @@ at the same time interpolate the results for the masses in between. By comparing
 see that my prediction was not completely true. We can observe that the model which has trained on several-masses outperformed the 
 \ac{OMM} on every single combination. At first, I believed this to be caused by the \ac{OMM} overfitting a lot sooner than the other 
 model, therefore being stopped earlier in training by the early stopping criteria described in section \ref{subsec:TrainingStrategy}. 
-To test this theory, I drew the \ac{AUC} score made after each epoch on both the training and validation set
-for the \ac{OMM}  and the \ac{SMM}, shown in Figure \ref{fig:oneMassHist} and \ref{fig:SeveralMassHist}, respectively. By comparing the two figures,
+To test this theory, I drew the \ac{AUC} score made after each epoch on both the training and validation set for the \ac{OMM} and the 
+\ac{SMM}, shown in Figure \ref{fig:oneMassHist} and \ref{fig:SeveralMassHist}, respectively. By comparing the two figures,
 we observe that the \ac{OMM}'s performance on the validation set peaks in the first epoch, therefore stopping training after 
 10 epochs, while the \ac{SMM} peaks after 6, allowing the \ac{SMM} model to train longer. This is a clear indication that training on 
 one mass combination leads to overfitting. 
-\begin{figure}
+\begin{figure}[H]
     \makebox[\linewidth][c]{%
     \centering
     \begin{subfigure}{.45\textwidth}
@@ -114,13 +116,12 @@ one mass combination leads to overfitting.
     the results from the \ac{SMM}.}
     \label{fig:InterpolateHistory}
 \end{figure}
-\\
 Given that the \ac{OMM}'s performance is reduced by the early stopping criteria, I wanted to explore if it would be able to outperform the 
 \ac{SMM} given it was allowed to train deeper/longer. In figure \ref{fig:NNOverfitting}, I display the achieved significance
 of the \ac{OMM} in the case where early stopping has been removed, and the model was allowed to train for 15 epochs. By comparing figures 
 \ref{fig:SeveralMass} and \ref{fig:NNOverfitting}, we can observe that even when early stopping is removed from the \ac{OMM}, it is  
 still outperformed by the \ac{SMM}. This indicates that overfitting is not the only reason for the \ac{OMM}'s disappointing performance.\\
-\begin{figure}
+\begin{figure}[H]
     \centering
     \makebox[\linewidth][c]{%
     \begin{subfigure}{.6\textwidth}
@@ -131,11 +132,11 @@ still outperformed by the \ac{SMM}. This indicates that overfitting is not the o
     created by a dense \acs{NN} which has trained on one mass, and has been allowed to train for 16 epochs.]{
     A grid displaying the expected significance on a subset of the full signal set, using the signal region 
     created by the \ac{NN}. The figure presents the results from a model who has only seen one mass combination 
-    during training, ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=550$GeV) and was allowed to train for 15 epochs without 
-    early stopping.}
+    during training, $\tilde{\chi}_1=250$ and $\tilde{\chi}_2=550$GeV and was allowed to train for 15 epochs without 
+    early stopping. }
     \label{fig:NNOverfitting}
 \end{figure}
-The most probable explanation for the underwhelming performance of the \ac{OMM}, is that nearby mass combinations (i.e. mass combination with 
+The most probable explanation for the underwhelming performance of the \ac{OMM} is that nearby mass combinations (i.e. mass combinations with 
 relatively similar masses) exhibit a lot of overlap in terms of feature trends. In other words, nearby mass combinations (in this example, mass combinations which 
 differ by 100GeV) often contribute to the same type of tuning. This means that by including a larger range of signals, which are similar in mass, we are 
 essentially increasing the amount of data for each individual signal. This gives further motivation to include diversity in the signal set.

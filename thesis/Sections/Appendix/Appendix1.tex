@@ -16,7 +16,7 @@
         \label{fig:ChannelOutGridSig}
     \end{subfigure}
     }
-    \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
+    \caption{A grid displaying the expected significance on the original signal set, using the signal region 
     created by the \acs{SCO} \ref{fig:StochChannelOutGridSig} and a channel-out network \ref{fig:ChannelOutGridSig}.}
     \label{fig:SCOCO}
 \end{figure}
@@ -36,7 +36,7 @@
         \label{fig:MaxOutPCAGridSig}
     \end{subfigure}
     }
-    \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
+    \caption{A grid displaying the expected significance on the original signal set, using the signal region 
     created by the \acs{NN} \ref{fig:NNPCAGridSig} and a maxout network \ref{fig:MaxOutPCAGridSig}. A \ac{PCA} 
     analysis has been applied to the data being utilized in this result.}
 \end{figure}
@@ -48,7 +48,7 @@
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/PNNPCAGridSig.pdf}
     \end{subfigure}
     }
-    \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
+    \caption{A grid displaying the expected significance on the original signal set, using the signal region 
     created by the \acs{PNN} network. A \acs{PCA} analysis has been applied to the data being utilized in this result.}
     \label{fig:PNNPCAGridSig}
 \end{figure}
@@ -67,7 +67,7 @@
     \label{fig:NNPCAComp}
 \end{figure}
 
-\subsection{Comparing Models Trained on Original and Full Statistics Signal}\label{appendix:BigVsSmall}
+\subsection{Comparing Models Trained on Original and the Complete Signal Grid}\label{appendix:BigVsSmall}
 \begin{figure}[H]
     \makebox[\linewidth][c]{%
     \centering
@@ -76,8 +76,8 @@
     \end{subfigure}
     }
     \caption[Pie-plot comparing sensitivity achieved by the maxout model on the original signal set, where the figure shows the comparison between a model trained 
-    on the original signal set, and full statistics set.]{Pie-plot comparing sensitivity achieved by the maxout model on the original signal set, where the figure 
-    shows the comparison between a model trained on the original signal set, and full statistics set. A \ac{PCA} analysis has been applied to the data being utilized 
+    on the original signal grid, and the complete signal grid.]{Pie-plot comparing sensitivity achieved by the maxout model on the original signal set, where the figure 
+    shows the comparison between a model trained on the original signal grid, and the complete signal grid.. A \ac{PCA} analysis has been applied to the data being utilized 
     in this result. The size of each 'slice' represents the relative size of the significance and the color around each 
     point displays the method with the largest sensitivity for the respective combination.}
     \label{fig:BigVsLittleSetMaxOut}
@@ -90,8 +90,8 @@
     \end{subfigure}
     }
     \caption[Pie-plot comparing sensitivity achieved by the \acs{PNN} model on the original signal set, where the figure shows the comparison between a model trained 
-    on the original signal set, and full statistics set.]{Pie-plot comparing sensitivity achieved by the \acs{PNN} model on the original signal set, where the figure 
-    shows the comparison between a model trained on the original signal set, and full statistics set. A \ac{PCA} analysis has been applied to the data being utilized 
+    on the original signal grid, and the complete signal grid.]{Pie-plot comparing sensitivity achieved by the \acs{PNN} model on the original signal set, where the figure 
+    shows the comparison between a model trained on the original signal grid, and the complete signal grid. A \ac{PCA} analysis has been applied to the data being utilized 
     in this result. The size of each 'slice' represents the relative size of the significance and the color around each 
     point displays the method with the largest sensitivity for the respective combination.}
     \label{fig:BigVsLittleSetPNN}

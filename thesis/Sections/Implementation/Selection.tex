@@ -1,21 +1,21 @@
 \subsection{Lepton Variables}\label{subsec:LepSel}
-Information regarding the kinematics of the leptons were added into the data set: i.e. the transverse momentum, $P_t$, the pseudo 
-rapidity $\eta$ and the azimuth angle $\phi$. All kinematic features were represented individually for each lepton. For example $P_t$
-was added as three columns, $P_t(l_1)$, $P_t(l_2)$ and $P_t(l_3)$, where the ordering of the leptons were based on the momentum from highest ($l_1$) to lowest ($l_3$).
+Information regarding the kinematics of the leptons were added into the data set: i.e. the transverse momentum, $p_T$, the pseudo 
+rapidity $\eta$ and the azimuth angle $\phi$. All kinematic features were represented individually for each lepton. For example $p_T$
+was added as three columns, $p_T(l_1)$, $p_T(l_2)$ and $p_T(l_3)$, where the ordering of the leptons were based on the momentum from highest ($l_1$) to lowest ($l_3$).
 Similarly, I added information regarding the charge ($\pm$) and flavor (electron, muon) of each lepton. Based on the kinematic variables
-the transverse mass $m_t$ of each lepton was calculated, $\Delta R$ and the energy, $E_t^{miss}$, and azimuth angle, $\phi^{miss}$,
-of the missing transverse momentum.
+the transverse mass $M_T$ of each lepton was calculated, $\Delta R$ and the transverse component, $E_T^{miss}$, and azimuth angle, $\phi^{miss}$,
+of the missing momentum.
 \\
 The variables described in the section above are often considered as low-level features. These are very useful in many (if not all)
 searches and contribute little to no bias to your analysis. High-level features can be added to guide a hypothetical model 
-in its search. The higher level features used in this analysis were inspired by several publications of \ac{ATLAS} I read in 
+in its search. The high level features used in this analysis were inspired by several publications of \ac{ATLAS} I read in 
 preparation of the analysis \cite{franchini_search_2019, atlas_search_2021}. 
 \\
 Firstly I added different mass variables, namely $m_{lll}$ and $m_{ll}(OSSF)$ (\ac{OSSF}). The first being the trilepton invariant mass 
 and the latter being the dilepton invariant mass of the pair with \ac{OSSF}. In the case of more than one possible \ac{OSSF}-pair,
 the pair with the highest invariant mass was chosen. Secondly I added variables composed of the sum of the transverse momenta.
-These variables include the sum of all three leptons, $H_t(lll)$, of the pair with same sign/charge, $H_t(SS)$, and the sum of the momentum
-for all three leptons added with the missing transverse energy $H_t(lll) + E_t^{miss}$. Finally, I added the significance of the
+These variables include the sum of all three leptons, $H_T(lll)$, of the pair with same sign/charge, $H_T(SS)$, and the sum of the momentum
+for all three leptons added with the missing transverse energy $H_T(lll) + E_T^{miss}$. Finally, I added the significance of the
 $E_t^{miss}$, $S(E_t^{miss})$.
 \subsection{Jet Variables}\label{subsec:JetSel}
 Now we can have a look at the jet-features. Given the final state of interest should be independent of jets, there are not many

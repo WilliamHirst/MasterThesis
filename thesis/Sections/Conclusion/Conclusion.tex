@@ -31,28 +31,28 @@ perform better when predicting on data which were assigned correctly, although n
 and $\tilde{\chi}_2=250$GeV, improved effectiveness by $3\%$ when applying a rigid cut on the output of 0.975. This indicates that the \ac{PNN} was able to discriminate between different variations of signal, even if only by 
 a small amount.
 \\\newline
-When studying and comparing the performance of the \ac{ML} models, two different sets of the signal were used, original ($\tilde{\chi}_1\in[0-400]GeV$ and  $\tilde{\chi}_2\in[400-800]GeV$) and full statistics ($\tilde{\chi}_1\in[0-400]GeV$ 
-and  $\tilde{\chi}_2\in[200-800]GeV$), where the first was a subset of the second. When comparing the achieved sensitivity, or significance of the models on each mass combination in the original signal set, I found that the 
+When studying and comparing the performance of the \ac{ML} models, two different sets of the signal were used, original ($\tilde{\chi}_1\in[0-400]$GeV and  $\tilde{\chi}_2\in[400-800]$GeV) and the complete signal grid ($\tilde{\chi}_1\in[0-400]$GeV 
+and $\tilde{\chi}_2\in[200-800]$GeV), where the first was a subset of the second. When comparing the achieved sensitivity, or significance of the models on each mass combination in the original signal set, I found that the 
 maxout model outperformed all other \ac{LWTA} models, achieving a higher significance in 24/30 combinations. Although, the introduced \ac{SCO} layer did not outperform maxout model, it did achieve a higher significance in 6 
 combinations. Most likely, by modifying the \ac{SCO} layer during prediction, the performance of the layer would improve.
 \\\newline
-Four models (not including channel-out and \ac{SCO}) were chosen when comparing performance on the original signal set; ordinary dense \ac{NN}, maxout model, \ac{PNN} and a \ac{BDT} implemented using the default settings of XGBoost \cite{XGB}. In the comparison I found that 
+Four models (not including channel-out and \ac{SCO}) were chosen when comparing performance on the original signal set; ordinary dense \ac{NN}, maxout model, \ac{PNN} and a \ac{BDT} implemented using the default settings of \verb!XGBoost! \cite{XGB}. In the comparison I found that 
 all three network variants were able to outperform the \ac{BDT}, although I believe this to be explained by little attention given towards the architecture of the \ac{BDT}. Out of the three network variants, the maxout model was able to achieve 
-the highest significance for most mass combinations (24/30), but mostly in the higher mass range ($\tilde{\chi}_2>600GeV$). In the events with lower masses and higher statistics ($\tilde{\chi}_2<600GeV$), the \ac{PNN} outperformed all others, 
+the highest significance for most mass combinations (24/30), but mostly in the higher mass range ($\tilde{\chi}_2>600$GeV). In the events with lower masses and higher statistics ($\tilde{\chi}_2<600$GeV), the \ac{PNN} outperformed all others, 
 almost doubling significance achieved by the maxout model. Shared among all models was the fact that they all found processes with high amounts of missing transverse energy difficult to separate from the signal, i.e. $Diboson(lll)$, $t\bar{t}$ and $top\ other$.
 \\\newline
-Before applying the models to the full statistics of the signal data, I applied a \ac{PCA} to study if it could improve performance. When requiring the conservation of $99.99\%$ of the variation from the original feature set, 5 features were removed.
+Before applying the models to the complete signal grid, I applied a \ac{PCA} to study if it could improve performance. When requiring the conservation of $99.99\%$ of the variation from the original feature set, 5 features were removed.
 Training the dense \ac{NN}, maxout model and \ac{PNN} with this new data set, I found it to improve the sensitivity of the two latter models. The comparison was based on the choice to weight the importance of all mass combinations equally.
 \\\newline
-Finally, in my analysis I compared the performance of my three best performing models (maxout model and \ac{PNN} with a \ac{PCA}, and the dense \ac{NN}) on the full statistics signal set. Additionally, I compared the results to the expected exclusion 
+Finally, in my analysis I compared the performance of my three best performing models (maxout model and \ac{PNN} with a \ac{PCA}, and the dense \ac{NN}) on the complete signal grid. Additionally, I compared the results to the expected exclusion 
 limits ($Z>1.64$) set by \ac{ATLAS} in 2021 \cite{atlas_search_2021}. The calculated significance for the models were done using a flat uncertainty of $20\%$, $10\%$ and $<1\%$. Based on the comparison I found that none of the \ac{ML} models were 
-able to extend the limits set by \ac{ATLAS}, with the exception of the \ac{PNN} when utilizing $<1\%$ uncertainty. For an uncertainty of $20\%$, the \ac{PNN} was able to achieve a limit which mirrors \ac{ATLAS} for smaller masses ($\tilde{\chi}_2<250GeV$)
+able to extend the limits set by \ac{ATLAS}, with the exception of the \ac{PNN} when utilizing $<1\%$ uncertainty. For an uncertainty of $20\%$, the \ac{PNN} was able to achieve a limit which mirrors \ac{ATLAS} for smaller masses ($\tilde{\chi}_2<250$GeV)
 and set a limit past that achieved by the other networks, for both the chargino and neutralino mass. When decreasing the uncertainty, the maxout model and dense \ac{NN} were able to extend the limit past that achieved by the \ac{PNN} for higher masses, 
 but never surpassing the limit by \ac{ATLAS}.
 \\\newline
 From my analysis I found that where the \ac{PNN} exhibits bias towards higher statistic signal, the ordinary dense \ac{NN} and maxout model are able to achieve a more balanced sensitivity. Especially the 
 maxout model, with an impressive long-term memory was able to uphold a strong performance for lower statistics signal and smaller differences in significance ($\Delta Z \approx 10$ when uncertainty set to $<1\%$). The effect of the long-term memory 
-is further demonstrated in the comparison between the model after training on the original, and full statistics signal set. In said comparison the maxout model improved its performance on the original set in 17/30 mass combinations, compared to the \ac{PNN} which only improved
+is further demonstrated in the comparison between the model after training on the original, and the complete signal grid. In said comparison the maxout model improved its performance on the original set in 17/30 mass combinations, compared to the \ac{PNN} which only improved
 2/30. Due to the fact that future analysis will need sensitivity in low statistics regions (high mass), I believe the \ac{LWTA} layers to be interesting candidates for future models, in regard to their ability to exploit high statistics combinations while maintaining a 
 strong performance on lower statistics signal. 
 \\\newline
