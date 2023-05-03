@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1683091319 "main.aux" "main.bbl" "main" 1683091328
+["bibtex main"] 1683092324 "main.aux" "main.bbl" "main" 1683092333
   "./JHEP.bst" 1635225418 19415 119cff932b2ee8773ea988cf488e8896 ""
   "bibliography.bib" 1682947359 163019 ffd51ff52bc95c5f87cc55709c9f2339 ""
-  "main.aux" 1683091328 92586 5d29ea07b2bdbc3317e8d7368041e4c8 "pdflatex"
+  "main.aux" 1683092333 92576 5ddbc43deeb9d8938eb760fd3edcc450 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1683091319 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1683091328
+["pdflatex"] 1683092324 "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" "main.pdf" "main" 1683092333
   "/Users/williamhirst/Documents/GitHub/MasterThesis/thesis/main.tex" 1682603050 3551 da1c8dd687d468642eb735fa8ef47afb ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -525,7 +525,7 @@
   "Sections/Appendix/Appendix3.tex" 1682686435 4259 63b848108d1484e6ed3d8ae443c6eb3f ""
   "Sections/Appendix/Appendix4.tex" 1683048506 4006 f6cdc7d2764c4f6f4dabb2dbd450490c ""
   "Sections/Conclusion/Conclusion.tex" 1683050049 9770 9467964cc275b6a8cf20992d2e5e5418 ""
-  "Sections/Implementation/Axiomatic.tex" 1683021668 515 1a00d55c3a54fb27e5f5812f4fcf64fa ""
+  "Sections/Implementation/Axiomatic.tex" 1683092317 510 f041b5042b7a6ebb65afb6b40d029f57 ""
   "Sections/Implementation/Cuts.tex" 1683050057 5518 bd4710d8edf144644f8202065f045d86 ""
   "Sections/Implementation/Data.tex" 1683050068 12718 c4d084762361a82e11f0944e2bd060f3 ""
   "Sections/Implementation/Features.tex" 1683021457 1176 216db1d49461150d90d7ea9dc19383c4 ""
@@ -548,7 +548,7 @@
   "Sections/ML/Regularization.tex" 1682935941 3120 8c7385517510e7a886f14968217079e8 ""
   "Sections/Results/Axiomatic.tex" 1683048646 476 ca3bd0257d840eaf839de1eb18b72411 ""
   "Sections/Results/CompLimits.tex" 1683089805 12493 40bf07b22a26dee86a6960daf05bb6ad ""
-  "Sections/Results/DNN.tex" 1683091310 11542 877dc78ec580dcaba577874491ba3452 ""
+  "Sections/Results/DNN.tex" 1683091372 11542 877dc78ec580dcaba577874491ba3452 ""
   "Sections/Results/EnsembleMethods.tex" 1683090445 20213 0e46fcb0e95d6a980c961437bea95add ""
   "Sections/Results/FS.tex" 1683089943 9042 5facc76a90dc69517f3a69c4c5b46691 ""
   "Sections/Results/MLComparison.tex" 1683047934 2609 97fc2944164deab52fe8ca73751c84f5 ""
@@ -564,12 +564,12 @@
   "Sections/SM/TheForces.tex" 1682926055 3398 0cb3af182af004ad66892556d4cb6850 ""
   "Setup/style.sty" 1682589217 8135 1afef782be69d3a19ccb7885f558af20 ""
   "jheppub.sty" 1635225418 11993 cd840ce60e85e99a4eccf7d2c59baa18 ""
-  "main.aux" 1683091328 92586 5d29ea07b2bdbc3317e8d7368041e4c8 "pdflatex"
-  "main.bbl" 1683091319 9760 fb6b41603e1473ca418c814e468477e0 "bibtex main"
-  "main.lof" 1683091328 15116 6f76a4ec0fba848b2e442def1c1595f0 "pdflatex"
-  "main.out" 1683091328 8807 b1318ac472201bd8c49efa3abd7c8c94 "pdflatex"
+  "main.aux" 1683092333 92576 5ddbc43deeb9d8938eb760fd3edcc450 "pdflatex"
+  "main.bbl" 1683092324 9760 fb6b41603e1473ca418c814e468477e0 "bibtex main"
+  "main.lof" 1683092333 15116 6f76a4ec0fba848b2e442def1c1595f0 "pdflatex"
+  "main.out" 1683092333 8779 ec0065d603530a4e112c9a65685b6bf4 "pdflatex"
   "main.tex" 1682603050 3551 da1c8dd687d468642eb735fa8ef47afb ""
-  "main.toc" 1683091328 9004 ddf5b29281f8446d677f0405aa153669 "pdflatex"
+  "main.toc" 1683092333 8999 cc5de023d2fad542f30fd849e866e0cc "pdflatex"
   "uio-fp-navn-eng.pdf" 1643568008 9896 3790f54969705c4284148bf62f780187 ""
   "uio-fp-segl.pdf" 1643566874 64936 89441810db60f45a672971bad5b14ed1 ""
   "uiomasterfp.sty" 1659081738 8559 bdb302d543dc750f296610cabe9cfc0a ""

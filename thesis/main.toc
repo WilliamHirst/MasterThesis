@@ -49,7 +49,7 @@
 \contentsline {section}{\numberline {2.9}Model Assessment}{27}{section.2.9}%
 \contentsline {subsection}{\numberline {2.9.1}The Rate of True-Positve - ROC Curve}{28}{subsection.2.9.1}%
 \contentsline {subsection}{\numberline {2.9.2}Statistical Assessment - Discovery $\&$ Exclusion}{28}{subsection.2.9.2}%
-\contentsline {chapter}{\numberline {3}Implementation $\&$ Preproccing Work of the Analysis}{31}{chapter.3}%
+\contentsline {chapter}{\numberline {3}Implementation $\&$ Preparation of the Analysis}{31}{chapter.3}%
 \contentsline {section}{\numberline {3.1}The Simulated Data}{31}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Monte Carlo Simulated Data}{31}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}The Simulated Signal}{31}{subsection.3.1.2}%
