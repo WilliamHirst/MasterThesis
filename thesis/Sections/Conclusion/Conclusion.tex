@@ -36,7 +36,7 @@ and $\tilde{\chi}_2\in[200-800]$GeV), where the first was a subset of the second
 maxout model outperformed all other \ac{LWTA} models, achieving a higher significance in 24/30 combinations. Although, the introduced \ac{SCO} layer did not outperform maxout model, it did achieve a higher significance in 6 
 combinations. Most likely, by modifying the \ac{SCO} layer during prediction, the performance of the layer would improve.
 \\\newline
-Four models (not including channel-out and \ac{SCO}) were chosen when comparing performance on the original signal set; ordinary dense \ac{NN}, maxout model, \ac{PNN} and a \ac{BDT} implemented using the default settings of XGBoost \cite{XGB}. In the comparison I found that 
+Four models (not including channel-out and \ac{SCO}) were chosen when comparing performance on the original signal set; ordinary dense \ac{NN}, maxout model, \ac{PNN} and a \ac{BDT} implemented using the default settings of \verb!XGBoost! \cite{XGB}. In the comparison I found that 
 all three network variants were able to outperform the \ac{BDT}, although I believe this to be explained by little attention given towards the architecture of the \ac{BDT}. Out of the three network variants, the maxout model was able to achieve 
 the highest significance for most mass combinations (24/30), but mostly in the higher mass range ($\tilde{\chi}_2>600$GeV). In the events with lower masses and higher statistics ($\tilde{\chi}_2<600$GeV), the \ac{PNN} outperformed all others, 
 almost doubling significance achieved by the maxout model. Shared among all models was the fact that they all found processes with high amounts of missing transverse energy difficult to separate from the signal, i.e. $Diboson(lll)$, $t\bar{t}$ and $top\ other$.

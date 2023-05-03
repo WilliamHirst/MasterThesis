@@ -5,9 +5,9 @@ that for the remaining part of this thesis, I will refer to this model as a 'den
 and in some plots, just \ac{NN}.}, \acf{PNN}, ensembles (networks utilizing the channel-out, \ac{SCO} or maxout layer) 
 and \acf{BDT}. The first three methods are all variations of \ac{NN}. I have deliberately 
 chosen to focus on \ac{NN} given that there is far more freedom in the design of the architecture
-of a \ac{NN}, than compared to a XGBoost. Additionally, this was motivated by the selfish reason
+of a \ac{NN}, than compared to a \verb!XGBoost!. Additionally, this was motivated by the selfish reason
 being that I found the networks more interesting to study and dissect. Therefore, most of the 
-analysis, comparisons and discussions are focused on the networks, while XGBoost is included 
+analysis, comparisons and discussions are focused on the networks, while \verb!XGBoost! is included 
 as a loose benchmark. 
 \\
 The choice of the three network architectures is motivated in wanting to compare three relatively different approaches.
@@ -16,8 +16,8 @@ parameters in the feature set, and the dense \ac{NN} relies on a deep set of wei
 I would assume that the optimal architecture would be a network which combines elements from each, but for the purpose of discussion
 and research I have chosen to keep them somewhat separate. 
 \\
-All \ac{NN} variants implemented in this analysis were created, trained and deployed using the TensorFlow framework \cite{tensorflow}.
-This choice was rooted in several factors, for example that TensorFlow has an intuitive \ac{API}, it has very effective
+All \ac{NN} variants implemented in this analysis were created, trained and deployed using the \verb!TensorFlow! framework \cite{tensorflow}.
+This choice was rooted in several factors, for example that \verb!TensorFlow! has an intuitive \ac{API}, it has very effective
 \ac{HPC} attributes, and it includes a large diversity in functionality which allows for experimentation.
 \subsection{Model Architecture}\label{subsec:arch}
 When choosing a network architecture, there are several ways to proceed. One way is to apply a grid search.
@@ -47,11 +47,11 @@ variations of networks and the \ac{BDT} used in this analysis.
 \subsection*{Dense Networks - Ordinary and PNN}\label{subsec:PNNArch}
 The purpose of the dense \ac{NN}, is to compare the more complex networks to what is usually considered an ordinary dense \ac{NN}.
 The general structure of the network is summarized in figure \ref{fig:arch}, with the network label \ac{NN}. The figure shows a dense \ac{NN} with 
-three hidden layers, all with 600 nodes each.  As is the default setting of the dense layer implemented in TensorFlow, the weights and biases are initialized 
+three hidden layers, all with 600 nodes each.  As is the default setting of the dense layer implemented in \verb!TensorFlow!, the weights and biases are initialized 
 using the so-called \emph{Glorot Uniform Initializer} (see the article by Glorot \cite{glorot_understanding_2010}, for more information). All hidden layers 
 utilize the $LeakyReLU$ activation (see section \ref{subsec:activation}) with $\alpha$ = 0.01, and the output layer utilizes the sigmoid function.  
 The \ac{NN}, similarly to all network variants in this analysis utilizes the \ac{ADAM} optimizer (see section \ref{subsec:ADAM}) implemented in 
-TensorFlow\footnote{See $\href{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}$
+\verb!TensorFlow!\footnote{See $\href{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}$
 (Accessed:24.04.2023) for the full default parameters.} with the default settings, where the cost function is chosen to be the binary crossentropy function described
 in section \ref{subsec:Cost}. 
 \\
@@ -71,7 +71,7 @@ rate of 0.15. The Channel-out and \ac{SCO} model have the same architecture to m
 \subsection*{BDT}\label{subsec:XGBoost}
 The main motivation to apply a \ac{BDT} is simply to benchmark my analysis, and therefore not a lot of effort has been put into the design of the 
 architecture. As a consequence, the default parameters\footnote{See \href{https://xgboost.readthedocs.io/en/stable/parameter.html}
-{https://xgboost.readthedocs.io/en/stable/parameter.html} for a complete overview of default parameters.} of the XGBoost model have been used. 
+{https://xgboost.readthedocs.io/en/stable/parameter.html} for a complete overview of default parameters.} of the \verb!XGBoost! model have been used. 
 The main parameters of the model are summarized as the following:
 \begin{itemize}
     \item $\eta$ (learning-rate) = 0.3
@@ -89,13 +89,13 @@ certainly the case in this thesis. For several of the non-dense layers I was for
 to dive into the world of \ac{ML} development and create my own implementation. 
 \\
 All \ac{LWTA} methods described in section \ref{subsec:LWTA}, channel-out, 
-\ac{SCO} and maxout, resemble a layer already implemented by TensorFlow. This layer is called 
+\ac{SCO} and maxout, resemble a layer already implemented by \verb!TensorFlow!. This layer is called 
 MaxPooling1D\footnote{For more information on MaxPoolind1D, the reader is referred to the documentation 
 ($\href{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}$,
-accessed 24.03.2023).}. But, to allow for experimentation I decided to not use MaxPooling1D, but instead 
+accessed 24.03.2023).}. But, to allow for experimentation I decided to not use \verb!MaxPooling1D!, but instead 
 implement my own custom layers. All custom layers were implemented by creating new functions inside 
-TensorFlow's dense layer, which are called when the network performs a forward pass. In the following sections 
-I will describe the algorithms underlying the implementation of each layer. For the actual python/TensorFlow implementation,
+\verb!TensorFlow!'s dense layer, which are called when the network performs a forward pass. In the following sections 
+I will describe the algorithms underlying the implementation of each layer. For the actual \verb!python!/\verb!TensorFlow! implementation,
 see the appendix \ref{sec:TFImp}.
 \subsubsection*{Channel-Out}
 In algorithm \ref{alg:channel-out}, I summarized the implementation of channel-out used in this analysis. For each 
