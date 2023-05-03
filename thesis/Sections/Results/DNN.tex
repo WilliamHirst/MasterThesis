@@ -96,7 +96,7 @@ To test this theory, I drew the \ac{AUC} score made after each epoch on both the
 we observe that the \ac{OMM}'s performance on the validation set peaks in the first epoch, therefore stopping training after 
 10 epochs, while the \ac{SMM} peaks after 6, allowing the \ac{SMM} model to train longer. This is a clear indication that training on 
 one mass combination leads to overfitting. 
-\begin{figure}
+\begin{figure}[H]
     \makebox[\linewidth][c]{%
     \centering
     \begin{subfigure}{.45\textwidth}
@@ -116,7 +116,6 @@ one mass combination leads to overfitting.
     the results from the \ac{SMM}.}
     \label{fig:InterpolateHistory}
 \end{figure}
-\\
 Given that the \ac{OMM}'s performance is reduced by the early stopping criteria, I wanted to explore if it would be able to outperform the 
 \ac{SMM} given it was allowed to train deeper/longer. In figure \ref{fig:NNOverfitting}, I display the achieved significance
 of the \ac{OMM} in the case where early stopping has been removed, and the model was allowed to train for 15 epochs. By comparing figures 
