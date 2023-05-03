@@ -5,12 +5,12 @@ that for the remaining part of this thesis, I will refer to this model as a 'den
 and in some plots, just \ac{NN}.}, \acf{PNN}, ensembles (networks utilizing the channel-out, \ac{SCO} or maxout layer) 
 and \acf{BDT}. The first three methods are all variations of \ac{NN}. I have deliberately 
 chosen to focus on \ac{NN} given that there is far more freedom in the design of the architecture
-of a \ac{NN}, than compared to a \verb!XGBoost!. Additionally, this was motivated by the selfish reason
+of a \ac{NN} compared to \verb!XGBoost!. Additionally, this was motivated by the selfish reason
 being that I found the networks more interesting to study and dissect. Therefore, most of the 
-analysis, comparisons and discussions are focused on the networks, while \verb!XGBoost! is included 
+analysis, comparisons and discussions are focused on the \ac{NN}s, while \verb!XGBoost! is included 
 as a loose benchmark. 
 \\
-The choice of the three network architectures is motivated in wanting to compare three relatively different approaches.
+The choice of the three network architectures is motivated by a wish to compare three relatively different approaches.
 Especially in how they perform with a diverse data set. The \ac{LWTA} models apply trend specific paths, the \ac{PNN} includes 
 parameters in the feature set, and the dense \ac{NN} relies on a deep set of weights and biases to uphold long-term memory.
 I would assume that the optimal architecture would be a network which combines elements from each, but for the purpose of discussion
@@ -26,10 +26,10 @@ choosing the highest performer. With a sufficient amount of tests, a grid search
 an optimal architecture. Grid searches are very common and there exists a large range of very complex varieties \cite{GS}.
 For my analysis I chose not to perform a grid search, for several reasons. The first being interpretability.
 Understanding a \ac{NN} is already hard, allowing for complex and unique architectures would only add another layer
-of mysticism. The second is the size of the data set. The larger the data set, the larger the amount of data 
+of mysticism. The second is the size of the data set. The larger the data set, the more data 
 would be needed to adequately perform tests for each combination of parameters. Not only is this time-consuming,
 but trying to mediate this issue could lead to poor performance. The third and most important reason is that 
-I wanted to experiment with the architectures. By manually tuning the parameters, I was able to achieve a far 
+I wanted to experiment with the architectures. By manually tuning the parameters I was able to achieve a far 
 better understanding of the final architecture. In the following sections I will describe the architecture of all the 
 variations of networks and the \ac{BDT} used in this analysis.
 \begin{figure}
@@ -45,17 +45,17 @@ variations of networks and the \ac{BDT} used in this analysis.
     \label{fig:arch}
 \end{figure}
 \subsection*{Dense Networks - Ordinary and PNN}\label{subsec:PNNArch}
-The purpose of the dense \ac{NN}, is to compare the more complex networks to what is usually considered an ordinary dense \ac{NN}.
+The purpose of the dense \ac{NN} is to compare the more complex networks to what is usually considered an ordinary dense \ac{NN}.
 The general structure of the network is summarized in figure \ref{fig:arch}, with the network label \ac{NN}. The figure shows a dense \ac{NN} with 
 three hidden layers, all with 600 nodes each.  As is the default setting of the dense layer implemented in \verb!TensorFlow!, the weights and biases are initialized 
-using the so-called \emph{Glorot Uniform Initializer} (see the article by Glorot \cite{glorot_understanding_2010}, for more information). All hidden layers 
+using the so-called \emph{Glorot Uniform Initializer} (see the article by Glorot \cite{glorot_understanding_2010} for more information). All hidden layers 
 utilize the $LeakyReLU$ activation (see section \ref{subsec:activation}) with $\alpha$ = 0.01, and the output layer utilizes the sigmoid function.  
-The \ac{NN}, similarly to all network variants in this analysis utilizes the \ac{ADAM} optimizer (see section \ref{subsec:ADAM}) implemented in 
-\verb!TensorFlow!\footnote{See $\href{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}$
+The \ac{NN}, similarly to all network variants in this analysis, utilizes the \ac{ADAM} optimizer (see section \ref{subsec:ADAM}) implemented in 
+\verb!TensorFlow!\footnote{See \url{https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam}
 (Accessed:24.04.2023) for the full default parameters.} with the default settings, where the cost function is chosen to be the binary crossentropy function described
 in section \ref{subsec:Cost}. 
 \\
-The \ac{PNN} architecture is like the name suggests, included to represent the model proposed in the article by Baldi et al. \cite{PNN}.
+The \ac{PNN} architecture is included to represent the model proposed in the article by Baldi et al. \cite{PNN}.
 The architecture is illustrated in figure \ref{fig:arch}, with the label \ac{PNN}. The figure shows a practically identical 
 structure to the dense-\ac{NN}, with the only difference being in the input layer. As was discussed in section \ref{subsec:PNN},
 the \ac{PNN} includes free parameters of the signal\footnote{In our case, the masses of the chargino and neutralino.} alongside the features
@@ -65,13 +65,13 @@ The ensemble models are slightly more complex than both the dense \ac{NN} and \a
 I choose to build an identical architecture for the maxout, channel-Out and \ac{SCO} model, with the only difference being which of the three layers is used.  
 In figure \ref{fig:arch} I have illustrated the maxout model architecture, with the label MaxOut. The figure shows a network with six hidden layers, 
 three maxout and three dropout. The network alternates between dropout and maxout, starting with dropout and finishing with MaxOut. The MaxOut layers 
-have 600 nodes each which reduce down to the 200 nodes with the largest activation in their respective units. Each dropout layer has a dropout 
-rate of 0.15. The Channel-out and \ac{SCO} model have the same architecture to maxout, but replacing the maxout layer with each of the two respectively.  
+have 600 nodes each which is reduced to the 200 nodes with the largest activation in their respective units. Each dropout layer has a dropout 
+rate of 0.15. The Channel-out and \ac{SCO} models have the same architecture as the maxout, but replacing the maxout layer with each of the two respectively.  
 
 \subsection*{BDT}\label{subsec:XGBoost}
 The main motivation to apply a \ac{BDT} is simply to benchmark my analysis, and therefore not a lot of effort has been put into the design of the 
-architecture. As a consequence, the default parameters\footnote{See \href{https://xgboost.readthedocs.io/en/stable/parameter.html}
-{https://xgboost.readthedocs.io/en/stable/parameter.html} for a complete overview of default parameters.} of the \verb!XGBoost! model have been used. 
+architecture. As a consequence, the default parameters\footnote{See \url{https://xgboost.readthedocs.io/en/stable/parameter.html}
+for a complete overview of default parameters.} of the \verb!XGBoost! model have been used. 
 The main parameters of the model are summarized as the following:
 \begin{itemize}
     \item $\eta$ (learning-rate) = 0.3
@@ -83,15 +83,15 @@ The objective parameter refers to the learning task of the model, where \emph{'b
 
 \subsection{Creating Custom Layers}\label{subsec:CustomLayer}
 The field of \ac{ML} is one of the most dynamic and fastest growing fields of research
-today. This means, that regardless of the brave attempt made by voluntary contributors and many large tech companies,
-there will always be new and exciting \ac{ML} tools and algorithm, not yet implemented in their library. This was 
+today. This means that regardless, of the brave attempt made by voluntary contributors and many large tech companies,
+there will always be new and exciting \ac{ML} tools and algorithm not yet implemented in their library. This was 
 certainly the case in this thesis. For several of the non-dense layers I was forced
 to dive into the world of \ac{ML} development and create my own implementation. 
 \\
 All \ac{LWTA} methods described in section \ref{subsec:LWTA}, channel-out, 
 \ac{SCO} and maxout, resemble a layer already implemented by \verb!TensorFlow!. This layer is called 
 MaxPooling1D\footnote{For more information on MaxPoolind1D, the reader is referred to the documentation 
-($\href{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D}$,
+(\url{https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool1D},
 accessed 24.03.2023).}. But, to allow for experimentation I decided to not use \verb!MaxPooling1D!, but instead 
 implement my own custom layers. All custom layers were implemented by creating new functions inside 
 \verb!TensorFlow!'s dense layer, which are called when the network performs a forward pass. In the following sections 
@@ -101,8 +101,8 @@ see the appendix \ref{sec:TFImp}.
 In algorithm \ref{alg:channel-out}, I summarized the implementation of channel-out used in this analysis. For each 
 input which is to be passed through a forward-pass, the function first passes it through the weights and biases 
 as described in section \ref{subsec:FP}. This is true for all the other layers as well. In line 7 I reshape the input 
-to add a dimension which creates the units. In line 10 I create a new variable, $Output$ by reducing each unit to the 
-largest activated node. Further, I set each node to 0 which is not equal to the largest activation. Finally, I reshape 
+to add a dimension which creates the units. In line 10 I create a new variable, $Output$, by reducing each unit to the 
+largest activated node. Further, I set each node which is not equal to the largest activation to 0. Finally, I reshape 
 the output to the original shape and return the output.  
 \begin{algorithm}
     \caption{The pseudocode for implementing the channel-out layer in TensorFlow}\label{alg:channel-out}
@@ -130,7 +130,7 @@ the output to the original shape and return the output.
 In section \ref{subsubsec:stochchannelout} I described how \ac{SCO} is an extension of channel-out. This is certainly
 also the case for the algorithms explaining the implementation. In algorithm \ref{alg:SCO} I have described the
 algorithm used in the implementation of \ac{SCO}. Similar to channel-out, the algorithm begins by 
-passing input through weights and biases. Then, contrary to channel-out the nodes of the input are shuffled. This 
+passing input through weights and biases. Then, contrary to channel-out, the nodes of the input are shuffled. This 
 is to ensure that when the input is reshaped (in line 10), the units are made differently for each pass through 
 the function. Again the maximum activation is found to create a new variable, this time called $OutputShuffle$. 
 In line 16 $InputShuflle$ and $OutputShuffle$ are compared such that where $InputShuflle$ is equal to the largest 
@@ -170,9 +170,9 @@ $Output$ and returned.
     \end{algorithmic}
 \end{algorithm}
 \subsubsection*{Max-Out}
-In algorithm \ref{alg:maxout} I have summarized the algorithm behind the implementation of the maxout layer.
-Off the three layers (channel-out, \ac{SCO} and maxout), maxout was the simplest to implement. After passing 
-the input through the weights and biases and reshaped to form the units, the input is reduced to only include 
+In algorithm \ref{alg:maxout} I have summarized the logic behind the implementation of the maxout layer.
+Of the three layers (channel-out, \ac{SCO} and maxout), maxout was the simplest to implement. After passing 
+the input through the weights and biases and reshaping it to form the units, the input is reduced to only include 
 the largest activation in each layer. Finally, the output is reshaped to the size equal to the number of units.
 \begin{algorithm}
     \caption{The pseudocode for implementing the maxout layer in TensorFlow}\label{alg:maxout}

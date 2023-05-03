@@ -2502,6 +2502,7 @@ INPUT ./Figures/Illustrations/architecture.png
 INPUT Figures/Illustrations/architecture.png
 INPUT ./Figures/Illustrations/architecture.png
 INPUT ./Figures/Illustrations/architecture.png
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmtt8.tfm
 INPUT ./Sections/Implementation/TrainingAndValidation.tex
 INPUT ./Sections/Implementation/TrainingAndValidation.tex
 INPUT ./Sections/Implementation/TrainingAndValidation.tex
@@ -3101,6 +3102,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy7.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy9.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt9.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb
