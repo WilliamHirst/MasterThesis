@@ -56,12 +56,14 @@ find trend specific paths through the network which will aid in separating the o
     \centering
     \begin{subfigure}{.6\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/AfterTrainingSig.pdf}
+        \vspace{-0.5cm}
         \caption{}
         \label{fig:ATrainingSig}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.6\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/AfterTrainingBkg.pdf}
+        \vspace{-0.5cm}
         \caption{}
         \label{fig:ATrainingBkg}
     \end{subfigure}
@@ -80,12 +82,14 @@ find trend specific paths through the network which will aid in separating the o
     \centering
     \begin{subfigure}{.6\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250.pdf}
+        \vspace{-0.5cm}
         \caption{}
         \label{fig:ATrainingSig50250}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.6\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300.pdf}
+        \vspace{-0.5cm}
         \caption{}
         \label{fig:ATrainingSig200300}
     \end{subfigure}
@@ -116,14 +120,16 @@ applies a form of regularization, but also increases the long-term memory of the
     \centering
     \hfill
     \hfill
-    \begin{subfigure}{.1\textwidth}
+    \begin{subfigure}{.09\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/AfterTrainingSig50250Zoom.pdf}
+        \vspace{-0.5cm}
         \caption{}
         \label{fig:ATrainingSig50250Zoom}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{.104\textwidth}
+    \begin{subfigure}{.094\textwidth}
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/NetworkVis/AfterTrainingSig200300Zoom.pdf}
+        \vspace{-0.5cm}
         \caption{}
         \label{fig:ATrainingSig200300Zoom}
     \end{subfigure}
@@ -144,7 +150,7 @@ and after (\ref{fig:ATrainingSCO}) training. By comparing the activations from t
 exactly as intended. In the figures visualizing the maxout layer (\ref{fig:NetDist1}), we can observe that several of the nodes which are not activated 
 before training, are left dormant even after training. In comparison, the \ac{SCO} layers display a far more balanced activation, and exhibits no signs 
 of complex co-adaptation. 
-\begin{figure}
+\begin{figure}[H]
     \makebox[\linewidth][c]{%
     \centering
     \begin{subfigure}{.6\textwidth}
@@ -167,7 +173,6 @@ of complex co-adaptation.
     is after.} 
     \label{fig:NetDistSCO}
 \end{figure}
-\newpage
 \subsection{Training History and Overfitting}\label{subsec:Overfitting}
 In section \ref{sec:Regularization} I described how creating ensembles of networks is a form of regularization. Therefore,
 it is of interest to study the relationship between performance on the training set and the validation set for our ensemble 
@@ -239,7 +244,7 @@ long-term memory.\\
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/MaxOutGridSig.pdf}
     \end{subfigure}
     }
-    \caption{A grid displaying the achieved significance on the original signal set, using the signal region 
+    \caption{A grid displaying the expected significance on the original signal set, using the signal region 
     created by the maxout network.}
     \label{fig:MaxOutGridSig}
 \end{figure}

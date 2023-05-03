@@ -113,8 +113,7 @@ one mass combination leads to overfitting.
     \caption[The comparison of the training history of two \acs{NN}'s, each training on different amounts of signal.]{
     A plot displaying the \acs{AUC} score made after each epoch on both the training and validation set. 
     Figure \ref{fig:oneMassHist} shows the results from the \ac{OMM} and figure \ref{fig:SeveralMassHist} shows
-    the results from the \ac{SMM}. The figure displays which combinations were used during training with the addition 
-    of a green corner.}
+    the results from the \ac{SMM}.}
     \label{fig:InterpolateHistory}
 \end{figure}
 \\
@@ -123,7 +122,7 @@ Given that the \ac{OMM}'s performance is reduced by the early stopping criteria,
 of the \ac{OMM} in the case where early stopping has been removed, and the model was allowed to train for 15 epochs. By comparing figures 
 \ref{fig:SeveralMass} and \ref{fig:NNOverfitting}, we can observe that even when early stopping is removed from the \ac{OMM}, it is  
 still outperformed by the \ac{SMM}. This indicates that overfitting is not the only reason for the \ac{OMM}'s disappointing performance.\\
-\begin{figure}
+\begin{figure}[H]
     \centering
     \makebox[\linewidth][c]{%
     \begin{subfigure}{.6\textwidth}
