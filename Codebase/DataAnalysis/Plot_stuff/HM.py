@@ -178,7 +178,7 @@ def getMass(string):
 if __name__ == "__main__":
     from ROCM import plotRoc
     from plot_set import *
-    # gridPlotter(mlType = "XGB", name =f"XGBGrid", metric = "Sig")
+    # gridPlotter(mlType = "XGB", name =f"XGBNoScaleGrid", metric = "Sig")
     # cmap.set_under(color='black')
     # gridPlotter(mlType = "NN", name ="Events", metric = "NrEvents", file_name="NrEvents", cut_off=1000)
     # exit()
@@ -187,7 +187,6 @@ if __name__ == "__main__":
     # names = ["ChannelOutGrid", "HybridPCALeakyGrid", "HybridPCAMaxOutGrid", "MaxOutGrid", "MaxOutPCAGrid", "NNGrid", "NNPCAGrid", "NNshallowGrid", "PNNGrid", "PNNPCAGrid", "StochChannelOutGrid"]
     # names = ["MaxOutPCA_FS_MLMGrid", "MaxOutPCA_FSGrid", "NN_FS_MLMGrid", "NN_FSGrid", "PNNPCA_FS_MLMGrid", "PNNPCA_FSGrid"]
     names = ["NN_InterpolationGrid", "NN_OneMass_InterpolationGrid", "NN_OneMass_Overfitting15_InterpolationGrid"]
-
     for name in names:
         gridPlotter(mlType = "NN", name =f"{name}", metric = "Sig", addExlusion=False, includeCorner=True)
     #HM(0, 0, 0, 0, 0,0)

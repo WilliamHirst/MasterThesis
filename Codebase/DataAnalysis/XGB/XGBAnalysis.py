@@ -16,7 +16,7 @@ from Plot_stuff.HM import *
 
 myPath = "/storage/William_Sakarias/William_Data"
 
-name = "XGBNoWeights"
+name = "XGB"
 signal = "SUSY"
 train = True
 IncludeRange = [400, 800, 0, 400] 
