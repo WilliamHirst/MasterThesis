@@ -1,6 +1,6 @@
 \section{Phenomenology}\label{sec:MLPhen}
-\ac{ML} models differs from other analysis tools in their ability to
-learn. Where a purely analytical model is static in both method 
+\ac{ML} differs from other analysis tools in their ability to learn. 
+Where a purely analytical model is static in both method 
 and performance, a \ac{ML} model aims to be dynamic and self 
 improving. \ac{ML} utilizes data to leverage towards an optimal
 model. The extent of utilization of data defines a \ac{ML} model as being
@@ -9,33 +9,31 @@ of supervised \ac{ML}, a set of \emph{targets} are provided along with the
 data which allows a \ac{ML} model to learn how to map a set of inputs to a target. In this 
 thesis I will use the notation of $X = [\bf{x}_0,\bf{x}_1,\bf{x}_2,...,\bf{x}_N]$ to refer to 
 a data set, $T = [t_0,t_1,t_2,...,t_N]$ to the corresponding target and $Y=[y_0,y_1,y_2,...,y_N]$ 
-to the output of the model where N is a number of points. The data sets contain a set of vectors with length equal to the number 
+to the output of the model where N is a number of data points. The data sets contain a set of vectors with length equal to the number 
 of features. The target and output could similarly contain vectors, but will in this thesis be restricted 
-to scalar values. Generally, the target values can be both continues values, in which case the \ac{ML} 
+to scalar values. Generally, the target values can be both continuous values, in which case the \ac{ML} 
 method aims to perform a \emph{regression}, or discrete values, in which case the \ac{ML} method aims 
 to perform a \emph{classification}. 
 \\
-The goal of supervised learning is that the model can apply any attained knowledge from 
-the study of a set of inputs and targets to predict the target of a new data set. 
+The goal of supervised learning is to apply knowledge obtained from 
+a set of inputs and targets to predict the target of a new data set. 
 The success of any prediction is dependent on the quality of the 
 data used during training, or \emph{training-data}. The training-data is required to 
-be both representative of any trends you hope to detect in the new data set (test-data)
-and be of sufficient amount. The latter point stems from a phenomenon known as \emph{over-fitting},
+be both representative of the new data set (test-data) and be of sufficient size to 
+adequately train the algorithm. The latter point stems from a phenomenon known as \emph{over-fitting},
 which is a problem where the training data becomes overly specialized to only predict 
 the target of the training-data, and nothing else\footnote{More on this in later sections.}.
 In this thesis the main focus will be on the application of supervised learning.
 \\
 In the case of unsupervised \ac{ML}, no target is provided. The motivation for unsupervised
-learning is to create a model which is independent of any target. Such models are often 
-useful in the case where one is not certain what one is looking for. An independence of target
-means that the model is not overly sensitive to any specific trends or patterns, we call
+learning is to create a model which is independent of any target and instead provide some metric 
+which the algorithm can minimize during training. Such models are often useful in the case where 
+one is not certain what one is looking for. An independence of target means that the model 
+is not overly sensitive to any specific trends or patterns, we call
 this being \emph{unbiased}. Instead of learning to detect or predict specific phenomena,
-unsupervised learning is often used to detect anomalies in the data, which means it relies
-heavily on statistics. Because of this, some uses the terms' \emph{anomaly detection} and 
-unsupervised learning interchangeably.
+unsupervised learning is often used to detect anomalies in the data, or find clusters.
 \\
-Semi-unsupervised learning is a loose term
-which finds itself in the middle of the previous two. It often refers to methods where 
-no concrete target is provided, but instead uses the data provided to create a target. The goal 
-is to alleviate as much bias as possible, but at the same time converge towards the usually 
-superior performance of supervised learning.  
+Semi-unsupervised learning is a loose term which finds itself in the middle of the previous two. 
+There is no clear definition, but the term is often used in the case where one strides away from 
+traditional supervised learning to minimize bias. The goal is to alleviate as much bias as possible, 
+but at the same time converge towards the usually superior performance of supervised learning.  
