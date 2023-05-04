@@ -2076,6 +2076,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmtt.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmtt.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmtt.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmtt.fd
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmtt8.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmtt10.tfm
 INPUT ./Sections/SM/Axiomatic.tex
 INPUT ./Sections/SM/Axiomatic.tex
@@ -2502,7 +2503,6 @@ INPUT ./Figures/Illustrations/architecture.png
 INPUT Figures/Illustrations/architecture.png
 INPUT ./Figures/Illustrations/architecture.png
 INPUT ./Figures/Illustrations/architecture.png
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmtt8.tfm
 INPUT ./Sections/Implementation/TrainingAndValidation.tex
 INPUT ./Sections/Implementation/TrainingAndValidation.tex
 INPUT ./Sections/Implementation/TrainingAndValidation.tex

@@ -3,7 +3,7 @@
 The \ac{SM} is one of the most successful scientific theories ever
 created. It accurately explains the interactions of leptons and quarks as well as the force
 carrying particles which mediate said interactions. The model is a result of over a century of work
-demanding the contributions of great minds like Paul Dirac(\emph{1902-1984}), Erwin Schrodinger(\emph{1887-1961}) and Richard Feynman(\emph{1918-1988}).
+demanding the contributions of great minds like Paul Dirac (\emph{1902-1984}), Erwin Schrodinger (\emph{1887-1961}) and Richard Feynman (\emph{1918-1988}).
 In 2012 the \ac{SM} achieved one of its crowning successes when we discovered the Higgs boson \cite{Aad_2012}. 
 Much of the accolade was rightfully given to the theoretical work on the \ac{SM}, but another aspect of the discovery 
 was equally important. Data analysis was and is a crucial part of any new discovery in physics. \newline
@@ -14,12 +14,12 @@ are constantly at work trying to accommodate these aspects of the universe,
 introducing extensions of the \ac{SM} like \ac{SUSY} \cite{SUSY} or String Theory \cite{cole_probing_2021}. To precisely test these theories
 we require larger and larger amounts of data. During the period of Run 3 the \ac{LHC} is projected to reach an integrated luminosity of approximately  
 $500fb^{-1}$ with Run 4 reaching over $1000fb^{-1}$\footnote{The projections were taken from the graph created by CERN
-\href{https://lhc-commissioning.web.cern.ch/schedule/images/LHC-nominal-lumi-projection.png}{https://lhc-commissioning.web.cern.ch/schedule/images/LHC-nominal-lumi-projection.png}
+\url{https://lhc-commissioning.web.cern.ch/schedule/images/LHC-nominal-lumi-projection.png}
 (Accessed: 21.04.2023).}. This is compared to the current $139fb^{-1}$ accumulated from Run 2. With the data sets in particle physics progressively growing, 
 so does the demand for numerical algorithms and frameworks to analyze them. One of the most exiting tools which is playing and will play an important role in upholding 
 this demand, is \ac{ML}.\newline
 \\
-\acf{ML} is rapidly becoming an indispensable tool in many scientific fields.
+\ac{ML} is rapidly becoming an indispensable tool in many scientific fields.
 In areas ranging from cancer research to predicting supernova events, machine learning is being applied to problems
 once thought as impossible to solve. Particle physics is no exception. Jet flavor classification \cite{Guest_2016}, 
 separating jets from gluons \cite{PhysRevD.44.2025} or using \ac{ML} to create efficient signal regions \cite{baldi_searching_2014} are 
@@ -37,7 +37,7 @@ data set, including events representing different variations of new physics, par
 \newpage
 \subsubsection*{Outline of the Thesis}
 This thesis is divided into 4 chapters: the first two introducing relevant theory and background for the analysis; the third presenting 
-details on the implementation and preliminary work of the thesis; and the fourth presenting and discussing the results. At the end of the analysis I summarize 
+details on the implementation and preparation of the analysis; and the fourth presenting and discussing the results. At the end of the analysis I summarize 
 the findings in my analysis in the \emph{Conclusion $\&$ Outlook} section, as well as include some additional figures and tables 
 in the appendix. 
 \\
@@ -46,7 +46,7 @@ introduce relevant phenomenology surrounding particle physics, give a brief desc
 the physics behind the data set utilized in the analysis. 
 \\
 The \emph{second} chapter covers the necessary background in regard to \ac{ML} and data analysis in general. This chapter will introduce relevant topics
-surrounding data analysis topics such as optimization, regularization and hyperparameters. It will explain the algorithms underlying the \ac{NN} and 
+surrounding data analysis such as optimization, regularization and hyperparameters. It will explain the algorithms underlying the \ac{NN} and 
 \ac{BDT}'s, as well as introduce methods to improve the aforementioned methods. In the final parts of the chapter, I will discuss how \ac{ML} relates to 
 a \ac{BSM} search and how one assess the results.
 \\
@@ -56,7 +56,7 @@ used to generate the final data sets, both simulated and measured collision data
 models I studied in the analysis, displaying the architectures, and explaining the general strategy utilized for training and validating the models.
 \\
 In the \emph{fourth} and final chapter, I present and discuss the results from the analysis. In the first four sections, I study four different categorize of \ac{ML} models in how they 
-perform on a subset of the data, as well as different attributes of each model. The fifth section compares the performance of the 4 aforementioned models, then compare 
+perform on a subset of the data, as well as different attributes of each model. The fifth section compares the performance of the four aforementioned models, then compare 
 their results with and without a \acs{PCA} in the sixth section. Finally, I compare the three best models I found when testing on a subset of the data on how well they perform 
 on the complete signal grid, then compare all three to a previous analysis made by \acs{ATLAS}.
 
