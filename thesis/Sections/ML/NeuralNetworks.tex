@@ -94,9 +94,8 @@ becomes
 And in the case where $l=L$, $a_j^L$ is equal to the final output. 
 \subsection{Back Propagation}\label{subsec:BP}
 The backward propagation acts as the engine that drives the training of a neural network. It has the purpose
-of tuning the weights and biases of the network, which are originally given random values, to achieve maximum performance,
-as defined by some \emph{cost function}, $\mathcal{C}$. The cost function defines to which metric we aim to optimize the network. 
-When a neural network produces a prediction, $Y$, the error in the prediction
+of calculating the gradients of the \emph{cost function}, $\mathcal{C}$, with respect to the weights and biases of the network. 
+The cost function defines to which metric we aim to optimize the network. When a neural network produces a prediction, $Y$, the error in the prediction
 is defined by the cost function as $\mathcal{C}\left(Y, T\right)$, where T is the target. To minimize $\mathcal{C}$, the 
 backward propagation utilizes the gradient with respect to the weights and biases in the network, as described in the section 
 regarding optimization \ref{sec:Opti}. Instead of a direct calculation of the gradient, which is very computationally heavy, 
@@ -157,8 +156,8 @@ gradient of the parameters in all other layers can be calculated. A full \emph{e
 a forward propagation which creates a prediction, followed by a backward propagation which tunes the parameters 
 in an attempt to correct the errors in the prediction.
 \subsection{Activation Functions}\label{subsec:activation}
-As mentioned in previous sections, activation functions define how the nodes in the previous layer 
-sum to define the value of the node in the current. There are many types of activation functions, 
+As mentioned in previous sections, activation functions define how the weighted sum of the nodes in the previous layer 
+define the value of the node in the current. There are many types of activation functions, 
 where all have advantages and disadvantages. The choice of activation function for each layer is defined
 before training, making it a hyperparameter. The activation functions applied and tested in this thesis are the following:
 \begin{center}
@@ -184,14 +183,14 @@ where $z$ is an inactivated node which is activated to define $a$, the activatio
 \subsection{Network Ensembles, Dropout and LWTA Networks}\label{subsec:LWTA}
 So far in the thesis, I have only covered dense layers, meaning that every node in a layer 
 is connected to the nodes in the previous and following layer. 
-This definition covers many, but not all hidden layers. Some layers do not function to pass values back and forth between 
-nodes but instead functions by dynamically changing the architecture of the \ac{NN}. In this analysis, 
-I have implemented both the popular \emph{dropout}-layer, and also a group of layers fitting the definition 
+This definition covers many, but not all hidden layers. Some layers do not pass values back and forth between 
+nodes but instead dynamically change the architecture of the \ac{NN}. In this analysis, 
+I have implemented both the \emph{dropout}-layer, and also a group of layers fitting the definition 
 introduced in the paper \cite{srivastava_compete_2013}, as \ac{LWTA}.
 \subsubsection*{Dropout}\label{subsubsec:Dropout}
 The dropout layer functions by assigning a predetermined probability to each neuron in a given layer. Based on the 
 probability, a number of neurons (dependent on the probability) is dropped in each forward pass. By doing this the 
-dropout layer creates an architecture for the network for every round of training. Each unique architecture represents 
+dropout layer creates a different architecture for the network for every round of training. Each unique architecture represents 
 its own network in what becomes an ensemble of networks. 
 \\
 As mentioned in previous sections, creating ensembles of models is a form of regularization. In the case of 
