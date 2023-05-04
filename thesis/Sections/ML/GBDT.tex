@@ -1,7 +1,7 @@
 \section{Decision Trees and Gradient Boosting}
 \subsection{Decision Trees}
 \acf{DT} are, similarly to \ac{NN} some of the most popular \ac{ML} methods used today.
-Contrary to \ac{NN}, \ac{DT} are famously easy in theory. Despite the simplicity of \ac{DT}, 
+Contrary to \ac{NN}, \ac{DT} are relativly easy in theory. Despite the simplicity of \ac{DT}, 
 they are capable of solving a large range of complex problems. In this section I will cover the use 
 of \ac{DT} as applied to a supervised classification problem.
 \\
@@ -39,9 +39,9 @@ book by Hastie et al. \cite{huang_introduction_2014}.
     \label{fig:DT}
 \end{figure}
 \subsection{Gradient Boosting in Decision Trees}
-Gradient-boosting is an algorithm which uses a collective of 'weak' 
+Gradient-boosting is an algorithm which uses an ensemble of 'weak' 
 classifiers in order to create one strong classifier. In the case of gradient-boosted 
-trees the weak classifiers are a collective of shallow trees, which combine to form a classifier 
+trees the weak classifiers are an ensemble of shallow trees, which combine to form a classifier 
 that allows for deeper learning. As is the case for most gradient-boosting 
 techniques, the collecting of weak classifiers is an iterative process.
 \\
@@ -54,7 +54,7 @@ $\mathcal{C}(\mathcal{F}_m(\textbf{x}_i), y_i)$. In other words we define the ne
 \begin{align}
     \tilde{\mathcal{C}}(\mathcal{F}_m(\textbf{x}_i), \textbf{y}_i) = h_m(\textbf{x}_i),
 \end{align}
-where we define $\tilde{\mathcal{C}}$ as some relation defined between the observed and 
+where we define $\tilde{\mathcal{C}}$ as some relation between the observed and 
 predicted values such that when added to the initial prediction we minimize $\mathcal{C}$.
 \\
 Using our new estimator $h_m$, we can now define a new model as

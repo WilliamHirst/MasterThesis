@@ -221,10 +221,10 @@ is still active. This means that for each data point, a neural network is chosen
 each of the nodes. In other words, the channel-out layer creates something resembling a stacking ensemble (see subsection 
 \ref{subsec:Ensembles}). 
 \subsubsection*{Stochastic-Channel-Out}\label{subsubsec:stochchannelout}
-As I will describe in further detail in sections to come, I choose to implement channel-out layer myself. A consequence of this 
+As I will describe in further detail in sections to come, I choose to implement the channel-out layer myself. A consequence of this 
 was that I was able to experiment with it. In section \ref{subsubsec:Dropout}, I described the issue of complex co-adaptation. I also described 
 a possible solution to the issue, the dropout layer. Although dropout and channel-out function rather similarly, they do not deal 
-with this issue similarly. Where the dropout layer will force dormant nodes to contribute in the training by allowing for dominant
+with this issue in the same way. Where the dropout layer will force dormant nodes to contribute in the training by allowing for dominant
 nodes to be dropped, the channel-out would instead allow for dominant nodes to take further control inside their respective unit.
 \\
 To remedy the issue of complex co-adaptation inside the units, I proposed a new layer, the \acf{SCO}. \ac{SCO} functions similarly to channel-out, 
@@ -279,13 +279,13 @@ represents a unit.}
     \label{fig:NetEnsembleComp}
 \end{figure}
 \subsection{Parametrized Neural Network}\label{subsec:PNN}
-In this thesis I will be studying \ac{BSM}-simulations with a diversity in choice of free parameters. This
-means that my signal is of itself diverse. The free parameters studied in this thesis are the mass of 
+In this thesis I will be studying \ac{BSM}-simulations produced with a diversity in choice of free parameters. This
+means that the signal is itself diverse. The free parameters studied in this thesis are the mass of 
 new particles. The mass of a hypothetical particle in a given \ac{BSM} theory can greatly alter the feature space
-spanned by processes including said particle. This means that a \ac{ML}-model could potentially struggle to tune 
-according to all trends in the signal. The obvious solution to this problem is simply to implement one model per mass 
-combination, or choice of mass, and simply reusing the background. Although this approach is very popular, I have decided 
-not to use it for (mainly) three reasons:
+spanned by processes including said particle. This means that a single \ac{ML}-model could potentially struggle to tune 
+according to multiple signal samples that differ only in the mass of the hypothetical particle. The obvious solution to 
+this problem is simply to implement one model per mass combination, or choice of mass, and simply reusing the background. 
+Although this approach is very popular, I have decided not to use it for (mainly) three reasons:
 \begin{itemize}
     \item This approach has been carefully studied for many years, and leaves little room to further exploration. 
     \item Some signals overlap in the feature space. This means that by neglecting signals with relative 
