@@ -16,45 +16,44 @@ Reallocated out_buf (elt_size=1) to 60000 items from 40000.
 Reallocated name_tok (elt_size=4) to 60000 items from 40000.
 Reallocated name_sep_char (elt_size=1) to 60000 items from 40000.
 Reallocated str_pool (elt_size=1) to 130000 items from 65000.
-Warning--entry type for "object_based_2018" isn't style-file defined
---line 1570 of file bibliography.bib
 Warning--empty year in srivastava_compete_2013
 Warning--empty year in raychaudhuri_introduction_2008
 Warning--empty publisher in bird_update_2014
 Warning--empty year in bird_update_2014
+Warning--empty author in object_based_2018
 Warning--empty year in glorot_understanding_2010
 Warning--empty author in ATLAS-CONF-2011-152
 Warning--empty author in ATLAS-CONF-2017-064
 You've used 45 entries,
             2188 wiz_defined-function locations,
-            832 strings with 111400 characters,
-and the built_in function-call counts, 10170 in all, are:
-= -- 940
+            833 strings with 111512 characters,
+and the built_in function-call counts, 10189 in all, are:
+= -- 946
 > -- 544
 < -- 0
 + -- 163
 - -- 118
-* -- 781
-:= -- 1492
-add.period$ -- 48
+* -- 792
+:= -- 1502
+add.period$ -- 49
 call.type$ -- 45
-change.case$ -- 45
+change.case$ -- 46
 chr.to.int$ -- 0
-cite$ -- 52
-duplicate$ -- 448
-empty$ -- 960
+cite$ -- 53
+duplicate$ -- 450
+empty$ -- 954
 format.name$ -- 118
-if$ -- 2545
+if$ -- 2544
 int.to.chr$ -- 0
 int.to.str$ -- 45
 missing$ -- 107
 newline$ -- 143
 num.names$ -- 44
-pop$ -- 155
+pop$ -- 150
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 276
+skip$ -- 269
 stack$ -- 0
 substring$ -- 441
 swap$ -- 137
@@ -62,8 +61,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 7
+warning$ -- 8
 while$ -- 84
 width$ -- 47
-write$ -- 384
+write$ -- 389
 (There were 8 warnings)
