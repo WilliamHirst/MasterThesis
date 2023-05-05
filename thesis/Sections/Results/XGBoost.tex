@@ -1,9 +1,9 @@
-\section{Benchmarking the Analysis with Boosted Trees}\label{sec:XGBoost}
-Boosted trees have been an essential part of \acf{HEP} analysis for many years (see 
-\cite{ATLAS-CONF-2011-152,ATLAS-CONF-2017-064}). The \verb!XGBoost! framework has likewise 
-been used as the benchmark for many \ac{ML} analysis, often chosen for its performance in sensitivity and 
-extreme \acf{HPC} capabilities. Another reason for its popularity is the incredibly simple \acf{API}, allowing 
-to create and predict a model in two lines of code. Additionally, its incredible boosting capabilities means 
+\section{Benchmarking the Analysis with Boosted Decision Trees}\label{sec:XGBoost}
+\ac{BDT} have been an essential part of \acf{HEP} analysis for many years (see 
+\cite{ATLAS-CONF-2011-152,ATLAS-CONF-2017-064}). More recently, the \verb!XGBoost! 
+framework has become the main BDT implementation in use in \ac{HEP} due 
+to its excellent performance and scalability. Another reason for its popularity is the simple \acf{API}, allowing 
+to create and predict a model in two lines of code. Additionally, its boosting capabilities means 
 that it is little affected by variations in its structure. This leads many to the conclusion that the default 
 parameters (see section \ref{subsec:XGBoost}) are often the best. 
 \\
@@ -17,9 +17,9 @@ having a larger resemblance to background than signal with large masses. The exp
 far more events with smaller masses than there are with larger masses. By studying figure \ref{fig:nrSignal} we know that 
 there are a total of 134 events with $\{200,400\}_{GeV}$\footnote{For the remainder of this thesis I will use the notation $\{A,B\}_{GeV}$, 
 where A and B are the masses of $\tilde{\chi}$ and $\tilde{\chi}_2$, respectively.} compared to 6 events 
-with $\{400,800\}_{GeV}$. Not only does this mean that the model will have had 
-more small mass signals to train on than large mass, but also that a potential signal region would have to keep 
-far more of the large mass signal to achieve a high significance.\\
+with $\{400,800\}_{GeV}$. Not only does this mean that the model will have had more small mass signals to 
+train on than large mass, but also that a potential signal region would have to keep far more of the large 
+mass signal to achieve a high significance.\\
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{Figures/MLResults/XGB/SUSY/Grid/XGBGridSig.pdf}

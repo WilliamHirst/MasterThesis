@@ -71,8 +71,8 @@
 \contentsline {section}{\numberline {3.7}Handling Negative Weights in a BDT}{43}{section.3.7}%
 \contentsline {section}{\numberline {3.8}Defining the Signal Region and Calculating the Significance}{44}{section.3.8}%
 \contentsline {chapter}{\numberline {4}Results \& Discussion}{45}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Benchmarking the Analysis with Boosted Trees}{45}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Dense Ordinary Neural Networks}{47}{section.4.2}%
+\contentsline {section}{\numberline {4.1}Benchmarking the Analysis with Boosted Decision Trees}{45}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Dense Ordinary Neural Networks}{45}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}A Study of the Number of Parameters in a Network}{47}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Parameter Specific Networks and Interpolation}{47}{subsection.4.2.2}%
 \contentsline {section}{\numberline {4.3}Ensemble methods}{50}{section.4.3}%
