@@ -11,10 +11,10 @@ analysis, comparisons and discussions are focused on the \ac{NN}s, while \verb!X
 as a loose benchmark. 
 \\
 The choice of the three network architectures is motivated by a wish to compare three relatively different approaches.
-Especially in how they perform with a diverse data set. The \ac{LWTA} models apply trend specific paths, the \ac{PNN} includes 
-parameters in the feature set, and the dense \ac{NN} relies on a deep set of weights and biases to uphold long-term memory.
+Especially in how they perform with a diverse data set. The \ac{LWTA} (channel-out, \ac{SCO} and maxout) models apply trend specific paths, 
+the \ac{PNN} includes parameters in the feature set, and the dense \ac{NN} relies on a deep set of weights and biases to uphold long-term memory.
 I would assume that the optimal architecture would be a network which combines elements from each, but for the purpose of discussion
-and research I have chosen to keep them somewhat separate. 
+and research I have chosen to keep them separate. 
 \\
 All \ac{NN} variants implemented in this analysis were created, trained and deployed using the \verb!TensorFlow! framework \cite{tensorflow}.
 This choice was rooted in several factors, for example that \verb!TensorFlow! has an intuitive \ac{API}, it has very effective
@@ -23,12 +23,12 @@ This choice was rooted in several factors, for example that \verb!TensorFlow! ha
 When choosing a network architecture, there are several ways to proceed. One way is to apply a grid search.
 A grid search is simply defining a grid of parameters to test, then running through all combinations and 
 choosing the highest performer. With a sufficient amount of tests, a grid search should converge towards 
-an optimal architecture. Grid searches are very common and there exists a large range of very complex varieties \cite{GS}.
+an optimal architecture. Grid searches are very common and there are a large range of very complex varieties \cite{GS}.
 For my analysis I chose not to perform a grid search, for several reasons. The first being interpretability.
 Understanding a \ac{NN} is already hard, allowing for complex and unique architectures would only add another layer
-of mysticism. The second is the size of the data set. The larger the data set, the more data 
+of complication. The second is the size of the data set. The larger the data set, the more data 
 would be needed to adequately perform tests for each combination of parameters. Not only is this time-consuming,
-but trying to mediate this issue could lead to poor performance. The third and most important reason is that 
+but trying to fix this issue could lead to poor performance. The third and most important reason is that 
 I wanted to experiment with the architectures. By manually tuning the parameters I was able to achieve a far 
 better understanding of the final architecture. In the following sections I will describe the architecture of all the 
 variations of networks and the \ac{BDT} used in this analysis.
@@ -62,7 +62,7 @@ the \ac{PNN} includes free parameters of the signal\footnote{In our case, the ma
 in the input layer.
 \subsection*{MaxOut, Channel-Out and SCO}
 The ensemble models are slightly more complex than both the dense \ac{NN} and \ac{PNN} in terms of architecture. To limit the complexity for comparison reasons
-I choose to build an identical architecture for the maxout, channel-Out and \ac{SCO} model, with the only difference being which of the three layers is used.  
+I choose to build an identical architecture for the maxout, channel-out and \ac{SCO} model, with the only difference being which of the three layers is used in the model.  
 In figure \ref{fig:arch} I have illustrated the maxout model architecture, with the label MaxOut. The figure shows a network with six hidden layers, 
 three maxout and three dropout. The network alternates between dropout and maxout, starting with dropout and finishing with MaxOut. The MaxOut layers 
 have 600 nodes each which is reduced to the 200 nodes with the largest activation in their respective units. Each dropout layer has a dropout 
@@ -70,7 +70,7 @@ rate of 0.15. The Channel-out and \ac{SCO} models have the same architecture as 
 
 \subsection*{BDT}\label{subsec:XGBoost}
 The main motivation to apply a \ac{BDT} is simply to benchmark my analysis, and therefore not a lot of effort has been put into the design of the 
-architecture. As a consequence, the default parameters\footnote{See \url{https://xgboost.readthedocs.io/en/stable/parameter.html}
+architecture. Furthermore, \ac{BDT}s have far fewer hyperparameters. As a consequence, the default parameters\footnote{See \url{https://xgboost.readthedocs.io/en/stable/parameter.html}
 for a complete overview of default parameters.} of the \verb!XGBoost! model have been used. 
 The main parameters of the model are summarized as the following:
 \begin{itemize}
