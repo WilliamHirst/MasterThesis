@@ -3,9 +3,9 @@
 \subsection{Training and Validating Data}\label{subsec:TraVal}
 When building an \ac{ML}-model the usual approach is to divide your data into three sets; training, validation and 
 testing. The training set is used to tune the internal parameters of the model, i.e. the weights and biases of a \ac{NN} or the cuts of a \ac{DT}.
-The validation set is used to tune the hyperparameters of the model, f.ex. the architecture of the \ac{NN} or the maximum depth of the \ac{DT}.
-The test set should only be used when the model is finished, and is used to benchmark the models' performance. In our case, the performance we are 
-interested in is the performance on the full \ac{MC}-bakground set and its comparison to the measured collision data. 
+The validation set is used to tune the hyperparameters of the model, for example the architecture of the \ac{NN} or the maximum depth of the \ac{DT}.
+The test set should only be used when the model is finished, and is used to benchmark the model's performance. In our case, the performance we are 
+interested in is the performance on the full \ac{MC}-background set and its comparison to the measured collision data. 
 Therefore, in this analysis only two sets of data will be used, training and validation where both are sampled from the simulated
 \ac{MC} data set. The validation set was added as a precaution to reduce overfitting when applied to the measured collision data.
 \\
@@ -21,7 +21,7 @@ The first step ensures an equal distribution of processes in both data sets. The
 here for convenience. The third step refers to the sample-weights introduced in section \ref{subsec:SGD}. The sample-weights are only included in the simulated data
 (and therefore training data), to scale each simulated event based on the (among other things) probability of the collision, otherwise known as the cross-section. The scaling of the 
 weights is done to ensure an equal prioritization for background classification and signal classification. In other words, if there was a large imbalance between signal and background, 
-the model would be motivated to tune more towards one trend than another. The final step is motivated in the section regarding data handling \ref{subsubsec:StandardScalar}. 
+the model would be motivated to tune more towards one trend in the feature space than another. The final step is motivated in the section regarding data handling \ref{subsubsec:StandardScalar}. 
 
 \subsection{Training Strategy}\label{subsec:TrainingStrategy}
 To best compare the different \ac{ML}-models, I decide to apply the same training strategy to all (including the \ac{BDT}). The strategy is simply to train the model 

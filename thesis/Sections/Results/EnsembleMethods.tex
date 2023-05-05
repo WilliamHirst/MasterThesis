@@ -98,8 +98,8 @@ find trend specific paths through the network which will aid in separating the o
     the results for two signal with each their own mass combination.]{A calculated visualization of a trained maxout network 
     with three hidden layers. The lines represent the path through the nodes with the largest activation in their respective
     unit. The bolder the line the more frequently the path is used. The distribution on the far right represent the output 
-    distribution. The figure to the left (\ref{fig:ATrainingSig50250}) is a result of signal with ($\tilde{\chi}_1=50$, 
-    $\tilde{\chi}_2=250$GeV) and the right (\ref{fig:ATrainingSig200300}) ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV).}
+    distribution. The figure to the left (\ref{fig:ATrainingSig50250}) is a result of signal with masses $\{50,250\}_{GeV}$ 
+    and the right (\ref{fig:ATrainingSig200300}) with masses $\{200,300\}_{GeV}$.}
     \label{fig:NetVisSigComp}
 \end{figure}
 Ideally, we would want the model to not only be able to separate the signal from the background, but do so in 
@@ -108,7 +108,7 @@ I described this ability as long-term memory. One way to implement long-term mem
 However through the \ac{LWTA} layers we can achieve the same through specific paths. To study this I have created similar 
 figures as discussed in the paragraphs above, but this time only including results from applying the network on one mass combination. 
 Figures \ref{fig:ATrainingSig50250} and \ref{fig:ATrainingSig200300} present the results for the mass combinations 
-$\tilde{\chi}_1=50$ and $\tilde{\chi}_2=250$GeV, and $\tilde{\chi}_1=200$ and $\tilde{\chi}_2=300$GeV respectively.
+$\{50,250\}_{GeV}$, and $\{200,300\}_{GeV}$ respectively.
 By comparing the figures, we see a small but noticeable difference in paths. Again the middle hidden layer seems to be 
 the differentiating factor. To highlight the differences, I have included a cutout, comparing the first and second node in the bottom unit 
 for the middle layer of both figures, \ref{fig:ATrainingSig50250Zoom} and \ref{fig:ATrainingSig200300Zoom}.
@@ -139,8 +139,8 @@ applies a form of regularization, but also increases the long-term memory of the
     \caption[A calculated visualization of the activation of a three layer maxout network, after training and displaying the
     the results for two signal with each their own mass combination, highlighting the difference between two specific nodes.]{
     A cut-out of the fifth and sixth node (counting from the top) in the second hidden layer, activated 
-    by the signal with ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) \ref{fig:ATrainingSig50250Zoom} and 
-    ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) \ref{fig:ATrainingSig200300Zoom}.}
+    by the signal with masses $\{50,250\}_{GeV}$ \ref{fig:ATrainingSig50250Zoom} and 
+    $\{200,300\}_{GeV}$ \ref{fig:ATrainingSig200300Zoom}.}
     \label{fig:NetVisZoom}
 \end{figure}
 Finally, I wanted to compare the activations of the maxout model, to the activation of the \ac{SCO} model. In section \ref{subsubsec:stochchannelout},

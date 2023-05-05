@@ -15,8 +15,9 @@ was calculated with equation \ref{eq:Z1}. In the figure we can observe that the 
 better for smaller masses. This results can be somewhat counterintuitive, due to signal with smaller masses 
 having a larger resemblance to background than signal with large masses. The explanation is simply that there are
 far more events with smaller masses than there are with larger masses. By studying figure \ref{fig:nrSignal} we know that 
-there are a total of 134 events with ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=400$GeV) compared to 6 events 
-with ($\tilde{\chi}_1=400$, $\tilde{\chi}_2=800$GeV). Not only does this mean that the model will have had 
+there are a total of 134 events with $\{200,400\}_{GeV}$\footnote{For the remainder of this thesis I will use the notation $\{A,B\}_{GeV}$, 
+where A and B are the masses of $\tilde{\chi}$ and $\tilde{\chi}_2$, respectively.} compared to 6 events 
+with $\{400,800\}_{GeV}$. Not only does this mean that the model will have had 
 more small mass signals to train on than large mass, but also that a potential signal region would have to keep 
 far more of the large mass signal to achieve a high significance.\\
 \begin{figure}
@@ -35,8 +36,7 @@ signal and background, where most of the signal is given a high output ($>0.9$) 
 output ($<0.1$). To further support the effect of statistics in the signal, we can take note of the 
 amount of signal in the higher range of the output (0.975-1). Although the model is able to achieve a much higher 
 effectiveness (is able to preserve more of the signal) for higher mass signals, there are over 4 times as many 
-events with mass ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=400$GeV) (the lightest mass combination in the figure) then there 
-are of any other.
+events with masses $\{250,400\}_{GeV}$ (the lightest mass combination in the figure) then there are of any other.
 \\
 A final observation from figure \ref{fig:XGBDistComp}, is the study of which \ac{SM} processes contribute the most 
 for higher model output. In figure \ref{fig:XGBDist_95}, we can see that in the output range of [$0.975-1$], the highest 
@@ -61,8 +61,7 @@ different processes in section \ref{sec:bkg}.
     }
     \caption[The output distribution from a trained XGBoost model for the background and signals with 4 different mass combination.]{
     The output distribution from a trained XGBoost model for the background and signals with 4 different mass combinations:
-    ($\tilde{\chi}_1=250$, $\tilde{\chi}_2=400$GeV), ($\tilde{\chi}_1=400$, $\tilde{\chi}_2=650$GeV), 
-    ($\tilde{\chi}_1=700$, $\tilde{\chi}_2=50$GeV) and ($\tilde{\chi}_1=400$, $\tilde{\chi}_2=800$GeV). 
+    $\{250,400\}_{GeV}$, $\{400,650\}_{GeV}$, $\{50,700\}_{GeV}$ and $\{400,800\}_{GeV}$. 
     The figure includes the full output range (\ref{fig:XGBDist}) and the output ranging from 0.975-1.00 (\ref{fig:XGBDist_95}).
     The number in parentheses indicate the fraction of each background and the absolute number of events for each signal point. 
     The total number of background events is also shown.}

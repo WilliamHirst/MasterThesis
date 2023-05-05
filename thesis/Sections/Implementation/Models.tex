@@ -129,7 +129,7 @@ the output to the original shape and return the output.
 \subsubsection*{SCO}
 In section \ref{subsubsec:stochchannelout} I described how \ac{SCO} is an extension of channel-out. This is certainly
 also the case for the algorithms explaining the implementation. In algorithm \ref{alg:SCO} I have described the
-algorithm used in the implementation of \ac{SCO}. Similar to channel-out, the algorithm begins by 
+implementation of the \ac{SCO} layer. Similar to channel-out, the algorithm begins by 
 passing input through weights and biases. Then, contrary to channel-out, the nodes of the input are shuffled. This 
 is to ensure that when the input is reshaped (in line 10), the units are made differently for each pass through 
 the function. Again the maximum activation is found to create a new variable, this time called $OutputShuffle$. 

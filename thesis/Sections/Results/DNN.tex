@@ -54,11 +54,11 @@ In figure \ref{fig:Interpolation} I present the results from two models for whic
 Each figure displays which combinations were used during training with the addition of a green corner. 
 The training used to produce the results aligns with the strategy described in section \ref{subsec:TrainingStrategy} and both apply
 an ordinary dense \ac{NN} architecture described in section \ref{subsec:arch}. Figure \ref{fig:OneMass} presents the achieved sensitivity 
-from a dense \ac{NN} which has only trained on one mass combination (which will hence force be referred to as \ac{OMM}), $\tilde{\chi}_1=250$ 
-and $\tilde{\chi}_2=550$GeV, while figure \ref{fig:SeveralMass} presents the achieved sensitivity after training on a large set of mass combinations 
+from a dense \ac{NN} which has only trained on one mass combination (which will hence force be referred to as \ac{OMM}), $\{250,550\}_{GeV}$, 
+while figure \ref{fig:SeveralMass} presents the achieved sensitivity after training on a large set of mass combinations 
 (which will hence force be referred to as \ac{SMM}). Specifically, the latter figure shows the results after training on all signals on the outer 
 square\footnote{I.e. all mass combinations which lie on the edges of the grid.} in the figure \ref{fig:SeveralMass} as well as the point in the 
-middle, $\tilde{\chi}_1=250$ and $\tilde{\chi}_2=550$GeV.\\
+middle, $\{250,550\}_{GeV}$.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -79,13 +79,13 @@ middle, $\tilde{\chi}_1=250$ and $\tilde{\chi}_2=550$GeV.\\
     \caption[Two grids displaying the expected significance on a subset of the full signal set, using the signal region 
     created by two dense \acs{NN}'s, each training on different amounts of signal.]{Two grids displaying the expected significance 
     on a subset of the full signal set, using the signal region created by two dense \ac{NN}'s. Figure \ref{fig:OneMass} presents the results 
-    from a model which has only seen one mass combination during training, $\tilde{\chi}_1=250$ and $\tilde{\chi}_2=550$GeV. Figure 
+    from a model which has only seen one mass combination during training, $\{250,550\}_{GeV}$. Figure 
     \ref{fig:SeveralMass} presents the results from a model which has seen all mass combinations in the grid, but for the inner square of masses
-    around the 250, 555 point. Each figure displays which combinations were used during training with the addition of a green corner.}
+    around the $\{250,550\}_{GeV}$ point. Each figure displays which combinations were used during training with the addition of a green corner.}
     \label{fig:Interpolation}
 \end{figure}
-My initial prediction for this comparison was that the \ac{OMM} would outperform the \ac{SMM} for the signal with
-$\tilde{\chi}_1=250$ and $\tilde{\chi}_2=550$GeV, while underperforming on all other data points. The expectation was that \ac{OMM} 
+My initial prediction for this comparison was that the \ac{OMM} would outperform the \ac{SMM} for the signal with masses
+$\{250,550\}_{GeV}$, while underperforming on all other data points. The expectation was that \ac{OMM} 
 would learn the trends of the only signal it had seen, while the \ac{SMM} would do the same but for a larger set of mass combinations and 
 at the same time interpolate the results for the masses in between. By comparing figures \ref{fig:OneMass} and \ref{fig:SeveralMass} we 
 see that my prediction was not completely true. We can observe that the model which has trained on several-masses outperformed the 
@@ -131,8 +131,8 @@ still outperformed by the \ac{SMM}. This indicates that overfitting is not the o
     \caption[A grid displaying the expected significance on a subset of the full signal set, using the signal region 
     created by a dense \acs{NN} which has trained on one mass, and has been allowed to train for 16 epochs.]{
     A grid displaying the expected significance on a subset of the full signal set, using the signal region 
-    created by the \ac{NN}. The figure presents the results from a model who has only seen one mass combination 
-    during training, $\tilde{\chi}_1=250$ and $\tilde{\chi}_2=550$GeV and was allowed to train for 15 epochs without 
+    created by the \ac{NN}. The figure presents the results from a model which has only seen one mass combination 
+    during training, $\{250,550\}_{GeV}$ and was allowed to train for 15 epochs without 
     early stopping. }
     \label{fig:NNOverfitting}
 \end{figure}
