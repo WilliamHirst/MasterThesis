@@ -1,2 +1,16 @@
 \chapter*{Abstract} 
-This will be the abstract.
+This thesis explores a diverse array of \acl{ML} models as they search for chargino-neutralino pair production in 
+three-lepton final states with missing transverse momentum. The study is based on a data set of $\sqrt{s} = 13$TeV proton-proton
+collisions recorded with the ATLAS detector at the LHC, corresponding to an integrated luminosity of $139 fb^{-1}$. The machine 
+learning models applied in the study were three variants of \acl{DNN}, and \acl{BDT}. The deep network variants included an ordinary 
+dense neural network, \acl{PNN} and ensemble models utilizing sparse pathways. In the latter variant I included a novel layer introduced 
+in this thesis, the \acl{SCO}. The study included an analysis of how each model attained sensitivity when training on a diverse data set including 
+several orthogonal \acl{BSM} variants, i.e. different masses of the chargino and neutralino. Furthermore, a study was made on individual attributes of each model,
+for example the sparse pathways of the ensemble methods or the effect of the choice of parameters in the \acl{PNN}. In my studies I found that the inclusion 
+of multiple signal variants can be beneficial during training of a machine learning model, in the case that the variants exhibit overlapping feature distributions. 
+This is specifically true in the case that the model displays a strong long-term memory, as it was found that models utilizing sparse pathways do. When comparing each 
+model in their ability to attain sensitivity, I found that the \acl{PNN} exhibited a bias towards high statistic signal which allowed it to attain high sensitivity in low 
+mass regions. On the contrary, the ensemble methods which did not attain the same level of sensitivity on low mass signal, was able to achieve a far more balanced sensitivity, for  
+signal in both high and low mass regions. When comparing the models expected sensitivity to that achieved by ATLAS, I found that none of the models were able to extend the previously set
+exclusion limit. Through a more extensive study of the output from each model, specifically the ensemble networks which showed great sensitivity in non-excluded regions, I believe that more definite results 
+could be achieved. 
