@@ -26,7 +26,7 @@ in the middle hidden layer highlight this fact. In the case of the signal, the u
 the second bottom node. For the background this is also partly true, but with far more 
 spread in the other nodes. Similarly, in the bottom unit (in the same layer), the background shows large
 activation in the uppermost node, while the signal data does not. To conclude, the maxout layer does indeed 
-find trend specific paths through the network which will aid in separating the output for the signal and the background.\\
+find specific paths through the network which will aid in separating the output for the signal and the background.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -225,7 +225,7 @@ the results from the maxout model to the deep, dense network presented in figure
 network outperforms the maxout model (ever so slightly) for the higher statistic mass combinations. It is plausible that this is due 
 to the difference in depth. The dense network utilizes 3 hidden layers of 600 nodes each, while the maxout, although built with the 
 same architecture, only utilizes 200 nodes per layer when propagating input through the network. This could result in the dense network 
-being able to more deeply tune for the trends in the higher statistics combinations.
+being able to more deeply tune for the patterns in the higher statistics combinations.
 \\
 However, the most interesting result for the maxout model, is its ability to tune for all mass combinations. Although the dense network
 outperformed the maxout model for the high statistics combinations, the maxout model outperformed the dense for most other combination (26 of 

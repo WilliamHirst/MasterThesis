@@ -1,20 +1,22 @@
 \section{Parametrized Neural Network}
 \subsection{Discriminating Masses}
-When introducing the \ac{PNN} in section \ref{subsec:PNN}, I mentioned that by including the masses of the introduced particles
-in the feature set, we motivate and individualistic tuning for each mass combination in the signal set. To test if this is indeed what 
-happens, I will in this section present results where I manually assign different mass combinations the same parameter. The hope 
-is that if indeed the \ac{PNN} has been able to tune individually for each mass combination, then the \ac{PNN} should perform best 
-when the events are correctly labeled compared to when they are not. 
+When introducing the \ac{PNN} in section \ref{subsec:PNN}, I mentioned that by including the masses of the introduced particles as features 
+in the feature set, we motivate individualistic tuning for each mass combination in the signal set. To study this, I will in this section 
+present results where I manually assign all the events, both background and signal, the same parameters (mass combinations) thereby assigning 
+most of the signal the wrong parameters. The hope is that if indeed the \ac{PNN} has been able to tune individually for each mass combination, 
+then the \ac{PNN} should perform best when each signal event is given the correct parameter in the feature set. In other words, when each signal 
+event is given the mass of the chargino and neutralino which was used when generating that specific event.
 \\
 In figure \ref{fig:PNN50250Dist} I have drawn the distribution of the output from the trained \ac{PNN} architecture 
 (see section \ref{subsec:PNNArch}). The model was trained using the complete signal grid. In figure \ref{fig:PNN50250Dist},
 4 signals have been included; $\{50,250\}_{GeV}$, $\{100,200\}_{GeV}$, $\{200,300\}_{GeV}$, and $\{150,250\}_{GeV}$. All data, including 
-both signal and background were given the labels of $50$ and $250$ (corresponding to the masses $\{50,250\}_{GeV}$). 
-In figure \ref{fig:PNN50250Dist} the full output range is included, whereas in figure \ref{fig:PNN50250Dist_95} only the output in the 
-range $[0.975-1]$ has been included. In both figures, it is evident that all mass combinations have been effectively separated from the background,
-even for the combinations which are given the wrong parameter. Nevertheless, upon close study of the figures and the corresponding legends, we can deduce that
-the signal which is given the correct label is also the signal which has the highest percentage of conserved events when applying a simple cut off 
-$0.975$\footnote{This is further evident when studying the efficiency rates in table \ref{table:PNNSigComp}.}.\\
+both signal and background were given the parameters of $50$ and $250$ (corresponding to the masses $\{50,250\}_{GeV}$) in the feature set. 
+In figure \ref{fig:PNN50250Dist} the full output range is included, whereas in figure \ref{fig:PNN50250Dist_95} a cut off $0.975$ is placed on the 
+output and therefore only includes the output in the range $[0.975-1]$. In both figures, it is evident that all mass combinations have been 
+effectively separated from the background, even for the combinations which are given the wrong parameters (i.e. $\{100,200\}_{GeV}$, $\{200,300\}_{GeV}$, 
+and $\{150,250\}_{GeV}$). Nevertheless, upon close study of figure \ref{fig:PNN50250Dist_95} and the corresponding legend, we can deduce that the signal 
+which is given the correct parameters ($\{50,250\}_{GeV}$) is also the signal which is able to conserve the highest percentage of events when applying a 
+simple cut off $0.975$\footnote{This is further evident when studying the efficiency rates in table \ref{table:PNNSigComp}.}.\\
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
     \centering
@@ -33,18 +35,18 @@ $0.975$\footnote{This is further evident when studying the efficiency rates in t
     \caption[The output distribution from a trained \acs{PNN} model for the background and signals with four different mass combinations, where 
     all events are given the same parameter.]{The output distribution from a trained \ac{PNN} model for the background and signals with four different 
     mass combinations: $\{50,250\}_{GeV}$, $\{100,200\}_{GeV}$, $\{200,300\}_{GeV}$, and $\{150,250\}_{GeV}$, and where all the data were given the 
-    parameter features of $\{50,250\}_{GeV}$. The figure includes the full output range (\ref{fig:PNN50250Dist}) 
+    parameters corresponding to the masses $\{50,250\}_{GeV}$. The figure includes the full output range (\ref{fig:PNN50250Dist}) 
     and the output ranging from 0.975-1.00 (\ref{fig:PNN50250Dist_95}). The number in parentheses indicate the fraction of each background and 
     the absolute number of events for each signal point. The total number of background events is also shown.}
     \label{fig:PNN50250}
 \end{figure} 
 In section \ref{sec:XGBoost} I presented results indicating that some signals were easier to separate from background than others. This leads me to the 
-question; did the \ac{PNN} perform better on the signal with $\{50,250\}_{GeV}$ because of the labeling, or simply
+question; did the \ac{PNN} perform better on the events with masses $\{50,250\}_{GeV}$ because it was given the correct parameters in the feature set, or simply
 because this particular signal was easier to separate. To answer this question I conducted a second test. In figure \ref{fig:PNN200300DistComp} 
-I repeated the analysis described in the paragraphs above, but where all the signals were given the label $\{200,300\}_{GeV}$.
+I repeated the analysis described in the paragraphs above, but where all the signals were given the parameter corresponding to the masses $\{200,300\}_{GeV}$.
 Similarly to the previous results, I drew the output for the full output range (\ref{fig:PNN200300Dist}) and after a cutoff off $0.975$ (\ref{fig:PNN50250Dist_95}).
 Via the examination of the two figures, we can indeed see that my assumption was right. Despite the fact that events with masses equal to  $\{50,250\}_{GeV}$
-are given the wrong parameter, the \ac{PNN} achieves the highest efficiency when predicting on the aforementioned events. \\
+are given the wrong parameter, the \ac{PNN} still achieves the highest efficiency when predicting on the aforementioned events. \\
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
     \centering
@@ -64,7 +66,7 @@ are given the wrong parameter, the \ac{PNN} achieves the highest efficiency when
     all events are given the same parameter.]{
     The output distribution from a trained \ac{PNN} model for the background and signals with four different mass combinations:
     $\{50,250\}_{GeV}$, $\{100,200\}_{GeV}$, $\{200,300\}_{GeV}$, and $\{150,250\}_{GeV}$, and where all the data were given the 
-    parameter features of $\{200,300\}_{GeV}$. The figure includes the full output range (\ref{fig:PNN50250Dist}) 
+    parameters corresponding to the masses $\{200,300\}_{GeV}$. The figure includes the full output range (\ref{fig:PNN50250Dist}) 
     and the output ranging from 0.975-1.00 (\ref{fig:PNN50250Dist_95}). The number in parentheses indicate the fraction of each background and 
     the absolute number of events for each signal point. The total number of background events is also shown.}
     \label{fig:PNN200300DistComp}
@@ -81,14 +83,14 @@ and tune for them independently.
     \centering
     $
     \begin{array}{ccccc}
-        \hline \text { \backslashbox{\textbf{Label}}{\textbf{Channel}} }  & \text {$(50,250)$}& \text {$(100,200)$} & \text {$(150,300)$} & \text {$(200,300)$} \\
+        \hline \text { \backslashbox{\textbf{Parameters}}{\textbf{Channel}} }  & \text {$(50,250)$}& \text {$(100,200)$} & \text {$(150,300)$} & \text {$(200,300)$} \\
         \hline\text {$(50,250)$}   & \text { $\bf{80.8}\%$ } & \text { $45.8\%$ } & \text { $\bf{77.5}\%$ } & \text { $50.1\%$ } \\
         \hline\text {$(200,300)$}   & \text { $77.3\%$ } & \text { $\bf{54.6}\%$ } & \text { $76.3\%$ } & \text { $\bf{59.0}\%$ } \\
         \hline
     \end{array}
     $
-    \caption{A listing of the remaining procentage of each mass combination in the output range 0.975-1.00 using the 
-    labels $\{50,250\}_{GeV}$ and $\{200,300\}_{GeV}$ respectively.}
+    \caption{A listing of the remaining procentages of each mass combination after applying a cut-off of 0.975. The results are from a \ac{PNN} where all 
+    of the events were given the parameters corresponding to the masses $\{50,250\}_{GeV}$ and $\{200,300\}_{GeV}$, respectively.}
     \label{table:PNNSigComp}
 \end{table}
 
