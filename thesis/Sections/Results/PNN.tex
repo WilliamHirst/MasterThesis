@@ -99,8 +99,8 @@ In this section I will present the achieved sensitivity by the \ac{PNN} on the o
 of the \ac{PNN} on the original signal set. Similarly to the previous models', the figure indicates that the \ac{PNN} is able to achieve a much higher sensitivity on the lower
 masses. The most notable difference to the previous models, is the span of values for the significance. The \ac{PNN} almost doubles the highest significance achieved by any previous model
 (from 2.44 to 4.14), and simultaneously achieves the lowest significance (now 0.30). The most probable explanation to this result is the distribution of parameters for the background. 
-In section \ref{subsec:PNN}, I described how the background is randomly assigned parameters such that the percentage of background with a given parameter is equal to the percentage 
-of the signal with the same parameter. In other words, the higher the statistics for a given mass combination, the higher the amount of background will be 'linked' to it. Inn the 
+In section \ref{subsec:PNN}, I described how the background was randomly assigned the mass parameters using the same distribution as the signal. In other words, the higher the statistics 
+for a given mass combination, $\{A,B\}_{GeV}$, the higher the amount of background would have the parameters corresponding to the masses $\{A,B\}_{GeV}$. In the 
 same section I also described the hope that the parameters would shift the output from the initial layer in a way that motivates individualistic training. If this is 
 true\footnote{For a network of this depth, it is very hard to explain what happens during training, which explains the passive statement.} it means that masses with larger statistics, 
 are given larger amounts of background to train on. This could explain the uneven performance by the \ac{PNN}. \\
@@ -117,7 +117,7 @@ are given larger amounts of background to train on. This could explain the uneve
 \end{figure}
 In this analysis I choose to follow the methodology described in the article by Baldi et al. \cite{PNN}, but other variants of the \ac{PNN} could 
 be of interest in future studies. An alternative to the current setup for distributing parameters to the background, is to distribute the parameters evenly. 
-In other words, for N different mass combinations, each set of parameters will be distributed to 1/N parts of the background. This would most likely produce a
+In other words, for N different mass combinations, each set of parameters will be randomly distributed to 1/N parts of the background. This would most likely produce a
 more balanced result. I considered using an even approach, but found that the current setup was more aligned with the rest of the analysis where a one-one, signal-
 background ratio approach has been made\footnote{In section \ref{subsec:TraVal} I discuss how I have chosen to scale the weights such that sum of the weights of 
 the background is equal to the sum of the weights of the signal.}. The more interesting alternative would be to assign the background most similar to a given mass 
