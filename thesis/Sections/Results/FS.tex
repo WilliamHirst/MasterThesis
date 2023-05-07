@@ -10,7 +10,7 @@ I will not apply all previously tested models to the complete signal grid. Inste
 on the tests performed in the previous sections. I decided to choose one model from each 'type'\footnote{By network type, I am referring to either the ordinary dense network, the 
 \ac{PNN} or a \ac{LWTA} model. } of network. Based on the results in section \ref{sec:Ensemble}, where I compared the different ensemble methods, I found the maxout model to be 
 the top performer. Likewise, in section \ref{sec:PCA}, I found that both maxout and the \ac{PNN} preferred to utilize data with \ac{PCA}. Therefore, I will utilize the maxout model 
-and \ac{PNN} model defined in section \ref{subsec:arch} with the use of \ac{PCA}. Finally, I will include the ordinary dense \ac{NN} for the sake of diversity, but without a \ac{PCA}, 
+and \ac{PNN} model defined in section \ref{subsec:arch} with the use of \ac{PCA}. Finally, I will include the ordinary dense \ac{NN}, but without a \ac{PCA}, 
 as this was found to be preferred.
 \\
 In figure \ref{fig:NN_FS_MLMGridSig} I have drawn a grid displaying the sensitivity of an ordinary dense \ac{NN}, on the complete signal grid. Again, we observe that higher statistics
@@ -32,8 +32,8 @@ indication that the deep networks are able to exploit overlapping regions in the
 Figure \ref{fig:MaxOutPCA_FS_MLMGridSig} displays a grid presenting the sensitivity of the maxout model using the complete signal grid.
 The data used to train this model, has been through a \ac{PCA}, and the architecture is the same as described in section \ref{subsec:arch}.
 Similarly to the dense \ac{NN}, by including the complete grid, the maxout model improved performance on all combinations in the original set. 
-Also, the maxout model upholds the sensitivity criteria ($>1.64$) for the same mass combinations. However, contrary to the tests performed on 
-the original signal set, the dense network outperforms the maxout model for most of the signals points (74 out of 89 mass combinations) when 
+Also, the maxout model achieves a significance over the limit ($>1.64$) for the same mass combinations as the dense \ac{NN}. However, contrary to the tests 
+performed on the original signal set, the dense network outperforms the maxout model for most of the signals points (74 out of 89 mass combinations) when 
 using the full signal grid. A possible explanation to the shift in performance could be that the dense \ac{NN} lacked the statistics when training 
 with the original signal set. When the complete signal grid is included, the dense \ac{NN} (which is deeper than the maxout model) is able to train 
 much deeper, which in tern, increases sensitivity. However, the maxout model outperforms the dense network for the low statistics combinations, again 
@@ -50,7 +50,7 @@ indicating the maxout layers ability to increase long-term memory.\\
     \label{fig:MaxOutPCA_FS_MLMGridSig}
 \end{figure}
 Finally, I applied the \ac{PNN} to the complete signal grid. The results are found in the grid presented in figure \ref{fig:PNNPCA_FS_MLMGridSig}.
-Similarly to the tests performed with the original signal set, the \ac{PNN} is able to achieve an incredible sensitivity for the high statistics mass combinations
+Similarly to the tests performed with the original signal set, the \ac{PNN} is able to achieve a high sensitivity for the high statistics mass combinations
 ($\tilde{\chi}_2<400$GeV). For the combinations with the highest statistics ($\tilde{\chi}_2<300$GeV), the \ac{PNN} more than doubles the expected significance of the previous 
 two methods. For the lower statistics combinations, the \ac{PNN} drops in performance. Moreover, the performance of the \ac{PNN} on the combinations with the highest 
 statistics in the original signal set ($\{250,400\}_{GeV}$ and $\{200,450\}_{GeV}$), has decreased by more than half.
