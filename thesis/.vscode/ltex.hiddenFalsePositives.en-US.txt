@@ -6,3 +6,5 @@
 {"rule":"THE_PUNCT","sentence":"^\\QThere are many attempts to expand the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q to accommodate for the, up until now failures of the\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QIn this section I will present the results of training on a data set which has gone through such a \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QIn doing so, five features were removed.\\E$"}
+{"rule":"SENT_START_CONJUNCTIVE_LINKING_ADVERB_COMMA","sentence":"^\\QAdditionally to studying the maxout layer, I repeated the analysis for \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"WITH_THE_EXCEPTION_OF","sentence":"^\\QBased on the comparison I found that none of the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q models were able to extend the limits set by \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, with the exception of the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q when utilizing %\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q uncertainty.\\E$"}

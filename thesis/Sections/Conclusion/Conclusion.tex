@@ -10,13 +10,13 @@ employing \ac{LWTA} layers and a \ac{PNN}.
 \\\newline
 The simulated signal set included and studied in the analysis consisted of a set of orthogonal \ac{BSM} variants, specifically different masses for the chargino ($\tilde{\chi}^\pm_1$) 
 and neutralino ($\tilde{\chi}_1$). In my analysis I tested two approaches for dealing with a diverse signal set; training one model per variant, and training one model on a larger set 
-of variants. Comparing the two, I found the latter to achieve a higher sensitivity as a consequence of a couple of factors. By including an assortment of variations of new physics, 
-the \ac{ML} models were able to avoid overfitting longer, which allowed for deeper learning. Furthermore, I found that the models were able to exploit overlapping feature trends between 
+of variants. Comparing the two, I found that the latter achieved a higher sensitivity as a consequence of a number of factors. By including an assortment of variations of new physics, 
+the \ac{ML} models were able to avoid overfitting longer, which allowed for deeper learning. Furthermore, I found that the models were able to exploit overlapping feature distributions between 
 the variations, which resulted in more training data for all mass combinations. As a consequence, all remaining models were trained on a diverse signal set, and large parts of the analysis 
 was focused on how each individual method handled this decision.
 \\\newline
 I studied three variants of \ac{LWTA} layers; channel-out, maxout, and \ac{SCO}. The first two were taken from the paper by Wang et al. \cite{wang_maxout_2013}, and the third layer was introduced
-in this present thesis. Each layer, reduces the number of nodes during a forward propagation, similarly to the dropout layer, but does so by comparing activation with other nodes in the layer, and 
+in this present thesis. Each layer reduces the number of nodes during a forward propagation, similarly to the dropout layer, but does so by comparing activation with other nodes in the layer, and 
 dropping all but the largest node. To study the implementation and effect of these layers, I constructed a set of figures to visualize the activation and dropping of nodes, before and after training. 
 When dissecting the figures, I observed that the \ac{LWTA} layers (specifically the maxout layer) were able to build an ensemble of networks by means of trend specific paths. In other words, after training 
 the model, the data chose different paths through the network dependent on if it was background or signal. Moreover, by comparing two sets of signal with different mass combinations, I found that the model 
@@ -37,9 +37,9 @@ maxout model outperformed all other \ac{LWTA} models, achieving a higher signifi
 combinations. Most likely, by modifying the \ac{SCO} layer during prediction, the performance of the layer would improve.
 \\\newline
 Four models (not including channel-out and \ac{SCO}) were chosen when comparing performance on the original signal set; ordinary dense \ac{NN}, maxout model, \ac{PNN} and a \ac{BDT} implemented using the default settings of \verb!XGBoost! \cite{XGB}. In the comparison I found that 
-all three network variants were able to outperform the \ac{BDT}, although I believe this to be explained by little attention given towards the architecture of the \ac{BDT}. Out of the three network variants, the maxout model was able to achieve 
+all three network variants were able to outperform the \ac{BDT}, although I believe this to be explained by little attention given towards the tuning of the \ac{BDT}. Out of the three network variants, the maxout model was able to achieve 
 the highest significance for most mass combinations (24/30), but mostly in the higher mass range ($\tilde{\chi}_2>600$GeV). In the events with lower masses and higher statistics ($\tilde{\chi}_2<600$GeV), the \ac{PNN} outperformed all others, 
-almost doubling significance achieved by the maxout model. Shared among all models was the fact that they all found processes with high amounts of missing transverse energy difficult to separate from the signal, i.e. $Diboson(lll)$, $t\bar{t}$ and $top\ other$.
+almost doubling the significance achieved by the maxout model. Shared among all models was the fact that they all found processes with high amounts of missing transverse energy difficult to separate from the signal, i.e. $Diboson(lll)$, $t\bar{t}$ and $top\ other$.
 \\\newline
 Before applying the models to the complete signal grid, I applied a \ac{PCA} to study if it could improve performance. When requiring the conservation of $99.99\%$ of the variation from the original feature set, 5 features were removed.
 Training the dense \ac{NN}, maxout model and \ac{PNN} with this new data set, I found it to improve the sensitivity of the two latter models. The comparison was based on the choice to weight the importance of all mass combinations equally.

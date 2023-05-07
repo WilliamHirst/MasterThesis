@@ -60,11 +60,11 @@ The architecture is illustrated in figure \ref{fig:arch}, with the label \ac{PNN
 structure to the dense-\ac{NN}, with the only difference being in the input layer. As was discussed in section \ref{subsec:PNN},
 the \ac{PNN} includes free parameters of the signal\footnote{In our case, the masses of the chargino and neutralino.} alongside the features
 in the input layer.
-\subsection*{MaxOut, Channel-Out and SCO}
+\subsection*{Maxout, Channel-Out and SCO}
 The ensemble models are slightly more complex than both the dense \ac{NN} and \ac{PNN} in terms of architecture. To limit the complexity for comparison reasons
 I choose to build an identical architecture for the maxout, channel-out and \ac{SCO} model, with the only difference being which of the three layers is used in the model.  
 In figure \ref{fig:arch} I have illustrated the maxout model architecture, with the label MaxOut. The figure shows a network with six hidden layers, 
-three maxout and three dropout. The network alternates between dropout and maxout, starting with dropout and finishing with MaxOut. The MaxOut layers 
+three maxout and three dropout. The network alternates between dropout and maxout, starting with dropout and finishing with maxout. The maxout layers 
 have 600 nodes each which is reduced to the 200 nodes with the largest activation in their respective units. Each dropout layer has a dropout 
 rate of 0.15. The Channel-out and \ac{SCO} models have the same architecture as the maxout, but replacing the maxout layer with each of the two respectively.  
 
