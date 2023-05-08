@@ -66,7 +66,7 @@ I choose to build an identical architecture for the maxout, channel-out and \ac{
 In figure \ref{fig:arch} I have illustrated the maxout model architecture, with the label MaxOut. The figure shows a network with six hidden layers, 
 three maxout and three dropout. The network alternates between dropout and maxout, starting with dropout and finishing with maxout. The maxout layers 
 have 600 nodes each which is reduced to the 200 nodes with the largest activation in their respective units. Each dropout layer has a dropout 
-rate of 0.15. The Channel-out and \ac{SCO} models have the same architecture as the maxout, but replacing the maxout layer with each of the two respectively.  
+rate of 0.15. The Channel-out and \ac{SCO} models have the same architecture as the maxout, but replacing the maxout layer with each of the two, respectively.  
 
 \subsection*{BDT}\label{subsec:XGBoost}
 The main motivation to apply a \ac{BDT} is simply to benchmark my analysis, and therefore not a lot of effort has been put into the design of the 
