@@ -15,10 +15,11 @@ lepton for the features $p_T$ and $\phi$, but only including events with negativ
 Additionally, I drew the distribution for the full data set for the same features in figures \ref{fig:lep1_Pt_nNeg}
 and \ref{fig:lep1_Phi_nNeg}. By comparing the distributions, we can observe that the full data set and the 
 negative weights' subset are very similar as well as only a fraction ($<10\%$) of the weights being negative.  
-There are differences in distributions when comparing the \ac{SM} individually, but when studying the 
+There are differences in distributions when comparing the \ac{SM} proccesess individually, but when studying the 
 background as a whole, the two sets exhibit the same pattern across all regions. This means that the negative 
-weights have little effect on the shape of the distribution of the full data set, which motivates treating the 
-negative weight problem uniformly over the full feature space.\\
+weights have little effect on the shape of the distribution of the full data set, which justifies choosing 
+a simple solution to the issue. This, and the fact that the \ac{BDT} implementation is not of focus in the thesis, 
+lead to the simplest solution to the problem being chosen.\\
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
     \centering
@@ -56,9 +57,7 @@ negative weight problem uniformly over the full feature space.\\
     negative weights (for $P_t$ and $\phi$ respectively) whereas \ref{fig:lep1_Pt_nNeg} 
     and \ref{fig:lep1_Phi_nNeg} show the full data set.}
 \end{figure}
-How one chooses to deal with this problem can heavily affect the results and thus many solutions 
-are suggested. Given the main focus of this report, the simplest solution was chosen. The solution was 
-motivated by the internal notes of the \ac{ATLAS} article \cite{Aad:2800889}, which introduced the solution 
+The solution was inspired by the internal notes of the \ac{ATLAS} article \cite{Aad:2800889}, which introduced the solution 
 when faced with the same problem. The solution is to take the absolute value and normalize all the weights, 
 conserving the total sum of the weights and at the same time changing all negative signs. The simple procedure 
 is shown bellow in equation \ref{eq:negw},
