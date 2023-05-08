@@ -8,7 +8,7 @@ dissect the activations of said network before and after training.
 \\
 In figure \ref{fig:BTraining}, I have plotted the activation of 100 randomly sampled events, 50 
 background and 50 signal for an untrained model. Adjacent, I plotted the resulting distribution of the 
-output. From the figure we observe little to no deviation between the activation from the signal and 
+output. From the figure we observe little to no difference between the activation from the signal and 
 the background. This is mirrored in the distribution of the output which is centered around the middle 
 of the range. This result is as expected, given that an untrained model holds no knowledge of the data and 
 simply applies a random set of weights. A small exception from this result can be found for larger output values, 
@@ -177,7 +177,7 @@ it is of interest to study the relationship between performance on the training 
 methods. In figure \ref{fig:History} I drew plots displaying the performance on the training and validation scores after each 
 epoch (50 in total), as measured in \ac{AUC} for both a dense \ac{NN} (\ref{fig:NNHist}) and maxout (\ref{fig:MaxOutHist}).
 \\ 
-In figure \ref{fig:NNHist} we can observe that a deep, dense \ac{NN} reaches a maximum in performance for the validation set after only 
+In figure \ref{fig:NNHist} we can observe that an ordinary dense \ac{NN} reaches a maximum in performance for the validation set after only 
 a couple of epochs. This peak is then followed by a quick drop in performance, while the training set increases in performance. 
 The drop in performance for the validation set and increase in performance for the training set is a sure sign of overfitting. 
 \\

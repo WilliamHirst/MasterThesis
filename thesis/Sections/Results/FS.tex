@@ -56,10 +56,10 @@ two methods. For the lower statistics combinations, the \ac{PNN} drops in perfor
 statistics in the original signal set ($\{250,400\}_{GeV}$ and $\{200,450\}_{GeV}$), has decreased by more than half.
 This is an indication that including further trends in the data was destructive for training. In other words, although the \ac{PNN} achieves impressive sensitivity towards high 
 statistics mass combinations, it suffers from the lack of long-term memory which allows the maxout model to uphold performance for lower statics combinations. In the appendix 
-(\ref{appendix:BigVsSmall}) I have included two pie-plots comparing the performance of the maxout model and \ac{PNN} (figures \ref{fig:BigVsLittleSetMaxOut} and \ref{fig:BigVsLittleSetPNN} 
+(\ref{appendix:BigVsSmall}) I have included two 'pie-plots' comparing the performance of the maxout model and \ac{PNN} (figures \ref{fig:BigVsLittleSetMaxOut} and \ref{fig:BigVsLittleSetPNN} 
 respectively) on the original signal set using models trained on the original and the complete signal grid, respectively. The 'pie-plots' further exemplify how the maxout model is able to exploit 
-the full statistics to improve on most mass combinations (17/30), compared to the \ac{PNN} where the performance drops for most combinations (28/30). Finally, in comparison to the ordinary 
-dense network and the maxout model which both achieved sufficient sensitivity for 38/89 combinations, the \ac{PNN} only did so for 33/89.\\
+the full statistics to improve on most mass combinations (17 out of 30), compared to the \ac{PNN} where the performance drops for most combinations (28 out of 30). Finally, in comparison to the ordinary 
+dense network and the maxout model which both achieved sufficient sensitivity for 38 out of 89 combinations, the \ac{PNN} only did so for 33.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -72,7 +72,7 @@ dense network and the maxout model which both achieved sufficient sensitivity fo
     \label{fig:PNNPCA_FS_MLMGridSig}
 \end{figure}
 To summarize the comparisons on the complete signal grid, I created a 'pie-plot' in figure \ref{fig:FSComp}. As shown in the figure, the ordinary dense \ac{NN}
-achieved the highest sensitivity in most of the combinations (49/89), followed by the \ac{PNN} (25/89) and the maxout model (15/89). From the tests we can conclude that 
+achieved the highest sensitivity in most of the combinations (49 out of 89), followed by the \ac{PNN} (25 out of 89) and the maxout model (15 out of 89). From the tests we can conclude that 
 the \ac{PNN} network achieves the highest sensitivity, but struggles for unbalanced data sets. On the contrary the ordinary dense neural network performs best with larger amounts of 
 training data, achieving the highest sensitivity on the largest number of combinations, but never attains the same degree of sensitivity as the \ac{PNN}. The maxout layer underperforms on 
 most combinations, but exhibits impressive training memory, attaining the most balanced performance on all combinations.

@@ -52,8 +52,8 @@ mass combination signal set to a diverse set would affect the performance on the
 results from an analysis which aims to study this.
 \\
 In figure \ref{fig:Interpolation} I present the results from two models for which each is trained on two different sets of signals.
-The figures display which combinations were used during training with the addition of a green corner. 
-The training used to produce the results aligns with the strategy described in section \ref{subsec:TrainingStrategy} and both apply
+The figures display which combinations were used during training, highlighted using a green corner. 
+The training performed to produce the results aligns with the strategy described in section \ref{subsec:TrainingStrategy} and both apply
 an ordinary dense \ac{NN} architecture described in section \ref{subsec:arch}. Figure \ref{fig:OneMass} presents the achieved sensitivity 
 from a dense \ac{NN} which has only trained on one mass combination (which will henceforth be referred to as \ac{OMM}), $\{250,550\}_{GeV}$, 
 while figure \ref{fig:SeveralMass} presents the achieved sensitivity after training on a large set of mass combinations 
@@ -82,14 +82,15 @@ middle, $\{250,550\}_{GeV}$.\\
     on a subset of the full signal set, using the signal region created by two dense \ac{NN}'s. Figure \ref{fig:OneMass} presents the results 
     from a model which has only seen one mass combination during training, $\{250,550\}_{GeV}$. Figure 
     \ref{fig:SeveralMass} presents the results from a model which has seen all mass combinations in the grid, but for the inner square of masses
-    around the $\{250,550\}_{GeV}$ point. Each figure displays which combinations were used during training with the addition of a green corner.}
+    around the $\{250,550\}_{GeV}$ point. The figures display which combinations were used during training, highlighted using a green corner. 
+    }
     \label{fig:Interpolation}
 \end{figure}
 My initial prediction for this comparison was that the \ac{OMM} would outperform the \ac{SMM} for the signal with masses
 $\{250,550\}_{GeV}$, while underperforming on all other data points. The expectation was that \ac{OMM} 
 would learn the trends of the only signal it had seen, while the \ac{SMM} would do the same but for a larger set of mass combinations and 
 at the same time interpolate the results for the masses in between. By comparing figures \ref{fig:OneMass} and \ref{fig:SeveralMass} we 
-see that my prediction was not completely true. We can observe that the model which has trained on several-masses outperformed the 
+see that my prediction was not completely correct. We can observe that the model which has trained on several-masses outperformed the 
 \ac{OMM} on every single combination. At first, I believed this to be caused by the \ac{OMM} overfitting a lot sooner than the other 
 model, in other words being stopped earlier in training by the early stopping criteria described in section \ref{subsec:TrainingStrategy}. 
 To test this theory, I drew the \ac{AUC} score made after each epoch on both the training and validation set for the \ac{OMM} and the 
