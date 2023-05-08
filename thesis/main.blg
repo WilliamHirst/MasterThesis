@@ -15,45 +15,51 @@ Reallocated ex_buf (elt_size=1) to 60000 items from 40000.
 Reallocated out_buf (elt_size=1) to 60000 items from 40000.
 Reallocated name_tok (elt_size=4) to 60000 items from 40000.
 Reallocated name_sep_char (elt_size=1) to 60000 items from 40000.
-Reallocated str_pool (elt_size=1) to 130000 items from 65000.
+Warning--empty author in Aad_2012
 Warning--empty year in srivastava_compete_2013
 Warning--empty year in raychaudhuri_introduction_2008
 Warning--empty publisher in bird_update_2014
 Warning--empty year in bird_update_2014
+Warning--empty author in franchini_search_2019
+Warning--empty author in atlas_search_2021
 Warning--empty author in object_based_2018
+Warning--empty author in atlas_collaboration_performance_2017
+Warning--empty author in atlas_collaboration_performance_muons
+Warning--empty author in atlas_collaboration_photons
 Warning--empty year in glorot_understanding_2010
+Warning--empty author in Aad:2800889
 Warning--empty author in ATLAS-CONF-2011-152
 Warning--empty author in ATLAS-CONF-2017-064
 You've used 45 entries,
             2188 wiz_defined-function locations,
-            833 strings with 111512 characters,
-and the built_in function-call counts, 10189 in all, are:
-= -- 946
-> -- 544
+            833 strings with 62705 characters,
+and the built_in function-call counts, 10009 in all, are:
+= -- 943
+> -- 486
 < -- 0
-+ -- 163
-- -- 118
-* -- 792
-:= -- 1502
++ -- 149
+- -- 104
+* -- 821
+:= -- 1431
 add.period$ -- 49
 call.type$ -- 45
 change.case$ -- 46
 chr.to.int$ -- 0
-cite$ -- 53
+cite$ -- 60
 duplicate$ -- 450
-empty$ -- 954
-format.name$ -- 118
-if$ -- 2544
+empty$ -- 955
+format.name$ -- 104
+if$ -- 2508
 int.to.chr$ -- 0
 int.to.str$ -- 45
-missing$ -- 107
-newline$ -- 143
-num.names$ -- 44
-pop$ -- 150
+missing$ -- 110
+newline$ -- 142
+num.names$ -- 37
+pop$ -- 153
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 269
+skip$ -- 265
 stack$ -- 0
 substring$ -- 441
 swap$ -- 137
@@ -61,8 +67,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 8
-while$ -- 84
+warning$ -- 15
+while$ -- 77
 width$ -- 47
-write$ -- 389
-(There were 8 warnings)
+write$ -- 388
+(There were 15 warnings)

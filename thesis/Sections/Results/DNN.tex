@@ -77,9 +77,9 @@ middle, $\{250,550\}_{GeV}$.\\
         \label{fig:SeveralMass}
     \end{subfigure}
     }
-    \caption[Two grids displaying the expected significance on a subset of the full signal set, using the signal region 
+    \caption[Two grids displaying the expected significance on a subset of the full signal set using the signal region 
     created by two dense \acs{NN}'s, each training on different amounts of signal.]{Two grids displaying the expected significance 
-    on a subset of the full signal set, using the signal region created by two dense \ac{NN}'s. Figure \ref{fig:OneMass} presents the results 
+    on a subset of the full signal set using the signal region created by two dense \acs{NN}s. Figure \ref{fig:OneMass} presents the results 
     from a model which has only seen one mass combination during training, $\{250,550\}_{GeV}$. Figure 
     \ref{fig:SeveralMass} presents the results from a model which has seen all mass combinations in the grid, but for the inner square of masses
     around the $\{250,550\}_{GeV}$ point. The figures display which combinations were used during training, highlighted using a green corner. 
@@ -112,7 +112,7 @@ one mass combination leads to overfitting.
         \label{fig:SeveralMassHist}
     \end{subfigure}
     }
-    \caption[The comparison of the training history of two \acs{NN}'s, each training on different amounts of signal.]{
+    \caption[The comparison of the training history of two \acs{NN}s, each training on different amounts of signal.]{
     A plot displaying the \acs{AUC} score made after each epoch on both the training and validation set. 
     Figure \ref{fig:oneMassHist} shows the results from the \ac{OMM} and figure \ref{fig:SeveralMassHist} shows
     the results from the \ac{SMM}.}
@@ -130,9 +130,9 @@ still outperformed by the \ac{SMM}. This indicates that overfitting is not the o
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Grid/NN_OneMass_Overfitting15_InterpolationGridSig.pdf}
     \end{subfigure}
     }
-    \caption[A grid displaying the expected significance on a subset of the full signal set, using the signal region 
+    \caption[A grid displaying the expected significance on a subset of the full signal set using the signal region 
     created by a dense \acs{NN} which has trained on one mass, and has been allowed to train for 16 epochs.]{
-    A grid displaying the expected significance on a subset of the full signal set, using the signal region 
+    A grid displaying the expected significance on a subset of the full signal set using the signal region 
     created by the \ac{NN}. The figure presents the results from a model which has only seen one mass combination 
     during training, $\{250,550\}_{GeV}$ and was allowed to train for 15 epochs without 
     early stopping. }

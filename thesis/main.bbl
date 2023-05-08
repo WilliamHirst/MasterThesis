@@ -1,11 +1,10 @@
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
 \bibitem{Aad_2012}
-{\scshape ATLAS} collaboration, G.~Aad et~al., \emph{{Observation of a new
-  particle in the search for the Standard Model Higgs boson with the ATLAS
-  detector at the LHC}},
-  \href{http://dx.doi.org/10.1016/j.physletb.2012.08.020}{\emph{Phys. Lett. B}
-  {\bf 716} (2012) 1--29}, [\href{http://arxiv.org/abs/1207.7214}{{\tt
+{\scshape ATLAS} collaboration, \emph{{Observation of a new particle in the
+  search for the Standard Model Higgs boson with the ATLAS detector at the
+  LHC}}, \href{http://dx.doi.org/10.1016/j.physletb.2012.08.020}{\emph{Phys.
+  Lett. B} {\bf 716} (2012) 1--29}, [\href{http://arxiv.org/abs/1207.7214}{{\tt
   1207.7214}}].
 
 \bibitem{SUSY}
@@ -15,9 +14,9 @@ D.~Chung, L.~Everett, G.~Kane, S.~King, J.~Lykken and L.-T. Wang, \emph{The
   Reports} {\bf 407} (2005) 1--203}.
 
 \bibitem{cole_probing_2021}
-A.~Cole, S.~Krippendorf, A.~Schachner and G.~Shiu, ``Probing the structure of
-  string theory vacua with genetic algorithms and reinforcement learning.''
-\newblock 10.48550/arXiv.2111.11466.
+A.~Cole, S.~Krippendorf, A.~Schachner and G.~Shiu, \emph{Probing the structure
+  of string theory vacua with genetic algorithms and reinforcement learning},
+  \href{http://arxiv.org/abs/2111.11466}{{\tt 2111.11466}}.
 
 \bibitem{Guest_2016}
 D.~Guest, J.~Collado, P.~Baldi, S.-C. Hsu, G.~Urban and D.~Whiteson, \emph{Jet
@@ -104,7 +103,7 @@ E.~Oks, \emph{Brief review of recent advances in understanding dark matter and
 
 \bibitem{PDetector}
 J.~Pequenao, ``{Event Cross Section in a computer generated image of the ATLAS
-  detector.}.'' 2008.
+  detector.}.'' \url{https://cds.cern.ch/record/1096081}, 2008.
 
 \bibitem{gramstad_searches_nodate}
 E.~Gramstad, \emph{Searches for supersymmetry in di-lepton final states with
@@ -134,7 +133,8 @@ S.~Frette and W.~O. Hirst, ``Searching for the higgs through supervised and
   \url{https://github.com/WilliamHirst/Advanced-Machine-Learning/blob/main/article/Project_1.pdf}.
 
 \bibitem{magnar}
-M.~Bugge, \emph{Discovery and exclusion in high energy physics},  2022.
+G.~Cowan, ``London postgraduate lectures on particle physics.''
+  \url{http://www.pp.rhul.ac.uk/~cowan/stat/lectures20/stat_week_6.pdf}, 2020.
 
 \bibitem{raychaudhuri_introduction_2008}
 S.~Raychaudhuri, \emph{Introduction to monte carlo simulation},  in \emph{2008
@@ -158,14 +158,15 @@ W.~McKinney, \emph{Data structures for statistical computing in python},  in
   and J.~Millman, eds.), pp.~51 -- 56, 2010.
 
 \bibitem{franchini_search_2019}
-A.~Collaboration, \emph{Search for type-{III} seesaw heavy leptons in dilepton
-  final states in pp collisions at {$\sqrt s$ = 13 TeV} with the {ATLAS}
-  detector},  \href{http://arxiv.org/abs/2008.07949}{{\tt 2008.07949}}.
+{\scshape ATLAS} collaboration, \emph{Search for type-{III} seesaw heavy
+  leptons in dilepton final states in pp collisions at {$\sqrt s$ = 13 TeV}
+  with the {ATLAS} detector},  \href{http://arxiv.org/abs/2008.07949}{{\tt
+  2008.07949}}.
 
 \bibitem{atlas_search_2021}
-A.~Collaboration, \emph{Search for chargino--neutralino pair production in
-  final states with three leptons and missing transverse momentum in
-  {$\sqrt{s}$} = 13 {TeV} pp collisions with the {ATLAS} detector},
+{\scshape ATLAS} collaboration, \emph{Search for chargino--neutralino pair
+  production in final states with three leptons and missing transverse momentum
+  in {$\sqrt{s}$} = 13 {TeV} pp collisions with the {ATLAS} detector},
   \href{http://arxiv.org/abs/2106.01676}{{\tt 2106.01676}}.
 
 \bibitem{object_based_2018}
@@ -180,17 +181,17 @@ M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
   European Physical Journal C} {\bf 79} (aug, 2019) }.
 
 \bibitem{atlas_collaboration_performance_2017}
-A.~Collaboration, \emph{Performance of the {ATLAS} trigger system in 2015},
-  \href{http://arxiv.org/abs/1611.09661}{{\tt 1611.09661}}.
+{\scshape ATLAS} collaboration, \emph{Performance of the {ATLAS} trigger system
+  in 2015},  \href{http://arxiv.org/abs/1611.09661}{{\tt 1611.09661}}.
 
 \bibitem{atlas_collaboration_performance_muons}
-A.~Collaboration, \emph{Performance of the {ATLAS} muon triggers in run 2},
-  \href{http://arxiv.org/abs/2004.13447}{{\tt 2004.13447}}.
+{\scshape ATLAS} collaboration, \emph{Performance of the {ATLAS} muon triggers
+  in run 2},  \href{http://arxiv.org/abs/2004.13447}{{\tt 2004.13447}}.
 
 \bibitem{atlas_collaboration_photons}
-A.~Collaboration, \emph{Performance of electron and photon triggers in {ATLAS}
-  during {LHC} run 2},  \href{http://arxiv.org/abs/1909.00761}{{\tt
-  1909.00761}}.
+{\scshape ATLAS} collaboration, \emph{Performance of electron and photon
+  triggers in {ATLAS} during {LHC} run 2},
+  \href{http://arxiv.org/abs/1909.00761}{{\tt 1909.00761}}.
 
 \bibitem{tensorflow}
 M.~Abadi, A.~Agarwal, P.~Barham, E.~Brevdo, Z.~Chen, C.~Citro et~al.,
@@ -213,10 +214,9 @@ A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
   between training and testing sets: A pedagogical explanation}, .
 
 \bibitem{Aad:2800889}
-{\scshape ATLAS} collaboration, G.~Aad, B.~Abbott, D.~Abbott, A.~Abed~Abud,
-  K.~Abeling, D.~Abhayasinghe et~al., \emph{{Observation of $WWW$ production in
-  $pp$ collisions at {$\sqrt{s}$} = 13 TeV with the ATLAS detector. Observation
-  of WWW Production in pp Collisions at {$\sqrt{s}$} = 13eV with the ATLAS
+{\scshape ATLAS} collaboration, \emph{{Observation of $WWW$ production in $pp$
+  collisions at {$\sqrt{s}$} = 13 TeV with the ATLAS detector. Observation of
+  WWW Production in pp Collisions at {$\sqrt{s}$} = 13eV with the ATLAS
   Detector}},  \href{http://arxiv.org/abs/2201.13045}{{\tt 2201.13045}}.
 
 \bibitem{ATLAS-CONF-2011-152}
