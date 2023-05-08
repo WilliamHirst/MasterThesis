@@ -21,7 +21,7 @@ The first step ensures an equal distribution of processes in both data sets. The
 here for convenience. The third step refers to the sample-weights introduced in section \ref{subsec:SGD}. The sample-weights are only included in the simulated data
 (and therefore training data), to scale each simulated event based on the (among other things) probability of the collision, otherwise known as the cross-section. The scaling of the 
 weights is done to ensure an equal prioritization for background classification and signal classification. In other words, if there was a large imbalance between signal and background, 
-the model would be motivated to tune more towards one trend in the feature space than another. The final step is motivated in the section regarding data handling \ref{subsubsec:StandardScalar}. 
+the model would be motivated to tune more towards one distribution in the feature space than another. The final step is motivated in the section regarding data handling \ref{subsubsec:StandardScalar}. 
 
 \subsection{Training Strategy}\label{subsec:TrainingStrategy}
 To best compare the different \ac{ML}-models, I decide to apply the same training strategy to all (including the \ac{BDT}). The strategy is simply to train the model 

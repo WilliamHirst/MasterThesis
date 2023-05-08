@@ -18,7 +18,7 @@ was focused on how each individual method handled this decision.
 I studied three variants of \ac{LWTA} layers; channel-out, maxout, and \ac{SCO}. The first two were taken from the paper by Wang et al. \cite{wang_maxout_2013}, and the third layer was introduced
 in this present thesis. Each layer reduces the number of nodes during a forward propagation, similarly to the dropout layer, but does so by comparing activation with other nodes in the layer, and 
 dropping all but the largest node. To study the implementation and effect of these layers, I constructed a set of figures to visualize the activation and dropping of nodes, before and after training. 
-When dissecting the figures, I observed that the \ac{LWTA} layers (specifically the maxout layer) were able to build an ensemble of networks by means of trend specific paths. In other words, after training 
+When dissecting the figures, I observed that the \ac{LWTA} layers (specifically the maxout layer) were able to build an ensemble of networks by means of pattern-specific paths. In other words, after training 
 the model, the data chose different paths through the network dependent on if it was background or signal. Moreover, by comparing two sets of signal with different mass combinations, I found that the model 
 was also able to differentiate between different variations of signal. This indicates a strong long-term memory, which allows the model to target a larger set of signal and is an important attribute
 in the \ac{LWTA} layers. Additionally to studying the maxout layer, I repeated the analysis for \ac{SCO}. By comparing the activation between the maxout and \ac{SCO} layer, I found that the \ac{SCO} layer 

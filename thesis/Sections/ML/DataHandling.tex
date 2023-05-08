@@ -32,7 +32,7 @@ much of the variance (or value spread) in the data as possible. The motivation b
 is (mainly) rooted in two points. The first is noise reduction. Some features could not only be non-contributing 
 during training, but could even introduce noise. The second reason is lack of convergence. In a large 
 data set with many features and different classifications (in our case channels), a \ac{ML} could struggle
-to identify the most important trends. By reducing the dimensionality in the data, the hope is that this 
+to identify the most important patterns. By reducing the dimensionality in the data, the hope is that this 
 would be easier. 
 \\
 In short, a \ac{PCA} finds the direction in the feature space along which the data has the largest 
@@ -65,9 +65,9 @@ represent different categorize of collisions, i.e. $t\bar{t}$ or diboson. With t
 mind, the different scales on the y- and x-axis ($10^0$ for figure \ref{fig:PCA1} and $10^{-8}$ for figure 
 \ref{fig:PCA2}) exhibit how the \ac{PCA} creates new features where there is a vast difference in variance 
 (and therefore value to the analysis), and justifies how one can remove features while preserving most of the variance. 
-In figure \ref{fig:PCA2} we observe that all channels exhibit the same trends and are practically identical. 
+In figure \ref{fig:PCA2} we observe that all channels exhibit the same distributions and are practically identical. 
 In other words, these features would not contribute in training a model to distinguish the different channels. 
-In comparison, figure \ref{fig:PCA1} displays large variance and individual trends among the different processes.
+In comparison, figure \ref{fig:PCA1} displays large variance and individual patterns among the different processes.
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{Figures/MLResults/DataHandling/PCA/PCAPlotFirst.pdf}

@@ -101,7 +101,7 @@ find specific paths through the network which will aid in separating the output 
     \label{fig:NetVisSigComp}
 \end{figure}
 Ideally, we would want the model to not only be able to separate the signal from the background, but do so in 
-a way which allows the network to store the different trends within the signal. In section \ref{subsubsec:Channel-Out},
+a way which allows the network to store the different patterns within the signal. In section \ref{subsubsec:Channel-Out},
 I described this ability as long-term memory. One way to implement long-term memory is through a high number of parameters.
 However through the \ac{LWTA} layers we can achieve the same through specific paths. To study this I have created similar 
 figures as discussed in the paragraphs above, but this time only including results from applying the network on one mass combination. 
@@ -112,7 +112,7 @@ the differentiating factor. To highlight the differences, I have included a cuto
 for the middle layer of both figures, \ref{fig:ATrainingSig50250Zoom} and \ref{fig:ATrainingSig200300Zoom}.
 By studying the cutouts, we can discern that the maxout layer allows the model to discriminate both background from signal, 
 and different variations of the signal through an increase in long-term memory. We can conclude that the maxout layer not only 
-applies a form of regularization, but also increases the long-term memory of the model through trend specific paths through the network.\\
+applies a form of regularization, but also increases the long-term memory of the model through pattern-specific paths through the network.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -181,7 +181,7 @@ In figure \ref{fig:NNHist} we can observe that an ordinary dense \ac{NN} reaches
 a couple of epochs. This peak is then followed by a quick drop in performance, while the training set increases in performance. 
 The drop in performance for the validation set and increase in performance for the training set is a sure sign of overfitting. 
 \\
-In figure \ref{fig:MaxOutHist} we observe that an ensemble method (in this case the maxout) displays a different trend. For the first 
+In figure \ref{fig:MaxOutHist} we observe that an ensemble method (in this case the maxout) displays a different training history. For the first 
 10 epochs the model increases in performance for both data sets. After this, the validation set does not decrease in performance, but 
 simply holds stable while the training set increases. This is a sign that the model is not experiencing overfitting. Furthermore, the 
 training history of the maxout model raises an interesting point. From experience I know that the maxout model reaches a peak in performance
