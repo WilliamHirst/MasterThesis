@@ -20,9 +20,9 @@ are composed of a specified number of nodes. A \ac{NN} has three types of layers
 the same number of nodes equal to the number of features for each data point. 
 There can be an arbitrary number of hidden layers, with each hidden layer containing
 an arbitrary number of nodes. Finally, the \ac{NN} has an output layer. The output layer
-contains a number of nodes equal to the number of features for the target.
+contains a number of nodes equal to the dimensions of the target.
 \\
-The neural network functions by passing information in between the different layers through 
+A \ac{NN} functions by passing information in between the different layers through 
 nodes. The nodes are simply pockets of information, each containing a value. 
 All the nodes in the input layer are (in most cases) connected to all nodes in the nearest hidden layer,
 and likewise said hidden layer is connected to the next hidden layer. This structure continues
@@ -94,9 +94,8 @@ becomes
 And in the case where $l=L$, $a_j^L$ is equal to the final output. 
 \subsection{Back Propagation}\label{subsec:BP}
 The backward propagation acts as the engine that drives the training of a neural network. It has the purpose
-of tuning the weights and biases of the network, which are originally given random values, to achieve maximum performance,
-as defined by some \emph{cost function}, $\mathcal{C}$. The cost function defines to which metric we aim to optimize the network. 
-When a neural network produces a prediction, $Y$, the error in the prediction
+of calculating the gradients of the \emph{cost function}, $\mathcal{C}$, with respect to the weights and biases of the network. 
+The cost function defines to which metric we aim to optimize the network. When a neural network produces a prediction, $Y$, the error in the prediction
 is defined by the cost function as $\mathcal{C}\left(Y, T\right)$, where T is the target. To minimize $\mathcal{C}$, the 
 backward propagation utilizes the gradient with respect to the weights and biases in the network, as described in the section 
 regarding optimization \ref{sec:Opti}. Instead of a direct calculation of the gradient, which is very computationally heavy, 
@@ -157,8 +156,8 @@ gradient of the parameters in all other layers can be calculated. A full \emph{e
 a forward propagation which creates a prediction, followed by a backward propagation which tunes the parameters 
 in an attempt to correct the errors in the prediction.
 \subsection{Activation Functions}\label{subsec:activation}
-As mentioned in previous sections, activation functions define how the nodes in the previous layer 
-sum to define the value of the node in the current. There are many types of activation functions, 
+As mentioned in previous sections, activation functions define how the weighted sum of the nodes in the previous layer 
+define the value of the node in the current. There are many types of activation functions, 
 where all have advantages and disadvantages. The choice of activation function for each layer is defined
 before training, making it a hyperparameter. The activation functions applied and tested in this thesis are the following:
 \begin{center}
@@ -184,14 +183,14 @@ where $z$ is an inactivated node which is activated to define $a$, the activatio
 \subsection{Network Ensembles, Dropout and LWTA Networks}\label{subsec:LWTA}
 So far in the thesis, I have only covered dense layers, meaning that every node in a layer 
 is connected to the nodes in the previous and following layer. 
-This definition covers many, but not all hidden layers. Some layers do not function to pass values back and forth between 
-nodes but instead functions by dynamically changing the architecture of the \ac{NN}. In this analysis, 
-I have implemented both the popular \emph{dropout}-layer, and also a group of layers fitting the definition 
+This definition covers many, but not all hidden layers. Some layers do not pass values back and forth between 
+nodes but instead dynamically change the architecture of the \ac{NN}. In this analysis, 
+I have implemented both the \emph{dropout}-layer, and also a group of layers fitting the definition 
 introduced in the paper \cite{srivastava_compete_2013}, as \ac{LWTA}.
 \subsubsection*{Dropout}\label{subsubsec:Dropout}
 The dropout layer functions by assigning a predetermined probability to each neuron in a given layer. Based on the 
 probability, a number of neurons (dependent on the probability) is dropped in each forward pass. By doing this the 
-dropout layer creates an architecture for the network for every round of training. Each unique architecture represents 
+dropout layer creates a different architecture for the network for every round of training. Each unique architecture represents 
 its own network in what becomes an ensemble of networks. 
 \\
 As mentioned in previous sections, creating ensembles of models is a form of regularization. In the case of 
@@ -222,10 +221,10 @@ is still active. This means that for each data point, a neural network is chosen
 each of the nodes. In other words, the channel-out layer creates something resembling a stacking ensemble (see subsection 
 \ref{subsec:Ensembles}). 
 \subsubsection*{Stochastic-Channel-Out}\label{subsubsec:stochchannelout}
-As I will describe in further detail in sections to come, I choose to implement channel-out layer myself. A consequence of this 
+As I will describe in further detail in sections to come, I choose to implement the channel-out layer myself. A consequence of this 
 was that I was able to experiment with it. In section \ref{subsubsec:Dropout}, I described the issue of complex co-adaptation. I also described 
 a possible solution to the issue, the dropout layer. Although dropout and channel-out function rather similarly, they do not deal 
-with this issue similarly. Where the dropout layer will force dormant nodes to contribute in the training by allowing for dominant
+with this issue in the same way. Where the dropout layer will force dormant nodes to contribute in the training by allowing for dominant
 nodes to be dropped, the channel-out would instead allow for dominant nodes to take further control inside their respective unit.
 \\
 To remedy the issue of complex co-adaptation inside the units, I proposed a new layer, the \acf{SCO}. \ac{SCO} functions similarly to channel-out, 
@@ -280,13 +279,13 @@ represents a unit.}
     \label{fig:NetEnsembleComp}
 \end{figure}
 \subsection{Parametrized Neural Network}\label{subsec:PNN}
-In this thesis I will be studying \ac{BSM}-simulations with a diversity in choice of free parameters. This
-means that my signal is of itself diverse. The free parameters studied in this thesis are the mass of 
+In this thesis I will be studying \ac{BSM}-simulations produced with a diversity in choice of free parameters. This
+means that the signal is itself diverse. The free parameters studied in this thesis are the mass of 
 new particles. The mass of a hypothetical particle in a given \ac{BSM} theory can greatly alter the feature space
-spanned by processes including said particle. This means that a \ac{ML}-model could potentially struggle to tune 
-according to all trends in the signal. The obvious solution to this problem is simply to implement one model per mass 
-combination, or choice of mass, and simply reusing the background. Although this approach is very popular, I have decided 
-not to use it for (mainly) three reasons:
+spanned by processes including said particle. This means that a single \ac{ML}-model could potentially struggle to tune 
+according to multiple signal samples that differ only in the mass of the hypothetical particle. The obvious solution to 
+this problem is simply to implement one model per mass combination, or choice of mass, and simply reusing the background. 
+Although this approach is very popular, I have decided not to use it for (mainly) three reasons:
 \begin{itemize}
     \item This approach has been carefully studied for many years, and leaves little room to further exploration. 
     \item Some signals overlap in the feature space. This means that by neglecting signals with relative 

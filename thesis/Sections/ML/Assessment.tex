@@ -1,8 +1,8 @@
 \section{Model Assessment}\label{subsec:Cost}
-\subsection{The Rate of True-Positve - ROC Curve}\label{subsec:AUC}
+\subsection{The Rate of True-Positive - ROC Curve}\label{subsec:AUC}
 A \ac{ROC} curve is a tool used to measure and visualize a binary classifiers' ability 
-to predict trends. In figure \ref{fig:ROC} I have plotted an illustration of a \ac{ROC} curve.
-The curve is plotted on an xy-axis where the x-axis represents 
+to correctly classify data. In figure \ref{fig:ROC} I have plotted an illustration of a 
+\ac{ROC} curve. The curve is plotted on an xy-axis where the x-axis represents 
 false-positive rates and the y-axis represents true-positive. The different values 
 for the curve are the rate of true positives with different thresholds, i.e. 
 the value deciding whether an event is 1 or 0, signal or background. If a classifier 
@@ -31,7 +31,7 @@ rapport \cite{HirstFretteML}.
 The statistical aspect of the analysis will not be of focus in this analysis, nonetheless there are 
 some expressions which would be helpful to define. Let us assume that we expect to see no new physics in the collision
 data, we can call this hypothesis the b(background)-hypothesis. To expect no new physics, is not the same as expecting no 
-deviation. We still assume statistical uncertainties, or noise to effect the simulations which will affect the distribution of our 
+deviation. We still assume statistical uncertainties to effect the simulations which will affect the distribution of our 
 simulations and lead to fluctuations. If these fluctuations are random, we can assume that the noise can be described by a Gaussian distribution 
 (which is a good approximation for large statistics), which has a mean of 0 and a standard deviation equal to $\sqrt{b}$, where b is 
 the number of \ac{SM} simulations. Using this assumption, we can state that the higher the deviation, i.e. the further away 
@@ -67,11 +67,11 @@ simulated background and signal and performs a study to see how well one can sep
 of our models will be of great focus in this thesis.
 \\
 In the case we are measuring the sensitivity, we do not have $n_{obs}$. Instead we simply define $s$ as the number of events of the simulated signal 
-inside the signal region. This number would be spesific for each mass combination and will be a measure for how sensitive 
+inside the signal region. This number would be specific for each mass combination and will be a measure for how sensitive 
 the model is for that exact combination. We call the significance calulated using the simulated data for \emph{expected significance}. 
 In physics, we define a model as sufficiently sensitive, if it is able to achieve a significance of 1.64. This number is chosen based on 
 its relation to the b-hypothesis. A significance of 1.64, equals the distance from the mean of the Gaussiwan distibution which sums to an area of 
-0.95 (see figure \ref{fig:ConfInt}). There are many ways to inteprate this. A layman intepration (which is sufficient for this theisis), is 
+0.95 (see figure \ref{fig:ConfInt}). There are many ways to inteprate this. A layman's intepration (which is sufficient for this thesis), is 
 that given the b-hypothesis is true, there is a $95\%$ probability that we will measure a signal which produces a significance of less than 
-1.64. Therefore, there is only a $5\%$ probability that the b-hypothesis can explain the deviation. For more information on significance and 
-discovery in physics the reader is reffered to the slides \cite{magnar}.
+1.64. Therefore, there is only a $5\%$ probability, given the b-hypothesis, that we would observe an equal or worse comparison given further experiments. 
+For more information on significance and discovery in physics the reader is reffered to the slides \cite{magnar}.

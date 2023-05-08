@@ -20,13 +20,13 @@ In this figure the output is far more separated, and we see noticeable differenc
 of nodes. To highlight the difference in activation, I drew two new figures where the signal 
 (\ref{fig:ATrainingSig}) and background (\ref{fig:ATrainingBkg}) were drawn individually.
 In figure \ref{fig:NetDist1} we notice that there is a noticeable variation in the activation for
-both signal and background. The differences are highlighted in the different paths through network, displaying 
-that the model is able to differentiate between signal and background. Most noticeably, the two units 
+both signal and background. The differences are highlighted in the different paths through network, indicating the
+model is able to differentiate between signal and background. Most noticeably, the two units 
 in the middle hidden layer highlight this fact. In the case of the signal, the upper unit clearly favors 
 the second bottom node. For the background this is also partly true, but with far more 
 spread in the other nodes. Similarly, in the bottom unit (in the same layer), the background shows large
 activation in the uppermost node, while the signal data does not. To conclude, the maxout layer does indeed 
-find trend specific paths through the network which will aid in separating the output for the signal and the background.\\
+find specific paths through the network which will aid in separating the output for the signal and the background.\\
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -49,8 +49,6 @@ find trend specific paths through the network which will aid in separating the o
     (\ref{fig:ATrainingSig}) is the result before training and the figure to right (\ref{fig:ATrainingBkg})
     is after.}
 \end{figure}
-
-
 \begin{figure}
     \makebox[\linewidth][c]{%
     \centering
@@ -98,8 +96,8 @@ find trend specific paths through the network which will aid in separating the o
     the results for two signal with each their own mass combination.]{A calculated visualization of a trained maxout network 
     with three hidden layers. The lines represent the path through the nodes with the largest activation in their respective
     unit. The bolder the line the more frequently the path is used. The distribution on the far right represent the output 
-    distribution. The figure to the left (\ref{fig:ATrainingSig50250}) is a result of signal with ($\tilde{\chi}_1=50$, 
-    $\tilde{\chi}_2=250$GeV) and the right (\ref{fig:ATrainingSig200300}) ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV).}
+    distribution. The figure to the left (\ref{fig:ATrainingSig50250}) is a result of signal with masses $\{50,250\}_{GeV}$ 
+    and the right (\ref{fig:ATrainingSig200300}) with masses $\{200,300\}_{GeV}$.}
     \label{fig:NetVisSigComp}
 \end{figure}
 Ideally, we would want the model to not only be able to separate the signal from the background, but do so in 
@@ -108,7 +106,7 @@ I described this ability as long-term memory. One way to implement long-term mem
 However through the \ac{LWTA} layers we can achieve the same through specific paths. To study this I have created similar 
 figures as discussed in the paragraphs above, but this time only including results from applying the network on one mass combination. 
 Figures \ref{fig:ATrainingSig50250} and \ref{fig:ATrainingSig200300} present the results for the mass combinations 
-$\tilde{\chi}_1=50$ and $\tilde{\chi}_2=250$GeV, and $\tilde{\chi}_1=200$ and $\tilde{\chi}_2=300$GeV respectively.
+$\{50,250\}_{GeV}$, and $\{200,300\}_{GeV}$ respectively.
 By comparing the figures, we see a small but noticeable difference in paths. Again the middle hidden layer seems to be 
 the differentiating factor. To highlight the differences, I have included a cutout, comparing the first and second node in the bottom unit 
 for the middle layer of both figures, \ref{fig:ATrainingSig50250Zoom} and \ref{fig:ATrainingSig200300Zoom}.
@@ -139,8 +137,8 @@ applies a form of regularization, but also increases the long-term memory of the
     \caption[A calculated visualization of the activation of a three layer maxout network, after training and displaying the
     the results for two signal with each their own mass combination, highlighting the difference between two specific nodes.]{
     A cut-out of the fifth and sixth node (counting from the top) in the second hidden layer, activated 
-    by the signal with ($\tilde{\chi}_1=50$, $\tilde{\chi}_2=250$GeV) \ref{fig:ATrainingSig50250Zoom} and 
-    ($\tilde{\chi}_1=200$, $\tilde{\chi}_2=300$GeV) \ref{fig:ATrainingSig200300Zoom}.}
+    by the signal with masses $\{50,250\}_{GeV}$ \ref{fig:ATrainingSig50250Zoom} and 
+    $\{200,300\}_{GeV}$ \ref{fig:ATrainingSig200300Zoom}.}
     \label{fig:NetVisZoom}
 \end{figure}
 Finally, I wanted to compare the activations of the maxout model, to the activation of the \ac{SCO} model. In section \ref{subsubsec:stochchannelout},
@@ -227,7 +225,7 @@ the results from the maxout model to the deep, dense network presented in figure
 network outperforms the maxout model (ever so slightly) for the higher statistic mass combinations. It is plausible that this is due 
 to the difference in depth. The dense network utilizes 3 hidden layers of 600 nodes each, while the maxout, although built with the 
 same architecture, only utilizes 200 nodes per layer when propagating input through the network. This could result in the dense network 
-being able to more deeply tune for the trends in the higher statistics combinations.
+being able to more deeply tune for the patterns in the higher statistics combinations.
 \\
 However, the most interesting result for the maxout model, is its ability to tune for all mass combinations. Although the dense network
 outperformed the maxout model for the high statistics combinations, the maxout model outperformed the dense for most other combination (26 of 
@@ -251,12 +249,12 @@ long-term memory.\\
 In appendix \ref{appendix:Ensembles} I have included grids displaying the achieved sensitivity for both channel-out and \ac{SCO}. Both 
 models demonstrate similar performance to the maxout layer. To compare the three methods I created a 'pie-plot'. A 'pie-plot' 
 compares the achieved sensitivity between several models and displays the results for each individual mass combination.  In figure 
-\ref{fig:EnsembleComp} I present the pie-plot comparing maxout, channel-out and \ac{SCO}. Each mass combination includes a pie, where 
+\ref{fig:EnsembleComp} I present the 'pie-plot' comparing maxout, channel-out and \ac{SCO}. Each mass combination includes a pie, where 
 the size of each 'slice' represents the relative size of the significance compared to the other methods. For example, if a slice occupies 
 half of the pie, then the method corresponding to that slice achieved a significance equal to the sum of the significance of the other methods.
 The color surrounding each pie marks which method achieved the highest sensitivity for the respective combination.
 \\
-By studying the pie-plot in figure \ref{fig:EnsembleComp}, we can deduce that maxout model outperforms the other two in most of the mass 
+By studying the 'pie-plot' in figure \ref{fig:EnsembleComp}, we can deduce that maxout model outperforms the other two in most of the mass 
 combination (24 out of the 30 mass points). From the sizes of each slice, we can deduce that all three models seem relatively equal in performance, maxout only 
 outperforming the others by a small fraction. The most interesting observation from the 'pie-plot' is the performance from the \ac{SCO}, as 
 this model was in-part created by me. Except the mass combinations where maxout was the most sensitive, \ac{SCO} was the best performing model. 

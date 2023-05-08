@@ -1,18 +1,18 @@
 \section{The Simulated Data}
 \subsection{Monte Carlo Simulated Data}
 Up to this point in the thesis I have discussed two data sets: the measured collision data and the simulated \ac{MC} data. 
-As far as my relation to the latter data set I have only used it directly in my analysis and have not been involved in 
-production. The simulations applied in the creation of our simulated data set are all based on \acf{MC} simulations\footnote{For 
+The simulated events are produced with software that relies on \acf{MC} techniques\footnote{For 
 more information on \ac{MC} simulation, the reader is referred to \cite{raychaudhuri_introduction_2008}.}.
 Through simulations, we are able to (among other things); test our understanding of the detector, model the expected \ac{SM} background 
-events in different regions or model new \ac{BSM} physics. The pipeline for producing simulated events, closely mimic the pipeline 
-from real collision to data set. The pipeline for simulating collision events can be summarized in the following steps
+events in different regions or model new \ac{BSM} physics. The pipeline for simulating collision events can be summarized in the following steps
 \begin{itemize}
   \item \emph{Generate events}: Simulate each event in the collision, marking each event with the corresponding process (see section \ref{sec:bkg})
   \item \emph{Simulate detection of events}: Simulate the detection of each event in the different layers of the detector described in section \ref{subsec:Detector}
-  \item \emph{Digitization}: Translate the interaction between the particles in the events and the detector to real signals
-  \item \emph{Reconstruct events}: Go through the same steps applied to real collisions to reconstruct particles from the detector output.
+  \item \emph{Digitization}: Translate the interaction between the particles and the detector to a format that mimics exactly the digital signals from the detector
+  \item \emph{Reconstruct events}: Apply the same software to the simulated digital signals that is applied to the real data, producing representations of physically 
+              meaningful objects such as tracks, electrons, photons, jets and muons
 \end{itemize}
+I was not involved in the collection or production of either of the datasets, simulated or measured.
 \subsection{The Simulated Signal}\label{subsec:signal}
 As I have mentioned in previous sections I will be searching for a large range of signals, all related to the same
 physics, but with different set of parameters, i.e. choices for the masses of the charginos and neutralino. In figure \ref{fig:nrSignal} I have drawn a 
@@ -25,7 +25,7 @@ ${\tilde{\chi}_1}\in[0,400]$ and ${\tilde{\chi}_2}\in[400,800]$. In the full sig
 mass combinations.
 \\
 Given that I received the original signal data set many months before receiving the full set, most of my results were carried out using the 
-original set. Therefore, I choose to use the original data set to compare the performance of the models, then finally use the full set 
+original set. Therefore, I chose to use the original data set to compare the performance of the models, then finally use the full set 
 when comparing the results to previous analysis.
 \begin{figure}
   \centering
@@ -37,8 +37,8 @@ when comparing the results to previous analysis.
 \section{The Tools}
 Every year technology for generating and measuring particle collisions is improving. 
 As a consequence, the amount of data increases drastically. The \ac{ATLAS} experiment
-is one of the largest particle detector experiments currently operating at the 
-CERN laboratory near Geneva. \ac{ATLAS} alone generates approximately 1 petabyte of raw
+is the largest particle detector experiments currently operating at the 
+CERN laboratory near Geneva. \ac{ATLAS} alone generates approximately 60 terabyte of raw
 data every second from proton-proton collisions at the \ac{LHC}. In this analysis I will 
 be studying proton-proton collisions at a center of mass energy $\sqrt{s} = 13$TeV recorded by \ac{ATLAS} detector 
 between 2015-2018, corresponding to an integrated luminosity of $139.0fb^{-1}$. With amounts of data this large, 
@@ -48,8 +48,8 @@ and data frameworks is pivotal if scientific development is to keep up with tech
 In many aspects of my analysis, ranging from statistical analysis to plotting I utilize the \verb!ROOT! framework.
 \verb!ROOT! \cite{ROOT} is at its core a large $\verb!C++!$ library and data structure made specifically for big data
 analysis and computing, as well as data visualization. Today, all \ac{ATLAS} data is stored as ROOT-files, 
-summing up to more than 1 exabyte ($10^{12}$) distributed worldwide through the World \ac{LHC} Computing Grid (WLCG)\cite{bird_update_2014}. 
-\verb!ROOT! has many \ac{HPC} qualities which makes it ideal for particle physics analysis which demands heavy computations. Additionally, 
+summing up to more than 1 exabyte ($10^{12}$) distributed globally via the Worldwide \ac{LHC} Computing Grid (WLCG)\cite{bird_update_2014}. 
+\verb!ROOT! has many qualities which makes it ideal for particle physics analysis which demands heavy computations. Additionally, 
 many particle physics-specific packages have been developed to make it an even better tool. Any function not already in library,
 can easily be added in a \ac{HPC}-effective manner through $\verb!C++!$.
 \\
@@ -58,17 +58,17 @@ effective \ac{API} for data comparison and visualization. \verb!ROOT! allows for
 comparison between data through an advanced graphical user interface. Furthermore, a lot of
 functionality for creating complex stacked histograms are implemented in the \verb!ROOT! \ac{API}, such
 as uncertainty calculations, ordering of histograms and statistical analysis tools. A final and important benefit of 
-\verb!ROOT! is its impressive handling of memory which makes it ideal to handle large amounts of data.
+\verb!ROOT! is its impressive handling of memory and I/O which makes it ideal to handle large amounts of data.
 \subsection{Data Structure and Frameworks}
 Both data sets used as input to the analysis in this thesis, the measured and simulated, were stored in \verb!ROOT!, in the format of \verb!NTuples!. 
 \verb!NTuples! are \verb!ROOT! objects designed to store large amounts of data. They allow for non-symmetrical entries, meaning 
-rows with different number of columns. The simulated and measured collision data are both stored in \verb!NTuples!, with a matrix like structure 
-where the columns represent the variables/features, and the rows represent each event. Hence, allowing non-symmetrical entries is essential 
-for the purpose of storing data on particle collisions, given that not all variables are relevant for all events. For example the $p_T$ of the 
-third lepton in an event in a two lepton final state, does not make sense.
+cells with different number of entries. The simulated and measured collision data are both stored in \verb!NTuples!, with a matrix like structure 
+where the columns represent the variables/features, and the rows represent each event. Hence, allowing ragged entries is essential 
+for the purpose of storing data on particle collisions, given that the amount of information needed for each event can vary. For example the $p_T$ of the 
+event from a three lepton final state would need three entries, whereas an event ending in a two lepton final state only needs two.
 \\
 When starting preprocessing I load the \verb!NTuples! using a \verb!ROOT! interface called \verb!RDataFrame!\footnote{For full 
-documentation on RDataFrame, see $\href{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html}$ 
+documentation on RDataFrame, see \url{https://root.cern/doc/master/classROOT\_1\_1RDataFrame.html} 
 (Accessed 16.04.2023).}. \verb!RDataFrame! allows for easy addition of new columns as well as filtering of events through native functionality. 
 As a consequence I used \verb!RDataFrame! to calculate all features not already in the data set, such as the sum of transverse momentum, 
 or the invariant mass of the three leptons. 
@@ -99,16 +99,16 @@ we create a \verb!C++! file, \texttt{helperfunction}. The \texttt{helperfunction
 of computing the trilepton invariant mass, the \verb!C++! function is created like shown in listing 
 \ref{lst:mlll}.
 \\
-In listing \ref{lst:mlll}, we see a couple of measures taken to uphold to the \verb!ROOT! environment. The first measure is 
+In listing \ref{lst:mlll}, we see a couple of measures taken to conform to the \verb!ROOT! environment. The first measure is 
 the typecasting to $VecF\_t$. $VecF\_t$ is created to wrap floats in the native \verb!ROOT! vector object, $RVec$. 
 The same is done in other cases such as float and integers, $VecI\_t$ and $VecB\_t$. The second measure
-was using \verb!TLorentzVector! \footnote{For full documentation on TLorentzVector, see $\href{https://root.cern.ch/doc/master/classTLorentzVector.html}{https://root.cern.ch/doc/master/classTLorentzVector.html}$ (Accessed 16.04.2023).} 
+was using \verb!TLorentzVector! \footnote{For full documentation on TLorentzVector, see \url{https://root.cern.ch/doc/master/classTLorentzVector.html} (Accessed 16.04.2023).} 
 to calculate the invariant mass. \verb!TLorentzVector! is a class native to \verb!ROOT! with many built-in functions. In 
 this case we use the class to create four-vectors through the kinematic variables, $P_t$, $\eta$, $\phi$ and mass\footnote{These features
 will be described in the next section \ref{sec:Feats}.}. Then, through the \verb!TLorentzVector! class we can simply add, through vector sums, 
 together and extract the invariant mass of the three-lepton system. 
 \lstset{style=Cpp}
-\begin{lstlisting}[caption={$C{++}$-function which implementes the calculation of $M_{lll}$.},captionpos=b, label={lst:mlll}]
+\begin{lstlisting}[caption={$C{++}$-function which implementes the calculation of the trilepton invariant mass.},captionpos=b, label={lst:mlll}]
 // Compute the trilepton invariant mass 
 float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
   TLorentzVector p1;
@@ -120,7 +120,7 @@ float ComputeInvariantMass(VecF_t& pt, VecF_t& eta, VecF_t& phi, VecF_t& m) {
   return (p1 + p2 + p3).M();
 }
 \end{lstlisting}
-The functions implemented in the \verb!C++! library (\texttt{helperfunction}) off-loads, from \verb!Python!, all the time, consuming work to \verb!C++!,
+The functions implemented in the \verb!C++! library (\texttt{helperfunction}) off-loads, from \verb!Python!, all the time, passing work to \verb!C++!,
 which significantly speeds up the computation. The \verb!C++! library is compiled prior to the execution of the main \verb!Python!-code, which 
 will be presented in the following. The main code, doing the selections, calculations and plotting, uses the \verb!RDataFrame! interface in a \verb!Python! 
 environment. Whenever heavy calculations are needed the \verb!RDataFrame! interface calls on function in the \verb!C++! library described above. 

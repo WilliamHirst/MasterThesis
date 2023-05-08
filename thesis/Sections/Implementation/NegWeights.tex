@@ -1,23 +1,24 @@
 \section{Handling Negative Weights in a BDT}\label{subsec:negWeights}
-In section \ref{subsec:TraVal} I mentioned the inclusion of sample weights in the training 
+In section \ref{subsec:TraVal} I mentioned the inclusion of event-specific sample weights in the training 
 of the \ac{ML} models. Most weights are in the range of $w_i \in [0,1]$, but some sample weights are negative.
 The negative weight problem is a well known problem in the world of \ac{ML}-analysis for \ac{HEP}, 
 and is a consequence of higher perturbative accuracy. For the purpose of visualizing 
 distributions and training a \ac{NN}, negative weights are not a problem. But, when using 
 the weights in the training of the \verb!XGBoost! classifier, the algorithm does not work\footnote{Upon further research 
 in the codebase of XGBoost, it seems as though negative weights are not allowed as it interfere with XGBoost's use 
-of the hessian matrix. Due to time constraints, I decided not to  pursue this further.}.  
+of the Hessian matrix. Due to time constraints, I decided not to  pursue this further.}.  
 \\
-Before deciding how to mediate the issue I decided to plot the distribution for 
+Before deciding how to address the issue I decided to plot the distribution for 
 a small subset of features for all the events with negative weights.
 In figure \ref{fig:lep1_Pt_Neg} and \ref{fig:lep1_Phi_Neg} I plotted the distribution of the leading 
 lepton for the features $p_T$ and $\phi$, but only including events with negative weights.
 Additionally, I drew the distribution for the full data set for the same features in figures \ref{fig:lep1_Pt_nNeg}
 and \ref{fig:lep1_Phi_nNeg}. By comparing the distributions, we can observe that the full data set and the 
-negative weights' subset are very similar. There are differences in distributions when comparing the \ac{SM} 
-individually, but when studying the background as a whole, the two sets exhibit the same trends across all 
-regions. This means that the negative weights essentially scale the background uniformly over the full feature 
-space, which motivates treating the negative weight problem uniformly over the full feature space.
+negative weights' subset are very similar as well as only a fraction ($<10\%$) of the weights being negative.  
+There are differences in distributions when comparing the \ac{SM} individually, but when studying the 
+background as a whole, the two sets exhibit the same trends across all regions. This means that the negative 
+weights essentially scale the background uniformly over the full feature space, which motivates treating the 
+negative weight problem uniformly over the full feature space.
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
     \centering
@@ -66,11 +67,11 @@ is shown bellow in equation \ref{eq:negw},
     P  & =  \sum_{j=0}^{N-1}\frac{ w_j}{\mid w_j \mid},
 \end{align}
 where $w_i$ is the weight of an event i, $i \in [0,N-1]$ and N equals the total number of events.
-\section{Defining the Signal Region and Calculating the Significance}
+\section{Defining the Signal Region and Calculating the Significance}\label{sec:calcSign}
 When producing an output I define the signal region through a brute force method which maximizes the significance. 
 Based on trial and error and the study of the output from several models I found that, due to the unbalanced ratio of 
 signal to background, a successful signal region would have to be very 'strict'. Therefore, for each model output I implemented a 
-set of 200 cuts ranging from $0.9$ to the highest output of the model, with most cuts falling in the range of $>0.98$. For each cut
+set of 200 cuts on the classifier output ranging from $0.9$ to the highest output of the model, with most cuts falling in the range of $>0.98$. For each cut
 the significance is calculated where all signal and background events larger than said cut are included in the signal region. The cut 
 corresponding to the largest significance is used to define the final signal region.  
 \\

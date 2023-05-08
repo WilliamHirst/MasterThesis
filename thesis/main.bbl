@@ -169,8 +169,8 @@ A.~Collaboration, \emph{Search for chargino--neutralino pair production in
   \href{http://arxiv.org/abs/2106.01676}{{\tt 2106.01676}}.
 
 \bibitem{object_based_2018}
-``Object-based missing transverse momentum significance in the {ATLAS}
-  detector.''
+{\scshape ATLAS} collaboration, \emph{{Object-based missing transverse momentum
+  significance in the ATLAS detector}},  tech. rep., CERN, Geneva, 2018.
 
 \bibitem{Aaboud_2019}
 M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
@@ -178,6 +178,19 @@ M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
   and 2016 {LHC} proton{\textendash}proton collision data at {$\sqrt{s}$}= 13
   {TeV}}, \href{http://dx.doi.org/10.1140/epjc/s10052-019-7140-6}{\emph{The
   European Physical Journal C} {\bf 79} (aug, 2019) }.
+
+\bibitem{atlas_collaboration_performance_2017}
+A.~Collaboration, \emph{Performance of the {ATLAS} trigger system in 2015},
+  \href{http://arxiv.org/abs/1611.09661}{{\tt 1611.09661}}.
+
+\bibitem{atlas_collaboration_performance_muons}
+A.~Collaboration, \emph{Performance of the {ATLAS} muon triggers in run 2},
+  \href{http://arxiv.org/abs/2004.13447}{{\tt 2004.13447}}.
+
+\bibitem{atlas_collaboration_photons}
+A.~Collaboration, \emph{Performance of electron and photon triggers in {ATLAS}
+  during {LHC} run 2},  \href{http://arxiv.org/abs/1909.00761}{{\tt
+  1909.00761}}.
 
 \bibitem{tensorflow}
 M.~Abadi, A.~Agarwal, P.~Barham, E.~Brevdo, Z.~Chen, C.~Citro et~al.,
@@ -214,5 +227,10 @@ A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
 \bibitem{ATLAS-CONF-2017-064}
 {\scshape ATLAS} collaboration, \emph{{Performance of Top Quark and W Boson
   Tagging in Run 2 with ATLAS}},  tech. rep., CERN, Geneva, 2017.
+
+\bibitem{lester_measuring_1999}
+C.~G. Lester and D.~J. Summers, \emph{Measuring masses of semi-invisibly
+  decaying particles pair produced at hadron colliders},
+  \href{http://arxiv.org/abs/hep-ph/9906349}{{\tt hep-ph/9906349}}.
 
 \end{thebibliography}\endgroup

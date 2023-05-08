@@ -1,11 +1,11 @@
 \section{Comparing Exclusion Limits between Models and Previous Analysis}
 In the previous section I compared the expected significance between 
 the three optimal models for the complete signal grid. In this section 
-I will do the same, but with the introduction of a flat uncertainty on the background.
-Additionally, I will compare the achieved exclusion limits (the mass combinations with an expected 
-significance of over 1.64) by the models created in this thesis, with the limit set in the paper by \ac{ATLAS} 
+I will do the same, but with the introduction of a flat uncertainty on the background using the \verb!ROOT! function 
+described in section \ref{sec:calcSign}. Additionally, I will compare the achieved exclusion limits (the mass combinations 
+with an expected significance of over 1.64) by the models created in this thesis, with the limit set in the paper by \ac{ATLAS} 
 from 2021 \cite{atlas_search_2021}, \emph{Search for chargino--neutralino pair production in final states with 
-three leptons and missing transverse momentum in} $\sqrt{s}=13$ \emph{TeV pp collisions with the ATLAS detector}.
+three leptons and missing transverse momentum in} $\sqrt{s}=13$ \emph{TeV pp collisions with the \ac{ATLAS} detector}.
 \\
 In the analysis by \ac{ATLAS}, they have not assumed a flat uncertainty. Instead, an analysis has been made on the simulated data 
 over individual regions and collision processes. Due to time constraints, a flat uncertainty has been made for comparison 
@@ -100,16 +100,16 @@ of only $max(Z)-min(Z) = 10.91$. When attempting to explore further regions in t
 signal data, are critical attributes. Therefore, I believe, the generalizability and memory of the maxout model, makes it an interesting candidate for further studies.
 \subsection*{Final Remarks and Possible Improvements}
 To summarize the discoveries in the figures above, none of the methods were able to extend the limits beyond those by \ac{ATLAS}, at least not to a satisfactory degree.
-This is by no means to say that the methods discussed and presented in this thesis are not of interest. For starters, the matter of trying to extend the limit of sensitivity 
+This is by no means to say that the methods discussed and presented in this thesis are not of interest. The matter of trying to extend the limit of sensitivity 
 beyond that produced by \ac{ATLAS}, was given little attention and consideration during the timespan of this thesis. Most of the time was instead spent comparing and exploring the 
-different models. In contrast, the limit set by \ac{ATLAS} is the result of a large team of focused scientist all attempting to push the limit as far as they can. This considered, I believe 
+different models. In contrast, the limit set by \ac{ATLAS} is the result of a large team of focused scientists all attempting to push the limit as far as they can. This considered, I believe 
 the models show great promise. If I were to prioritize expansion of exclusion limits, there are several aspects of the analysis in this thesis I would improve.
 \begin{itemize}
     \item \emph{A more advanced analysis of the signal region}: In my analysis I chose to define the signal regions from each model's output using a brute force approach. 
-          A more advanced approach, applying optimization technics to find the maximum possible significance from each output, would most likely produce a higher sensitivity.
+          A more advanced approach, applying optimization techniques to find the maximum possible significance from each output, would most likely produce a higher sensitivity.
     \item \emph{Implement multiple orthogonal signal regions}: In the analysis made by \ac{ATLAS} \cite{atlas_search_2021}, several signal regions were implemented and studied,
-           with the final sensitivity equalling the combination of all the regions. This approach is far more complex, and can lead to a higher sensitivity. I believe that with the same 
-           treatment on the \ac{ML} output presented in this thesis, a much higher significance would be achieved. 
+           with the final sensitivity equalling the combination of all the regions. This approach is far more complex, and can lead to a higher sensitivity. With the same 
+           treatment on the \ac{ML} output presented in this thesis, a much higher significance could be achieved. 
     \item \emph{Devote additional time to studying the relationship between overfitting and significance}: The early stoppage criteria of ten epochs applied in this analysis was chosen 
           for convenience and simplicity. This rigid criteria could be destructive for optimal performance, and by devoting additional time to study
           the relationship between the threshold for the criteria and optimal performance could lead to better performing models.
@@ -123,5 +123,6 @@ the models show great promise. If I were to prioritize expansion of exclusion li
           given the goal of extending the limits, it would most likely be beneficial to prioritize the regions closest to the existing limits, in hopes of achieving a higher sensitivity in these 
           regions\footnote{See the final paragraph in section \ref{sec:PCA}}.  
     \item \emph{Further study of features}: In the beginning of the analysis, the signal was yet undecided. As a consequence, the variables used in the analysis are not tailored to the \ac{SUSY} 
-          signal. In retrospect, other variables could be relevant for my analysis. For example the Z-veto ($|m_{lll}-m_z|$), which was used in the analysis of \ac{ATLAS} in 2021 \cite{atlas_search_2021}. 
+          signal. In retrospect, other variables could be relevant for my analysis. For example the Z-veto ($|m_{lll}-m_z|$) or the stransverse mass ($M_{T2}$) \cite{lester_measuring_1999}, which were used in 
+          the analysis of \ac{ATLAS} in 2021 \cite{atlas_search_2021}. 
 \end{itemize}
