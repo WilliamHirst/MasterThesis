@@ -61,15 +61,15 @@
 \contentsline {subsection}{\numberline {3.3.1}Lepton Variables}{35}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Jet Variables}{35}{subsection.3.3.2}%
 \contentsline {section}{\numberline {3.4}Data Preprocessing and Preselection Cuts}{35}{section.3.4}%
-\contentsline {section}{\numberline {3.5}The Machine Learning Models}{37}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Model Selection}{37}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Model Architecture}{37}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Creating Custom Layers}{40}{subsection.3.5.3}%
+\contentsline {section}{\numberline {3.5}The Machine Learning Models}{38}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Model Selection}{38}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Model Architecture}{38}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Creating Custom Layers}{39}{subsection.3.5.3}%
 \contentsline {section}{\numberline {3.6}Model Training and Validation}{42}{section.3.6}%
 \contentsline {subsection}{\numberline {3.6.1}Training and Validating Data}{42}{subsection.3.6.1}%
 \contentsline {subsection}{\numberline {3.6.2}Training Strategy}{42}{subsection.3.6.2}%
-\contentsline {section}{\numberline {3.7}Handling Negative Weights in a BDT}{43}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Defining the Signal Region and Calculating the Significance}{44}{section.3.8}%
+\contentsline {section}{\numberline {3.7}Handling Negative Weights in a BDT}{42}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Defining the Signal Region and Calculating the Significance}{43}{section.3.8}%
 \contentsline {chapter}{\numberline {4}Results \& Discussion}{45}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Benchmarking the Analysis with Boosted Decision Trees}{45}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Dense Ordinary Neural Networks}{47}{section.4.2}%

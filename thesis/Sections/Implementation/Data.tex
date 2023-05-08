@@ -82,7 +82,7 @@ to take advantage of the plotting functionality in \verb!ROOT!. The workflow of 
 \ref{fig:WF}.
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{Figures/Illustrations/TaskFlow.png}
+  \includegraphics[width=0.6\textwidth]{Figures/Illustrations/TaskFlow.png}
   \vspace{-1cm}
   \caption{A visual summary of the workflow and frameworks used in the 
   computational analysis. }
@@ -135,7 +135,7 @@ and add a new feature using the \texttt{ComputeInvariantMass}-function. Finally,
 \texttt{Histo1D}, which I later plot using \verb!ROOT! \ac{API}. In this example I chose the trilepton invariant mass, 
 but in the analysis all additional features were calculated using a similar method. 
 \lstset{style=Python}
-\begin{lstlisting}[caption={Python-file for calling dataframe and calculating $M_{lll}$.},captionpos=b, label={lst:df_mlll}]
+\begin{lstlisting}[caption={Python-file for calling dataframe and calculating the trilepton invariant mass.},captionpos=b, label={lst:df_mlll}]
 R.gROOT.ProcessLine(".L helperFunctions.cxx+");
 R.gInterpreter.Declare('#include "helperFunctions.h"') 
 R.gSystem.Load("helperFunctions_cxx.so")
