@@ -1,7 +1,7 @@
 \section{Parametrized Neural Network}
 \subsection{Discriminating Masses}
 When introducing the \ac{PNN} in section \ref{subsec:PNN}, I mentioned that by including the masses of the introduced particles as features 
-in the feature set, we motivate individualistic tuning for each mass combination in the signal set. To study this, I will in this section 
+in the feature set, we motivate individual tuning for each mass combination in the signal set. To study this, I will in this section 
 present results where I manually assign all the events, both background and signal, the same parameters (mass combinations) thereby assigning 
 most of the signal the wrong parameters. The hope is that if indeed the \ac{PNN} has been able to tune individually for each mass combination, 
 then the \ac{PNN} should perform best when each signal event is given the correct parameter in the feature set. In other words, when each signal 
@@ -73,10 +73,10 @@ are given the wrong parameter, the \ac{PNN} still achieves the highest efficienc
 \end{figure}
 To further study this result, I created a table of the efficiencies of each mass combination for both results, after applying a simple cut of $0.975$. The results are presented in 
 table \ref{table:PNNSigComp}. It is evident from table \ref{table:PNNSigComp} that the \ac{PNN} achieves the highest performance when events are given the correct label, 
-although not by much. In the events with masses  $\{50,250\}_{GeV}$, the efficiency improved by a little over $3\%$, while the event with masses 
-$\{200,300\}_{GeV}$, improved efficiency by almost $10\%$. Another interesting observation is that events with masses $\{100,200\}_{GeV}$ seem 
-to prefer the label of  $\{200,300\}_{GeV}$ over that of  $\{50,250\}_{GeV}$, despite the latter mass combination being closer 
-in mass. A possible explanation is that the difference in mass ($\Delta m = |m_{\tilde{\chi}_1} - m_{\tilde{\chi}_2}|$), influences the trends in the data, similarly 
+although not by much. In the events with masses  $\{50,250\}_{GeV}$, the efficiency improved by a little over $3\%$, while the events with masses 
+$\{200,300\}_{GeV}$, improved efficiency by almost $10\%$. Another interesting observation is that events with masses $\{100,200\}_{GeV}$ perform 
+better when given the parameter of $\{200,300\}_{GeV}$ compared to $\{50,250\}_{GeV}$, despite the latter mass combination being closer in mass. 
+A possible explanation is that the difference in mass ($\Delta m = |m_{\tilde{\chi}_1} - m_{\tilde{\chi}_2}|$), influences the feature distribution in the data, similarly 
 to what we saw that size of mass does. Regardless, from \ref{table:PNNSigComp}, we can deduce that the \ac{PNN} does in fact discriminate between mass combinations 
 and tune for them independently. 
 \begin{table}[H]
