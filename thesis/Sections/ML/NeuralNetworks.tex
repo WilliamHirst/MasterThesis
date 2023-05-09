@@ -175,10 +175,10 @@ before training, making it a hyperparameter. The activation functions applied an
         \end{cases}\right)
         = a \in (-\infty, \infty),
    \end{align*}
-   where $\alpha$ is scalar.
+   where $\alpha$ is scalar, 
 \end{itemize},
 \end{center}
-where $z$ is an inactivated node which is activated to define $a$, the activation.
+and where $z$ is an inactivated node which is activated to define $a$, the activation.
 
 \subsection{Network Ensembles, Dropout and LWTA Networks}\label{subsec:LWTA}
 So far in the thesis, I have only covered dense layers, meaning that every node in a layer 
@@ -241,7 +241,7 @@ Additionally to the channel-out I will be applying a second layer discussed in t
 the \emph{Maxout} layer. The maxout layer functions very similar to the channel-out with a small difference in the dropping of nodes. 
 In the dropout layer, nodes are dropped by neglecting all contributions from said node, or in other words by multiplying the activation 
 from the dropped nodes by zero. This is replicated in both the channel-out layer and the \ac{SCO} layer. In doing so all nodes, activated 
-and dropped alike, possesses their own set of weights and biases. This is not the case for the maxout layer.
+and dropped alike, possess their own set of weights and biases. This is not the case for the maxout layer.
 In the maxout layer, each unit possesses just one set of weights and biases. For each forward pass in the network, the largest activated 
 node will contribute to the nodes in the following layer using the same weights and biases as the rest of the nodes in the units. However, 
 the nodes only share parameters connected to the layer in front, not behind. This allows for the maxout layer to have fewer parameters to 
@@ -259,8 +259,8 @@ In figure \ref{fig:Max_out} I have illustrated a maxout network. The figure show
 with eight nodes each. In the first hidden layer the maxout layer creates four units, each containing two nodes, and in the 
 second layer the maxout creates two units with four nodes each. The resulting output from the first layer is the 
 four nodes with the highest activation in their respected unit, likewise the second layer's output is two nodes.
-To the right of the network in figure \ref{fig:Max_out}, I have illustrated how the different configuration of 
-paths through the network creates an ensemble of networks with their own architecture. Note in the figure how, as described in the 
+To the right of the network in figure \ref{fig:Max_out}, I have illustrated how the different configurations of 
+paths through the network create an ensemble of networks with their own architecture. Note in the figure how, as described in the 
 previous paragraph, each node possesses its own connections to the previous layer, while sharing the connections with the 
 rest of the unit, to the next. In figure \ref{fig:NetEnsembleComp} I have drawn a separate illustration to show how 
 this differs from both channel-out and \ac{SCO} in this regard. Figure \ref{fig:NetEnsembleComp} illustrates how 
@@ -280,11 +280,11 @@ represents a unit.}
 \end{figure}
 \subsection{Parametrized Neural Network}\label{subsec:PNN}
 In this thesis I will be studying \ac{BSM}-simulations produced with a diversity in choice of free parameters. This
-means that the signal is itself diverse. The free parameters studied in this thesis are the mass of 
-new particles. The mass of a hypothetical particle in a given \ac{BSM} theory can greatly alter the feature space
+means that the signal is itself diverse. The free parameters studied in this thesis are the masses of the
+new particles. The set of masses of hypothetical particles in a given \ac{BSM} theory can greatly alter the feature space
 spanned by processes including said particle. This means that a single \ac{ML}-model could potentially struggle to tune 
-according to multiple signal samples that differ only in the mass of the hypothetical particle. The obvious solution to 
-this problem is simply to implement one model per mass combination, or choice of mass, and simply reusing the background. 
+according to multiple signal samples that differ only in the masses of the hypothetical particles. The obvious solution to 
+this problem is simply to implement one model per mass combination, or choice of masses, and simply reusing the background. 
 Although this approach is very popular, I have decided not to use it for (mainly) three reasons:
 \begin{itemize}
     \item This approach has been carefully studied for many years, and leaves little room to further exploration. 
@@ -295,7 +295,7 @@ Although this approach is very popular, I have decided not to use it for (mainly
 \end{itemize}
 When the data set, $X$, is dependent on a set of free parameters, $\theta = [\theta_0,\theta_1,\theta_2,...,\theta_N]$,
 we can write $X(\theta)$. For a single neural network trained on a set of parameters, we define the model as 
-$\mathcal{F}(X(\theta))$. In the case where we build one model for each choice of parameter, we get a set of models
+$\mathcal{F}(X(\theta))$. In the case where we build one model for each choice of parameters, we get a set of models
 defined as $\{ \mathcal{F}_a(X(\theta_a))$, $\mathcal{F}_b(X(\theta_b))$, ...,$\mathcal{F}_c(X(\theta_c))\}$, where
 a, b and c are indices which correspond to individual choices of parameters respectively. 
 \\
@@ -304,7 +304,7 @@ By simply including the parameters as additional features, we can write $\mathca
 we can utilize all the statistics at the same time, while also aiding the $\ac{NN}$ in its effort to recognize all individual 
 patterns for all signals. The difference in approach between parameter specific networks and the \ac{PNN} are highlighted in figure \ref{fig:PNN}.
 In practice, it is aiding the \ac{NN} by adding a shift to the total output from the initial layer according to the discrete distribution of the 
-parameters. The hope is that each discrete shift will motivate a separate individualistic tuning for each choice of parameter. 
+parameters. The hope is that each discrete shift will motivate a separate individualistic tuning for each choice of parameters. 
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{Figures/Illustrations/PNN.png}

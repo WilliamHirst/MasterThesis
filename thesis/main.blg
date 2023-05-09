@@ -18,6 +18,7 @@ Reallocated name_sep_char (elt_size=1) to 60000 items from 40000.
 Warning--entry type for "the_atlas_collaboration_tagging_2014" isn't style-file defined
 --line 800 of file bibliography.bib
 Warning--empty author in Aad_2012
+Warning--empty author in the_cms_collaboration_observation_2012
 Warning--empty year in srivastava_compete_2013
 Warning--empty year in raychaudhuri_introduction_2008
 Warning--empty publisher in bird_update_2014
@@ -34,29 +35,29 @@ Warning--empty author in ATLAS-CONF-2011-152
 Warning--empty author in ATLAS-CONF-2017-064
 You've used 47 entries,
             2188 wiz_defined-function locations,
-            842 strings with 63024 characters,
-and the built_in function-call counts, 10219 in all, are:
+            842 strings with 63004 characters,
+and the built_in function-call counts, 10209 in all, are:
 = -- 960
-> -- 492
+> -- 488
 < -- 0
-+ -- 152
-- -- 105
-* -- 832
-:= -- 1457
++ -- 151
+- -- 104
+* -- 838
+:= -- 1450
 add.period$ -- 50
 call.type$ -- 47
 change.case$ -- 48
 chr.to.int$ -- 0
-cite$ -- 62
+cite$ -- 63
 duplicate$ -- 459
 empty$ -- 985
-format.name$ -- 105
-if$ -- 2563
+format.name$ -- 104
+if$ -- 2561
 int.to.chr$ -- 0
 int.to.str$ -- 47
 missing$ -- 113
 newline$ -- 148
-num.names$ -- 38
+num.names$ -- 37
 pop$ -- 161
 preamble$ -- 1
 purify$ -- 0
@@ -69,8 +70,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 15
-while$ -- 78
+warning$ -- 16
+while$ -- 77
 width$ -- 49
 write$ -- 400
-(There were 16 warnings)
+(There were 17 warnings)

@@ -62,8 +62,8 @@ sampled both with or without replacement\footnote{In this analysis the data is s
 several times or not. An epoch is completed after N/B iterations of updating 
 $\theta$. The added stochastic element reduces the risk of getting stuck in local minima. Gradient descent with randomly sampled mini-batches is called \ac{SGD}.
 \subsection{Memory, Adaptive Learning and ADAM}\label{subsec:ADAM}
-Although \ac{SGD} can be highly effective, it tends to be prone to oscillations between to points in the parameter space. In other words jumping back and forth between 
-the same to sets of parameters, without ever converging closer to the minima. To alleviate this issue, we introduce momentum. The momentum aims to act as a form of 
+Although \ac{SGD} can be highly effective, it tends to be prone to oscillations between two points in the parameter space. In other words jumping back and forth between 
+the same two sets of parameters, without ever converging closer to the minima. To alleviate this issue, we introduce momentum. The momentum aims to act as a form of 
 memory, conserving some momentum from the previous update. By defining the new step between $\theta_{i+1}$ and $\theta_{i}$ as 
 \begin{align}
     \textbf{v}_i = \eta \cdot \nabla_\theta \mathcal{C}\left(\boldsymbol{\theta}_i\right),
@@ -76,7 +76,7 @@ making our new parameter iteration equal to
 \begin{align}
     \boldsymbol{\theta}_{i+1}=\boldsymbol{\theta}_i-\textbf{v}_i,
 \end{align}
-where $\gamma \in [0-1]$ is a parameter which defines the size of the momentum.
+where $\gamma \in [0,1]$ is a parameter which defines the size of the momentum.
 \\
 An additional flaw in the \ac{SGD} optimization algorithm, is that it treats all regions in the feature space equally. Ideally, we would want the algorithm to focus 
 on the most relevant areas (steep regions), while quickly moving past less relevant areas (flat regions). A solution to this is the introduction of an \emph{adaptive learning rate}.

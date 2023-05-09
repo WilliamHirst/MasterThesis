@@ -1,8 +1,5 @@
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
-\bibitem{the_atlas_collaboration_tagging_2014}
-``Tagging and suppression of pileup jets with the {ATLAS} detector.''
-
 \bibitem{Aad_2012}
 {\scshape ATLAS} collaboration, \emph{{Observation of a new particle in the
   search for the Standard Model Higgs boson with the ATLAS detector at the
@@ -11,8 +8,8 @@
   1207.7214}}].
 
 \bibitem{the_cms_collaboration_observation_2012}
-T.~C. Collaboration, \emph{Observation of a new boson at a mass of 125 {GeV}
-  with the {CMS} experiment at the {LHC}},
+{\scshape CMS} collaboration, \emph{Observation of a new boson at a mass of 125
+  {GeV} with the {CMS} experiment at the {LHC}},
   \href{http://arxiv.org/abs/1207.7235}{{\tt 1207.7235}}.
 
 \bibitem{SUSY}
@@ -240,5 +237,8 @@ A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
 C.~G. Lester and D.~J. Summers, \emph{Measuring masses of semi-invisibly
   decaying particles pair produced at hadron colliders},
   \href{http://arxiv.org/abs/hep-ph/9906349}{{\tt hep-ph/9906349}}.
+
+\bibitem{the_atlas_collaboration_tagging_2014}
+``Tagging and suppression of pileup jets with the {ATLAS} detector.''
 
 \end{thebibliography}\endgroup

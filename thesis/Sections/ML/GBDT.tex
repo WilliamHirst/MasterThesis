@@ -1,11 +1,11 @@
 \section{Decision Trees and Gradient Boosting}
 \subsection{Decision Trees}
 \acf{DT} are, similarly to \ac{NN} some of the most popular \ac{ML} methods used today.
-Contrary to \ac{NN}, \ac{DT} are relativly easy in theory. Despite the simplicity of \ac{DT}, 
+Contrary to \ac{NN}, \ac{DT} are relatively easy in theory. Despite the simplicity of \ac{DT}, 
 they are capable of solving a large range of complex problems. In this section I will cover the use 
 of \ac{DT} as applied to a supervised classification problem.
 \\
-The goal of decision trees are to create a flowchart-like tree structure from input to output. 
+The goal of decision trees is to create a flowchart-like tree structure from input to output. 
 Similarly to the traditional \ac{CC} method used in particle physics, a \ac{DT} 
 places \emph{rectangular-cuts} on a data set. It does so to create a collection of thresholds 
 $\{c_1, c_2,...,c_{N_c}\}$, which when applied to a new data set and target, 
@@ -15,7 +15,7 @@ In figure \ref{fig:DT}, I have illustrated a simple \ac{DT} classifying a 4-dime
 input data to one of three classifications. As is visualized in figure \ref{fig:DT}, the \ac{DT} 
 applies a set of thresholds on the data to find the route applicable to a target. For each applied 
 cut, the data split into what we call \emph{branches}. Each branch represents a subset of the data.
-The final subset, after a sufficient amount of cuts ends in what we call \emph{leafs}. Each leaf contains
+The final subset, after a sufficient amount of cuts ends in what we call \emph{leaves}. Each leaf contains
 a label which is assigned to the subset of data of which it contains.
 \\  
 Just like most \ac{ML}-methods there are many kinds of \ac{DT}, each with their own 
@@ -45,7 +45,7 @@ trees the weak classifiers are an ensemble of shallow trees, which combine to fo
 that allows for deeper learning. As is the case for most gradient-boosting 
 techniques, the collecting of weak classifiers is an iterative process.
 \\
-We define an imperfect model $\mathcal{F}_m$, which is a collection of m number of weak 
+We define an imperfect model $\mathcal{F}_m$, which is a collection of $m$ number of weak 
 classifiers, or estimators. A prediction for the model on a given data-points, $\textbf{x}_i$, is 
 defined as $\mathcal{F}_m(\textbf{x}_i)$, and the target for the aforementioned data is 
 defined as $t_i$. The goal of the iterative process is to minimize some cost-function 
