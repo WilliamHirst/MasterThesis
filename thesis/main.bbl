@@ -1,11 +1,19 @@
 \providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
 
+\bibitem{the_atlas_collaboration_tagging_2014}
+``Tagging and suppression of pileup jets with the {ATLAS} detector.''
+
 \bibitem{Aad_2012}
 {\scshape ATLAS} collaboration, \emph{{Observation of a new particle in the
   search for the Standard Model Higgs boson with the ATLAS detector at the
   LHC}}, \href{http://dx.doi.org/10.1016/j.physletb.2012.08.020}{\emph{Phys.
   Lett. B} {\bf 716} (2012) 1--29}, [\href{http://arxiv.org/abs/1207.7214}{{\tt
   1207.7214}}].
+
+\bibitem{the_cms_collaboration_observation_2012}
+T.~C. Collaboration, \emph{Observation of a new boson at a mass of 125 {GeV}
+  with the {CMS} experiment at the {LHC}},
+  \href{http://arxiv.org/abs/1207.7235}{{\tt 1207.7235}}.
 
 \bibitem{SUSY}
 D.~Chung, L.~Everett, G.~Kane, S.~King, J.~Lykken and L.-T. Wang, \emph{The

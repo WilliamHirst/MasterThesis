@@ -15,6 +15,8 @@ Reallocated ex_buf (elt_size=1) to 60000 items from 40000.
 Reallocated out_buf (elt_size=1) to 60000 items from 40000.
 Reallocated name_tok (elt_size=4) to 60000 items from 40000.
 Reallocated name_sep_char (elt_size=1) to 60000 items from 40000.
+Warning--entry type for "the_atlas_collaboration_tagging_2014" isn't style-file defined
+--line 800 of file bibliography.bib
 Warning--empty author in Aad_2012
 Warning--empty year in srivastava_compete_2013
 Warning--empty year in raychaudhuri_introduction_2008
@@ -30,36 +32,36 @@ Warning--empty year in glorot_understanding_2010
 Warning--empty author in Aad:2800889
 Warning--empty author in ATLAS-CONF-2011-152
 Warning--empty author in ATLAS-CONF-2017-064
-You've used 45 entries,
+You've used 47 entries,
             2188 wiz_defined-function locations,
-            833 strings with 62705 characters,
-and the built_in function-call counts, 10009 in all, are:
-= -- 943
-> -- 486
+            842 strings with 63024 characters,
+and the built_in function-call counts, 10219 in all, are:
+= -- 960
+> -- 492
 < -- 0
-+ -- 149
-- -- 104
-* -- 821
-:= -- 1431
-add.period$ -- 49
-call.type$ -- 45
-change.case$ -- 46
++ -- 152
+- -- 105
+* -- 832
+:= -- 1457
+add.period$ -- 50
+call.type$ -- 47
+change.case$ -- 48
 chr.to.int$ -- 0
-cite$ -- 60
-duplicate$ -- 450
-empty$ -- 955
-format.name$ -- 104
-if$ -- 2508
+cite$ -- 62
+duplicate$ -- 459
+empty$ -- 985
+format.name$ -- 105
+if$ -- 2563
 int.to.chr$ -- 0
-int.to.str$ -- 45
-missing$ -- 110
-newline$ -- 142
-num.names$ -- 37
-pop$ -- 153
+int.to.str$ -- 47
+missing$ -- 113
+newline$ -- 148
+num.names$ -- 38
+pop$ -- 161
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 265
+skip$ -- 274
 stack$ -- 0
 substring$ -- 441
 swap$ -- 137
@@ -68,7 +70,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 15
-while$ -- 77
-width$ -- 47
-write$ -- 388
-(There were 15 warnings)
+while$ -- 78
+width$ -- 49
+write$ -- 400
+(There were 16 warnings)

@@ -93,7 +93,8 @@
 \contentsline {subsection}{\numberline {A.2}Results from the PCA}{70}{subsection.Alph0.1.2}%
 \contentsline {subsection}{\numberline {A.3}Comparing Models Trained on Original and the Complete Signal Grid}{72}{subsection.Alph0.1.3}%
 \contentsline {section}{\numberline {B}The Features}{73}{section.Alph0.2}%
-\contentsline {subsection}{\numberline {B.1}The Feature Distribution}{73}{subsection.Alph0.2.1}%
-\contentsline {subsection}{\numberline {B.2}The Selection of Features}{78}{subsection.Alph0.2.2}%
-\contentsline {section}{\numberline {C}The Implementation of Channel-Out, \ac {SCO} and Maxout}{79}{section.Alph0.3}%
-\contentsline {section}{\numberline {D}Contour Plots for the Calculated Significance with a Flat Uncertainty}{81}{section.Alph0.4}%
+\contentsline {subsection}{\numberline {B.1}Jet Requirements}{73}{subsection.Alph0.2.1}%
+\contentsline {subsection}{\numberline {B.2}The Feature Distribution}{74}{subsection.Alph0.2.2}%
+\contentsline {subsection}{\numberline {B.3}The Selection of Features}{79}{subsection.Alph0.2.3}%
+\contentsline {section}{\numberline {C}The Implementation of Channel-Out, \ac {SCO} and Maxout}{80}{section.Alph0.3}%
+\contentsline {section}{\numberline {D}Contour Plots for the Calculated Significance with a Flat Uncertainty}{82}{section.Alph0.4}%
