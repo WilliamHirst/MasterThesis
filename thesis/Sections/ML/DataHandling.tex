@@ -31,7 +31,7 @@ the mean and standard deviation for each feature, respectively.
 much of the variance (or value spread) in the data as possible. The motivation behind dimensionality reduction 
 is (mainly) rooted in two points. The first is noise reduction. Some features could not only be non-contributing 
 during training, but could even introduce noise. The second reason is lack of convergence. In a large 
-data set with many features and different classifications (in our case channels), a \ac{ML} could struggle
+data set with many features and different classifications (in our case channels), an \ac{ML} model could struggle
 to identify the most important patterns. By reducing the dimensionality in the data, the hope is that this 
 would be easier. 
 \\
@@ -62,7 +62,7 @@ for the features with the most and second most variance (\ref{fig:PCA1}), and le
 variance (\ref{fig:PCA2}) after applying \ac{PCA} to our data set. In this \ac{PCA} I am yet to remove features, 
 so all four features are taken from a data set where all the variance is still conserved. Each color in the figures 
 represent different categories of collisions, i.e. $t\bar{t}$ or diboson. With this in 
-mind, the different scales on the y- and x-axis ($10^0$ for figure \ref{fig:PCA1} and $10^{-8}$ for figure 
+mind, the different scales on the $y$- and $x$-axis ($10^0$ for figure \ref{fig:PCA1} and $10^{-8}$ for figure 
 \ref{fig:PCA2}) exhibit how the \ac{PCA} creates new features where there is a vast difference in variance 
 (and therefore value to the analysis), and justifies how one can remove features while preserving most of the variance. 
 In figure \ref{fig:PCA2} we observe that all channels exhibit the same distributions and are practically identical. 

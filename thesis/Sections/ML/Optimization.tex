@@ -1,5 +1,5 @@
 \section{Optimization}\label{sec:Opti}
-For a general function $\mathcal{C}$ dependent on a set of parameters $\boldsymbol \theta = 
+For a general function, $\mathcal{C}$, dependent on a set of parameters, $\boldsymbol \theta = 
 \{\theta_0,\theta_1,...,\theta_{N_\theta}\}$, the goal of optimization is to find 
 optimal parameters as defined by a predicated goal. In the case of \ac{ML}, the parameters are what 
 define the model and the function is some metric which defines the error of the prediction. This 
@@ -22,7 +22,7 @@ the model towards optimal tuning. We call this function the \emph{cost function}
 The \emph{binary crossentropy} function is a very popular cost function for classification problems, as it
 can be used to compare the predicted probability distributions to the true probability distributions for a set 
 of classification. It is ideal, as it heavily punishes high probabilities (high output) for wrong classification
-and heavily rewards high probabilities for correct classifications. For a set of predictions $Y$ and a set of targerts $T$,
+and heavily rewards high probabilities for correct classifications. For a set of predictions, $Y$, and a set of targets, $T$,
 the binary crossentropy function is defined as
 \begin{align}
     \mathcal{C}\left(Y, T\right) =-\sum_{i=1}^N\left[ \textbf{y}_i \log \left(\textbf{t}_i\right)+\left(1-\textbf{y}_i\right) \log \left(1-\textbf{t}_i\right)\right].
@@ -46,7 +46,7 @@ Having a too large $\eta$ and one risks 'jumping' over the true minimum or simpl
 to reach a high accuracy. Too small $\eta$ and may result in spending computation time beyond reason as well as being sensitive
 to local minima. 
 \\
-For a given data set of size N, we find the gradient $\grad_\theta (\mathcal{C})$ through the sum of the gradient for each data point 
+For a given data set of size $N$, we find the gradient $\grad_\theta (\mathcal{C})$ through the sum of the gradient for each data point 
 $\textbf{x}_i$
 \begin{align}\label{eq:dC}
     \grad_\theta (\mathcal{C}) = \sum_{i=0}^N \grad_\theta (\mathcal{C}_i(\textbf{x}_i)).
@@ -57,9 +57,9 @@ equation \ref{eq:dC}. We call these weights, \emph{sample-weights}.
 \\
 The calculation of the gradient over numerous data points can be time-consuming. An alternative approach which both reduces time and 
 introduces randomness, is the application of \emph{mini-batches}. Instead of summing the gradient over the full data set, one randomly samples 
-a predetermined number of points, B, creating a subset of the data which is used to update $\theta$. The points sampled to create the subset, can be 
+a predetermined number of points, $B$, creating a subset of the data which is used to update $\theta$. The points sampled to create the subset, can be 
 sampled both with or without replacement\footnote{In this analysis the data is sampled with replacement.}, meaning allowing the same data points to be sampled 
-several times or not. An epoch is completed after N/B iterations of updating 
+several times or not. An epoch is completed after $N/B$ iterations of updating 
 $\theta$. The added stochastic element reduces the risk of getting stuck in local minima. Gradient descent with randomly sampled mini-batches is called \ac{SGD}.
 \subsection{Memory, Adaptive Learning and ADAM}\label{subsec:ADAM}
 Although \ac{SGD} can be highly effective, it tends to be prone to oscillations between two points in the parameter space. In other words jumping back and forth between 
@@ -84,5 +84,5 @@ By updating the learning rate based on the surface of the feature space, one can
 \\
 The most intuitive way to prioritize steep areas, is by introducing the second derivative of $\mathcal{C}$, but this can be quite time-consuming. The \ac{ADAM} optimizer aims to 
 create an approximation of the second derivative, through the use of momentum and an adaptive learning rate. The \ac{ADAM} optimizer introduces a set of new parameters, and includes both the 
-linear and squared term of the derivative of $\mathcal{C}$ (i.e. $\nabla_\theta \mathcal{C}$ and $(\nabla_\theta \mathcal{C})^2$) with memory parameters for both ($\beta_1$ and $\beta_1$ respectively). Additionally, the \ac{ADAM} optimizer holds a memory of the average of the 
+linear and squared term of the derivative of $\mathcal{C}$ (i.e. $\nabla_\theta \mathcal{C}$ and $(\nabla_\theta \mathcal{C})^2$) with memory parameters for both ($\beta_1$ and $\beta_2$ respectively). Additionally, the \ac{ADAM} optimizer holds a memory of the average of the 
 gradient and squared gradient, which is used to create faster convergence. For a thorough description of the \ac{ADAM}, the reader is referred to the paper by Kingma et al.  \cite{kingma_adam_2017}.

@@ -15,13 +15,13 @@ events in different regions and model new \ac{BSM} physics. The pipeline for sim
 I was not involved in the collection or production of either of the datasets, simulated or measured.
 \subsection{The Simulated Signal}\label{subsec:signal}
 As I have mentioned in previous sections I will be searching for a large range of signals, all related to the same
-physics, but with different set of parameters, i.e. choices for the masses of the charginos and neutralino. In figure \ref{fig:nrSignal} I have drawn a 
+physics, but with different set of parameters, i.e. choices for the masses of the charginos and neutralinos. In figure \ref{fig:nrSignal} I have drawn a 
 grid displaying the different mass combinations searched for in this analysis. The masses range from ${\tilde{\chi}_1}\in[0,400]$GeV
 and ${\tilde{\chi}_2}\in[200,800]$GeV\footnote{The chargino, $\tilde{\chi}^{\pm}_1$, and second neutralino, $\tilde{\chi}_2$, are mass degenerate, 
 meaning they share the same mass. As a consequence, I will refer to the mass of each particle interchangeably throughout the thesis.}. In the beginning 
-of my analysis I only received a subset (which will be referred to as the \emph{original} data set) of the full signal set. In the figure I have marked the original data set with a white label in the top 
-right corner of the box. The original signal set contains a total of 30 different mass combinations in the ranges 
-${\tilde{\chi}_1}\in[0,400]$ and ${\tilde{\chi}_2}\in[400,800]$. In the full signal data set there are a total of 90 different 
+of my analysis I only received a subset (which will be referred to as the \emph{original} data set) of the full signal set. In figure \ref{fig:nrSignal} 
+I have marked the original data set with a white label in the top right corner of the box. The original signal set contains a total of 30 different mass 
+combinations in the ranges ${\tilde{\chi}_1}\in[0,400]$ and ${\tilde{\chi}_2}\in[400,800]$. In the full signal data set there are a total of 90 different 
 mass combinations.
 \\
 Given that I received the original signal data set many months before receiving the full set, most of my results were carried out using the 
@@ -37,10 +37,10 @@ when comparing the results to previous analysis.
 \section{The Tools}
 Every year technology for generating and measuring particle collisions is improving. 
 As a consequence, the amount of data increases drastically. The \ac{ATLAS} experiment
-is the largest particle detector experiments currently operating at the 
+is the largest particle detector experiment currently operating at the 
 CERN laboratory near Geneva. \ac{ATLAS} alone generates approximately 60 terabyte of raw
 data every second from proton-proton collisions at the \ac{LHC}. In this analysis I will 
-be studying proton-proton collisions at a center of mass energy $\sqrt{s} = 13$TeV recorded by \ac{ATLAS} detector 
+be studying proton-proton collisions at a center of mass energy $\sqrt{s} = 13$TeV recorded by the \ac{ATLAS} detector 
 between 2015-2018, corresponding to an integrated luminosity of $139.0fb^{-1}$. With amounts of data this large, 
 data handling and storing is a big challenge. Therefore, taking advantage of sophisticated numerical tools 
 and data frameworks is pivotal if scientific development is to keep up with technological development.
@@ -93,8 +93,8 @@ In this section I will cover a simple example to highlight the steps taken in pr
 used in the analysis. As mentioned earlier, the two main frameworks used were \verb!RDataFrame! and \verb!Pandas!. 
 In this example I will cover the case of a feature not already in the \verb!ROOT! file, namely the trilepton
 invariant mass. All loading of data is done using the \verb!ROOT! framework and is easily read using the
-\verb!RDataFrame! interface. To effectively generate new features we want to stay in \verb!ROOT! environment. Therefore,
-we create a \verb!C++! file, \texttt{helperfunction}. The \texttt{helperfunction} contains additional 
+\verb!RDataFrame! interface. To effectively generate new features I want to stay in \verb!ROOT! environment. Therefore,
+I create a \verb!C++! file, \texttt{helperfunction}. The \texttt{helperfunction} contains additional 
 \verb!ROOT! functions which are used in the analysis and are not already native to \verb!ROOT!. In the case 
 of computing the trilepton invariant mass, the \verb!C++! function is created like shown in listing 
 \ref{lst:mlll}.

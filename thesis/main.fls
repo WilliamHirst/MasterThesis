@@ -2045,6 +2045,7 @@ INPUT ./Sections/Acknow.tex
 INPUT ./Sections/Acknow.tex
 INPUT Sections/Acknow.tex
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmro10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmri10.tfm
 INPUT ./main.toc
 INPUT main.toc
 INPUT main.toc
@@ -2053,7 +2054,6 @@ OUTPUT main.toc
 INPUT ./main.lof
 INPUT main.lof
 INPUT main.lof
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmri10.tfm
 OUTPUT main.lof
 INPUT ./Sections/Introduction/Introduction.tex
 INPUT ./Sections/Introduction/Introduction.tex
@@ -2241,7 +2241,6 @@ INPUT ./Sections/ML/Phenomenology.tex
 INPUT Sections/ML/Phenomenology.tex
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx7.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
 INPUT ./Sections/ML/Optimization.tex
 INPUT ./Sections/ML/Optimization.tex
 INPUT ./Sections/ML/Optimization.tex
@@ -2312,6 +2311,7 @@ INPUT ./Figures/Illustrations/WeightBias.png
 INPUT Figures/Illustrations/WeightBias.png
 INPUT ./Figures/Illustrations/WeightBias.png
 INPUT ./Figures/Illustrations/WeightBias.png
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmss8.tfm
 INPUT ./Figures/Illustrations/Max_out.png
@@ -3072,7 +3072,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbsy10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx7.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx9.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb

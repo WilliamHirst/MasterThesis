@@ -8,7 +8,7 @@ and not a result of poorly chosen number of layers or nodes. Therefore, I wanted
 \\
 In this section I present a comparison of the results from two ordinary dense \ac{NN} with different amount of nodes. The first network 
 uses the dense \ac{NN} architecture described in \ref{subsec:arch} and illustrated in figure \ref{fig:arch}, while the second network uses the same activation 
-functions and amount of hidden layers, but with only 20 nodes in each layer. The comparison presented in this thesis represent a sample of networks I choose to 
+functions and amount of hidden layers, but with only 20 nodes in each hidden layer. The comparison presented in this thesis represent a sample of networks I choose to 
 compare when deciding the number of nodes and hidden layers to be used in the analysis. Both networks apply the training strategy described in section 
 \ref{subsec:TrainingStrategy}.
 \\
@@ -94,7 +94,7 @@ see that my prediction was not completely correct. We can observe that the model
 \ac{OMM} on every single combination. At first, I believed this to be caused by the \ac{OMM} overfitting a lot sooner than the other 
 model, in other words being stopped earlier in training by the early stopping criteria described in section \ref{subsec:TrainingStrategy}. 
 To test this theory, I drew the \ac{AUC} score made after each epoch on both the training and validation set for the \ac{OMM} and the 
-\ac{SMM}, shown in Figure \ref{fig:oneMassHist} and \ref{fig:SeveralMassHist}, respectively. By comparing the two figures,
+\ac{SMM}, shown in figures \ref{fig:oneMassHist} and \ref{fig:SeveralMassHist}, respectively. By comparing the two figures,
 we observe that the \ac{OMM}'s performance on the validation set peaks in the first epoch, therefore stopping training after 
 10 epochs, while the \ac{SMM} peaks after 6, allowing the \ac{SMM} model to train longer. This is a clear indication that training on 
 one mass combination leads to overfitting. 

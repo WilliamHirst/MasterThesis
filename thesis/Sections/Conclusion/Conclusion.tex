@@ -45,7 +45,7 @@ Before applying the models to the complete signal grid I applied a \ac{PCA} to s
 Training the dense \ac{NN}, maxout model and \ac{PNN} with this new data set, I found it to improve the sensitivity of the two latter models. The comparison was based on the choice to weight the importance of all mass combinations equally.
 \\\newline
 Finally, in my analysis I compared the performance of my three best performing models (maxout model and \ac{PNN} with a \ac{PCA}, and the dense \ac{NN}) on the complete signal grid. Additionally, I compared the results to the expected exclusion 
-limits ($Z>1.64$) set by \ac{ATLAS} in 2021 \cite{atlas_search_2021}. The calculated significance for the models were done using a flat uncertainty of $20\%$, $10\%$ and $<1\%$. Based on the comparison I found that none of the \ac{ML} models were 
+limits ($Z>1.64$) set by \ac{ATLAS} in 2021 \cite{atlas_search_2021}. The expected significance achieved by the models were calculated using a flat uncertainty of $20\%$, $10\%$ and $<1\%$. Based on the comparison I found that none of the \ac{ML} models were 
 able to extend the limits set by \ac{ATLAS}, with the exception of the \ac{PNN} when utilizing $<1\%$ uncertainty. For an uncertainty of $20\%$, the \ac{PNN} was able to achieve a limit which mirrors \ac{ATLAS} for smaller masses ($\tilde{\chi}_2<250$GeV)
 and set a limit past that achieved by the other networks, for both the chargino and neutralino mass. When decreasing the uncertainty, the maxout model and dense \ac{NN} were able to extend the limit past that achieved by the \ac{PNN} for higher masses, 
 but never surpassing the limit by \ac{ATLAS}.

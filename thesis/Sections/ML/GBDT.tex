@@ -62,7 +62,7 @@ Using our new estimator $h_m$, we can now define a new model as
     \mathcal{F}_{m+1}(\textbf{x}_i) = \mathcal{F}_m + h_m (\textbf{x}_i).
 \end{align}
 Similarly to how we define a depth of trees, we can define the degree of boosting. We define 
-this as the amount of trees used in the iterative process, or M. This means that the final classifier 
+this as the amount of trees used in the iterative process, or $M$. This means that the final classifier 
 becomes
 \begin{align}
     \mathcal{F}_M (\textbf{x}_i) = \sum_{i=0}^M h_i(\textbf{x}_i)
@@ -70,7 +70,7 @@ becomes
 The \verb!XGBoost! \cite{XGB} framework used in this analysis enables a (advanced) gradient-boosted algorithm, 
 and was initially created for the Higgs ML challenge. Since the challenge, \verb!XGBoost! has become 
 a favorite for many in the \ac{ML} community and has later won many other ML challenges. \verb!XGBoost! 
-often outperforms ordinary decision trees, but what it gains in results it looses in 
+often outperforms ordinary decision trees, but what it gains in results it loses in 
 interpretability. A single tree can easily be analyzed and dissected, but when the number 
 of trees increases this becomes harder. For a more detailed explanation of the \verb!XGBoost! framework,
 the reader is referred to \cite{XGB}.
