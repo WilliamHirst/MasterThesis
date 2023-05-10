@@ -27,7 +27,7 @@ def call(self, inputs: tf.Tensor,mask: tf.Tensor = None) -> tf.Tensor:
 
     return outputs 
 \end{lstlisting}
-
+\subsubsection*{SCO}
 \lstset{style=Python}
 \begin{lstlisting}[caption={Python implementation for the custom activation function used to define the \ac{SCO} layer.},captionpos=b, label={lst:channel_out}]
 def call(self, inputs: tf.Tensor, mask: tf.Tensor = None) -> tf.Tensor:
@@ -67,6 +67,7 @@ def call(self, inputs: tf.Tensor, mask: tf.Tensor = None) -> tf.Tensor:
     return outputs 
 \end{lstlisting}
 \newpage
+\subsubsection*{Maxout}
 \lstset{style=Python}
 \begin{lstlisting}[caption={Python implementation for the custom activation function used to define the maxout layer.},captionpos=b, label={lst:max_out}]
 def call(self, inputs: tf.Tensor) -> tf.Tensor:

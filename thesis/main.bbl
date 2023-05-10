@@ -104,7 +104,9 @@ O.~Antipin, D.~Atwood and A.~Soni, \emph{Search for rs gravitons via wlwl
 
 \bibitem{DarkME}
 E.~Oks, \emph{Brief review of recent advances in understanding dark matter and
-  dark energy}, .
+  dark energy},  vol.~93, p.~101632.
+\newblock
+  \href{http://dx.doi.org/https://doi.org/10.1016/j.newar.2021.101632}{DOI}.
 
 \bibitem{PDetector}
 J.~Pequenao, ``{Event Cross Section in a computer generated image of the ATLAS
@@ -239,6 +241,7 @@ C.~G. Lester and D.~J. Summers, \emph{Measuring masses of semi-invisibly
   \href{http://arxiv.org/abs/hep-ph/9906349}{{\tt hep-ph/9906349}}.
 
 \bibitem{the_atlas_collaboration_tagging_2014}
-``Tagging and suppression of pileup jets with the {ATLAS} detector.''
+{\scshape {ATLAS}} collaboration, \emph{Tagging and suppression of pileup jets
+  with the {ATLAS} detector},  tech. rep.
 
 \end{thebibliography}\endgroup

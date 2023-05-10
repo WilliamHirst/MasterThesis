@@ -144,10 +144,11 @@ applies a form of regularization, but also increases the long-term memory of the
 Finally, I wanted to compare the activations of the maxout model, to the activation of the \ac{SCO} model. In section \ref{subsubsec:stochchannelout},
 I stated that the inspiration behind the \ac{SCO} was to elevate the channel-out method in a way which reduced complex co-adaptation among neighboring
 nodes. In figure \ref{fig:NetDistSCO}, I included a visualization of the activation of a three layer \ac{SCO} network before (\ref{fig:BTrainingSCO}) 
-and after (\ref{fig:ATrainingSCO}) training. By comparing the activations from the \ac{SCO} layers to maxout, we can discern that the \ac{SCO} behaves
-exactly as intended. In the figures visualizing the maxout layer (\ref{fig:NetDist1}), we can observe that several of the nodes which are not activated 
-before training, are left dormant even after training. In comparison, the \ac{SCO} layers display a far more balanced activation, and exhibits no signs 
-of complex co-adaptation. 
+and after (\ref{fig:ATrainingSCO}) training. However, it is important to note that the boxes in the figures do not equal the units given that the \ac{SCO} 
+creates a large set of different units. The boxes are simply included for aesthetic reasons. By comparing the activations from the \ac{SCO} 
+layers to maxout, we can discern that the \ac{SCO} behaves exactly as intended. In the figures visualizing the maxout layer (\ref{fig:NetDist1}), we can observe 
+that several of the nodes which are not activated before training, are left dormant even after training. In comparison, the \ac{SCO} layers display a far more balanced 
+activation, and exhibits no signs of complex co-adaptation. 
 \begin{figure}[H]
     \makebox[\linewidth][c]{%
     \centering
@@ -166,9 +167,9 @@ of complex co-adaptation.
     \caption[A calculated visualization of the activation of a three layer \acs{SCO} network, after training and displaying the
     signal and background separately.]{A calculated visualization of a three layer \acs{SCO} network. The lines represent the path 
     through the nodes with the largest activation in their respective unit. The bolder the line the more frequently the path is used. 
-    The distribution on the far right represent the output distribution.
-    The figure to the left (\ref{fig:BTrainingSCO}) is the result before training and the figure to right (\ref{fig:ATrainingSCO})
-    is after.} 
+    The distribution on the far right represent the output distribution. The figure to the left (\ref{fig:BTrainingSCO}) is the result 
+    before training and the figure to right (\ref{fig:ATrainingSCO}) is after. Note: The boxes in the figures do \emph{not} represent the units 
+    given that the \ac{SCO} changes the units dynamically.} 
     \label{fig:NetDistSCO}
 \end{figure}
 \subsection{Training History and Overfitting}\label{subsec:Overfitting}
@@ -260,7 +261,7 @@ outperforming the others by a small fraction. The most interesting observation f
 this model was in-part created by me. Except the mass combinations where maxout was the most sensitive, \ac{SCO} was the best performing model. 
 Most interestingly, it outperformed the channel-out model, which is the model most similar to \ac{SCO}, in 9 out of the 30 mass point (see figure \ref{fig:SCOCO}). 
 In hindsight, I believe that by removing the \ac{SCO} during prediction (similar to what is done for dropout), the \ac{SCO} layer would greatly 
-approve in performance, on a count of the fact that the performance on each event is dependent on the random choice of unit for that prediction.
+improve in performance, on a count of the fact that the performance on each event is dependent on the random choice of unit for that prediction.
 This means it is possible that upon prediction, a data point is sent through a path which has never been chosen during training. 
 Nonetheless, this analysis is an indicator that although the maxout model was the highest performing model, the \ac{SCO} layer shows 
 great promise and should be further explored in further analysis. 

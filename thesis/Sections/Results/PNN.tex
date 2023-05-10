@@ -1,3 +1,4 @@
+\newpage
 \section{Parametrized Neural Network}
 \subsection{Discriminating Masses}
 When introducing the \ac{PNN} in section \ref{subsec:PNN}, I mentioned that by including the masses of the introduced particles as features 
@@ -16,7 +17,7 @@ output and therefore only includes the output in the range $[0.975-1]$. In both 
 effectively separated from the background, even for the combinations which are given the wrong parameters (i.e. $\{100,200\}_{GeV}$, $\{200,300\}_{GeV}$, 
 and $\{150,250\}_{GeV}$). Nevertheless, upon close study of figure \ref{fig:PNN50250Dist_95} and the corresponding legend, we can deduce that the signal 
 which is given the correct parameters ($\{50,250\}_{GeV}$) is also the signal which is able to conserve the highest percentage of events when applying a 
-simple cut off $0.975$\footnote{This is further evident when studying the efficiency rates in table \ref{table:PNNSigComp}.}.\\
+simple cut off $0.975$\footnote{This is further evident when studying the efficiency percentages in table \ref{table:PNNSigComp}.}.\\
 \begin{figure}
     \makebox[0.95\linewidth][c]{%
     \centering
@@ -66,8 +67,8 @@ are given the wrong parameter, the \ac{PNN} still achieves the highest efficienc
     all events are given the same parameter.]{
     The output distribution from a trained \ac{PNN} model for the background and signals with four different mass combinations:
     $\{50,250\}_{GeV}$, $\{100,200\}_{GeV}$, $\{200,300\}_{GeV}$, and $\{150,250\}_{GeV}$, and where all the data were given the 
-    parameters corresponding to the masses $\{200,300\}_{GeV}$. The figure includes the full output range (\ref{fig:PNN50250Dist}) 
-    and the output ranging from 0.975-1.00 (\ref{fig:PNN50250Dist_95}). The number in parentheses indicate the fraction of each background and 
+    parameters corresponding to the masses $\{200,300\}_{GeV}$. The figure includes the full output range (\ref{fig:PNN200300Dist}) 
+    and the output ranging from 0.975-1.00 (\ref{fig:PNN200300Dist_95}). The number in parentheses indicate the fraction of each background and 
     the absolute number of events for each signal point. The total number of background events is also shown.}
     \label{fig:PNN200300DistComp}
 \end{figure}
@@ -89,7 +90,7 @@ and tune for them independently.
         \hline
     \end{array}
     $
-    \caption{A listing of the remaining procentages of each mass combination after applying a cut-off of 0.975. The results are from a \ac{PNN} where all 
+    \caption{A listing of the remaining procentages of each mass combination after applying a cut of 0.975. The results are from a \ac{PNN} where all 
     of the events were given the parameters corresponding to the masses $\{50,250\}_{GeV}$ and $\{200,300\}_{GeV}$, respectively.}
     \label{table:PNNSigComp}
 \end{table}

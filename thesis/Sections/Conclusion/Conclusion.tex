@@ -41,7 +41,7 @@ I found that all three network variants were able to outperform the \ac{BDT}, al
 the highest significance for most mass combinations (24 out of 30), but mostly in the higher mass range ($\tilde{\chi}_2>600$GeV). In the events with lower masses and higher statistics ($\tilde{\chi}_2<600$GeV), the \ac{PNN} outperformed all others, 
 almost doubling the significance achieved by the maxout model. Shared among all models was the fact that they all found processes with high amounts of missing transverse energy difficult to separate from the signal, i.e. $Diboson(lll)$, $t\bar{t}$ and $top\ other$.
 \\\newline
-Before applying the models to the complete signal grid I applied a \ac{PCA} to study if it could improve performance. When requiring the conservation of $99.99\%$ of the variation from the original feature set, 5 features were removed.
+Before applying the models to the complete signal grid I applied a \ac{PCA} to study if it could improve performance. When requiring the conservation of $99.9\%$ of the variation from the original feature set, 5 features were removed.
 Training the dense \ac{NN}, maxout model and \ac{PNN} with this new data set, I found it to improve the sensitivity of the two latter models. The comparison was based on the choice to weight the importance of all mass combinations equally.
 \\\newline
 Finally, in my analysis I compared the performance of my three best performing models (maxout model and \ac{PNN} with a \ac{PCA}, and the dense \ac{NN}) on the complete signal grid. Additionally, I compared the results to the expected exclusion 
