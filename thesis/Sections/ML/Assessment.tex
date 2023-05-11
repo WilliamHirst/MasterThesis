@@ -7,7 +7,7 @@ false-positive rates and the $y$-axis represents true-positive. The different va
 for the curve are the rate of true positives with different thresholds, i.e. 
 the value deciding whether an event is 1 or 0, signal or background. If a classifier 
 has learned nothing and is simply guessing, the \ac{ROC} curve will be a linear curve 
-going from 0 to 1. This line is often drawn in \ac{ROC} curve. The better the 
+going across the diagonal of the axis. This line is often drawn in \ac{ROC} curve. The better the 
 classifier is, the higher the \ac{ROC} curve will bend towards the upper-left corner of the 
 graph. The closer the line is to the diagonal, the worse the classifier. 
 \\
@@ -39,7 +39,7 @@ from the mean, the less likely such a deviation is explained by our b-hypothesis
 define the hypothesis as rejected with a certain confidence.
 \\
 We measure the deviation between the observed collision data and the simulated \ac{SM} data in units of significance, $Z$. 
-For a given signal region with $n_{obs}$ events of measured collision data and b simulated \ac{SM} data, we define
+For a given signal region with $n_{obs}$ events of measured collision data and $b$ simulated \ac{SM} data, we define
 the significance of a deviation as
 \begin{align}\label{eq:Z1}
 Z=\sqrt{2\left[n_{\text {obs }} \ln \frac{n_{\text {obs }}}{b}-n_{\mathrm{obs}}+b\right]} \text { or } 
@@ -69,7 +69,7 @@ of our models will be of great focus in this thesis.
 In the case we are determining the sensitivity, we do not have $n_{obs}$. Instead we simply define $s$ as the number of events of the simulated signal 
 inside the signal region. This number would be specific for each mass combination and will be an estimation for how sensitive 
 the model is for that exact combination. We call the significance calulated using the simulated data for \emph{expected significance}. 
-In physics, we define a model as sufficiently sensitive if it is able to achieve a significance of 1.64. This number is chosen based on 
+In physics, we define a model as sufficiently sensitive if it is able to achieve a significance of 1.64 or above. This number is chosen based on 
 its relation to the b-hypothesis. A significance of 1.64, equals the distance from the mean of the Gaussian distribution which sums to an area of 
 0.95 (see figure \ref{fig:ConfInt}). There are many ways to inteprete this. A layman's intepratation (which is sufficient for this thesis), is 
 that given the b-hypothesis is true, there is a $95\%$ probability that we will measure a signal which produces a significance of less than 

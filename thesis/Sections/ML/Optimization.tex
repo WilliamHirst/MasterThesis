@@ -6,11 +6,11 @@ define the model and the function is some metric which defines the error of the 
 means that in our case, the optimization problem corresponds to
 finding the set of parameters corresponding to the minimum value of $\mathcal{C}$. Several methods
 can be applied to optimization problems, all with their own advantages and disadvantages.
-In most methods the use of the gradient of the function, $\grad_\theta (\mathcal{C})$ is involved in 
-one way or another. Many of the methods used in this analysis are based on one of the simplest 
+In most methods the use of the gradient of the function, $\grad_\theta (\mathcal{C})$, is involved in 
+one way or another. Many of the methods which were used in the analysis are based on one of the simplest 
 optimization methods, the \emph{gradient descent}-method.
 \subsection{Cost functions}\label{subsec:Cost}
-How we define the performance of a \ac{ML} model is not only important when 
+How we define the performance of an \ac{ML} model is not only important when 
 evaluating the model, but is crucial during training. In the case of classification,
 it is natural to assume an appropriate metric should involve a comparison between 
 the predicted classification and the true classification. The variation of 
@@ -31,9 +31,9 @@ the binary crossentropy function is defined as
 The gradient descent method aims to obtain the optimal parameters of a model
 through the application of the derivative of the cost-function, $\mathcal{C}$ with respect to the parameters in the model, 
 $\boldsymbol \theta$. When evaluated at a given point in the parameter space, the negative of 
-the gradient, $-\grad_\theta (\mathcal{C})$ is used to move closer to the optimal set of parameters.
+the gradient, $-\grad_\theta (\mathcal{C})$, is used to move closer to the optimal set of parameters.
 The negative of the gradient corresponds to the direction for which a 
-small change $d\boldsymbol\theta$ in the parameter space will result in the biggest 
+small change, $d\boldsymbol\theta$, in the parameter space will result in the biggest 
 decrease in the cost function. Finding the minimum value is an iterative process, meaning
 the steps in the direction of $-\grad_\theta (\mathcal{C})$ is finite. The size of the step is a
 hyperparameter decided by the user and is called the learning rate, $\eta$. The evolution 
@@ -46,21 +46,21 @@ Having a too large $\eta$ and one risks 'jumping' over the true minimum or simpl
 to reach a high accuracy. Too small $\eta$ and may result in spending computation time beyond reason as well as being sensitive
 to local minima. 
 \\
-For a given data set of size $N$, we find the gradient $\grad_\theta (\mathcal{C})$ through the sum of the gradient for each data point 
-$\textbf{x}_i$
+For a given data set of size $N$, we find the gradient ($\grad_\theta (\mathcal{C})$) through the sum of the gradient for each data point, 
+$\textbf{x}_i$, as
 \begin{align}\label{eq:dC}
     \grad_\theta (\mathcal{C}) = \sum_{i=0}^N \grad_\theta (\mathcal{C}_i(\textbf{x}_i)).
 \end{align}
-Note, that in the equation above, each data point, $\textbf{x}_i$ is given an equal weighting in the sum. This does not necessarily have to be the case. 
-In the scenario that the points in the data set should be prioritized differently during training, a simple weight $w_i$ can be multiplied in the sum of 
+Note, that in the equation above, each data point is given an equal weighting in the sum. This does not necessarily have to be the case. 
+In the scenario that the points in the data set should be prioritized differently during training, a simple weight, $w_i$, can be multiplied in the sum of 
 equation \ref{eq:dC}. We call these weights, \emph{sample-weights}.
 \\
 The calculation of the gradient over numerous data points can be time-consuming. An alternative approach which both reduces time and 
 introduces randomness, is the application of \emph{mini-batches}. Instead of summing the gradient over the full data set, one randomly samples 
-a predetermined number of points, $B$, creating a subset of the data which is used to update $\theta$. The points sampled to create the subset, can be 
+a predetermined number of points, $B$, creating a subset of the data which is used to update the parameters. The points sampled to create the subset, can be 
 sampled both with or without replacement\footnote{In this analysis the data is sampled with replacement.}, meaning allowing the same data points to be sampled 
-several times or not. An epoch is completed after $N/B$ iterations of updating 
-$\theta$. The added stochastic element reduces the risk of getting stuck in local minima. Gradient descent with randomly sampled mini-batches is called \ac{SGD}.
+several times or not. An epoch is completed after $N/B$ iterations of updating the parameters. The added stochastic element reduces the risk of getting stuck 
+in local minima. Gradient descent with randomly sampled mini-batches is called \ac{SGD}.
 \subsection{Memory, Adaptive Learning and ADAM}\label{subsec:ADAM}
 Although \ac{SGD} can be highly effective, it tends to be prone to oscillations between two points in the parameter space. In other words jumping back and forth between 
 the same two sets of parameters, without ever converging closer to the minima. To alleviate this issue, we introduce momentum. The momentum aims to act as a form of 

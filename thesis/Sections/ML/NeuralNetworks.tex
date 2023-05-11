@@ -47,7 +47,7 @@ has on the other.
 In a traditional \ac{FFNN} the information is passed linearly (in figure \ref{fig:NN}, from left to right) 
 in a process we call \emph{forward propagation}. Other variants can include the information taking a more 
 complex route. It is often the route from input- to output layer that categorizes the type of \ac{NN}. In 
-this report I used a set of simple \ac{FFNN}'s. 
+this report I used a set of \ac{FFNN}s. 
 
 \subsection{Feeding Forward}\label{subsec:FP}
 With the structure described in the previous section, a trained model, $\mathcal{F}$, produces a prediction,
@@ -59,14 +59,14 @@ We imagine the passing from hidden layer $l-1$ to $l$, where $l \in \{2,...,L \}
 case for when $l=1$ which will be addressed in the next paragraphs.} and $L$ is equal to the
 number of hidden layers. The activated value of a node in layer $l$, is defined as $a^l_j$ (as indicated by figure \ref{fig:NN}), 
 where $j\in \{0,1,...,N_l\}$ and $N_l$ is equal to the number of nodes in $l$. The value of $a_j^l$ is defined as 
-the \emph{activated} sum of all nodes in the previous layer, $a_j^{l-1}$ where the sum is weighted by a parameter $\bf{w} \sf _j^l$ 
-and shifted by the bias, $b^l_j$ for $j\in \{0,1,..., N_{l-1} \}$. The activated value of a node j in layer l is defined as 
+the \emph{activated} sum of all nodes in the previous layer, $a_j^{l-1}$, where the sum is weighted by a parameter, $\bf{w} \sf _j^l$, 
+and shifted by the bias, $b^l_j$, for $j\in \{0,1,..., N_{l-1} \}$. The activated value of a node $j$ in layer $l$ is defined as 
 \begin{align}\label{eq:activated}
-    z_j^l = \sum_{k=1} ^ {N_{l-1}} w_{kj}^la_k^{l-1} + b^l_j,
+    z_j^l = \sum_{k=1} ^ {N_{l-1}} w_{kj}^la_k^{l-1} + b^l_j,  
 \end{align}
-where $w_{kj}^l$ corresponds to the weight in $\bf{w} \sf _k^l$ specific for the connection between node k and j.
+where $w_{kj}^l$ corresponds to the weight in $\bf{w} \sf _k^l$ specific for the connection between node $k$ and $j$.
 \\
-To attain the full activated value, $a_j^l$ we pass $z_j^l$ through the \emph{activation function}. The activation function, $\sigma^l$ 
+To attain the full activated value, $a_j^l$ we pass $z_j^l$ through the \emph{activation function}. The activation function, $\sigma^l$, 
 is a generally non-linear function used to control the limit or expand the value range for the node values. The activation 
 function is general for all nodes in a given layer, but can vary in between layers. Therefore,
 we find $a_j^l$ by the equation
@@ -75,7 +75,7 @@ we find $a_j^l$ by the equation
 \end{align}
 A more detailed illustration of the information passed from one layer to a node in the next layer is displayed 
 in figure \ref{fig:WB}. In figure \ref{fig:WB}, we see all steps described in the process; \emph{(1)} all nodes in 
-l-1 are summed with a corresponding weight, \emph{(2)} the sum is shifted by a constant term (bias), \emph{(3)} the 
+$l-1$ are summed with a corresponding weight, \emph{(2)} the sum is shifted by a constant term (bias), \emph{(3)} the 
 scaled and weighted sum defines the inactivated value $z_j^l$, \emph{(4)} we define $a^l_j$ by passing the 
 sum through $\sigma^l$.  
 \begin{figure}
@@ -186,7 +186,7 @@ is connected to the nodes in the previous and following layer.
 This definition covers many, but not all hidden layers. Some layers do not pass values back and forth between 
 nodes but instead dynamically change the architecture of the \ac{NN}. In this analysis, 
 I have implemented both the \emph{dropout}-layer, and also a group of layers fitting the definition 
-introduced in the paper \cite{srivastava_compete_2013}, as \ac{LWTA}.
+introduced in the paper \cite{srivastava_compete_2013}, as \acf{LWTA}.
 \subsubsection*{Dropout}\label{subsubsec:Dropout}
 The dropout layer functions by assigning a predetermined probability to each neuron in a given layer. Based on the 
 probability, a number of neurons (dependent on the probability) is dropped in each forward pass. By doing this the 
@@ -217,7 +217,7 @@ the article by Srivastava et al. \cite{srivastava_compete_2013}, and is simply a
 training on an additional training set, B. This effect is also relevant for the two layers I will discuss in the next sections.
 \\
 In this thesis I have implemented the layer such that upon prediction, the redimensionalization 
-is still active. This means that for each data point, a neural network is chosen based on the specific activations in 
+is still active. This means that for each data point, a \ac{NN} is chosen based on the specific activations in 
 each of the nodes. In other words, the channel-out layer creates something resembling a stacking ensemble (see subsection 
 \ref{subsec:Ensembles}). 
 \subsubsection*{Stochastic-Channel-Out}\label{subsubsec:stochchannelout}
@@ -231,7 +231,7 @@ To remedy the issue of complex co-adaptation inside the units, I proposed a new 
 with the exception of the units. Where the channel-out layer utilizes static local units\footnote{I.e. the nodes are placed in local units in the beginning of 
 training and held constant throughout.} throughout training, the \ac{SCO} instead utilizes dynamic units which change for each data point. In other words, 
 for each data point, each node would potentially have a new group of nodes to compare with when finding the largest activation.
-The goal of the \ac{SCO} is to capitalize on the randomness of the dropout layer and the pattern-specific paths' aspect from the 
+The goal of the \ac{SCO} is to capitalize on the randomness of the dropout layer and the pattern-specific paths aspect from the 
 channel-out layer.
 \\  
 In the same manner as for channel-out, the redimensionalization is active during prediction and training for the \ac{SCO}. This 
@@ -282,7 +282,7 @@ represents a unit.}
 In this thesis I will be studying \ac{BSM}-simulations produced with a diversity in choice of free parameters. This
 means that the signal is itself diverse. The free parameters studied in this thesis are the masses of the
 new particles. The set of masses of hypothetical particles in a given \ac{BSM} theory can greatly alter the feature space
-spanned by processes including said particle. This means that a single \ac{ML}-model could potentially struggle to tune 
+spanned by processes including said particle. This means that a single \ac{ML} model could potentially struggle to tune 
 according to multiple signal samples that differ only in the masses of the hypothetical particles. The obvious solution to 
 this problem is simply to implement one model per mass combination, or choice of masses, and simply reusing the background. 
 Although this approach is very popular, I have decided not to use it for (mainly) three reasons:

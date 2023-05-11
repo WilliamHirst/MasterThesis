@@ -13,7 +13,7 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces An illustration of a Neural network with two hidden layers using the maxout layer.}}{23}{figure.caption.16}%
 \contentsline {figure}{\numberline {2.6}{\ignorespaces An illustration of three different layers, channelout, \acs {SCO} and maxout.}}{24}{figure.caption.17}%
 \contentsline {figure}{\numberline {2.7}{\ignorespaces An illustration of a comparison between the parameter individualistic network approach and the \acs {PNN}.\relax }}{25}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces An illustration of a simple \acs {DT}, mapping a four dimensional input ($x_1,x_2,x_3,x_4$) to one of three values in the target space ($y_1,y_2,y_3$), through a set of cuts $\{c_1, c_2,c_{3}\}$.\relax }}{26}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces An illustration of a simple \acs {DT}, mapping a four dimensional input ($x_1,x_2,x_3,x_4$) to one of three values in the target space ($y_1,y_2,y_3$), through a set of cuts $\{c_1, c_2,c_{3}\}$.\relax }}{25}{figure.caption.19}%
 \contentsline {figure}{\numberline {2.9}{\ignorespaces An illustration of a traditional \acs {CC} approach and how non-overlapping features lead to effective signal regions.}}{27}{figure.caption.20}%
 \contentsline {figure}{\numberline {2.10}{\ignorespaces An illustration of a \acs {ROC} curve and how a random, good and perfect classifier would differ.\relax }}{28}{figure.caption.21}%
 \contentsline {figure}{\numberline {2.11}{\ignorespaces An illustration of a Gaussian distribution and the area under the curve defined by a significance equal to 1.64.\relax }}{29}{figure.caption.22}%
