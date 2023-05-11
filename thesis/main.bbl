@@ -24,17 +24,16 @@ A.~Cole, S.~Krippendorf, A.~Schachner and G.~Shiu, \emph{Probing the structure
   \href{http://arxiv.org/abs/2111.11466}{{\tt 2111.11466}}.
 
 \bibitem{SkinCancer}
-A.~Rezvantalab, H.~Safigholi and S.~Karimijeshni, ``Dermatologist level
+A.~Rezvantalab, H.~Safigholi and S.~Karimijeshni, \emph{Dermatologist level
   dermoscopy skin cancer classification using different deep learning
-  convolutional neural networks algorithms.''
-\newblock 10.48550/arXiv.1810.10348.
+  convolutional neural networks algorithms},
+  \href{http://arxiv.org/abs/1810.10348}{{\tt 1810.10348}}.
 
 \bibitem{moller_photometric_2016}
 A.~Möller, V.~Ruhlmann-Kleider, C.~Leloup, J.~Neveu, N.~Palanque-Delabrouille,
   J.~Rich et~al., \emph{Photometric classification of type ia supernovae in the
   {SuperNova} legacy survey with supervised learning},
-  \href{http://arxiv.org/abs/1608.05423 [astro-ph]}{{\tt 1608.05423
-  [astro-ph]}}.
+  \href{http://arxiv.org/abs/1608.05423}{{\tt 1608.05423}}.
 
 \bibitem{Guest_2016}
 D.~Guest, J.~Collado, P.~Baldi, S.-C. Hsu, G.~Urban and D.~Whiteson, \emph{Jet

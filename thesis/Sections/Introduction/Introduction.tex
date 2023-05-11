@@ -22,7 +22,7 @@ this demand, is \acf{ML}.\newline
 \ac{ML} is rapidly becoming an indispensable tool in many scientific fields.
 In areas ranging from cancer research \cite{SkinCancer} to predicting supernova events \cite{moller_photometric_2016}, \ac{ML} is being applied to problems
 once thought as impossible to solve. Particle physics is no exception. Jet flavor classification \cite{Guest_2016}, 
-separating jets from gluons \cite{PhysRevD.44.2025} or using \ac{ML} to create efficient signal regions \cite{baldi_searching_2014} are 
+separating quark jets from gluon jets \cite{PhysRevD.44.2025} or using \ac{ML} to create efficient signal regions \cite{baldi_searching_2014} are 
 just some examples where \ac{ML} is a vital tool. The traditional approach for \ac{ML} in \ac{HEP} is the use of \acf{BDT} and shallow \acf{NNS}. 
 Especially with the release of \verb!XGBoost! \cite{XGB} in 2014, the \ac{BDT} has been shown to be both stable and capable of achieving excellent 
 performance. In later years supervised \acf{DNN} have become more and more popular, partly due to their versatility and diversity in architecture.
@@ -32,8 +32,8 @@ This thesis will study \ac{ML} as it is applied to the search for new physics in
 the \acs{ATLAS} detector. Specifically, I have studied different \ac{ML} models as they search for chargino-neutralino pair production in final states 
 with three leptons and missing transverse momentum. I explored a range of \ac{ML} models, such as ordinary dense \acs{NN}, \acf{PNN} \cite{PNN},
 ensemble models including layers introduced in the paper by Wang et al. \cite{wang_maxout_2013} and \acl{BDT}. Additionally, I introduced a new layer, \acl{SCO}, which 
-resembles the channel-out layer described in the aforementioned paper \cite{wang_maxout_2013}. Each model was studied and tested for its ability to achieve sensitivity in a 
-diverse data set, including events representing different variations of new physics, particularly variations in choice of mass for the chargino and neutralino.
+resembles the channel-out layer described in the aforementioned paper \cite{wang_maxout_2013}. Each model was studied and tested for its ability to achieve sensitivity
+in a diverse data set, including events representing different variations of new physics, particularly variations in choice of mass for the chargino and neutralino.
 \newpage
 \subsubsection*{Outline of the Thesis}
 This thesis is divided into 4 chapters: the first two introducing relevant theory and background for the analysis; the third presenting
@@ -55,8 +55,8 @@ other tools, as well as diving a little further into the data set. Additionally,
 used to generate the final data sets, both simulated and measured collision data, and present the comparison between the two. Finally, this chapter will present the 
 models I studied in the analysis, displaying the architectures, and explaining the general strategy utilized for training and validating the models.
 \\\newline
-In the \emph{fourth} and final chapter, I present and discuss the results from the analysis. In the first four sections, I study four different categories of \ac{ML} models in how they 
-perform on a subset of the data, as well as different attributes of each model. The fifth section compares the performance of the four models, then compares 
+In the \emph{fourth} and final chapter, I present and discuss the results from the analysis. In the first four sections, I study four different categories of \ac{ML} models 
+in how they perform on a subset of the data, as well as different attributes of each model. The fifth section compares the performance of the four models, then compares 
 their results with and without a \acf{PCA} in the sixth section. Finally, I compare the three best models I found when testing on a subset of the data on how well they perform 
 on the complete signal grid, then compare all three to previous results published by the \acs{ATLAS} Collaboration.
 
