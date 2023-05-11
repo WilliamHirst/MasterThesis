@@ -46,7 +46,7 @@ find specific paths through the network which will aid in separating the output 
     A calculated visualization of a three layer maxout network. Each path 
     represents a data point where all connected nodes were the largest activation in their respective 
     unit. The distribution on the far right represent the output distribution. The figure to the left
-    (\ref{fig:ATrainingSig}) is the result before training and the figure to right (\ref{fig:ATrainingBkg})
+    (\ref{fig:BTraining}) is the result before training and the figure to right (\ref{fig:ATraining})
     is after.}
 \end{figure}
 \begin{figure}
@@ -96,7 +96,7 @@ find specific paths through the network which will aid in separating the output 
     the results for two signal with each their own mass combination.]{A calculated visualization of a trained maxout network 
     with three hidden layers. The lines represent the path through the nodes with the largest activation in their respective
     unit. The bolder the line the more frequently the path is used. The distribution on the far right represent the output 
-    distribution. The figure to the left (\ref{fig:ATrainingSig50250}) is a result of signal with masses $\{50,250\}_{GeV}$ 
+    distribution. The figure to the left (\ref{fig:ATrainingSig50250}) is a result of signal with masses $\{50,250\}_{GeV}$, 
     and the right (\ref{fig:ATrainingSig200300}) with masses $\{200,300\}_{GeV}$.}
     \label{fig:NetVisSigComp}
 \end{figure}
@@ -168,15 +168,15 @@ activation, and exhibits no signs of complex co-adaptation.
     signal and background separately.]{A calculated visualization of a three layer \acs{SCO} network. The lines represent the path 
     through the nodes with the largest activation in their respective unit. The bolder the line the more frequently the path is used. 
     The distribution on the far right represent the output distribution. The figure to the left (\ref{fig:BTrainingSCO}) is the result 
-    before training and the figure to right (\ref{fig:ATrainingSCO}) is after. Note: The boxes in the figures do \emph{not} represent the units 
+    before training and the figure to right (\ref{fig:ATrainingSCO}) is after. Note: The boxes in the figures do \emph{not} represent the units, 
     given that the \ac{SCO} changes the units dynamically.} 
     \label{fig:NetDistSCO}
 \end{figure}
 \subsection{Training History and Overfitting}\label{subsec:Overfitting}
 In section \ref{sec:Regularization} I described how creating ensembles of networks is a form of regularization. Therefore,
 it is of interest to study the relationship between performance on the training set and the validation set for our ensemble 
-methods. In figure \ref{fig:History} I drew plots displaying the performance on the training and validation scores after each 
-epoch (50 in total), as measured in \ac{AUC} for both a dense \ac{NN} (\ref{fig:NNHist}) and maxout (\ref{fig:MaxOutHist}).
+methods. In figure \ref{fig:History} I drew plots displaying the performance using the original signal on the training and validation 
+set after each epoch (50 in total), as measured in \ac{AUC} for both a dense \ac{NN} (\ref{fig:NNHist}) and maxout (\ref{fig:MaxOutHist}).
 \\ 
 In figure \ref{fig:NNHist} we can observe that an ordinary dense \ac{NN} reaches a maximum in performance for the validation set after only 
 a couple of epochs. This peak is then followed by a quick drop in performance, while the training set increases in performance. 
@@ -256,8 +256,8 @@ half of the 'pie', then the method corresponding to that slice achieved a signif
 The color surrounding each 'pie' marks which method achieved the highest sensitivity for the respective combination.
 \\
 By studying the 'pie-plot' in figure \ref{fig:EnsembleComp}, we can deduce that maxout model outperforms the other two in most of the mass 
-combination (24 out of the 30 mass points). From the sizes of each slice, we can deduce that all three models seem relatively equal in performance, maxout only 
-outperforming the others by a small fraction. The most interesting observation from the 'pie-plot' is the performance from the \ac{SCO}, as 
+combination (24 out of the 30 mass points). From the sizes of each slice, we can deduce that all three models seem relatively equal in performance, maxout 
+only outperforming the others by a small fraction. The most interesting observation from the 'pie-plot' is the performance from the \ac{SCO}, as 
 this model was in-part created by me. Except the mass combinations where maxout was the most sensitive, \ac{SCO} was the best performing model. 
 Most interestingly, it outperformed the channel-out model, which is the model most similar to \ac{SCO}, in 9 out of the 30 mass point (see figure \ref{fig:SCOCO}). 
 In hindsight, I believe that by removing the \ac{SCO} during prediction (similar to what is done for dropout), the \ac{SCO} layer would greatly 
@@ -272,8 +272,8 @@ great promise and should be further explored in further analysis.
         \includegraphics[width=\textwidth]{Figures/MLResults/NN/SUSY/Comparison/EnsemblesNetworkComp.pdf}
     \end{subfigure}
     }
-    \caption[A sensitivity comparison between the ensemble networks (maxout, \acs{SCO}, channel-Out) on the original 
-    signal data.]{A sensitivity comparison between the ensemble networks (maxout, \acs{SCO}, channel-Out) on the original 
+    \caption[A sensitivity comparison between the ensemble networks (maxout, \acs{SCO}, channel-out) on the original 
+    signal data.]{A sensitivity comparison between the ensemble networks (maxout, \acs{SCO}, channel-out) on the original 
     signal data. The size of each slice represents the relative size of the significance and the color around each 
     point displays the method with the largest sensitivity for the respective combination.}
     \label{fig:EnsembleComp}
