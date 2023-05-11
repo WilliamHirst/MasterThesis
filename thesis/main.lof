@@ -3,7 +3,7 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Event Cross Section in a computer generated image of the \acs {ATLAS} detector.}}{7}{figure.caption.8}%
 \contentsline {figure}{\numberline {1.2}{\ignorespaces An illustration of the general kinematics in a particle-collision.}}{8}{figure.caption.9}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces The Feynman diagram of the WZ-signal.\relax }}{8}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces The Feynman diagram of the signal producing a chargino-neutralino pair.\relax }}{8}{figure.caption.10}%
 \contentsline {figure}{\numberline {1.4}{\ignorespaces Feynman diagrams of background processes.}}{11}{figure.caption.11}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces The value distribution of the two leading \acs {PCA}-features.}}{17}{figure.caption.12}%
@@ -14,7 +14,7 @@
 \contentsline {figure}{\numberline {2.6}{\ignorespaces An illustration of three different layers, channelout, \acs {SCO} and maxout.}}{24}{figure.caption.17}%
 \contentsline {figure}{\numberline {2.7}{\ignorespaces An illustration of a comparison between the parameter individualistic network approach and the \acs {PNN}.\relax }}{25}{figure.caption.18}%
 \contentsline {figure}{\numberline {2.8}{\ignorespaces An illustration of a simple \acs {DT}, mapping a four dimensional input ($x_1,x_2,x_3,x_4$) to one of three values in the target space ($y_1,y_2,y_3$), through a set of cuts $\{c_1, c_2,c_{3}\}$.\relax }}{26}{figure.caption.19}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces An illustration of a traditional \acf {CC} approach and how non-overlapping features lead to effective signal regions. In the first figure (left) the distributions of signal and background are relatively similar, and the signal region contains large amounts of background. In the second (right), the distributions of signal and background are greatly different, and this variable would allow for a much more effective signal region. \relax }}{27}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces An illustration of a traditional \acs {CC} approach and how non-overlapping features lead to effective signal regions.}}{27}{figure.caption.20}%
 \contentsline {figure}{\numberline {2.10}{\ignorespaces An illustration of a \acs {ROC} curve and how a random, good and perfect classifier would differ.\relax }}{28}{figure.caption.21}%
 \contentsline {figure}{\numberline {2.11}{\ignorespaces An illustration of a Gaussian distribution and the area under the curve defined by a significance equal to 1.64.\relax }}{29}{figure.caption.22}%
 \addvspace {10\p@ }
