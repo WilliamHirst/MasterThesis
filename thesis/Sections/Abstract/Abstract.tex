@@ -5,15 +5,15 @@ collisions recorded with the \acs{ATLAS} detector at the \acs{LHC}, correspondin
 models applied in the study were three variants of \acf{DNN}, and \acf{BDT}. The \acs{DNN} variants included an ordinary 
 dense \acf{NN}, \acf{PNN} and ensemble models utilizing pattern-specific pathways created by competing neurons. In the latter variant I 
 included a novel layer introduced in this thesis, the \acf{SCO}. The study included an analysis of how each model attained sensitivity 
-when training on a diverse data set including several orthogonal \acf{BSM} variants, i.e. different masses for the chargino and neutralino. 
-Furthermore, a study was made on individual attributes of each model, for example the sparse pathways of the ensemble methods or the effect 
+when training on a diverse data set including several orthogonal \acf{BSM} variants, specifically different masses for the chargino and neutralino. 
+A study was also made on individual attributes of each model, for example the sparse pathways of the ensemble methods or the effect 
 of the choice of parameters in the \acs{PNN}. In my studies I found that the inclusion of multiple signal variants can be beneficial during 
-training of an \ac{ML} model in the case that the variants exhibit overlapping feature distributions. This is specifically true in 
-the case that the model displays a strong long-term memory, as it was found that models utilizing sparse pathways do. When comparing each 
-model in their ability to attain sensitivity, I found that the \acs{PNN} exhibited a bias towards high statistic signal which allowed it 
-to attain impressive sensitivity in low mass regions. On the contrary, the ensemble methods which did not attain the same level of sensitivity 
-on low mass signal, was able to achieve a far more balanced sensitivity for signal in both high and low mass regions. By performing 
-a \acf{PCA} on the data set, I found it to improve the sensitivity of the ensemble methods and the \ac{PNN} for a majority of the mass combinations.
-When comparing the models expected sensitivity to that achieved by \acs{ATLAS} I found that none of the models were able to extend the previously set 
-exclusion limit on the masses of the chargino or neutralino. Via a more extensive study of the output from each model, specifically the ensemble networks which showed great sensitivity in non-excluded 
-regions, I believe that more definite results could be achieved. 
+training of an \ac{ML} model in the case that the variants exhibit overlapping feature distributions. This is specifically true if 
+the model displays a strong long-term memory, as the models utilizing sparse pathways were found to do. When comparing each 
+model in their ability to attain sensitivity, I found that the \acs{PNN} exhibited a preference towards high statistic signal which allowed it 
+to attain impressive sensitivity in low mass regions. On the contrary, the ensemble methods, which did not attain the same level of sensitivity 
+on low mass signals, was able to achieve a far more balanced sensitivity for signal in both high and low mass regions. I found that performing a 
+\acf{PCA} on the dataset led to an improved sensitivity of the ensemble methods and the \ac{PNN} for a majority of the mass combinations.
+When comparing the models' expected sensitivity to that achieved by \acs{ATLAS} I found that none of the models were able to extend the established 
+exclusion limit on the masses of the chargino or neutralino. Further improvements to the results could be achieved by more extensively studying the 
+output from each model, especially the ensemble networks, which showed good sensitivity in non-excluded regions

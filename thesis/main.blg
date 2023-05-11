@@ -36,36 +36,36 @@ Warning--empty author in ATLAS-CONF-2017-064
 Warning--empty author in the_atlas_collaboration_tagging_2014
 Warning--empty institution in the_atlas_collaboration_tagging_2014
 Warning--empty year in the_atlas_collaboration_tagging_2014
-You've used 47 entries,
+You've used 49 entries,
             2188 wiz_defined-function locations,
-            842 strings with 62986 characters,
-and the built_in function-call counts, 10450 in all, are:
-= -- 989
-> -- 488
+            855 strings with 63610 characters,
+and the built_in function-call counts, 10827 in all, are:
+= -- 1014
+> -- 532
 < -- 0
-+ -- 151
-- -- 104
-* -- 864
-:= -- 1473
-add.period$ -- 52
-call.type$ -- 47
-change.case$ -- 49
++ -- 163
+- -- 114
+* -- 893
+:= -- 1535
+add.period$ -- 54
+call.type$ -- 49
+change.case$ -- 51
 chr.to.int$ -- 0
-cite$ -- 68
-duplicate$ -- 482
-empty$ -- 1004
-format.name$ -- 104
-if$ -- 2621
+cite$ -- 70
+duplicate$ -- 491
+empty$ -- 1034
+format.name$ -- 114
+if$ -- 2712
 int.to.chr$ -- 0
-int.to.str$ -- 47
-missing$ -- 111
-newline$ -- 149
-num.names$ -- 37
-pop$ -- 167
+int.to.str$ -- 49
+missing$ -- 114
+newline$ -- 156
+num.names$ -- 39
+pop$ -- 173
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 286
+skip$ -- 294
 stack$ -- 0
 substring$ -- 453
 swap$ -- 149
@@ -74,7 +74,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 21
-while$ -- 78
-width$ -- 49
-write$ -- 406
+while$ -- 80
+width$ -- 51
+write$ -- 421
 (There were 21 warnings)
