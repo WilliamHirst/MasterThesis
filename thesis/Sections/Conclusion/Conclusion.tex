@@ -36,12 +36,12 @@ and $\tilde{\chi}_2\in[200-800]$GeV), where the first was a subset of the second
 maxout model outperformed all other \ac{LWTA} models, achieving a higher significance in 24 out of the 30 combinations. Although the introduced \ac{SCO} layer did not outperform maxout model, it did achieve a higher significance in 6 
 combinations. Most likely, by modifying the \ac{SCO} layer during prediction the performance of the layer would improve.
 \\\newline
-Four models (not including channel-out and \ac{SCO}) were chosen when comparing performance on the original signal set; ordinary dense \ac{NN}, maxout model, \ac{PNN} and a \ac{BDT} implemented using the default settings of \verb!XGBoost! \cite{XGB}. In the comparison 
+Four models (not including channel-out and \ac{SCO}) were chosen when comparing performance on the original signal set; ordinary dense \ac{NN}, maxout model, \ac{PNN} and a \ac{BDT} implemented using the default settings of \verb!XGBoost! \cite{XGB}. In the comparison, 
 I found that all three network variants were able to outperform the \ac{BDT}, although I believe this to be explained by little attention given towards the tuning of the \ac{BDT}. Out of the three network variants, the maxout model was able to achieve 
 the highest significance for most mass combinations (24 out of 30), but mostly in the higher mass range ($\tilde{\chi}_2>600$GeV). In the events with lower masses and higher statistics ($\tilde{\chi}_2<600$GeV), the \ac{PNN} outperformed all others, 
 almost doubling the significance achieved by the maxout model. Shared among all models was the fact that they all found processes with high amounts of missing transverse energy difficult to separate from the signal, i.e. $Diboson(lll)$, $t\bar{t}$ and $top\ other$.
 \\\newline
-Before applying the models to the complete signal grid I applied a \ac{PCA} to study if it could improve performance. When requiring the conservation of $99.9\%$ of the variation from the original feature set, 5 features were removed.
+Before applying the models to the complete signal grid, I applied a \ac{PCA} to study if it could improve performance. When requiring the conservation of $99.9\%$ of the variation from the original feature set, 5 features were removed.
 Training the dense \ac{NN}, maxout model and \ac{PNN} with this new data set, I found it to improve the sensitivity of the two latter models. The comparison was based on the choice to weight the importance of all mass combinations equally.
 \\\newline
 Finally, in my analysis I compared the performance of my three best performing models (maxout model and \ac{PNN} with a \ac{PCA}, and the dense \ac{NN}) on the complete signal grid. Additionally, I compared the results to the expected exclusion 
@@ -52,7 +52,7 @@ but never surpassing the limit by \ac{ATLAS}.
 \\\newline
 From my analysis I found that where the \ac{PNN} exhibits bias towards higher statistic signal, the ordinary dense \ac{NN} and maxout model are able to achieve a more balanced sensitivity. Especially the 
 maxout model, with an impressive long-term memory was able to uphold a strong performance for lower statistics signal and smaller differences in significance ($\Delta Z \approx 10$ when no uncertainty is applied). The effect of the long-term memory 
-is further demonstrated in the comparison between the model after training on the original, and the complete signal grid. In the comparison the maxout model improved its performance on the original set in 17 out of 30 mass combinations, compared to the \ac{PNN} which only improved
+is further demonstrated in the comparison between the model after training on the original, and the complete signal grid. In the comparison, the maxout model improved its performance on the original set in 17 out of 30 mass combinations compared to the \ac{PNN} which, only improved
 2 out of 30. Due to the fact that future analysis will need sensitivity in low statistics regions (high mass), I believe the \ac{LWTA} layers to be interesting candidates for future models in regard to their ability to exploit high statistics combinations while maintaining a 
 strong performance on lower statistics signal. 
 \\\newline
