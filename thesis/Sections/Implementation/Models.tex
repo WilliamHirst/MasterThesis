@@ -1,6 +1,6 @@
 \section{The Machine Learning Models}
 \subsection{Model Selection}
-In this analysis I have chosen to compare 4 different 'types' of \ac{ML}-models, ordinary dense \acf{NN}\footnote{Note 
+In this analysis I have chosen to compare 4 different 'types' of \ac{ML} models, ordinary dense \acf{NN}\footnote{Note 
 that for the remaining part of this thesis, I will refer to this model as a 'dense \ac{NN}', 'ordinary dense \ac{NN}' 
 and in some plots, just \ac{NN}.}, \acf{PNN}, ensembles (networks utilizing the channel-out, \ac{SCO} or maxout layer) 
 and \acf{BDT}. The first three methods are all variations of \ac{NN}. I have deliberately 
@@ -11,7 +11,7 @@ analysis, comparisons and discussions are focused on the \ac{NN}s, while \verb!X
 as a loose benchmark. 
 \\
 The choice of the three network architectures is motivated by a wish to compare three relatively different approaches.
-Especially in how they perform with a diverse data set. The \ac{LWTA} (channel-out, \ac{SCO} and maxout) models apply pattern-specific paths, 
+Especially in how they perform with a diverse data set. The ensembles, or \ac{LWTA} models (channel-out, \ac{SCO} and maxout), apply pattern-specific paths, 
 the \ac{PNN} includes parameters in the feature set, and the dense \ac{NN} relies on a deep set of weights and biases to uphold long-term memory.
 I would assume that the optimal architecture would be a network which combines elements from each, but for the purpose of discussion
 and research I have chosen to keep them separate. 
@@ -57,7 +57,7 @@ in section \ref{subsec:Cost}.
 \\
 The \ac{PNN} architecture is included to represent the model proposed in the article by Baldi et al. \cite{PNN}.
 The architecture is illustrated in figure \ref{fig:arch}, with the label \ac{PNN}. The figure shows a practically identical 
-structure to the dense-\ac{NN}, with the only difference being in the input layer. As was discussed in section \ref{subsec:PNN},
+structure to the dense \ac{NN}, with the only difference being in the input layer. As was discussed in section \ref{subsec:PNN},
 the \ac{PNN} includes free parameters of the signal\footnote{In our case, the masses of the chargino and neutralino.} alongside the features
 in the input layer.
 \subsection*{Maxout, Channel-Out and SCO}

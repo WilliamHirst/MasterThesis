@@ -17,7 +17,7 @@ I was not involved in the collection or production of either of the datasets, si
 As I have mentioned in previous sections I will be searching for a large range of signals, all related to the same
 physics, but with different set of parameters, i.e. choices for the masses of the charginos and neutralinos. In figure \ref{fig:nrSignal} I have drawn a 
 grid displaying the different mass combinations searched for in this analysis. The masses range from ${\tilde{\chi}_1}\in[0,400]$GeV
-and ${\tilde{\chi}_2}\in[200,800]$GeV\footnote{The chargino, $\tilde{\chi}^{\pm}_1$, and second neutralino, $\tilde{\chi}_2$, are mass degenerate, 
+and ${\tilde{\chi}_2}\in[200,800]$GeV\footnote{The lightest chargino, $\tilde{\chi}^{\pm}_1$, and second neutralino, $\tilde{\chi}_2$, are mass degenerate, 
 meaning they share the same mass. As a consequence, I will refer to the mass of each particle interchangeably throughout the thesis.}. In the beginning 
 of my analysis I only received a subset (which will be referred to as the \emph{original} data set) of the full signal set. In figure \ref{fig:nrSignal} 
 I have marked the original data set with a white label in the top right corner of the box. The original signal set contains a total of 30 different mass 
@@ -74,7 +74,7 @@ As a consequence I used \verb!RDataFrame! to calculate all features not already 
 or the invariant mass of the three leptons. 
 \\
 After pre-processing was completed, I used \verb!RDataFrame!'s \emph{AsNumpy} function to translate the data frame into 
-\verb!Numpy! objects, which then allowed me to transform it to a \verb!Pandas! data frame \cite{Pandas}. This is done
+\verb!Numpy! objects \cite{numpy}, which then allowed me to transform it to a \verb!Pandas! data frame \cite{Pandas}. This is done
 because \verb!Pandas!, like most \ac{ML}-tools, work in a strict \verb!Python! environment. \verb!Pandas!, similarly to \verb!RDataFrame!,
 includes a deep computational library, and is optimal for analysis of big data. When the full \ac{ML} 
 pipeline (data-handling, training, validation etc.) is completed the data is transformed back to \verb!NTuples!, 

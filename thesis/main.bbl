@@ -171,6 +171,12 @@ I.~Bird, P.~Buncic, F.~Carminati, M.~Cattaneo, P.~Clarke, I.~Fisk et~al.,
   Experiments}.
 \newblock No.~2 in Technical design report. {LCG}.
 
+\bibitem{numpy}
+C.~R. Harris, K.~J. Millman, S.~J. van~der Walt, R.~Gommers, P.~Virtanen,
+  D.~Cournapeau et~al., \emph{Array programming with {NumPy}},
+  \href{http://dx.doi.org/10.1038/s41586-020-2649-2}{\emph{Nature} {\bf 585}
+  (Sept., 2020) 357--362}.
+
 \bibitem{Pandas}
 W.~McKinney, \emph{Data structures for statistical computing in python},  in
   \emph{Proceedings of the 9th Python in Science Conference} (S.~van~der Walt
