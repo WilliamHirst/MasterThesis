@@ -13,7 +13,7 @@ the background. This is mirrored in the distribution of the output which is cent
 of the range. This result is as expected, given that an untrained model holds no knowledge of the data and 
 simply applies a random set of weights. A small exception from this result can be found for larger output values, 
 where we observe a small distribution of signal values. This is due to the signal having some inherit differences
-to the background (for example high $E_t^{miss}$).
+to the background (for example high $E_T^{miss}$).
 \\
 In figure \ref{fig:ATraining}, I plotted a similar plot as described above, but using a trained model.
 In this figure the output is far more separated, and we see noticeable differences in the activation 
@@ -216,11 +216,11 @@ be able to avoid overfitting, but will as a consequence be allowed to train much
 \end{figure}
 \subsection{Comparing Achieved Sensitivity between Ensemble Methods}
 In this section I will present and discuss the performance of the three different networks discussed in section 
-\ref{subsec:Ensembles}, channel-out, \ac{SCO} and maxout. The results presented in this section were made using the
+\ref{subsec:LWTAARch}, channel-out, \ac{SCO} and maxout. The results presented in this section were made using the
 original signal set (see section \ref{subsec:signal}), the training strategy described in section \ref{subsec:TrainingStrategy}
 and the architectures described in section \ref{subsec:arch}.
 \\
-In figure \ref{fig:MaxOutGridSig} I present the achieved sensitivity of the maxout model using the original signal set. 
+In figure \ref{fig:MaxOutGridSig} I present the expected sensitivity of the maxout model using the original signal set. 
 The grid shows the same trends as the previous models, i.e. the preference in the higher statistics mass combinations. By comparing 
 the results from the maxout model to the deep, dense network presented in figure \ref{fig:NNGridSig}, we discern that the dense 
 network outperforms the maxout model (ever so slightly) for the higher statistic mass combinations. It is plausible that this is due 
