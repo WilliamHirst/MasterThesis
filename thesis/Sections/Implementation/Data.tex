@@ -129,7 +129,7 @@ In the code written in listing \ref{lst:df_mlll}, I show a simple example
 of loading new \verb!C++! functions, filtering out events, calculating new features and adding said 
 features to a histogram. The first three lines of code both compiles and include the \texttt{helperfunction} 
 into the \verb!ROOT! framework. Then I loop over all keys in the data frame, which in my case
-are the different channels (i.e diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
+are the different channels (i.e. diboson, $t\bar{t}$ etc.). For each channel I select 'good' events,
 based on the criteria I will present in section \ref{subsec:Cuts}. Then I use \verb!RDataFrame!'s \texttt{Define} function to calculate
 and add a new feature using the \texttt{ComputeInvariantMass}-function. Finally, I save the feature as \verb!ROOT! object called 
 \texttt{Histo1D}, which I later plot using \verb!ROOT! \ac{API}. In this example I chose the trilepton invariant mass, 

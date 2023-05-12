@@ -2,14 +2,14 @@
 \chapter*{Conclusion $\&$ Outlook}
 \addcontentsline{toc}{chapter}{Conclusion $\&$ Outlook} 
 In this thesis I have applied a range of \ac{ML} models to the search for chargino-neutralino production resulting in 
-a three lepton final state with missing transverse momentum. Two data sets were utilized during the analysis; simulated \ac{MC} data, including 
-both the \ac{SM} background and the \ac{BSM} signal, and  measured proton-proton collisions at $\sqrt{s} = 13TeV$ produced at the \ac{LHC} and detected 
+a three lepton final state with missing transverse momentum. Two data sets were utilized during the analysis: simulated \ac{MC} data, including 
+both the \ac{SM} background and the \ac{BSM} signal, and  measured proton-proton collisions at $\sqrt{s} = 13$ TeV produced at the \ac{LHC} and detected 
 at \ac{ATLAS}. The models applied and studied during my analysis were a set of \ac{NN} variants, in addition to a \ac{BDT} which was used to 
 create a benchmark for my analysis. The network variants encompassed a diverse array of approaches including an ordinary dense \ac{NN}, ensemble networks 
 employing \ac{LWTA} layers and a \ac{PNN}.
 \\\newline
 The simulated signal set included and studied in the analysis consisted of a set of orthogonal \ac{BSM} variants, specifically different masses for the chargino ($\tilde{\chi}^\pm_1$) 
-and neutralino ($\tilde{\chi}_1$). In my analysis I tested two approaches for dealing with a diverse signal set; training one model per variant, and training one model on a larger set 
+and neutralino ($\tilde{\chi}_1$). In my analysis I tested two approaches for dealing with a diverse signal set: training one model per variant, and training one model on a larger set 
 of variants. Comparing the two, I found that the latter achieved a higher sensitivity as a consequence of a number of factors. By including an assortment of variations of new physics, 
 the \ac{ML} models were able to avoid overfitting longer, which allowed for deeper learning. Furthermore, I found that the models were able to exploit overlapping feature distributions between 
 the variations, which resulted in more training data for all mass combinations. As a consequence, all further models were trained on a diverse signal set, and large parts of the analysis 
@@ -17,9 +17,9 @@ was focused on how each individual method handled this decision.
 \\\newline
 I studied three variants of \ac{LWTA} layers; channel-out, maxout, and \ac{SCO}. The first two were taken from the paper by Wang et al. \cite{wang_maxout_2013}, and the third layer was introduced
 in this present thesis. Each layer reduces the number of nodes during a forward propagation, similarly to the dropout layer, but does so by comparing activation with other nodes in the layer, and 
-dropping all but the largest node. To study the implementation and effect of these layers I constructed a set of figures to visualize the activation and dropping of nodes, before and after training. 
+dropping all but the largest node. To study the implementation and effect of these layers, I constructed a set of figures to visualize the activation and dropping of nodes before and after training. 
 When dissecting the figures, I observed that the \ac{LWTA} layers (specifically the maxout layer) were able to build an ensemble of networks by means of pattern-specific paths. In other words, after training 
-the model, the data chose different paths through the network dependent on if it was background or signal. Moreover, by comparing two sets of signal with different mass combinations, I found that the model 
+the model, the data chose different paths through the network dependent on if it was background or signal. Moreover, by comparing two sets of signals with different mass combinations, I found that the model 
 was also able to differentiate between different variations of signal. This indicates a strong long-term memory, which allows the model to target a larger set of signal and is an important attribute
 in the \ac{LWTA} layers. Additionally to studying the maxout layer, I repeated the analysis for \ac{SCO}. By comparing the activation between the maxout and \ac{SCO} layer, I found that the \ac{SCO} layer 
 was able to reduce complex co-adaptation by motivating all nodes to contribute to the output.
@@ -31,7 +31,7 @@ perform better when predicting on data which were given the correct parameters, 
 improved effectiveness by $3\%$ when applying a rigid cut on the output of 0.975. This indicates that the \ac{PNN} was able to discriminate between different variations of signal, even if only by 
 a small amount.
 \\\newline
-When studying and comparing the performance of the \ac{ML} models, two different sets of the signal were used, original ($\tilde{\chi}_1\in[0-400]$GeV and  $\tilde{\chi}_2\in[400-800]$GeV) and the complete signal grid ($\tilde{\chi}_1\in[0-400]$GeV 
+When studying and comparing the performance of the \ac{ML} models, two different sets of the signal were used, original ($\tilde{\chi}_1\in[0-400]$ GeV and  $\tilde{\chi}_2\in[400-800]$ GeV) and the complete signal grid ($\tilde{\chi}_1\in[0-400]$GeV 
 and $\tilde{\chi}_2\in[200-800]$GeV), where the first was a subset of the second. When comparing the achieved sensitivity, or significance, of the models on each mass combination in the original signal set I found that the 
 maxout model outperformed all other \ac{LWTA} models, achieving a higher significance in 24 out of the 30 combinations. Although the introduced \ac{SCO} layer did not outperform maxout model, it did achieve a higher significance in 6 
 combinations. Most likely, by modifying the \ac{SCO} layer during prediction the performance of the layer would improve.

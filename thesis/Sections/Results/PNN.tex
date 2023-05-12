@@ -101,7 +101,7 @@ of the \ac{PNN} on the original signal set. Similarly to the previous models, th
 masses. The most notable difference to the previous models, is the span of values for the significance. The \ac{PNN} almost doubles the highest significance achieved by any previous model
 (from 2.44 to 4.14), and simultaneously achieves the lowest significance (now 0.30). The most probable explanation to this result is the distribution of parameters for the background. 
 In section \ref{subsec:PNN}, I described how the background was randomly assigned the mass parameters using the same distribution as the signal. In other words, the higher the statistics 
-for a given mass combination, $\{A,B\}_{GeV}$, the higher the amount of background would have the parameters corresponding to the masses $\{A,B\}_{GeV}$. In the 
+for a given mass combination, $\{A,B\}_{GeV}$, the higher the amount of background would have the parameters corresponding to the masses $\{A,B\}_{GeV}$. Within the 
 same section I also described the hope that the parameters would shift the output from the initial layer in a way that motivates individualistic training. If this is 
 true\footnote{For a network of this depth, it is very hard to explain what happens during training, which explains the passive statement.} it means that masses with larger statistics, 
 are given larger amounts of background to train on. This could explain the uneven performance by the \ac{PNN}. \\
