@@ -29,3 +29,16 @@ All files which install ROOT, requires the requirmentsROOT.txt software, otherwi
 Functions which are used in handling the data (apply PCA, scaling etc), calculating the significance or loading dataframes can be found in the utilities.py file:
 
 https://github.com/WilliamHirst/MasterThesis/blob/main/Codebase/Utilities.py
+
+## Pulling from other repositories 
+
+Two of the folders in this repository were pulled from other work and were not written by me. The folders are:
+
+https://github.com/WilliamHirst/MasterThesis/tree/main/Codebase/DataPreparation,
+
+with the exepction of the MyRDataFrameAnalysis.py file, and
+
+https://github.com/WilliamHirst/MasterThesis/tree/main/Codebase/Scripts
+
+
+
