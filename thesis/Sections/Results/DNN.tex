@@ -4,9 +4,9 @@ In previous sections I have discussed the reasoning for not wanting an automated
 as hyperparameter searches). Although, I found manually choosing the architecture for each model to be preferable in this analysis, there 
 are some downsides to that decision. When building each model I wanted to ensure that the performances of said models were representative of 
 the category of models I wanted to build. In other words, I wanted to ensure that any drawbacks were related to the type of model (i.e. \ac{LWTA}, \ac{PNN} etc.) 
-and not a result of poorly chosen number of layers or nodes. Therefore, I wanted to remove as much subjectivity in the choice of architecture as possible.
+and not a result of a poorly chosen number of layers or nodes. Therefore, I wanted to remove as much subjectivity in the choice of architecture as possible.
 \\
-In this section I present a comparison of the results from two ordinary dense \ac{NN} with different amount of nodes. The first network 
+In this section I present a comparison of the results from two ordinary dense \ac{NN} with different amounts of nodes. The first network 
 uses the dense \ac{NN} architecture described in \ref{subsec:arch} and illustrated in figure \ref{fig:arch}, while the second network uses the same activation 
 functions and amount of hidden layers, but with only 20 nodes in each hidden layer. The comparison presented in this thesis represent a sample of networks I choose to 
 compare when deciding the number of nodes and hidden layers to be used in the analysis. Both networks apply the training strategy described in section 
@@ -57,7 +57,7 @@ The training performed to produce the results aligns with the strategy described
 an ordinary dense \ac{NN} architecture described in section \ref{subsec:arch}. Figure \ref{fig:OneMass} presents the expected sensitivity 
 from a dense \ac{NN} which has only trained on one mass combination (which will henceforth be referred to as \ac{OMM}), $\{250,550\}_{GeV}$, 
 while figure \ref{fig:SeveralMass} presents the achieved sensitivity after training on a large set of mass combinations 
-(which will hence force be referred to as \ac{SMM}). Specifically, the latter figure shows the results after training on all signals on the outer 
+(which will henceforth be referred to as \ac{SMM}). Specifically, the latter figure shows the results after training on all signals on the outer 
 square\footnote{I.e. all mass combinations which lie on the edges of the grid.} in the figure \ref{fig:SeveralMass} as well as the point in the 
 middle, $\{250,550\}_{GeV}$.\\
 \begin{figure}
