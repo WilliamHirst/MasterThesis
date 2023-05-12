@@ -15,7 +15,7 @@ events in different regions and model new \ac{BSM} physics. The pipeline for sim
 I was not involved in the collection or production of either of the datasets, simulated or measured.
 \subsection{The Simulated Signal}\label{subsec:signal}
 As I have mentioned in previous sections I will be searching for a large range of signals, all related to the same
-physics, but with different set of parameters, i.e. choices for the masses of the charginos and neutralinos. In figure \ref{fig:nrSignal} I have drawn a 
+physics, but with different sets of parameters, i.e. choices for the masses of the charginos and neutralinos. In figure \ref{fig:nrSignal} I have drawn a 
 grid displaying the different mass combinations searched for in this analysis. The masses range from ${\tilde{\chi}_1}\in[0,400]$GeV
 and ${\tilde{\chi}_2}\in[200,800]$GeV\footnote{The lightest chargino, $\tilde{\chi}^{\pm}_1$, and second neutralino, $\tilde{\chi}_2$, are mass degenerate, 
 meaning they share the same mass. As a consequence, I will refer to the mass of each particle interchangeably throughout the thesis.}. In the beginning 
@@ -93,20 +93,20 @@ In this section I will cover a simple example to highlight the steps taken in pr
 used in the analysis. As mentioned earlier, the two main frameworks used were \verb!RDataFrame! and \verb!Pandas!. 
 In this example I will cover the case of a feature not already in the \verb!ROOT! file, namely the trilepton
 invariant mass. All loading of data is done using the \verb!ROOT! framework and is easily read using the
-\verb!RDataFrame! interface. To effectively generate new features I want to stay in \verb!ROOT! environment. Therefore,
-I create a \verb!C++! file, \texttt{helperfunction}. The \texttt{helperfunction} contains additional 
-\verb!ROOT! functions which are used in the analysis and are not already native to \verb!ROOT!. In the case 
-of computing the trilepton invariant mass, the \verb!C++! function is created like shown in listing 
+\verb!RDataFrame! interface. To effectively generate new features I wanted to stay in \verb!ROOT! environment. Therefore,
+I created a \verb!C++! file, \texttt{helperfunction}. The \texttt{helperfunction} contained additional 
+\verb!ROOT! functions which were used in the analysis and were not already native to \verb!ROOT!. In the case 
+of computing the trilepton invariant mass, the \verb!C++! function was created like shown in listing 
 \ref{lst:mlll}.
 \\
 In listing \ref{lst:mlll}, we see a couple of measures taken to conform to the \verb!ROOT! environment. The first measure is 
-the typecasting to $VecF\_t$. $VecF\_t$ is created to wrap floats in the native \verb!ROOT! vector object, $RVec$. 
-The same is done in other cases such as float and integers, $VecI\_t$ and $VecB\_t$. The second measure
-was using \verb!TLorentzVector! \footnote{For full documentation on TLorentzVector, see \url{https://root.cern.ch/doc/master/classTLorentzVector.html} (Accessed 16.04.2023).} 
+the typecasting to $VecF\_t$. $VecF\_t$ was created to wrap floats in the native \verb!ROOT! vector object, $RVec$. 
+The same was done in other cases such as float and integers, $VecI\_t$ and $VecB\_t$. The second measure
+is using \verb!TLorentzVector! \footnote{For full documentation on TLorentzVector, see \url{https://root.cern.ch/doc/master/classTLorentzVector.html} (Accessed 16.04.2023).} 
 to calculate the invariant mass. \verb!TLorentzVector! is a class native to \verb!ROOT! with many built-in functions. In 
-this case we use the class to create four-vectors through the kinematic variables, $P_t$, $\eta$, $\phi$ and mass\footnote{These features
-will be described in the next section \ref{sec:Feats}.}. Then, through the \verb!TLorentzVector! class we can simply add, through vector sums, 
-together and extract the invariant mass of the three-lepton system. 
+this case I used the class to create four-vectors through the kinematic variables, $P_t$, $\eta$, $\phi$ and mass\footnote{These features
+will be described in the next section \ref{sec:Feats}.}. Then, through the \verb!TLorentzVector! class I simply added, through vector sums, 
+together and extracted the invariant mass of the three-lepton system. 
 \lstset{style=Cpp}
 \begin{lstlisting}[caption={$C{++}$-function which implementes the calculation of the trilepton invariant mass.},captionpos=b, label={lst:mlll}]
 // Compute the trilepton invariant mass 

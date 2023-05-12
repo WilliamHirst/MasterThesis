@@ -35,7 +35,7 @@ the gradient, $-\grad_\theta (\mathcal{C})$, is used to move closer to the optim
 The negative of the gradient corresponds to the direction for which a 
 small change, $d\boldsymbol\theta$, in the parameter space will result in the biggest 
 decrease in the cost function. Finding the minimum value is an iterative process, meaning
-the steps in the direction of $-\grad_\theta (\mathcal{C})$ is finite. The size of the step is a
+the steps in the direction of $-\grad_\theta (\mathcal{C})$ are finite. The size of the step is a
 hyperparameter decided by the user and is called the learning rate, $\eta$. The evolution 
 from a step i to $i+1$ becomes
 \begin{align}
@@ -82,7 +82,7 @@ An additional flaw in the \ac{SGD} optimization algorithm, is that it treats all
 on the most relevant areas (steep regions), while quickly moving past less relevant areas (flat regions). A solution to this is the introduction of an \emph{adaptive learning rate}.
 By updating the learning rate based on the surface of the feature space, one can assign a prioritization in the feature space which optimizes the search for optimal parameters.
 \\
-The most intuitive way to prioritize steep areas, is by introducing the second derivative of $\mathcal{C}$, but this can be quite time-consuming. The \ac{ADAM} optimizer aims to 
+The most intuitive way to prioritize steep areas is by introducing the second derivative of $\mathcal{C}$, but this can be quite time-consuming. The \ac{ADAM} optimizer aims to 
 create an approximation of the second derivative, through the use of momentum and an adaptive learning rate. The \ac{ADAM} optimizer introduces a set of new parameters, and includes both the 
 linear and squared term of the derivative of $\mathcal{C}$ (i.e. $\nabla_\theta \mathcal{C}$ and $(\nabla_\theta \mathcal{C})^2$) with memory parameters for both ($\beta_1$ and $\beta_2$ respectively). Additionally, the \ac{ADAM} optimizer holds a memory of the average of the 
 gradient and squared gradient, which is used to create faster convergence. For a thorough description of the \ac{ADAM}, the reader is referred to the paper by Kingma et al.  \cite{kingma_adam_2017}.

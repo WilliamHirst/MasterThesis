@@ -4,12 +4,12 @@ fails to extract patterns which would allow it to predict previously unseen data
 the maximum depth of a \ac{BDT} or even the size of the data set can all contribute to overfitting. In the 
 case of deep learning especially, overfitting can be a large problem and is therefore a focus in this thesis. Apart 
 from predicting on a new data set, there are no rigid methods to detect overfitting. Instead, there exists 
-a variety of methods to minimize the risk of over-fitting which are collectively known as \emph{regularization}. In \ac{ML}, 
+a variety of methods to minimize the risk of overfitting which are collectively known as \emph{regularization}. In \ac{ML}, 
 regularization is known as any attempt to reduce the error in a prediction by reducing overfitting. Generally one can categorize
 regularization as being either implicit or explicit. Explicit regularization means adding terms to the optimization 
 problem. This is a very direct way of ensuring no part of the model becomes overly dominant. Examples of this 
 could be adding a penalty in the cost function of a \ac{NN} to ensuring no weights become too large. Implicit
-regularization is a less direct attempt of hindering overfitting. This could be changing the depth of the \ac{ML} model,
+regularization is a less direct attempt to hinder overfitting. This could be changing the depth of the \ac{ML} model,
 varying the cost function or altering the data itself.
 \subsection{Early Stopping}\label{subsec:EarlyStopping}
 A simple implicit regularization method is to introduce \emph{early stopping} in the training pipeline. Early stopping 
@@ -18,11 +18,11 @@ is to introduce a goal for the training, which when reached, ends the training. 
 predetermined loss value on the training set or training until lack of progress on a second unseen data set. The latter
 approach is the one I will use in this thesis. 
 \subsection{Ensembles}\label{subsec:Ensembles}
-When comparing different \ac{ML} methods by performance, more often then not the top performing model includes 
+When comparing different \ac{ML} methods by performance, more often than not the top performing model includes 
 ensembling in one way or another. Like the word suggests, ensembling in \ac{ML} means using a collection of 
 \ac{ML} models to create one complex model. The key point to ensembling is that an ensemble of weak learners 
 can together be a strong learner. There are many ways to create ensembles of models, most methods 
-fall in to one of three categories; \emph{bagging}, \emph{boosting} and \emph{stacking}. Creating an ensemble of models 
+fall into one of three categories; \emph{bagging}, \emph{boosting} and \emph{stacking}. Creating an ensemble of models 
 through bagging, means to use several models each trained on their own sample from the same data set. The overarching 
 new model is created by averaging the predictions from the ensemble of models. The method seeks to create a unique set of 
 models through exposing each individual model to different training sets. Boosting is different to bagging in that it uses 

@@ -1,4 +1,4 @@
-\section{Model Assessment}\label{subsec:Cost}
+\section{Model Assessment}\label{subsec:Assessment}
 \subsection{The Rate of True-Positive - ROC Curve}\label{subsec:AUC}
 A \ac{ROC} curve is a tool used to measure and visualize a binary classifier's ability 
 to correctly classify data. In figure \ref{fig:ROC} I have plotted an illustration of a 
@@ -7,7 +7,7 @@ false-positive rates and the $y$-axis represents true-positive. The different va
 for the curve are the rate of true positives with different thresholds, i.e. 
 the value deciding whether an event is 1 or 0, signal or background. If a classifier 
 has learned nothing and is simply guessing, the \ac{ROC} curve will be a linear curve 
-going across the diagonal of the axis. This line is often drawn in \ac{ROC} curve. The better the 
+going across the diagonal of the axis. This line is often drawn in a \ac{ROC} curve. The better the 
 classifier is, the higher the \ac{ROC} curve will bend towards the upper-left corner of the 
 graph. The closer the line is to the diagonal, the worse the classifier. 
 \\
@@ -62,16 +62,16 @@ deviation of the Gaussian distribution. In physics, one often deems the results 
     \label{fig:ConfInt}
 \end{figure}
 Before attempting to search for deviations in the real data, we are interested in analysing the sensitivity of our method as well 
-as calculate the expected number of signal event in our signal region. To study the sensitivity of an analysis one looks only at the 
+as calculate the expected number of signal events in our signal region. To study the sensitivity of an analysis one looks only at the 
 simulated background and signal and performs a study to see how well one can separate background from signal. The measure of the sensitivity 
 of our models will be of great focus in this thesis.
 \\
 In the case we are determining the sensitivity, we do not have $n_{obs}$. Instead we simply define $s$ as the number of events of the simulated signal 
 inside the signal region. This number would be specific for each mass combination and will be an estimation for how sensitive 
-the model is for that exact combination. We call the significance calulated using the simulated data for \emph{expected significance}. 
+the model is for that exact combination. We call the significance calculated using the simulated data for \emph{expected significance}. 
 In physics, we define a model as sufficiently sensitive if it is able to achieve a significance of 1.64 or above. This number is chosen based on 
 its relation to the b-hypothesis. A significance of 1.64, equals the distance from the mean of the Gaussian distribution which sums to an area of 
-0.95 (see figure \ref{fig:ConfInt}). There are many ways to inteprete this. A layman's intepratation (which is sufficient for this thesis), is 
+0.95 (see figure \ref{fig:ConfInt}). There are many ways to interprete this. A layman's interpratation (which is sufficient for this thesis), is 
 that given the b-hypothesis is true, there is a $95\%$ probability that we will measure a signal which produces a significance of less than 
 1.64. Therefore, there is only a $5\%$ probability, given the b-hypothesis, that we would observe an equal or worse comparison given further experiments. 
-For more information on significance and discovery in physics the reader is reffered to the following lecture \cite{magnar}.
+For more information on significance and discovery in physics the reader is referred to the following lecture \cite{magnar}.
