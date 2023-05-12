@@ -31,41 +31,39 @@ Warning--empty author in atlas_collaboration_performance_muons
 Warning--empty author in atlas_collaboration_photons
 Warning--empty year in glorot_understanding_2010
 Warning--empty author in Aad:2800889
-Warning--empty author in ATLAS-CONF-2011-152
-Warning--empty author in ATLAS-CONF-2017-064
 Warning--empty author in the_atlas_collaboration_tagging_2014
 Warning--empty institution in the_atlas_collaboration_tagging_2014
 Warning--empty year in the_atlas_collaboration_tagging_2014
-You've used 50 entries,
+You've used 49 entries,
             2188 wiz_defined-function locations,
-            862 strings with 64206 characters,
-and the built_in function-call counts, 11243 in all, are:
-= -- 1053
-> -- 562
+            859 strings with 63907 characters,
+and the built_in function-call counts, 11115 in all, are:
+= -- 1037
+> -- 565
 < -- 0
 + -- 171
-- -- 121
-* -- 938
-:= -- 1603
-add.period$ -- 55
-call.type$ -- 50
-change.case$ -- 52
+- -- 122
+* -- 921
+:= -- 1588
+add.period$ -- 54
+call.type$ -- 49
+change.case$ -- 49
 chr.to.int$ -- 0
-cite$ -- 71
-duplicate$ -- 507
-empty$ -- 1056
-format.name$ -- 121
-if$ -- 2810
+cite$ -- 68
+duplicate$ -- 497
+empty$ -- 1038
+format.name$ -- 122
+if$ -- 2780
 int.to.chr$ -- 0
-int.to.str$ -- 50
-missing$ -- 121
-newline$ -- 158
-num.names$ -- 40
-pop$ -- 171
+int.to.str$ -- 49
+missing$ -- 124
+newline$ -- 155
+num.names$ -- 41
+pop$ -- 168
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 302
+skip$ -- 301
 stack$ -- 0
 substring$ -- 485
 swap$ -- 158
@@ -73,8 +71,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 21
-while$ -- 84
-width$ -- 52
-write$ -- 430
-(There were 21 warnings)
+warning$ -- 19
+while$ -- 85
+width$ -- 51
+write$ -- 417
+(There were 19 warnings)

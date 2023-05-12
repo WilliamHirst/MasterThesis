@@ -13,7 +13,7 @@ compare when deciding the number of nodes and hidden layers to be used in the an
 \ref{subsec:TrainingStrategy}.
 \\
 Figure \ref{fig:NNshallowGridSig} displays the expected sensitivity for the smaller network (20 nodes). By comparing with the 
-results achieved by the \verb!XGBoost! model in figure \ref{fig:XGBoost}, we can observe that the shallow network performs very similarly to the \verb!XGBoost! 
+results achieved by the \verb!XGBoost! model in figure \ref{fig:XGBoost}, we can observe that the smaller network performs very similarly to the \verb!XGBoost! 
 model. In fact, the \verb!XGBoost! model seems to outperform (achieve a higher significance for most combinations) the network ever so slightly.
 \\
 In figure \ref{fig:NNGridSig}, I present the same grid as described above, but using the larger network. By comparing the results from the smaller 
@@ -54,7 +54,7 @@ results from an analysis which aims to study this.
 In figure \ref{fig:Interpolation} I present the results from two models for which each is trained on two different sets of signals.
 The figures display which combinations were used during training, highlighted using a green corner. 
 The training performed to produce the results aligns with the strategy described in section \ref{subsec:TrainingStrategy} and both apply
-an ordinary dense \ac{NN} architecture described in section \ref{subsec:arch}. Figure \ref{fig:OneMass} presents the achieved sensitivity 
+an ordinary dense \ac{NN} architecture described in section \ref{subsec:arch}. Figure \ref{fig:OneMass} presents the expected sensitivity 
 from a dense \ac{NN} which has only trained on one mass combination (which will henceforth be referred to as \ac{OMM}), $\{250,550\}_{GeV}$, 
 while figure \ref{fig:SeveralMass} presents the achieved sensitivity after training on a large set of mass combinations 
 (which will hence force be referred to as \ac{SMM}). Specifically, the latter figure shows the results after training on all signals on the outer 
