@@ -198,6 +198,12 @@ W.~McKinney, \emph{Data structures for statistical computing in python},  in
 {\scshape ATLAS} collaboration, \emph{{Object-based missing transverse momentum
   significance in the ATLAS detector}},  tech. rep., CERN, Geneva, 2018.
 
+\bibitem{SUSYCut}
+{\scshape {ATLAS}} collaboration, \emph{Search for electroweak production of
+  supersymmetric particles in final states with two or three leptons at {$\sqrt
+  s$ = 13 TeV} with the {ATLAS} detector},
+  \href{http://arxiv.org/abs/1803.02762}{{\tt 1803.02762}}.
+
 \bibitem{Aaboud_2019}
 M.~Aaboud, , G.~Aad, B.~Abbott, D.~C. Abbott, O.~Abdinov et~al., \emph{Electron
   reconstruction and identification in the {ATLAS} experiment using the 2015
@@ -245,8 +251,8 @@ A.~Gholamy, V.~Kreinovich and O.~Kosheleva, \emph{Why 70/30 or 80/20 relation
   Detector}},  \href{http://arxiv.org/abs/2201.13045}{{\tt 2201.13045}}.
 
 \bibitem{cms_collaboration_reconstruction_2016}
-C.~Collaboration, \emph{Reconstruction and identification of tau lepton decays
-  to hadrons and tau neutrino at {CMS}},
+{\scshape CMS} collaboration, \emph{Reconstruction and identification of tau
+  lepton decays to hadrons and tau neutrino at {CMS}},
   \href{http://arxiv.org/abs/1510.07488}{{\tt 1510.07488}}.
 
 \bibitem{lester_measuring_1999}
