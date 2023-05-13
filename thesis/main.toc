@@ -39,15 +39,15 @@
 \contentsline {subsection}{\numberline {2.6.3}Back Propagation}{20}{subsection.2.6.3}%
 \contentsline {subsection}{\numberline {2.6.4}Activation Functions}{21}{subsection.2.6.4}%
 \contentsline {subsection}{\numberline {2.6.5}Network Ensembles, Dropout and LWTA Networks}{22}{subsection.2.6.5}%
-\contentsline {subsection}{\numberline {2.6.6}Parametrized Neural Network}{23}{subsection.2.6.6}%
-\contentsline {section}{\numberline {2.7}Decision Trees and Gradient Boosting}{24}{section.2.7}%
-\contentsline {subsection}{\numberline {2.7.1}Decision Trees}{24}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}Gradient Boosting in Decision Trees}{26}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.6.6}Parametrized Neural Network}{24}{subsection.2.6.6}%
+\contentsline {section}{\numberline {2.7}Decision Trees and Gradient Boosting}{25}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Decision Trees}{25}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Gradient Boosting in Decision Trees}{25}{subsection.2.7.2}%
 \contentsline {section}{\numberline {2.8}Machine Learning Applied to a BSM Search}{26}{section.2.8}%
 \contentsline {subsection}{\numberline {2.8.1}The Traditional Approach}{26}{subsection.2.8.1}%
 \contentsline {subsection}{\numberline {2.8.2}The Machine Learning Approach}{27}{subsection.2.8.2}%
-\contentsline {section}{\numberline {2.9}Model Assessment}{27}{section.2.9}%
-\contentsline {subsection}{\numberline {2.9.1}The Rate of True-Positive - ROC Curve}{27}{subsection.2.9.1}%
+\contentsline {section}{\numberline {2.9}Model Assessment}{28}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}The Rate of True-Positive - ROC Curve}{28}{subsection.2.9.1}%
 \contentsline {subsection}{\numberline {2.9.2}Statistical Assessment - Discovery $\&$ Exclusion}{28}{subsection.2.9.2}%
 \contentsline {chapter}{\numberline {3}Implementation $\&$ Preparation of the Analysis}{31}{chapter.3}%
 \contentsline {section}{\numberline {3.1}The Simulated Data}{31}{section.3.1}%
