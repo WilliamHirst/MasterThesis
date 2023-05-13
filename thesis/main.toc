@@ -34,7 +34,7 @@
 \contentsline {subsection}{\numberline {2.5.1}Early Stopping}{17}{subsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.5.2}Ensembles}{18}{subsection.2.5.2}%
 \contentsline {section}{\numberline {2.6}Neural Networks}{18}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}General Structure}{18}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.1}General Structure}{19}{subsection.2.6.1}%
 \contentsline {subsection}{\numberline {2.6.2}Feeding Forward}{19}{subsection.2.6.2}%
 \contentsline {subsection}{\numberline {2.6.3}Back Propagation}{20}{subsection.2.6.3}%
 \contentsline {subsection}{\numberline {2.6.4}Activation Functions}{21}{subsection.2.6.4}%

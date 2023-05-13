@@ -137,6 +137,14 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel
   et~al., \emph{Scikit-learn: Machine learning in {P}ython}, {\emph{Journal of
   Machine Learning Research} {\bf 12} (2011) 2825--2830}.
 
+\bibitem{hastie_neural_2009}
+T.~Hastie, R.~Tibshirani and J.~Friedman, \emph{Neural networks},  in \emph{The
+  Elements of Statistical Learning: Data Mining, Inference, and Prediction}
+  (T.~Hastie, R.~Tibshirani and J.~Friedman, eds.), Springer Series in
+  Statistics, pp.~389--416.
+\newblock Springer.
+\newblock \href{http://dx.doi.org/10.1007/978-0-387-84858-7_11}{DOI}.
+
 \bibitem{srivastava_compete_2013}
 R.~K. Srivastava, J.~Masci, S.~Kazerounian, F.~Gomez and J.~Schmidhuber,
   \emph{Compete to compute},  in \emph{Advances in Neural Information
