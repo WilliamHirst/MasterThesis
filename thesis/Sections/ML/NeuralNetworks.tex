@@ -206,8 +206,8 @@ can be viewed as a bagging ensemble (see subsection \ref{subsec:Ensembles}).
 
 \subsubsection*{Channel-Out}\label{subsubsec:Channel-Out}
 Dropout layers are not the only layers to dynamically change the architecture of a network. In this thesis I additionally 
-explored the lesser known, \emph{Channel-Out}-layer as introduced in the paper by Wang et al. \cite{wang_maxout_2013}. 
-Channel-out, similarly to dropout creates an ensemble of networks by removing a set 
+explore the lesser known, \emph{Channel-Out}-layer as introduced in the paper by Wang et al. \cite{wang_maxout_2013}. 
+Channel-out, similarly to dropout, creates an ensemble of networks by removing a set 
 of nodes for each round of training. Contrary to dropout, channel-out does not choose the nodes to drop at random,
 but instead creates local \emph{units} by grouping the nodes, and removes all nodes except the node with the largest
 activation in each respective unit. The 'removed nodes' are multiplied by 0, as to remove any contributions to the next layer.
