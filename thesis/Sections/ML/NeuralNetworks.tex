@@ -223,7 +223,7 @@ each of the nodes. In other words, the channel-out layer creates something resem
 \ref{subsec:Ensembles}). 
 \subsubsection*{Stochastic-Channel-Out}\label{subsubsec:stochchannelout}
 As I will describe in further detail in sections to come, I choose to implement the channel-out layer myself. A consequence of this 
-was that I was able to experiment with it. In section \ref{subsubsec:Dropout}, I described the issue of complex co-adaptation. I also described 
+was that I was able to experiment with it. In the section regarding dropout, I described the issue of complex co-adaptation. I also described 
 a possible solution to the issue, the dropout layer. Although dropout and channel-out function rather similarly, they do not deal 
 with this issue in the same way. Where the dropout layer will force dormant nodes to contribute in the training by allowing for dominant
 nodes to be dropped, the channel-out would instead allow for dominant nodes to take further control inside their respective unit.
