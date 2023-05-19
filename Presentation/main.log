@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  19 MAY 2023 13:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  19 MAY 2023 15:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2261,7 +2261,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/EnsembleComp.png, id=242, 2181.65062pt x 969.6225pt>
 File: figures/EnsembleComp.png Graphic file (type png)
 <use figures/EnsembleComp.png>
-Package pdftex.def Info: figures/EnsembleComp.png  used on input line 127.
+Package pdftex.def Info: figures/EnsembleComp.png  used on input line 128.
 (pdftex.def)             Requested size: 291.35739pt x 129.48784pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2278,41 +2278,158 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [16
 
 ]
+<figures/NetworkVis/BeforeTraining.pdf, id=256, 462.52798pt x 346.89601pt>
+File: figures/NetworkVis/BeforeTraining.pdf Graphic file (type pdf)
+<use figures/NetworkVis/BeforeTraining.pdf>
+Package pdftex.def Info: figures/NetworkVis/BeforeTraining.pdf  used on input line 156.
+(pdftex.def)             Requested size: 171.1576pt x 128.37068pt.
+<figures/NetworkVis/AfterTraining.pdf, id=257, 462.52798pt x 346.89601pt>
+File: figures/NetworkVis/AfterTraining.pdf Graphic file (type pdf)
+<use figures/NetworkVis/AfterTraining.pdf>
+Package pdftex.def Info: figures/NetworkVis/AfterTraining.pdf  used on input line 156.
+(pdftex.def)             Requested size: 171.1576pt x 128.37068pt.
+
+Overfull \vbox (4.09422pt too high) detected at line 156
+ []
+
+
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
 [17
 
-]
+ <./figures/NetworkVis/BeforeTraining.pdf> <./figures/NetworkVis/AfterTraining.pdf>]
+<figures/NetworkVis/AfterTrainingBkg.pdf, id=282, 462.52798pt x 346.89601pt>
+File: figures/NetworkVis/AfterTrainingBkg.pdf Graphic file (type pdf)
+<use figures/NetworkVis/AfterTrainingBkg.pdf>
+Package pdftex.def Info: figures/NetworkVis/AfterTrainingBkg.pdf  used on input line 168.
+(pdftex.def)             Requested size: 171.1576pt x 128.37068pt.
+<figures/NetworkVis/AfterTrainingSig.pdf, id=283, 462.52798pt x 346.89601pt>
+File: figures/NetworkVis/AfterTrainingSig.pdf Graphic file (type pdf)
+<use figures/NetworkVis/AfterTrainingSig.pdf>
+Package pdftex.def Info: figures/NetworkVis/AfterTrainingSig.pdf  used on input line 168.
+(pdftex.def)             Requested size: 171.1576pt x 128.37068pt.
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 142.
+Overfull \vbox (4.09422pt too high) detected at line 168
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 142.
-
-(./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
 [18
 
-]
+ <./figures/NetworkVis/AfterTrainingBkg.pdf> <./figures/NetworkVis/AfterTrainingSig.pdf>]
+File: figures/NetworkVis/AfterTraining.pdf Graphic file (type pdf)
+<use figures/NetworkVis/AfterTraining.pdf>
+Package pdftex.def Info: figures/NetworkVis/AfterTraining.pdf  used on input line 181.
+(pdftex.def)             Requested size: 162.6018pt x 121.95003pt.
+<figures/NetworkVis/SCO/AfterTraining.pdf, id=309, 462.52798pt x 346.89601pt>
+File: figures/NetworkVis/SCO/AfterTraining.pdf Graphic file (type pdf)
+<use figures/NetworkVis/SCO/AfterTraining.pdf>
+Package pdftex.def Info: figures/NetworkVis/SCO/AfterTraining.pdf  used on input line 181.
+(pdftex.def)             Requested size: 162.6018pt x 121.95003pt.
+
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
 [19
 
- </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericonbook.pdf> </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericonarticle.pdf> </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericononline.pdf>]
+ <./figures/NetworkVis/SCO/AfterTraining.pdf>]
+LaTeX Font Info:    Font shape `OML/neohellenic/m/n' will be
+(Font)              scaled to size 12.25006pt on input line 208.
+LaTeX Font Info:    Font shape `OML/neohellenic/m/n' will be
+(Font)              scaled to size 8.57504pt on input line 208.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 208.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 208.
+<figures/PNN.png, id=326, 1445.4pt x 813.0375pt>
+File: figures/PNN.png Graphic file (type png)
+<use figures/PNN.png>
+Package pdftex.def Info: figures/PNN.png  used on input line 208.
+(pdftex.def)             Requested size: 203.94928pt x 114.7177pt.
+
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
 [20
+
+ <./figures/PNN.png>]
+Overfull \hbox (1.272pt too wide) has occurred while \output is active
+[] 
+ []
+
+[21
+
+]
+<figures/PNN/PNN50250Dist.pdf, id=343, 569.12625pt x 317.185pt>
+File: figures/PNN/PNN50250Dist.pdf Graphic file (type pdf)
+<use figures/PNN/PNN50250Dist.pdf>
+Package pdftex.def Info: figures/PNN/PNN50250Dist.pdf  used on input line 229.
+(pdftex.def)             Requested size: 162.6018pt x 90.62129pt.
+<figures/PNN/PNN50250Dist_C7.pdf, id=344, 569.12625pt x 317.185pt>
+File: figures/PNN/PNN50250Dist_C7.pdf Graphic file (type pdf)
+<use figures/PNN/PNN50250Dist_C7.pdf>
+Package pdftex.def Info: figures/PNN/PNN50250Dist_C7.pdf  used on input line 229.
+(pdftex.def)             Requested size: 162.6018pt x 90.62129pt.
+<figures/PNN/PNN200300Dist.pdf, id=345, 569.12625pt x 317.185pt>
+File: figures/PNN/PNN200300Dist.pdf Graphic file (type pdf)
+<use figures/PNN/PNN200300Dist.pdf>
+Package pdftex.def Info: figures/PNN/PNN200300Dist.pdf  used on input line 229.
+(pdftex.def)             Requested size: 162.6018pt x 90.62129pt.
+<figures/PNN/PNN200300Dist_C7.pdf, id=346, 569.12625pt x 317.185pt>
+File: figures/PNN/PNN200300Dist_C7.pdf Graphic file (type pdf)
+<use figures/PNN/PNN200300Dist_C7.pdf>
+Package pdftex.def Info: figures/PNN/PNN200300Dist_C7.pdf  used on input line 229.
+(pdftex.def)             Requested size: 162.6018pt x 90.62129pt.
+
+Overfull \hbox (1.272pt too wide) has occurred while \output is active
+[] 
+ []
+
+[22
+
+ <./figures/PNN/PNN50250Dist.pdf, page is rotated 90 degrees> <./figures/PNN/PNN50250Dist_C7.pdf, page is rotated 90 degrees> <./figures/PNN/PNN200300Dist.pdf, page is rotated 90 degrees> <./figures/PNN/PNN200300Dist_C7.pdf, page is rotated 90 degrees>]
+Overfull \hbox (1.272pt too wide) has occurred while \output is active
+[] 
+ []
+
+[23
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 239.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 239.
+
+(./main.toc)
+Overfull \hbox (1.272pt too wide) has occurred while \output is active
+[] 
+ []
+
+[24
+
+]
+Overfull \hbox (1.272pt too wide) has occurred while \output is active
+[] 
+ []
+
+[25
+
+ </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericonbook.pdf> </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericonarticle.pdf> </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericononline.pdf>]
+Overfull \hbox (1.272pt too wide) has occurred while \output is active
+[] 
+ []
+
+[26
 
 
 ]
@@ -2327,32 +2444,32 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 File: MathDept-images/MN_FYS_Segl_A.pdf Graphic file (type pdf)
 <use MathDept-images/MN_FYS_Segl_A.pdf>
-Package pdftex.def Info: MathDept-images/MN_FYS_Segl_A.pdf  used on input line 197.
+Package pdftex.def Info: MathDept-images/MN_FYS_Segl_A.pdf  used on input line 294.
 (pdftex.def)             Requested size: 325.4123pt x 54.72581pt.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pbk' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [21
+ [27
 
 
 ] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BE2395296D54DB48B091251468003110;2623.
+(rerunfilecheck)             Checksum: DB3EB696885AE103B9F73AD98DE843B1;2623.
  ) 
 Here is how much of TeX's memory you used:
- 31623 strings out of 478268
- 626918 string characters out of 5846347
+ 31820 strings out of 478268
+ 631708 string characters out of 5846347
  904355 words of memory out of 5000000
- 48975 multiletter control sequences out of 15000+600000
- 521604 words of font info for 145 fonts, out of 8000000 for 9000
+ 49107 multiletter control sequences out of 15000+600000
+ 537933 words of font info for 185 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,14n,122p,1064b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (21 pages, 1027589 bytes).
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/gfsneohellenic/neohellenicmath.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/gfsneohellenic/GFSNeohellenic-Italic.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (27 pages, 1420293 bytes).
 PDF statistics:
- 444 PDF objects out of 1000 (max. 8388607)
- 351 compressed objects within 4 object streams
- 62 named destinations out of 1000 (max. 500000)
- 53423 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 729 PDF objects out of 1000 (max. 8388607)
+ 492 compressed objects within 5 object streams
+ 74 named destinations out of 1000 (max. 500000)
+ 66785 words of extra memory for PDF output out of 74296 (max. 10000000)
 

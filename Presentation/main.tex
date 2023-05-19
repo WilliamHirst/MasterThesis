@@ -101,7 +101,7 @@
         \item Dropout
         \item What is LWTA?
         \item Competing nodes - Units
-        \item Pattern specific pathways
+        \item Encode information in pattern specific pathways
     \end{itemize}    
     \begin{textblock}{0.58}(0.2, 0.365)
         \includegraphics[width = \textwidth]{figures/Max_out}
@@ -109,14 +109,15 @@
 \end{frame}
 
 \begin{frame}{Channel-Out, SCO and Maxout}
+    \vspace{0.5cm}
     \center
         \begin{table}
             $
             \begin{array}{cccc}
                 \hline \text { Layer } & \text { Separate Weights $\&$ Biases } & \text { Static Units }\\
-                \hline\hline\text{Channel-Out} & \text{Yes} &  \text{Yes}  \\
-                \text { SCO } &  \text{Yes} &  \text{No}  \\
-                \text{ Maxout } &  \text{No} &  \text{Yes}   \\
+                \hline\hline\text{Channel-Out} & \textcolor{green}{Yes} &  \textcolor{green}{Yes}  \\
+                \text { SCO } &  \textcolor{green}{Yes} &  \textcolor{red}{No}  \\
+                \text{ Maxout } &  \textcolor{red}{No} &  \textcolor{green}{Yes}   \\
                 \hline
             \end{array}
             $
@@ -126,9 +127,105 @@
     \end{textblock}
 \end{frame}
 
+\begin{frame}{Visualization and study of sparse pathways}
+    \begin{itemize}
+        \item A study of the implementation \\
+        and effect of LWTA layers
+        \item Visualize the activation and \\
+        paths of 100 randomly sampled \\
+        events
+        \begin{itemize}
+            \item 50 background
+            \item 50 signal
+        \end{itemize}
+        \item The bolder the line the more\\ 
+        frequently the path is used.
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \begin{textblock}{0.8}(0.015, 0.25)
+        \textbf{Before training}
+    \end{textblock}
+    \begin{textblock}{0.8}(0.017, 0.7)
+        \textbf{After training}
+    \end{textblock}
+    \begin{center}\vspace{-0.5cm}
+        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/BeforeTraining.pdf}
+        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTraining.pdf}
+    \end{center}
+\end{frame}
+\begin{frame}
+    \begin{textblock}{0.8}(0.015, 0.25)
+        \textbf{Background}
+    \end{textblock}
+    \begin{textblock}{0.8}(0.017, 0.7)
+        \textbf{Signal}
+    \end{textblock}
+    \begin{center}\vspace{-0.5cm}
+        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTrainingBkg.pdf}
+        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTrainingSig.pdf}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Comparing activation of Maxout with SCO}
+    \begin{textblock}{0.8}(0.225, 0.625)
+        \textbf{Maxout}
+    \end{textblock}
+    \begin{textblock}{0.8}(0.7, 0.625)
+        \textbf{SCO}
+    \end{textblock}
+    \begin{center}
+        \includegraphics[width = 0.475\textwidth]{figures/NetworkVis/AfterTraining.pdf}
+        \includegraphics[width = 0.475\textwidth]{figures/NetworkVis/SCO/AfterTraining.pdf}
+    \end{center}
+\end{frame}
 
 \begin{frame}{Parameterized neural network}
-    
+    \begin{itemize}
+        \item For diverse data set, $X$, dependent on a parameter, $X(\theta)$
+        \begin{itemize}
+            \item Classical approach: One model for each parameter
+            \item PNN approach: Include $\theta$ as feature in feature set
+        \end{itemize}
+        \item Signal events using masses $\{A,B\}_{GeV}$ to generate 
+              event during simulation will include the parameters A and B
+              in feature set
+        \item Background assigned \\
+              parameters randomly \\
+              using same distribution\\ 
+              as signal
+        \item Motivation
+        \begin{itemize}
+            \item Network will \\
+                  associate parameters\\
+                  with trends in the \\
+                  data
+        \end{itemize}
+        \begin{textblock}{0.8}(0.45, 0.45)
+            \includegraphics[width = 0.7\textwidth]{figures/PNN.png}
+        \end{textblock}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Study the effect of the parameters in the PNN}
+    \begin{itemize}
+        \item Study if the parameters effect the training as intended
+        \item Test: Manually assign all the events, both background and 
+        signal, the same parameters (mass combinations) thereby assigning
+        most of the signal the wrong parameters
+        \item Hypothesis: PNN performs better when events are assigned correct
+              parameters 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Study the effect of the parameters in the PNN}
+    \begin{center}
+        \includegraphics[width = 0.475\textwidth]{figures/PNN/PNN50250Dist.pdf}
+        \includegraphics[width = 0.475\textwidth]{figures/PNN/PNN50250Dist_C7.pdf}
+    \end{center}
+    \begin{center}
+        \includegraphics[width = 0.475\textwidth]{figures/PNN/PNN200300Dist.pdf}
+        \includegraphics[width = 0.475\textwidth]{figures/PNN/PNN200300Dist_C7.pdf}
+    \end{center}
 \end{frame}
 
 
