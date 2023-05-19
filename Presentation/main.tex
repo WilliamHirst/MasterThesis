@@ -17,6 +17,7 @@
 \setlength{\TPHorizModule}{\paperwidth} % Textpos units
 \setlength{\TPVertModule}{\paperheight} % Textpos units
 \usepackage{tikz}
+\usepackage{diagbox}
 \usetikzlibrary{overlay-beamer-styles}  % Overlay effects for TikZ
 
 
@@ -41,13 +42,11 @@
     \tableofcontents[currentsection]
 \end{frame}
 
-\subsection{Why apply machine learning to HEP problems?}
 \begin{frame}{Why apply machine learning to HEP problems?}
  
 \end{frame}
 
 
-\subsection{How do we search for new physics?}
 \begin{frame}{How do we search for new physics?}
  
 \end{frame}
@@ -57,7 +56,6 @@
     \tableofcontents[currentsection]
 \end{frame}
 
-\subsection{A summary of the applied methods}
 \begin{frame}{A summary of the applied methods}
     \emph{Three} neural network variants
     \begin{itemize}
@@ -71,15 +69,19 @@
     \end{itemize}
 \end{frame}
 
-\subsection{How are the methods compared?}
 \begin{frame}{How are the methods compared?}
 
 \end{frame}
 
-\subsection{Training strategy}
 \begin{frame}{Training strategy}
  
 \end{frame}
+
+\begin{frame}{Mass combinations of the chargino-neutralino pair}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/Signal/NrSignalEvents.pdf}
+\end{frame}
+
 
 
 \section{Methods $\&$ Results}
@@ -113,7 +115,7 @@
     \center
         \begin{table}
             $
-            \begin{array}{cccc}
+            \begin{array}{ccc}
                 \hline \text { Layer } & \text { Separate Weights $\&$ Biases } & \text { Static Units }\\
                 \hline\hline\text{Channel-Out} & \textcolor{green}{Yes} &  \textcolor{green}{Yes}  \\
                 \text { SCO } &  \textcolor{green}{Yes} &  \textcolor{red}{No}  \\
@@ -230,6 +232,21 @@
     \end{center}
 \end{frame}
 
+\begin{frame}{Efficiency table}
+    \vfill
+    \begin{table}
+        \footnotesize
+        \centering
+        $
+        \begin{array}{ccccc}
+            \hline \text { \diagbox{\textbf{Parameters}}{\textbf{Channel}} }  & \text {$(50,250)$} & \text {$(100,200)$} & \text {$(150,300)$} & \text {$(200,300)$} \\
+            \hline \text {$(50,250)$}   & \text { $\bf{80.8}\%$ } & \text { $45.8\%$ } & \text { $\bf{77.5}\%$ } & \text { $50.1\%$ } \\
+            \text {$(200,300)$}   & \text { $77.3\%$ } & \text { $\bf{54.6}\%$ } & \text { $76.3\%$ } & \text { $\bf{59.0}\%$ }\\
+            \hline
+        \end{array}
+        $
+    \end{table}
+\end{frame}
 
 \begin{frame}{Boosted decision trees - XGBoost}
  
@@ -239,13 +256,34 @@
     \includegraphics[width=0.8\textwidth]{figures/Comps/GenPlussXGBNetworkComp.pdf}
 \end{frame}
 
+
 \begin{frame}{Increasing sensitivity through a PCA}
     
 \end{frame}
 
 
 \begin{frame}{Comparing the methods to previous analysis}
-    
+    \begin{itemize}
+        \item Compare the expected limits of three best models
+              to analysis made by ATLAS in 2021 \cite{atlas_search_2021}
+        \item Introduce flat uncertainty for realistic comparison ($20\%$, $10\%$, $<1\%$) 
+        \item Include top performing methods
+        \begin{itemize}
+            \item Maxout model with PCA
+            \item PNN with PCA
+            \item Ordinary dense neural network withou PCA
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/Limits/compLimit20.pdf}
+\end{frame}
+\begin{frame}
+    \vfill
+    \centering
+    \includegraphics[width=0.45\textwidth]{figures/Limits/compLimit10.pdf}
+    \includegraphics[width=0.45\textwidth]{figures/Limits/compLimit1.pdf}
 \end{frame}
 \section{Conclusion $\&$ Outlook}
 \begin{frame}{Outline}
@@ -261,42 +299,11 @@
 \begin{frame}[allowframebreaks]{References}
     \begin{thebibliography}{}
 
-        % Article is the default.
-        \setbeamertemplate{bibliography item}[book]
+        \bibitem{atlas_search_2021}
+        ATLAS Collaboration.
+        \newblock \enquote{Search for chargino--neutralino pair production in final states with three leptons and missing transverse momentum in {$\sqrt{s}$} = 13 {TeV} pp collisions with the {ATLAS} detector}.
+        \newblock \url{http://arxiv.org/abs/2106.01676}
 
-        \bibitem{Hartshorne1977}
-        Hartshorne, R.
-        \newblock \emph{Algebraic Geometry}.
-        \newblock Springer-Verlag, 1977.
-
-        \setbeamertemplate{bibliography item}[article]
-
-        \bibitem{Helso2020}
-        Helsø, M.
-        \newblock \enquote{Rational quartic symmetroids}.
-        \newblock \emph{Adv. Geom.}, 20(1):71--89, 2020.
-
-        \setbeamertemplate{bibliography item}[online]
-
-        \bibitem{HR2018}
-        Helsø, M.\ and Ranestad, K.
-        \newblock \emph{Rational quartic spectrahedra}, 2018.
-        \newblock \url{https://arxiv.org/abs/1810.11235}
-
-        \setbeamertemplate{bibliography item}[triangle]
-
-        \bibitem{AM1969}
-        Atiyah, M.\ and Macdonald, I.
-        \newblock \emph{Introduction to commutative algebra}.
-        \newblock Addison-Wesley Publishing Co., Reading, Mass.-London-Don
-        Mills, Ont., 1969
-
-        \setbeamertemplate{bibliography item}[text]
-
-        \bibitem{Artin1966}
-        Artin, M.
-        \newblock \enquote{On isolated rational singularities of surfaces}.
-        \newblock \emph{Amer. J. Math.}, 80(1):129--136, 1966.
 
     \end{thebibliography}
 \end{frame}
