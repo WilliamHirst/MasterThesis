@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  19 MAY 2023 11:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  19 MAY 2023 13:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2007,6 +2007,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 28.
 LaTeX Info: Redefining \pageref on input line 28.
 LaTeX Info: Redefining \nameref on input line 28.
+ (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
@@ -2102,12 +2103,12 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
 Overfull \vbox (10.95006pt too high) detected at line 28
  []
 
-<MathDept-images/fysikkbygget.jpeg, id=13, 662.475pt x 150.5625pt>
+<MathDept-images/fysikkbygget.jpeg, id=69, 662.475pt x 150.5625pt>
 File: MathDept-images/fysikkbygget.jpeg Graphic file (type jpg)
 <use MathDept-images/fysikkbygget.jpeg>
 Package pdftex.def Info: MathDept-images/fysikkbygget.jpeg  used on input line 28.
 (pdftex.def)             Requested size: 342.3152pt x 77.799pt.
-<MathDept-images/MN_FYS_Segl_A.pdf, id=14, 929.7355pt x 156.35715pt>
+<MathDept-images/MN_FYS_Segl_A.pdf, id=70, 929.7355pt x 156.35715pt>
 File: MathDept-images/MN_FYS_Segl_A.pdf Graphic file (type pdf)
 <use MathDept-images/MN_FYS_Segl_A.pdf>
 Package pdftex.def Info: MathDept-images/MN_FYS_Segl_A.pdf  used on input line 28.
@@ -2142,8 +2143,16 @@ Overfull \hbox (1.272pt too wide) detected at line 28
 [] 
  []
 
-No file main.toc.
-
+(./main.toc
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmss' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+))
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
@@ -2161,8 +2170,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 39.
 
-No file main.toc.
-
+(./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
@@ -2183,9 +2191,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [6
 
-]
-No file main.toc.
-
+] (./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
@@ -2222,8 +2228,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 85.
 
-No file main.toc.
-
+(./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
@@ -2240,20 +2245,11 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [13
 
 ]
-
-/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex:112: LaTeX Error: File `../thesis/MathDept-images/MathDept-apollon' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.112 \end{frame}
-                 
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+<figures/Max_out.png, id=233, 976.39781pt x 742.27313pt>
+File: figures/Max_out.png Graphic file (type png)
+<use figures/Max_out.png>
+Package pdftex.def Info: figures/Max_out.png  used on input line 109.
+(pdftex.def)             Requested size: 211.23396pt x 160.5823pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2261,29 +2257,20 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [14
 
-]
+ <./figures/Max_out.png>]
+<figures/EnsembleComp.png, id=242, 2181.65062pt x 969.6225pt>
+File: figures/EnsembleComp.png Graphic file (type png)
+<use figures/EnsembleComp.png>
+Package pdftex.def Info: figures/EnsembleComp.png  used on input line 127.
+(pdftex.def)             Requested size: 291.35739pt x 129.48784pt.
+
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
 [15
 
-]
-
-/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex:112: LaTeX Error: File `../thesis/MathDept-images/MathDept-apollon' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.112 \end{frame}
-                 
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
+ <./figures/EnsembleComp.png>]
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
@@ -2298,6 +2285,15 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [17
 
 ]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 142.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 142.
+
+(./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
@@ -2305,49 +2301,18 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [18
 
 ]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 125.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 125.
-
-No file main.toc.
-
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
 [19
 
-]
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `cmss' (encoding: OT1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
-LaTeX Font Info:    Font shape `OML/neohellenic/m/n' will be
-(Font)              scaled to size 6.12503pt on input line 177.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 177.
-
-Overfull \hbox (1.272pt too wide) has occurred while \output is active
-[] 
- []
-
-[20
-
  </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericonbook.pdf> </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericonarticle.pdf> </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericononline.pdf>]
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
-[21
+[20
 
 
 ]
@@ -2362,41 +2327,32 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 File: MathDept-images/MN_FYS_Segl_A.pdf Graphic file (type pdf)
 <use MathDept-images/MN_FYS_Segl_A.pdf>
-Package pdftex.def Info: MathDept-images/MN_FYS_Segl_A.pdf  used on input line 180.
+Package pdftex.def Info: MathDept-images/MN_FYS_Segl_A.pdf  used on input line 197.
 (pdftex.def)             Requested size: 325.4123pt x 54.72581pt.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pbk' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [22
+ [21
 
 
 ] (./main.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  7B9A3698128890692B82CF2986D4EA83;2623.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: BE2395296D54DB48B091251468003110;2623.
  ) 
 Here is how much of TeX's memory you used:
- 31569 strings out of 478268
- 626304 string characters out of 5846347
- 901232 words of memory out of 5000000
- 48930 multiletter control sequences out of 15000+600000
- 520627 words of font info for 142 fonts, out of 8000000 for 9000
+ 31623 strings out of 478268
+ 626918 string characters out of 5846347
+ 904355 words of memory out of 5000000
+ 48975 multiletter control sequences out of 15000+600000
+ 521604 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,14n,122p,1064b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (22 pages, 360409 bytes).
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (21 pages, 1027589 bytes).
 PDF statistics:
- 331 PDF objects out of 1000 (max. 8388607)
- 244 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
- 51253 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 444 PDF objects out of 1000 (max. 8388607)
+ 351 compressed objects within 4 object streams
+ 62 named destinations out of 1000 (max. 500000)
+ 53423 words of extra memory for PDF output out of 61914 (max. 10000000)
 

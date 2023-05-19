@@ -94,22 +94,39 @@
 \begin{frame}{Ordinary dense neural network}
     
 \end{frame}
+
+
 \begin{frame}{Ensemble methods - LWTA}
     \begin{itemize}
+        \item Dropout
         \item What is LWTA?
-        \begin{itemize}
-            \item Dropout
-        \end{itemize}
-        \item Competing nodes
+        \item Competing nodes - Units
         \item Pattern specific pathways
-        \item Channel-out
-        \item Stochatic-channel-out
-        \item Maxout
     \end{itemize}    
-    \begin{textblock}{0.3}(0.45, 0.55)
-        \includegraphics<1, 3>[width = \textwidth]{../thesis/MathDept-images/MathDept-apollon}
+    \begin{textblock}{0.58}(0.2, 0.365)
+        \includegraphics[width = \textwidth]{figures/Max_out}
     \end{textblock}
 \end{frame}
+
+\begin{frame}{Channel-Out, SCO and Maxout}
+    \center
+        \begin{table}
+            $
+            \begin{array}{cccc}
+                \hline \text { Layer } & \text { Separate Weights $\&$ Biases } & \text { Static Units }\\
+                \hline\hline\text{Channel-Out} & \text{Yes} &  \text{Yes}  \\
+                \text { SCO } &  \text{Yes} &  \text{No}  \\
+                \text{ Maxout } &  \text{No} &  \text{Yes}   \\
+                \hline
+            \end{array}
+            $
+        \end{table}
+    \begin{textblock}{0.8}(0.1, 0.45)
+        \includegraphics[width = \textwidth]{figures/EnsembleComp}
+    \end{textblock}
+\end{frame}
+
+
 \begin{frame}{Parameterized neural network}
     
 \end{frame}
