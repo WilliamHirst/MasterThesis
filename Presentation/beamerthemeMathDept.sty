@@ -223,9 +223,9 @@
 
 
 %% Custom colours:
-\setbeamercolor{author in final frame}  {fg = white}
-\setbeamercolor{title in final frame}   {fg = white}
-\setbeamercolor{subtitle in final frame}{fg = white}
+\setbeamercolor{author in final frame}  {fg = black}
+\setbeamercolor{title in final frame}   {fg = black}
+\setbeamercolor{subtitle in final frame}{fg = gray}
 \setbeamercolor*{section page}{fg = black, bg = blockbody}
 
 
@@ -240,6 +240,8 @@
                            series = \bfseries}
 \setbeamerfont{frametitle}{size = \LARGE,
                            series = \bfseries}
+\setbeamerfont{sub section}{size = \large,
+                           series = \bfseries}
 \setbeamerfont{title in head/foot} {series = \bfseries}
 \setbeamerfont{author in head/foot}{series = \bfseries}
 \setbeamerfont{date in head/foot}  {series = \bfseries}
@@ -247,11 +249,11 @@
 
 
 %% Custom fonts:
-\setbeamerfont{author in final frame}  {size   = \LARGE,
+\setbeamerfont{author in final frame}  {size   = \large,
                                         series = \bfseries}
-\setbeamerfont{title in final frame}   {size   = \LARGE,
+\setbeamerfont{title in final frame}   {size   = \large,
                                         series = \bfseries}
-\setbeamerfont{subtitle in final frame}{  size = \Large,
+\setbeamerfont{subtitle in final frame}{  size = \large,
                                         series = \normalfont\rmfamily}
 \setbeamerfont*{section page}{size   = \Huge,
                               series = \bfseries}
@@ -326,7 +328,7 @@
 \newcommand{\FinalFrame}
 {
     {
-        \setbeamercolor{background canvas}{bg = black}
+        \setbeamercolor{background canvas}{bg = white}
 
         \begin{frame}[plain, noframenumbering]
 
@@ -336,22 +338,14 @@
                 \AtPageUpperLeft
                 {
                     \hspace{0.976\radius}
-                    \parbox[t][0.2\paperheight][b]{\textwidth}
+                    \parbox[t][0.25\paperheight][b]{\textwidth}
                     {
-                        \includegraphics[scale = 0.4]
-                        {MathDept-images/MathDept-logo-3-\MATHlang}
+                        \includegraphics[scale = 0.35]
+                        {MathDept-images/MN_FYS_Segl_A}
                     }
                 }
 
-                \AtPageLowerLeft
-                {
-                    \hspace{2\radius}
-                    \parbox[b][4\radius][t]{2\radius}
-                    {
-                        \includegraphics[width = 2\radius]
-                        {MathDept-images/MathDept-apollon}
-                    }
-                }
+              
 
                 \AtPageLowerLeft
                 {
@@ -718,6 +712,16 @@
         \sectionpage
     \end{frame}
 }}
+\newcommand{\SubSectionPage}[1]
+{
+    \begin{frame}[c, plain]
+        \usebeamerfont{sub section}
+        \usebeamercolor{author}
+        \center
+        \text{#1}
+    \end{frame}
+}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

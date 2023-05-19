@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  19 MAY 2023 10:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  19 MAY 2023 11:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2185,43 +2185,20 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [5
 
 ]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 56.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 56.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 61.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 61.
-
-
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
 [6
 
-]
-<MathDept-images/MathDept-apollon.pdf, id=167, 142.5325pt x 142.5325pt>
-File: MathDept-images/MathDept-apollon.pdf Graphic file (type pdf)
-<use MathDept-images/MathDept-apollon.pdf>
-Package pdftex.def Info: MathDept-images/MathDept-apollon.pdf  used on input line 128.
-(pdftex.def)             Requested size: 109.2597pt x 109.25882pt.
-
+] (./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
 [7
 
- <./MathDept-images/MathDept-apollon.pdf>]
+]
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
@@ -2229,11 +2206,6 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [8
 
 ]
-File: MathDept-images/MathDept-apollon.pdf Graphic file (type pdf)
-<use MathDept-images/MathDept-apollon.pdf>
-Package pdftex.def Info: MathDept-images/MathDept-apollon.pdf  used on input line 128.
-(pdftex.def)             Requested size: 109.2597pt x 109.25882pt.
-
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
@@ -2248,30 +2220,85 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [10
 
 ]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 77.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 77.
+
+(./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
 [11
 
+] [12
+
+]
+Overfull \hbox (1.272pt too wide) has occurred while \output is active
+[] 
+ []
+
+[13
+
+]
+Overfull \hbox (1.272pt too wide) has occurred while \output is active
+[] 
+ []
+
+[14
+
+]
+Overfull \hbox (1.272pt too wide) has occurred while \output is active
+[] 
+ []
+
+[15
+
+]
+Overfull \hbox (1.272pt too wide) has occurred while \output is active
+[] 
+ []
+
+[16
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 104.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 104.
+
+(./main.toc)
+Overfull \hbox (1.272pt too wide) has occurred while \output is active
+[] 
+ []
+
+[17
+
 ]
 LaTeX Font Info:    Font shape `OML/neohellenic/m/n' will be
-(Font)              scaled to size 6.12503pt on input line 175.
+(Font)              scaled to size 6.12503pt on input line 156.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 175.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 156.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
-[12
+[18
 
  </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericonbook.pdf> </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericonarticle.pdf> </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericononline.pdf>]
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
-[13
+[19
 
 
 ]
@@ -2284,41 +2311,34 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-<MathDept-images/MathDept-logo-3-eng.pdf, id=316, 630.355pt x 74.2775pt>
-File: MathDept-images/MathDept-logo-3-eng.pdf Graphic file (type pdf)
-<use MathDept-images/MathDept-logo-3-eng.pdf>
-Package pdftex.def Info: MathDept-images/MathDept-logo-3-eng.pdf  used on input line 178.
-(pdftex.def)             Requested size: 252.13753pt x 29.71046pt.
-File: MathDept-images/MathDept-apollon.pdf Graphic file (type pdf)
-<use MathDept-images/MathDept-apollon.pdf>
-Package pdftex.def Info: MathDept-images/MathDept-apollon.pdf  used on input line 178.
-(pdftex.def)             Requested size: 36.42175pt x 36.42033pt.
-LaTeX Font Info:    Font shape `T1/pbk/m/n' in size <14.4> not available
-(Font)              Font shape `T1/pbk/l/n' tried instead on input line 178.
+File: MathDept-images/MN_FYS_Segl_A.pdf Graphic file (type pdf)
+<use MathDept-images/MN_FYS_Segl_A.pdf>
+Package pdftex.def Info: MathDept-images/MN_FYS_Segl_A.pdf  used on input line 159.
+(pdftex.def)             Requested size: 325.4123pt x 54.72581pt.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pbk' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [14
+ [20
 
 
- <./MathDept-images/MathDept-logo-3-eng.pdf>] (./main.aux)
+] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 26BC36740C915F3A37C50DE793AF401C;2659.
+(rerunfilecheck)             Checksum: 3D633C5FC71B34AA87FAE2E8D14ED72D;2623.
  ) 
 Here is how much of TeX's memory you used:
- 31687 strings out of 478268
- 629261 string characters out of 5846347
- 905399 words of memory out of 5000000
- 49029 multiletter control sequences out of 15000+600000
- 534072 words of font info for 167 fonts, out of 8000000 for 9000
+ 31585 strings out of 478268
+ 625643 string characters out of 5846347
+ 904355 words of memory out of 5000000
+ 48929 multiletter control sequences out of 15000+600000
+ 526388 words of font info for 154 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,14n,122p,1064b,813s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,14n,122p,1064b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (14 pages, 409813 bytes).
+Output written on main.pdf (20 pages, 371354 bytes).
 PDF statistics:
- 366 PDF objects out of 1000 (max. 8388607)
- 283 compressed objects within 3 object streams
- 49 named destinations out of 1000 (max. 500000)
- 67759 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 433 PDF objects out of 1000 (max. 8388607)
+ 345 compressed objects within 4 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 59557 words of extra memory for PDF output out of 61914 (max. 10000000)
 

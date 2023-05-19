@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1684485496 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1684485497
-  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1684485495 4831 2d4c67477f5c2d3864decce167548a49 ""
+["pdflatex"] 1684488414 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1684488415
+  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1684488414 3818 4c5799d24aa168f7810ae6c43235a77c ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/bookman/pbkl8r.tfm" 1136768653 2608 d8b24d9becc080c35b069bf5c09816a3 ""
@@ -264,15 +264,13 @@
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1661506083 2826436 9ea569ae27c321d09c61732e5c85f6b6 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "MathDept-images/MN_FYS_Segl_A.pdf" 1684479819 277983 5cedc38a952ec11956cf4e4e446e729c ""
-  "MathDept-images/MathDept-apollon.pdf" 1684479224 67243 4d9ea039e052237f983a669fba75fb67 ""
-  "MathDept-images/MathDept-logo-3-eng.pdf" 1684479176 15769 84f86bc5ec2abb162be6f87b9348888a ""
   "MathDept-images/fysikkbygget.jpeg" 1684484621 25359 82364ea108c84302a069594166cd042b ""
-  "beamerthemeMathDept.sty" 1684485154 26902 87329051de931c7ef45d9afa2ed09a86 ""
-  "main.aux" 1684485497 6589 c2f4753c16e6fffc80c9e8dc51c7859d "pdflatex"
-  "main.nav" 1684485497 3191 179355ddaf6ef8681d155323c7213ce4 "pdflatex"
-  "main.out" 1684485497 2659 26bc36740c915f3a37c50de793af401c "pdflatex"
-  "main.tex" 1684485495 4831 2d4c67477f5c2d3864decce167548a49 ""
-  "main.toc" 1684485497 955 f12541a4fe887cb2e877921e1c16b6b8 "pdflatex"
+  "beamerthemeMathDept.sty" 1684488219 26856 ffc01dcc549b6bbf84bd59c45ef13289 ""
+  "main.aux" 1684488415 8010 7af36ab331f2b7dfbb0f17e708899a34 "pdflatex"
+  "main.nav" 1684488415 4469 27cbec8939787491d19192b53a9109a4 "pdflatex"
+  "main.out" 1684488415 2623 3d633c5fc71b34aa87fae2e8d14ed72d "pdflatex"
+  "main.tex" 1684488414 3818 4c5799d24aa168f7810ae6c43235a77c ""
+  "main.toc" 1684488415 870 b4f3e696bf59ffa343f22b67c45283e0 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
