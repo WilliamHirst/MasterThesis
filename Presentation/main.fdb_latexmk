@@ -1,6 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1684488414 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1684488415
-  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1684488414 3818 4c5799d24aa168f7810ae6c43235a77c ""
+["pdflatex"] 1684490376 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1684490376
+  "../thesis/MathDept-images/MathDept-apollon" 0 -1 0 ""
+  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1684490374 4650 30f329f400cee965408926c7de961a0e ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/bookman/pbkl8r.tfm" 1136768653 2608 d8b24d9becc080c35b069bf5c09816a3 ""
@@ -33,7 +34,6 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/gfsneohellenic/gfsneohellenicmath8a.tfm" 1382567737 1340 b8ba2ff6bba3dc300db09d237f653319 ""
-  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb" 1248133631 24457 5cbb7bdf209d5d1ce9892a9b80a307cc ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb" 1136849748 44934 6b22cea7b9558c69bac00cbdc55a9953 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb" 1136849748 35941 f27169cc74234d5bd5e4cca5abafaabb ""
@@ -265,12 +265,12 @@
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "MathDept-images/MN_FYS_Segl_A.pdf" 1684479819 277983 5cedc38a952ec11956cf4e4e446e729c ""
   "MathDept-images/fysikkbygget.jpeg" 1684484621 25359 82364ea108c84302a069594166cd042b ""
-  "beamerthemeMathDept.sty" 1684488219 26856 ffc01dcc549b6bbf84bd59c45ef13289 ""
-  "main.aux" 1684488415 8010 7af36ab331f2b7dfbb0f17e708899a34 "pdflatex"
-  "main.nav" 1684488415 4469 27cbec8939787491d19192b53a9109a4 "pdflatex"
-  "main.out" 1684488415 2623 3d633c5fc71b34aa87fae2e8d14ed72d "pdflatex"
-  "main.tex" 1684488414 3818 4c5799d24aa168f7810ae6c43235a77c ""
-  "main.toc" 1684488415 870 b4f3e696bf59ffa343f22b67c45283e0 "pdflatex"
+  "beamerthemeMathDept.sty" 1684489248 26856 7997bd9c6b55d7f18c0b8e5f4760444a ""
+  "main.aux" 1684490376 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.nav" 0 -1 0 "pdflatex"
+  "main.out" 0 -1 0 "pdflatex"
+  "main.tex" 1684490374 4650 30f329f400cee965408926c7de961a0e ""
+  "main.toc" 0 -1 0 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

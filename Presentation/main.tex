@@ -34,8 +34,7 @@
     \tableofcontents
 \end{frame}
 
-\SectionPage
-
+\SubSectionPage{Overview}
 
 \section{Introduction $\&$ Motivation}
 \begin{frame}{Outline}
@@ -60,12 +59,21 @@
 
 \subsection{A summary of the applied methods}
 \begin{frame}{A summary of the applied methods}
- 
+    \emph{Three} neural network variants
+    \begin{itemize}
+        \item Ordinary dense neural network
+        \item Ensemble networks utilizing Local-Winner-Takes-All (LWTA) layers
+        \item Parameterized neural networks (PNN)
+    \end{itemize}
+    \emph{One} boosted decision tree method
+    \begin{itemize}
+        \item XGBoost using default settings
+    \end{itemize}
 \end{frame}
 
 \subsection{How are the methods compared?}
 \begin{frame}{How are the methods compared?}
- 
+
 \end{frame}
 
 \subsection{Training strategy}
@@ -87,7 +95,20 @@
     
 \end{frame}
 \begin{frame}{Ensemble methods - LWTA}
-    
+    \begin{itemize}
+        \item What is LWTA?
+        \begin{itemize}
+            \item Dropout
+        \end{itemize}
+        \item Competing nodes
+        \item Pattern specific pathways
+        \item Channel-out
+        \item Stochatic-channel-out
+        \item Maxout
+    \end{itemize}    
+    \begin{textblock}{0.3}(0.45, 0.55)
+        \includegraphics<1, 3>[width = \textwidth]{../thesis/MathDept-images/MathDept-apollon}
+    \end{textblock}
 \end{frame}
 \begin{frame}{Parameterized neural network}
     
