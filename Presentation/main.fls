@@ -1819,6 +1819,11 @@ INPUT ./figures/PNN/PNN200300Dist_C7.pdf
 INPUT figures/PNN/PNN200300Dist_C7.pdf
 INPUT ./figures/PNN/PNN200300Dist_C7.pdf
 INPUT ./figures/PNN/PNN200300Dist_C7.pdf
+INPUT ./figures/Comps/GenPlussXGBNetworkComp.pdf
+INPUT ./figures/Comps/GenPlussXGBNetworkComp.pdf
+INPUT figures/Comps/GenPlussXGBNetworkComp.pdf
+INPUT ./figures/Comps/GenPlussXGBNetworkComp.pdf
+INPUT ./figures/Comps/GenPlussXGBNetworkComp.pdf
 INPUT ./main.toc
 INPUT main.toc
 INPUT main.toc

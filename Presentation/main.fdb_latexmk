@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1684502071 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1684502073
-  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1684502071 8959 a82b1b51f159c303e242aaed9623563d ""
+["pdflatex"] 1684503024 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1684503026
+  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1684503024 9302 a77dd30d26d2a4b6bbf4ef1f59af8664 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/gfsneohellenic/neohellenicmath.enc" 1382567737 2334 4a81b3adc34950f80745afc526a9e4cc ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -275,6 +275,7 @@
   "MathDept-images/MN_FYS_Segl_A.pdf" 1684479819 277983 5cedc38a952ec11956cf4e4e446e729c ""
   "MathDept-images/fysikkbygget.jpeg" 1684484621 25359 82364ea108c84302a069594166cd042b ""
   "beamerthemeMathDept.sty" 1684489248 26856 7997bd9c6b55d7f18c0b8e5f4760444a ""
+  "figures/Comps/GenPlussXGBNetworkComp.pdf" 1684502958 86090 10187d601659d45bd39724ca446bb08a ""
   "figures/EnsembleComp.png" 1684494413 730337 41575ba2e2af8611b63edabb92cc650a ""
   "figures/Max_out.png" 1684494598 252423 08b1d67ed17f33c88cdc609b4bd0b78d ""
   "figures/NetworkVis/AfterTraining.pdf" 1678452857 40205 eaba0c5df5c0e10500e865c4e95d9510 ""
@@ -287,11 +288,11 @@
   "figures/PNN/PNN200300Dist_C7.pdf" 1684501964 20070 a5aa98c9567e359fc91c31de75b2a36a ""
   "figures/PNN/PNN50250Dist.pdf" 1684501964 20697 dfa479f18425de147f6027cbac3d658c ""
   "figures/PNN/PNN50250Dist_C7.pdf" 1684501964 20134 8863767197de08758b5ca260de12d946 ""
-  "main.aux" 1684502073 9189 0aac18a455049157788114ef4e26b8ff "pdflatex"
-  "main.nav" 1684502073 5396 b6cf339872ddf7ec734a0b5c43c6dd50 "pdflatex"
-  "main.out" 1684502073 2623 db3eb696885ae103b9f73ad98de843b1 "pdflatex"
-  "main.tex" 1684502071 8959 a82b1b51f159c303e242aaed9623563d ""
-  "main.toc" 1684502073 870 ec228248724e7d57e3e6a80d25b4616c "pdflatex"
+  "main.aux" 1684503026 9174 b84498a0f943d18cf46da3eab547b209 "pdflatex"
+  "main.nav" 1684503026 5528 311c8e7ef7eb1673e4a12c461c198d40 "pdflatex"
+  "main.out" 1684503026 2179 31ae7625e92395cf20fdde867a847ea0 "pdflatex"
+  "main.tex" 1684503024 9302 a77dd30d26d2a4b6bbf4ef1f59af8664 ""
+  "main.toc" 1684503026 723 0a36135e31d939a729535b9e159e3b49 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

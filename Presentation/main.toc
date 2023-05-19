@@ -8,7 +8,5 @@
 \beamer@subsectionintoc {3}{2}{How are the methods compared?}{9}{0}{3}
 \beamer@subsectionintoc {3}{3}{Training strategy}{10}{0}{3}
 \beamer@sectionintoc {4}{Methods $\&$ Results}{11}{0}{4}
-\beamer@subsectionintoc {4}{2}{Comparing the methods}{24}{0}{4}
-\beamer@subsectionintoc {4}{3}{Compare the methods to previous analysis}{24}{0}{4}
-\beamer@sectionintoc {5}{Conclusion $\&$ Outlook}{24}{0}{5}
-\beamer@sectionintoc {6}{References}{25}{0}{6}
+\beamer@sectionintoc {5}{Conclusion $\&$ Outlook}{27}{0}{5}
+\beamer@sectionintoc {6}{References}{28}{0}{6}
