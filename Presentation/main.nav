@@ -1,0 +1,59 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\beamer@sectionpages {1}{1}}
+\headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\sectionentry {1}{Overview}{2}{Overview}{0}}
+\headcommand {\slideentry {1}{0}{1}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\slideentry {1}{0}{2}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\beamer@sectionpages {2}{3}}
+\headcommand {\beamer@subsectionpages {2}{3}}
+\headcommand {\sectionentry {2}{Introduction $\&$ Motivation}{4}{Introduction $\&$ Motivation}{0}}
+\headcommand {\slideentry {2}{0}{1}{4/4}{}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\slideentry {2}{0}{2}{5/5}{}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\beamer@subsectionpages {4}{5}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{6}{Why apply machine learning to HEP problems?}}
+\headcommand {\beamer@subsectionpages {6}{5}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{6}{How do we search for new physics?}}
+\headcommand {\beamer@sectionpages {4}{5}}
+\headcommand {\beamer@subsectionpages {6}{5}}
+\headcommand {\sectionentry {3}{The Implementation}{6}{The Implementation}{0}}
+\headcommand {\beamer@subsectionpages {6}{5}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{6}{Which machine learning methods are used?}}
+\headcommand {\beamer@subsectionpages {6}{5}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{6}{How are the methods compared?}}
+\headcommand {\beamer@subsectionpages {6}{5}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{6}{Training strategy}}
+\headcommand {\beamer@sectionpages {6}{5}}
+\headcommand {\beamer@subsectionpages {6}{5}}
+\headcommand {\sectionentry {4}{Methods $\&$ Results}{6}{Methods $\&$ Results}{0}}
+\headcommand {\beamer@subsectionpages {6}{5}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{6}{An introduction and study of each method}}
+\headcommand {\beamer@subsectionpages {6}{5}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{6}{Comparing the methods}}
+\headcommand {\beamer@subsectionpages {6}{5}}
+\headcommand {\beamer@subsectionentry {0}{4}{3}{6}{Compare the methods to previous analysis}}
+\headcommand {\beamer@sectionpages {6}{5}}
+\headcommand {\beamer@subsectionpages {6}{5}}
+\headcommand {\sectionentry {5}{Conclusion $\&$ Outlook}{6}{Conclusion $\&$ Outlook}{0}}
+\headcommand {\slideentry {5}{0}{1}{6/6}{}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {5}{0}{2}{7/11}{}{0}}
+\headcommand {\beamer@framepages {7}{11}}
+\headcommand {\beamer@sectionpages {6}{11}}
+\headcommand {\beamer@subsectionpages {6}{11}}
+\headcommand {\sectionentry {6}{References}{12}{References}{0}}
+\headcommand {\slideentry {6}{0}{1}{12/12}{}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {6}{0}{1}{12/13}{}{0}}
+\headcommand {\beamer@framepages {12}{13}}
+\headcommand {\beamer@partpages {1}{13}}
+\headcommand {\beamer@subsectionpages {12}{13}}
+\headcommand {\beamer@sectionpages {12}{13}}
+\headcommand {\beamer@documentpages {13}}
+\headcommand {\gdef \inserttotalframenumber {7}}
+\headcommand {\slideentry {6}{0}{2}{14/14}{}{0}}
+\headcommand {\beamer@framepages {14}{14}}

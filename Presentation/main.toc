@@ -1,0 +1,15 @@
+\babel@toc {UKenglish}{}\relax 
+\beamer@sectionintoc {1}{Overview}{2}{0}{1}
+\beamer@sectionintoc {2}{Introduction $\&$ Motivation}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{Why apply machine learning to HEP problems?}{6}{0}{2}
+\beamer@subsectionintoc {2}{2}{How do we search for new physics?}{6}{0}{2}
+\beamer@sectionintoc {3}{The Implementation}{6}{0}{3}
+\beamer@subsectionintoc {3}{1}{Which machine learning methods are used?}{6}{0}{3}
+\beamer@subsectionintoc {3}{2}{How are the methods compared?}{6}{0}{3}
+\beamer@subsectionintoc {3}{3}{Training strategy}{6}{0}{3}
+\beamer@sectionintoc {4}{Methods $\&$ Results}{6}{0}{4}
+\beamer@subsectionintoc {4}{1}{An introduction and study of each method}{6}{0}{4}
+\beamer@subsectionintoc {4}{2}{Comparing the methods}{6}{0}{4}
+\beamer@subsectionintoc {4}{3}{Compare the methods to previous analysis}{6}{0}{4}
+\beamer@sectionintoc {5}{Conclusion $\&$ Outlook}{6}{0}{5}
+\beamer@sectionintoc {6}{References}{12}{0}{6}
