@@ -35,8 +35,15 @@
     \tableofcontents
 \end{frame}
 
-\SubSectionPage{Overview}
-
+\begin{frame}{Overview}
+    \begin{enumerate}
+        \item Study individual attributes of a set of supervised methods 
+        \item Compare expected sensitivity between methods on a subset of data
+        \item Attempt to increase sensitivity via feature reduction (PCA)
+        \item Compare the expected limits achieved by best performing methods 
+              to previous ATLAS analysis
+    \end{enumerate}
+\end{frame}
 \section{Introduction $\&$ Motivation}
 \begin{frame}{Outline}
     \tableofcontents[currentsection]
@@ -107,9 +114,47 @@
 \subsection*{An introduction and study of each method}
 \SubSectionPage{An introduction and study of each method}
 
+\begin{frame}{Boosted decision trees - XGBoost}
+    \begin{textblock}{1}(-0.05, 0.2)
+        \begin{itemize}
+            \item Used as benchmark
+            \item Minimal time spent\\ tuning BDT
+            \item Trained on original \\ signal set
+            \item Displayed better\\ performance on lower \\masses  
+        \end{itemize}
+    \end{textblock}
+    \begin{textblock}{1}(0.35, 0.15)
+        \includegraphics[width=0.65\textwidth]{figures/grids/XGBGridSig.pdf}    
+    \end{textblock}
+\end{frame}
+
+% \begin{frame}{Sensitivity grid}
+%     \vfill
+%     \begin{center}
+%         \includegraphics[width = 0.475\textwidth]{figures/dists/xgbDist.pdf}
+%         \includegraphics[width = 0.475\textwidth]{figures/dists/xgbDist_C7.pdf}
+%     \end{center}
+% \end{frame}
 
 \begin{frame}{Ordinary dense neural network}
-    
+    \begin{itemize}
+        \item First network variant tested
+        \item 'Traditional' neural network
+        \item 3 hidden layers with 600 nodes each
+        \begin{itemize}
+            \item Deep
+        \end{itemize}
+    \end{itemize}
+    \vfill
+    \centering
+    \includegraphics[width = 0.98\textwidth]{figures/NN.png}
+\end{frame}
+\begin{frame}{Compare one-mass approach to several-masses approach}
+    \vfill
+    \begin{center}
+        \includegraphics[width = 0.475\textwidth]{figures/grids/NN_OneMass_InterpolationGridSig.pdf}
+        \includegraphics[width = 0.475\textwidth]{figures/grids/NN_InterpolationGridSig.pdf}
+    \end{center}
 \end{frame}
 
 
@@ -289,19 +334,6 @@
     \end{table}
 \end{frame}
 
-\begin{frame}{Boosted decision trees - XGBoost}
-    \vfill
-    \begin{center}
-        \includegraphics[width = 0.475\textwidth]{figures/dists/xgbDist.pdf}
-        \includegraphics[width = 0.475\textwidth]{figures/dists/xgbDist_C7.pdf}
-    \end{center}
-\end{frame}
-
-\begin{frame}{Sensitivity grid}
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/grids/XGBGridSig.pdf}    
-\end{frame}
-
 \begin{frame}{Comparing the sensitivity on a subset of the signal}
     \centering
     \includegraphics[width=0.8\textwidth]{figures/Comps/GenPlussXGBNetworkComp.pdf}
@@ -369,7 +401,19 @@
 \begin{frame}{Outline}
     \tableofcontents[currentsection]
 \end{frame}
-
+\begin{frame}{Conclusion $\&$ Outlook}
+    \begin{enumerate}
+        \item Including a diverse signal set can improve performance
+        \item The LWTA layers improve long-term memory via pattern specific pathways
+        \item All network variants outperformed default settings of XGBoost
+        \item PCA increased sensitivity of PNN and maxout model in original signal set
+        \item None of the networks extended expected limit past previous ATLAS analysis
+        \item PNN exhibited bias towards lower masses, wheras maxout model achieved a more balanced 
+              sensitivity
+        \item LWTA layer's increase in long-term memory is promising in future analysis 
+              where higher masses are studied 
+    \end{enumerate}
+\end{frame}
 
 
 
