@@ -78,8 +78,23 @@
 \end{frame}
 
 \begin{frame}{Mass combinations of the chargino-neutralino pair}
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/Signal/NrSignalEvents.pdf}
+    \begin{textblock}{1}(-0.02, 0.2)
+        \begin{itemize}
+            \item Full signal grid
+            \begin{itemize}
+                \item 89 mass\\ combinations
+            \end{itemize}
+            \item Original signal set: \\white corners
+            \begin{itemize}
+                \item 30 mass \\combinations
+            \end{itemize}
+            \item The smaller the \\masses,
+                  the larger\\ the contribution            
+        \end{itemize}
+    \end{textblock}
+    \begin{textblock}{1.0}(0.35,0.175)
+        \includegraphics[width=0.65\textwidth]{figures/Signal/NrSignalEvents.pdf}
+    \end{textblock}
 \end{frame}
 
 
@@ -170,18 +185,40 @@
 \end{frame}
 
 \begin{frame}{Comparing activation of Maxout with SCO}
-    \begin{textblock}{0.8}(0.225, 0.625)
+    \begin{textblock}{0.8}(0.225, 0.8)
         \textbf{Maxout}
     \end{textblock}
-    \begin{textblock}{0.8}(0.7, 0.625)
+    \begin{textblock}{0.8}(0.7, 0.8)
         \textbf{SCO}
     \end{textblock}
+    \vfill
     \begin{center}
         \includegraphics[width = 0.475\textwidth]{figures/NetworkVis/AfterTraining.pdf}
         \includegraphics[width = 0.475\textwidth]{figures/NetworkVis/SCO/AfterTraining.pdf}
     \end{center}
 \end{frame}
-
+\begin{frame}{Ensemble network architecture}
+    \vfill
+    \includegraphics[width = 0.98\textwidth]{figures/maxout.png}
+\end{frame}
+\begin{frame}{Comparing sensitivity of channel-out, SCO and maxout}
+    \begin{textblock}{1}(-0.0375, 0.2)
+        \begin{itemize}
+            \item Maxout: 23/30
+            \item SCO: 7/30
+            \begin{itemize}
+                \item No trend for \\
+                preferred masses
+                \item Possibly improve\\
+                      without layer on \\
+                      prediction 
+            \end{itemize}
+        \end{itemize}
+    \end{textblock}
+    \begin{textblock}{1}(0.33, 0.2)
+    \includegraphics[width = 0.625\textwidth]{figures/Comps/EnsemblesNetworkComp.pdf}
+    \end{textblock}
+\end{frame}
 \begin{frame}{Parameterized neural network}
     \begin{itemize}
         \item For diverse data set, $X$, dependent on a parameter, $X(\theta)$
@@ -207,6 +244,10 @@
             \includegraphics[width = 0.7\textwidth]{figures/PNN.png}
         \end{textblock}
     \end{itemize}
+\end{frame}
+\begin{frame}{PNN architecture}
+    \vfill
+    \includegraphics[width = 0.98\textwidth]{figures/PNNArch.png}
 \end{frame}
 \begin{frame}{Study the effect of the parameters in the PNN}
     \begin{itemize}
@@ -249,8 +290,18 @@
 \end{frame}
 
 \begin{frame}{Boosted decision trees - XGBoost}
- 
+    \vfill
+    \begin{center}
+        \includegraphics[width = 0.475\textwidth]{figures/dists/xgbDist.pdf}
+        \includegraphics[width = 0.475\textwidth]{figures/dists/xgbDist_C7.pdf}
+    \end{center}
 \end{frame}
+
+\begin{frame}{Sensitivity grid}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/grids/XGBGridSig.pdf}    
+\end{frame}
+
 \begin{frame}{Comparing the sensitivity on a subset of the signal}
     \centering
     \includegraphics[width=0.8\textwidth]{figures/Comps/GenPlussXGBNetworkComp.pdf}
@@ -258,7 +309,24 @@
 
 
 \begin{frame}{Increasing sensitivity through a PCA}
-    
+        \begin{itemize}
+            \item What is PCA?
+            \item Dimensionality reduction
+            \item Creates new features using linear combination of original features
+            \item Ranks from most to least variance
+            \item This analysis
+            \begin{itemize}
+                \item Demand conservation of $99.9\%$ of variance/spread
+                \item 5 features removed
+            \end{itemize}
+        \end{itemize}
+\end{frame}
+\begin{frame}{Compare methods with and without PCA}
+    \centering
+    \includegraphics[width=0.425\textwidth]{figures/Comps/MaxOutPCANetworkComp.pdf}
+    \includegraphics[width=0.425\textwidth]{figures/Comps/PNNPCANetworkComp.pdf}
+    \includegraphics[width=0.425\textwidth]{figures/Comps/NNPCANetworkComp.pdf}
+
 \end{frame}
 
 
