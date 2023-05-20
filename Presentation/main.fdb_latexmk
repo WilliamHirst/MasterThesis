@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1684598887 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1684598890
-  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1684598887 14847 2a4139bdf980cfb05a38f7161afc89f5 ""
+["pdflatex"] 1684599292 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1684599295
+  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1684599292 14713 07973b6b13f147dd8814bf3d4226dea8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/gfsneohellenic/neohellenicmath.enc" 1382567737 2334 4a81b3adc34950f80745afc526a9e4cc ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -313,11 +313,11 @@
   "figures/grids/NN_OneMass_InterpolationGridSig.pdf" 1684597121 43605 65180dc9cbd34b659d21c9a5a16dd579 ""
   "figures/grids/XGBGridSig.pdf" 1684571192 55516 8a69fc5142ac235367d42cc13781c9e3 ""
   "figures/maxout.png" 1684573629 170045 5e1062b19b73ec2253e477d91017e88a ""
-  "main.aux" 1684598889 9032 8bb1461034b78c84d784b9384a3e3b35 "pdflatex"
-  "main.nav" 1684598889 5874 e085af0b0ca98c1676aadd87033b0f45 "pdflatex"
-  "main.out" 1684598889 1054 d963dbf9e52e62433923f5c20ef58cc7 "pdflatex"
-  "main.tex" 1684598887 14847 2a4139bdf980cfb05a38f7161afc89f5 ""
-  "main.toc" 1684598889 358 48d1a6869781fd7d7d31ab0c01a85a2e "pdflatex"
+  "main.aux" 1684599295 7529 e08f5a12fccf0ef2d637cc0a045e39d6 "pdflatex"
+  "main.nav" 1684599295 4562 0bc69e9b23aaf3ce97583c3969a3b701 "pdflatex"
+  "main.out" 1684599295 685 7417051834356e636c5f0cf7da328633 "pdflatex"
+  "main.tex" 1684599292 14713 07973b6b13f147dd8814bf3d4226dea8 ""
+  "main.toc" 1684599295 311 aa4936ac6fccf0e38f28c114d1a35a0f "pdflatex"
   (generated)
   "main.aux"
   "main.log"
