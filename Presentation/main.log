@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  20 MAY 2023 11:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  20 MAY 2023 15:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2551,20 +2551,20 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/Comps/MaxOutPCANetworkComp.pdf, id=751, 722.7pt x 578.16pt>
 File: figures/Comps/MaxOutPCANetworkComp.pdf Graphic file (type pdf)
 <use figures/Comps/MaxOutPCANetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/MaxOutPCANetworkComp.pdf  used on input line 330.
-(pdftex.def)             Requested size: 145.485pt x 116.38864pt.
+Package pdftex.def Info: figures/Comps/MaxOutPCANetworkComp.pdf  used on input line 342.
+(pdftex.def)             Requested size: 142.0585pt x 113.64499pt.
 <figures/Comps/PNNPCANetworkComp.pdf, id=752, 722.7pt x 578.16pt>
 File: figures/Comps/PNNPCANetworkComp.pdf Graphic file (type pdf)
 <use figures/Comps/PNNPCANetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/PNNPCANetworkComp.pdf  used on input line 330.
-(pdftex.def)             Requested size: 145.485pt x 116.38864pt.
+Package pdftex.def Info: figures/Comps/PNNPCANetworkComp.pdf  used on input line 342.
+(pdftex.def)             Requested size: 142.0585pt x 113.64499pt.
 <figures/Comps/NNPCANetworkComp.pdf, id=753, 722.7pt x 578.16pt>
 File: figures/Comps/NNPCANetworkComp.pdf Graphic file (type pdf)
 <use figures/Comps/NNPCANetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/NNPCANetworkComp.pdf  used on input line 330.
-(pdftex.def)             Requested size: 145.485pt x 116.38864pt.
+Package pdftex.def Info: figures/Comps/NNPCANetworkComp.pdf  used on input line 342.
+(pdftex.def)             Requested size: 142.0585pt x 113.64499pt.
 
-Overfull \vbox (5.74333pt too high) detected at line 330
+Overfull \vbox (2.56557pt too high) detected at line 342
  []
 
 
@@ -2585,7 +2585,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/Limits/compLimit20.pdf, id=864, 569.12625pt x 549.05125pt>
 File: figures/Limits/compLimit20.pdf Graphic file (type pdf)
 <use figures/Limits/compLimit20.pdf>
-Package pdftex.def Info: figures/Limits/compLimit20.pdf  used on input line 349.
+Package pdftex.def Info: figures/Limits/compLimit20.pdf  used on input line 361.
 (pdftex.def)             Requested size: 239.61958pt x 231.16965pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2598,12 +2598,12 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/Limits/compLimit10.pdf, id=914, 569.12625pt x 549.05125pt>
 File: figures/Limits/compLimit10.pdf Graphic file (type pdf)
 <use figures/Limits/compLimit10.pdf>
-Package pdftex.def Info: figures/Limits/compLimit10.pdf  used on input line 355.
+Package pdftex.def Info: figures/Limits/compLimit10.pdf  used on input line 367.
 (pdftex.def)             Requested size: 154.04079pt x 148.60606pt.
 <figures/Limits/compLimit1.pdf, id=915, 569.12625pt x 549.05125pt>
 File: figures/Limits/compLimit1.pdf Graphic file (type pdf)
 <use figures/Limits/compLimit1.pdf>
-Package pdftex.def Info: figures/Limits/compLimit1.pdf  used on input line 355.
+Package pdftex.def Info: figures/Limits/compLimit1.pdf  used on input line 367.
 (pdftex.def)             Requested size: 154.04079pt x 148.60606pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2615,11 +2615,11 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
  <./figures/Limits/compLimit10.pdf, page is rotated 90 degrees> <./figures/Limits/compLimit1.pdf, page is rotated 90 degrees>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 356.
+(hyperref)                removing `math shift' on input line 368.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 356.
+(hyperref)                removing `math shift' on input line 368.
 
 (./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2647,7 +2647,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 File: MathDept-images/MN_FYS_Segl_A.pdf Graphic file (type pdf)
 <use MathDept-images/MN_FYS_Segl_A.pdf>
-Package pdftex.def Info: MathDept-images/MN_FYS_Segl_A.pdf  used on input line 380.
+Package pdftex.def Info: MathDept-images/MN_FYS_Segl_A.pdf  used on input line 392.
 (pdftex.def)             Requested size: 325.4123pt x 54.72581pt.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pbk' (encoding: T1).
@@ -2669,7 +2669,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  128i,19n,122p,1064b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/gfsneohellenic/neohellenicmath.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/gfsneohellenic/GFSNeohellenic-Italic.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (38 pages, 2224326 bytes).
+Output written on main.pdf (38 pages, 2224356 bytes).
 PDF statistics:
  1107 PDF objects out of 1200 (max. 8388607)
  580 compressed objects within 6 object streams
