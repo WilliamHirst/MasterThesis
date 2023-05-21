@@ -55,7 +55,35 @@
 
 
 \begin{frame}{How do we search for new physics?}
- 
+    \begin{itemize}
+        \item Two data sets 
+        \begin{itemize}
+            \item Theory: Simulated based on Standard model physics 
+            \item Experiment: Measured in particle detectors
+        \end{itemize}
+        \item Data sets include information regarding collisions (momentum and mass of particles, collision angle etc.)
+        \item Compare theory with experiment 
+        \begin{itemize}
+            \item Match: Standard model adequately explain collision
+            \item Deviations: New physics, or statistical fluctuations 
+        \end{itemize}
+        \item Create search region
+        \item Measure deviation in significance, Z 
+        \begin{itemize}
+            \item $Z\approx \frac{n_{obs} - bkg}{\sqrt{bkg}} = \frac{signal}{\sqrt{background}}$
+        \end{itemize}
+    \end{itemize}
+
+\end{frame}
+\begin{frame}
+    \centering
+    \includegraphics[width = 0.65\textwidth]{figures/DataComp.png}
+\end{frame}
+\begin{frame}{Expected significance}
+    \begin{itemize}
+        \item Measure sensitivity of an analysis 
+        \item How many collisions do we expect to find in search region?
+    \end{itemize}
 \end{frame}
 
 \section{The Implementation}
@@ -77,7 +105,9 @@
 \end{frame}
 
 \begin{frame}{How are the methods compared?}
-
+    \begin{itemize}
+        \item 
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Training strategy}
@@ -174,7 +204,7 @@
         \begin{table}
             $
             \begin{array}{ccc}
-                \hline \text { Layer } & \text { Separate Weights $\&$ Biases } & \text { Static Units }\\
+                \hline \text { Layer } & \text { Separate weights} & \text { Static units }\\
                 \hline\hline\text{Channel-Out} & \textcolor{green}{Yes} &  \textcolor{green}{Yes}  \\
                 \text { SCO } &  \textcolor{green}{Yes} &  \textcolor{red}{No}  \\
                 \text{ Maxout } &  \textcolor{red}{No} &  \textcolor{green}{Yes}   \\
@@ -381,7 +411,7 @@
         \begin{itemize}
             \item Maxout model with PCA
             \item PNN with PCA
-            \item Ordinary dense neural network withou PCA
+            \item Ordinary dense neural network without PCA
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -406,7 +436,7 @@
         \item All network variants outperformed default settings of XGBoost
         \item PCA increased sensitivity of PNN and maxout model in original signal set
         \item None of the networks extended expected limit past previous ATLAS analysis
-        \item PNN exhibited bias towards lower masses, wheras maxout model achieved a more balanced 
+        \item PNN exhibited bias towards lower masses, whereas maxout model achieved a more balanced 
               sensitivity
         \item LWTA layer's increase in long-term memory is promising in future analysis 
               where higher masses are studied 

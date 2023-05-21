@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1684599292 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1684599295
-  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1684599292 14713 07973b6b13f147dd8814bf3d4226dea8 ""
+["pdflatex"] 1684673872 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1684673877
+  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1684673872 15897 f31d71779a8e103533e3149d9df0a487 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/gfsneohellenic/neohellenicmath.enc" 1382567737 2334 4a81b3adc34950f80745afc526a9e4cc ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -49,6 +49,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb" 1248133631 24416 36515493f76659302880e2604105b074 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb" 1248133631 24373 a91d375736817a75026663adcb2190c1 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/gfsneohellenic/GFSNeohellenic-Italic.pfb" 1382567737 171954 25a23cf4fdc41a26694460bc0fa73bc4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb" 1136849748 44934 6b22cea7b9558c69bac00cbdc55a9953 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb" 1136849748 35941 f27169cc74234d5bd5e4cca5abafaabb ""
@@ -291,6 +292,7 @@
   "figures/Comps/MaxOutPCANetworkComp.pdf" 1679838521 51804 bf18a7f2f90f01ecce63743add7e1032 ""
   "figures/Comps/NNPCANetworkComp.pdf" 1679838521 43807 3e86d3294e2c630f77df4f73628a37cd ""
   "figures/Comps/PNNPCANetworkComp.pdf" 1679838521 49968 fbe23ec36163f22aa1191a702a9a7157 ""
+  "figures/DataComp.png" 1684670993 603419 f901bd133856098ce47b5408aeb4ee4c ""
   "figures/EnsembleComp.png" 1684494413 730337 41575ba2e2af8611b63edabb92cc650a ""
   "figures/Limits/compLimit1.pdf" 1683113485 67572 c69d2d030deb02075156cf41aebc8476 ""
   "figures/Limits/compLimit10.pdf" 1683113485 63395 8d44b1fcde6b3617cb16c369ed59f7c8 ""
@@ -313,11 +315,11 @@
   "figures/grids/NN_OneMass_InterpolationGridSig.pdf" 1684597121 43605 65180dc9cbd34b659d21c9a5a16dd579 ""
   "figures/grids/XGBGridSig.pdf" 1684571192 55516 8a69fc5142ac235367d42cc13781c9e3 ""
   "figures/maxout.png" 1684573629 170045 5e1062b19b73ec2253e477d91017e88a ""
-  "main.aux" 1684599295 7529 e08f5a12fccf0ef2d637cc0a045e39d6 "pdflatex"
-  "main.nav" 1684599295 4562 0bc69e9b23aaf3ce97583c3969a3b701 "pdflatex"
-  "main.out" 1684599295 685 7417051834356e636c5f0cf7da328633 "pdflatex"
-  "main.tex" 1684599292 14713 07973b6b13f147dd8814bf3d4226dea8 ""
-  "main.toc" 1684599295 311 aa4936ac6fccf0e38f28c114d1a35a0f "pdflatex"
+  "main.aux" 1684673876 7785 4e78214a0b9e4b1261f9c3803ef74448 "pdflatex"
+  "main.nav" 1684673876 4746 249f122744cea742bfee0b2fcd5c6fb3 "pdflatex"
+  "main.out" 1684673876 685 7417051834356e636c5f0cf7da328633 "pdflatex"
+  "main.tex" 1684673872 15897 f31d71779a8e103533e3149d9df0a487 ""
+  "main.toc" 1684673876 311 e441b6ffb4b7397f5e3798ecfac57481 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
