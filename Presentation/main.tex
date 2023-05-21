@@ -50,7 +50,23 @@
 \end{frame}
 
 \begin{frame}{Why apply machine learning to HEP problems?}
- 
+    \begin{itemize}
+        \item The standard model of particle physics is one of the most 
+              successful theories of all time
+        \item Some aspects of the universe are currently not described by the 
+              standard model 
+        \begin{itemize}
+            \item Neutrino masses 
+            \item Hierarchy problem 
+            \item Energy-matter density in the universe
+        \end{itemize}
+        \item To precisely test extensions of the standard model we produce 
+        progressively larger amounts of data
+        \item Upholding the quality of analysis demands advanced tools
+        \begin{itemize}
+            \item Machine learning
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 
@@ -59,7 +75,7 @@
         \item Two data sets 
         \begin{itemize}
             \item Theory: Simulated based on Standard model physics 
-            \item Experiment: Measured in particle detectors
+            \item Experiment: Proton-proton collisions measured in particle detectors
         \end{itemize}
         \item Data sets include information regarding collisions (momentum and mass of particles, collision angle etc.)
         \item Compare theory with experiment 
@@ -79,11 +95,22 @@
     \centering
     \includegraphics[width = 0.65\textwidth]{figures/DataComp.png}
 \end{frame}
-\begin{frame}{Expected significance}
+\begin{frame}{The search}
     \begin{itemize}
+        \item Study application of supervised learning as it searches for SUSY signal 
+        \begin{itemize}
+            \item Chargino-neutralino production
+            \item 2 free parameters: masses of the chargino and neutralino
+        \end{itemize}
         \item Measure sensitivity of an analysis 
-        \item How many collisions do we expect to find in search region?
+        \begin{itemize}
+            \item Expected significance
+            \item How many collisions do we expect to find in search region?
+        \end{itemize} 
     \end{itemize}
+    % \vfill
+    \centering
+    \includegraphics[width=0.3\textwidth, angle = -90]{figures/WZSignal.png}
 \end{frame}
 
 \section{The Implementation}
@@ -102,12 +129,12 @@
     \begin{itemize}
         \item XGBoost using default settings
     \end{itemize}
-\end{frame}
-
-\begin{frame}{How are the methods compared?}
-    \begin{itemize}
-        \item 
-    \end{itemize}
+    \begin{textblock}{1}(0.,0.55)
+        \includegraphics[width=0.525\textwidth]{figures/Input_labels.png}
+    \end{textblock}
+    \begin{textblock}{1}(.5,0.575)
+        \includegraphics[width=0.435\textwidth]{figures/DT.png}
+    \end{textblock}
 \end{frame}
 
 \begin{frame}{Training strategy}
