@@ -1316,6 +1316,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibraryplo
 INPUT /usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 INPUT /usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 INPUT /usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamerinnerthemerectangles.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamerinnerthemerectangles.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamerinnerthemerectangles.sty
@@ -1967,6 +1968,8 @@ INPUT ./figures/Limits/compLimit1.pdf
 INPUT figures/Limits/compLimit1.pdf
 INPUT ./figures/Limits/compLimit1.pdf
 INPUT ./figures/Limits/compLimit1.pdf
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
 INPUT ./main.toc
 INPUT main.toc
 INPUT main.toc

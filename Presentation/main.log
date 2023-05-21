@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  21 MAY 2023 16:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  21 MAY 2023 17:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -974,38 +974,38 @@ File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
-Package hyperref Info: Option `colorlinks' set `true' on input line 18.
+Package hyperref Info: Option `colorlinks' set `true' on input line 19.
 \symneomath=\mathgroup6
-LaTeX Font Info:    Redeclaring math symbol \alpha on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \beta on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \gamma on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \delta on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \epsilon on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \zeta on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \eta on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \theta on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \theta on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \iota on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \kappa on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \lambda on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \mu on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \nu on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \xi on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \pi on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \rho on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \sigma on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \tau on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \upsilon on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \phi on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \chi on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \psi on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \omega on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \varepsilon on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \vartheta on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \varpi on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \varrho on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \varsigma on input line 149.
-LaTeX Font Info:    Redeclaring math symbol \varphi on input line 149.
+LaTeX Font Info:    Redeclaring math symbol \alpha on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \beta on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \gamma on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \delta on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \epsilon on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \zeta on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \eta on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \theta on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \theta on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \iota on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \kappa on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \lambda on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \mu on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \nu on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \xi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \pi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \rho on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \sigma on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \tau on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \upsilon on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \phi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \chi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \psi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \omega on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \varepsilon on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \vartheta on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \varpi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \varrho on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \varsigma on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \varphi on input line 150.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamerinnerthemerectangles.sty)
 \radius=\skip67
 \c@assumption=\count346
@@ -2305,7 +2305,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/Signal/NrSignalEvents.pdf, id=159, 399.73216pt x 345.27995pt>
 File: figures/Signal/NrSignalEvents.pdf Graphic file (type pdf)
 <use figures/Signal/NrSignalEvents.pdf>
-Package pdftex.def Info: figures/Signal/NrSignalEvents.pdf  used on input line 162.
+Package pdftex.def Info: figures/Signal/NrSignalEvents.pdf  used on input line 172.
 (pdftex.def)             Requested size: 236.72475pt x 204.4826pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2317,11 +2317,11 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
  <./figures/Signal/NrSignalEvents.pdf>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 166.
+(hyperref)                removing `math shift' on input line 176.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 166.
+(hyperref)                removing `math shift' on input line 176.
 
 (./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2334,7 +2334,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/grids/XGBGridSig.pdf, id=204, 399.73216pt x 345.27995pt>
 File: figures/grids/XGBGridSig.pdf Graphic file (type pdf)
 <use figures/grids/XGBGridSig.pdf>
-Package pdftex.def Info: figures/grids/XGBGridSig.pdf  used on input line 184.
+Package pdftex.def Info: figures/grids/XGBGridSig.pdf  used on input line 194.
 (pdftex.def)             Requested size: 236.72475pt x 204.4826pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2347,7 +2347,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/NN.png, id=237, 2768.09157pt x 269.50688pt>
 File: figures/NN.png Graphic file (type png)
 <use figures/NN.png>
-Package pdftex.def Info: figures/NN.png  used on input line 206.
+Package pdftex.def Info: figures/NN.png  used on input line 216.
 (pdftex.def)             Requested size: 335.46742pt x 32.66019pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2360,12 +2360,12 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/grids/NN_OneMass_InterpolationGridSig.pdf, id=245, 399.73216pt x 345.37029pt>
 File: figures/grids/NN_OneMass_InterpolationGridSig.pdf Graphic file (type pdf)
 <use figures/grids/NN_OneMass_InterpolationGridSig.pdf>
-Package pdftex.def Info: figures/grids/NN_OneMass_InterpolationGridSig.pdf  used on input line 213.
+Package pdftex.def Info: figures/grids/NN_OneMass_InterpolationGridSig.pdf  used on input line 223.
 (pdftex.def)             Requested size: 162.6018pt x 140.49077pt.
 <figures/grids/NN_InterpolationGridSig.pdf, id=246, 399.73216pt x 345.37029pt>
 File: figures/grids/NN_InterpolationGridSig.pdf Graphic file (type pdf)
 <use figures/grids/NN_InterpolationGridSig.pdf>
-Package pdftex.def Info: figures/grids/NN_InterpolationGridSig.pdf  used on input line 213.
+Package pdftex.def Info: figures/grids/NN_InterpolationGridSig.pdf  used on input line 223.
 (pdftex.def)             Requested size: 162.6018pt x 140.49077pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2378,7 +2378,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/Max_out.png, id=301, 976.39781pt x 742.27313pt>
 File: figures/Max_out.png Graphic file (type png)
 <use figures/Max_out.png>
-Package pdftex.def Info: figures/Max_out.png  used on input line 226.
+Package pdftex.def Info: figures/Max_out.png  used on input line 236.
 (pdftex.def)             Requested size: 211.23396pt x 160.5823pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2391,7 +2391,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/EnsembleComp.png, id=309, 2181.65062pt x 969.6225pt>
 File: figures/EnsembleComp.png Graphic file (type png)
 <use figures/EnsembleComp.png>
-Package pdftex.def Info: figures/EnsembleComp.png  used on input line 245.
+Package pdftex.def Info: figures/EnsembleComp.png  used on input line 255.
 (pdftex.def)             Requested size: 291.35739pt x 129.48784pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2411,15 +2411,15 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/NetworkVis/BeforeTraining.pdf, id=324, 462.52798pt x 346.89601pt>
 File: figures/NetworkVis/BeforeTraining.pdf Graphic file (type pdf)
 <use figures/NetworkVis/BeforeTraining.pdf>
-Package pdftex.def Info: figures/NetworkVis/BeforeTraining.pdf  used on input line 273.
+Package pdftex.def Info: figures/NetworkVis/BeforeTraining.pdf  used on input line 283.
 (pdftex.def)             Requested size: 171.1576pt x 128.37068pt.
 <figures/NetworkVis/AfterTraining.pdf, id=325, 462.52798pt x 346.89601pt>
 File: figures/NetworkVis/AfterTraining.pdf Graphic file (type pdf)
 <use figures/NetworkVis/AfterTraining.pdf>
-Package pdftex.def Info: figures/NetworkVis/AfterTraining.pdf  used on input line 273.
+Package pdftex.def Info: figures/NetworkVis/AfterTraining.pdf  used on input line 283.
 (pdftex.def)             Requested size: 171.1576pt x 128.37068pt.
 
-Overfull \vbox (4.09422pt too high) detected at line 273
+Overfull \vbox (4.09422pt too high) detected at line 283
  []
 
 
@@ -2433,15 +2433,15 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/NetworkVis/AfterTrainingBkg.pdf, id=350, 462.52798pt x 346.89601pt>
 File: figures/NetworkVis/AfterTrainingBkg.pdf Graphic file (type pdf)
 <use figures/NetworkVis/AfterTrainingBkg.pdf>
-Package pdftex.def Info: figures/NetworkVis/AfterTrainingBkg.pdf  used on input line 285.
+Package pdftex.def Info: figures/NetworkVis/AfterTrainingBkg.pdf  used on input line 295.
 (pdftex.def)             Requested size: 171.1576pt x 128.37068pt.
 <figures/NetworkVis/AfterTrainingSig.pdf, id=351, 462.52798pt x 346.89601pt>
 File: figures/NetworkVis/AfterTrainingSig.pdf Graphic file (type pdf)
 <use figures/NetworkVis/AfterTrainingSig.pdf>
-Package pdftex.def Info: figures/NetworkVis/AfterTrainingSig.pdf  used on input line 285.
+Package pdftex.def Info: figures/NetworkVis/AfterTrainingSig.pdf  used on input line 295.
 (pdftex.def)             Requested size: 171.1576pt x 128.37068pt.
 
-Overfull \vbox (4.09422pt too high) detected at line 285
+Overfull \vbox (4.09422pt too high) detected at line 295
  []
 
 
@@ -2454,12 +2454,12 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
  <./figures/NetworkVis/AfterTrainingBkg.pdf> <./figures/NetworkVis/AfterTrainingSig.pdf>]
 File: figures/NetworkVis/AfterTraining.pdf Graphic file (type pdf)
 <use figures/NetworkVis/AfterTraining.pdf>
-Package pdftex.def Info: figures/NetworkVis/AfterTraining.pdf  used on input line 299.
+Package pdftex.def Info: figures/NetworkVis/AfterTraining.pdf  used on input line 309.
 (pdftex.def)             Requested size: 162.6018pt x 121.95003pt.
 <figures/NetworkVis/SCO/AfterTraining.pdf, id=377, 462.52798pt x 346.89601pt>
 File: figures/NetworkVis/SCO/AfterTraining.pdf Graphic file (type pdf)
 <use figures/NetworkVis/SCO/AfterTraining.pdf>
-Package pdftex.def Info: figures/NetworkVis/SCO/AfterTraining.pdf  used on input line 299.
+Package pdftex.def Info: figures/NetworkVis/SCO/AfterTraining.pdf  used on input line 309.
 (pdftex.def)             Requested size: 162.6018pt x 121.95003pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2472,7 +2472,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/maxout.png, id=393, 2905.85625pt x 407.27156pt>
 File: figures/maxout.png Graphic file (type png)
 <use figures/maxout.png>
-Package pdftex.def Info: figures/maxout.png  used on input line 303.
+Package pdftex.def Info: figures/maxout.png  used on input line 313.
 (pdftex.def)             Requested size: 335.46742pt x 47.01234pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2485,7 +2485,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/Comps/EnsemblesNetworkComp.pdf, id=401, 722.7pt x 578.16pt>
 File: figures/Comps/EnsemblesNetworkComp.pdf Graphic file (type pdf)
 <use figures/Comps/EnsemblesNetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/EnsemblesNetworkComp.pdf  used on input line 321.
+Package pdftex.def Info: figures/Comps/EnsemblesNetworkComp.pdf  used on input line 331.
 (pdftex.def)             Requested size: 227.62209pt x 182.0949pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2498,7 +2498,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/PNN.png, id=447, 1445.4pt x 813.0375pt>
 File: figures/PNN.png Graphic file (type png)
 <use figures/PNN.png>
-Package pdftex.def Info: figures/PNN.png  used on input line 347.
+Package pdftex.def Info: figures/PNN.png  used on input line 357.
 (pdftex.def)             Requested size: 203.94928pt x 114.7177pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2511,7 +2511,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/PNNArch.png, id=458, 2808.74344pt x 267.24844pt>
 File: figures/PNNArch.png Graphic file (type png)
 <use figures/PNNArch.png>
-Package pdftex.def Info: figures/PNNArch.png  used on input line 351.
+Package pdftex.def Info: figures/PNNArch.png  used on input line 361.
 (pdftex.def)             Requested size: 335.46742pt x 31.91754pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2531,22 +2531,22 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/PNN/PNN50250Dist.pdf, id=472, 569.12625pt x 317.185pt>
 File: figures/PNN/PNN50250Dist.pdf Graphic file (type pdf)
 <use figures/PNN/PNN50250Dist.pdf>
-Package pdftex.def Info: figures/PNN/PNN50250Dist.pdf  used on input line 374.
+Package pdftex.def Info: figures/PNN/PNN50250Dist.pdf  used on input line 384.
 (pdftex.def)             Requested size: 162.6018pt x 90.62129pt.
 <figures/PNN/PNN50250Dist_C7.pdf, id=473, 569.12625pt x 317.185pt>
 File: figures/PNN/PNN50250Dist_C7.pdf Graphic file (type pdf)
 <use figures/PNN/PNN50250Dist_C7.pdf>
-Package pdftex.def Info: figures/PNN/PNN50250Dist_C7.pdf  used on input line 374.
+Package pdftex.def Info: figures/PNN/PNN50250Dist_C7.pdf  used on input line 384.
 (pdftex.def)             Requested size: 162.6018pt x 90.62129pt.
 <figures/PNN/PNN200300Dist.pdf, id=474, 569.12625pt x 317.185pt>
 File: figures/PNN/PNN200300Dist.pdf Graphic file (type pdf)
 <use figures/PNN/PNN200300Dist.pdf>
-Package pdftex.def Info: figures/PNN/PNN200300Dist.pdf  used on input line 374.
+Package pdftex.def Info: figures/PNN/PNN200300Dist.pdf  used on input line 384.
 (pdftex.def)             Requested size: 162.6018pt x 90.62129pt.
 <figures/PNN/PNN200300Dist_C7.pdf, id=475, 569.12625pt x 317.185pt>
 File: figures/PNN/PNN200300Dist_C7.pdf Graphic file (type pdf)
 <use figures/PNN/PNN200300Dist_C7.pdf>
-Package pdftex.def Info: figures/PNN/PNN200300Dist_C7.pdf  used on input line 374.
+Package pdftex.def Info: figures/PNN/PNN200300Dist_C7.pdf  used on input line 384.
 (pdftex.def)             Requested size: 162.6018pt x 90.62129pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2557,9 +2557,9 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
  <./figures/PNN/PNN50250Dist.pdf, page is rotated 90 degrees> <./figures/PNN/PNN50250Dist_C7.pdf, page is rotated 90 degrees> <./figures/PNN/PNN200300Dist.pdf, page is rotated 90 degrees> <./figures/PNN/PNN200300Dist_C7.pdf, page is rotated 90 degrees>]
 LaTeX Font Info:    Font shape `OML/neohellenic/m/n' will be
-(Font)              scaled to size 11.02505pt on input line 390.
+(Font)              scaled to size 11.02505pt on input line 400.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 390.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 400.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2571,12 +2571,8 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/Comps/GenPlussXGBNetworkComp.pdf, id=663, 722.7pt x 578.16pt>
 File: figures/Comps/GenPlussXGBNetworkComp.pdf Graphic file (type pdf)
 <use figures/Comps/GenPlussXGBNetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/GenPlussXGBNetworkComp.pdf  used on input line 395.
-(pdftex.def)             Requested size: 273.8532pt x 219.08554pt.
-
-Overfull \vbox (7.45152pt too high) detected at line 395
- []
-
+Package pdftex.def Info: figures/Comps/GenPlussXGBNetworkComp.pdf  used on input line 405.
+(pdftex.def)             Requested size: 256.73639pt x 205.38498pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2595,20 +2591,20 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/Comps/MaxOutPCANetworkComp.pdf, id=713, 722.7pt x 578.16pt>
 File: figures/Comps/MaxOutPCANetworkComp.pdf Graphic file (type pdf)
 <use figures/Comps/MaxOutPCANetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/MaxOutPCANetworkComp.pdf  used on input line 429.
+Package pdftex.def Info: figures/Comps/MaxOutPCANetworkComp.pdf  used on input line 439.
 (pdftex.def)             Requested size: 142.0585pt x 113.64499pt.
 <figures/Comps/PNNPCANetworkComp.pdf, id=714, 722.7pt x 578.16pt>
 File: figures/Comps/PNNPCANetworkComp.pdf Graphic file (type pdf)
 <use figures/Comps/PNNPCANetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/PNNPCANetworkComp.pdf  used on input line 429.
+Package pdftex.def Info: figures/Comps/PNNPCANetworkComp.pdf  used on input line 439.
 (pdftex.def)             Requested size: 142.0585pt x 113.64499pt.
 <figures/Comps/NNPCANetworkComp.pdf, id=715, 722.7pt x 578.16pt>
 File: figures/Comps/NNPCANetworkComp.pdf Graphic file (type pdf)
 <use figures/Comps/NNPCANetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/NNPCANetworkComp.pdf  used on input line 429.
+Package pdftex.def Info: figures/Comps/NNPCANetworkComp.pdf  used on input line 439.
 (pdftex.def)             Requested size: 142.0585pt x 113.64499pt.
 
-Overfull \vbox (2.56557pt too high) detected at line 429
+Overfull \vbox (2.56557pt too high) detected at line 439
  []
 
 
@@ -2629,7 +2625,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 <figures/Limits/compLimit20.pdf, id=825, 569.12625pt x 549.05125pt>
 File: figures/Limits/compLimit20.pdf Graphic file (type pdf)
 <use figures/Limits/compLimit20.pdf>
-Package pdftex.def Info: figures/Limits/compLimit20.pdf  used on input line 448.
+Package pdftex.def Info: figures/Limits/compLimit20.pdf  used on input line 462.
 (pdftex.def)             Requested size: 239.61958pt x 231.16965pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2639,15 +2635,15 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [34
 
  <./figures/Limits/compLimit20.pdf, page is rotated 90 degrees>]
-<figures/Limits/compLimit10.pdf, id=876, 569.12625pt x 549.05125pt>
+<figures/Limits/compLimit10.pdf, id=877, 569.12625pt x 549.05125pt>
 File: figures/Limits/compLimit10.pdf Graphic file (type pdf)
 <use figures/Limits/compLimit10.pdf>
-Package pdftex.def Info: figures/Limits/compLimit10.pdf  used on input line 454.
+Package pdftex.def Info: figures/Limits/compLimit10.pdf  used on input line 476.
 (pdftex.def)             Requested size: 154.04079pt x 148.60606pt.
-<figures/Limits/compLimit1.pdf, id=877, 569.12625pt x 549.05125pt>
+<figures/Limits/compLimit1.pdf, id=878, 569.12625pt x 549.05125pt>
 File: figures/Limits/compLimit1.pdf Graphic file (type pdf)
 <use figures/Limits/compLimit1.pdf>
-Package pdftex.def Info: figures/Limits/compLimit1.pdf  used on input line 454.
+Package pdftex.def Info: figures/Limits/compLimit1.pdf  used on input line 476.
 (pdftex.def)             Requested size: 154.04079pt x 148.60606pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2659,11 +2655,11 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
  <./figures/Limits/compLimit10.pdf, page is rotated 90 degrees> <./figures/Limits/compLimit1.pdf, page is rotated 90 degrees>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 455.
+(hyperref)                removing `math shift' on input line 477.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 455.
+(hyperref)                removing `math shift' on input line 477.
 
 (./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2674,9 +2670,9 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 ]
 LaTeX Font Info:    Font shape `OML/neohellenic/m/n' will be
-(Font)              scaled to size 21.16809pt on input line 471.
+(Font)              scaled to size 21.16809pt on input line 493.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <17.28> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 471.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 493.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2703,7 +2699,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 File: MathDept-images/MN_FYS_Segl_A.pdf Graphic file (type pdf)
 <use MathDept-images/MN_FYS_Segl_A.pdf>
-Package pdftex.def Info: MathDept-images/MN_FYS_Segl_A.pdf  used on input line 490.
+Package pdftex.def Info: MathDept-images/MN_FYS_Segl_A.pdf  used on input line 512.
 (pdftex.def)             Requested size: 325.4123pt x 54.72581pt.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pbk' (encoding: T1).
@@ -2717,18 +2713,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 7417051834356E636C5F0CF7DA328633;685.
  ) 
 Here is how much of TeX's memory you used:
- 32377 strings out of 478268
- 641854 string characters out of 5846347
- 910730 words of memory out of 5000000
+ 32382 strings out of 478268
+ 641896 string characters out of 5846347
+ 910742 words of memory out of 5000000
  49537 multiletter control sequences out of 15000+600000
- 563577 words of font info for 250 fonts, out of 8000000 for 9000
+ 564857 words of font info for 253 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,122p,1064b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/gfsneohellenic/neohellenicmath.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/gfsneohellenic/GFSNeohellenic-Italic.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (39 pages, 3073322 bytes).
+Output written on main.pdf (39 pages, 3074010 bytes).
 PDF statistics:
- 1084 PDF objects out of 1200 (max. 8388607)
- 562 compressed objects within 6 object streams
+ 1087 PDF objects out of 1200 (max. 8388607)
+ 565 compressed objects within 6 object streams
  85 named destinations out of 1000 (max. 500000)
- 97016 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 99064 words of extra memory for PDF output out of 106986 (max. 10000000)
 
