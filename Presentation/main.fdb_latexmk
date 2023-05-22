@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1684749036 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1684749040
-  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1684749036 18955 d73c06d53476ea6a740741fe56898296 ""
+["pdflatex"] 1684760175 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1684760179
+  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1684760175 18886 1308206eff355b2db37e11df66f505bf ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/gfsneohellenic/neohellenicmath.enc" 1382567737 2334 4a81b3adc34950f80745afc526a9e4cc ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -282,7 +282,7 @@
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "MathDept-images/fysikkbygget.jpeg" 1684484621 25359 82364ea108c84302a069594166cd042b ""
   "PhysDept-images/MN_FYSISK_A_ENG.pdf" 1684747377 17061 dc32c1fd277dffa60933903315150b75 ""
-  "beamerthemeMathDept.sty" 1684748473 26962 e45c573a7170a67cf911679796f38a14 ""
+  "beamerthemeMathDept.sty" 1684758222 27501 5f6ccec3c7942291403137dd0148b028 ""
   "figures/Collisions.jpeg" 1684745347 202981 030e422cad60ee99849bcf90e0498636 ""
   "figures/Comps/EnsemblesNetworkComp.pdf" 1684571798 70873 19a2749628aef5ba5d5f1497998181c9 ""
   "figures/Comps/GenPlussXGBNetworkComp.pdf" 1684502958 86090 10187d601659d45bd39724ca446bb08a ""
@@ -311,11 +311,11 @@
   "figures/grids/NN_OneMass_InterpolationGridSig.pdf" 1684597121 43605 65180dc9cbd34b659d21c9a5a16dd579 ""
   "figures/grids/XGBGridSig.pdf" 1684571192 55516 8a69fc5142ac235367d42cc13781c9e3 ""
   "figures/maxout.png" 1684573629 170045 5e1062b19b73ec2253e477d91017e88a ""
-  "main.aux" 1684749040 7486 a1da6f28934552a383ebc18a941b241e "pdflatex"
-  "main.nav" 1684749040 4468 07d673343522cca31f1ad6354b5e1845 "pdflatex"
-  "main.out" 1684749040 685 7417051834356e636c5f0cf7da328633 "pdflatex"
-  "main.tex" 1684749036 18955 d73c06d53476ea6a740741fe56898296 ""
-  "main.toc" 1684749040 311 cb432e6a69208ae984380f5c78d2b673 "pdflatex"
+  "main.aux" 1684760179 7222 fbf8606819b092e1de4dee6626ca5b9a "pdflatex"
+  "main.nav" 1684760179 4320 29c8c1df94a1254b3b9121f5d14d3432 "pdflatex"
+  "main.out" 1684760179 602 dcf70a4820b089d6aa9530f3028434ff "pdflatex"
+  "main.tex" 1684760175 18886 1308206eff355b2db37e11df66f505bf ""
+  "main.toc" 1684760179 267 4b7d50bfa4ec0e8e654a2e902eab1f7d "pdflatex"
   (generated)
   "main.aux"
   "main.log"

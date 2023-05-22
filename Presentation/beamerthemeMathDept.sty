@@ -206,27 +206,39 @@
 %% Standard colours:
 \colorlet{alert}{uiored}
 \setbeamercolor{structure}{fg = colortheme}
+\setbeamercolor{title}{fg = black}
+\setbeamercolor{subtitle}{fg = structure}
+\setbeamercolor{frametitle}{fg = black}
+\setbeamercolor*{qed symbol}{fg = black}
 \setbeamercolor{block title}{fg = white,
-                             bg = structure}
+                             bg = black}
 \setbeamercolor{block body} {bg = blockbody}
 \setbeamercolor{block title example}{fg = white,
-                                     bg = black}
+                                     bg = structure}
 \setbeamercolor{block body example} {bg = blockbody}
 \setbeamercolor{block title alerted}{fg = white,
-                                     bg = alertblock}
+                                     bg = alert}
 \setbeamercolor{block body alerted} {bg = blockbody}
-\setbeamercolor{alerted text} {fg = uiored}
-\setbeamercolor{footnote mark}{fg = uiored}
+\setbeamercolor{alerted text} {fg = alert}
+\setbeamercolor{footnote mark}{fg = alert}
+\setbeamercolor{caption name} {fg = alert}
 \setbeamercolor{section in head/foot}{fg = white,
                                       bg = black}
 \setbeamercolor{section in toc}{fg = black}
+\setbeamercolor*{itemize item}{fg = alert}
+\setbeamercolor*{itemize subitem}{fg = alert}
+\setbeamercolor*{itemize subsubitem}{fg = alert}
+\setbeamercolor*{item projected}{fg = white, bg = alert}
+\setbeamercolor*{description item}{fg = alert}
+\setbeamercolor{bibliography item}{fg = black}
+\setbeamercolor{bibliography entry author}{fg = black}
 \setbeamercolor{bibliography entry location}{fg = structure}
 
 
 %% Custom colours:
-\setbeamercolor{author in final frame}  {fg = black}
-\setbeamercolor{title in final frame}   {fg = black}
-\setbeamercolor{subtitle in final frame}{fg = gray}
+\setbeamercolor{author in final frame}  {fg = white}
+\setbeamercolor{title in final frame}   {fg = white}
+\setbeamercolor{subtitle in final frame}{fg = white}
 \setbeamercolor*{section page}{fg = black, bg = blockbody}
 
 

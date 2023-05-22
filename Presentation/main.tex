@@ -29,26 +29,11 @@
 \begin{document}
 
 
-\section{Overview}
-
 \begin{frame}{Outline}
     \tableofcontents
 \end{frame}
 
-\begin{frame}{Overview}
-    \begin{center}
-        \emph{Shed some light on the application of supervised learning in HEP by 
-        experimenting and studying a set of ML methods as they search for a set of SUSY signals.}
-    \end{center}
-    \vspace{0.5cm}
-    \begin{enumerate}
-        \item Study individual attributes of a set of supervised methods 
-        \item Compare expected sensitivity between methods on a subset of data
-        \item Attempt to increase sensitivity via feature reduction (PCA)
-        \item Compare the expected limits achieved by best performing methods 
-              to previous ATLAS analysis
-    \end{enumerate}
-\end{frame}
+
 \section{Introduction $\&$ Motivation}
 \begin{frame}{Outline}
     \tableofcontents[currentsection]
@@ -122,6 +107,21 @@
     % \vfill
     \centering
     \includegraphics[width=0.3\textwidth, angle = -90]{figures/WZSignal.png}
+\end{frame}
+
+\begin{frame}{This thesis}
+    \begin{center}
+        \emph{Shed some light on the application of supervised learning in HEP by 
+        experimenting and studying a set of ML methods as they search for a set of SUSY signals.}
+    \end{center}
+    \vspace{0.5cm}
+    \begin{enumerate}
+        \item Study individual attributes of a set of supervised methods 
+        \item Compare expected sensitivity between methods on a subset of data
+        \item Attempt to increase sensitivity via feature reduction (PCA)
+        \item Compare the expected limits achieved by best performing methods 
+              to previous ATLAS analysis
+    \end{enumerate}
 \end{frame}
 
 \section{The Implementation}
@@ -225,6 +225,61 @@
     \end{center}
 \end{frame}
 
+
+\begin{frame}{Parameterized neural network}
+    \begin{itemize}
+        \item For diverse data set, $X$, dependent on a parameter, $X(\theta)$
+        \begin{itemize}
+            \item Classical approach: One model for each parameter
+            \item PNN approach: Include $\theta$ as feature in feature set
+        \end{itemize}
+        \item Signal events using masses $\{A,B\}_{GeV}$ to generate 
+        event during simulation will include the parameters A and B
+        in feature set
+        \item Background assigned \\
+        parameters randomly \\
+        using same distribution\\ 
+        as signal
+        \item Motivation
+        \begin{itemize}
+            \item Network will \\
+            associate parameters\\
+            with trends in the \\
+            data
+        \end{itemize}
+        \begin{textblock}{0.8}(0.45, 0.45)
+            \includegraphics[width = 0.7\textwidth]{figures/PNN.png}
+        \end{textblock}
+    \end{itemize}
+\end{frame}
+\begin{frame}{PNN architecture}
+    \vfill
+    \includegraphics[width = 0.98\textwidth]{figures/PNNArch.png}
+\end{frame}
+\begin{frame}{Study the effect of the parameters in the PNN}
+    \begin{itemize}
+        \item Study if the parameters effect the training as intended
+        \item Test: Manually assign all the events, both background and 
+        signal, the same parameters (mass combinations) thereby assigning
+        most of the signal the wrong parameters
+        \item Hypothesis: PNN performs better when events are assigned correct
+        parameters 
+        \item First test: All events are given parameters $\{50,250\}_{GeV}$
+        \item Second test: All events are given parameters $\{200,300\}_{GeV}$
+    \end{itemize}
+    \begin{table}
+        \tiny
+        \centering
+        $
+        \begin{array}{cccccc}
+            \hline \text { \diagbox{\textbf{Parameters}}{\textbf{Channel}} }  & \text {$(50,250)$} & \text {$(100,200)$} & \text {$(150,300)$} & \text {$(200,300)$} & \text {$(Background)$} \\
+            \hline \text {$(50,250)$}   & \text { $\bf{80.8}\%$ } & \text { $45.8\%$ } & \text { $\bf{77.5}\%$ } & \text { $50.1\%$ } & \text { $2.4\%$ }  \\
+            \text {$(200,300)$}   & \text { $77.3\%$ } & \text { $\bf{54.6}\%$ } & \text { $76.3\%$ } & \text { $\bf{59.0}\%$ } & \text { $\bf{2.7}\%$ }\\
+            \hline
+        \end{array}
+        $
+    \end{table}
+\end{frame}
 
 \begin{frame}{Ensemble methods - LWTA}
     \begin{itemize}
@@ -332,61 +387,6 @@
     \includegraphics[width = 0.625\textwidth]{figures/Comps/EnsemblesNetworkComp.pdf}
     \end{textblock}
 \end{frame}
-\begin{frame}{Parameterized neural network}
-    \begin{itemize}
-        \item For diverse data set, $X$, dependent on a parameter, $X(\theta)$
-        \begin{itemize}
-            \item Classical approach: One model for each parameter
-            \item PNN approach: Include $\theta$ as feature in feature set
-        \end{itemize}
-        \item Signal events using masses $\{A,B\}_{GeV}$ to generate 
-              event during simulation will include the parameters A and B
-              in feature set
-        \item Background assigned \\
-              parameters randomly \\
-              using same distribution\\ 
-              as signal
-        \item Motivation
-        \begin{itemize}
-            \item Network will \\
-                  associate parameters\\
-                  with trends in the \\
-                  data
-        \end{itemize}
-        \begin{textblock}{0.8}(0.45, 0.45)
-            \includegraphics[width = 0.7\textwidth]{figures/PNN.png}
-        \end{textblock}
-    \end{itemize}
-\end{frame}
-\begin{frame}{PNN architecture}
-    \vfill
-    \includegraphics[width = 0.98\textwidth]{figures/PNNArch.png}
-\end{frame}
-\begin{frame}{Study the effect of the parameters in the PNN}
-    \begin{itemize}
-        \item Study if the parameters effect the training as intended
-        \item Test: Manually assign all the events, both background and 
-        signal, the same parameters (mass combinations) thereby assigning
-        most of the signal the wrong parameters
-        \item Hypothesis: PNN performs better when events are assigned correct
-              parameters 
-        \item First test: All events are given parameters $\{50,250\}_{GeV}$
-        \item Second test: All events are given parameters $\{200,300\}_{GeV}$
-    \end{itemize}
-    \begin{table}
-        \tiny
-        \centering
-        $
-        \begin{array}{cccccc}
-            \hline \text { \diagbox{\textbf{Parameters}}{\textbf{Channel}} }  & \text {$(50,250)$} & \text {$(100,200)$} & \text {$(150,300)$} & \text {$(200,300)$} & \text {$(Background)$} \\
-            \hline \text {$(50,250)$}   & \text { $\bf{80.8}\%$ } & \text { $45.8\%$ } & \text { $\bf{77.5}\%$ } & \text { $50.1\%$ } & \text { $2.4\%$ }  \\
-            \text {$(200,300)$}   & \text { $77.3\%$ } & \text { $\bf{54.6}\%$ } & \text { $76.3\%$ } & \text { $\bf{59.0}\%$ } & \text { $\bf{2.7}\%$ }\\
-            \hline
-        \end{array}
-        $
-    \end{table}
-\end{frame}
-
 % \begin{frame}
 %     \begin{center}
 %         \includegraphics[width = 0.475\textwidth]{figures/PNN/PNN50250Dist.pdf}
