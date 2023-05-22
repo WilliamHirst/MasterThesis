@@ -36,6 +36,11 @@
 \end{frame}
 
 \begin{frame}{Overview}
+    \begin{center}
+        \emph{Shed some light on the application of supervised learning in HEP by 
+        experimenting and studying a set of ML methods as they search for a set of SUSY signals.}
+    \end{center}
+    \vspace{0.5cm}
     \begin{enumerate}
         \item Study individual attributes of a set of supervised methods 
         \item Compare expected sensitivity between methods on a subset of data
@@ -71,6 +76,9 @@
 
 
 \begin{frame}{How do we search for new physics?}
+    \begin{textblock}{1}(0.515,0.585)
+        \includegraphics[width=0.475\textwidth]{figures/Collisions.jpeg}
+    \end{textblock}
     \begin{itemize}
         \item Two data sets 
         \begin{itemize}
@@ -84,7 +92,10 @@
             \item Deviations: New physics, or statistical fluctuations 
         \end{itemize}
         \item Create search region
-        \item Measure deviation in significance, Z 
+        \begin{itemize}
+            \item Traditional: Cut-and-Count
+        \end{itemize}
+        \item Measure deviation in \\ significance, Z 
         \begin{itemize}
             \item $Z\approx \frac{n_{obs} - bkg}{\sqrt{bkg}} = \frac{signal}{\sqrt{background}}$
         \end{itemize}
@@ -202,14 +213,6 @@
 % \end{frame}
 
 \begin{frame}{Ordinary dense neural network}
-    \begin{itemize}
-        \item First network variant tested
-        \item 'Traditional' neural network
-        \item 3 hidden layers with 600 nodes each
-        \begin{itemize}
-            \item Deep
-        \end{itemize}
-    \end{itemize}
     \vfill
     \centering
     \includegraphics[width = 0.98\textwidth]{figures/NN.png}
@@ -370,34 +373,46 @@
         \item First test: All events are given parameters $\{50,250\}_{GeV}$
         \item Second test: All events are given parameters $\{200,300\}_{GeV}$
     \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \begin{center}
-        \includegraphics[width = 0.475\textwidth]{figures/PNN/PNN50250Dist.pdf}
-        \includegraphics[width = 0.475\textwidth]{figures/PNN/PNN50250Dist_C7.pdf}
-    \end{center}
-    \begin{center}
-        \includegraphics[width = 0.475\textwidth]{figures/PNN/PNN200300Dist.pdf}
-        \includegraphics[width = 0.475\textwidth]{figures/PNN/PNN200300Dist_C7.pdf}
-    \end{center}
-\end{frame}
-
-\begin{frame}{Efficiency table}
-    \vfill
     \begin{table}
-        \footnotesize
+        \tiny
         \centering
         $
-        \begin{array}{ccccc}
-            \hline \text { \diagbox{\textbf{Parameters}}{\textbf{Channel}} }  & \text {$(50,250)$} & \text {$(100,200)$} & \text {$(150,300)$} & \text {$(200,300)$} \\
-            \hline \text {$(50,250)$}   & \text { $\bf{80.8}\%$ } & \text { $45.8\%$ } & \text { $\bf{77.5}\%$ } & \text { $50.1\%$ } \\
-            \text {$(200,300)$}   & \text { $77.3\%$ } & \text { $\bf{54.6}\%$ } & \text { $76.3\%$ } & \text { $\bf{59.0}\%$ }\\
+        \begin{array}{cccccc}
+            \hline \text { \diagbox{\textbf{Parameters}}{\textbf{Channel}} }  & \text {$(50,250)$} & \text {$(100,200)$} & \text {$(150,300)$} & \text {$(200,300)$} & \text {$(Background)$} \\
+            \hline \text {$(50,250)$}   & \text { $\bf{80.8}\%$ } & \text { $45.8\%$ } & \text { $\bf{77.5}\%$ } & \text { $50.1\%$ } & \text { $2.4\%$ }  \\
+            \text {$(200,300)$}   & \text { $77.3\%$ } & \text { $\bf{54.6}\%$ } & \text { $76.3\%$ } & \text { $\bf{59.0}\%$ } & \text { $\bf{2.7}\%$ }\\
             \hline
         \end{array}
         $
     \end{table}
 \end{frame}
+
+% \begin{frame}
+%     \begin{center}
+%         \includegraphics[width = 0.475\textwidth]{figures/PNN/PNN50250Dist.pdf}
+%         \includegraphics[width = 0.475\textwidth]{figures/PNN/PNN50250Dist_C7.pdf}
+%     \end{center}
+%     \begin{center}
+%         \includegraphics[width = 0.475\textwidth]{figures/PNN/PNN200300Dist.pdf}
+%         \includegraphics[width = 0.475\textwidth]{figures/PNN/PNN200300Dist_C7.pdf}
+%     \end{center}
+% \end{frame}
+
+% \begin{frame}{Efficiency table}
+%     \vfill
+%     \begin{table}
+%         \scriptsize
+%         \centering
+%         $
+%         \begin{array}{cccccc}
+%             \hline \text { \diagbox{\textbf{Parameters}}{\textbf{Channel}} }  & \text {$(50,250)$} & \text {$(100,200)$} & \text {$(150,300)$} & \text {$(200,300)$} & \text {$(Background)$} \\
+%             \hline \text {$(50,250)$}   & \text { $\bf{80.8}\%$ } & \text { $45.8\%$ } & \text { $\bf{77.5}\%$ } & \text { $50.1\%$ } & \text { $2.4\%$ }  \\
+%             \text {$(200,300)$}   & \text { $77.3\%$ } & \text { $\bf{54.6}\%$ } & \text { $76.3\%$ } & \text { $\bf{59.0}\%$ } & \text { $2.74\%$ }\\
+%             \hline
+%         \end{array}
+%         $
+%     \end{table}
+% \end{frame}
 
 \begin{frame}{Comparing the sensitivity on a subset of the signal}
     \centering
@@ -407,7 +422,6 @@
 
 \begin{frame}{Increasing sensitivity through a PCA}
         \begin{itemize}
-            \item What is PCA?
             \item Dimensionality reduction
             \item Creates new features using linear combination of original features
             \item Ranks from most to least variance

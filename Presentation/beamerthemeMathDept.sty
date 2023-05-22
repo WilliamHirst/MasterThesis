@@ -278,11 +278,11 @@
 
         \AtPageUpperLeft
         {
-            \hspace{1.7 mm}
-            \parbox[t][4.5cm][b]{\textwidth}
+            \hspace{2 mm}
+            \parbox[t][4.25cm][b]{\textwidth}
             {
-                \includegraphics[scale = 0.279]
-                {MathDept-images/MN_FYS_Segl_A}
+                \includegraphics[scale = 0.17]
+                {PhysDept-images/MN_FYSISK_A_ENG.pdf}
             }
         }
     }
@@ -338,11 +338,11 @@
 
                 \AtPageUpperLeft
                 {
-                    \hspace{0.976\radius}
-                    \parbox[t][0.25\paperheight][b]{\textwidth}
+                    \hspace{0.8cm}
+                    \parbox[t][2cm][b]{\textwidth}
                     {
-                        \includegraphics[scale = 0.35]
-                        {MathDept-images/MN_FYS_Segl_A}
+                        \includegraphics[height = 1.1cm]
+                        {PhysDept-images/MN_FYSISK_A_ENG.pdf}
                     }
                 }
 
@@ -354,8 +354,8 @@
                     \parbox[b][0.72\paperheight][t]{2\radius}
                     {
                         \begin{tikzpicture}
-                        \fill[uiogrey5] (0, 0) circle (\radius);
-                        \fill[uiogrey5] (0, 2.5\radius) circle (\radius);
+                        \fill[uiored] (0, 0) circle (\radius);
+                        \fill[uiored] (0, 2.5\radius) circle (\radius);
                         \end{tikzpicture}
                     }
                 }
@@ -480,10 +480,10 @@
 %% Increase indentation:
 \AtBeginEnvironment{itemize}  { \setlength{\leftmargini}{12.285mm} }
 \AtBeginEnvironment{enumerate}{ \setlength{\leftmargini}{13.582mm} }
-
+\setbeamertemplate{itemize items}[square]
+\setbeamertemplate{itemize subitem}[circle]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 %% Reference enumerate items
 \newcommand{\enumref}[1]
