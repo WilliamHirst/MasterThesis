@@ -182,7 +182,7 @@
 %% Theme-specific colours:
 \definecolor{alertblock}{cmyk}{0, 1, 1, 0.2}
 \definecolor{blockbody} {cmyk}{0, 0, 0, 0.2}
-\definecolor{colortheme}{cmyk}{0, 0, 0, 0.8}
+\definecolor{colortheme}{cmyk}{0, 0, 0, 0.7}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -223,7 +223,7 @@
 \setbeamercolor{footnote mark}{fg = alert}
 \setbeamercolor{caption name} {fg = alert}
 \setbeamercolor{section in head/foot}{fg = white,
-                                      bg = black}
+                                      bg = structure}
 \setbeamercolor{section in toc}{fg = black}
 \setbeamercolor*{itemize item}{fg = alert}
 \setbeamercolor*{itemize subitem}{fg = alert}
@@ -236,11 +236,10 @@
 
 
 %% Custom colours:
-\setbeamercolor{author in final frame}  {fg = white}
-\setbeamercolor{title in final frame}   {fg = white}
+\setbeamercolor{author in final frame}  {fg = black}
+\setbeamercolor{title in final frame}   {fg = black}
 \setbeamercolor{subtitle in final frame}{fg = white}
 \setbeamercolor*{section page}{fg = black, bg = blockbody}
-
 
 %% Standard fonts:
 \setbeamerfont{author}    {size   = \large,
@@ -255,6 +254,8 @@
                            series = \bfseries}
 \setbeamerfont{sub section}{size = \large,
                            series = \bfseries}
+\setbeamerfont{block title example}{size = \large,
+                           series = \bfseries}
 \setbeamerfont{title in head/foot} {series = \bfseries}
 \setbeamerfont{author in head/foot}{series = \bfseries}
 \setbeamerfont{date in head/foot}  {series = \bfseries}
@@ -266,7 +267,7 @@
                                         series = \bfseries}
 \setbeamerfont{title in final frame}   {size   = \large,
                                         series = \bfseries}
-\setbeamerfont{subtitle in final frame}{  size = \large,
+\setbeamerfont{subtitle in final frame}{  size = \normalsize,
                                         series = \normalfont\rmfamily}
 \setbeamerfont*{section page}{size   = \Huge,
                               series = \bfseries}
@@ -415,18 +416,29 @@
     }
 }
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \setbeamertemplate{frametitle}
-{
-    \vbox
-    {
-        \strut\insertframetitle\strut
-    }
+{    
+    % \vbox
+    % {
+    %     \strut\insertframetitle\strut
+    % }
     \vskip-1.3ex
+    \begin{beamercolorbox}[ht        = 2.  ex,
+        dp        = 1    ex,
+        rounded=true,
+        shadow=false,
+        sep = -.1cm]
+       {block title example}
+
+        \usebeamerfont*{block title example}
+        \insertframetitle
+        \end{beamercolorbox}
 }
+
+
 
 \renewcommand{\framesubtitle}[1]
     {\par\smallskip\textbf{\large#1}\par\medskip}

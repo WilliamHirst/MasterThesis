@@ -20,7 +20,6 @@
 \usepackage{diagbox}
 \usetikzlibrary{overlay-beamer-styles}  % Overlay effects for TikZ
 
-
 \author{William Hirst}
 \title[Supervised Learning in HEP]{Application of Supervised Machine Learning to the Search for New Physics in ATLAS data}
 \subtitle{A Study of Ordinary Dense, Parameterized and Ensemble Networks and their Application to High Energy Physics}
@@ -61,8 +60,8 @@
 
 
 \begin{frame}{How do we search for new physics?}
-    \begin{textblock}{1}(0.515,0.585)
-        \includegraphics[width=0.475\textwidth]{figures/Collisions.jpeg}
+    \begin{textblock}{1}(0.55,0.62)
+        \includegraphics[width=0.4\textwidth]{figures/Collisions.jpeg}
     \end{textblock}
     \begin{itemize}
         \item Two data sets 
@@ -130,20 +129,26 @@
 \end{frame}
 
 \begin{frame}{A summary of the applied methods}
-    \emph{Three} neural network variants
+    \begin{itemize}
+
+    \item \emph{Three} neural network variants
     \begin{itemize}
         \item Ordinary dense neural network
         \item Ensemble networks utilizing Local-Winner-Takes-All (LWTA) layers
         \item Parameterized neural networks (PNN)
     \end{itemize}
-    \emph{One} boosted decision tree method
+
+    \item \emph{One} boosted decision tree method
     \begin{itemize}
         \item XGBoost using default settings
     \end{itemize}
-    \begin{textblock}{1}(0.,0.55)
+
+    \end{itemize}
+    
+    \begin{textblock}{1}(0.,0.555)
         \includegraphics[width=0.525\textwidth]{figures/Input_labels.png}
     \end{textblock}
-    \begin{textblock}{1}(.5,0.575)
+    \begin{textblock}{1}(.5,0.58)
         \includegraphics[width=0.435\textwidth]{figures/DT.png}
     \end{textblock}
 \end{frame}
@@ -252,10 +257,10 @@
         \end{textblock}
     \end{itemize}
 \end{frame}
-\begin{frame}{PNN architecture}
-    \vfill
-    \includegraphics[width = 0.98\textwidth]{figures/PNNArch.png}
-\end{frame}
+% \begin{frame}{PNN architecture}
+%     \vfill
+%     \includegraphics[width = 0.98\textwidth]{figures/PNNArch.png}
+% \end{frame}
 \begin{frame}{Study the effect of the parameters in the PNN}
     \begin{itemize}
         \item Study if the parameters effect the training as intended
@@ -288,9 +293,8 @@
         \item Competing nodes - Units
         \item Encode information in pattern specific pathways
     \end{itemize}    
-    \begin{textblock}{0.58}(0.2, 0.365)
-        \includegraphics[width = \textwidth]{figures/Max_out}
-    \end{textblock}
+    \centering
+    \includegraphics[width = 0.5\textwidth]{figures/Max_out}
 \end{frame}
 
 \begin{frame}{Channel-Out, SCO and Maxout}
@@ -300,9 +304,9 @@
             $
             \begin{array}{ccc}
                 \hline \text { Layer } & \text { Separate weights} & \text { Static units }\\
-                \hline\hline\text{Channel-Out} & \textcolor{green}{Yes} &  \textcolor{green}{Yes}  \\
-                \text { SCO } &  \textcolor{green}{Yes} &  \textcolor{red}{No}  \\
-                \text{ Maxout } &  \textcolor{red}{No} &  \textcolor{green}{Yes}   \\
+                \hline\hline\text{Channel-Out} & \checkmark &  \checkmark  \\
+                \text { SCO } &  \checkmark &  $X$ \\
+                \text{ Maxout } &  $X$ &  \checkmark   \\
                 \hline
             \end{array}
             $
@@ -313,6 +317,10 @@
 \end{frame}
 
 \begin{frame}{Visualization and study of sparse pathways}
+    \begin{textblock}{0.8}(0.565, 0.15)
+        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/BeforeTraining.pdf}
+        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTraining.pdf}
+    \end{textblock}
     \begin{itemize}
         \item A study of the implementation \\
         and effect of LWTA layers
@@ -325,32 +333,42 @@
         \end{itemize}
         \item The bolder the line the more\\ 
         frequently the path is used.
+        \item Color of lines 
+        \begin{itemize}
+            \item Pink: SM background
+            \item Blue: SUSY signal
+        \end{itemize}
     \end{itemize}
 \end{frame}
-\begin{frame}
-    \begin{textblock}{0.8}(0.015, 0.25)
-        \textbf{Before training}
-    \end{textblock}
-    \begin{textblock}{0.8}(0.017, 0.7)
-        \textbf{After training}
-    \end{textblock}
-    \begin{center}\vspace{-0.5cm}
-        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/BeforeTraining.pdf}
-        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTraining.pdf}
-    \end{center}
-\end{frame}
-\begin{frame}
-    \begin{textblock}{0.8}(0.015, 0.25)
-        \textbf{Background}
-    \end{textblock}
-    \begin{textblock}{0.8}(0.017, 0.7)
-        \textbf{Signal}
-    \end{textblock}
-    \begin{center}\vspace{-0.5cm}
+\begin{frame}{Visualization and study of sparse pathways}
+    \begin{textblock}{0.8}(0.565, 0.15)
         \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTrainingBkg.pdf}
         \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTrainingSig.pdf}
-    \end{center}
+    \end{textblock}
+    \begin{itemize}
+        \item A study of the implementation \\
+        and effect of LWTA layers
+        \begin{itemize}
+            \item Specifically maxout
+        \end{itemize}
+        \item Visualize the activation and \\
+        paths of 100 randomly sampled \\
+        events
+        \begin{itemize}
+            \item 50 background
+            \item 50 signal
+        \end{itemize}
+        \item The bolder the line the more\\ 
+        frequently the path is used.
+        \item Color of lines 
+        \begin{itemize}
+            \item Pink: SM background
+            \item Blue: SUSY signal
+        \end{itemize}
+    \end{itemize}
 \end{frame}
+
+
 
 \begin{frame}{Comparing activation of Maxout with SCO}
     \begin{textblock}{0.8}(0.225, 0.8)
@@ -415,45 +433,58 @@
 % \end{frame}
 
 \begin{frame}{Comparing the sensitivity on a subset of the signal}
+    \vfill
     \centering
     \includegraphics[width=0.75\textwidth]{figures/Comps/GenPlussXGBNetworkComp.pdf}
 \end{frame}
 
-
 \begin{frame}{Increasing sensitivity through a PCA}
+    \begin{itemize}
+        \item Dimensionality reduction
+        \item Creates new features using linear combination of original features
+        \item Ranks from most to least variance
+        \item This analysis
         \begin{itemize}
-            \item Dimensionality reduction
-            \item Creates new features using linear combination of original features
-            \item Ranks from most to least variance
-            \item This analysis
-            \begin{itemize}
-                \item Demand conservation of $99.9\%$ of variance/spread
-                \item 5 features removed
-            \end{itemize}
+            \item Demand conservation of $99.9\%$ of variance/spread
+            \item 5 features removed
         \end{itemize}
-\end{frame}
-\begin{frame}{Compare methods with and without PCA}
-    \begin{textblock}{0.8}(0.02, 0.3)
+    \end{itemize}
+    \begin{textblock}{0.8}(0.02, 0.7)
         {Maxout}
     \end{textblock}
-    \begin{textblock}{0.8}(0.9, 0.3)
+    \begin{textblock}{0.8}(0.9, 0.7)
         {PNN}
     \end{textblock}
-    \begin{textblock}{0.8}(0.275, 0.7)
-    {NN}
-    \end{textblock}
+    \vfill
     \begin{center}
         \includegraphics[width=0.415\textwidth]{figures/Comps/MaxOutPCANetworkComp.pdf}
         \includegraphics[width=0.415\textwidth]{figures/Comps/PNNPCANetworkComp.pdf}
     \end{center}
-    \centering
-    \vspace{-0.2cm}
-    \includegraphics[width=0.415\textwidth]{figures/Comps/NNPCANetworkComp.pdf}
-
 \end{frame}
 
 
+% \begin{frame}{Comparing the methods to previous analysis}
+%     \begin{itemize}
+%         \item Compare the expected limits of three best models
+%               to analysis made by ATLAS in 2021 \cite{atlas_search_2021}
+%         \item Introduce flat uncertainty for realistic comparison ($20\%$, $10\%$, $<1\%$) 
+%         \item Include top performing methods
+%         \begin{itemize}
+%             \item Maxout model with PCA
+%             \item PNN with PCA
+%             \item Ordinary dense neural network without PCA
+%         \end{itemize}
+%     \end{itemize}
+% \end{frame}
 \begin{frame}{Comparing the methods to previous analysis}
+    \begin{textblock}{1}(0.4,.15)
+    \includegraphics[width=0.6\textwidth]{figures/Limits/compLimit20.pdf}
+    \end{textblock}
+    \begin{textblock}{1}(0.54,.39)
+        \scriptsize
+        \cite{atlas_search_2021}
+    \end{textblock}
+    \begin{textblock}{.45}(-0.03,.2)
     \begin{itemize}
         \item Compare the expected limits of three best models
               to analysis made by ATLAS in 2021 \cite{atlas_search_2021}
@@ -465,14 +496,7 @@
             \item Ordinary dense neural network without PCA
         \end{itemize}
     \end{itemize}
-\end{frame}
-\begin{frame}
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/Limits/compLimit20.pdf}
-    \begin{textblock}{1}(-0.168,.305)
-        \scriptsize
-        \cite{atlas_search_2021}
-    \end{textblock}
+\end{textblock}
 \end{frame}
 \begin{frame}
     \vfill
@@ -510,7 +534,7 @@
 
 
 
-\begin{frame}[allowframebreaks]{References}
+\begin{frame}{References}
     \begin{thebibliography}{}
 
         \bibitem{atlas_search_2021}

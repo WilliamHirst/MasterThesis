@@ -1850,11 +1850,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/gfsneohellenic/neohell
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/gfsneohellenic/neohellenico8a.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvro8t.vf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm
-INPUT ./figures/PNNArch.png
-INPUT ./figures/PNNArch.png
-INPUT figures/PNNArch.png
-INPUT ./figures/PNNArch.png
-INPUT ./figures/PNNArch.png
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvb8t.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
@@ -1869,7 +1864,6 @@ INPUT ./figures/EnsembleComp.png
 INPUT figures/EnsembleComp.png
 INPUT ./figures/EnsembleComp.png
 INPUT ./figures/EnsembleComp.png
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvb8t.tfm
 INPUT ./figures/NetworkVis/BeforeTraining.pdf
 INPUT ./figures/NetworkVis/BeforeTraining.pdf
 INPUT figures/NetworkVis/BeforeTraining.pdf
@@ -1880,6 +1874,7 @@ INPUT ./figures/NetworkVis/AfterTraining.pdf
 INPUT figures/NetworkVis/AfterTraining.pdf
 INPUT ./figures/NetworkVis/AfterTraining.pdf
 INPUT ./figures/NetworkVis/AfterTraining.pdf
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvb8t.tfm
 INPUT ./figures/NetworkVis/AfterTrainingBkg.pdf
 INPUT ./figures/NetworkVis/AfterTrainingBkg.pdf
 INPUT figures/NetworkVis/AfterTrainingBkg.pdf
@@ -1924,11 +1919,6 @@ INPUT ./figures/Comps/PNNPCANetworkComp.pdf
 INPUT figures/Comps/PNNPCANetworkComp.pdf
 INPUT ./figures/Comps/PNNPCANetworkComp.pdf
 INPUT ./figures/Comps/PNNPCANetworkComp.pdf
-INPUT ./figures/Comps/NNPCANetworkComp.pdf
-INPUT ./figures/Comps/NNPCANetworkComp.pdf
-INPUT figures/Comps/NNPCANetworkComp.pdf
-INPUT ./figures/Comps/NNPCANetworkComp.pdf
-INPUT ./figures/Comps/NNPCANetworkComp.pdf
 INPUT ./figures/Limits/compLimit20.pdf
 INPUT ./figures/Limits/compLimit20.pdf
 INPUT figures/Limits/compLimit20.pdf
@@ -1947,14 +1937,6 @@ INPUT ./figures/Limits/compLimit1.pdf
 INPUT ./main.toc
 INPUT main.toc
 INPUT main.toc
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmss17.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/gfsneohellenic/gfsneohellenicmath8a.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvro8t.tfm
 OUTPUT main.nav
 OUTPUT main.toc
 OUTPUT main.snm
@@ -1962,6 +1944,9 @@ INPUT ./PhysDept-images/MN_FYSISK_A_ENG.pdf
 INPUT ./PhysDept-images/MN_FYSISK_A_ENG.pdf
 INPUT PhysDept-images/MN_FYSISK_A_ENG.pdf
 INPUT ./PhysDept-images/MN_FYSISK_A_ENG.pdf
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/bookman/pbkl8t.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/bookman/pbkl8t.vf
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/bookman/pbkl8r.tfm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
@@ -1971,10 +1956,11 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/gfsneohellenic/GFSNe
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb
