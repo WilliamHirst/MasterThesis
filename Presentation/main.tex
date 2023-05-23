@@ -90,30 +90,34 @@
     \centering
     \includegraphics[width = 0.65\textwidth]{figures/DataComp.png}
 \end{frame}
-\begin{frame}{The search}
-    \begin{itemize}
-        \item Study application of supervised learning as it searches for SUSY signal 
-        \begin{itemize}
-            \item Chargino-neutralino production
-            \item 2 free parameters: masses of the chargino and neutralino
-        \end{itemize}
-        \item Measure sensitivity of an analysis 
-        \begin{itemize}
-            \item Expected significance
-            \item How many collisions do we expect to find in search region?
-        \end{itemize} 
-    \end{itemize}
-    % \vfill
-    \centering
-    \includegraphics[width=0.3\textwidth, angle = -90]{figures/WZSignal.png}
-\end{frame}
+% \begin{frame}{The search}
+%     \begin{itemize}
+%         \item Study application of supervised learning as it searches for SUSY signal 
+%         \begin{itemize}
+%             \item Chargino-neutralino production
+%             \item 2 free parameters: masses of the chargino and neutralino
+%         \end{itemize}
+%         \item Measure sensitivity of an analysis 
+%         \begin{itemize}
+%             \item Expected significance
+%             \item How many collisions do we expect to find in search region?
+%         \end{itemize} 
+%     \end{itemize}
+%     % \vfill
+%     \centering
+%     \includegraphics[width=0.3\textwidth, angle = -90]{figures/WZSignal.png}
+% \end{frame}
 
 \begin{frame}{This thesis}
-    \begin{center}
+    \begin{textblock}{0.45}(.075,0.18)
         \emph{Shed some light on the application of supervised learning in HEP by 
         experimenting and studying a set of ML methods as they search for a set of SUSY signals.}
-    \end{center}
-    \vspace{0.5cm}
+    \end{textblock}
+    \begin{textblock}{1}(.545,0.165)
+    \includegraphics[width=0.2\textwidth, angle = -90]{figures/WZSignal.png}
+    \end{textblock}
+    \vspace{2cm}
+    \vfill
     \begin{enumerate}
         \item Study individual attributes of a set of supervised methods 
         \item Compare expected sensitivity between methods on a subset of data
@@ -121,6 +125,7 @@
         \item Compare the expected limits achieved by best performing methods 
               to previous ATLAS analysis
     \end{enumerate}
+    \centering
 \end{frame}
 
 \section{The Implementation}
@@ -144,7 +149,7 @@
     \end{itemize}
 
     \end{itemize}
-    
+
     \begin{textblock}{1}(0.,0.555)
         \includegraphics[width=0.525\textwidth]{figures/Input_labels.png}
     \end{textblock}
@@ -196,15 +201,15 @@
 
 
 \begin{frame}{Boosted decision trees - XGBoost}
-    \begin{textblock}{1}(0.35, 0.15)
-        \includegraphics[width=0.65\textwidth]{figures/grids/XGBGridSig.pdf}    
+    \begin{textblock}{1}(0.375, 0.15)
+        \includegraphics[width=0.6\textwidth]{figures/grids/XGBGridSig.pdf}    
     \end{textblock}
-    \begin{textblock}{1}(-0.01, 0.2)
+    \begin{textblock}{0.4}(-0.01, 0.2)
         \begin{itemize}
             \item Used as benchmark
-            \item Minimal time spent\\ tuning BDT
-            \item Trained on original \\ signal set
-            \item Displayed better\\ performance on lower \\masses  
+            \item Minimal time spent tuning BDT
+            \item Trained on original signal set
+            \item Displayed better performance on lower masses  
         \end{itemize}
     \end{textblock}
 \end{frame}
@@ -433,9 +438,20 @@
 % \end{frame}
 
 \begin{frame}{Comparing the sensitivity on a subset of the signal}
-    \vfill
-    \centering
-    \includegraphics[width=0.75\textwidth]{figures/Comps/GenPlussXGBNetworkComp.pdf}
+    \begin{textblock}{0.4}(-0.045, 0.175)
+        \begin{itemize}
+            \item NN variants outperform BDT
+            \item Maxout model achieves the highest significance on most masses
+            \item PNN very sensitive for low masses 
+            \item Maxout (relatively) sensitive for high masses 
+            \begin{itemize}
+                \item Long-term memory
+            \end{itemize}
+        \end{itemize}
+    \end{textblock}
+    \begin{textblock}{1}(0.35, 0.225)
+    \includegraphics[width=0.6\textwidth]{figures/Comps/GenPlussXGBNetworkComp.pdf}
+    \end{textblock}
 \end{frame}
 
 \begin{frame}{Increasing sensitivity through a PCA}
@@ -536,11 +552,21 @@
 
 \begin{frame}{References}
     \begin{thebibliography}{}
-
+        \setbeamertemplate{bibliography item}[online]
+        \bibitem{Maximilien}
+        Maximilien Brice.
+        \newblock \enquote{Installing the ATLAS calorimeter. Vue centrale du
+        détecteur ATLAS avec ses huit toroides entourant le
+        calorimètre avant son déplacement au centre du
+        détecteur}.
+        \newblock \url{https://cds.cern.ch/record/910381}
+        
+        \setbeamertemplate{bibliography item}[article]
         \bibitem{atlas_search_2021}
         ATLAS Collaboration.
         \newblock \enquote{Search for chargino--neutralino pair production in final states with three leptons and missing transverse momentum in {$\sqrt{s}$} = 13 {TeV} pp collisions with the {ATLAS} detector}.
         \newblock \url{http://arxiv.org/abs/2106.01676}
+
 
 
     \end{thebibliography}

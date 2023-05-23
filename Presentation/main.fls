@@ -1699,10 +1699,10 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam1
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/gfsneohellenic/gfsneohellenicmath8a.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvro8t.tfm
-INPUT ./MathDept-images/fysikkbygget.jpeg
-INPUT MathDept-images/fysikkbygget.jpeg
-INPUT ./MathDept-images/fysikkbygget.jpeg
-INPUT ./MathDept-images/fysikkbygget.jpeg
+INPUT ./figures/42850523502_d5158f48c5_o.jpg
+INPUT figures/42850523502_d5158f48c5_o.jpg
+INPUT ./figures/42850523502_d5158f48c5_o.jpg
+INPUT ./figures/42850523502_d5158f48c5_o.jpg
 INPUT ./PhysDept-images/MN_FYSISK_A_ENG.pdf
 INPUT ./PhysDept-images/MN_FYSISK_A_ENG.pdf
 INPUT PhysDept-images/MN_FYSISK_A_ENG.pdf
@@ -1788,10 +1788,10 @@ INPUT ./figures/WZSignal.png
 INPUT figures/WZSignal.png
 INPUT ./figures/WZSignal.png
 INPUT ./figures/WZSignal.png
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvro8t.vf
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvro8t.vf
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm
 INPUT ./main.toc
 INPUT main.toc
 INPUT main.toc

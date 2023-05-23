@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  22 MAY 2023 17:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  23 MAY 2023 11:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2137,19 +2137,19 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
 Overfull \vbox (10.95006pt too high) detected at line 28
  []
 
-<MathDept-images/fysikkbygget.jpeg, id=29, 662.475pt x 150.5625pt>
-File: MathDept-images/fysikkbygget.jpeg Graphic file (type jpg)
-<use MathDept-images/fysikkbygget.jpeg>
-Package pdftex.def Info: MathDept-images/fysikkbygget.jpeg  used on input line 28.
-(pdftex.def)             Requested size: 342.3152pt x 77.799pt.
-<PhysDept-images/MN_FYSISK_A_ENG.pdf, id=30, 1357.07pt x 187.70125pt>
+<figures/42850523502_d5158f48c5_o.jpg, id=29, 810.52812pt x 527.9725pt>
+File: figures/42850523502_d5158f48c5_o.jpg Graphic file (type jpg)
+<use figures/42850523502_d5158f48c5_o.jpg>
+Package pdftex.def Info: figures/42850523502_d5158f48c5_o.jpg  used on input line 28.
+(pdftex.def)             Requested size: 342.3152pt x 132.86057pt.
+<PhysDept-images/MN_FYSISK_A_ENG.pdf, id=31, 1357.07pt x 187.70125pt>
 File: PhysDept-images/MN_FYSISK_A_ENG.pdf Graphic file (type pdf)
 <use PhysDept-images/MN_FYSISK_A_ENG.pdf>
 Package pdftex.def Info: PhysDept-images/MN_FYSISK_A_ENG.pdf  used on input line 28.
 (pdftex.def)             Requested size: 230.69885pt x 31.90878pt.
 [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./MathDept-images/fysikkbygget.jpeg> <./PhysDept-images/MN_FYSISK_A_ENG.pdf>]
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./figures/42850523502_d5158f48c5_o.jpg> <./PhysDept-images/MN_FYSISK_A_ENG.pdf>]
 LaTeX Info: Redefining \microtypecontext on input line 28.
 Package microtype Info: Applying patch `item' on input line 28.
 Package microtype Info: Applying patch `toc' on input line 28.
@@ -2230,7 +2230,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [4
 
 ]
-<figures/Collisions.jpeg, id=80, 1606.0pt x 903.375pt>
+<figures/Collisions.jpeg, id=82, 1606.0pt x 903.375pt>
 File: figures/Collisions.jpeg Graphic file (type jpg)
 <use figures/Collisions.jpeg>
 Package pdftex.def Info: figures/Collisions.jpeg  used on input line 88.
@@ -2243,7 +2243,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [5
 
  <./figures/Collisions.jpeg>]
-<figures/DataComp.png, id=89, 3500.57813pt x 3669.96094pt>
+<figures/DataComp.png, id=91, 3500.57813pt x 3669.96094pt>
 File: figures/DataComp.png Graphic file (type png)
 <use figures/DataComp.png>
 Package pdftex.def Info: figures/DataComp.png  used on input line 92.
@@ -2256,11 +2256,11 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [6
 
  <./figures/DataComp.png>]
-<figures/WZSignal.png, id=98, 429.605pt x 826.08624pt>
+<figures/WZSignal.png, id=100, 429.605pt x 826.08624pt>
 File: figures/WZSignal.png Graphic file (type png)
 <use figures/WZSignal.png>
-Package pdftex.def Info: figures/WZSignal.png  used on input line 109.
-(pdftex.def)             Requested size: 102.6956pt x 197.47063pt.
+Package pdftex.def Info: figures/WZSignal.png  used on input line 129.
+(pdftex.def)             Requested size: 72.83795pt x 140.05464pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2268,80 +2268,86 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [7
 
- <./figures/WZSignal.png>]
+ <./figures/WZSignal.png>] (./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
 [8
 
-] (./main.toc)
-Overfull \hbox (1.272pt too wide) has occurred while \output is active
-[] 
- []
-
-[9
-
 ]
-<figures/Input_labels.png, id=122, 1445.4pt x 813.0375pt>
+<figures/Input_labels.png, id=118, 1445.4pt x 813.0375pt>
 File: figures/Input_labels.png Graphic file (type png)
 <use figures/Input_labels.png>
-Package pdftex.def Info: figures/Input_labels.png  used on input line 154.
+Package pdftex.def Info: figures/Input_labels.png  used on input line 159.
 (pdftex.def)             Requested size: 191.20033pt x 107.54706pt.
-<figures/DT.png, id=123, 1445.4pt x 813.0375pt>
+<figures/DT.png, id=119, 1445.4pt x 813.0375pt>
 File: figures/DT.png Graphic file (type png)
 <use figures/DT.png>
-Package pdftex.def Info: figures/DT.png  used on input line 154.
+Package pdftex.def Info: figures/DT.png  used on input line 159.
 (pdftex.def)             Requested size: 158.42409pt x 89.11185pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
-[10
+[9
 
  <./figures/Input_labels.png> <./figures/DT.png>]
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
-[11
+[10
 
 ]
-<figures/Signal/NrSignalEvents.pdf, id=138, 399.73216pt x 345.27995pt>
+<figures/Signal/NrSignalEvents.pdf, id=134, 399.73216pt x 345.27995pt>
 File: figures/Signal/NrSignalEvents.pdf Graphic file (type pdf)
 <use figures/Signal/NrSignalEvents.pdf>
-Package pdftex.def Info: figures/Signal/NrSignalEvents.pdf  used on input line 188.
+Package pdftex.def Info: figures/Signal/NrSignalEvents.pdf  used on input line 193.
 (pdftex.def)             Requested size: 236.72475pt x 204.4826pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
-[12
+[11
 
  <./figures/Signal/NrSignalEvents.pdf>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 192.
+(hyperref)                removing `math shift' on input line 197.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 192.
+(hyperref)                removing `math shift' on input line 197.
 
 (./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
-[13
+[12
 
 ]
-<figures/grids/XGBGridSig.pdf, id=182, 399.73216pt x 345.27995pt>
+<figures/grids/XGBGridSig.pdf, id=177, 399.73216pt x 345.27995pt>
 File: figures/grids/XGBGridSig.pdf Graphic file (type pdf)
 <use figures/grids/XGBGridSig.pdf>
-Package pdftex.def Info: figures/grids/XGBGridSig.pdf  used on input line 210.
-(pdftex.def)             Requested size: 236.72475pt x 204.4826pt.
+Package pdftex.def Info: figures/grids/XGBGridSig.pdf  used on input line 215.
+(pdftex.def)             Requested size: 218.51942pt x 188.75601pt.
+
+Overfull \hbox (1.272pt too wide) has occurred while \output is active
+[] 
+ []
+
+[13
+
+ <./figures/grids/XGBGridSig.pdf>]
+<figures/NN.png, id=211, 2768.09157pt x 269.50688pt>
+File: figures/NN.png Graphic file (type png)
+<use figures/NN.png>
+Package pdftex.def Info: figures/NN.png  used on input line 229.
+(pdftex.def)             Requested size: 335.46742pt x 32.66019pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2349,12 +2355,17 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [14
 
- <./figures/grids/XGBGridSig.pdf>]
-<figures/NN.png, id=215, 2768.09157pt x 269.50688pt>
-File: figures/NN.png Graphic file (type png)
-<use figures/NN.png>
-Package pdftex.def Info: figures/NN.png  used on input line 224.
-(pdftex.def)             Requested size: 335.46742pt x 32.66019pt.
+ <./figures/NN.png>]
+<figures/grids/NN_OneMass_InterpolationGridSig.pdf, id=219, 399.73216pt x 345.37029pt>
+File: figures/grids/NN_OneMass_InterpolationGridSig.pdf Graphic file (type pdf)
+<use figures/grids/NN_OneMass_InterpolationGridSig.pdf>
+Package pdftex.def Info: figures/grids/NN_OneMass_InterpolationGridSig.pdf  used on input line 236.
+(pdftex.def)             Requested size: 162.6018pt x 140.49077pt.
+<figures/grids/NN_InterpolationGridSig.pdf, id=220, 399.73216pt x 345.37029pt>
+File: figures/grids/NN_InterpolationGridSig.pdf Graphic file (type pdf)
+<use figures/grids/NN_InterpolationGridSig.pdf>
+Package pdftex.def Info: figures/grids/NN_InterpolationGridSig.pdf  used on input line 236.
+(pdftex.def)             Requested size: 162.6018pt x 140.49077pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2362,17 +2373,12 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [15
 
- <./figures/NN.png>]
-<figures/grids/NN_OneMass_InterpolationGridSig.pdf, id=223, 399.73216pt x 345.37029pt>
-File: figures/grids/NN_OneMass_InterpolationGridSig.pdf Graphic file (type pdf)
-<use figures/grids/NN_OneMass_InterpolationGridSig.pdf>
-Package pdftex.def Info: figures/grids/NN_OneMass_InterpolationGridSig.pdf  used on input line 231.
-(pdftex.def)             Requested size: 162.6018pt x 140.49077pt.
-<figures/grids/NN_InterpolationGridSig.pdf, id=224, 399.73216pt x 345.37029pt>
-File: figures/grids/NN_InterpolationGridSig.pdf Graphic file (type pdf)
-<use figures/grids/NN_InterpolationGridSig.pdf>
-Package pdftex.def Info: figures/grids/NN_InterpolationGridSig.pdf  used on input line 231.
-(pdftex.def)             Requested size: 162.6018pt x 140.49077pt.
+ <./figures/grids/NN_OneMass_InterpolationGridSig.pdf> <./figures/grids/NN_InterpolationGridSig.pdf>]
+<figures/PNN.png, id=275, 1445.4pt x 813.0375pt>
+File: figures/PNN.png Graphic file (type png)
+<use figures/PNN.png>
+Package pdftex.def Info: figures/PNN.png  used on input line 264.
+(pdftex.def)             Requested size: 203.94928pt x 114.7177pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2380,32 +2386,32 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [16
 
- <./figures/grids/NN_OneMass_InterpolationGridSig.pdf> <./figures/grids/NN_InterpolationGridSig.pdf>]
-<figures/PNN.png, id=279, 1445.4pt x 813.0375pt>
-File: figures/PNN.png Graphic file (type png)
-<use figures/PNN.png>
-Package pdftex.def Info: figures/PNN.png  used on input line 259.
-(pdftex.def)             Requested size: 203.94928pt x 114.7177pt.
-
+ <./figures/PNN.png>]
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
 [17
 
- <./figures/PNN.png>]
+]
+<figures/Max_out.png, id=293, 976.39781pt x 742.27313pt>
+File: figures/Max_out.png Graphic file (type png)
+<use figures/Max_out.png>
+Package pdftex.def Info: figures/Max_out.png  used on input line 303.
+(pdftex.def)             Requested size: 171.1576pt x 130.11494pt.
+
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
 [18
 
-]
-<figures/Max_out.png, id=297, 976.39781pt x 742.27313pt>
-File: figures/Max_out.png Graphic file (type png)
-<use figures/Max_out.png>
-Package pdftex.def Info: figures/Max_out.png  used on input line 298.
-(pdftex.def)             Requested size: 171.1576pt x 130.11494pt.
+ <./figures/Max_out.png>]
+<figures/EnsembleComp.png, id=301, 2181.65062pt x 969.6225pt>
+File: figures/EnsembleComp.png Graphic file (type png)
+<use figures/EnsembleComp.png>
+Package pdftex.def Info: figures/EnsembleComp.png  used on input line 322.
+(pdftex.def)             Requested size: 291.35739pt x 129.48784pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2413,12 +2419,17 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [19
 
- <./figures/Max_out.png>]
-<figures/EnsembleComp.png, id=306, 2181.65062pt x 969.6225pt>
-File: figures/EnsembleComp.png Graphic file (type png)
-<use figures/EnsembleComp.png>
-Package pdftex.def Info: figures/EnsembleComp.png  used on input line 317.
-(pdftex.def)             Requested size: 291.35739pt x 129.48784pt.
+ <./figures/EnsembleComp.png>]
+<figures/NetworkVis/BeforeTraining.pdf, id=311, 462.52798pt x 346.89601pt>
+File: figures/NetworkVis/BeforeTraining.pdf Graphic file (type pdf)
+<use figures/NetworkVis/BeforeTraining.pdf>
+Package pdftex.def Info: figures/NetworkVis/BeforeTraining.pdf  used on input line 347.
+(pdftex.def)             Requested size: 145.6787pt x 109.25693pt.
+<figures/NetworkVis/AfterTraining.pdf, id=312, 462.52798pt x 346.89601pt>
+File: figures/NetworkVis/AfterTraining.pdf Graphic file (type pdf)
+<use figures/NetworkVis/AfterTraining.pdf>
+Package pdftex.def Info: figures/NetworkVis/AfterTraining.pdf  used on input line 347.
+(pdftex.def)             Requested size: 145.6787pt x 109.25693pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2426,16 +2437,16 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [20
 
- <./figures/EnsembleComp.png>]
-<figures/NetworkVis/BeforeTraining.pdf, id=315, 462.52798pt x 346.89601pt>
-File: figures/NetworkVis/BeforeTraining.pdf Graphic file (type pdf)
-<use figures/NetworkVis/BeforeTraining.pdf>
-Package pdftex.def Info: figures/NetworkVis/BeforeTraining.pdf  used on input line 342.
+ <./figures/NetworkVis/BeforeTraining.pdf> <./figures/NetworkVis/AfterTraining.pdf>]
+<figures/NetworkVis/AfterTrainingBkg.pdf, id=337, 462.52798pt x 346.89601pt>
+File: figures/NetworkVis/AfterTrainingBkg.pdf Graphic file (type pdf)
+<use figures/NetworkVis/AfterTrainingBkg.pdf>
+Package pdftex.def Info: figures/NetworkVis/AfterTrainingBkg.pdf  used on input line 374.
 (pdftex.def)             Requested size: 145.6787pt x 109.25693pt.
-<figures/NetworkVis/AfterTraining.pdf, id=316, 462.52798pt x 346.89601pt>
-File: figures/NetworkVis/AfterTraining.pdf Graphic file (type pdf)
-<use figures/NetworkVis/AfterTraining.pdf>
-Package pdftex.def Info: figures/NetworkVis/AfterTraining.pdf  used on input line 342.
+<figures/NetworkVis/AfterTrainingSig.pdf, id=338, 462.52798pt x 346.89601pt>
+File: figures/NetworkVis/AfterTrainingSig.pdf Graphic file (type pdf)
+<use figures/NetworkVis/AfterTrainingSig.pdf>
+Package pdftex.def Info: figures/NetworkVis/AfterTrainingSig.pdf  used on input line 374.
 (pdftex.def)             Requested size: 145.6787pt x 109.25693pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2444,17 +2455,16 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [21
 
- <./figures/NetworkVis/BeforeTraining.pdf> <./figures/NetworkVis/AfterTraining.pdf>]
-<figures/NetworkVis/AfterTrainingBkg.pdf, id=341, 462.52798pt x 346.89601pt>
-File: figures/NetworkVis/AfterTrainingBkg.pdf Graphic file (type pdf)
-<use figures/NetworkVis/AfterTrainingBkg.pdf>
-Package pdftex.def Info: figures/NetworkVis/AfterTrainingBkg.pdf  used on input line 369.
-(pdftex.def)             Requested size: 145.6787pt x 109.25693pt.
-<figures/NetworkVis/AfterTrainingSig.pdf, id=342, 462.52798pt x 346.89601pt>
-File: figures/NetworkVis/AfterTrainingSig.pdf Graphic file (type pdf)
-<use figures/NetworkVis/AfterTrainingSig.pdf>
-Package pdftex.def Info: figures/NetworkVis/AfterTrainingSig.pdf  used on input line 369.
-(pdftex.def)             Requested size: 145.6787pt x 109.25693pt.
+ <./figures/NetworkVis/AfterTrainingBkg.pdf> <./figures/NetworkVis/AfterTrainingSig.pdf>]
+File: figures/NetworkVis/AfterTraining.pdf Graphic file (type pdf)
+<use figures/NetworkVis/AfterTraining.pdf>
+Package pdftex.def Info: figures/NetworkVis/AfterTraining.pdf  used on input line 390.
+(pdftex.def)             Requested size: 162.6018pt x 121.95003pt.
+<figures/NetworkVis/SCO/AfterTraining.pdf, id=363, 462.52798pt x 346.89601pt>
+File: figures/NetworkVis/SCO/AfterTraining.pdf Graphic file (type pdf)
+<use figures/NetworkVis/SCO/AfterTraining.pdf>
+Package pdftex.def Info: figures/NetworkVis/SCO/AfterTraining.pdf  used on input line 390.
+(pdftex.def)             Requested size: 162.6018pt x 121.95003pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2462,16 +2472,12 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [22
 
- <./figures/NetworkVis/AfterTrainingBkg.pdf> <./figures/NetworkVis/AfterTrainingSig.pdf>]
-File: figures/NetworkVis/AfterTraining.pdf Graphic file (type pdf)
-<use figures/NetworkVis/AfterTraining.pdf>
-Package pdftex.def Info: figures/NetworkVis/AfterTraining.pdf  used on input line 385.
-(pdftex.def)             Requested size: 162.6018pt x 121.95003pt.
-<figures/NetworkVis/SCO/AfterTraining.pdf, id=368, 462.52798pt x 346.89601pt>
-File: figures/NetworkVis/SCO/AfterTraining.pdf Graphic file (type pdf)
-<use figures/NetworkVis/SCO/AfterTraining.pdf>
-Package pdftex.def Info: figures/NetworkVis/SCO/AfterTraining.pdf  used on input line 385.
-(pdftex.def)             Requested size: 162.6018pt x 121.95003pt.
+ <./figures/NetworkVis/SCO/AfterTraining.pdf>]
+<figures/maxout.png, id=380, 2905.85625pt x 407.27156pt>
+File: figures/maxout.png Graphic file (type png)
+<use figures/maxout.png>
+Package pdftex.def Info: figures/maxout.png  used on input line 394.
+(pdftex.def)             Requested size: 335.46742pt x 47.01234pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2479,12 +2485,12 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [23
 
- <./figures/NetworkVis/SCO/AfterTraining.pdf>]
-<figures/maxout.png, id=384, 2905.85625pt x 407.27156pt>
-File: figures/maxout.png Graphic file (type png)
-<use figures/maxout.png>
-Package pdftex.def Info: figures/maxout.png  used on input line 389.
-(pdftex.def)             Requested size: 335.46742pt x 47.01234pt.
+ <./figures/maxout.png>]
+<figures/Comps/EnsemblesNetworkComp.pdf, id=388, 722.7pt x 578.16pt>
+File: figures/Comps/EnsemblesNetworkComp.pdf Graphic file (type pdf)
+<use figures/Comps/EnsemblesNetworkComp.pdf>
+Package pdftex.def Info: figures/Comps/EnsemblesNetworkComp.pdf  used on input line 412.
+(pdftex.def)             Requested size: 227.62209pt x 182.0949pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2492,12 +2498,12 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [24
 
- <./figures/maxout.png>]
-<figures/Comps/EnsemblesNetworkComp.pdf, id=392, 722.7pt x 578.16pt>
-File: figures/Comps/EnsemblesNetworkComp.pdf Graphic file (type pdf)
-<use figures/Comps/EnsemblesNetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/EnsemblesNetworkComp.pdf  used on input line 407.
-(pdftex.def)             Requested size: 227.62209pt x 182.0949pt.
+ <./figures/Comps/EnsemblesNetworkComp.pdf>]
+<figures/Comps/GenPlussXGBNetworkComp.pdf, id=434, 722.7pt x 578.16pt>
+File: figures/Comps/GenPlussXGBNetworkComp.pdf Graphic file (type pdf)
+<use figures/Comps/GenPlussXGBNetworkComp.pdf>
+Package pdftex.def Info: figures/Comps/GenPlussXGBNetworkComp.pdf  used on input line 455.
+(pdftex.def)             Requested size: 218.51942pt x 174.81674pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2505,12 +2511,17 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [25
 
- <./figures/Comps/EnsemblesNetworkComp.pdf>]
-<figures/Comps/GenPlussXGBNetworkComp.pdf, id=439, 722.7pt x 578.16pt>
-File: figures/Comps/GenPlussXGBNetworkComp.pdf Graphic file (type pdf)
-<use figures/Comps/GenPlussXGBNetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/GenPlussXGBNetworkComp.pdf  used on input line 439.
-(pdftex.def)             Requested size: 256.73639pt x 205.38498pt.
+ <./figures/Comps/GenPlussXGBNetworkComp.pdf>]
+<figures/Comps/MaxOutPCANetworkComp.pdf, id=478, 722.7pt x 578.16pt>
+File: figures/Comps/MaxOutPCANetworkComp.pdf Graphic file (type pdf)
+<use figures/Comps/MaxOutPCANetworkComp.pdf>
+Package pdftex.def Info: figures/Comps/MaxOutPCANetworkComp.pdf  used on input line 479.
+(pdftex.def)             Requested size: 142.0585pt x 113.64499pt.
+<figures/Comps/PNNPCANetworkComp.pdf, id=479, 722.7pt x 578.16pt>
+File: figures/Comps/PNNPCANetworkComp.pdf Graphic file (type pdf)
+<use figures/Comps/PNNPCANetworkComp.pdf>
+Package pdftex.def Info: figures/Comps/PNNPCANetworkComp.pdf  used on input line 479.
+(pdftex.def)             Requested size: 142.0585pt x 113.64499pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2518,17 +2529,12 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [26
 
- <./figures/Comps/GenPlussXGBNetworkComp.pdf>]
-<figures/Comps/MaxOutPCANetworkComp.pdf, id=482, 722.7pt x 578.16pt>
-File: figures/Comps/MaxOutPCANetworkComp.pdf Graphic file (type pdf)
-<use figures/Comps/MaxOutPCANetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/MaxOutPCANetworkComp.pdf  used on input line 463.
-(pdftex.def)             Requested size: 142.0585pt x 113.64499pt.
-<figures/Comps/PNNPCANetworkComp.pdf, id=483, 722.7pt x 578.16pt>
-File: figures/Comps/PNNPCANetworkComp.pdf Graphic file (type pdf)
-<use figures/Comps/PNNPCANetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/PNNPCANetworkComp.pdf  used on input line 463.
-(pdftex.def)             Requested size: 142.0585pt x 113.64499pt.
+ <./figures/Comps/MaxOutPCANetworkComp.pdf> <./figures/Comps/PNNPCANetworkComp.pdf>]
+<figures/Limits/compLimit20.pdf, id=551, 569.12625pt x 549.05125pt>
+File: figures/Limits/compLimit20.pdf Graphic file (type pdf)
+<use figures/Limits/compLimit20.pdf>
+Package pdftex.def Info: figures/Limits/compLimit20.pdf  used on input line 516.
+(pdftex.def)             Requested size: 218.51942pt x 210.8115pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2536,12 +2542,17 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [27
 
- <./figures/Comps/MaxOutPCANetworkComp.pdf> <./figures/Comps/PNNPCANetworkComp.pdf>]
-<figures/Limits/compLimit20.pdf, id=555, 569.12625pt x 549.05125pt>
-File: figures/Limits/compLimit20.pdf Graphic file (type pdf)
-<use figures/Limits/compLimit20.pdf>
-Package pdftex.def Info: figures/Limits/compLimit20.pdf  used on input line 500.
-(pdftex.def)             Requested size: 218.51942pt x 210.8115pt.
+ <./figures/Limits/compLimit20.pdf, page is rotated 90 degrees>]
+<figures/Limits/compLimit10.pdf, id=604, 569.12625pt x 549.05125pt>
+File: figures/Limits/compLimit10.pdf Graphic file (type pdf)
+<use figures/Limits/compLimit10.pdf>
+Package pdftex.def Info: figures/Limits/compLimit10.pdf  used on input line 530.
+(pdftex.def)             Requested size: 154.04079pt x 148.60606pt.
+<figures/Limits/compLimit1.pdf, id=605, 569.12625pt x 549.05125pt>
+File: figures/Limits/compLimit1.pdf Graphic file (type pdf)
+<use figures/Limits/compLimit1.pdf>
+Package pdftex.def Info: figures/Limits/compLimit1.pdf  used on input line 530.
+(pdftex.def)             Requested size: 154.04079pt x 148.60606pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2549,34 +2560,23 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [28
 
- <./figures/Limits/compLimit20.pdf, page is rotated 90 degrees>]
-<figures/Limits/compLimit10.pdf, id=608, 569.12625pt x 549.05125pt>
-File: figures/Limits/compLimit10.pdf Graphic file (type pdf)
-<use figures/Limits/compLimit10.pdf>
-Package pdftex.def Info: figures/Limits/compLimit10.pdf  used on input line 514.
-(pdftex.def)             Requested size: 154.04079pt x 148.60606pt.
-<figures/Limits/compLimit1.pdf, id=609, 569.12625pt x 549.05125pt>
-File: figures/Limits/compLimit1.pdf Graphic file (type pdf)
-<use figures/Limits/compLimit1.pdf>
-Package pdftex.def Info: figures/Limits/compLimit1.pdf  used on input line 514.
-(pdftex.def)             Requested size: 154.04079pt x 148.60606pt.
+ <./figures/Limits/compLimit10.pdf, page is rotated 90 degrees> <./figures/Limits/compLimit1.pdf, page is rotated 90 degrees>]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 531.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 531.
+
+(./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
 
 [29
 
- <./figures/Limits/compLimit10.pdf, page is rotated 90 degrees> <./figures/Limits/compLimit1.pdf, page is rotated 90 degrees>]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 515.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 515.
-
-(./main.toc)
+]
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
  []
@@ -2590,14 +2590,7 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [31
 
-]
-Overfull \hbox (1.272pt too wide) has occurred while \output is active
-[] 
- []
-
-[32
-
- </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
+ </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericononline.pdf> </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -2609,15 +2602,15 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 File: PhysDept-images/MN_FYSISK_A_ENG.pdf Graphic file (type pdf)
 <use PhysDept-images/MN_FYSISK_A_ENG.pdf>
-Package pdftex.def Info: PhysDept-images/MN_FYSISK_A_ENG.pdf  used on input line 550.
+Package pdftex.def Info: PhysDept-images/MN_FYSISK_A_ENG.pdf  used on input line 576.
 (pdftex.def)             Requested size: 226.2675pt x 31.2982pt.
 LaTeX Font Info:    Font shape `T1/pbk/m/n' in size <10.95> not available
-(Font)              Font shape `T1/pbk/l/n' tried instead on input line 550.
+(Font)              Font shape `T1/pbk/l/n' tried instead on input line 576.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pbk' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [33
+ [32
 
 
 ] (./main.aux)
@@ -2625,18 +2618,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: DCF70A4820B089D6AA9530F3028434FF;602.
  ) 
 Here is how much of TeX's memory you used:
- 32289 strings out of 478268
- 640378 string characters out of 5846347
- 916052 words of memory out of 5000000
- 49490 multiletter control sequences out of 15000+600000
- 553816 words of font info for 224 fonts, out of 8000000 for 9000
+ 32280 strings out of 478268
+ 640262 string characters out of 5846347
+ 916192 words of memory out of 5000000
+ 49486 multiletter control sequences out of 15000+600000
+ 553817 words of font info for 223 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,19n,122p,1064b,603s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/gfsneohellenic/neohellenicmath.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/gfsneohellenic/GFSNeohellenic-Italic.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (33 pages, 2876461 bytes).
+Output written on main.pdf (32 pages, 3327294 bytes).
 PDF statistics:
- 816 PDF objects out of 1000 (max. 8388607)
- 438 compressed objects within 5 object streams
- 72 named destinations out of 1000 (max. 500000)
- 87767 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 896 PDF objects out of 1000 (max. 8388607)
+ 496 compressed objects within 5 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 87773 words of extra memory for PDF output out of 89155 (max. 10000000)
 
