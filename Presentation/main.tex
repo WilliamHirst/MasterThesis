@@ -34,22 +34,19 @@
 
 
 \section{Introduction $\&$ Motivation}
-\begin{frame}{Outline}
+\begin{frame}{Introduction $\&$ Motivation}
     \tableofcontents[currentsection]
 \end{frame}
 
 \begin{frame}{Why apply machine learning to HEP problems?}
     \begin{itemize}
-        \item The standard model (SM) of particle physics is one of the most 
-              successful theories of all time
-        \item Some aspects of the universe are currently not described by the 
-            SM 
+        \item The standard model (SM) of particle physics is very successful, but not complete
         \begin{itemize}
             \item Neutrino masses 
             \item Hierarchy problem 
             \item Energy-matter density in the\\ universe
         \end{itemize}
-        \item Require progressively larger\\ amounts of data
+        \item Testing requires progressively \\ larger amounts of data
         \item Machine learning (ML)
         \begin{itemize}
             \item Event reconstruction
@@ -57,8 +54,11 @@
             \item Creating search regions
         \end{itemize}
     \end{itemize}
-    \begin{textblock}{1}(0.55,0.36)
-        \includegraphics[width=0.4\textwidth]{figures/neutrino}
+    \begin{textblock}{1}(0.5475,0.21)
+        \includegraphics[width=0.375\textwidth]{figures/neutrino}
+    \end{textblock}
+    \begin{textblock}{1}(0.55,0.55)
+        \includegraphics[width=0.37\textwidth]{figures/detector}
     \end{textblock}
 \end{frame}
 
@@ -125,7 +125,7 @@
 \end{frame}
 
 \section{The Implementation}
-\begin{frame}{Outline}
+\begin{frame}{The Implementation}
     \tableofcontents[currentsection]
 \end{frame}
 
@@ -157,7 +157,11 @@
 \begin{frame}{Training strategy}
     \begin{itemize}
         \item Train using simulated data 
-        \item Objective: Classify SM background as 0, and SUSY signal as 1
+        \item Objective
+        \begin{itemize}
+            \item Background $\rightarrow$ 0 
+            \item Signal $\rightarrow$ 1
+        \end{itemize}
         \item $80\%$ training and $20\%$ validation 
         \item Early stopping criteria
         \begin{itemize}
@@ -191,7 +195,7 @@
 
 
 \section{Methods $\&$ Results}
-\begin{frame}{Outline}
+\begin{frame}{Methods $\&$ Results}
     \tableofcontents[currentsection]
 \end{frame}
 
@@ -521,7 +525,7 @@
 %     \end{textblock}
 % \end{frame}
 \section{Conclusion $\&$ Outlook}
-\begin{frame}{Outline}
+\begin{frame}{Conclusion $\&$ Outlook}
     \tableofcontents[currentsection]
 \end{frame}
 \begin{frame}{Conclusion $\&$ Outlook}
@@ -554,6 +558,13 @@
         détecteur}.
         \newblock \url{https://cds.cern.ch/record/910381}
         \newblock Figure on front page
+
+        \bibitem{Maximilien}
+        Joao Pequenao.
+        \newblock \enquote{Event Cross Section in a computer generated image of the ATLAS detector.}.
+        \newblock \url{https://cds.cern.ch/record/1096081}
+        \newblock Figure on slide 3
+
         
         \bibitem{Collision}
         ATLAS Collaboration.
