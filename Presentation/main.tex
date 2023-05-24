@@ -40,56 +40,49 @@
 
 \begin{frame}{Why apply machine learning to HEP problems?}
     \begin{itemize}
-        \item The standard model of particle physics is one of the most 
+        \item The standard model (SM) of particle physics is one of the most 
               successful theories of all time
         \item Some aspects of the universe are currently not described by the 
-              standard model 
+            SM 
         \begin{itemize}
             \item Neutrino masses 
             \item Hierarchy problem 
-            \item Energy-matter density in the universe
+            \item Energy-matter density in the\\ universe
         \end{itemize}
-        \item To precisely test extensions of the standard model we produce 
-        progressively larger amounts of data
-        \item Upholding the quality of analysis demands advanced tools
-        \item Machine learning
+        \item Require progressively larger\\ amounts of data
+        \item Machine learning (ML)
         \begin{itemize}
             \item Event reconstruction
             \item Particle classification
             \item Creating search regions
         \end{itemize}
     \end{itemize}
+    \begin{textblock}{1}(0.55,0.36)
+        \includegraphics[width=0.4\textwidth]{figures/neutrino}
+    \end{textblock}
 \end{frame}
 
-
 \begin{frame}{How do we search for new physics?}
-    \begin{textblock}{1}(0.55,0.61)
-        \includegraphics[trim={0 5cm 0 0},clip, width=0.4\textwidth]{figures/vp1_3dcocktail_run264034_evt11526514_2015-05-06T22-54-50_2}
+    \begin{textblock}{1}(0.45, 0.475)
+        \includegraphics[width=0.5\textwidth]{figures/vp1_3dcocktail_run264034_evt11526514_2015-05-06T22-54-50_2}
     \end{textblock}
     \begin{itemize}
-        \item Two data sets 
-        \begin{itemize}
-            \item Experiment: Proton-proton collisions produced at the LHC and measured in the ATLAS detectors
-            \item Theory: Simulated based on Standard model physics 
-        \end{itemize}
-        \item Data sets include information regarding collisions (momentum and mass of particles, collision angle etc.)
         \item Compare theory with experiment 
         \begin{itemize}
-            \item Match: Standard model adequately explain collision
-            \item Deviations: New physics, or statistical fluctuations 
+            \item Experiment: Proton-proton collisions produced at the LHC and measured in the ATLAS detectors
+            \item Theory: Simulated based on SM physics 
         \end{itemize}
-        \item Create search region
+        \item Deviations $\rightarrow$ New physics (?) 
+        \item Measure deviation in significance
         \begin{itemize}
-            \item Traditional: Cut-and-Count
-        \end{itemize}
-        \item Measure deviation in \\ significance, Z 
-        \begin{itemize}
-            \item $Z\approx \frac{n_{obs} - bkg}{\sqrt{bkg}} = \frac{signal}{\sqrt{background}}$
+            \item $Z_{obs}\approx \frac{n_{obs} - bkg_{sim}}{\sqrt{bkg_{sim}}}$
+            \item $Z_{exp}\approx \frac{sgn_{sim}}{\sqrt{bkg_{sim}}}$
         \end{itemize}
     \end{itemize}
 
 \end{frame}
 \begin{frame}
+    \vfill
     \centering
     \includegraphics[width = 0.65\textwidth]{figures/DataComp.png}
 \end{frame}
@@ -148,7 +141,7 @@
 
     \item \emph{One} boosted decision tree method
     \begin{itemize}
-        \item XGBoost using default settings
+        \item XGBoost
     \end{itemize}
 
     \end{itemize}
@@ -164,7 +157,7 @@
 \begin{frame}{Training strategy}
     \begin{itemize}
         \item Train using simulated data 
-        \item Objective: Classify standard model background as 0, and SUSY signal as 1
+        \item Objective: Classify SM background as 0, and SUSY signal as 1
         \item $80\%$ training and $20\%$ validation 
         \item Early stopping criteria
         \begin{itemize}
@@ -210,7 +203,6 @@
     \begin{textblock}{0.4}(-0.01, 0.2)
         \begin{itemize}
             \item Used as benchmark
-            \item Minimal time spent tuning BDT
             \item Trained on original signal set
             \item Displayed better performance on lower masses  
         \end{itemize}
@@ -271,7 +263,6 @@
 % \end{frame}
 \begin{frame}{Study the effect of the parameters in the PNN}
     \begin{itemize}
-        \item Study if the parameters effect the training as intended
         \item Test: Manually assign all the events, both background and 
         signal, the same parameters (mass combinations) thereby assigning
         most of the signal the wrong parameters
@@ -330,11 +321,6 @@
         \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTraining.pdf}
     \end{textblock}
     \begin{itemize}
-        \item A study of the implementation \\
-        and effect of LWTA layers
-        \begin{itemize}
-            \item Specifically maxout
-        \end{itemize}
         \item Visualize the activation and \\
         paths of 100 randomly sampled \\
         events
@@ -357,11 +343,6 @@
         \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTrainingSig.pdf}
     \end{textblock}
     \begin{itemize}
-        \item A study of the implementation \\
-        and effect of LWTA layers
-        \begin{itemize}
-            \item Specifically maxout
-        \end{itemize}
         \item Visualize the activation and \\
         paths of 100 randomly sampled \\
         events
@@ -383,10 +364,10 @@
 
 \begin{frame}{Comparing activation of Maxout with SCO}
     \begin{textblock}{0.8}(0.225, 0.8)
-        \textbf{Maxout}
+        {Maxout}
     \end{textblock}
     \begin{textblock}{0.8}(0.7, 0.8)
-        \textbf{SCO}
+        {SCO}
     \end{textblock}
     \vfill
     \begin{center}
@@ -498,6 +479,11 @@
 %         \end{itemize}
 %     \end{itemize}
 % \end{frame}
+\begin{frame}{Comparing methods on full signal grid}
+    \centering
+    \vfill
+    \includegraphics[width = 0.8\textwidth]{figures/Comps/FS_MLMNetworkComp.pdf}
+\end{frame}
 \begin{frame}{Comparing the methods to previous analysis}
     \begin{textblock}{1}(0.4,.15)
     \includegraphics[width=0.6\textwidth]{figures/Limits/compLimit20.pdf}
@@ -520,20 +506,20 @@
     \end{itemize}
 \end{textblock}
 \end{frame}
-\begin{frame}
-    \vfill
-    \centering
-    \includegraphics[width=0.45\textwidth]{figures/Limits/compLimit10.pdf}
-    \includegraphics[width=0.45\textwidth]{figures/Limits/compLimit1.pdf}
-    \begin{textblock}{1}(-0.32,.39)
-        \tiny
-        \cite{atlas_search_2021}
-    \end{textblock}
-    \begin{textblock}{1}(0.112,.39)
-        \tiny
-        \cite{atlas_search_2021}
-    \end{textblock}
-\end{frame}
+% \begin{frame}
+%     \vfill
+%     \centering
+%     \includegraphics[width=0.45\textwidth]{figures/Limits/compLimit10.pdf}
+%     \includegraphics[width=0.45\textwidth]{figures/Limits/compLimit1.pdf}
+%     \begin{textblock}{1}(-0.32,.39)
+%         \tiny
+%         \cite{atlas_search_2021}
+%     \end{textblock}
+%     \begin{textblock}{1}(0.112,.39)
+%         \tiny
+%         \cite{atlas_search_2021}
+%     \end{textblock}
+% \end{frame}
 \section{Conclusion $\&$ Outlook}
 \begin{frame}{Outline}
     \tableofcontents[currentsection]
