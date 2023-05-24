@@ -40,13 +40,12 @@
 
 \begin{frame}{Why apply machine learning to HEP problems?}
     \begin{itemize}
-        \item The standard model (SM) of particle physics is very successful, but not complete
+        \item The standard model (SM) of \\particle physics is very\\ successful, but not complete
         \begin{itemize}
             \item Neutrino masses 
             \item Hierarchy problem 
-            \item Energy-matter density in the\\ universe
         \end{itemize}
-        \item Testing requires progressively \\ larger amounts of data
+        \item Large amount of data
         \item Machine learning (ML)
         \begin{itemize}
             \item Event reconstruction
@@ -54,38 +53,59 @@
             \item Creating search regions
         \end{itemize}
     \end{itemize}
-    \begin{textblock}{1}(0.5475,0.21)
+    \begin{textblock}{1}(0.5475,0.16)
         \includegraphics[width=0.375\textwidth]{figures/neutrino}
     \end{textblock}
-    \begin{textblock}{1}(0.55,0.55)
+    \begin{textblock}{1}(0.55,0.5)
         \includegraphics[width=0.37\textwidth]{figures/detector}
     \end{textblock}
 \end{frame}
 
 \begin{frame}{How do we search for new physics?}
-    \begin{textblock}{1}(0.45, 0.475)
-        \includegraphics[width=0.5\textwidth]{figures/vp1_3dcocktail_run264034_evt11526514_2015-05-06T22-54-50_2}
-    \end{textblock}
-    \begin{itemize}
-        \item Compare theory with experiment 
-        \begin{itemize}
-            \item Experiment: Proton-proton collisions produced at the LHC and measured in the ATLAS detectors
-            \item Theory: Simulated based on SM physics 
-        \end{itemize}
-        \item Deviations $\rightarrow$ New physics (?) 
-        \item Measure deviation in significance
-        \begin{itemize}
-            \item $Z_{obs}\approx \frac{n_{obs} - bkg_{sim}}{\sqrt{bkg_{sim}}}$
-            \item $Z_{exp}\approx \frac{sgn_{sim}}{\sqrt{bkg_{sim}}}$
-        \end{itemize}
-    \end{itemize}
 
+    \begin{textblock}{1}(0.45, 0.18)
+        \includegraphics[width = 0.5\textwidth]{figures/DataComp.png}
+    \end{textblock}
+    \begin{textblock}{0.45}(0., 0.18)
+        \begin{itemize}
+            \item Compare theory with experiment 
+            \begin{itemize}
+                \item Experiment: Measured
+                \item Theory: Simulated (background and signal)
+            \end{itemize}
+            \item Search regions
+            \item Expected significance
+            \begin{itemize}
+                \item $Z_{exp}\approx \frac{signal}{\sqrt{background}}$
+            \end{itemize}
+            \item Difficult to separate $\rightarrow$ ML
+        \end{itemize}
+    \end{textblock}
 \end{frame}
-\begin{frame}
-    \vfill
-    \centering
-    \includegraphics[width = 0.65\textwidth]{figures/DataComp.png}
-\end{frame}
+% \begin{frame}{How do we search for new physics?}
+%     \begin{textblock}{1}(0.45, 0.475)
+%         \includegraphics[width=0.5\textwidth]{figures/vp1_3dcocktail_run264034_evt11526514_2015-05-06T22-54-50_2}
+%     \end{textblock}
+%     \begin{itemize}
+%         \item Compare theory with experiment 
+%         \begin{itemize}
+%             \item Experiment: Proton-proton collisions produced at the LHC and measured in the ATLAS detectors
+%             \item Theory: Simulated based on SM physics 
+%         \end{itemize}
+%         \item Deviations $\rightarrow$ New physics (?) 
+%         \item Measure deviation in significance
+%         \begin{itemize}
+%             \item $Z_{obs}\approx \frac{n_{obs} - bkg_{sim}}{\sqrt{bkg_{sim}}}$
+%             \item $Z_{exp}\approx \frac{sgn_{sim}}{\sqrt{bkg_{sim}}}$
+%         \end{itemize}
+%     \end{itemize}
+
+% \end{frame}
+% \begin{frame}
+%     \vfill
+%     \centering
+%     \includegraphics[width = 0.65\textwidth]{figures/DataComp.png}
+% \end{frame}
 % \begin{frame}{The search}
 %     \begin{itemize}
 %         \item Study application of supervised learning as it searches for SUSY signal 
@@ -105,28 +125,41 @@
 % \end{frame}
 
 \begin{frame}{This thesis}
-    \begin{textblock}{0.45}(.075,0.18)
-        \emph{Shed some light on the application of supervised learning in HEP by 
-        experimenting and studying a set of ML methods as they search for a set of SUSY signals.}
-    \end{textblock}
-    \begin{textblock}{1}(.545,0.165)
-    \includegraphics[width=0.2\textwidth, angle = -90]{figures/WZSignal.png}
-    \end{textblock}
-    \vspace{2cm}
     \vfill
-    \begin{enumerate}
-        \item Study individual attributes of a set of supervised methods 
-        \item Compare expected sensitivity between methods on a subset of data
-        \item Attempt to increase sensitivity via feature reduction (PCA)
-        \item Compare the expected limits achieved by best performing methods 
-              to previous ATLAS analysis
-    \end{enumerate}
+    \begin{center}
+        \emph{Shed some light on the application of supervised learning in HEP by 
+        experimenting and studying a set of ML methods as they search for a set of SUSY signals}
+    \end{center}
+   
+    % \vspace{2cm}
+    % \vfill
+    % \begin{enumerate}
+    %     \item Study individual attributes of a set of supervised methods 
+    %     \item Compare expected sensitivity between methods on a subset of data
+    %     \item Attempt to increase sensitivity via feature reduction (PCA)
+    %     \item Compare the expected limits achieved by best performing methods 
+    %           to previous ATLAS analysis
+    % \end{enumerate}
     \centering
 \end{frame}
 
 \section{The Implementation}
 \begin{frame}{The Implementation}
     \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}{The SUSY signal}
+    \begin{textblock}{0.4}(-0.02, 0.2)
+        \begin{itemize}
+            \item Chargino-neutralino production
+            \item Free parameters $\rightarrow$ masses 
+            \item Small masses predicts many events 
+            \item Large masses predicts few events 
+        \end{itemize}
+    \end{textblock}
+    \begin{textblock}{.9}(0.4,0.175)
+        \includegraphics[width=0.65\textwidth]{figures/Signal/NrSignalEvents.pdf}
+    \end{textblock}
 \end{frame}
 
 \begin{frame}{A summary of the applied methods}
@@ -156,7 +189,6 @@
 
 \begin{frame}{Training strategy}
     \begin{itemize}
-        \item Train using simulated data 
         \item Objective
         \begin{itemize}
             \item Background $\rightarrow$ 0 
@@ -170,26 +202,6 @@
             \item Reset weights to best epoch
         \end{itemize}
     \end{itemize}
-\end{frame}
-
-\begin{frame}{Mass combinations of the chargino-neutralino pair}
-    \begin{textblock}{1}(-0.02, 0.2)
-        \begin{itemize}
-            \item Full signal grid
-            \begin{itemize}
-                \item 89 mass\\ combinations
-            \end{itemize}
-            \item Original signal set: \\white corners
-            \begin{itemize}
-                \item 30 mass \\combinations
-            \end{itemize}
-            \item The smaller the \\masses,
-                  the larger\\ the contribution            
-        \end{itemize}
-    \end{textblock}
-    \begin{textblock}{1.0}(0.35,0.175)
-        \includegraphics[width=0.65\textwidth]{figures/Signal/NrSignalEvents.pdf}
-    \end{textblock}
 \end{frame}
 
 
@@ -429,19 +441,19 @@
 % \end{frame}
 
 \begin{frame}{Comparing the sensitivity on a subset of the signal}
-    \begin{textblock}{0.4}(-0.045, 0.175)
+    \begin{textblock}{1}(0.35, 0.175)
+    \includegraphics[width=0.6\textwidth]{figures/Comps/GenPlussXGBNetworkComp.pdf}
+    \end{textblock}
+    \begin{textblock}{0.4}(-0.02, 0.175)
         \begin{itemize}
-            \item NN variants outperform BDT
-            \item Maxout model achieves the highest significance on most masses
+            \item NN vs BDT
+            \item Maxout achieves highest sensitivity
             \item PNN very sensitive for low masses 
-            \item Maxout (relatively) sensitive for high masses 
+            \item Maxout sensitive for high masses 
             \begin{itemize}
                 \item Long-term memory
             \end{itemize}
         \end{itemize}
-    \end{textblock}
-    \begin{textblock}{1}(0.35, 0.225)
-    \includegraphics[width=0.6\textwidth]{figures/Comps/GenPlussXGBNetworkComp.pdf}
     \end{textblock}
 \end{frame}
 
@@ -498,15 +510,8 @@
     \end{textblock}
     \begin{textblock}{.45}(-0.03,.2)
     \begin{itemize}
-        \item Compare the expected limits of three best models
-              to analysis made by ATLAS in 2021 \cite{atlas_search_2021}
-        \item Introduce flat uncertainty for realistic comparison ($20\%$, $10\%$, $<1\%$) 
-        \item Include top performing methods
-        \begin{itemize}
-            \item Maxout model with PCA
-            \item PNN with PCA
-            \item Ordinary dense neural network without PCA
-        \end{itemize}
+        \item Compare the expected limits to analysis made by ATLAS in 2021 \cite{atlas_search_2021}
+        \item Introduce flat uncertainty ($20\%$, $10\%$, $<1\%$) 
     \end{itemize}
 \end{textblock}
 \end{frame}
@@ -564,14 +569,6 @@
         \newblock \enquote{Event Cross Section in a computer generated image of the ATLAS detector.}.
         \newblock \url{https://cds.cern.ch/record/1096081}
         \newblock Figure on slide 3
-
-        
-        \bibitem{Collision}
-        ATLAS Collaboration.
-        \newblock \enquote{ATLAS event at 900 GeV - 6 May 2015 - Run 264034 lb 659
-        event 11526514}.
-        \newblock \url{https://cds.cern.ch/record/2015238}
-        \newblock Figure on slide 4
 
         
         \setbeamertemplate{bibliography item}[article]
