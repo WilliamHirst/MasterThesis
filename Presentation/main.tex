@@ -74,7 +74,8 @@
             \item Compare theory with experiment 
             \begin{itemize}
                 \item Experiment: Measured
-                \item Theory: Simulated (background and signal)
+                \item Theory: Simulated 
+                \newline
             \end{itemize}
             \item Search regions
             \item Expected significance
@@ -84,6 +85,14 @@
             \item Difficult to separate $\rightarrow$ ML
         \end{itemize}
     \end{textblock}
+\end{frame}
+\begin{frame}{General aim of thesis}
+    \centering
+    \begin{enumerate}
+        \item Signal $\rightarrow$ background
+        \item Use ML to separate signal from background
+        \item Study and compare
+    \end{enumerate}
 \end{frame}
 % \begin{frame}{How do we search for new physics?}
 %     \begin{textblock}{1}(0.45, 0.475)
@@ -188,7 +197,7 @@
 
 \begin{frame}{Training strategy}
     \begin{itemize}
-        \item Objective
+        \item Classification
         \begin{itemize}
             \item Background $\rightarrow$ 0 
             \item Signal $\rightarrow$ 1
@@ -231,7 +240,7 @@
 %     \end{center}
 % \end{frame}
 
-\begin{frame}{Ordinary dense neural network}
+\begin{frame}{'Traditional' dense neural network}
     \vfill
     \centering
     \includegraphics[width = 0.98\textwidth]{figures/NN.png}
@@ -491,8 +500,6 @@
     \begin{textblock}{.45}(-0.03,.2)
     \begin{itemize}
         \item Compare the expected limits to analysis made by ATLAS in 2021 \cite{atlas_search_2021}
-        \item Introduce flat uncertainty ($20\%$, $10\%$, $<1\%$) 
-        \item Why not better sensitivity?
     \end{itemize}
 \end{textblock}
 \end{frame}
@@ -514,15 +521,20 @@
 \begin{frame}{Conclusion $\&$ Outlook}
     \tableofcontents[currentsection]
 \end{frame}
-\begin{frame}{Conclusion $\&$ Outlook}
+\begin{frame}
+    \textbf{Key findings}
     \begin{enumerate}
-        \item Including a diverse signal set can improve performance
-        \item The LWTA layers improve long-term memory via pattern specific pathways
-        \item PCA increased sensitivity of PNN and maxout model in original signal set
-        \item None of the networks extended expected limit past previous ATLAS analysis
-        \item PNN exhibited bias towards lower masses, whereas maxout model achieved a more balanced 
-              sensitivity
-        \item Long-term memory of LWTA layers is promising in future analysis where higher masses are studied 
+        \item Diverse signal $\rightarrow$ improve performance
+        \item PCA $\rightarrow$ improve performance of PNN and maxout 
+        \item PNN bias towards smaller masses
+        \item Maxout achieved balanced performance
+    \end{enumerate}
+    \vfill
+    \textbf{The way forwards}
+    \begin{enumerate}
+        \item More advanced analysis of ML output
+        \item LWTA promising (SCO)
+        \item Combine PNN and LWTA
     \end{enumerate}
 \end{frame}
 
