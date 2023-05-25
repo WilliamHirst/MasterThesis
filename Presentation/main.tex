@@ -432,20 +432,20 @@
 % \end{frame}
 
 \begin{frame}{Comparing the sensitivity on a subset of the signal}
-    \begin{textblock}{1}(0.35, 0.175)
-    \includegraphics[width=0.6\textwidth]{figures/Comps/GenPlussXGBNetworkComp.pdf}
+    \begin{textblock}{1}(0.12, 0.175)
+    \includegraphics[width=0.7\textwidth]{figures/Comps/GenPlussXGBNetworkComp.pdf}
     \end{textblock}
-    \begin{textblock}{0.4}(-0.02, 0.175)
-        \begin{itemize}
-            \item NN vs BDT
-            \item Maxout achieves highest sensitivity
-            \item PNN very sensitive for low masses 
-            \item Maxout sensitive for high masses 
-            \begin{itemize}
-                \item Long-term memory
-            \end{itemize}
-        \end{itemize}
-    \end{textblock}
+    % \begin{textblock}{0.4}(-0.02, 0.175)
+    %     \begin{itemize}
+    %         \item NN vs BDT
+    %         \item Maxout achieves highest sensitivity
+    %         \item PNN very sensitive for low masses 
+    %         \item Maxout sensitive for high masses 
+    %         \begin{itemize}
+    %             \item Long-term memory
+    %         \end{itemize}
+    %     \end{itemize}
+    % \end{textblock}
 \end{frame}
 
 \begin{frame}{Increasing sensitivity through a PCA}
@@ -457,10 +457,10 @@
             \item 5 features removed
         \end{itemize}
     \end{itemize}
-    \begin{textblock}{0.8}(0.02, 0.7)
+    \begin{textblock}{0.8}(0.02, 0.6)
         {Maxout}
     \end{textblock}
-    \begin{textblock}{0.8}(0.9, 0.7)
+    \begin{textblock}{0.8}(0.9, 0.6)
         {PNN}
     \end{textblock}
     \vfill
@@ -501,6 +501,7 @@
     \begin{itemize}
         \item Compare the expected limits to analysis made by ATLAS in 2021 \cite{atlas_search_2021}
         \item Introduce flat uncertainty ($20\%$, $10\%$, $<1\%$) 
+        \item Why not better sensitivity?
     \end{itemize}
 \end{textblock}
 \end{frame}
@@ -526,13 +527,11 @@
     \begin{enumerate}
         \item Including a diverse signal set can improve performance
         \item The LWTA layers improve long-term memory via pattern specific pathways
-        \item All network variants outperformed default settings of XGBoost
         \item PCA increased sensitivity of PNN and maxout model in original signal set
         \item None of the networks extended expected limit past previous ATLAS analysis
         \item PNN exhibited bias towards lower masses, whereas maxout model achieved a more balanced 
               sensitivity
-        \item LWTA layer's increase in long-term memory is promising in future analysis 
-              where higher masses are studied 
+        \item Long-term memory of LWTA layers is promising in future analysis where higher masses are studied 
     \end{enumerate}
 \end{frame}
 
@@ -566,14 +565,11 @@
         \newblock \url{https://cds.cern.ch/record/2015238}
         \newblock Figure on slide 4
 
-        
         \setbeamertemplate{bibliography item}[article]
         \bibitem{atlas_search_2021}
-        ATLAS Collaboration [3].
+        ATLAS Collaboration [4].
         \newblock \enquote{Search for chargino--neutralino pair production in final states with three leptons and missing transverse momentum in {$\sqrt{s}$} = 13 {TeV} pp collisions with the {ATLAS} detector}.
         \newblock \url{http://arxiv.org/abs/2106.01676}
-
-
 
     \end{thebibliography}
 \end{frame}
