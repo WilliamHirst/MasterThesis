@@ -2,4 +2,4 @@
 \beamer@sectionintoc {1}{Introduction $\&$ Motivation}{3}{0}{1}
 \beamer@sectionintoc {2}{The Implementation}{6}{0}{2}
 \beamer@sectionintoc {3}{Methods $\&$ Results}{10}{0}{3}
-\beamer@sectionintoc {4}{Conclusion $\&$ Outlook}{26}{0}{4}
+\beamer@sectionintoc {4}{Conclusion $\&$ Outlook}{25}{0}{4}

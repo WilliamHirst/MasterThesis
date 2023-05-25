@@ -269,33 +269,32 @@
 %     \vfill
 %     \includegraphics[width = 0.98\textwidth]{figures/PNNArch.png}
 % \end{frame}
-\begin{frame}{Study the effect of the parameters in the PNN}
-    \begin{itemize}
-        \item Test: Manually assign all the events the same parameters thereby assigning
-        most of the signal the wrong parameters
-        \item Hypothesis: PNN performs better when events are assigned correct
-        parameters 
-        \item First test: $\{50,250\}_{GeV}$
-        \item Second test: $\{200,300\}_{GeV}$
-    \end{itemize}
-    \begin{table}
-        \tiny
-        \centering
-        $
-        \begin{array}{cccccc}
-            \hline \text { \diagbox{\textbf{Parameters}}{\textbf{Channel}} }  & \text {$\{50,250\}_{GeV}$} & \text {$\{100,200\}_{GeV}$} & \text {$\{150,300\}_{GeV}$} & \text {$\{200,300\}_{GeV}$} & \text {$(Background)$} \\
-            \hline \text {$(50,250)$}   & \text { $\bf{80.8}\%$ } & \text { $45.8\%$ } & \text { $\bf{77.5}\%$ } & \text { $50.1\%$ } & \text { $2.4\%$ }  \\
-            \text {$(200,300)$}   & \text { $77.3\%$ } & \text { $\bf{54.6}\%$ } & \text { $76.3\%$ } & \text { $\bf{59.0}\%$ } & \text { $\bf{2.7}\%$ }\\
-            \hline
-        \end{array}
-        $
-    \end{table}
-\end{frame}
+% \begin{frame}{Study the effect of the parameters in the PNN}
+%     \begin{itemize}
+%         \item Test: Manually assign all the events the same parameters thereby assigning
+%         most of the signal the wrong parameters
+%         \item Hypothesis: PNN performs better when events are assigned correct
+%         parameters 
+%         \item First test: $\{50,250\}_{GeV}$
+%         \item Second test: $\{200,300\}_{GeV}$
+%     \end{itemize}
+%     \begin{table}
+%         \tiny
+%         \centering
+%         $
+%         \begin{array}{cccccc}
+%             \hline \text { \diagbox{\textbf{Parameters}}{\textbf{Channel}} }  & \text {$\{50,250\}_{GeV}$} & \text {$\{100,200\}_{GeV}$} & \text {$\{150,300\}_{GeV}$} & \text {$\{200,300\}_{GeV}$} & \text {$(Background)$} \\
+%             \hline \text {$(50,250)$}   & \text { $\bf{80.8}\%$ } & \text { $45.8\%$ } & \text { $\bf{77.5}\%$ } & \text { $50.1\%$ } & \text { $2.4\%$ }  \\
+%             \text {$(200,300)$}   & \text { $77.3\%$ } & \text { $\bf{54.6}\%$ } & \text { $76.3\%$ } & \text { $\bf{59.0}\%$ } & \text { $\bf{2.7}\%$ }\\
+%             \hline
+%         \end{array}
+%         $
+%     \end{table}
+% \end{frame}
 
 \begin{frame}{Ensemble methods - LWTA}
     \begin{itemize}
-        \item Dropout
-        \item What is LWTA?
+        \item Local-Winnder-Takes-All
         \item Competing nodes - Units
         \item Encode information in pattern specific pathways
     \end{itemize}    
@@ -331,10 +330,6 @@
         \item Visualize the activation and \\
         paths of randomly sampled \\
         events
-        \begin{itemize}
-            \item 50 background
-            \item 50 signal
-        \end{itemize}
         \item The bolder the line the more\\ 
         frequently the path is used.
         \item Color of lines 
@@ -353,10 +348,6 @@
         \item Visualize the activation and \\
         paths of randomly sampled \\
         events
-        \begin{itemize}
-            \item 50 background
-            \item 50 signal
-        \end{itemize}
         \item The bolder the line the more\\ 
         frequently the path is used.
         \item Color of lines 
