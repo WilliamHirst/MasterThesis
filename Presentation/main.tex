@@ -50,7 +50,7 @@
         \begin{itemize}
             \item Event reconstruction
             \item Particle classification
-            \item Creating search regions
+            \item Data analysis
         \end{itemize}
     \end{itemize}
     \begin{textblock}{1}(0.5475,0.16)
@@ -86,13 +86,16 @@
         \end{itemize}
     \end{textblock}
 \end{frame}
-\begin{frame}{General aim of thesis}
+\begin{frame}
     \centering
-    \begin{enumerate}
-        \item Signal $\rightarrow$ background
-        \item Use ML to separate signal from background
-        \item Study and compare
-    \end{enumerate}
+    \begin{block}{Aim}
+        \begin{enumerate}
+            \item Signal $\rightarrow$ background
+            \item Use ML to separate signal from background
+            \item Measure performance in $Z_{exp}$
+            \item Study and compare
+        \end{enumerate}
+    \end{block}
 \end{frame}
 % \begin{frame}{How do we search for new physics?}
 %     \begin{textblock}{1}(0.45, 0.475)
@@ -251,6 +254,12 @@
         \includegraphics[width = 0.475\textwidth]{figures/grids/NN_OneMass_InterpolationGridSig.pdf}
         \includegraphics[width = 0.475\textwidth]{figures/grids/NN_InterpolationGridSig.pdf}
     \end{center}
+    \begin{textblock}{0.8}(0.175, 0.81)
+        One-mass-model
+    \end{textblock}
+    \begin{textblock}{0.8}(0.6, 0.81)
+        Several-mass-model
+    \end{textblock}
 \end{frame}
 
 
@@ -258,10 +267,6 @@
     \begin{itemize}
         \item Long-term memory
         \item PNN $\rightarrow$ signal includes mass parameter in feature set
-        \item Background assigned
-        parameters randomly
-        using same distribution
-        as signal
         \item Motivation
         \begin{itemize}
             \item Network will \\
@@ -269,7 +274,11 @@
             with trends in the \\
             data
         \end{itemize}
-        \begin{textblock}{0.8}(0.45, 0.35)
+        \item Background assigned\\
+        parameters randomly\\
+        using same distribution\\
+        as signal
+        \begin{textblock}{0.8}(0.45, 0.3)
             \includegraphics[width = 0.7\textwidth]{figures/PNN.png}
         \end{textblock}
     \end{itemize}
@@ -318,9 +327,9 @@
             $
             \begin{array}{ccc}
                 \hline \text { Layer } & \text { Separate weights} & \text { Static units }\\
-                \hline\hline\text{Channel-Out} & \checkmark &  \checkmark  \\
+                \hline\hline\text{ Maxout } &  $X$ &  \checkmark   \\
+                \text{Channel-Out} & \checkmark &  \checkmark  \\
                 \text { SCO } &  \checkmark &  $X$ \\
-                \text{ Maxout } &  $X$ &  \checkmark   \\
                 \hline
             \end{array}
             $
@@ -528,6 +537,7 @@
         \item PCA $\rightarrow$ improve performance of PNN and maxout 
         \item PNN bias towards smaller masses
         \item Maxout achieved balanced performance
+        \item SCO 
     \end{enumerate}
     \vfill
     \textbf{The way forwards}

@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1685040944 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1685040949
-  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1685040944 20410 8ae4f8d5720dd0bc66e96ffb8bafe9e6 ""
+["pdflatex"] 1685104484 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1685104489
+  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1685104484 20679 de2c713c54e8d02a9096168b44487ef2 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/bookman/pbkl8r.tfm" 1136768653 2608 d8b24d9becc080c35b069bf5c09816a3 ""
@@ -299,11 +299,11 @@
   "figures/maxout.png" 1684573629 170045 5e1062b19b73ec2253e477d91017e88a ""
   "figures/neutrino.png" 1684916182 1429469 b4b11234f5867e80a838b2c0e966cf89 ""
   "figures/vp1_3dcocktail_run264034_evt11526514_2015-05-06T22-54-50_2.png" 1684840720 3059675 acd031f277d1fb106b3b3241be535b91 ""
-  "main.aux" 1685040949 6248 7bac6e96e9cb2d299a456a7f336c50df "pdflatex"
-  "main.nav" 1685040949 3578 2872a90c75e1d6ab309e31c3fb037ab6 "pdflatex"
-  "main.out" 1685040949 602 dcf70a4820b089d6aa9530f3028434ff "pdflatex"
-  "main.tex" 1685040944 20410 8ae4f8d5720dd0bc66e96ffb8bafe9e6 ""
-  "main.toc" 1685040949 267 5b58b803d6d79cf87306b838018156bf "pdflatex"
+  "main.aux" 1685104489 6248 7bac6e96e9cb2d299a456a7f336c50df "pdflatex"
+  "main.nav" 1685104489 3578 2872a90c75e1d6ab309e31c3fb037ab6 "pdflatex"
+  "main.out" 1685104489 602 dcf70a4820b089d6aa9530f3028434ff "pdflatex"
+  "main.tex" 1685104484 20679 de2c713c54e8d02a9096168b44487ef2 ""
+  "main.toc" 1685104489 267 5b58b803d6d79cf87306b838018156bf "pdflatex"
   (generated)
   "main.aux"
   "main.log"

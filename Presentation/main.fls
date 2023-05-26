@@ -1790,6 +1790,12 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvro8t.vf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvro8t.vf
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvro8t.vf
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm
 INPUT ./main.toc
 INPUT main.toc
 INPUT main.toc
@@ -1808,8 +1814,6 @@ INPUT ./figures/DT.png
 INPUT figures/DT.png
 INPUT ./figures/DT.png
 INPUT ./figures/DT.png
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvro8t.vf
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm
 INPUT ./main.toc
 INPUT main.toc
 INPUT main.toc
@@ -1908,8 +1912,6 @@ INPUT ./figures/Limits/compLimit20.pdf
 INPUT ./main.toc
 INPUT main.toc
 INPUT main.toc
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvro8t.vf
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm
 OUTPUT main.nav
 OUTPUT main.toc
 OUTPUT main.snm
