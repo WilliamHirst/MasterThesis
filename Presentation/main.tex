@@ -182,7 +182,7 @@
     \item \emph{Three} neural network variants
     \begin{itemize}
         \item Ordinary dense neural network
-        \item Ensemble networks utilizing Local-Winner-Takes-All (LWTA) layers
+        \item Ensemble networks/Local-Winner-Takes-All (LWTA)
         \item Parameterized neural networks (PNN)
     \end{itemize}
 
@@ -208,7 +208,7 @@
         \item $80\%$ training and $20\%$ validation 
         \item Early stopping criteria
         \begin{itemize}
-            \item Train as long as performance on validation set improves 
+            \item Performance on validation set 
             \item Patience 10 epochs
             \item Reset weights to best epoch
         \end{itemize}
@@ -266,19 +266,11 @@
 \begin{frame}{Parameterized neural network}
     \begin{itemize}
         \item Long-term memory
-        \item PNN $\rightarrow$ signal includes mass parameter in feature set
+        \item PNN $\rightarrow$ signal includes\\ mass parameter in\\ feature set
         \item Motivation
-        \begin{itemize}
-            \item Network will \\
-            associate parameters\\
-            with trends in the \\
-            data
-        \end{itemize}
         \item Background assigned\\
         parameters randomly\\
-        using same distribution\\
-        as signal
-        \begin{textblock}{0.8}(0.45, 0.3)
+        \begin{textblock}{0.8}(0.45, 0.135)
             \includegraphics[width = 0.7\textwidth]{figures/PNN.png}
         \end{textblock}
     \end{itemize}
@@ -345,9 +337,8 @@
         \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTraining.pdf}
     \end{textblock}
     \begin{itemize}
-        \item Visualize the activation and \\
-        paths of randomly sampled \\
-        events
+        \item Visualize activation and \\
+        paths
         \item The bolder the line the more\\ 
         frequently the path is used.
         \item Color of lines 
@@ -363,9 +354,8 @@
         \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTrainingSig.pdf}
     \end{textblock}
     \begin{itemize}
-        \item Visualize the activation and \\
-        paths of randomly sampled \\
-        events
+        \item Visualize activation and \\
+        paths
         \item The bolder the line the more\\ 
         frequently the path is used.
         \item Color of lines 
@@ -534,10 +524,9 @@
     \textbf{Key findings}
     \begin{enumerate}
         \item Diverse signal $\rightarrow$ improve performance
-        \item PCA $\rightarrow$ improve performance of PNN and maxout 
+        \item SCO 
         \item PNN bias towards smaller masses
         \item Maxout achieved balanced performance
-        \item SCO 
     \end{enumerate}
     \vfill
     \textbf{The way forwards}
