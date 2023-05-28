@@ -209,8 +209,6 @@
         \item Early stopping criteria
         \begin{itemize}
             \item Performance on validation set 
-            \item Patience 10 epochs
-            \item Reset weights to best epoch
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -304,7 +302,7 @@
 
 \begin{frame}{Ensemble methods - LWTA}
     \begin{itemize}
-        \item Local-Winnder-Takes-All
+        \item Local-Winner-Takes-All
         \item Competing nodes - Units
         \item Encode information in pattern specific pathways
     \end{itemize}    
@@ -312,15 +310,15 @@
     \includegraphics[width = 0.5\textwidth]{figures/Max_out}
 \end{frame}
 
-\begin{frame}{Channel-Out, SCO and Maxout}
+\begin{frame}{Channel-Out, Maxout and SCO}
     \vspace{0.5cm}
     \center
         \begin{table}
             $
             \begin{array}{ccc}
                 \hline \text { Layer } & \text { Separate weights} & \text { Static units }\\
-                \hline\hline\text{ Maxout } &  $X$ &  \checkmark   \\
-                \text{Channel-Out} & \checkmark &  \checkmark  \\
+                \hline\hline\text{Channel-Out} & \checkmark &  \checkmark  \\
+                \text{ Maxout } &  $X$ &  \checkmark   \\
                 \text { SCO } &  \checkmark &  $X$ \\
                 \hline
             \end{array}
@@ -391,8 +389,6 @@
             \item Maxout: 24/30
             \item SCO: 6/30
             \begin{itemize}
-                \item No trend for \\
-                preferred masses
                 \item Possibly improve\\
                       without layer on \\
                       prediction 
