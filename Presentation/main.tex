@@ -40,10 +40,10 @@
 
 \begin{frame}{Why apply machine learning to HEP problems?}
     \begin{itemize}
-        \item The standard model (SM) of \\particle physics is very\\ successful, but not complete
+        \item The standard model (SM) is\\ successful, but not enough
         \begin{itemize}
             \item Neutrino masses 
-            \item Hierarchy problem 
+            \item Gravity
         \end{itemize}
         \item Large amount of data
         \item Machine learning (ML)
@@ -53,12 +53,12 @@
             \item Data analysis
         \end{itemize}
     \end{itemize}
-    \begin{textblock}{1}(0.5475,0.16)
+    \begin{textblock}{1}(0.5475,0.2)
         \includegraphics[width=0.375\textwidth]{figures/neutrino}
     \end{textblock}
-    \begin{textblock}{1}(0.55,0.5)
-        \includegraphics[width=0.37\textwidth]{figures/detector}
-    \end{textblock}
+    % \begin{textblock}{1}(0.55,0.5)
+    %     \includegraphics[width=0.37\textwidth]{figures/detector}
+    % \end{textblock}
 \end{frame}
 
 \begin{frame}{How do we search for new physics?}
@@ -265,7 +265,6 @@
     \begin{itemize}
         \item Long-term memory
         \item PNN $\rightarrow$ signal includes\\ mass parameter in\\ feature set
-        \item Motivation
         \item Background assigned\\
         parameters randomly\\
         \begin{textblock}{0.8}(0.45, 0.135)
@@ -346,23 +345,23 @@
         \end{itemize}
     \end{itemize}
 \end{frame}
-\begin{frame}[noframenumbering]{Visualization and study of sparse pathways}
-    \begin{textblock}{0.8}(0.565, 0.15)
-        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTrainingBkg.pdf}
-        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTrainingSig.pdf}
-    \end{textblock}
-    \begin{itemize}
-        \item Visualize activation and \\
-        paths
-        \item The bolder the line the more\\ 
-        frequently the path is used.
-        \item Color of lines 
-        \begin{itemize}
-            \item Pink: SM background
-            \item Blue: SUSY signal
-        \end{itemize}
-    \end{itemize}
-\end{frame}
+% \begin{frame}[noframenumbering]{Visualization and study of sparse pathways}
+%     \begin{textblock}{0.8}(0.565, 0.15)
+%         \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTrainingBkg.pdf}
+%         \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTrainingSig.pdf}
+%     \end{textblock}
+%     \begin{itemize}
+%         \item Visualize activation and \\
+%         paths
+%         \item The bolder the line the more\\ 
+%         frequently the path is used.
+%         \item Color of lines 
+%         \begin{itemize}
+%             \item Pink: SM background
+%             \item Blue: SUSY signal
+%         \end{itemize}
+%     \end{itemize}
+% \end{frame}
 
 
 
@@ -384,19 +383,14 @@
     \includegraphics[width = 0.98\textwidth]{figures/maxout.png}
 \end{frame}
 \begin{frame}{Comparing sensitivity of channel-out, SCO and maxout}
-    \begin{textblock}{1}(-0.0375, 0.2)
-        \begin{itemize}
-            \item Maxout: 24/30
-            \item SCO: 6/30
-            \begin{itemize}
-                \item Possibly improve\\
-                      without layer on \\
-                      prediction 
-            \end{itemize}
-        \end{itemize}
-    \end{textblock}
-    \begin{textblock}{1}(0.33, 0.2)
-    \includegraphics[width = 0.625\textwidth]{figures/Comps/EnsemblesNetworkComp.pdf}
+    % \begin{textblock}{1}(0.0, 0.2)
+    %     \begin{itemize}
+    %         \item Maxout: 24/30
+    %         \item SCO: 6/30
+    %     \end{itemize}
+    % \end{textblock}
+    \begin{textblock}{1}(0.12, 0.175)
+    \includegraphics[width = 0.7\textwidth]{figures/Comps/EnsemblesNetworkComp.pdf}
     \end{textblock}
 \end{frame}
 % \begin{frame}
@@ -443,27 +437,27 @@
     % \end{textblock}
 \end{frame}
 
-\begin{frame}{Increasing sensitivity through a PCA}
-    \begin{itemize}
-        \item Dimensionality reduction
-        \item This analysis
-        \begin{itemize}
-            \item Demand conservation of $99.9\%$ of variance/spread
-            \item 5 features removed
-        \end{itemize}
-    \end{itemize}
-    \begin{textblock}{0.8}(0.02, 0.6)
-        {Maxout}
-    \end{textblock}
-    \begin{textblock}{0.8}(0.9, 0.6)
-        {PNN}
-    \end{textblock}
-    \vfill
-    \begin{center}
-        \includegraphics[width=0.415\textwidth]{figures/Comps/MaxOutPCANetworkComp.pdf}
-        \includegraphics[width=0.415\textwidth]{figures/Comps/PNNPCANetworkComp.pdf}
-    \end{center}
-\end{frame}
+% \begin{frame}{Increasing sensitivity through a PCA}
+%     \begin{itemize}
+%         \item Dimensionality reduction
+%         \item This analysis
+%         \begin{itemize}
+%             \item Demand conservation of $99.9\%$ of variance/spread
+%             \item 5 features removed
+%         \end{itemize}
+%     \end{itemize}
+%     \begin{textblock}{0.8}(0.02, 0.6)
+%         {Maxout}
+%     \end{textblock}
+%     \begin{textblock}{0.8}(0.9, 0.6)
+%         {PNN}
+%     \end{textblock}
+%     \vfill
+%     \begin{center}
+%         \includegraphics[width=0.415\textwidth]{figures/Comps/MaxOutPCANetworkComp.pdf}
+%         \includegraphics[width=0.415\textwidth]{figures/Comps/PNNPCANetworkComp.pdf}
+%     \end{center}
+% \end{frame}
 
 
 % \begin{frame}{Comparing the methods to previous analysis}
