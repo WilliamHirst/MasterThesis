@@ -1851,6 +1851,16 @@ INPUT ./figures/NetworkVis/AfterTraining.pdf
 INPUT figures/NetworkVis/AfterTraining.pdf
 INPUT ./figures/NetworkVis/AfterTraining.pdf
 INPUT ./figures/NetworkVis/AfterTraining.pdf
+INPUT ./figures/NetworkVis/AfterTrainingBkg.pdf
+INPUT ./figures/NetworkVis/AfterTrainingBkg.pdf
+INPUT figures/NetworkVis/AfterTrainingBkg.pdf
+INPUT ./figures/NetworkVis/AfterTrainingBkg.pdf
+INPUT ./figures/NetworkVis/AfterTrainingBkg.pdf
+INPUT ./figures/NetworkVis/AfterTrainingSig.pdf
+INPUT ./figures/NetworkVis/AfterTrainingSig.pdf
+INPUT figures/NetworkVis/AfterTrainingSig.pdf
+INPUT ./figures/NetworkVis/AfterTrainingSig.pdf
+INPUT ./figures/NetworkVis/AfterTrainingSig.pdf
 INPUT ./figures/NetworkVis/AfterTraining.pdf
 INPUT ./figures/NetworkVis/AfterTraining.pdf
 INPUT figures/NetworkVis/AfterTraining.pdf
@@ -1870,11 +1880,6 @@ INPUT ./figures/Comps/EnsemblesNetworkComp.pdf
 INPUT figures/Comps/EnsemblesNetworkComp.pdf
 INPUT ./figures/Comps/EnsemblesNetworkComp.pdf
 INPUT ./figures/Comps/EnsemblesNetworkComp.pdf
-INPUT ./figures/Comps/GenPlussXGBNetworkComp.pdf
-INPUT ./figures/Comps/GenPlussXGBNetworkComp.pdf
-INPUT figures/Comps/GenPlussXGBNetworkComp.pdf
-INPUT ./figures/Comps/GenPlussXGBNetworkComp.pdf
-INPUT ./figures/Comps/GenPlussXGBNetworkComp.pdf
 INPUT ./figures/Comps/FS_MLMNetworkComp.pdf
 INPUT ./figures/Comps/FS_MLMNetworkComp.pdf
 INPUT figures/Comps/FS_MLMNetworkComp.pdf
@@ -1906,7 +1911,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.p
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb
