@@ -42,8 +42,8 @@
     \begin{itemize}
         \item The standard model (SM) is\\ successful, but not enough
         \begin{itemize}
-            \item Neutrino masses 
             \item Gravity
+            \item Neutrino masses 
         \end{itemize}
         \item Large amount of data
         \item Machine learning (ML)
@@ -58,10 +58,10 @@
 
 \begin{frame}{How do we search for new physics?}
 
-    \begin{textblock}{1}(0.45, 0.55)
-        \includegraphics[width = 0.5\textwidth]{figures/DataCompHalf.png}
-    \end{textblock}
-    \begin{textblock}{1}(0.49, 0.15)
+    % \begin{textblock}{1}(0.45, 0.55)
+    %     \includegraphics[width = 0.5\textwidth]{figures/DataCompHalf.png}
+    % \end{textblock}
+    \begin{textblock}{1}(0.49, 0.2)
         \includegraphics[width = 0.425\textwidth]{figures/vp1_3dcocktail_run264034_evt11526514_2015-05-06T22-54-50_2}
     \end{textblock}
     \begin{textblock}{0.45}(0., 0.18)
@@ -323,44 +323,45 @@
     \end{textblock}
 \end{frame}
 
+% \begin{frame}{Visualization and study of sparse pathways from maxout}
+%         % \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/BeforeTraining.pdf}
+%     \centering
+%     \vfill
+%     \includegraphics[width = 0.6\textwidth]{figures/NetworkVis/AfterTraining.pdf}
+    % \begin{itemize}
+    %     \item Visualize activation and \\
+    %     paths
+    %     \item The bolder the line the more\\ 
+    %     frequently the path is used.
+    %     \item Color of lines 
+    %     \begin{itemize}
+    %         \item Pink: SM background
+    %         \item Blue: SUSY signal
+    %     \end{itemize}
+    % \end{itemize}
+% \end{frame}
+% \begin{frame}{Visualization and study of sparse pathways}
+%     \vfill
+%     \begin{center}
+%         \includegraphics[width = 0.475\textwidth]{figures/NetworkVis/AfterTrainingBkg.pdf}
+%         \includegraphics[width = 0.475\textwidth]{figures/NetworkVis/AfterTrainingSig.pdf}
+%     \end{center}
+    % \begin{itemize}
+    %     \item Visualize activation and \\
+    %     paths
+    %     \item The bolder the line the more\\ 
+    %     frequently the path is used.
+    %     \item Color of lines 
+    %     \begin{itemize}
+    %         \item Pink: SM background
+    %         \item Blue: SUSY signal
+    %     \end{itemize}
+    % \end{itemize}
+% \end{frame}
+
+
+
 \begin{frame}{Visualization and study of sparse pathways}
-    \begin{textblock}{0.8}(0.565, 0.15)
-        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/BeforeTraining.pdf}
-        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTraining.pdf}
-    \end{textblock}
-    \begin{itemize}
-        \item Visualize activation and \\
-        paths
-        \item The bolder the line the more\\ 
-        frequently the path is used.
-        \item Color of lines 
-        \begin{itemize}
-            \item Pink: SM background
-            \item Blue: SUSY signal
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-\begin{frame}[noframenumbering]{Visualization and study of sparse pathways}
-    \begin{textblock}{0.8}(0.565, 0.15)
-        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTrainingBkg.pdf}
-        \includegraphics[width = 0.5\textwidth]{figures/NetworkVis/AfterTrainingSig.pdf}
-    \end{textblock}
-    \begin{itemize}
-        \item Visualize activation and \\
-        paths
-        \item The bolder the line the more\\ 
-        frequently the path is used.
-        \item Color of lines 
-        \begin{itemize}
-            \item Pink: SM background
-            \item Blue: SUSY signal
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-
-
-\begin{frame}{Comparing activation of Maxout with SCO}
     \begin{textblock}{0.8}(0.225, 0.8)
         {Maxout}
     \end{textblock}
@@ -374,6 +375,9 @@
     \end{center}
 \end{frame}
 \begin{frame}{Ensemble network architecture}
+    \includegraphics[width = 0.98\textwidth]{figures/channelout.png}
+    \vfill
+    \includegraphics[width = 0.98\textwidth]{figures/SCO.png}
     \vfill
     \includegraphics[width = 0.98\textwidth]{figures/maxout.png}
 \end{frame}
@@ -432,20 +436,20 @@
     % \end{textblock}
 % \end{frame}
 
-% \begin{frame}{Increasing sensitivity through a PCA}
+\begin{frame}{Increasing sensitivity through a PCA}
 
-%     \begin{textblock}{0.8}(0.02, 0.5)
-%         {Maxout}
-%     \end{textblock}
-%     \begin{textblock}{0.8}(0.9, 0.5)
-%         {PNN}
-%     \end{textblock}
-%     \vfill
-%     \begin{center}
-%         \includegraphics[width=0.415\textwidth]{figures/Comps/MaxOutPCANetworkComp.pdf}
-%         \includegraphics[width=0.415\textwidth]{figures/Comps/PNNPCANetworkComp.pdf}
-%     \end{center}
-% \end{frame}
+    \begin{textblock}{0.8}(0.02, 0.5)
+        {Maxout}
+    \end{textblock}
+    \begin{textblock}{0.8}(0.9, 0.5)
+        {PNN}
+    \end{textblock}
+    \vfill
+    \begin{center}
+        \includegraphics[width=0.415\textwidth]{figures/Comps/MaxOutPCANetworkComp.pdf}
+        \includegraphics[width=0.415\textwidth]{figures/Comps/PNNPCANetworkComp.pdf}
+    \end{center}
+\end{frame}
 
 
 % \begin{frame}{Comparing the methods to previous analysis}
@@ -514,45 +518,5 @@
         \item Combine PNN and LWTA
     \end{enumerate}
 \end{frame}
-
-
-
-
-
-\begin{frame}{References}
-    \begin{thebibliography}{}
-        \scriptsize
-        \setbeamertemplate{bibliography item}[online]
-        \bibitem{Maximilien}
-        Maximilien Brice.
-        \newblock \enquote{Installing the ATLAS calorimeter. Vue centrale du
-        détecteur ATLAS avec ses huit toroides entourant le
-        calorimètre avant son déplacement au centre du
-        détecteur}.
-        \newblock \url{https://cds.cern.ch/record/910381}
-        \newblock Figure on front page
-
-        \bibitem{Maximilien}
-        Joao Pequenao.
-        \newblock \enquote{Event Cross Section in a computer generated image of the ATLAS detector.}.
-        \newblock \url{https://cds.cern.ch/record/1096081}
-        \newblock Figure on slide 3
-
-        \bibitem{Collision}
-        ATLAS Collaboration.
-        \newblock \enquote{ATLAS event at 900 GeV - 6 May 2015 - Run 264034 lb 659
-        event 11526514}.
-        \newblock \url{https://cds.cern.ch/record/2015238}
-        \newblock Figure on slide 4
-
-        \setbeamertemplate{bibliography item}[article]
-        \bibitem{atlas_search_2021}
-        ATLAS Collaboration [4].
-        \newblock \enquote{Search for chargino--neutralino pair production in final states with three leptons and missing transverse momentum in {$\sqrt{s}$} = 13 {TeV} pp collisions with the {ATLAS} detector}.
-        \newblock \url{http://arxiv.org/abs/2106.01676}
-
-    \end{thebibliography}
-\end{frame}
-
 
 \end{document}
