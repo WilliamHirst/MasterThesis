@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1685525877 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1685525881
-  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1685525876 18160 bd5c3896e660d3101a7aa797f4aea86a ""
+["pdflatex"] 1685526266 "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" "main.pdf" "main" 1685526270
+  "/Users/williamhirst/Documents/GitHub/MasterThesis/Presentation/main.tex" 1685526265 18160 bd5c3896e660d3101a7aa797f4aea86a ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/bookman/pbkl8r.tfm" 1136768653 2608 d8b24d9becc080c35b069bf5c09816a3 ""
@@ -274,7 +274,7 @@
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1661506083 2826436 9ea569ae27c321d09c61732e5c85f6b6 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "PhysDept-images/MN_FYSISK_A_ENG.pdf" 1684747377 17061 dc32c1fd277dffa60933903315150b75 ""
-  "beamerthemeMathDept.sty" 1685525876 29694 5e917509253d5413935183f7fc5f76e4 ""
+  "beamerthemeMathDept.sty" 1685526248 29694 ee4666254b5870811594fcc9159fbf00 ""
   "figures/42850523502_d5158f48c5_o.jpg" 1684832452 462245 88bc08a108305ab516690d0b46456654 ""
   "figures/Comps/EnsemblesNetworkComp.pdf" 1684571798 70873 19a2749628aef5ba5d5f1497998181c9 ""
   "figures/Comps/FS_MLMNetworkComp.pdf" 1684920498 172488 62665753bd01c038dea5b6106327ab55 ""
@@ -297,11 +297,11 @@
   "figures/maxout.png" 1685435991 160838 b801148fabf75a124eb6343aec2e32d0 ""
   "figures/neutrino.png" 1684916182 1429469 b4b11234f5867e80a838b2c0e966cf89 ""
   "figures/vp1_3dcocktail_run264034_evt11526514_2015-05-06T22-54-50_2.png" 1684840720 3059675 acd031f277d1fb106b3b3241be535b91 ""
-  "main.aux" 1685525881 5813 e2a5f00afbc27163f1b0df24fed32a96 "pdflatex"
-  "main.nav" 1685525881 3267 5fd923a42ce2982afe9f15260c29d3ad "pdflatex"
-  "main.out" 1685525881 528 fdbd2ef1247f178315ea3acc9925b35c "pdflatex"
-  "main.tex" 1685525876 18160 bd5c3896e660d3101a7aa797f4aea86a ""
-  "main.toc" 1685525881 251 9f6e3f0611e868a0522ce66239b24e47 "pdflatex"
+  "main.aux" 1685526270 5813 e2a5f00afbc27163f1b0df24fed32a96 "pdflatex"
+  "main.nav" 1685526270 3267 5fd923a42ce2982afe9f15260c29d3ad "pdflatex"
+  "main.out" 1685526270 528 fdbd2ef1247f178315ea3acc9925b35c "pdflatex"
+  "main.tex" 1685526265 18160 bd5c3896e660d3101a7aa797f4aea86a ""
+  "main.toc" 1685526270 251 9f6e3f0611e868a0522ce66239b24e47 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

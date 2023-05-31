@@ -39,7 +39,7 @@
 \contentsline {subsection}{\numberline {2.6.3}Back Propagation}{20}{subsection.2.6.3}%
 \contentsline {subsection}{\numberline {2.6.4}Activation Functions}{21}{subsection.2.6.4}%
 \contentsline {subsection}{\numberline {2.6.5}Network Ensembles, Dropout and LWTA Networks}{22}{subsection.2.6.5}%
-\contentsline {subsection}{\numberline {2.6.6}Parametrized Neural Network}{24}{subsection.2.6.6}%
+\contentsline {subsection}{\numberline {2.6.6}Parameterized Neural Network}{24}{subsection.2.6.6}%
 \contentsline {section}{\numberline {2.7}Decision Trees and Gradient Boosting}{25}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}Decision Trees}{25}{subsection.2.7.1}%
 \contentsline {subsection}{\numberline {2.7.2}Gradient Boosting in Decision Trees}{25}{subsection.2.7.2}%
@@ -79,7 +79,7 @@
 \contentsline {subsection}{\numberline {4.3.1}Visualizing Sparse Pathways}{50}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}Training History and Overfitting}{53}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Comparing Achieved Sensitivity between Ensemble Methods}{53}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Parametrized Neural Network}{55}{section.4.4}%
+\contentsline {section}{\numberline {4.4}Parameterized Neural Network}{55}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Discriminating Masses}{55}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Sensitivity Result}{57}{subsection.4.4.2}%
 \contentsline {section}{\numberline {4.5}Remarks on Comparison between Models on Original Signal Set}{58}{section.4.5}%
