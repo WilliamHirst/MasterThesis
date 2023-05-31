@@ -30,6 +30,12 @@ Functions which are used in handling the data (apply PCA, scaling etc), calculat
 
 https://github.com/WilliamHirst/MasterThesis/blob/main/Codebase/Utilities.py
 
+## Implementation of Channel-out, SCO and Maxout
+
+For the implementation of the LWTA layers, including the introduced SCO layer, see the following file:
+
+https://github.com/WilliamHirst/MasterThesis/blob/main/Codebase/DataAnalysis/NN/layers.py
+
 ## Pulling from other repositories 
 
 Two of the folders in this repository were pulled from other work and were not written by me. The folders are:
