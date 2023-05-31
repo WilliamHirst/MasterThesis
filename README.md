@@ -3,6 +3,9 @@
 ## PDF of Thesis
 Link to the thesis-pdf: https://github.com/WilliamHirst/MasterThesis/blob/main/thesis/main.pdf.
 
+## Presentation slides of Thesis
+Link to the slides for my presentation: https://github.com/WilliamHirst/MasterThesis/blob/main/Presentation/main.pdf
+
 ## Generating Data Set
 Most of code used to prepare the data sets, i.e. apply cuts and generate features, can be found in the following file:
 
