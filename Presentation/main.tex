@@ -300,23 +300,18 @@
     \includegraphics[width = 0.5\textwidth]{figures/Max_out}
 \end{frame}
 
-\begin{frame}{Channel-Out, Maxout and SCO}
+\begin{frame}{Maxout, Channel-Out and Stochastic-Channel-Out (SCO)}
     \vspace{0.5cm}
     \center
-        % \begin{table}
-        %     $
-        %     \begin{array}{ccc}
-        %         \hline \text { Layer } & \text { Separate weights} & \text { Static units }\\
-        %         \hline\hline\text{Channel-Out} & \checkmark &  \checkmark  \\
-        %         \text{ Maxout } &  $X$ &  \checkmark   \\
-        %         \text { SCO } &  \checkmark &  $X$ \\
-        %         \hline
-        %     \end{array}
-        %     $
-        % \end{table}
-    \begin{textblock}{0.8}(0.1, 0.25)
-        \includegraphics[width = \textwidth]{figures/EnsembleComp}
-    \end{textblock}
+        \begin{textblock}{0.8}(-0.21, 0.25)
+            \includegraphics[width = 0.5\textwidth]{figures/EnsembleCompMaxOut.png}
+        \end{textblock}
+        \begin{textblock}{0.8}(0.17, 0.25)
+            \includegraphics[width = 0.5\textwidth]{figures/EnsembleCompChannelOut.png}
+        \end{textblock}
+        \begin{textblock}{0.8}(0.424, 0.25)
+            \includegraphics[width = 0.335\textwidth]{figures/EnsembleCompSCO.png}
+        \end{textblock}
 \end{frame}
 
 % \begin{frame}{Visualization and study of sparse pathways from maxout}
@@ -371,19 +366,13 @@
     \end{center}
 \end{frame}
 \begin{frame}{Ensemble network architecture}
+    \includegraphics[width = 0.98\textwidth]{figures/maxout.png}
+    \vfill
     \includegraphics[width = 0.98\textwidth]{figures/channelout.png}
     \vfill
     \includegraphics[width = 0.98\textwidth]{figures/SCO.png}
-    \vfill
-    \includegraphics[width = 0.98\textwidth]{figures/maxout.png}
 \end{frame}
 \begin{frame}{Comparing sensitivity of channel-out, SCO and maxout}
-    % \begin{textblock}{1}(0.0, 0.2)
-    %     \begin{itemize}
-    %         \item Maxout: 24/30
-    %         \item SCO: 6/30
-    %     \end{itemize}
-    % \end{textblock}
     \begin{textblock}{1}(0.12, 0.175)
     \includegraphics[width = 0.7\textwidth]{figures/Comps/EnsemblesNetworkComp.pdf}
     \end{textblock}

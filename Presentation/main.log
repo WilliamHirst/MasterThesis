@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  31 MAY 2023 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.26)  1 JUN 2023 10:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2364,11 +2364,21 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [15
 
  <./figures/Max_out.png>]
-<figures/EnsembleComp.png, id=250, 2181.65062pt x 969.6225pt>
-File: figures/EnsembleComp.png Graphic file (type png)
-<use figures/EnsembleComp.png>
-Package pdftex.def Info: figures/EnsembleComp.png  used on input line 320.
-(pdftex.def)             Requested size: 291.35739pt x 129.48784pt.
+<figures/EnsembleCompMaxOut.png, id=250, 957.5775pt x 969.6225pt>
+File: figures/EnsembleCompMaxOut.png Graphic file (type png)
+<use figures/EnsembleCompMaxOut.png>
+Package pdftex.def Info: figures/EnsembleCompMaxOut.png  used on input line 315.
+(pdftex.def)             Requested size: 145.6787pt x 147.50842pt.
+<figures/EnsembleCompChannelOut.png, id=251, 960.58875pt x 969.6225pt>
+File: figures/EnsembleCompChannelOut.png Graphic file (type png)
+<use figures/EnsembleCompChannelOut.png>
+Package pdftex.def Info: figures/EnsembleCompChannelOut.png  used on input line 315.
+(pdftex.def)             Requested size: 145.6787pt x 147.04977pt.
+<figures/EnsembleCompSCO.png, id=252, 645.16031pt x 968.86969pt>
+File: figures/EnsembleCompSCO.png Graphic file (type png)
+<use figures/EnsembleCompSCO.png>
+Package pdftex.def Info: figures/EnsembleCompSCO.png  used on input line 315.
+(pdftex.def)             Requested size: 97.60667pt x 146.5808pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [] 
@@ -2376,16 +2386,16 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [16
 
- <./figures/EnsembleComp.png>]
-<figures/NetworkVis/AfterTraining.pdf, id=258, 462.52798pt x 346.89601pt>
+ <./figures/EnsembleCompMaxOut.png> <./figures/EnsembleCompChannelOut.png> <./figures/EnsembleCompSCO.png>]
+<figures/NetworkVis/AfterTraining.pdf, id=262, 462.52798pt x 346.89601pt>
 File: figures/NetworkVis/AfterTraining.pdf Graphic file (type pdf)
 <use figures/NetworkVis/AfterTraining.pdf>
-Package pdftex.def Info: figures/NetworkVis/AfterTraining.pdf  used on input line 372.
+Package pdftex.def Info: figures/NetworkVis/AfterTraining.pdf  used on input line 367.
 (pdftex.def)             Requested size: 162.6018pt x 121.95003pt.
-<figures/NetworkVis/SCO/AfterTraining.pdf, id=259, 462.52798pt x 346.89601pt>
+<figures/NetworkVis/SCO/AfterTraining.pdf, id=263, 462.52798pt x 346.89601pt>
 File: figures/NetworkVis/SCO/AfterTraining.pdf Graphic file (type pdf)
 <use figures/NetworkVis/SCO/AfterTraining.pdf>
-Package pdftex.def Info: figures/NetworkVis/SCO/AfterTraining.pdf  used on input line 372.
+Package pdftex.def Info: figures/NetworkVis/SCO/AfterTraining.pdf  used on input line 367.
 (pdftex.def)             Requested size: 162.6018pt x 121.95003pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2395,20 +2405,20 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [17
 
  <./figures/NetworkVis/AfterTraining.pdf> <./figures/NetworkVis/SCO/AfterTraining.pdf>]
-<figures/channelout.png, id=284, 2905.85625pt x 407.27156pt>
-File: figures/channelout.png Graphic file (type png)
-<use figures/channelout.png>
-Package pdftex.def Info: figures/channelout.png  used on input line 379.
-(pdftex.def)             Requested size: 335.46742pt x 47.01234pt.
-<figures/SCO.png, id=285, 2905.85625pt x 407.27156pt>
-File: figures/SCO.png Graphic file (type png)
-<use figures/SCO.png>
-Package pdftex.def Info: figures/SCO.png  used on input line 379.
-(pdftex.def)             Requested size: 335.46742pt x 47.01234pt.
-<figures/maxout.png, id=286, 2905.85625pt x 407.27156pt>
+<figures/maxout.png, id=288, 2905.85625pt x 407.27156pt>
 File: figures/maxout.png Graphic file (type png)
 <use figures/maxout.png>
-Package pdftex.def Info: figures/maxout.png  used on input line 379.
+Package pdftex.def Info: figures/maxout.png  used on input line 374.
+(pdftex.def)             Requested size: 335.46742pt x 47.01234pt.
+<figures/channelout.png, id=289, 2905.85625pt x 407.27156pt>
+File: figures/channelout.png Graphic file (type png)
+<use figures/channelout.png>
+Package pdftex.def Info: figures/channelout.png  used on input line 374.
+(pdftex.def)             Requested size: 335.46742pt x 47.01234pt.
+<figures/SCO.png, id=290, 2905.85625pt x 407.27156pt>
+File: figures/SCO.png Graphic file (type png)
+<use figures/SCO.png>
+Package pdftex.def Info: figures/SCO.png  used on input line 374.
 (pdftex.def)             Requested size: 335.46742pt x 47.01234pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2417,11 +2427,11 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 [18
 
- <./figures/channelout.png> <./figures/SCO.png> <./figures/maxout.png>]
-<figures/Comps/EnsemblesNetworkComp.pdf, id=296, 722.7pt x 578.16pt>
+ <./figures/maxout.png> <./figures/channelout.png> <./figures/SCO.png>]
+<figures/Comps/EnsemblesNetworkComp.pdf, id=300, 722.7pt x 578.16pt>
 File: figures/Comps/EnsemblesNetworkComp.pdf Graphic file (type pdf)
 <use figures/Comps/EnsemblesNetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/EnsemblesNetworkComp.pdf  used on input line 390.
+Package pdftex.def Info: figures/Comps/EnsemblesNetworkComp.pdf  used on input line 379.
 (pdftex.def)             Requested size: 254.93564pt x 203.94699pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2431,15 +2441,15 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [19
 
  <./figures/Comps/EnsemblesNetworkComp.pdf>]
-<figures/Comps/MaxOutPCANetworkComp.pdf, id=343, 722.7pt x 578.16pt>
+<figures/Comps/MaxOutPCANetworkComp.pdf, id=347, 722.7pt x 578.16pt>
 File: figures/Comps/MaxOutPCANetworkComp.pdf Graphic file (type pdf)
 <use figures/Comps/MaxOutPCANetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/MaxOutPCANetworkComp.pdf  used on input line 448.
+Package pdftex.def Info: figures/Comps/MaxOutPCANetworkComp.pdf  used on input line 437.
 (pdftex.def)             Requested size: 142.0585pt x 113.64499pt.
-<figures/Comps/PNNPCANetworkComp.pdf, id=344, 722.7pt x 578.16pt>
+<figures/Comps/PNNPCANetworkComp.pdf, id=348, 722.7pt x 578.16pt>
 File: figures/Comps/PNNPCANetworkComp.pdf Graphic file (type pdf)
 <use figures/Comps/PNNPCANetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/PNNPCANetworkComp.pdf  used on input line 448.
+Package pdftex.def Info: figures/Comps/PNNPCANetworkComp.pdf  used on input line 437.
 (pdftex.def)             Requested size: 142.0585pt x 113.64499pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2449,10 +2459,10 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [20
 
  <./figures/Comps/MaxOutPCANetworkComp.pdf> <./figures/Comps/PNNPCANetworkComp.pdf>]
-<figures/Comps/FS_MLMNetworkComp.pdf, id=416, 722.7pt x 578.16pt>
+<figures/Comps/FS_MLMNetworkComp.pdf, id=420, 722.7pt x 578.16pt>
 File: figures/Comps/FS_MLMNetworkComp.pdf Graphic file (type pdf)
 <use figures/Comps/FS_MLMNetworkComp.pdf>
-Package pdftex.def Info: figures/Comps/FS_MLMNetworkComp.pdf  used on input line 468.
+Package pdftex.def Info: figures/Comps/FS_MLMNetworkComp.pdf  used on input line 457.
 (pdftex.def)             Requested size: 273.8532pt x 219.08554pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2462,10 +2472,10 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 [21
 
  <./figures/Comps/FS_MLMNetworkComp.pdf>]
-<figures/Limits/compLimit20.pdf, id=460, 569.12625pt x 549.05125pt>
+<figures/Limits/compLimit20.pdf, id=464, 569.12625pt x 549.05125pt>
 File: figures/Limits/compLimit20.pdf Graphic file (type pdf)
 <use figures/Limits/compLimit20.pdf>
-Package pdftex.def Info: figures/Limits/compLimit20.pdf  used on input line 482.
+Package pdftex.def Info: figures/Limits/compLimit20.pdf  used on input line 471.
 (pdftex.def)             Requested size: 218.51942pt x 210.8115pt.
 
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2477,11 +2487,11 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
  <./figures/Limits/compLimit20.pdf, page is rotated 90 degrees>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 497.
+(hyperref)                removing `math shift' on input line 486.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 497.
+(hyperref)                removing `math shift' on input line 486.
 
 (./main.toc)
 Overfull \hbox (1.272pt too wide) has occurred while \output is active
@@ -2509,10 +2519,10 @@ Overfull \hbox (1.272pt too wide) has occurred while \output is active
 
 File: PhysDept-images/MN_FYSISK_A_ENG.pdf Graphic file (type pdf)
 <use PhysDept-images/MN_FYSISK_A_ENG.pdf>
-Package pdftex.def Info: PhysDept-images/MN_FYSISK_A_ENG.pdf  used on input line 518.
+Package pdftex.def Info: PhysDept-images/MN_FYSISK_A_ENG.pdf  used on input line 507.
 (pdftex.def)             Requested size: 226.2675pt x 31.2982pt.
 LaTeX Font Info:    Font shape `T1/pbk/m/n' in size <10.95> not available
-(Font)              Font shape `T1/pbk/l/n' tried instead on input line 518.
+(Font)              Font shape `T1/pbk/l/n' tried instead on input line 507.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pbk' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
@@ -2522,9 +2532,9 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 ]
 LaTeX Font Info:    Font shape `OML/neohellenic/m/n' will be
-(Font)              scaled to size 11.02505pt on input line 518.
+(Font)              scaled to size 11.02505pt on input line 507.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 518.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 507.
  [26
 
  </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericononline.pdf> </usr/local/texlive/2022/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>] (./main.aux)
@@ -2532,18 +2542,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: FDBD2EF1247F178315EA3ACC9925B35C;528.
  ) 
 Here is how much of TeX's memory you used:
- 32231 strings out of 478268
- 639610 string characters out of 5846347
+ 32241 strings out of 478268
+ 640015 string characters out of 5846347
  911130 words of memory out of 5000000
- 49479 multiletter control sequences out of 15000+600000
+ 49487 multiletter control sequences out of 15000+600000
  550197 words of font info for 207 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,14n,122p,1064b,728s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (26 pages, 7179305 bytes).
+Output written on main.pdf (26 pages, 7197286 bytes).
 PDF statistics:
- 686 PDF objects out of 1000 (max. 8388607)
+ 690 PDF objects out of 1000 (max. 8388607)
  386 compressed objects within 4 object streams
  60 named destinations out of 1000 (max. 500000)
- 86212 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 86222 words of extra memory for PDF output out of 89155 (max. 10000000)
 
